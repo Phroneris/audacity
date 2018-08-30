@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-08-31 03:21+0900\n"
+"PO-Revision-Date: 2018-08-31 05:54+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -2404,7 +2404,7 @@ msgstr "グリッド(&G)"
 
 #: src/FreqWindow.cpp
 msgid "&Algorithm:"
-msgstr "アルゴリズム(%A):"
+msgstr "アルゴリズム(&A):"
 
 #: src/FreqWindow.cpp
 msgid "&Size:"
@@ -10215,7 +10215,7 @@ msgstr "アタックタイム"
 
 #: src/effects/NoiseReduction.cpp
 msgid "R&elease time (secs):"
-msgstr "リリースタイム(秒)(%e):"
+msgstr "リリースタイム(秒)(&E):"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Release time"
