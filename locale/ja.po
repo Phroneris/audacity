@@ -1509,7 +1509,7 @@ msgstr "名前は空白ではだめです"
 #: src/BatchProcessDialog.cpp
 #, c-format
 msgid "Names may not contain '%c' and '%c'"
-msgstr "名前は `%c'　や `%c'　を含んではいけません"
+msgstr "名前は '%c'　や '%c'　を含んではいけません"
 
 #. i18n-hint: %s will be replaced by the name of a file.
 #: src/BatchProcessDialog.cpp
@@ -5141,7 +5141,7 @@ msgstr "メタデータタグを編集"
 #: src/Menus.cpp
 #, c-format
 msgid "Rendered all audio in track '%s'"
-msgstr "トラック `%s' にあるすべてのオーディオの再描画"
+msgstr "トラック '%s' にあるすべてのオーディオの再描画"
 
 #. i18n-hint: Convert the audio into a more usable form, so apply
 #. * panning and amplification and write to some external file.
@@ -19565,9 +19565,9 @@ msgstr ""
 #~ "\n"
 #~ "'%s'"
 #~ msgstr ""
-#~ "キーボードショートカット `%s' は既に \n"
+#~ "キーボードショートカット '%s' は既に \n"
 #~ "\n"
-#~ "`%s'　に割り当てられています. "
+#~ "'%s'　に割り当てられています. "
 
 #, fuzzy
 #~ msgid "clang "
