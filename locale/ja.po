@@ -64,7 +64,7 @@ msgstr "繰り返し(&R)\tCtrl+Y"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Cu&t\tCtrl+X"
-msgstr "切り取り(&t)\tCtrl+X"
+msgstr "切り取り(&T)\tCtrl+X"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "&Copy\tCtrl+C"
@@ -76,11 +76,11 @@ msgstr "ペースト(&P)\tCtrl+V"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Cle&ar\tCtrl+L"
-msgstr "クリア(&a)\tCtrl+L"
+msgstr "クリア(&A)\tCtrl+L"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Select A&ll\tCtrl+A"
-msgstr "すべて選択(&l)\tCtrl+A"
+msgstr "すべて選択(&L)\tCtrl+A"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "&Find...\tCtrl+F"
@@ -124,7 +124,7 @@ msgstr "水平方向に分割(&H)"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Show S&cript"
-msgstr "スクリプトの表示(&c)"
+msgstr "スクリプトの表示(&C)"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Show &Output"
@@ -962,7 +962,7 @@ msgstr "保存(&S)..."
 
 #: src/AudacityLogger.cpp src/Tags.cpp src/prefs/KeyConfigPrefs.cpp
 msgid "Cl&ear"
-msgstr "消去(&e)"
+msgstr "消去(&E)"
 
 #: src/AudacityLogger.cpp src/Menus.cpp src/ShuttleGui.cpp
 #: src/effects/Contrast.cpp
@@ -1166,7 +1166,7 @@ msgstr ""
 #: src/BatchCommandDialog.cpp
 #, fuzzy
 msgid "Choose command"
-msgstr "コマンドを選択(&h)"
+msgstr "コマンドを選択(&H)"
 
 #: src/BatchCommands.cpp
 #, fuzzy
@@ -1422,12 +1422,12 @@ msgstr "リネーム(&R)..."
 
 #: src/BatchProcessDialog.cpp src/LabelDialog.cpp src/effects/Equalization.cpp
 msgid "I&mport..."
-msgstr "取り込み(&m)..."
+msgstr "取り込み(&M)..."
 
 #: src/BatchProcessDialog.cpp src/effects/Contrast.cpp
 #: src/effects/Equalization.cpp
 msgid "E&xport..."
-msgstr "書き出し(&x)..."
+msgstr "書き出し(&X)..."
 
 #: src/BatchProcessDialog.cpp
 #, fuzzy
@@ -1454,11 +1454,11 @@ msgstr "挿入(&I)"
 #: src/BatchProcessDialog.cpp src/LabelTrack.cpp
 #, fuzzy
 msgid "&Edit..."
-msgstr "編集(&d)..."
+msgstr "編集(&D)..."
 
 #: src/BatchProcessDialog.cpp src/LabelDialog.cpp
 msgid "De&lete"
-msgstr "削除(&l)"
+msgstr "削除(&L)"
 
 #: src/BatchProcessDialog.cpp src/effects/Equalization.cpp
 msgid "Move &Up"
@@ -1470,7 +1470,7 @@ msgstr "下へ(&D)"
 
 #: src/BatchProcessDialog.cpp src/effects/Equalization.cpp
 msgid "De&faults"
-msgstr "既定値(&f)"
+msgstr "既定値(&F)"
 
 #. i18n-hint: The Shrink button makes the dialog smaller, with less in it
 #: src/BatchProcessDialog.cpp
@@ -2875,7 +2875,7 @@ msgstr "ラベルを付ける"
 #. i18n-hint: (verb)
 #: src/LabelTrack.cpp src/Menus.cpp
 msgid "Cu&t"
-msgstr "切り取り(&t)"
+msgstr "切り取り(&T)"
 
 #. i18n-hint: (verb)
 #: src/LabelTrack.cpp src/Menus.cpp
@@ -2989,7 +2989,7 @@ msgstr "オーディオの書き出し(&E)..."
 
 #: src/Menus.cpp
 msgid "Expo&rt Selected Audio..."
-msgstr "選択したオーディオの書き出し(&r)..."
+msgstr "選択したオーディオの書き出し(&R)..."
 
 #: src/Menus.cpp
 msgid "Export &Labels..."
@@ -3026,7 +3026,7 @@ msgstr "ロー (Raw) データの取り込み(&R)..."
 
 #: src/Menus.cpp
 msgid "Pa&ge Setup..."
-msgstr "ページ設定(&g)..."
+msgstr "ページ設定(&G)..."
 
 #. i18n-hint: (verb) It's item on a menu.
 #: src/Menus.cpp
@@ -3036,7 +3036,7 @@ msgstr "印刷(&P)..."
 #. i18n-hint: (verb) It's item on a menu.
 #: src/Menus.cpp
 msgid "E&xit"
-msgstr "終了(&x)"
+msgstr "終了(&X)"
 
 #: src/Menus.cpp
 msgid "&Edit"
@@ -3057,44 +3057,44 @@ msgstr "削除(&D)"
 #. i18n-hint: (verb)
 #: src/Menus.cpp
 msgid "Duplic&ate"
-msgstr "複製(&a)"
+msgstr "複製(&A)"
 
 #: src/Menus.cpp
 msgid "R&emove Special"
-msgstr "特殊な削除・切り取り (&e)"
+msgstr "特殊な削除・切り取り (&E)"
 
 #. i18n-hint: (verb) Do a special kind of cut
 #: src/Menus.cpp
 msgid "Spl&it Cut"
-msgstr "分割して切り取り(&i)"
+msgstr "分割して切り取り(&I)"
 
 #. i18n-hint: (verb) Do a special kind of DELETE
 #: src/Menus.cpp
 msgid "Split D&elete"
-msgstr "分割して削除(&e)"
+msgstr "分割して削除(&E)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
 msgid "Silence Audi&o"
-msgstr "無音化(&o)"
+msgstr "無音化(&O)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
 msgid "Tri&m Audio"
-msgstr "オーディオの調整(&m)"
+msgstr "オーディオの調整(&M)"
 
 #: src/Menus.cpp
 msgid "Clip B&oundaries"
-msgstr "クリップの境界(&d)"
+msgstr "クリップの境界(&D)"
 
 #. i18n-hint: (verb) It's an item on a menu.
 #: src/Menus.cpp
 msgid "Sp&lit"
-msgstr "分割(&l)"
+msgstr "分割(&L)"
 
 #: src/Menus.cpp
 msgid "Split Ne&w"
-msgstr "分割して新規(&w) "
+msgstr "分割して新規(&W) "
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
@@ -3103,7 +3103,7 @@ msgstr "結合(&J)"
 
 #: src/Menus.cpp
 msgid "Detac&h at Silences"
-msgstr "無音部分の除去(&h)"
+msgstr "無音部分の除去(&H)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3126,7 +3126,7 @@ msgstr "再生開始位置にラベルを付ける(&P) "
 
 #: src/Menus.cpp
 msgid "Paste Te&xt to New Label"
-msgstr "新しいラベルにテキストをペースト(&x)"
+msgstr "新しいラベルにテキストをペースト(&X)"
 
 #: src/Menus.cpp
 msgid "&Type to Create a Label (on/off)"
@@ -3134,7 +3134,7 @@ msgstr ""
 
 #: src/Menus.cpp
 msgid "La&beled Audio"
-msgstr "ラベル付きのオーディオ(&b)..."
+msgstr "ラベル付きのオーディオ(&B)..."
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
@@ -3171,7 +3171,7 @@ msgstr "分離削除"
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
 msgid "Sp&lit Delete"
-msgstr "分割して削除(&l)"
+msgstr "分割して削除(&L)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3191,7 +3191,7 @@ msgstr "ラベル"
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
 msgid "Co&py"
-msgstr "コピー(&p)"
+msgstr "コピー(&P)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
@@ -3202,7 +3202,7 @@ msgstr "ラベルの編集"
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
 msgid "Spli&t"
-msgstr "分割(&t)"
+msgstr "分割(&T)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
@@ -3213,11 +3213,11 @@ msgstr "ラベルの編集"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Me&tadata..."
-msgstr "メタデータを編集... (&t)"
+msgstr "メタデータを編集... (&T)"
 
 #: src/Menus.cpp
 msgid "Pre&ferences..."
-msgstr "設定(&f)..."
+msgstr "設定(&F)..."
 
 #. i18n-hint: (verb) It's an item on a menu.
 #: src/Menus.cpp
@@ -3254,12 +3254,12 @@ msgstr "無音を選択"
 #: src/Menus.cpp
 #, fuzzy
 msgid "In All &Sync-Locked Tracks"
-msgstr "同期された全トラック(&y)"
+msgstr "同期された全トラック(&Y)"
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "R&egion"
-msgstr "領域を再生(&y)"
+msgstr "領域を再生(&Y)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3319,12 +3319,12 @@ msgstr "スペクトルの選択"
 
 #: src/Menus.cpp
 msgid "S&pectral"
-msgstr "スペクトラム表示(&p)"
+msgstr "スペクトラム表示(&P)"
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "To&ggle Spectral Selection"
-msgstr "スペクトル選択の切り替え(&g)"
+msgstr "スペクトル選択の切り替え(&G)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3440,7 +3440,7 @@ msgstr "すべてのトラックの縮小(&C) "
 #: src/Menus.cpp
 #, fuzzy
 msgid "E&xpand Collapsed Tracks"
-msgstr "すべてのトラックの拡張(&x)"
+msgstr "すべてのトラックの拡張(&X)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3450,7 +3450,7 @@ msgstr "終わりまで進める"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Skip to Selection Start"
-msgstr "選択の最初(&t)"
+msgstr "選択の最初(&T)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3460,7 +3460,7 @@ msgstr "選択開始:"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Skip to Selection End"
-msgstr "選択の最後(&d)"
+msgstr "選択の最後(&D)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3498,7 +3498,7 @@ msgstr "トランスポートツールバー(&T)"
 #. i18n-hint: Clicking this menu item shows a toolbar that has some tools in it
 #: src/Menus.cpp
 msgid "T&ools Toolbar"
-msgstr "道具箱ツールバー(&o)"
+msgstr "道具箱ツールバー(&O)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar with the recording level meters
 #: src/Menus.cpp
@@ -3515,7 +3515,7 @@ msgstr "再生メーターツールバー(&P)"
 #. i18n-hint: Clicking this menu item shows the toolbar with the mixer
 #: src/Menus.cpp
 msgid "Mi&xer Toolbar"
-msgstr "ミキサーツールバー(&x)"
+msgstr "ミキサーツールバー(&X)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar for editing
 #: src/Menus.cpp
@@ -3579,7 +3579,7 @@ msgstr "再生中"
 #. i18n-hint: (verb) Start or Stop audio playback
 #: src/Menus.cpp
 msgid "Pl&ay/Stop"
-msgstr " 再生/停止 (&a)"
+msgstr " 再生/停止 (&A)"
 
 #: src/Menus.cpp
 msgid "Play/Stop and &Set Cursor"
@@ -3606,12 +3606,12 @@ msgstr "録音(&R) "
 #: src/Menus.cpp
 #, fuzzy
 msgid "&Append Record"
-msgstr "追加録音 (&d)"
+msgstr "追加録音 (&D)"
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "Record &New Track"
-msgstr "トラック削除(&v)"
+msgstr "トラック削除(&V)"
 
 #: src/Menus.cpp
 msgid "&Timer Record..."
@@ -3629,7 +3629,7 @@ msgstr "カーソルを左へ"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Cursor to Selection Start"
-msgstr "選択の最初へ(&r)"
+msgstr "選択の最初へ(&R)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3639,7 +3639,7 @@ msgstr "選択開始:"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Cursor to Selection End"
-msgstr "選択の最後へ(&d)"
+msgstr "選択の最後へ(&D)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3664,22 +3664,22 @@ msgstr "トラックの最後(&E)"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Cursor to Prev Clip Boundary"
-msgstr "クリップの境界(&d)"
+msgstr "クリップの境界(&D)"
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "Pre&vious Clip Boundary"
-msgstr "クリップの境界(&d)"
+msgstr "クリップの境界(&D)"
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "Cursor to Next Clip Boundary"
-msgstr "クリップの境界(&d)"
+msgstr "クリップの境界(&D)"
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "Ne&xt Clip Boundary"
-msgstr "クリップの境界(&d)"
+msgstr "クリップの境界(&D)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3703,7 +3703,7 @@ msgstr "プロジェクト"
 
 #: src/Menus.cpp
 msgid "Pla&y Region"
-msgstr "領域を再生(&y)"
+msgstr "領域を再生(&Y)"
 
 #: src/Menus.cpp
 msgid "&Lock"
@@ -3715,7 +3715,7 @@ msgstr "アンロック(&U)"
 
 #: src/Menus.cpp
 msgid "R&escan Audio Devices"
-msgstr "オーディオデイバイス情報の再スキャン (&e)"
+msgstr "オーディオデイバイス情報の再スキャン (&E)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3724,11 +3724,11 @@ msgstr "編曲"
 
 #: src/Menus.cpp
 msgid "Sound Activation Le&vel..."
-msgstr "録音起動レベル (&v)..."
+msgstr "録音起動レベル (&V)..."
 
 #: src/Menus.cpp
 msgid "Sound A&ctivated Recording (on/off)"
-msgstr "音による録音起動 (オン/オフ) (&c)"
+msgstr "音による録音起動 (オン/オフ) (&C)"
 
 #: src/Menus.cpp
 msgid "Pinned Play/Record &Head (on/off)"
@@ -3740,11 +3740,11 @@ msgstr "オーバーダブ (オン/オフ) (&O)"
 
 #: src/Menus.cpp
 msgid "So&ftware Playthrough (on/off)"
-msgstr "ソフトウェアによる再生 (オン/オフ) (&f)"
+msgstr "ソフトウェアによる再生 (オン/オフ) (&F)"
 
 #: src/Menus.cpp
 msgid "A&utomated Recording Level Adjustment (on/off)"
-msgstr "録音レベル自動調整機能 (オン/オフ) (&u)"
+msgstr "録音レベル自動調整機能 (オン/オフ) (&U)"
 
 #: src/Menus.cpp
 msgid "Add &New"
@@ -3777,11 +3777,11 @@ msgstr "ステレオからモノラルへ(&M)"
 
 #: src/Menus.cpp
 msgid "Mi&x and Render"
-msgstr "ミックスして作成(&x)"
+msgstr "ミックスして作成(&X)"
 
 #: src/Menus.cpp
 msgid "Mix and Render to Ne&w Track"
-msgstr "新しいトラックにミックスして作成(&w)"
+msgstr "新しいトラックにミックスして作成(&W)"
 
 #: src/Menus.cpp
 msgid "&Resample..."
@@ -3789,7 +3789,7 @@ msgstr "リサンプリング(&R)..."
 
 #: src/Menus.cpp
 msgid "Remo&ve Tracks"
-msgstr "トラック削除(&v)"
+msgstr "トラック削除(&V)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -3864,7 +3864,7 @@ msgstr "終了点をカーソル/選択領域の始めに"
 
 #: src/Menus.cpp
 msgid "End to Selection En&d"
-msgstr "終了点を選択領域の終わりに(&d)"
+msgstr "終了点を選択領域の終わりに(&D)"
 
 #: src/Menus.cpp
 msgid "&Align Tracks"
@@ -3886,7 +3886,7 @@ msgstr "MIDIをオーディオと同期"
 
 #: src/Menus.cpp
 msgid "S&ort Tracks"
-msgstr "トラックの並べ替え(&o)"
+msgstr "トラックの並べ替え(&O)"
 
 #: src/Menus.cpp
 msgid "Sort by Time"
@@ -3921,7 +3921,7 @@ msgstr "プラグイン の追加/削除..."
 
 #: src/Menus.cpp
 msgid "Effe&ct"
-msgstr "エフェクト(&c)"
+msgstr "エフェクト(&C)"
 
 #. i18n-hint: %s will be the name of the effect which will be
 #. * repeated if this menu item is chosen
@@ -3964,7 +3964,7 @@ msgstr "適用(&A)"
 #: src/Menus.cpp
 #, fuzzy
 msgid "&Palette..."
-msgstr "削除(&e)..."
+msgstr "削除(&E)..."
 
 #: src/Menus.cpp
 #, fuzzy
@@ -4012,12 +4012,12 @@ msgstr ""
 
 #: src/Menus.cpp
 msgid "T&ransport"
-msgstr "録音と再生(&r)"
+msgstr "録音と再生(&R)"
 
 #. i18n-hint: (verb) Start playing audio
 #: src/Menus.cpp
 msgid "Pl&ay"
-msgstr "再生 (&a)"
+msgstr "再生 (&A)"
 
 #. i18n-hint: (verb) Stop playing audio
 #: src/Menus.cpp
@@ -4112,7 +4112,7 @@ msgstr "次のツール"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Mi&xer"
-msgstr "ミキサーツールバー(&x)"
+msgstr "ミキサーツールバー(&X)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -4227,7 +4227,7 @@ msgstr "再生中に右側の長い区間を探す"
 #: src/Menus.cpp
 #, fuzzy
 msgid "De&vice"
-msgstr "デバイス(&v):"
+msgstr "デバイス(&V):"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -4574,7 +4574,7 @@ msgstr "選択"
 #: src/Menus.cpp
 #, fuzzy
 msgid "Set Track..."
-msgstr "トラックの並べ替え(&o)"
+msgstr "トラックの並べ替え(&O)"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -4670,12 +4670,12 @@ msgstr "診断"
 
 #: src/Menus.cpp
 msgid "Au&dio Device Info..."
-msgstr "オーディオデバイス情報(&d)..."
+msgstr "オーディオデバイス情報(&D)..."
 
 #: src/Menus.cpp
 #, fuzzy
 msgid "&MIDI Device Info..."
-msgstr "オーディオデバイス情報(&d)..."
+msgstr "オーディオデバイス情報(&D)..."
 
 #: src/Menus.cpp
 msgid "Show &Log..."
@@ -4687,7 +4687,7 @@ msgstr "サポートデータの生成(&G)..."
 
 #: src/Menus.cpp
 msgid "Chec&k Dependencies..."
-msgstr "依存性のチェック(&k)..."
+msgstr "依存性のチェック(&K)..."
 
 #: src/Menus.cpp
 msgid "&Check for Updates..."
@@ -5821,7 +5821,7 @@ msgstr "すべて表示"
 #. i18n-hint: Radio button to show just the currently disabled effects
 #: src/PluginManager.cpp
 msgid "D&isabled"
-msgstr "無効(&i)"
+msgstr "無効(&I)"
 
 #: src/PluginManager.cpp
 msgid "Show disabled"
@@ -5830,7 +5830,7 @@ msgstr "無効のものを表示"
 #. i18n-hint: Radio button to show just the currently enabled effects
 #: src/PluginManager.cpp
 msgid "E&nabled"
-msgstr "有効(&n)"
+msgstr "有効(&N)"
 
 #: src/PluginManager.cpp
 msgid "Show enabled"
@@ -5839,7 +5839,7 @@ msgstr "有効のものを表示"
 #. i18n-hint: Radio button to show just the newly discovered effects
 #: src/PluginManager.cpp
 msgid "Ne&w"
-msgstr "新規(&w) "
+msgstr "新規(&W) "
 
 #: src/PluginManager.cpp
 msgid "Show new"
@@ -5859,7 +5859,7 @@ msgstr "すべて選択(&S)"
 
 #: src/PluginManager.cpp
 msgid "C&lear All"
-msgstr "すべてクリア(&l)"
+msgstr "すべてクリア(&L)"
 
 #: src/PluginManager.cpp src/effects/Effect.cpp src/prefs/RecordingPrefs.cpp
 msgid "&Enable"
@@ -6756,7 +6756,7 @@ msgstr "プレビュー(&P)"
 
 #: src/ShuttleGui.cpp
 msgid "Dry Previe&w"
-msgstr "ドライプレビュー(&w)"
+msgstr "ドライプレビュー(&W)"
 
 #: src/ShuttleGui.cpp
 msgid "&Settings"
@@ -6764,7 +6764,7 @@ msgstr "設定(&S)"
 
 #: src/ShuttleGui.cpp
 msgid "Debu&g"
-msgstr "デバッグ(&g)"
+msgstr "デバッグ(&G)"
 
 #: src/Snap.cpp
 msgid "Off"
@@ -6848,11 +6848,11 @@ msgstr "ジャンル:"
 
 #: src/Tags.cpp
 msgid "E&dit..."
-msgstr "編集(&d)..."
+msgstr "編集(&D)..."
 
 #: src/Tags.cpp
 msgid "Rese&t..."
-msgstr "リセット(&t)..."
+msgstr "リセット(&T)..."
 
 #: src/Tags.cpp
 msgid "Template"
@@ -6864,7 +6864,7 @@ msgstr "読み込み(&L)..."
 
 #: src/Tags.cpp
 msgid "Set De&fault"
-msgstr "デフォルトを設定(&f)"
+msgstr "デフォルトを設定(&F)"
 
 #: src/Tags.cpp
 msgid "Edit Genres"
@@ -7234,7 +7234,7 @@ msgstr "自動"
 #: src/TimerRecordDialog.cpp
 #, fuzzy
 msgid "Enable &Automatic Save?"
-msgstr "補正の有効化(&c)"
+msgstr "補正の有効化(&C)"
 
 #: src/TimerRecordDialog.cpp
 #, fuzzy
@@ -8112,7 +8112,7 @@ msgstr "周波数"
 #: src/commands/SelectCommand.h
 #, fuzzy
 msgid "Select Tracks"
-msgstr "トラックの並べ替え(&o)"
+msgstr "トラックの並べ替え(&O)"
 
 #: src/commands/SelectCommand.h src/prefs/MousePrefs.cpp
 msgid "Select"
@@ -8225,7 +8225,7 @@ msgstr ""
 #: src/commands/SetProjectCommand.cpp
 #, fuzzy
 msgid "Resize:"
-msgstr "残存(&u)"
+msgstr "残存(&U)"
 
 #: src/commands/SetProjectCommand.cpp
 msgid "X:"
@@ -8307,7 +8307,7 @@ msgstr "リニア"
 #: src/commands/SetTrackInfoCommand.cpp
 #, fuzzy
 msgid "Reset"
-msgstr "リセット(&e)"
+msgstr "リセット(&E)"
 
 #: src/commands/SetTrackInfoCommand.cpp
 #, fuzzy
@@ -8346,7 +8346,7 @@ msgstr "スペクトルの選択"
 #: src/commands/SetTrackInfoCommand.cpp
 #, fuzzy
 msgid "Gray Scale"
-msgstr "スケール(&c)"
+msgstr "スケール(&C)"
 
 #: src/commands/SetTrackInfoCommand.h
 #, fuzzy
@@ -8366,7 +8366,7 @@ msgstr "無音化"
 #: src/commands/SetTrackInfoCommand.h
 #, fuzzy
 msgid "Set Track Visuals"
-msgstr "トラックの並べ替え(&o)"
+msgstr "トラックの並べ替え(&O)"
 
 #: src/commands/SetTrackInfoCommand.h
 msgid "Sets various values for a track."
@@ -8902,7 +8902,7 @@ msgstr "背景終了時間"
 
 #: src/effects/Contrast.cpp
 msgid "Mea&sure selection"
-msgstr "計測を選択(&s)"
+msgstr "計測を選択(&S)"
 
 #: src/effects/Contrast.cpp
 msgid "Result"
@@ -8910,11 +8910,11 @@ msgstr "結果"
 
 #: src/effects/Contrast.cpp
 msgid "Co&ntrast Result:"
-msgstr "対比結果(&n):"
+msgstr "対比結果(&N):"
 
 #: src/effects/Contrast.cpp
 msgid "R&eset"
-msgstr "リセット(&e)"
+msgstr "リセット(&E)"
 
 #: src/effects/Contrast.cpp
 msgid "&Difference:"
@@ -9322,7 +9322,7 @@ msgstr "2-レベル"
 #: src/effects/Distortion.cpp
 #, fuzzy
 msgid "Residual level"
-msgstr "残存(&u)"
+msgstr "残存(&U)"
 
 #: src/effects/Distortion.cpp
 msgid " (Not Used):"
@@ -9812,7 +9812,7 @@ msgstr "補完タイプ"
 
 #: src/effects/Equalization.cpp
 msgid "Li&near Frequency Scale"
-msgstr "リニア周波数軸(&n)"
+msgstr "リニア周波数軸(&N)"
 
 #: src/effects/Equalization.cpp
 msgid "Linear Frequency Scale"
@@ -9836,11 +9836,11 @@ msgstr "カーブを選択"
 
 #: src/effects/Equalization.cpp
 msgid "S&ave/Manage Curves..."
-msgstr "カーブの保存/管理(&a)..."
+msgstr "カーブの保存/管理(&A)..."
 
 #: src/effects/Equalization.cpp
 msgid "Fla&tten"
-msgstr "平坦化(&t)"
+msgstr "平坦化(&T)"
 
 #: src/effects/Equalization.cpp
 msgid "&Invert"
@@ -9848,7 +9848,7 @@ msgstr "反転(&I)"
 
 #: src/effects/Equalization.cpp
 msgid "Show g&rid lines"
-msgstr "グリッドライン表示(&r)"
+msgstr "グリッドライン表示(&R)"
 
 #: src/effects/Equalization.cpp
 msgid "Show grid lines"
@@ -9860,7 +9860,7 @@ msgstr "処理中(&P):"
 
 #: src/effects/Equalization.cpp
 msgid "D&efault"
-msgstr "既定値(&e)"
+msgstr "既定値(&E)"
 
 #: src/effects/Equalization.cpp
 msgid "&SSE"
@@ -9935,7 +9935,7 @@ msgstr "カーブ名"
 
 #: src/effects/Equalization.cpp
 msgid "D&elete..."
-msgstr "削除(&e)..."
+msgstr "削除(&E)..."
 
 #: src/effects/Equalization.cpp
 msgid "&Get More..."
@@ -10207,7 +10207,7 @@ msgstr "感度"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Attac&k time (secs):"
-msgstr "アタック(秒)(&k):"
+msgstr "アタック(秒)(&K):"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Attack time"
@@ -10231,7 +10231,7 @@ msgstr "周波数平滑化"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Sensiti&vity (dB):"
-msgstr "感度(dB)(&v):"
+msgstr "感度(dB)(&V):"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Old Sensitivity"
@@ -10276,7 +10276,7 @@ msgstr "ノイズ:"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Re&duce"
-msgstr "現象(&d)"
+msgstr "現象(&D)"
 
 #: src/effects/NoiseReduction.cpp src/effects/NoiseRemoval.cpp
 msgid "&Isolate"
@@ -10284,7 +10284,7 @@ msgstr "分離(&I)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Resid&ue"
-msgstr "残存(&u)"
+msgstr "残存(&U)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Advanced Settings"
@@ -10344,7 +10344,7 @@ msgstr "16384"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Window si&ze"
-msgstr "ウィンドウサイズ(&z)"
+msgstr "ウィンドウサイズ(&Z)"
 
 #: src/effects/NoiseReduction.cpp src/export/ExportFLAC.cpp
 msgid "2"
@@ -10356,11 +10356,11 @@ msgstr "4(デフォルト)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "S&teps per window"
-msgstr "ウィンドウあたりのステップ(&t)"
+msgstr "ウィンドウあたりのステップ(&T)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Discrimination &method"
-msgstr "判定法(&m)"
+msgstr "判定法(&M)"
 
 #: src/effects/NoiseRemoval.cpp src/effects/NoiseRemoval.h
 msgid "Noise Removal"
@@ -10381,7 +10381,7 @@ msgstr ""
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Noise re&duction (dB):"
-msgstr "ノイズ除去(dB)(&d):"
+msgstr "ノイズ除去(dB)(&D):"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "&Sensitivity (dB):"
@@ -10389,11 +10389,11 @@ msgstr "感度(dB)(&S)"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Fr&equency smoothing (Hz):"
-msgstr "周波数平滑化(Hz)(&e):"
+msgstr "周波数平滑化(Hz)(&E):"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Attac&k/decay time (secs):"
-msgstr "アタック/ディケイ時間(秒)(&k):"
+msgstr "アタック/ディケイ時間(秒)(&K):"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Attack/decay time"
@@ -10401,7 +10401,7 @@ msgstr "アタック/ディケイ時間"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Re&move"
-msgstr " 消去(&m) "
+msgstr " 消去(&M) "
 
 #: src/effects/Normalize.cpp
 #, fuzzy
@@ -10754,11 +10754,11 @@ msgstr "プリディレイ (ms)(&P):"
 
 #: src/effects/Reverb.cpp
 msgid "Rever&berance (%):"
-msgstr "残響 (%)(&b):"
+msgstr "残響 (%)(&B):"
 
 #: src/effects/Reverb.cpp
 msgid "Da&mping (%):"
-msgstr "ダンピング(dB)(&m):"
+msgstr "ダンピング(dB)(&M):"
 
 #: src/effects/Reverb.cpp
 msgid "Tone &Low (%):"
@@ -10774,15 +10774,15 @@ msgstr "ウェットゲイン(dB)(&G):"
 
 #: src/effects/Reverb.cpp
 msgid "Dr&y Gain (dB):"
-msgstr "ドライゲイン(dB)(&y):"
+msgstr "ドライゲイン(dB)(&Y):"
 
 #: src/effects/Reverb.cpp
 msgid "Stereo Wid&th (%):"
-msgstr "ステレオ幅 (%)(&t):"
+msgstr "ステレオ幅 (%)(&T):"
 
 #: src/effects/Reverb.cpp
 msgid "Wet O&nly"
-msgstr "ウエットのみ(&n)"
+msgstr "ウエットのみ(&N)"
 
 #: src/effects/Reverb.cpp src/effects/Reverb.h
 msgid "Reverb"
@@ -10840,7 +10840,7 @@ msgstr "フィルター形式(&F):"
 #. i18n-hint: 'Order' means the complexity of the filter, and is a number between 1 and 10.
 #: src/effects/ScienFilter.cpp
 msgid "O&rder:"
-msgstr "次数(&r):"
+msgstr "次数(&R):"
 
 #: src/effects/ScienFilter.cpp
 msgid "&Passband Ripple:"
@@ -10856,7 +10856,7 @@ msgstr "サブタイプ(&S):"
 
 #: src/effects/ScienFilter.cpp
 msgid "C&utoff:"
-msgstr "カットオフ帯域幅(&u):"
+msgstr "カットオフ帯域幅(&U):"
 
 #: src/effects/ScienFilter.cpp
 msgid "Cutoff (Hz)"
@@ -10864,11 +10864,11 @@ msgstr "カットオフ帯域幅(Hz):"
 
 #: src/effects/ScienFilter.cpp
 msgid "Minimum S&topband Attenuation:"
-msgstr "阻止域最小減衰: (&t)"
+msgstr "阻止域最小減衰: (&T)"
 
 #: src/effects/ScienFilter.cpp
 msgid "Minimum S&topband Attenuation (dB)"
-msgstr "阻止域最小減衰(dB) (&t)"
+msgstr "阻止域最小減衰(dB) (&T)"
 
 #: src/effects/ScienFilter.h
 msgid "Classic Filters"
@@ -11205,7 +11205,7 @@ msgstr "すべてのVSTエフェクトに有効とは限りません."
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Enable &compensation"
-msgstr "補正の有効化(&c)"
+msgstr "補正の有効化(&C)"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Graphical Mode"
@@ -11229,7 +11229,7 @@ msgstr "このエフェクトを有効にするために再度オープンして
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Enable &graphical interface"
-msgstr "グラフィカルインタフェース有効化 (&g)"
+msgstr "グラフィカルインタフェース有効化 (&G)"
 
 #: src/effects/VST/VSTEffect.cpp
 #, fuzzy, c-format
@@ -11399,7 +11399,7 @@ msgstr " テキスト型インタフェ－スにするには \"Basic\" を選ん
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select &interface"
-msgstr "インタフェースの選択(&i)"
+msgstr "インタフェースの選択(&I)"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Export Audio Unit Presets"
@@ -13568,15 +13568,15 @@ msgstr "取り込み方法を選んでください"
 
 #: src/import/ImportPCM.cpp
 msgid "Make a &copy of the files before editing (safer)"
-msgstr "編集の前に非圧縮のオーディオファイルをコピーする(より安全です)(&c)"
+msgstr "編集の前に非圧縮のオーディオファイルをコピーする(より安全です)(&C)"
 
 #: src/import/ImportPCM.cpp
 msgid "Read the files &directly from the original (faster)"
-msgstr "非圧縮のオーディオファイルから直接読み込みます(高速)(&d)"
+msgstr "非圧縮のオーディオファイルから直接読み込みます(高速)(&D)"
 
 #: src/import/ImportPCM.cpp
 msgid "Don't &warn again and always use my choice above"
-msgstr "次回からは表示せず, いつも上記設定を使用する(&w)"
+msgstr "次回からは表示せず, いつも上記設定を使用する(&W)"
 
 #: src/import/ImportPlugin.h src/import/ImportRaw.cpp
 #, c-format
@@ -13755,11 +13755,11 @@ msgstr "録音"
 
 #: src/prefs/DevicePrefs.cpp src/prefs/MidiIOPrefs.cpp
 msgid "De&vice:"
-msgstr "デバイス(&v):"
+msgstr "デバイス(&V):"
 
 #: src/prefs/DevicePrefs.cpp
 msgid "Cha&nnels:"
-msgstr "チャンネル(&n):"
+msgstr "チャンネル(&N):"
 
 #: src/prefs/DevicePrefs.cpp
 msgid "Latency"
@@ -13815,7 +13815,7 @@ msgstr "空き容量:"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "C&hoose..."
-msgstr "選択(&h)..."
+msgstr "選択(&H)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Audio cache"
@@ -13827,7 +13827,7 @@ msgstr "RAMを使用した再生・録音(低速デバイス向け)(&R)"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Mi&nimum Free Memory (MB):"
-msgstr "メモリの最低値 (MB)(&n):"
+msgstr "メモリの最低値 (MB)(&N):"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid ""
@@ -13944,7 +13944,7 @@ msgstr "拡張取り込み"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "A&ttempt to use filter in OpenFile dialog first"
-msgstr "ファイルを開くダイアログでのフィルターを優先する (&t)"
+msgstr "ファイルを開くダイアログでのフィルターを優先する (&T)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Rules to choose import filters"
@@ -13964,19 +13964,19 @@ msgstr "取り込み順"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Move rule &up"
-msgstr "ルールを上へ(&u)"
+msgstr "ルールを上へ(&U)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Move rule &down"
-msgstr "ルールを下へ(&d)"
+msgstr "ルールを下へ(&D)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Move f&ilter up"
-msgstr "フィルターを上へ(&i)"
+msgstr "フィルターを上へ(&I)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Move &filter down"
-msgstr "フィルターを下へ(&f)"
+msgstr "フィルターを下へ(&F)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "&Add new rule"
@@ -13984,7 +13984,7 @@ msgstr "新しいルールの追加(&A)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "De&lete selected rule"
-msgstr "選択したルールの削除(&l)"
+msgstr "選択したルールの削除(&L)"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Unused filters:"
@@ -14097,7 +14097,7 @@ msgstr ""
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Meter dB &range:"
-msgstr "メーター dB表示範囲(&r):"
+msgstr "メーター dB表示範囲(&R):"
 
 #: src/prefs/GUIPrefs.cpp
 #, fuzzy
@@ -14107,7 +14107,7 @@ msgstr "Go to next S-expr"
 #: src/prefs/GUIPrefs.cpp
 #, fuzzy
 msgid "Show e&xtra menus"
-msgstr "グリッドライン表示(&r)"
+msgstr "グリッドライン表示(&R)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Show alternative &styling (Mac vs PC)"
@@ -14120,7 +14120,7 @@ msgstr "長い処理が完了したときにビープを鳴らす(&B)"
 #: src/prefs/GUIPrefs.cpp
 #, fuzzy
 msgid "Re&tain labels if selection snaps to a label"
-msgstr "消去時に選択範囲の端のラベルを残す(&t)"
+msgstr "消去時に選択範囲の端のラベルを残す(&T)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "B&lend system and Audacity theme"
@@ -14160,7 +14160,7 @@ msgstr "トラックの書き出し時"
 #: src/prefs/ImportExportPrefs.cpp
 #, fuzzy
 msgid "&Mix down to Stereo or Mono"
-msgstr "書き出し時にステレオにミックスする際(&s)"
+msgstr "書き出し時にステレオにミックスする際(&S)"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "&Use custom mix"
@@ -14169,7 +14169,7 @@ msgstr ""
 #: src/prefs/ImportExportPrefs.cpp
 #, fuzzy
 msgid "S&how Metadata Tags editor before export"
-msgstr "メタデータエディタを書き出しの前に表示(&h)"
+msgstr "メタデータエディタを書き出しの前に表示(&H)"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "Exported Allegro (.gro) files save time as:"
@@ -14237,7 +14237,7 @@ msgstr "キーごとに表示"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Searc&h:"
-msgstr "検索(&h):"
+msgstr "検索(&H):"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Bindings"
@@ -14360,15 +14360,15 @@ msgstr "FFmpeg ライブラリ:"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "Loca&te..."
-msgstr "場所(&t)..."
+msgstr "場所(&T)..."
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "Dow&nload"
-msgstr "ダウンロード(&n)"
+msgstr "ダウンロード(&N)"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "Allow &background on-demand loading"
-msgstr "バックグランドでのオンデマンドローディングを許可する (&b)"
+msgstr "バックグランドでのオンデマンドローディングを許可する (&B)"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid ""
@@ -14654,7 +14654,7 @@ msgstr "シフト-ホイール-回転"
 #: src/prefs/MousePrefs.cpp
 #, fuzzy
 msgid "Vertical Scale Waveform (dB) range"
-msgstr "波形 dB表示範囲(&r)"
+msgstr "波形 dB表示範囲(&R)"
 
 #: src/prefs/PlaybackPrefs.cpp
 msgid "Effects Preview"
@@ -14673,12 +14673,12 @@ msgstr "切り取りプレビュー"
 #: src/prefs/PlaybackPrefs.cpp
 #, fuzzy
 msgid "&Before cut region:"
-msgstr "切り取り領域の前をプレビュー(&b):"
+msgstr "切り取り領域の前をプレビュー(&B):"
 
 #: src/prefs/PlaybackPrefs.cpp
 #, fuzzy
 msgid "&After cut region:"
-msgstr "切り取り領域の後をプレビュー(&a):"
+msgstr "切り取り領域の後をプレビュー(&A):"
 
 #: src/prefs/PlaybackPrefs.cpp
 msgid "Seek Time when playing"
@@ -14690,7 +14690,7 @@ msgstr "ステップ(短)(&S):"
 
 #: src/prefs/PlaybackPrefs.cpp
 msgid "Lo&ng period:"
-msgstr "ステップ(長)(&n):"
+msgstr "ステップ(長)(&N):"
 
 #: src/prefs/PrefsDialog.cpp
 msgid "Audacity Preferences"
@@ -14699,7 +14699,7 @@ msgstr "Audacity の設定"
 #: src/prefs/PrefsDialog.cpp
 #, fuzzy
 msgid "Category"
-msgstr "カテゴリー(&a):"
+msgstr "カテゴリー(&A):"
 
 #: src/prefs/PrefsDialog.cpp src/prefs/PrefsDialog.h
 msgid "Preferences: "
@@ -14721,12 +14721,12 @@ msgstr "常に全てのオーディオをプロジェクトにコピーする(�
 
 #: src/prefs/ProjectsPrefs.cpp
 msgid "Do &not copy any audio"
-msgstr "いかなるオーディオもコピーしません(&n)"
+msgstr "いかなるオーディオもコピーしません(&N)"
 
 #: src/prefs/ProjectsPrefs.cpp
 #, fuzzy
 msgid "As&k"
-msgstr "ユーザに確認する(&k)"
+msgstr "ユーザに確認する(&K)"
 
 #  i18n-hint: Audio data bit depth (precison): 16-bit integers
 #: src/prefs/QualityPrefs.cpp
@@ -14774,7 +14774,7 @@ msgstr "リアルタイム変換:"
 
 #: src/prefs/QualityPrefs.cpp
 msgid "Sample Rate Con&verter:"
-msgstr "サンプリング周波数変換(&v):"
+msgstr "サンプリング周波数変換(&V):"
 
 #. i18n-hint: technical term for randomization to reduce undesirable resampling artifacts
 #: src/prefs/QualityPrefs.cpp
@@ -14787,12 +14787,12 @@ msgstr "高品質変換"
 
 #: src/prefs/QualityPrefs.cpp
 msgid "Sample Rate Conver&ter:"
-msgstr "サンプリング周波数変換(&t):"
+msgstr "サンプリング周波数変換(&T):"
 
 #. i18n-hint: technical term for randomization to reduce undesirable resampling artifacts
 #: src/prefs/QualityPrefs.cpp
 msgid "Dit&her:"
-msgstr "ディザリング(&h):"
+msgstr "ディザリング(&H):"
 
 #: src/prefs/RecordingPrefs.cpp
 #, fuzzy
@@ -14806,7 +14806,7 @@ msgstr ""
 #: src/prefs/RecordingPrefs.cpp
 #, fuzzy
 msgid "&Software playthrough of input"
-msgstr "ソフトウェアによる再生 (オン/オフ) (&f)"
+msgstr "ソフトウェアによる再生 (オン/オフ) (&F)"
 
 #: src/prefs/RecordingPrefs.cpp
 #, fuzzy
@@ -14999,17 +14999,17 @@ msgstr "設定"
 
 #: src/prefs/SpectrumPrefs.cpp src/prefs/WaveformPrefs.cpp
 msgid "S&cale"
-msgstr "スケール(&c)"
+msgstr "スケール(&C)"
 
 #: src/prefs/SpectrumPrefs.cpp
 #, fuzzy
 msgid "Mi&n Frequency (Hz):"
-msgstr "最低周波数(Hz)(&n):"
+msgstr "最低周波数(Hz)(&N):"
 
 #: src/prefs/SpectrumPrefs.cpp
 #, fuzzy
 msgid "Ma&x Frequency (Hz):"
-msgstr "最高周波数(Hz)(&x):"
+msgstr "最高周波数(Hz)(&X):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Colors"
@@ -15030,7 +15030,7 @@ msgstr ""
 #: src/prefs/SpectrumPrefs.cpp
 #, fuzzy
 msgid "Gra&yscale"
-msgstr "スケール(&c)"
+msgstr "スケール(&C)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Algorithm"
@@ -15038,15 +15038,15 @@ msgstr "アルゴリズム"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "A&lgorithm"
-msgstr "アルゴリズム(&l)"
+msgstr "アルゴリズム(&L)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Window &size:"
-msgstr "ウィンドウサイズ(&s)"
+msgstr "ウィンドウサイズ(&S)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Window &type:"
-msgstr "ウィンドウの種類(&t):"
+msgstr "ウィンドウの種類(&T):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "&Zero padding factor"
@@ -15054,7 +15054,7 @@ msgstr "ゼロパディング(&Z)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Ena&ble Spectral Selection"
-msgstr "スペクトルの選択を有効にする(&b)"
+msgstr "スペクトルの選択を有効にする(&B)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Show a grid along the &Y-axis"
@@ -15087,7 +15087,7 @@ msgstr "グローバル設定"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Ena&ble spectral selection"
-msgstr "スペクトルの選択を有効にする(&b)"
+msgstr "スペクトルの選択を有効にする(&B)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "The maximum frequency must be an integer"
@@ -15232,7 +15232,7 @@ msgstr ""
 #: src/prefs/TracksBehaviorsPrefs.cpp
 #, fuzzy
 msgid "Enable cut &lines"
-msgstr "カットライン機能(切り取った領域をクリックで復活可能）を有効にする(&t)"
+msgstr "カットライン機能(切り取った領域をクリックで復活可能）を有効にする(&T)"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 #, fuzzy
@@ -15241,11 +15241,11 @@ msgstr "ドラッグ選択を有効化"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "Editing a clip can &move other clips"
-msgstr "あるクリップを編集することで、他のクリップを移動することが可能(&m)"
+msgstr "あるクリップを編集することで、他のクリップを移動することが可能(&M)"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "\"Move track focus\" c&ycles repeatedly through tracks"
-msgstr "\"トラックのフォーカスを移動\" トラックを環状に繰り返して移動(&y)"
+msgstr "\"トラックのフォーカスを移動\" トラックを環状に繰り返して移動(&Y)"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "&Type to create a label"
@@ -15257,7 +15257,7 @@ msgstr ""
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "Enable scrolling left of &zero"
-msgstr "ゼロの左側のスクロールを有効化(&z)"
+msgstr "ゼロの左側のスクロールを有効化(&Z)"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 #, fuzzy
@@ -15421,11 +15421,11 @@ msgstr "警告/プロンプトの表示"
 
 #: src/prefs/WarningsPrefs.cpp
 msgid "Saving &projects"
-msgstr "プロジェクトの保存時(&p)"
+msgstr "プロジェクトの保存時(&P)"
 
 #: src/prefs/WarningsPrefs.cpp
 msgid "Saving &empty project"
-msgstr "空のプロジェクトファイルの保存時(&e)"
+msgstr "空のプロジェクトファイルの保存時(&E)"
 
 #: src/prefs/WarningsPrefs.cpp
 #, fuzzy
@@ -15434,11 +15434,11 @@ msgstr "起動時のディスク容量が少ない(&L)"
 
 #: src/prefs/WarningsPrefs.cpp
 msgid "Mixing down to &mono during export"
-msgstr "書き出し時にモノラルにミックスする際(&m) "
+msgstr "書き出し時にモノラルにミックスする際(&M) "
 
 #: src/prefs/WarningsPrefs.cpp
 msgid "Mixing down to &stereo during export"
-msgstr "書き出し時にステレオにミックスする際(&s)"
+msgstr "書き出し時にステレオにミックスする際(&S)"
 
 #: src/prefs/WarningsPrefs.cpp
 msgid "Mixing down on export (&Custom FFmpeg or external program)"
@@ -15455,7 +15455,7 @@ msgstr "波形"
 
 #: src/prefs/WaveformPrefs.cpp
 msgid "Waveform dB &range"
-msgstr "波形 dB表示範囲(&r)"
+msgstr "波形 dB表示範囲(&R)"
 
 #. i18n-hint: These are strings for the status bar, and indicate whether Audacity
 #. is playing or recording or stopped, and whether it is paused.
@@ -15496,7 +15496,7 @@ msgstr "新しいトラック"
 #: src/toolbars/ControlToolBar.cpp
 #, fuzzy
 msgid "Append Record"
-msgstr "追加録音 (&d)"
+msgstr "追加録音 (&D)"
 
 #: src/toolbars/ControlToolBar.cpp
 #, fuzzy
@@ -15895,7 +15895,7 @@ msgstr "オクターブを上げる(&O)"
 
 #: src/tracks/playabletrack/notetrack/ui/NoteTrackControls.cpp
 msgid "Down Octa&ve"
-msgstr "オクターブを下げる(&v)"
+msgstr "オクターブを下げる(&V)"
 
 #: src/tracks/playabletrack/notetrack/ui/NoteTrackVZoomHandle.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
@@ -16088,7 +16088,7 @@ msgstr "サンプリング周波数設定"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Wa&veform"
-msgstr "波形(&v)"
+msgstr "波形(&V)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "&Waveform (dB)"
@@ -16100,11 +16100,11 @@ msgstr "スペクトログラム(&S)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "S&pectrogram Settings..."
-msgstr "スペクトログラムの設定(&p)..."
+msgstr "スペクトログラムの設定(&P)..."
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Ma&ke Stereo Track"
-msgstr "ステレオトラックの作成(&k)"
+msgstr "ステレオトラックの作成(&K)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Swap Stereo &Channels"
@@ -16112,7 +16112,7 @@ msgstr "ステレオチャンネルのスワップ (&C)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Spl&it Stereo Track"
-msgstr "ステレオトラックを分離 (&i)"
+msgstr "ステレオトラックを分離 (&I)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 #, fuzzy
@@ -16131,7 +16131,7 @@ msgstr "フォーマット(&F)"
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 #, fuzzy
 msgid "Rat&e"
-msgstr "サンプリング周波数設定(&e)"
+msgstr "サンプリング周波数設定(&E)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid ""
@@ -16276,7 +16276,7 @@ msgstr "リニア(&L)"
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 #, fuzzy
 msgid "L&ogarithmic scale"
-msgstr "対数(&o)"
+msgstr "対数(&O)"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "&Range..."
@@ -17186,7 +17186,7 @@ msgstr "メーターを無効化"
 #: src/widgets/Ruler.cpp
 #, fuzzy
 msgid "Enable Scrub Ruler"
-msgstr "カットライン機能(切り取った領域をクリックで復活可能）を有効にする(&t)"
+msgstr "カットライン機能(切り取った領域をクリックで復活可能）を有効にする(&T)"
 
 #: src/widgets/Warning.cpp
 msgid "Don't show this warning again"
@@ -18579,7 +18579,7 @@ msgstr ""
 #: plug-ins/sample-data-import.ny
 #, fuzzy
 msgid "Sample Data Import"
-msgstr "サンプリング周波数変換(&v):"
+msgstr "サンプリング周波数変換(&V):"
 
 #: plug-ins/sample-data-import.ny
 #, fuzzy
@@ -18678,7 +18678,7 @@ msgstr ""
 #: plug-ins/vocalrediso.ny plug-ins/vocalremover.ny
 #, fuzzy
 msgid "Remove Vocals"
-msgstr "特殊な削除・切り取り (&e)"
+msgstr "特殊な削除・切り取り (&E)"
 
 #: plug-ins/vocalrediso.ny
 #, fuzzy
@@ -18813,7 +18813,7 @@ msgstr "クリック音やポップ音の除去..."
 #: plug-ins/vocalremover.ny
 #, fuzzy
 msgid "Remove vocals or view Help"
-msgstr "特殊な削除・切り取り (&e)"
+msgstr "特殊な削除・切り取り (&E)"
 
 #  i18n-hint: The name of the Help menu
 #: plug-ins/vocalremover.ny
@@ -19000,10 +19000,10 @@ msgstr ""
 #~ msgstr "チェイン(&C)"
 
 #~ msgid "Re&name"
-#~ msgstr "リネーム(&n)"
+#~ msgstr "リネーム(&N)"
 
 #~ msgid "C&hain (Double-Click or press SPACE to edit)"
-#~ msgstr "チェイン (編集するにはダブルクリックかSPACEを押す)(&h)"
+#~ msgstr "チェイン (編集するにはダブルクリックかSPACEを押す)(&H)"
 
 #~ msgid "Insert &After"
 #~ msgstr "後に挿入(&A)"
@@ -19016,14 +19016,14 @@ msgstr ""
 #~ msgstr "チェイン(&C)"
 
 #~ msgid "Appl&y Chain..."
-#~ msgstr "チェインを適用(&y)..."
+#~ msgstr "チェインを適用(&Y)..."
 
 #~ msgid "Edit C&hains..."
-#~ msgstr "チェインを編集(&h)..."
+#~ msgstr "チェインを編集(&H)..."
 
 #, fuzzy
 #~ msgid "Tra&nscription Toolbar"
-#~ msgstr "編曲ツールバー(&p)"
+#~ msgstr "編曲ツールバー(&P)"
 
 #, fuzzy
 #~ msgid "&Tools"
@@ -19088,10 +19088,10 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "&Hardware Playthrough of input"
-#~ msgstr "ソフトウェアによる再生 (オン/オフ) (&f)"
+#~ msgstr "ソフトウェアによる再生 (オン/オフ) (&F)"
 
 #~ msgid "Frequency g&ain (dB/dec):"
-#~ msgstr "周波数ゲイン(dB/dec)(&a):"
+#~ msgstr "周波数ゲイン(dB/dec)(&A):"
 
 #, fuzzy
 #~ msgid ""
@@ -19555,7 +19555,7 @@ msgstr ""
 #~ msgstr "バージョン"
 
 #~ msgid "C&ategory:"
-#~ msgstr "カテゴリー(&a):"
+#~ msgstr "カテゴリー(&A):"
 
 #~ msgid "Key Combination"
 #~ msgstr "キーの組み合わせ"
@@ -19581,7 +19581,7 @@ msgstr ""
 #~ msgstr "メタデータタグを編集"
 
 #~ msgid "Mo&ve Cursor"
-#~ msgstr "カーソルの移動(&v)"
+#~ msgstr "カーソルの移動(&V)"
 
 #~ msgid "Fit &Vertically"
 #~ msgstr "垂直方向に合わせる(&V)"
@@ -19591,19 +19591,19 @@ msgstr ""
 #~ msgstr "統合メーターツールバー(&C)"
 
 #~ msgid "S&kip to Start"
-#~ msgstr "初期位置まで進める (&k)"
+#~ msgstr "初期位置まで進める (&K)"
 
 #~ msgid "Skip to E&nd"
-#~ msgstr "終わりまで進める (&n)"
+#~ msgstr "終わりまで進める (&N)"
 
 #~ msgid "Appen&d Record"
-#~ msgstr "追加録音 (&d)"
+#~ msgstr "追加録音 (&D)"
 
 #~ msgid "Stereo Trac&k to Mono"
-#~ msgstr "ステレオからモノラルへ(&k)"
+#~ msgstr "ステレオからモノラルへ(&K)"
 
 #~ msgid "Move Sele&ction when Aligning"
-#~ msgstr "選択領域移動を伴う整列(&c)"
+#~ msgstr "選択領域移動を伴う整列(&C)"
 
 #~ msgid "&Mono"
 #~ msgstr "モノラル(&M)"
@@ -19651,7 +19651,7 @@ msgstr ""
 #~ msgstr "トランスポートツールバーボタンを人間工学的順序にする(&E)"
 
 #~ msgid "S&how 'How to Get Help' dialog box at program start up"
-#~ msgstr "プログラム開始時に「ようこそ画面」を表示(&h)"
+#~ msgstr "プログラム開始時に「ようこそ画面」を表示(&H)"
 
 #~ msgid "&Always mix all tracks down to Stereo or Mono channel(s)"
 #~ msgstr ""
@@ -19667,10 +19667,10 @@ msgstr ""
 #~ msgstr "トラックをAllegro (.gro)ファイルに書き出す場合"
 
 #~ msgid "Represent times and durations in &seconds"
-#~ msgstr "回数と長さを秒で表示(&s)"
+#~ msgstr "回数と長さを秒で表示(&S)"
 
 #~ msgid "Represent times and durations in &beats"
-#~ msgstr "回数と長さを拍数で表示(&b)"
+#~ msgstr "回数と長さを拍数で表示(&B)"
 
 #, fuzzy
 #~ msgid "Host:"
@@ -19695,13 +19695,13 @@ msgstr ""
 #~ msgstr "(\"ステレオミックス\"を録音する場合はチェックをはずしてください. )"
 
 #~ msgid "Audio to &buffer:"
-#~ msgstr "オーディオからバッファへ(&b):"
+#~ msgstr "オーディオからバッファへ(&B):"
 
 #~ msgid "milliseconds (higher = more latency)"
 #~ msgstr "ミリ秒 (大きいほどレイテンシー増大)"
 
 #~ msgid "L&atency correction:"
-#~ msgstr "レイテンシー補正(&a):"
+#~ msgstr "レイテンシー補正(&A):"
 
 #~ msgid "milliseconds (negative = backwards)"
 #~ msgstr "ミリ秒 (値が負の場合レイテンシー減少)"
@@ -19710,14 +19710,14 @@ msgstr ""
 #~ msgstr "音による録音起動(&R)"
 
 #~ msgid "Sound Activation Le&vel (dB):"
-#~ msgstr "録音起動のレベル (dB)(&v):"
+#~ msgstr "録音起動のレベル (dB)(&V):"
 
 #, fuzzy
 #~ msgid "Add &Track Number"
 #~ msgstr "トラックナンバー:"
 
 #~ msgid "S&how the spectrum using grayscale colors"
-#~ msgstr "スペクトラムを グレースケールで表示(&h)"
+#~ msgstr "スペクトラムを グレースケールで表示(&H)"
 
 #~ msgid ""
 #~ "If 'Load Theme Cache At Startup' is checked, then the Theme Cache will be "
@@ -19736,14 +19736,14 @@ msgstr ""
 #~ msgstr "再生中も表示を更新(&U)"
 
 #~ msgid "Automatically &fit tracks vertically zoomed"
-#~ msgstr "トラックを縦にズームして自動的に合わせる(&f)"
+#~ msgstr "トラックを縦にズームして自動的に合わせる(&F)"
 
 #, fuzzy
 #~ msgid "&Select then act on entire project, if no audio selected"
 #~ msgstr "何も選択されていない場合, すべてのオーディオを選択(&S)"
 
 #~ msgid "Enable &dragging of left and right selection edges"
-#~ msgstr "選択領域の左右両端のドラッグを可能(&d)"
+#~ msgstr "選択領域の左右両端のドラッグを可能(&D)"
 
 #, fuzzy
 #~ msgid "Record Below"
@@ -19767,10 +19767,10 @@ msgstr ""
 #~ msgstr "選択 "
 
 #~ msgid "Re&gion Save"
-#~ msgstr "選択範囲を保存(&g)"
+#~ msgstr "選択範囲を保存(&G)"
 
 #~ msgid "Regio&n Restore"
-#~ msgstr "選択範囲を復帰(&n)"
+#~ msgstr "選択範囲を復帰(&N)"
 
 #~ msgid "Couldn't write to file \"%s\": %s"
 #~ msgstr "ファイル \"%s\"に書き込めません: %s"
@@ -19842,10 +19842,10 @@ msgstr ""
 #~ msgstr "メモリ割付失敗 -- NewSamples"
 
 #~ msgid "Pre&view"
-#~ msgstr "プレビュー(&v)"
+#~ msgstr "プレビュー(&V)"
 
 #~ msgid "R&ight Channel"
-#~ msgstr "右チャンネル(&i)"
+#~ msgstr "右チャンネル(&I)"
 
 #~ msgid "&Rate"
 #~ msgstr "レート(&R)"
@@ -20057,20 +20057,20 @@ msgstr ""
 #~ msgstr "!単純化した見えかた"
 
 #~ msgid "Spectrogram l&og(f)"
-#~ msgstr "スペクトラム表示 (対数周波数)(&o)"
+#~ msgstr "スペクトラム表示 (対数周波数)(&O)"
 
 #, fuzzy
 #~ msgid "Spectral Selection lo&g(f)"
 #~ msgstr "スペクトルの選択"
 
 #~ msgid "Pitc&h (EAC)"
-#~ msgstr "ピッチ (EAC)(&h)"
+#~ msgstr "ピッチ (EAC)(&H)"
 
 #~ msgid "Set Sample &Format"
 #~ msgstr "サンプル形式を設定(&F)"
 
 #~ msgid "Set Ra&nge..."
-#~ msgstr "範囲をセット(&n)..."
+#~ msgstr "範囲をセット(&N)..."
 
 #~ msgid "Plug-ins %i to %i"
 #~ msgstr "プラグイン %i から %i"
@@ -20082,7 +20082,7 @@ msgstr ""
 #~ msgstr "カーブの保存と管理"
 
 #~ msgid "G&rids"
-#~ msgstr "グリッド(&r)"
+#~ msgstr "グリッド(&R)"
 
 #~ msgid "Grids"
 #~ msgstr "グリッド"
@@ -20519,16 +20519,16 @@ msgstr ""
 #~ msgstr "プリセット"
 
 #~ msgid "Lo&ad"
-#~ msgstr "ロード (&a)"
+#~ msgstr "ロード (&A)"
 
 #~ msgid "User settings:"
 #~ msgstr "ユーザー設定:"
 
 #~ msgid "Loa&d"
-#~ msgstr "ロード (&d)"
+#~ msgstr "ロード (&D)"
 
 #~ msgid "R&ename"
-#~ msgstr "リネーム(&e)"
+#~ msgstr "リネーム(&E)"
 
 #~ msgid "Reverb settings"
 #~ msgstr "リバーブ設定"
@@ -20897,7 +20897,7 @@ msgstr ""
 #~ msgstr "ファイルのアップロード(&U)..."
 
 #~ msgid "R&emove Audio or Labels"
-#~ msgstr "オーディオまたはラベルの削除(&e)"
+#~ msgstr "オーディオまたはラベルの削除(&E)"
 
 #~ msgid ""
 #~ "Audacity compressed project files (.aup) save your work in a smaller, "
@@ -20979,13 +20979,13 @@ msgstr ""
 #~ msgstr "Audacityが次回起動された時にこれらのモジュールを有効にします"
 
 #~ msgid "mod-&script-pipe"
-#~ msgstr "mod-script-pipe (&s)"
+#~ msgstr "mod-script-pipe (&S)"
 
 #~ msgid "mod-&nyq-bench"
-#~ msgstr "mod-nyq-bench (&n)"
+#~ msgstr "mod-nyq-bench (&N)"
 
 #~ msgid "mod-&track-panel"
-#~ msgstr "mod-track-panel (&t)"
+#~ msgstr "mod-track-panel (&T)"
 
 #~ msgid ""
 #~ "You have left blank label names.  These will be\n"
@@ -20998,7 +20998,7 @@ msgstr ""
 #~ "戻って名前を付けてやりますか？"
 
 #~ msgid "Align Tracks To&gether"
-#~ msgstr "すべてのトラックを揃える(&g)"
+#~ msgstr "すべてのトラックを揃える(&G)"
 
 #~ msgid "Align with &Zero"
 #~ msgstr "ゼロに揃える(&Z)"
@@ -21013,13 +21013,13 @@ msgstr ""
 #~ msgstr "選択範囲の最後に揃える(&E)"
 
 #~ msgid "Align End with Cu&rsor"
-#~ msgstr "カーソル位置を終端にする(&r)"
+#~ msgstr "カーソル位置を終端にする(&R)"
 
 #~ msgid "Align End with Selection En&d"
-#~ msgstr "選択範囲の最後を終端にする(&d)"
+#~ msgstr "選択範囲の最後を終端にする(&D)"
 
 #~ msgid "Ali&gn and Move Cursor"
-#~ msgstr "カーソルを移動して揃える(&g)"
+#~ msgstr "カーソルを移動して揃える(&G)"
 
 #~ msgid "Aligned with zero"
 #~ msgstr "セロで揃えました"
@@ -21056,7 +21056,7 @@ msgstr ""
 #~ "<a href=\"*URL*\"> をダウンロードしてご覧ください</a>."
 
 #~ msgid "Open Me&tadata Editor..."
-#~ msgstr "メタデータエディタを開く(&t)..."
+#~ msgstr "メタデータエディタを開く(&T)..."
 
 #~ msgid "Edit the metadata tags"
 #~ msgstr "メタデータタグを編集"
@@ -21131,7 +21131,7 @@ msgstr ""
 #~ msgstr "クリーンスピーチ設定の書き出し(&P)..."
 
 #~ msgid "I&mport CleanSpeech Presets..."
-#~ msgstr "クリーンスピーチ設定の取り込み(&m)..."
+#~ msgstr "クリーンスピーチ設定の取り込み(&M)..."
 
 #~ msgid "&About Audacity CleanSpeech..."
 #~ msgstr "Audacityクリーンスピーチについて(&A)..."
@@ -21165,10 +21165,10 @@ msgstr ""
 #~ "ません."
 
 #~ msgid "Clea&nSpeech Mode (Customized GUI)"
-#~ msgstr "クリーンスピーチモード(カスタマイズされたGUI)(&n)"
+#~ msgstr "クリーンスピーチモード(カスタマイズされたGUI)(&N)"
 
 #~ msgid "Don't a&pply effects in batch mode"
-#~ msgstr "自動実行モードでは, エフェクトを適用しない(&p)"
+#~ msgstr "自動実行モードでは, エフェクトを適用しない(&P)"
 
 #~ msgid ""
 #~ "Recording in CleanSpeech mode is not possible when a track, or more than "
@@ -21178,7 +21178,7 @@ msgstr ""
 #~ "は, クリーンスピーチモードで録音することはできません. "
 
 #~ msgid "Tri&m"
-#~ msgstr "トリム(&m)"
+#~ msgstr "トリム(&M)"
 
 #~ msgid "Trim"
 #~ msgstr "トリム"
@@ -21375,10 +21375,10 @@ msgstr ""
 #~ msgstr "無音の閾値:"
 
 #~ msgid "Cl&eanSpeech Mode (Customized GUI)"
-#~ msgstr "クリーンスピーチモード(カスタマイズされたGUI)(&e)"
+#~ msgstr "クリーンスピーチモード(カスタマイズされたGUI)(&E)"
 
 #~ msgid "N&yquist"
-#~ msgstr "Nyquistエフェクト(&y)"
+#~ msgstr "Nyquistエフェクト(&Y)"
 
 #~ msgid "&VAMP"
 #~ msgstr "VAMPエフェクト(&V)"
