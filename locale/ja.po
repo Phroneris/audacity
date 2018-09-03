@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-08-31 05:54+0900\n"
+"PO-Revision-Date: 2018-09-03 09:52+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -392,26 +392,24 @@ msgid "Stop script"
 msgstr "スクリプトの停止"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Check Online"
-msgstr "%sをチェック中"
+msgstr "オンラインで確認"
 
 #: src/AboutDialog.cpp
 msgid "system administration"
-msgstr ""
+msgstr "システム管理者"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "developer"
-msgstr "エンベロープ"
+msgstr "開発者"
 
 #: src/AboutDialog.cpp
 msgid "co-founder and developer"
-msgstr ""
+msgstr "共同創業者 兼 開発者"
 
 #: src/AboutDialog.cpp
 msgid "documentation and support"
-msgstr ""
+msgstr "ドキュメンテーションとサポート"
 
 #: src/AboutDialog.cpp
 msgid "quality assurance"
@@ -419,47 +417,43 @@ msgstr "品質保証"
 
 #: src/AboutDialog.cpp
 msgid "documentation and support, French"
-msgstr ""
+msgstr "ドキュメンテーションとサポート（フランス語）"
 
 #: src/AboutDialog.cpp
 msgid "accessibility advisor"
-msgstr ""
+msgstr "アクセシビリティ・アドバイザー"
 
 #: src/AboutDialog.cpp
 msgid "graphic artist"
-msgstr ""
+msgstr "グラフィックアーティスト"
 
 #: src/AboutDialog.cpp
 msgid "composer"
-msgstr ""
+msgstr "コンポーザー"
 
 #: src/AboutDialog.cpp
 msgid "tester"
-msgstr ""
+msgstr "テスター"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Nyquist plug-ins"
-msgstr "Nyquist 出力"
+msgstr "Nyquistプラグイン"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "web developer"
-msgstr "エンベロープ"
+msgstr "Web開発者"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "graphics"
-msgstr "グラフィック(&G)"
+msgstr "グラフィック"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "incorporating"
-msgstr "ファイルの取り込み時にエラーが発生しました"
+msgstr "組込:"
 
 #: src/AboutDialog.cpp
 msgid "About Audacity"
-msgstr "Audacity について..."
+msgstr "Audacityについて"
 
 #. i18n-hint: In most languages OK is to be translated as OK.  It appears on a button.
 #: src/AboutDialog.cpp src/effects/nyquist/Nyquist.cpp
@@ -468,31 +462,29 @@ msgid "OK"
 msgstr "OK"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid ""
 "Audacity is a free program written by a worldwide team of [[https://www."
 "audacityteam.org/about/credits|volunteers]]. Audacity is [[https://www."
 "audacityteam.org/download|available]] for Windows, Mac, and GNU/Linux (and "
 "other Unix-like systems)."
 msgstr ""
-"Audacity は世界中のボランティアの<a href=\"http://audacityteam.org/about/"
-"credits\">開発者</a>のチームによって開発されたフリーなプログラムです. "
-"AudacityはWindows, Mac, およびGNU/Linux (その他Unix系システム含む)に<a href="
-"\"http://audacityteam.org/download\">対応</a>しています."
+"Audacityは世界中の[[https://www.audacityteam.org/about/credits|ボランティア]]"
+"のチームによって開発されたフリーなプログラムです. AudacityはWindows, Mac, お"
+"よびGNU/Linux(その他Unix系システム含む)に[[https://www.audacityteam.org/"
+"download|対応]]しています."
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid ""
 "If you find a bug or have a suggestion for us, please write, in English, to "
 "our [[https://forum.audacityteam.org/|forum]]. For help, view the tips and "
 "tricks on our [[https://wiki.audacityteam.org/|wiki]] or visit our [[https://"
 "forum.audacityteam.org/|forum]]."
 msgstr ""
-"もしバグを発見されたり私たちへのご提案をお持ちの場合は, <a href=\"mailto:"
-"feedback@audacityteam.org\">feedback address</a> へお知らせください.  ヘルプ"
-"が必要な場合は, 私たちの<a href=\"http://wiki.audacityteam.org/\">Wikiページ"
-"</a>のヒントや便利な使い方など, または<a href=\"http://forum.audacityteam."
-"org/\">forum</a>をアクセスしてみてください."
+"もしバグを発見されたり私たちへのご提案をお持ちの場合は, [[https://forum."
+"audacityteam.org/|フォーラム]]にて英語でお書きください. ヘルプが必要な場合"
+"は, [[https://wiki.audacityteam.org/|Wikiページ]]でヒントや便利な使い方をご覧"
+"になるか, または[[https://forum.audacityteam.org/|フォーラム]]にアクセスして"
+"みてください."
 
 #  i18n-hint: The translation of "translator_credits" will appear
 #  in the credits in the About Audacity window.  Use this to add
@@ -513,21 +505,21 @@ msgstr ""
 #. *  For example:  "English translation by Dominic Mazzoni."
 #: src/AboutDialog.cpp
 msgid "translator_credits"
-msgstr "Japanese translation by Atsushi Yoshida (ayoshida.pub@gmail.com)"
+msgstr ""
+"日本語訳:<br>Atsushi Yoshida (ayoshida.pub@gmail.com)<br>Phroneris "
+"(phroneris@gmail.com)"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "<h3>Audacity "
-msgstr "Audacity "
+msgstr "<h3>Audacity "
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid ""
 "Audacity the free, open source, cross-platform software for recording and "
 "editing sounds."
 msgstr ""
-"フリー、オープンソースでクロスプラットフォームのレコーディング・サウンド編集"
-"ソフトウェア<br>"
+"Audacityはフリーでオープンソースでクロスプラットフォームな録音・音声編集ソフ"
+"トです."
 
 #: src/AboutDialog.cpp
 msgid "Credits"
@@ -535,71 +527,67 @@ msgstr "クレジット"
 
 #: src/AboutDialog.cpp
 msgid "DarkAudacity Customisation"
-msgstr ""
+msgstr "DarkAudacityカスタム"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Audacity Team Members"
-msgstr "Audacity開発チーム"
+msgstr "Audacityチームメンバー"
 
 #: src/AboutDialog.cpp
 msgid "Emeritus:"
-msgstr ""
+msgstr "名誉メンバー:"
 
 #: src/AboutDialog.cpp
 msgid "Distinguished Audacity Team members, not currently active"
-msgstr ""
+msgstr "現在はその席を退いた、功績あるAudacityチームメンバー達"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Contributors"
-msgstr "その他の支援者の方々"
+msgstr "支援者の方々"
 
 #: src/AboutDialog.cpp
 msgid "Website and Graphics"
-msgstr ""
+msgstr "Webサイトとグラフィック"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Translators"
-msgstr "トランスポート"
+msgstr "翻訳者"
 
 #: src/AboutDialog.cpp src/prefs/LibraryPrefs.cpp
 msgid "Libraries"
 msgstr "ライブラリ"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Audacity includes code from the following projects:"
-msgstr "Audacity は以下のプロジェクトのコードに基づいています:"
+msgstr "Audacityは以下のプロジェクトのコードを含んでいます:"
 
 #: src/AboutDialog.cpp
 msgid "Special thanks:"
 msgstr "スペシャルサンクス:"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Audacity website: "
-msgstr "Audacity の初めての起動"
+msgstr "AudacityのWebサイト: "
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid ""
 "<p><br>&nbsp; &nbsp; <b>Audacity<sup>&reg;</sup></b> software is copyright "
 "&copy; 1999-2018 Audacity Team.<br>"
-msgstr "<b>Audacity&reg;</b> software is copyright"
+msgstr ""
+"<p><br>&nbsp; &nbsp; <b>Audacity<sup>&reg;</sup></b> software is copyright "
+"&copy; 1999-2018 Audacity Team.<br>"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid ""
 "&nbsp; &nbsp; The name <b>Audacity</b> is a registered trademark of Dominic "
 "Mazzoni.<br><br>"
-msgstr "<b>Audacity&reg;</b>の名称は Dominic Mazzoni の登録商標です."
+msgstr ""
+"&nbsp; &nbsp; <b>Audacity</b>の名称はDominic Mazzoniの登録商標です.<br><br>"
 
 #: src/AboutDialog.cpp src/commands/AudacityCommand.cpp src/effects/Effect.cpp
 #: src/effects/nyquist/Nyquist.cpp plug-ins/beat.ny
 msgid "Audacity"
-msgstr "Audacity "
+msgstr "Audacity"
 
 #. i18n-hint: Information about when audacity was compiled
 #: src/AboutDialog.cpp
@@ -608,7 +596,7 @@ msgstr "コンパイル情報"
 
 #: src/AboutDialog.cpp src/PluginManager.cpp src/prefs/ModulePrefs.cpp
 msgid "Enabled"
-msgstr "有効になっています"
+msgstr "有効です"
 
 #: src/AboutDialog.cpp src/PluginManager.cpp src/prefs/ModulePrefs.cpp
 msgid "Disabled"
@@ -621,11 +609,11 @@ msgstr "サポートするファイル形式"
 #. i18n-hint: This is what the library (libmad) does - imports MP3 files
 #: src/AboutDialog.cpp
 msgid "MP3 Importing"
-msgstr "MP3ファイルを読み込む"
+msgstr "MP3取り込み"
 
 #: src/AboutDialog.cpp
 msgid "Ogg Vorbis Import and Export"
-msgstr "Ogg Vorbis 取り込みと書き出し"
+msgstr "Ogg Vorbis取り込みと書き出し"
 
 #: src/AboutDialog.cpp
 msgid "ID3 tag support"
@@ -633,23 +621,23 @@ msgstr "ID3タグのサポート"
 
 #: src/AboutDialog.cpp
 msgid "FLAC import and export"
-msgstr "FLAC 取り込みと書き出し"
+msgstr "FLAC取り込みと書き出し"
 
 #: src/AboutDialog.cpp
 msgid "MP2 export"
-msgstr "MP2 書き出し"
+msgstr "MP2書き出し"
 
 #: src/AboutDialog.cpp
 msgid "Import via QuickTime"
-msgstr "QuickTime を通じて取り込み"
+msgstr "QuickTimeを通じた取り込み"
 
 #: src/AboutDialog.cpp
 msgid "FFmpeg Import/Export"
-msgstr "FFmpeg 取り込み/書き出し"
+msgstr "FFmpeg取り込み/書き出し"
 
 #: src/AboutDialog.cpp
 msgid "Import via GStreamer"
-msgstr "GStreamerを通じて取り込み"
+msgstr "GStreamerを通じた取り込み"
 
 #. i18n-hint: Libraries that are essential to audacity
 #: src/AboutDialog.cpp
@@ -670,11 +658,11 @@ msgstr "クロスプラットフォームのGUIライブラリ"
 
 #: src/AboutDialog.cpp
 msgid "Features"
-msgstr "特徴"
+msgstr "機能"
 
 #: src/AboutDialog.cpp
 msgid "Dark Theme Extras"
-msgstr ""
+msgstr "ダークテーマ拡張"
 
 #: src/AboutDialog.cpp
 msgid "Plug-in support"
@@ -694,11 +682,11 @@ msgstr "急激なピッチとテンポの変化のサポート"
 
 #: src/AboutDialog.cpp
 msgid "Program build date: "
-msgstr "プログラムビルドの日付:"
+msgstr "プログラムビルド日: "
 
 #: src/AboutDialog.cpp
 msgid "Commit Id:"
-msgstr "コミット Id:"
+msgstr "コミットID:"
 
 #: src/AboutDialog.cpp
 msgid "Build type:"
@@ -713,13 +701,12 @@ msgid "Release build"
 msgstr "公開ビルド"
 
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "Compiler:"
-msgstr "コンプレッサー"
+msgstr "コンパイラ:"
 
 #: src/AboutDialog.cpp
 msgid "Installation Prefix: "
-msgstr "インストールのフォルダ: "
+msgstr "インストールプレフィックス: "
 
 #: src/AboutDialog.cpp
 msgid "Settings folder: "
