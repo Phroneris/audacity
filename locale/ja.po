@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-03 09:52+0900\n"
+"PO-Revision-Date: 2018-09-03 10:10+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -2941,34 +2941,28 @@ msgid "Save Project &As..."
 msgstr "プロジェクトファイルを別名で保存(&A)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Save Lossless Copy of Project..."
-msgstr "プロジェクトの圧縮されたコピーを保存..."
+msgstr "プロジェクトの無劣化コピーを保存..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Save Compressed Copy of Project..."
-msgstr "プロジェクトの圧縮されたコピーを保存..."
+msgstr "プロジェクトの圧縮コピーを保存(&S)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Export"
-msgstr "書き出し"
+msgstr "書き出し(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Export as MP&3"
-msgstr "書き出し"
+msgstr "MP3として書き出し(&3)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Export as &WAV"
-msgstr "ラベルの書き出し:"
+msgstr "WAVとして書き出し(&W)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Export as &OGG"
-msgstr "書き出し"
+msgstr "OGGとして書き出し(&O)"
 
 #: src/Menus.cpp
 msgid "&Export Audio..."
@@ -2987,9 +2981,8 @@ msgid "Export &Multiple..."
 msgstr "複数ファイルの書き出し(&M)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Export MI&DI..."
-msgstr "MIDIを書き出し..."
+msgstr "MIDIの書き出し(&D)..."
 
 #: src/Menus.cpp src/import/ImportRaw.cpp
 msgid "&Import"
@@ -3005,11 +2998,11 @@ msgstr "ラベルの取り込み(&L)..."
 
 #: src/Menus.cpp
 msgid "&MIDI..."
-msgstr "MIDI の取り込み(&M)..."
+msgstr "MIDIの取り込み(&M)..."
 
 #: src/Menus.cpp
 msgid "&Raw Data..."
-msgstr "ロー (Raw) データの取り込み(&R)..."
+msgstr "ロー(Raw)データの取り込み(&R)..."
 
 #: src/Menus.cpp
 msgid "Pa&ge Setup..."
