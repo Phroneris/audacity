@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-03 10:51+0900\n"
+"PO-Revision-Date: 2018-09-03 11:31+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -15679,41 +15679,34 @@ msgid "Show Scrub Ruler"
 msgstr ""
 
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Project Rate (Hz)"
-msgstr "プロジェクトのサンプリング周波数 (Hz):"
+msgstr "プロジェクトのサンプリングレート(Hz)"
 
 #  i18n-hint: Set snap-to mode on or off
 #  i18n-hint: Set snap-to mode on or off
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Snap-To"
-msgstr "スナップモードを有効"
+msgstr "スナップモード"
 
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Audio Position"
-msgstr "再生位置"
+msgstr "音声位置"
 
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Start and End of Selection"
-msgstr "選択領域の終わりを開始点に(&E)"
+msgstr "選択範囲の始端と終端"
 
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Start and Length of Selection"
-msgstr "現在の選択されている長さ"
+msgstr "選択範囲の始端と長さ"
 
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Length and End of Selection"
-msgstr "選択範囲の左端を設定(あるいは延長)"
+msgstr "選択範囲の長さと終端"
 
 #: src/toolbars/SelectionBar.cpp
-#, fuzzy
 msgid "Length and Center of Selection"
-msgstr "現在の選択されている長さ"
+msgstr "選択範囲の長さと中点"
 
 #: src/toolbars/SelectionBar.cpp src/toolbars/SpectralSelectionBar.cpp
 #, fuzzy
@@ -15737,7 +15730,7 @@ msgstr "中央"
 #: src/toolbars/SelectionBar.cpp
 #, c-format
 msgid "Snap Clicks/Selections to %s"
-msgstr "クリック/選択範囲を %s にあわせる"
+msgstr "クリック/選択範囲を %s に合わせる"
 
 #. i18n-hint: %s is replaced e.g by 'Length', to indicate that it will be calculated from other parameters.
 #: src/toolbars/SelectionBar.cpp
@@ -16694,7 +16687,7 @@ msgstr "時:分:秒"
 #. * locale
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s"
-msgstr "0100 h 060 m 060 s"
+msgstr "0100 時間 060 分 060 秒"
 
 #. i18n-hint: Name of time display format that shows time in days, hours,
 #. * minutes and seconds
@@ -16709,13 +16702,13 @@ msgstr "日:時:分:秒"
 #. * 24 hours in a day in your locale
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 days 024 h 060 m 060 s"
-msgstr "0100 days 024 h 060 m 060 s"
+msgstr "0100 日 024 時間 060 分 060 秒"
 
 #. i18n-hint: Name of time display format that shows time in hours,
 #. * minutes, seconds and hundredths of a second (1/100 second)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + hundredths"
-msgstr "時:分:秒 + 百分の１秒"
+msgstr "時:分:秒 + 100分の1秒"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and hundredths of a second. Change the 'h' to the abbreviation for hours,
@@ -16739,13 +16732,13 @@ msgstr "時:分:秒 + ミリ秒"
 #. * unless there aren't 60 minutes in an hour in your locale
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060.01000 s"
-msgstr "0100 h 060 m 060.01000 s"
+msgstr "0100 時間 060 分 060.01000 秒"
 
 #. i18n-hint: Name of time display format that shows time in hours,
 #. * minutes, seconds and samples (at the current project sample rate)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + samples"
-msgstr "時:分:秒　+　サンプル "
+msgstr "時:分:秒 + サンプル"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and samples. Change the 'h' to the abbreviation for hours, 'm' to the
@@ -16754,7 +16747,7 @@ msgstr "時:分:秒　+　サンプル "
 #. * unless there aren't 60 seconds in a minute in your locale
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+.# samples"
-msgstr "0100 h 060 m 060 s+.# samples"
+msgstr "0100 時間 060 分 060 秒+.# サンプル"
 
 #. i18n-hint: Name of time display format that shows time in samples (at the
 #. * current project sample rate).  For example the number of a sample at 1
@@ -16778,7 +16771,7 @@ msgstr "01000,01000,01000 サンプル|#"
 #. * seconds and frames at 24 frames per second (commonly used for films)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + film frames (24 fps)"
-msgstr "hh:mm:ss + フィルムフレーム (24 fps)"
+msgstr "時:分:秒 + フィルムフレーム (24fps)"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and frames at 24 frames per second. Change the 'h' to the abbreviation
@@ -16787,7 +16780,7 @@ msgstr "hh:mm:ss + フィルムフレーム (24 fps)"
 #. * unless there aren't 60 seconds in a minute in your locale
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+.24 frames"
-msgstr "0100 h 060 m 060 s+.24 フレーム"
+msgstr "0100 時間 060 分 060 秒+.24 フレーム"
 
 #  i18n-hint: fps is "frames per second"
 #  i18n-hint: fps is "frames per second"
@@ -16810,7 +16803,7 @@ msgstr "01000,01000 フレーム|24"
 #. * Japanese TV, and very odd)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + NTSC drop frames"
-msgstr "hh:mm:ss + NTSCドロップフレーム"
+msgstr "時:分:秒 + NTSCドロップフレーム"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and frames with NTSC drop frames. Change the 'h' to the abbreviation
@@ -16818,7 +16811,7 @@ msgstr "hh:mm:ss + NTSCドロップフレーム"
 #. * for seconds and translate 'frames'. Leave the |N alone, it's important!
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+.30 frames|N"
-msgstr "0100 h 060 m 060 s+.30 フレーム|N"
+msgstr "0100 時間 060 分 060 秒+.30 フレーム|N"
 
 #  i18n-hint: hours, minutes, seconds, frames
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
@@ -16826,7 +16819,7 @@ msgstr "0100 h 060 m 060 s+.30 フレーム|N"
 #. * Japanese TV, and doesn't quite match wall time
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + NTSC non-drop frames"
-msgstr "NTSC ドロップフレーム無しフレーム"
+msgstr "時:分:秒 + NTSCドロップフレーム無しフレーム"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and frames with NTSC drop frames. Change the 'h' to the abbreviation
@@ -16835,7 +16828,7 @@ msgstr "NTSC ドロップフレーム無しフレーム"
 #. * the whole things really is slightly off-speed!
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+.030 frames| .999000999"
-msgstr "0100 h 060 m 060 s+.030 フレーム| .999000999"
+msgstr "0100 時間 060 分 060 秒+.030 フレーム| .999000999"
 
 #  i18n-hint: fps is "frames per second"
 #. i18n-hint: Name of time display format that shows time in frames at NTSC
@@ -16859,7 +16852,7 @@ msgstr "01000,01000 フレーム|29.97002997"
 #. * seconds and frames at PAL TV frame rate (used for European TV)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + PAL frames (25 fps)"
-msgstr "時:分:秒 + PAL フレームレート (25fps)"
+msgstr "時:分:秒 + PALフレーム (25fps)"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and frames with PAL TV frames. Change the 'h' to the abbreviation
@@ -16867,7 +16860,7 @@ msgstr "時:分:秒 + PAL フレームレート (25fps)"
 #. * for seconds and translate 'frames'. Nice simple time code!
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+.25 frames"
-msgstr "0100 h 060 m 060 s+.25 frames"
+msgstr "0100 時間 060 分 060 秒+.25 フレーム"
 
 #  i18n-hint: fps is "frames per second"
 #  i18n-hint: fps is "frames per second"
@@ -16875,7 +16868,7 @@ msgstr "0100 h 060 m 060 s+.25 frames"
 #. * TV frame rate (used for European TV)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "PAL frames (25 fps)"
-msgstr "PAL フレーム (25 fps)"
+msgstr "PALフレーム (25fps)"
 
 #. i18n-hint: Format string for displaying time in frames with NTSC frames.
 #. * Change the comma
@@ -16883,13 +16876,13 @@ msgstr "PAL フレーム (25 fps)"
 #. * translate 'frames' and leave the rest alone.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000 frames|25"
-msgstr "01000,01000 frames|25"
+msgstr "01000,01000 フレーム|25"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
 #. * seconds and frames at CD Audio frame rate (75 frames per second)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hh:mm:ss + CDDA frames (75 fps)"
-msgstr "時:分:秒 + CDDA フレーム (75 fps)"
+msgstr "時:分:秒 + CDDAフレーム (75fps)"
 
 #. i18n-hint: Format string for displaying time in hours, minutes, seconds
 #. * and frames with CD Audio frames. Change the 'h' to the abbreviation
@@ -16897,7 +16890,7 @@ msgstr "時:分:秒 + CDDA フレーム (75 fps)"
 #. * for seconds and translate 'frames'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+.75 frames"
-msgstr "0100 h 060 m 060 s+.75 フレーム"
+msgstr "0100 時間 060 分 060 秒+.75 フレーム"
 
 #  i18n-hint: fps is "frames per second"
 #  i18n-hint: fps is "frames per second"
@@ -16905,7 +16898,7 @@ msgstr "0100 h 060 m 060 s+.75 フレーム"
 #. * Audio frame rate (75 frames per second)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "CDDA frames (75 fps)"
-msgstr "CDDA フレーム (75 fps)"
+msgstr "CDDAフレーム (75fps)"
 
 #. i18n-hint: Format string for displaying time in frames with CD Audio
 #. * frames. Change the comma
@@ -16932,9 +16925,8 @@ msgstr "kHz"
 #. i18n-hint: Format string for displaying frequency in kilohertz. Change
 #. * the decimal point for your locale. Don't change the numbers.
 #: src/widgets/NumericTextCtrl.cpp
-#, fuzzy
 msgid "01000.01000 kHz|0.001"
-msgstr "0100.01000 kHz|0.001"
+msgstr "01000.01000 kHz|0.001"
 
 #. i18n-hint: Name of display format that shows log of frequency
 #. * in octaves
@@ -16953,7 +16945,7 @@ msgstr "100.01000 オクターブ|1.442695041"
 #. * in semitones and cents
 #: src/widgets/NumericTextCtrl.cpp
 msgid "semitones + cents"
-msgstr "半音 + cents"
+msgstr "半音 + セント"
 
 #. i18n-hint: Format string for displaying log of frequency in semitones
 #. * and cents.
@@ -16961,7 +16953,7 @@ msgstr "半音 + cents"
 #. Scale factor is 12 / ln (2)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "1000 semitones .0100 cents|17.312340491"
-msgstr "1000 半音 .0100 cents|17.312340491"
+msgstr "1000 半音 .0100 セント|17.312340491"
 
 #. i18n-hint: Name of display format that shows log of frequency
 #. * in decades
