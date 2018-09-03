@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-03 10:10+0900\n"
+"PO-Revision-Date: 2018-09-03 10:51+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -3041,7 +3041,7 @@ msgstr "複製(&A)"
 
 #: src/Menus.cpp
 msgid "R&emove Special"
-msgstr "特殊な削除・切り取り (&E)"
+msgstr "特殊な削除・切り取り(&E)"
 
 #. i18n-hint: (verb) Do a special kind of cut
 #: src/Menus.cpp
@@ -3061,7 +3061,7 @@ msgstr "無音化(&O)"
 #. i18n-hint: (verb)
 #: src/Menus.cpp
 msgid "Tri&m Audio"
-msgstr "オーディオの調整(&M)"
+msgstr "トリミング(&M)"
 
 #: src/Menus.cpp
 msgid "Clip B&oundaries"
@@ -3074,7 +3074,7 @@ msgstr "分割(&L)"
 
 #: src/Menus.cpp
 msgid "Split Ne&w"
-msgstr "分割して新規(&W) "
+msgstr "分割して新規(&W)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
@@ -3086,23 +3086,20 @@ msgid "Detac&h at Silences"
 msgstr "無音部分の除去(&H)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Labels"
-msgstr "ラベル"
+msgstr "ラベル(&L)"
 
 #: src/Menus.cpp
 msgid "&Edit Labels..."
 msgstr "ラベルの編集(&E)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Add Label at &Selection"
 msgstr "選択範囲にラベルを付ける(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Add Label at &Playback Position"
-msgstr "再生開始位置にラベルを付ける(&P) "
+msgstr "再生位置にラベルを付ける(&P)"
 
 #: src/Menus.cpp
 msgid "Paste Te&xt to New Label"
@@ -3110,17 +3107,16 @@ msgstr "新しいラベルにテキストをペースト(&X)"
 
 #: src/Menus.cpp
 msgid "&Type to Create a Label (on/off)"
-msgstr ""
+msgstr "タイピングで即ラベル生成(オン/オフ)(&T)"
 
 #: src/Menus.cpp
 msgid "La&beled Audio"
-msgstr "ラベル付きのオーディオ(&B)..."
+msgstr "ラベル付きのオーディオ(&B)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Cut"
-msgstr "ラベルの編集"
+msgstr "ラベルで切り取り"
 
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
@@ -3128,15 +3124,13 @@ msgid "&Cut"
 msgstr "切り取り(&C)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Delete"
-msgstr "分離削除"
+msgstr "ラベルで削除"
 
 #. i18n-hint: (verb) A special way to cut out a piece of audio
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Split Cut"
-msgstr "切り取り分割"
+msgstr "ラベルで分割切り取り"
 
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
@@ -3144,9 +3138,8 @@ msgid "&Split Cut"
 msgstr "分割して切り取り(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Split Delete"
-msgstr "分離削除"
+msgstr "ラベルで分割削除"
 
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
@@ -3154,19 +3147,17 @@ msgid "Sp&lit Delete"
 msgstr "分割して削除(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Silence"
-msgstr "無音"
+msgstr "ラベルで無音化"
 
 #: src/Menus.cpp
 msgid "Silence &Audio"
-msgstr "無音(&A)"
+msgstr "無音化(&A)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Copy"
-msgstr "ラベル"
+msgstr "ラベルでコピー"
 
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
@@ -3175,9 +3166,8 @@ msgstr "コピー(&P)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Split"
-msgstr "ラベルの編集"
+msgstr "ラベルで分割"
 
 #  i18n-hint: Labeled Regions submenu
 #: src/Menus.cpp
@@ -3186,14 +3176,12 @@ msgstr "分割(&T)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
-#, fuzzy
 msgid "Label Join"
-msgstr "ラベルの編集"
+msgstr "ラベルで結合"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Me&tadata..."
-msgstr "メタデータを編集... (&T)"
+msgstr "メタデータ(&T)..."
 
 #: src/Menus.cpp
 msgid "Pre&ferences..."
