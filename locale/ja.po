@@ -3834,63 +3834,54 @@ msgid "Plot Spectrum..."
 msgstr "スペクトル表示..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "T&ools"
-msgstr "道具箱"
+msgstr "道具箱(&O)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Macros..."
-msgstr "ラベルの取り込み(&L)..."
+msgstr "マクロ(&M)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Apply Macro"
-msgstr "適用(&A)"
+msgstr "マクロの適用(&A)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Palette..."
-msgstr "削除(&E)..."
+msgstr "パレット(&P)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Screenshot..."
-msgstr "スクリーンショットツール(&S)..."
+msgstr "スクリーンショット(&S)..."
 
 #: src/Menus.cpp
 msgid "&Run Benchmark..."
 msgstr "ベンチマーク(&R)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Simulate Recording Errors"
-msgstr "スライダー録音"
+msgstr "録音エラーをシミュレーション"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Detect Upstream Dropouts"
-msgstr "読み込むためのストリームを選択"
+msgstr "ドロップアウトを検出"
 
 #  i18n-hint: This refers to a "window function", used in the
 #  Frequency analyze dialog box.
 #  i18n-hint: This refers to a "window function", used in the
 #  Frequency analyze dialog box.
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Window"
-msgstr "ウィンドウ"
+msgstr "窓関数(&W)"
 
 #. i18n-hint: Standard Macintosh Window menu item:  Make (the current
 #. * window) shrink to an icon on the dock
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Minimize"
-msgstr "最低"
+msgstr "最小化(&M)"
 
 #: src/Menus.cpp
 msgid "&Bring All to Front"
-msgstr ""
+msgstr "全てを最前面に(&B)"
 
 #. i18n-hint: Extra is a menu with extra commands
 #: src/Menus.cpp
