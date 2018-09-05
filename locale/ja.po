@@ -3886,7 +3886,7 @@ msgstr "全てを最前面に(&B)"
 #. i18n-hint: Extra is a menu with extra commands
 #: src/Menus.cpp
 msgid "Ext&ra"
-msgstr ""
+msgstr "拡張(&R)"
 
 #: src/Menus.cpp
 msgid "T&ransport"
@@ -3895,580 +3895,473 @@ msgstr "録音と再生(&R)"
 #. i18n-hint: (verb) Start playing audio
 #: src/Menus.cpp
 msgid "Pl&ay"
-msgstr "再生 (&A)"
+msgstr "再生(&A)"
 
 #. i18n-hint: (verb) Stop playing audio
 #: src/Menus.cpp
 msgid "Sto&p"
-msgstr ""
+msgstr "停止(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play &One Second"
-msgstr "１秒間再生"
+msgstr "1秒だけ再生(&O)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play to &Selection"
-msgstr "選択範囲を再生"
+msgstr "選択範囲まで再生(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play &Before Selection Start"
-msgstr "選択範囲開始点より前を再生"
+msgstr "選択範囲開始点の直前を再生(&B)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play Af&ter Selection Start"
-msgstr "選択範囲開始点以降を再生"
+msgstr "選択範囲開始点の直後を再生(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play Be&fore Selection End"
-msgstr "選択範囲終了点より前を再生"
+msgstr "選択範囲終了点の直前を再生(&F)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play Aft&er Selection End"
-msgstr "選択範囲終了点以降を再生"
+msgstr "選択範囲終了点の直後を再生(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play Before a&nd After Selection Start"
-msgstr "選択範囲開始点の前と後を再生"
+msgstr "選択範囲開始点の直前から直後までを再生(&N)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play Before an&d After Selection End"
-msgstr "選択領域終了点の前と以降を再生"
+msgstr "選択領域終了点の直前から直後までを再生(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play C&ut Preview"
-msgstr "切り取りプレビューを再生"
+msgstr "切り取りプレビューを再生(&U)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Selection Tool"
-msgstr "選択ツール"
+msgstr "選択ツール(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Envelope Tool"
-msgstr "エンベロープツール"
+msgstr "エンベロープツール(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Draw Tool"
-msgstr "描画ツール"
+msgstr "描画ツール(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Zoom Tool"
-msgstr "拡大ツール "
+msgstr "拡大ツール(&Z)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Time Shift Tool"
-msgstr "タイムシフトツール"
+msgstr "タイムシフトツール(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Multi Tool"
-msgstr "マルチツール"
+msgstr "マルチツール(&M)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Previous Tool"
-msgstr "前回のツール"
+msgstr "前のツール(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Next Tool"
-msgstr "次のツール"
+msgstr "次のツール(&N)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Mi&xer"
-msgstr "ミキサーツールバー(&X)"
+msgstr "ミキサー(&X)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Ad&just Playback Volume..."
-msgstr "再生音量調整"
+msgstr "再生音量調整(&J)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Increase Playback Volume"
-msgstr "再生音量増加"
+msgstr "再生音量を上げる(&I)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Decrease Playback Volume"
-msgstr "再生音量低下"
+msgstr "再生音量を下げる(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Adj&ust Recording Volume..."
-msgstr "録音音量調整"
+msgstr "録音音量調整(&U)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "I&ncrease Recording Volume"
-msgstr "録音音量増加"
+msgstr "録音音量を上げる(&N)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "D&ecrease Recording Volume"
-msgstr "録音音量低下"
+msgstr "録音音量を下げる(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Delete Key"
-msgstr "デリートキー"
+msgstr "Deleteキー(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Delete Key&2"
-msgstr "デリートキー２"
+msgstr "Deleteキー2(&2)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Play-at-Speed"
-msgstr "スピードを変えて再生"
+msgstr "変速再生(&P)"
 
 #. i18n-hint: 'Normal Play-at-Speed' doesn't loop or cut preview.
 #: src/Menus.cpp
-#, fuzzy
 msgid "Normal Pl&ay-at-Speed"
-msgstr "スピードを変えて再生"
+msgstr "変速再生(&A)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Loop Play-at-Speed"
-msgstr "ループ再生"
+msgstr "ループして変速再生(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Play C&ut Preview-at-Speed"
-msgstr "切り取りプレビューを再生"
+msgstr "切り取りプレビューを変速再生(&U)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Ad&just Playback Speed..."
-msgstr "再生スピード調整"
+msgstr "再生速度調整(&J)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Increase Playback Speed"
-msgstr "再生スピード増加"
+msgstr "再生速度を上げる(&I)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Decrease Playback Speed"
-msgstr "再生スピード減少"
+msgstr "再生速度を下げる(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move to &Previous Label"
-msgstr "フォーカスを前のトラックに移動"
+msgstr "前のラベルに移動(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move to &Next Label"
-msgstr "フォーカスを次のトラックへ移動 "
+msgstr "次のラベルに移動(&N)"
 
 #: src/Menus.cpp src/tracks/ui/Scrubbing.cpp
 msgid "See&k"
-msgstr ""
+msgstr "シーク(&K)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Short Seek &Left During Playback"
-msgstr "再生中に左側の短い区間を探す"
+msgstr "再生中に左へシーク(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Short Seek &Right During Playback"
-msgstr "再生中に右側の短い区間を探す"
+msgstr "再生中に右へシーク(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Long Seek Le&ft During Playback"
-msgstr "再生中に左側の長い区間を探す"
+msgstr "再生中に左へ大シーク(&F)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Long Seek Rig&ht During Playback"
-msgstr "再生中に右側の長い区間を探す"
+msgstr "再生中に右へ大シーク(&H)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "De&vice"
-msgstr "デバイス(&V):"
+msgstr "デバイス(&V)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Change &Recording Device..."
-msgstr "録音デバイスの変更"
+msgstr "録音デバイスの変更(&R)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Change &Playback Device..."
-msgstr "再生デバイスの変更"
+msgstr "再生デバイスの変更(&P)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Change Audio &Host..."
-msgstr "オーディオホストの変更"
+msgstr "オーディオホストの変更(&H)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Change Recording Cha&nnels..."
-msgstr "録音チャンネルの変更"
+msgstr "録音チャンネルの変更(&N)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Selection"
-msgstr "選択"
+msgstr "選択(&S)"
 
 #  i18n-hint: Set snap-to mode on or off
 #  i18n-hint: Set snap-to mode on or off
 #: src/Menus.cpp
-#, fuzzy
 msgid "Snap-To &Off"
-msgstr "スナップモードを無効"
+msgstr "スナップ: なし(&O)"
 
 #  i18n-hint: Set snap-to mode on or off
 #  i18n-hint: Set snap-to mode on or off
 #: src/Menus.cpp
-#, fuzzy
 msgid "Snap-To &Nearest"
-msgstr "最近傍に合わせる"
+msgstr "スナップ: 最近傍(&N)"
 
 #  i18n-hint: Set snap-to mode on or off
 #  i18n-hint: Set snap-to mode on or off
 #: src/Menus.cpp
-#, fuzzy
 msgid "Snap-To &Prior"
-msgstr "1つ前の合わせる"
+msgstr "スナップ: 1つ前(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection to &Start"
-msgstr "最初まで選択"
+msgstr "最初まで選択(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection to En&d"
-msgstr "最後まで選択"
+msgstr "最後まで選択(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection Extend &Left"
-msgstr "選択範囲の左端を拡げる"
+msgstr "選択範囲の左端を拡げる(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection Extend &Right"
-msgstr "選択範囲の右端を拡げる"
+msgstr "選択範囲の右端を拡げる(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set (or Extend) Le&ft Selection"
-msgstr "選択範囲の左端を設定(あるいは延長)"
+msgstr "選択範囲の左端を設定または延長(&F)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set (or Extend) Rig&ht Selection"
-msgstr "選択範囲の右端を設定(あるいは延長)"
+msgstr "選択範囲の右端を設定または延長(&H)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection Contract L&eft"
-msgstr "選択範囲の左端を縮める"
+msgstr "選択範囲の左端を縮める(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection Contract R&ight"
-msgstr "選択範囲の右端を縮める"
+msgstr "選択範囲の右端を縮める(&I)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Backward Through Active Windows"
-msgstr "有効なウインドウを後ろに戻る"
+msgstr "アクティブウィンドウ間でフォーカスを戻す"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Forward Through Active Windows"
-msgstr "有効なウインドウを前に進める"
+msgstr "アクティブウィンドウ間でフォーカスを進める"
 
 #: src/Menus.cpp
 msgid "F&ocus"
-msgstr ""
+msgstr "フォーカス(&O)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move &Backward from Toolbars to Tracks"
-msgstr "ツールバーからトラックに戻る"
+msgstr "ツールバー‐トラック間を戻る(&B)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move F&orward from Toolbars to Tracks"
-msgstr "ツールバーからトラックに移動する"
+msgstr "ツールバー‐トラック間を進む(&O)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focus to &Previous Track"
-msgstr "フォーカスを前のトラックに移動 "
+msgstr "フォーカスを前のトラックに移動(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focus to &Next Track"
-msgstr "フォーカスを次のトラックへ移動 "
+msgstr "フォーカスを次のトラックに移動(&N)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focus to &First Track"
-msgstr "フォーカスを最初のトラックへ移動 "
+msgstr "フォーカスを最初のトラックに移動(&F)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focus to &Last Track"
-msgstr "フォーカスを最後のトラックに移動 "
+msgstr "フォーカスを最後のトラックに移動(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focus to P&revious and Select"
-msgstr "フォーカスを前のトラックに移動"
+msgstr "フォーカスを前のトラックに移動(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focus to N&ext and Select"
-msgstr "フォーカスを次のトラックへ移動 "
+msgstr "フォーカスを次のトラックに移動(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Toggle Focused Track"
-msgstr "フォーカスするトラックを切り替え"
+msgstr "フォーカスするトラックを切り替え(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Toggle Focuse&d Track"
-msgstr "フォーカスするトラックを切り替え"
+msgstr "フォーカスするトラックを切り替え(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Cursor"
-msgstr "カーソルを左へ"
+msgstr "カーソル(&C)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor &Left"
-msgstr "カーソルを左へ"
+msgstr "カーソルを左へ(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor &Right"
-msgstr "カーソルを右へ"
+msgstr "カーソルを右へ(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor Sh&ort Jump Left"
-msgstr "カーソルを少しだけ左へ"
+msgstr "カーソルを少しだけ左へ(&O)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor Shor&t Jump Right"
-msgstr "カーソルを少しだけ右へ"
+msgstr "カーソルを少しだけ右へ(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor Long J&ump Left"
-msgstr "カーソルを大きく左へ"
+msgstr "カーソルを大きく左へ(&U)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor Long Ju&mp Right"
-msgstr "カーソルを大きく右へ"
+msgstr "カーソルを大きく右へ(&M)"
 
 #: src/Menus.cpp
 msgid "Clip L&eft"
-msgstr ""
+msgstr "クリップを左へ(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Clip Rig&ht"
-msgstr "クリッピング"
+msgstr "クリップを右へ(&H)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Track"
 msgstr "トラック(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Change P&an on Focused Track..."
-msgstr "フォーカスするトラックを切り替え"
+msgstr "フォーカスしたトラックのパンを変更(&A)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pan &Left on Focused Track"
-msgstr "フォーカスしたトラックを左へパン"
+msgstr "フォーカスしたトラックを左へパン(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pan &Right on Focused Track"
-msgstr "フォーカスしたトラックを右へパン"
+msgstr "フォーカスしたトラックを右へパン(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Change Gai&n on Focused Track..."
-msgstr "フォーカスしたトラックのゲインを変更"
+msgstr "フォーカスしたトラックのゲインを変更(&N)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Increase Gain on Focused Track"
-msgstr "フォーカスしたトラックのゲインを上げる "
+msgstr "フォーカスしたトラックのゲインを上げる(&I)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Decrease Gain on Focused Track"
-msgstr "フォーカスしたトラックのゲインを下げる "
+msgstr "フォーカスしたトラックのゲインを下げる(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Op&en Menu on Focused Track..."
-msgstr "フォーカスしたトラックでメニューを開く "
+msgstr "フォーカスしたトラックのメニューを開く(&E)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "M&ute/Unmute Focused Track"
-msgstr "フォーカスしたトラックをミュート入り/切りする "
+msgstr "フォーカスしたトラックをミュート/非ミュート(&M)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Solo/Unsolo Focused Track"
-msgstr "フォーカスしたトラックをソロ入り/切りする "
+msgstr "フォーカスしたトラックをソロ/非ソロ(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Close Focused Track"
-msgstr "フォーカスされたトラックを閉じる "
+msgstr "フォーカスしたトラックを閉じる(&C)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focused Track U&p"
-msgstr "トラックを上へ移動"
+msgstr "フォーカスしたトラックを上へ移動(&U)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focused Track Do&wn"
-msgstr "トラックを下へ移動"
+msgstr "フォーカスしたトラックを下へ移動(&W)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focused Track to T&op"
-msgstr "トラックを最上段へ移動"
+msgstr "フォーカスしたトラックを最上段へ移動(&O)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Focused Track to &Bottom"
-msgstr "トラックを最下段へ移動(&B)"
+msgstr "フォーカスしたトラックを最下段へ移動(&B)"
 
 #. i18n-hint: Scriptables are commands normally used from Python, Perl etc.
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Scriptables I"
-msgstr "スクリプト"
+msgstr "スクリプト用Ⅰ(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Time..."
-msgstr "選択"
+msgstr "時間選択..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Frequencies..."
-msgstr "周波数"
+msgstr "周波数選択..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Tracks..."
-msgstr "選択"
+msgstr "トラック選択..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Track Status..."
-msgstr "トラックの最初(&S)"
+msgstr "トラックステータス設定..."
 
 #: src/Menus.cpp
 msgid "Set Track Audio..."
-msgstr ""
+msgstr "トラック音声設定..."
 
 #: src/Menus.cpp
 msgid "Set Track Visuals..."
-msgstr ""
+msgstr "トラック表示設定..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Get Preference..."
-msgstr "設定... "
+msgstr "環境設定を取得..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Preference..."
-msgstr "設定... "
+msgstr "環境設定を設定..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Clip..."
-msgstr "次のツール"
+msgstr "クリップ設定..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Envelope..."
-msgstr "エンベロープ"
+msgstr "エンベロープ設定..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Label..."
-msgstr "ラベルの編集(&E)..."
+msgstr "ラベル設定..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Project..."
-msgstr "プロジェクトファイルを別名で保存(&A)..."
+msgstr "プロジェクト設定..."
 
 #: src/Menus.cpp
 msgid "Scripta&bles II"
-msgstr ""
+msgstr "スクリプト用Ⅱ(&B)"
 
 #: src/Menus.cpp src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Select..."
-msgstr "選択"
+msgstr "選択..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Track..."
-msgstr "トラックの並べ替え(&O)"
+msgstr "トラック設定..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Get Info..."
-msgstr "更に取り込む(&G)..."
+msgstr "情報を取得..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Message..."
-msgstr "リサンプリング(&R)..."
+msgstr "メッセージ..."
 
 #  i18n-hint: The name of the Help menu
 #: src/Menus.cpp
-#, fuzzy
 msgid "Help..."
-msgstr "ヘルプ"
+msgstr "ヘルプ..."
 
 #: src/Menus.cpp src/effects/Effect.cpp
 msgid "Import..."
@@ -4479,41 +4372,34 @@ msgid "Export..."
 msgstr "書き出し..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Open Project..."
-msgstr "最近開いたファイル(&R)..."
+msgstr "プロジェクトを開く..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Save Project..."
-msgstr "プロジェクトファイルを別名で保存(&A)..."
+msgstr "プロジェクトを保存..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Mouse..."
-msgstr "更に取り込む(&G)..."
+msgstr "マウス操作..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Compare Audio..."
-msgstr "コンプレッサー..."
+msgstr "音声比較..."
 
 #. i18n-hint: Screenshot in the help menu has a much bigger dialog.
 #: src/Menus.cpp
-#, fuzzy
 msgid "Screenshot (short format)..."
-msgstr "スクリーンショットツール(&S)..."
+msgstr "スクリーンショット(簡易)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Full Screen (on/off)"
-msgstr "フルスクリーン表示on/off"
+msgstr "フルスクリーン表示(オン/オフ)(&F)"
 
 #. i18n-hint: Shrink all project windows to icons on the Macintosh tooldock
 #: src/Menus.cpp
-#, fuzzy
 msgid "Minimize All Projects"
-msgstr "すべてのトラックを基準化する(&N)"
+msgstr "全てのプロジェクトを最小化"
 
 #  i18n-hint: The name of the Help menu
 #: src/Menus.cpp src/effects/Contrast.cpp
