@@ -16055,12 +16055,10 @@ msgstr "エンベロープの調整."
 #. "Seeking" is normal speed playback but with skips, ...
 #.
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "&Scrub"
-msgstr "スクラブ"
+msgstr "スクラブ(&S)"
 
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Seeking"
 msgstr "シーク"
 
@@ -16085,9 +16083,8 @@ msgid "Move mouse pointer to Scrub"
 msgstr "トラックを最下段へ移動(&B)"
 
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Scru&bbing"
-msgstr "スクラブ"
+msgstr "スクラブ(&B)"
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move left selection boundary."
