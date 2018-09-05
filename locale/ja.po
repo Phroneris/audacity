@@ -3334,9 +3334,8 @@ msgstr "表示(&V)"
 #. i18n-hint: Standard Macintosh Window menu item:  Make (the current
 #. * window) full sized
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Zoom"
-msgstr "拡大"
+msgstr "拡大率(&Z)"
 
 #: src/Menus.cpp
 msgid "Zoom &In"
@@ -3355,57 +3354,48 @@ msgid "&Zoom to Selection"
 msgstr "選択範囲を拡大(&Z)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Zoom &Toggle"
-msgstr "拡大ツール "
+msgstr "拡大を切り替え(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "T&rack Size"
-msgstr "トラック名"
+msgstr "トラックの大きさ(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Fit to Width"
-msgstr "ウィンドウに合わせる(&F)"
+msgstr "幅に合わせる(&F)"
 
 #: src/Menus.cpp
 msgid "Fit to &Height"
-msgstr ""
+msgstr "高さに合わせる(&H)"
 
 #: src/Menus.cpp
 msgid "&Collapse All Tracks"
-msgstr "すべてのトラックの縮小(&C) "
+msgstr "全てのトラックを縮小(&C)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "E&xpand Collapsed Tracks"
-msgstr "すべてのトラックの拡張(&X)"
+msgstr "全てのトラックを展開(&X)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Sk&ip to"
-msgstr "終わりまで進める"
+msgstr "移動(&I)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Skip to Selection Start"
-msgstr "選択の最初(&T)"
+msgstr "選択範囲の最初へ移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection Sta&rt"
-msgstr "選択開始:"
+msgstr "選択範囲の最初へ(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Skip to Selection End"
-msgstr "選択の最後(&D)"
+msgstr "選択範囲の最後へ移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection En&d"
-msgstr "選択の最後"
+msgstr "選択範囲の最後へ(&D)"
 
 #. i18n-hint: Clicking this menu item shows the various editing steps that have been taken.
 #: src/Menus.cpp
@@ -3426,14 +3416,13 @@ msgstr "ツールバー(&T)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
-#, fuzzy
 msgid "Reset Toolb&ars"
-msgstr "ツールバーをリセット(&R)"
+msgstr "ツールバーをリセット(&A)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar with the big buttons on it (play record etc)
 #: src/Menus.cpp
 msgid "&Transport Toolbar"
-msgstr "トランスポートツールバー(&T)"
+msgstr "録音/再生ツールバー(&T)"
 
 #. i18n-hint: Clicking this menu item shows a toolbar that has some tools in it
 #: src/Menus.cpp
@@ -3464,15 +3453,13 @@ msgstr "編集ツールバー(&E)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar for transcription (currently just vary play speed)
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pla&y-at-Speed Toolbar"
-msgstr "スピードを変えて再生"
+msgstr "変速再生ツールバー(&Y)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar that enables Scrub or Seek playback and Scrub Ruler
 #: src/Menus.cpp
-#, fuzzy
 msgid "Scru&b Toolbar"
-msgstr "ツールバー(&T)"
+msgstr "スクラブツールバー(&B)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar that manages devices
 #: src/Menus.cpp
@@ -3486,19 +3473,16 @@ msgstr "選択ツールバー(&S)"
 
 #. i18n-hint: Clicking this menu item shows the toolbar for selecting a frequency range of audio
 #: src/Menus.cpp
-#, fuzzy
 msgid "Spe&ctral Selection Toolbar"
-msgstr "スペクトラム選択ツールバー(&S)"
+msgstr "スペクトル選択ツールバー(&C)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Extra Menus (on/off)"
-msgstr "オーバーダブ (オン/オフ) (&O)"
+msgstr "拡張メニュー(オン/オフ)(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Show Clipping (on/off)"
-msgstr "クリッピングを表示(&S)"
+msgstr "クリッピングを表示(オン/オフ)(&S)"
 
 #: src/Menus.cpp src/toolbars/EditToolBar.cpp
 msgid "Show Effects Rack"
