@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-03 12:25+0900\n"
+"PO-Revision-Date: 2018-09-05 17:42+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Bookmarks: -1,622,3258,817,717,0,-1,-1,-1,1089\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -4483,11 +4484,11 @@ msgstr "%s を繰り返し(&R)"
 
 #: src/Menus.cpp
 msgid "Tracks sorted by time"
-msgstr "トラックが時間で整列されました"
+msgstr "トラックが時間で並び替えられました"
 
 #: src/Menus.cpp
 msgid "Tracks sorted by name"
-msgstr "トラックが名前で整列されました"
+msgstr "トラックが名前で並び替えられました"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -6622,7 +6623,7 @@ msgstr "読み込み(&L)..."
 
 #: src/Tags.cpp
 msgid "Set De&fault"
-msgstr "デフォルトを設定(&F)"
+msgstr "デフォルトに設定(&F)"
 
 #: src/Tags.cpp
 msgid "Edit Genres"
@@ -11285,7 +11286,7 @@ msgstr "ナイキストエフェクト"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist Prompt"
-msgstr "Nyquist プロンプト"
+msgstr "Nyquistプロンプト"
 
 #. i18n-hint: It is acceptable to translate this the same as for "Nyquist Prompt"
 #: src/effects/nyquist/Nyquist.cpp
@@ -15879,9 +15880,8 @@ msgid "&Format"
 msgstr "フォーマット(&F)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
-#, fuzzy
 msgid "Rat&e"
-msgstr "サンプリング周波数設定(&E)"
+msgstr "サンプリング周波数(&E)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid ""
