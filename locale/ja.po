@@ -3670,10 +3670,9 @@ msgstr "タイムトラック(&T)"
 
 #: src/Menus.cpp
 msgid "Mi&x"
-msgstr ""
+msgstr "ミックス(&X)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Mix Stereo Down to &Mono"
 msgstr "ステレオからモノラルへ(&M)"
 
@@ -3694,51 +3693,44 @@ msgid "Remo&ve Tracks"
 msgstr "トラック削除(&V)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "M&ute/Unmute"
-msgstr "フォーカスしたトラックをミュート入り/切りする "
+msgstr "ミュート/非ミュート(&U)"
 
 #: src/Menus.cpp
 msgid "&Mute All Tracks"
-msgstr "すべてのトラックのミュート(&M) "
+msgstr "全トラックをミュート(&M)"
 
 #: src/Menus.cpp
 msgid "&Unmute All Tracks"
-msgstr "すべてのトラックのミュート解除(&U)"
+msgstr "全トラックをミュート解除(&U)"
 
 #: src/Menus.cpp
 msgid "&Pan"
-msgstr ""
+msgstr "パン(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pan Left"
-msgstr "左"
+msgstr "左にパン"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Left"
-msgstr "左"
+msgstr "左(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pan Right"
-msgstr "右"
+msgstr "右にパン"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Right"
-msgstr "右"
+msgstr "右(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pan Center"
-msgstr "中央"
+msgstr "中央にパン"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Center"
-msgstr "中央"
+msgstr "中央(&C)"
 
 #: src/Menus.cpp
 msgid "&Align End to End"
@@ -3754,33 +3746,31 @@ msgstr "開始点をゼロ位置に(&Z)"
 
 #: src/Menus.cpp
 msgid "Start to &Cursor/Selection Start"
-msgstr "カーソル/選択領域の始めを開始点に(&C)"
+msgstr "カーソル/選択範囲の始めを開始点に(&C)"
 
 #: src/Menus.cpp
 msgid "Start to Selection &End"
-msgstr "選択領域の終わりを開始点に(&E)"
+msgstr "選択範囲の終わりを開始点に(&E)"
 
 #: src/Menus.cpp
 msgid "End to Cu&rsor/Selection Start"
-msgstr "終了点をカーソル/選択領域の始めに"
+msgstr "終了点をカーソル/選択範囲の始めに(&R)"
 
 #: src/Menus.cpp
 msgid "End to Selection En&d"
-msgstr "終了点を選択領域の終わりに(&D)"
+msgstr "終了点を選択範囲の終わりに(&D)"
 
 #: src/Menus.cpp
 msgid "&Align Tracks"
 msgstr "トラックを揃える(&A)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Move Selection with Tracks (on/off)"
-msgstr "ラック内のエフェクトを下へ"
+msgstr "トラックと共に選択範囲も移動(オン/オフ)(&M)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Sele&ction and Tracks"
-msgstr "ラック内のエフェクトを下へ"
+msgstr "トラックと選択範囲を移動(&C)"
 
 #: src/Menus.cpp
 msgid "Synchronize MIDI with Audio"
@@ -3795,7 +3785,6 @@ msgid "Sort by Time"
 msgstr "時間でソート"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "By &Start Time"
 msgstr "開始時刻(&S)"
 
@@ -3804,14 +3793,12 @@ msgid "Sort by Name"
 msgstr "名前でソート"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "By &Name"
 msgstr "名前(&N)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Sync-&Lock Tracks (on/off)"
-msgstr "トラックを同期させる(&L)"
+msgstr "トラックを同期ロック(オン/オフ)(&L)"
 
 #: src/Menus.cpp
 msgid "&Generate"
