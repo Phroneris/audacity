@@ -2310,7 +2310,7 @@ msgstr ""
 
 #: src/FreqWindow.cpp
 msgid "Spectrum"
-msgstr "スペクトラム表示"
+msgstr "スペクトラム"
 
 #: src/FreqWindow.cpp
 msgid "Standard Autocorrelation"
@@ -2376,14 +2376,12 @@ msgid "Hz"
 msgstr "Hz"
 
 #: src/FreqWindow.cpp
-#, fuzzy
 msgid "Cursor:"
-msgstr "カーソルを左へ"
+msgstr "カーソル:"
 
 #: src/FreqWindow.cpp
-#, fuzzy
 msgid "Peak:"
-msgstr "UsePeak"
+msgstr "ピーク:"
 
 #: src/FreqWindow.cpp
 msgid "&Grids"
@@ -2451,12 +2449,12 @@ msgstr "%d Hz (%s) = %.1f dB"
 #: src/FreqWindow.cpp
 #, c-format
 msgid "%.4f sec (%d Hz) (%s) = %f"
-msgstr "%.4f sec (%d Hz) (%s) = %f"
+msgstr "%.4f 秒 (%d Hz) (%s) = %f"
 
 #: src/FreqWindow.cpp
 #, c-format
 msgid "%.4f sec (%d Hz) (%s) = %.3f"
-msgstr "%.4f sec (%d Hz) (%s) = %.3f"
+msgstr "%.4f 秒 (%d Hz) (%s) = %.3f"
 
 #: src/FreqWindow.cpp
 msgid "spectrum.txt"
@@ -3806,7 +3804,7 @@ msgstr "ジェネレーター(&G)"
 
 #: src/Menus.cpp
 msgid "Add / Remove Plug-ins..."
-msgstr "プラグイン の追加/削除..."
+msgstr "プラグインの追加/削除..."
 
 #: src/Menus.cpp
 msgid "Effe&ct"
@@ -3817,11 +3815,11 @@ msgstr "エフェクト(&C)"
 #: src/Menus.cpp
 #, c-format
 msgid "Repeat %s"
-msgstr "繰り返す %s"
+msgstr "%s を再適用"
 
 #: src/Menus.cpp
 msgid "Repeat Last Effect"
-msgstr "前回のエフェクトを適用"
+msgstr "前回のエフェクトを再適用"
 
 #: src/Menus.cpp
 msgid "&Analyze"
@@ -3833,7 +3831,7 @@ msgstr "コントラスト..."
 
 #: src/Menus.cpp
 msgid "Plot Spectrum..."
-msgstr "スペクトラム表示..."
+msgstr "スペクトル表示..."
 
 #: src/Menus.cpp
 #, fuzzy
@@ -10452,7 +10450,7 @@ msgstr ""
 
 #: src/effects/Paulstretch.h
 msgid "Paulstretch"
-msgstr "Paulstretch..."
+msgstr "Paulstretch"
 
 #: src/effects/Phaser.cpp
 msgid "Combines phase-shifted signals with the original signal"
@@ -10952,11 +10950,11 @@ msgstr "補完:"
 
 #: src/effects/ToneGen.h
 msgid "Chirp"
-msgstr "チャープ..."
+msgstr "チャープ"
 
 #: src/effects/ToneGen.h
 msgid "Tone"
-msgstr "トーン..."
+msgstr "トーン"
 
 #: src/effects/TruncSilence.cpp
 msgid "Truncate Detected Silence"
@@ -16239,8 +16237,8 @@ msgstr "最高選択周波数を移動させるためにはクリックした後
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move center selection frequency to a spectral peak."
 msgstr ""
-"選択中心周波数をスペクトラムピークに移動させるためにはクリックした後にドラッ"
-"グして下さい."
+"選択中心周波数をスペクトルピークに移動させるためにはクリックした後にドラッグ"
+"して下さい."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move center selection frequency."
