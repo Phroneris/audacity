@@ -803,7 +803,7 @@ msgstr "最近開いたファイル(&R)..."
 
 #: src/AudacityApp.cpp src/Menus.cpp
 msgid "&About Audacity..."
-msgstr "Audacity について(&A)..."
+msgstr "Audacityについて(&A)..."
 
 #: src/AudacityApp.cpp
 msgid "&Preferences..."
@@ -4407,39 +4407,33 @@ msgid "&Help"
 msgstr "ヘルプ(&H)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Getting Started"
-msgstr "選択開始:"
+msgstr "さあ始めよう(&G)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Audacity &Manual"
-msgstr "Audacity "
+msgstr "Audacityマニュアル(&M)"
 
 #  i18n-hint: The name of the Help menu
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Quick Help..."
-msgstr "クイックヘルプ(&Q)"
+msgstr "クイックヘルプ(&Q)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Manual..."
-msgstr "マニュアル(&M)"
+msgstr "マニュアル(&M)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Diagnostics"
-msgstr "診断"
+msgstr "診断(&D)"
 
 #: src/Menus.cpp
 msgid "Au&dio Device Info..."
 msgstr "オーディオデバイス情報(&D)..."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&MIDI Device Info..."
-msgstr "オーディオデバイス情報(&D)..."
+msgstr "MIDIデバイス情報(&M)..."
 
 #: src/Menus.cpp
 msgid "Show &Log..."
