@@ -3192,9 +3192,8 @@ msgid "&All"
 msgstr "すべて(&A)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select None"
-msgstr "選択"
+msgstr "選択無し"
 
 #: src/Menus.cpp
 msgid "&None"
@@ -3209,145 +3208,124 @@ msgid "In All &Tracks"
 msgstr "全トラック(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Sync-Locked"
-msgstr "無音を選択"
+msgstr "同期ロックしたトラックを選択"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "In All &Sync-Locked Tracks"
-msgstr "同期された全トラック(&Y)"
+msgstr "同期ロックした全トラック(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "R&egion"
-msgstr "領域を再生(&Y)"
+msgstr "領域(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Selection Left at Play Position"
-msgstr "選択位置を設定して再生"
+msgstr "再生位置より左の選択範囲を設定"
 
 #: src/Menus.cpp
 msgid "&Left at Playback Position"
-msgstr "再生開始位置を左に(&L) "
+msgstr "再生位置の左(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Set Selection Right at Play Position"
-msgstr "選択位置を設定して再生"
+msgstr "再生位置より右の選択範囲を設定"
 
 #: src/Menus.cpp
 msgid "&Right at Playback Position"
-msgstr "再生開始位置を右に(&R) "
+msgstr "再生位置の右(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Track Start to Cursor"
-msgstr "先頭からカーソルまで(&S) "
+msgstr "先頭からカーソルまでを選択"
 
 #: src/Menus.cpp
 msgid "Track &Start to Cursor"
-msgstr "先頭からカーソルまで(&S) "
+msgstr "先頭からカーソルまで(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Cursor to Track End"
-msgstr "カーソルから最後まで(&E) "
+msgstr "カーソルから最後までを選択"
 
 #: src/Menus.cpp
 msgid "Cursor to Track &End"
-msgstr "カーソルから最後まで(&E) "
+msgstr "カーソルから最後まで(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Track Start to End"
-msgstr "最後まで選択"
+msgstr "トラックの最初から最後までを選択"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Track Start to En&d"
-msgstr "先頭からカーソルまで(&S) "
+msgstr "トラックの最初から最後まで(&D)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "S&tore Selection"
-msgstr "スペクトルの選択"
+msgstr "選択範囲を記憶(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Retrieve Selectio&n"
-msgstr "スペクトルの選択"
+msgstr "記憶した選択範囲を再現(&N)"
 
 #: src/Menus.cpp
 msgid "S&pectral"
-msgstr "スペクトラム表示(&P)"
+msgstr "スペクトル表示(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "To&ggle Spectral Selection"
-msgstr "スペクトル選択の切り替え(&G)"
+msgstr "スペクトル選択(&G)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Next &Higher Peak Frequency"
-msgstr "次の高域ピーク周波数"
+msgstr "次の高域ピーク周波数(&H)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Next &Lower Peak Frequency"
-msgstr "次の低域ピーク周波数"
+msgstr "次の低域ピーク周波数(&L)"
 
 #: src/Menus.cpp
 msgid "Pre&vious Clip Boundary to Cursor"
-msgstr ""
+msgstr "前のクリップ境界からカーソルまで(&V)"
 
 #: src/Menus.cpp
 msgid "Cursor to Ne&xt Clip Boundary"
-msgstr ""
+msgstr "カーソルから次のクリップ境界まで(&X)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Previous Clip"
-msgstr "前回のツール"
+msgstr "前のクリップを選択"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Previo&us Clip"
-msgstr "前回のツール"
+msgstr "前のクリップ(&U)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Next Clip"
-msgstr "次のツール"
+msgstr "次のクリップを選択"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "N&ext Clip"
-msgstr "次のツール"
+msgstr "次のクリップ(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Cursor to Stored"
-msgstr "最初まで選択"
+msgstr "現在カーソルから記憶したカーソル位置までを選択"
 
 #: src/Menus.cpp
 msgid "Cursor to Stored &Cursor Position"
-msgstr ""
+msgstr "現在カーソルから記憶したカーソル位置まで(&C)"
 
 #: src/Menus.cpp
 msgid "Store Cursor Pos&ition"
-msgstr ""
+msgstr "カーソル位置を記憶(&I)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select Zero Crossing"
-msgstr "ゼロとの交差部分を見つける(&Z) "
+msgstr "ゼロ交点を選択"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "At &Zero Crossings"
-msgstr "ゼロとの交差部分を見つける(&Z) "
+msgstr "ゼロ交点へ(&Z)"
 
 #: src/Menus.cpp
 msgid "&View"
