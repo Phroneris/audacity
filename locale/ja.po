@@ -3491,23 +3491,21 @@ msgstr "エフェクトラックの表示"
 #. i18n-hint: 'Transport' is the name given to the set of controls that
 #. play, record, pause etc.
 #: src/Menus.cpp
-#, fuzzy
 msgid "Tra&nsport"
-msgstr "トランスポート"
+msgstr "録音と再生(&N)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pl&aying"
-msgstr "再生中"
+msgstr "再生(&A)"
 
 #. i18n-hint: (verb) Start or Stop audio playback
 #: src/Menus.cpp
 msgid "Pl&ay/Stop"
-msgstr " 再生/停止 (&A)"
+msgstr "再生/停止(&A)"
 
 #: src/Menus.cpp
 msgid "Play/Stop and &Set Cursor"
-msgstr "再生/停止 とカーソルのセット (&S)"
+msgstr "再生/停止とカーソルのセット(&S)"
 
 #: src/Menus.cpp
 msgid "&Loop Play"
@@ -3515,115 +3513,96 @@ msgstr "ループ再生(&L)"
 
 #: src/Menus.cpp
 msgid "&Pause"
-msgstr "一時停止(&P) "
+msgstr "一時停止(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Recording"
-msgstr "録音"
+msgstr "録音(&R)"
 
 #. i18n-hint: (verb)
 #: src/Menus.cpp
 msgid "&Record"
-msgstr "録音(&R) "
+msgstr "録音(&R)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Append Record"
-msgstr "追加録音 (&D)"
+msgstr "追加録音(&A)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Record &New Track"
-msgstr "トラック削除(&V)"
+msgstr "新規トラックを録音(&N)"
 
 #: src/Menus.cpp
 msgid "&Timer Record..."
-msgstr "タイマーを使った録音(&T)... "
+msgstr "タイマー録音(&T)..."
 
 #: src/Menus.cpp
 msgid "Punch and Rol&l Record"
-msgstr ""
+msgstr "パンチ＆ロール録音(&L)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Cursor to"
-msgstr "カーソルを左へ"
+msgstr "カーソル移動(&C)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Selection Start"
-msgstr "選択の最初へ(&R)"
+msgstr "カーソルを選択範囲の最初へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Selection Star&t"
-msgstr "選択開始:"
+msgstr "選択範囲の最初へ(&T)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Selection End"
-msgstr "選択の最後へ(&D)"
+msgstr "カーソルを選択範囲の最後へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Track Start"
-msgstr "カーソルから最後まで(&E) "
+msgstr "カーソルをトラックの最初へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Track &Start"
-msgstr "トラックの最初(&S)"
+msgstr "トラックの最初へ(&S)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Track End"
-msgstr "カーソルから最後まで(&E) "
+msgstr "カーソルをトラックの最後へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Track &End"
-msgstr "トラックの最後(&E)"
+msgstr "トラックの最後へ(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Prev Clip Boundary"
-msgstr "クリップの境界(&D)"
+msgstr "カーソルを前のクリップ境界へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pre&vious Clip Boundary"
-msgstr "クリップの境界(&D)"
+msgstr "前のクリップ境界へ(&V)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Next Clip Boundary"
-msgstr "クリップの境界(&D)"
+msgstr "カーソルを次のクリップ境界へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Ne&xt Clip Boundary"
-msgstr "クリップの境界(&D)"
+msgstr "次のクリップ境界へ(&X)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Project Start"
-msgstr "プロジェクト"
+msgstr "カーソルをプロジェクトの最初へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "&Project Start"
-msgstr "プロジェクト"
+msgstr "プロジェクトの最初へ(&P)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Cursor to Project End"
-msgstr "カーソルから最後まで(&E) "
+msgstr "カーソルをプロジェクトの最後へ"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Project E&nd"
-msgstr "プロジェクト"
+msgstr "プロジェクトの最後へ(&E)"
 
 #: src/Menus.cpp
 msgid "Pla&y Region"
@@ -3635,40 +3614,39 @@ msgstr "ロック(&L)"
 
 #: src/Menus.cpp
 msgid "&Unlock"
-msgstr "アンロック(&U)"
+msgstr "ロック解除(&U)"
 
 #: src/Menus.cpp
 msgid "R&escan Audio Devices"
-msgstr "オーディオデイバイス情報の再スキャン (&E)"
+msgstr "オーディオデイバイス情報の再スキャン(&E)"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Transport &Options"
-msgstr "編曲"
+msgstr "録音/再生オプション(&O)"
 
 #: src/Menus.cpp
 msgid "Sound Activation Le&vel..."
-msgstr "録音起動レベル (&V)..."
+msgstr "録音起動レベル(&V)..."
 
 #: src/Menus.cpp
 msgid "Sound A&ctivated Recording (on/off)"
-msgstr "音による録音起動 (オン/オフ) (&C)"
+msgstr "音による録音起動(オン/オフ)(&C)"
 
 #: src/Menus.cpp
 msgid "Pinned Play/Record &Head (on/off)"
-msgstr ""
+msgstr "カーソル位置固定スクロール(オン/オフ)(&H)"
 
 #: src/Menus.cpp
 msgid "&Overdub (on/off)"
-msgstr "オーバーダブ (オン/オフ) (&O)"
+msgstr "オーバーダブ(オン/オフ)(&O)"
 
 #: src/Menus.cpp
 msgid "So&ftware Playthrough (on/off)"
-msgstr "ソフトウェアによる再生 (オン/オフ) (&F)"
+msgstr "ソフトウェアによる再生(オン/オフ)(&F)"
 
 #: src/Menus.cpp
 msgid "A&utomated Recording Level Adjustment (on/off)"
-msgstr "録音レベル自動調整機能 (オン/オフ) (&U)"
+msgstr "録音レベル自動調整(オン/オフ)(&U)"
 
 #: src/Menus.cpp
 msgid "Add &New"
