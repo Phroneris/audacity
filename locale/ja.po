@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-06 16:43+0900\n"
+"PO-Revision-Date: 2018-09-07 00:27+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -3070,7 +3070,7 @@ msgstr "新しいラベルにテキストをペースト(&X)"
 
 #: src/Menus.cpp
 msgid "&Type to Create a Label (on/off)"
-msgstr "タイピングで即ラベル生成(オン/オフ)(&T)"
+msgstr "タイピングで即ラベル作成(オン/オフ)(&T)"
 
 #: src/Menus.cpp
 msgid "La&beled Audio"
@@ -6307,9 +6307,8 @@ msgid "All Toolbars"
 msgstr "全ツールバー"
 
 #: src/Screenshot.cpp
-#, fuzzy
 msgid "All Effects"
-msgstr "エフェクト"
+msgstr "全エフェクト"
 
 #: src/Screenshot.cpp
 #, fuzzy
@@ -6449,7 +6448,7 @@ msgstr "ファイルの保存場所を選んでください"
 
 #: src/Screenshot.cpp
 msgid "Capture failed!"
-msgstr ""
+msgstr "キャプチャ失敗"
 
 #: src/Sequence.cpp
 #, fuzzy, c-format
@@ -6509,7 +6508,7 @@ msgstr "録音起動レベル (dB):"
 
 #: src/SplashDialog.cpp
 msgid "Welcome to Audacity!"
-msgstr "Audacity へようこそ!"
+msgstr "Audacityへようこそ！"
 
 #: src/SplashDialog.cpp
 msgid "Don't show this again at start up"
@@ -8052,9 +8051,8 @@ msgid "Use Spectral Prefs"
 msgstr "スペクトル上の処理"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Spectral Select"
-msgstr "スペクトルの選択"
+msgstr "スペクトル選択"
 
 #: src/commands/SetTrackInfoCommand.cpp
 #, fuzzy
@@ -13413,7 +13411,7 @@ msgstr "波形を復号化"
 #: src/ondemand/ODWaveTrackTaskQueue.cpp
 #, c-format
 msgid "%s %2.0f%% complete.  Click to change task focal point."
-msgstr "%s %2.0f%% 完了. 処理ポイントを変更するにはクリック."
+msgstr "%s %2.0f%% 完了.  処理ポイントを変更するにはクリック."
 
 #: src/prefs/BatchPrefs.cpp
 msgid "Batch"
@@ -15210,7 +15208,7 @@ msgstr "選択部分を無音化"
 
 #: src/toolbars/EditToolBar.cpp
 msgid "Sync-Lock Tracks"
-msgstr "トラックを同期する"
+msgstr "トラックを同期ロック"
 
 #: src/toolbars/EditToolBar.cpp
 msgid "Zoom In"
@@ -15221,14 +15219,12 @@ msgid "Zoom Out"
 msgstr "縮小"
 
 #: src/toolbars/EditToolBar.cpp
-#, fuzzy
 msgid "Fit selection to width"
 msgstr "選択範囲をウィンドウに合わせる"
 
 #: src/toolbars/EditToolBar.cpp
-#, fuzzy
 msgid "Fit project to width"
-msgstr "プロジェクトをウィンドに合わせる"
+msgstr "プロジェクトをウィンドウに合わせる"
 
 #: src/toolbars/EditToolBar.cpp
 msgid "Open Effects Rack"
@@ -15730,7 +15726,7 @@ msgstr "スペクトログラム(&S)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "S&pectrogram Settings..."
-msgstr "スペクトログラムの設定(&P)..."
+msgstr "スペクトログラム設定(&P)..."
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Ma&ke Stereo Track"
@@ -16039,12 +16035,11 @@ msgstr "%.2f 秒から %.2f 秒までの無音トラックを選択"
 
 #: src/tracks/ui/TrackButtonHandles.cpp
 msgid "Collapse"
-msgstr ""
+msgstr "縮小"
 
 #: src/tracks/ui/TrackButtonHandles.cpp
-#, fuzzy
 msgid "Open menu..."
-msgstr "最近開いたファイル(&R)..."
+msgstr "メニューを開く..."
 
 #: src/tracks/ui/TrackControls.cpp
 msgid "&Name..."
