@@ -6210,40 +6210,37 @@ msgstr ""
 
 #: src/Resample.cpp
 msgid "Low Quality (Fastest)"
-msgstr ""
+msgstr "低品質(最速)"
 
 #: src/Resample.cpp
-#, fuzzy
 msgid "Medium Quality"
-msgstr "品質"
+msgstr "中品質"
 
 #: src/Resample.cpp
-#, fuzzy
 msgid "High Quality"
-msgstr "品質"
+msgstr "高品質"
 
 #: src/Resample.cpp
-#, fuzzy
 msgid "Best Quality (Slowest)"
-msgstr "(もっとも良い品質)"
+msgstr "最高品質(最低速)"
 
 #  i18n-hint: Audio data bit depth (precison): 16-bit integers
 #. i18n-hint: Audio data bit depth (precision): 16-bit integers
 #: src/SampleFormat.cpp
 msgid "16-bit PCM"
-msgstr "16-bit PCM"
+msgstr "16bit PCM"
 
 #  i18n-hint: Audio data bit depth (precison): 24-bit integers
 #. i18n-hint: Audio data bit depth (precision): 24-bit integers
 #: src/SampleFormat.cpp
 msgid "24-bit PCM"
-msgstr "24-bit PCM"
+msgstr "24bit PCM"
 
 #  i18n-hint: Audio data bit depth (precison): 32-bit floating point
 #. i18n-hint: Audio data bit depth (precision): 32-bit floating point
 #: src/SampleFormat.cpp src/prefs/QualityPrefs.cpp
 msgid "32-bit float"
-msgstr "32-bit浮動小数点"
+msgstr "32bit 浮動小数点"
 
 #: src/Screenshot.cpp
 msgid "Screen Capture Frame"
@@ -11829,12 +11826,12 @@ msgstr ""
 #: src/export/ExportFFmpeg.cpp
 #, c-format
 msgid "Exporting selected audio as %s"
-msgstr "選択したオーディオを %s というファイル名で書き出し"
+msgstr "選択したオーディオを %s として書き出し"
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportPCM.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Exporting the audio as %s"
-msgstr "選択したオーディオを %s というファイル名で書き出し"
+msgstr "オーディオを %s として書き出し"
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Invalid sample rate"
@@ -12322,7 +12319,7 @@ msgstr "無名のプリセットを削除することはできません. "
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
 msgid "Delete preset '%s'?"
-msgstr "プリセット %s を削除しますか?"
+msgstr "プリセット '%s' を削除しますか？"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "You can't save a preset without name"
@@ -12334,19 +12331,19 @@ msgstr "取り込みのためのプリセットを記録した xmlファイル�
 
 #: src/export/ExportFFmpegDialogs.cpp src/prefs/KeyConfigPrefs.cpp
 msgid "XML files (*.xml)|*.xml|All files|*"
-msgstr "XML ファイル (*.xml)|*.xml|All files|*"
+msgstr "XML ファイル (*.xml)|*.xml|すべてのファイル|*"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file to export presets into"
-msgstr "プリセット書き出しのための xmlファイルを選択してください"
+msgstr "プリセット書き出しのための xml ファイルを選択してください"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Failed to guess format"
-msgstr "形式を検出できませんでした. "
+msgstr "形式を検出できませんでした"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Failed to find the codec"
-msgstr "コーデックが見つかりませんでした. "
+msgstr "コーデックが見つかりませんでした"
 
 #: src/export/ExportFLAC.cpp
 msgid "0 (fastest)"
@@ -12394,7 +12391,7 @@ msgstr "レベル:"
 
 #: src/export/ExportFLAC.cpp
 msgid "Bit depth:"
-msgstr "量子化ビット数:"
+msgstr "ビット深度:"
 
 #: src/export/ExportFLAC.cpp
 msgid "FLAC Files"
@@ -12403,7 +12400,7 @@ msgstr "FLACファイル"
 #: src/export/ExportFLAC.cpp
 #, c-format
 msgid "FLAC export couldn't open %s"
-msgstr "FLAC書き出しが %sを開くことができませんでした."
+msgstr "FLAC書き出しが %s を開けませんでした."
 
 #: src/export/ExportFLAC.cpp
 #, c-format
@@ -12416,12 +12413,11 @@ msgstr ""
 
 #: src/export/ExportFLAC.cpp
 msgid "Exporting the selected audio as FLAC"
-msgstr "選択したオーディオを FLACファイルに書き出し"
+msgstr "選択したオーディオをFLACファイルに書き出し"
 
 #: src/export/ExportFLAC.cpp
-#, fuzzy
 msgid "Exporting the audio as FLAC"
-msgstr "選択したオーディオを FLACファイルに書き出し"
+msgstr "オーディオをFLACファイルに書き出し"
 
 #: src/export/ExportMP2.cpp
 msgid "MP2 Files"
@@ -12430,7 +12426,7 @@ msgstr "MP2ファイル"
 #: src/export/ExportMP2.cpp
 msgid "Cannot export MP2 with this sample rate and bit rate"
 msgstr ""
-"このサンプリング周波数とビットレートではMP2ファイルは書き出しできません. "
+"このサンプリング周波数とビットレートではMP2ファイルに書き出しできません."
 
 #: src/export/ExportMP2.cpp src/export/ExportMP3.cpp src/export/ExportOGG.cpp
 msgid "Unable to open target file for writing"
@@ -12442,31 +12438,31 @@ msgid "Exporting selected audio at %ld kbps"
 msgstr "選択したオーディオを %ld kbps で書き出し"
 
 #: src/export/ExportMP2.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Exporting the audio at %ld kbps"
-msgstr "選択したオーディオを %ld kbps で書き出し"
+msgstr "オーディオを %ld kbps で書き出し"
 
 #  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%d kbps"
-msgstr "%i kbps"
+msgstr "%d kbps"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s kbps (Best Quality)"
-msgstr "(もっとも良い品質)"
+msgstr "%s kbps (最高品質)"
 
 #  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s kbps"
-msgstr "%i kbps"
+msgstr "%s kbps"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s kbps (Smaller files)"
-msgstr "(最小のファイルサイズ)"
+msgstr "%s kbps (軽量)"
 
 #: src/export/ExportMP3.cpp
 msgid "Fast"
@@ -12533,23 +12529,22 @@ msgstr "ステレオ"
 
 #: src/export/ExportMP3.cpp
 msgid "Force export to mono"
-msgstr ""
+msgstr "モノラルに強制"
 
 #. i18n-hint: LAME is the name of an MP3 converter and should not be translated
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "Locate LAME"
-msgstr "Lameの場所を設定"
+msgstr "LAMEの場所を指定"
 
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "Audacity needs the file %s to create MP3s."
-msgstr "ファイル %s が　MP3　を作成するために必要です. "
+msgstr "MP3の作成には, ファイル %s が必要です."
 
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "Location of %s:"
-msgstr "%sの場所 :"
+msgstr "%s の場所:"
 
 #. i18n-hint: There is a  button to the right of the arrow.
 #: src/export/ExportMP3.cpp
@@ -12559,9 +12554,8 @@ msgstr "%s を見つけるには, ここをクリック -->"
 
 #. i18n-hint: There is a  button to the right of the arrow.
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "To get a free copy of LAME, click here -->"
-msgstr "Lame の無料コピーを入手するには, ここをクリック -->"
+msgstr "LAMEの無料コピーを入手するには, ここをクリック -->"
 
 #  i18n-hint: It's asking for the location of a file, for
 #  example, "Where is lame_enc.dll?" - you could translate
@@ -12581,25 +12575,25 @@ msgid ""
 "Audacity %d.%d.%d.\n"
 "Please download the latest version of the LAME MP3 library."
 msgstr ""
-"lame_enc.dll v%d.%d とリンクしようとしています.  このバージョンはAudacity %d."
-"%d.%dとはコンパチブルではありません. \n"
-"LAME MP3ライブラリの最新版をダウンロードしてください. "
+"lame_enc.dll v%d.%d とリンクしようとしています. このバージョンは Audacity %d."
+"%d.%d との互換性がありません.\n"
+"LAME MP3ライブラリの最新版をダウンロードしてください."
 
 #: src/export/ExportMP3.cpp
 msgid ""
 "Only lame_enc.dll|lame_enc.dll|Dynamically Linked Libraries (*.dll)|*.dll|"
 "All Files|*"
 msgstr ""
-"Only lame_enc.dll|lame_enc.dll|Dynamically Linked Libraries (*.dll)|*.dll|"
-"All Files|*"
+"lame_enc.dll のみ|lame_enc.dll|動的リンクライブラリ (*.dll)|*.dll|すべての"
+"ファイル|*"
 
 #: src/export/ExportMP3.cpp
 msgid ""
 "Only libmp3lame.dylib|libmp3lame.dylib|Dynamic Libraries (*.dylib)|*.dylib|"
 "All Files (*)|*"
 msgstr ""
-"libmp3lame.dylib のみ|libmp3lame.dylib|動的リンクライブラリ (*.dylib)|*."
-"dylib|すべてのファイル (*)|*"
+"libmp3lame.dylib のみ|libmp3lame.dylib|動的ライブラリ (*.dylib)|*.dylib|すべ"
+"てのファイル (*)|*"
 
 #: src/export/ExportMP3.cpp
 msgid ""
@@ -12615,15 +12609,15 @@ msgstr "MP3 ファイル"
 
 #: src/export/ExportMP3.cpp
 msgid "Could not open MP3 encoding library!"
-msgstr "MP3 エンコーディングライブラリが開けません"
+msgstr "MP3 エンコーディングライブラリが開けません."
 
 #: src/export/ExportMP3.cpp
 msgid "Could not initialize MP3 encoding library!"
-msgstr "MP3 エンコーディングライブラリを初期化できません！"
+msgstr "MP3 エンコーディングライブラリを初期化できません."
 
 #: src/export/ExportMP3.cpp
 msgid "Not a valid or supported MP3 encoding library!"
-msgstr "サポートされている MP3 エンコーディングライブラリではありません！"
+msgstr "サポートされているMP3エンコーディングライブラリではありません."
 
 #: src/export/ExportMP3.cpp
 msgid "Unable to initialize MP3 stream"
@@ -12632,22 +12626,22 @@ msgstr "MP3ストリームを初期化できません"
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "Exporting selected audio with %s preset"
-msgstr "選択したオーディオを %s というファイル名で書き出し"
+msgstr "選択したオーディオをプリセット '%s' で書き出し"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Exporting the audio with %s preset"
-msgstr "選択したオーディオを %s というファイル名で書き出し"
+msgstr "オーディオをプリセット '%s' で書き出し"
 
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "Exporting selected audio with VBR quality %s"
-msgstr "選択したオーディオを VBR 品質 %s で書き出し"
+msgstr "選択したオーディオをVBR品質 %s で書き出し"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Exporting the audio with VBR quality %s"
-msgstr "選択したオーディオを VBR 品質 %s で書き出し"
+msgstr "オーディオをVBR品質 %s で書き出し"
 
 #: src/export/ExportMP3.cpp
 #, c-format
@@ -12655,14 +12649,14 @@ msgid "Exporting selected audio at %d Kbps"
 msgstr "選択したオーディオを %d Kbps で書き出し"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Exporting the audio at %d Kbps"
-msgstr "選択したオーディオを %d Kbps で書き出し"
+msgstr "オーディオを %d Kbps で書き出し"
 
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "Error %ld returned from MP3 encoder"
-msgstr "MP3エンコーダにおいて, エラー %ld が返されました. "
+msgstr "MP3エンコーダにおいて, エラー %ld が返されました"
 
 #: src/export/ExportMP3.cpp
 #, c-format
@@ -12670,7 +12664,7 @@ msgid ""
 "The project sample rate (%d) is not supported by the MP3\n"
 "file format.  "
 msgstr ""
-"プロジェクトのサンプリング周波数 (%d)　はMP3ではサポートされていません. "
+"プロジェクトのサンプリング周波数 (%d) はMP3ではサポートされていません.  "
 
 #: src/export/ExportMP3.cpp
 #, c-format
@@ -12678,13 +12672,13 @@ msgid ""
 "The project sample rate (%d) and bit rate (%d kbps) combination is not\n"
 "supported by the MP3 file format.  "
 msgstr ""
-"プロジェクトのサンプリング周波数 (%d) とビットレート (%d kbps)　の組み合わせ"
+"プロジェクトのサンプリング周波数 (%d) とビットレート (%d kbps) の組み合わせ"
 "は\n"
-"MP3ファイル形式ではサポートされていません. "
+"MP3ファイル形式ではサポートされていません.  "
 
 #: src/export/ExportMP3.cpp
 msgid "MP3 export library not found"
-msgstr "MP3書き出しライブラリが見つかりませんでした. "
+msgstr "MP3書き出しライブラリが見つかりません"
 
 #: src/export/ExportMultiple.cpp
 msgid "Export Multiple"
@@ -12695,13 +12689,12 @@ msgid "Cannot Export Multiple"
 msgstr "複数ファイルの書き出しができません"
 
 #: src/export/ExportMultiple.cpp
-#, fuzzy
 msgid ""
 "You have no unmuted Audio Tracks and no applicable \n"
 "labels, so you cannot export to separate audio files."
 msgstr ""
-"ミュートされていないオーディオトラックは１つだけでラベルもありません. \n"
-"したがって複数のファイルに書き出すことはできません."
+"ミュートされていないオーディオトラックも適切なラベルもないため,\n"
+"複数のオーディオファイルに書き出すことはできません."
 
 #: src/export/ExportMultiple.cpp
 msgid "Export files to:"
@@ -12709,7 +12702,7 @@ msgstr "書き出し:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Folder:"
-msgstr "フォルダ: "
+msgstr "フォルダ:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Create"
@@ -12721,7 +12714,7 @@ msgstr "オプション:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Split files based on:"
-msgstr "ファイル分離基準: "
+msgstr "ファイル分離基準:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Include audio before first label"
@@ -12729,7 +12722,7 @@ msgstr "最初のラベル以前のオーディオデータを含む"
 
 #: src/export/ExportMultiple.cpp
 msgid "First file name:"
-msgstr "最初のファイル名"
+msgstr "最初のファイル名:"
 
 #: src/export/ExportMultiple.cpp
 msgid "First file name"
@@ -12737,7 +12730,7 @@ msgstr "最初のファイル名"
 
 #: src/export/ExportMultiple.cpp
 msgid "Name files:"
-msgstr "ファイルの命名"
+msgstr "ファイルの命名:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Using Label/Track Name"
@@ -12749,15 +12742,15 @@ msgstr "ラベル/トラック名の前に番号付加"
 
 #: src/export/ExportMultiple.cpp
 msgid "Numbering after File name prefix"
-msgstr "ファイル名プリフィックスの後に番号付け"
+msgstr "ファイル名プレフィックスの後に番号付け"
 
 #: src/export/ExportMultiple.cpp
 msgid "File name prefix:"
-msgstr "ファイル名の前部"
+msgstr "ファイル名プレフィックス:"
 
 #: src/export/ExportMultiple.cpp
 msgid "File name prefix"
-msgstr "ファイル名の前部"
+msgstr "ファイル名プレフィックス"
 
 #: src/export/ExportMultiple.cpp
 msgid "Overwrite existing files"
@@ -12766,7 +12759,7 @@ msgstr "既存のファイルを上書き"
 #: src/export/ExportMultiple.cpp
 #, c-format
 msgid "\"%s\" successfully created."
-msgstr "\"%s\" は正常に生成されました. "
+msgstr "\"%s\" は正常に作成されました."
 
 #: src/export/ExportMultiple.cpp
 msgid "Choose a location to save the exported files"
@@ -12804,7 +12797,7 @@ msgid ""
 "\n"
 "Would you like to create it?"
 msgstr ""
-"\"%s\"　は存在しません. .\n"
+"\"%s\"　は存在しません.\n"
 "\n"
 "作成しますか？"
 
@@ -12815,19 +12808,19 @@ msgid ""
 "Label or track \"%s\" is not a legal file name. You cannot use any of: %s\n"
 "Use..."
 msgstr ""
-"ラベルまたはトラック \"%s\"  は正当なファイル名ではありません. %s を使うこと"
-"はできません.\n"
+"ラベルまたはトラック \"%s\" は正当なファイル名ではありません. %s を使うことは"
+"できません.\n"
 "以下をお使いください..."
 
 #. i18n-hint: The second %s gives a letter that can't be used.
 #: src/export/ExportMultiple.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Label or track \"%s\" is not a legal file name. You cannot use \"%s\".\n"
 "Use..."
 msgstr ""
-"ラベルまたはトラック \"%s\"  は正当なファイル名ではありません. %s を使うこと"
-"はできません.\n"
+"ラベルまたはトラック \"%s\" は正当なファイル名ではありません. %s を使うことは"
+"できません.\n"
 "以下をお使いください..."
 
 #: src/export/ExportMultiple.cpp
@@ -12843,26 +12836,24 @@ msgid "Exporting the selected audio as Ogg Vorbis"
 msgstr "選択したオーディオを Ogg Vorbis ファイルに書き出し"
 
 #: src/export/ExportOGG.cpp
-#, fuzzy
 msgid "Exporting the audio as Ogg Vorbis"
-msgstr "選択したオーディオを Ogg Vorbis ファイルに書き出し"
+msgstr "オーディオを Ogg Vorbis ファイルに書き出し"
 
 #: src/export/ExportPCM.cpp
 msgid "AIFF (Apple) signed 16-bit PCM"
-msgstr "AIFF (Apple) 16 bit PCM 符号あり"
+msgstr "AIFF (Apple) 16bit PCM 符号あり"
 
 #: src/export/ExportPCM.cpp
 msgid "WAV (Microsoft) signed 16-bit PCM"
-msgstr "WAV (Microsoft) 16 bit PCM 符号あり"
+msgstr "WAV (Microsoft) 16bit PCM 符号あり"
 
 #: src/export/ExportPCM.cpp
-#, fuzzy
 msgid "WAV (Microsoft) signed 24-bit PCM"
-msgstr "WAV (Microsoft) 16 bit PCM 符号あり"
+msgstr "WAV (Microsoft) 24bit PCM 符号あり"
 
 #: src/export/ExportPCM.cpp
 msgid "WAV (Microsoft) 32-bit float PCM"
-msgstr "WAV (Microsoft) 32 bit PCM 符号あり"
+msgstr "WAV (Microsoft) 32bit PCM 符号あり"
 
 #: src/export/ExportPCM.cpp
 msgid "Header:"
@@ -12894,8 +12885,9 @@ msgid ""
 "Error while writing %s file (disk full?).\n"
 "Libsndfile says \"%s\""
 msgstr ""
-"ファイル%sの書き込み中にエラーが発生しました(disk fullの可能性もあります).\n"
-"Libsndfileメッセージ \"%s\""
+"ファイル %s の書き込み中にエラーが発生しました (ディスクに空きはあります"
+"か？).\n"
+"Libsndfileメッセージ: \"%s\""
 
 #: src/import/Import.cpp
 #, c-format
@@ -12905,19 +12897,20 @@ msgid ""
 "Audacity cannot open this type of file for playing, but you can\n"
 "edit it by clicking File > Import > MIDI."
 msgstr ""
-"\"%s\" は MIDI ファイルであり, オーディオファイルではありません. \n"
-"Audacity はこの種のファイルを, 再生のため開くことはできませんが, \n"
-"ファイル > 取り込み > MIDI をクリックすることにより, 編集はできます. "
+"\"%s\" はMIDIファイルであり, オーディオファイルではありません.\n"
+"Audacityはこの種のファイルを再生用に開くことはできませんが,\n"
+"ファイル > 取り込み > MIDIの取り込み をクリックすることで編集はできます."
 
 #: src/import/Import.cpp
 msgid "Select stream(s) to import"
-msgstr "読み込むためのストリームを選択"
+msgstr "取り込むストリームを選択"
 
 #: src/import/Import.cpp
 #, c-format
 msgid "This version of Audacity was not compiled with %s support."
 msgstr ""
-"この Audacity のバージョンは %s サポート機能と一緒にコンパイルされていません."
+"このバージョンの Audacity は, %s サポート機能と一緒にコンパイルされていませ"
+"ん."
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12928,10 +12921,10 @@ msgid ""
 "Extract (rip) the CD tracks to an audio format that \n"
 "Audacity can import, such as WAV or AIFF."
 msgstr ""
-"\"%s\" はオーディオＣＤトラックです.\n"
-"Audacity はこの形式のファイルをオープンできません.\n"
-"CDトラックをリップ(抽出)して, Audacity での取り込みが可能な形式\n"
-"WAV や AIFF にしてみてください."
+"\"%s\" はオーディオ CD トラックです.\n"
+"Audacity はオーディオ CD を直接開くことはできません.\n"
+"CD トラックをリップ(抽出)して, Audacity での取り込みが可能な\n"
+"WAV や AIFF などのオーディオ形式にしてみてください."
 
 #: src/import/Import.cpp
 #, c-format
@@ -12945,8 +12938,7 @@ msgstr ""
 "\"%s\" はプレイリストファイルです. \n"
 "他のファイルへのリンクを含んでいるため, Audacity はこのファイルを開くことがで"
 "きません. \n"
-"テキストエディタで開くか, 本来のオーディオファイルをダウンロードして開くこと"
-"は可能でしょう. "
+"テキストエディタで開いて, 本来のオーディオファイルをダウンロードしましょう."
 
 #: src/import/Import.cpp
 #, c-format
@@ -12955,10 +12947,10 @@ msgid ""
 "Audacity cannot open this type of file due to patent restrictions. \n"
 "You need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
-"\"%s\" は Windows Media Audioファイルです. \n"
+"\"%s\" は Windows Media Audio ファイルです. \n"
 "特許上の制限により, Audacity はこの形式のファイルを開くことはできません. \n"
 "サポートしているオーディオファイル形式, WAV や AIFF などに変換する必要があり"
-"ます. "
+"ます."
 
 #: src/import/Import.cpp
 #, c-format
@@ -12967,10 +12959,10 @@ msgid ""
 "Audacity cannot open this type of file. \n"
 "You need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
-"\"%s\"  はAdvanced Audio Coding のファイルです.\n"
-"Audacity はこの形式のファイルをオープンできません.\n"
+"\"%s\" は Advanced Audio Coding ファイルです.\n"
+"Audacity はこの形式のファイルを開くことはできません.\n"
 "サポートしているオーディオファイル形式, WAV や AIFF などに変換する必要があり"
-"ます. "
+"ます."
 
 #: src/import/Import.cpp
 #, c-format
@@ -12981,11 +12973,11 @@ msgid ""
 "Try recording the file into Audacity, or burn it to audio CD then \n"
 "extract the CD track to a supported audio format such as WAV or AIFF."
 msgstr ""
-"\"%s\" は, 暗号化されたオーディオファイルです.\n"
+"\"%s\" は暗号化されたオーディオファイルです.\n"
 "これらは典型的にはオンライン音楽ショップからのものです.\n"
-"暗号化のため Audacity はこの形式のファイルを開くことができません.\n"
-"Audacity で録音を試みるか, 音楽CDとして作成した後, \n"
-"CDトラックを WAV や AIFF などのオーディオファイル形式に変換してみてください."
+"暗号化されているため, Audacity はこの形式のファイルを開くことができません.\n"
+"Audacity で録音してみるか, あるいは一旦音楽 CD に焼いてから\n"
+"それを WAV や AIFF などのオーディオファイル形式に変換してみてください."
 
 #: src/import/Import.cpp
 #, c-format
@@ -12994,10 +12986,10 @@ msgid ""
 "Audacity cannot open this proprietary format. \n"
 "You need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
-"\"%s\" は RealPlayer 用のメディアファイルです. \n"
-"この形式を Audacity は開くことができません. \n"
+"\"%s\" は RealPlayer メディアファイルです. \n"
+"Audacity はこの独自フォーマットを開くことはできません. \n"
 "サポートされている WAV や AIFF などのオーディオファイル形式に変換する必要があ"
-"ります. "
+"ります."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13007,10 +12999,10 @@ msgid ""
 "Try converting it to an audio file such as WAV or AIFF and \n"
 "then import it, or record it into Audacity."
 msgstr ""
-"\"%s\"  は音符に基づくファイルであり, オーディオファイルでありません.\n"
-"Audacity はこの形式のファイルをオープンできません.\n"
-"このファイルをWAV や AIFF などのオーディオファイルに変換して\n"
-"からAudacityで取り込むか録音してみてください. "
+"\"%s\" は音符に基づくファイルであり, オーディオファイルでありません.\n"
+"Audacity はこの形式のファイルを開くことはできません.\n"
+"一旦 WAV や AIFF などのオーディオファイルに変換してから,\n"
+"Audacity で取り込んだり録音したりしてみてください."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13024,10 +13016,10 @@ msgid ""
 msgstr ""
 "\"%s\" は Musepack オーディオファイルです. \n"
 "Audacity はこの形式のファイルを開くことはできません. \n"
-"もし, これが mp3 かもしれないと思うなら，最後が\".mp3\" で終わるよう\n"
-"ファイル名を書き換えてから再度取り込みを試してください. \n"
+"これが mp3 かもしれないと思われる場合，最後が \".mp3\" で終わるよう\n"
+"ファイル名を書き換えてから再度取り込んでみてください. \n"
 "うまくいかなければ, サポートしているオーディオファイル形式, WAV や AIFF など"
-"に変換する必要があります. "
+"に変換する必要があります."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13036,10 +13028,10 @@ msgid ""
 "Audacity cannot open this type of file. \n"
 "You need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
-"\"%s\"  は Wavpackオーディオファイルです.\n"
+"\"%s\" は Wavpack オーディオファイルです.\n"
 "Audacity はこの形式のファイルを開くことはできません.\n"
 "サポートしているオーディオファイル形式, WAV や AIFF などに変換する必要があり"
-"ます. "
+"ます."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13048,10 +13040,10 @@ msgid ""
 "Audacity cannot currently open this type of file. \n"
 "You need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
-"\"%s\"  は Dolby Digital オーディオファイルです.\n"
+"\"%s\" は Dolby Digital オーディオファイルです.\n"
 "Audacity はこの形式のファイルを開くことはできません.\n"
 "サポートしているオーディオファイル形式, WAV や AIFF などに変換する必要があり"
-"ます. "
+"ます."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13060,10 +13052,10 @@ msgid ""
 "Audacity cannot currently open this type of file. \n"
 "You need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
-"\"%s\"  は Ogg Speex オーディオファイルです.\n"
+"\"%s\" は Ogg Speex オーディオファイルです.\n"
 "Audacity はこの形式のファイルを開くことはできません.\n"
 "サポートしているオーディオファイル形式, WAV や AIFF などに変換する必要があり"
-"ます. "
+"ます."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13072,7 +13064,7 @@ msgid ""
 "Audacity cannot currently open this type of file. \n"
 "You need to extract the audio to a supported format, such as WAV or AIFF."
 msgstr ""
-"\"%s\"  は映像ファイルです.\n"
+"\"%s\" は映像ファイルです.\n"
 "Audacity はこの形式のファイルを開くことはできません.\n"
 "サポートしているオーディオファイル形式, たとえば WAV や AIFF などを抽出する必"
 "要があります."
@@ -13083,20 +13075,20 @@ msgid ""
 "\"%s\" is an Audacity Project file. \n"
 "Use the 'File > Open' command to open Audacity Projects."
 msgstr ""
-"\"%s\" はAudacityプロジェクトファイルです. \n"
-"Audacityプロジェクトファイルを開くには 'ファイル > 開く' コマンドをお使いくだ"
-"さい."
+"\"%s\" は Audacity プロジェクトファイルです. \n"
+"Audacity プロジェクトファイルを開くには 'ファイル > 開く' コマンドをお使いく"
+"ださい."
 
 #: src/import/Import.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Audacity did not recognize the type of the file '%s'.\n"
 "Try installing FFmpeg. For uncompressed files, also try File > Import > Raw "
 "Data."
 msgstr ""
-"Audacity はこのファイル'%s'の種類を認識できませんでした.\n"
-"このファイルが非圧縮ファイルの場合, \"ロー(Raw)データの取り込み\" を試してみ"
-"て下さい."
+"Audacity はこのファイル '%s' の種類を認識できませんでした.\n"
+"このファイルが非圧縮ファイルの場合, \"ロー(Raw)データの取り込み\" を試してく"
+"ださい."
 
 #: src/import/Import.cpp
 #, c-format
@@ -13106,8 +13098,10 @@ msgid ""
 "%s,\n"
 "but none of them understood this file format."
 msgstr ""
-"Audacityは'%s'のファイル形式を認識しました.\n"
-"ファイル:%sとして取り込もうとしましたが失敗しました."
+"Audacity は '%s' のファイル形式を認識しました.\n"
+"この手のファイルに対応していると思われる取り込み機能は\n"
+"%s\n"
+"ですが, いずれの機能でも正しく取り込めませんでした."
 
 #: src/import/ImportFFmpeg.cpp
 msgid "FFmpeg-compatible files"
@@ -13123,21 +13117,19 @@ msgstr ""
 
 #: src/import/ImportFLAC.cpp src/ondemand/ODDecodeFlacTask.cpp
 msgid "FLAC files"
-msgstr "FLACファイル"
+msgstr "FLAC ファイル"
 
 #: src/import/ImportGStreamer.cpp
 msgid "GStreamer-compatible files"
-msgstr "GStreams互換ファイル"
+msgstr "GStreamer 互換ファイル"
 
 #: src/import/ImportGStreamer.cpp
-#, fuzzy
 msgid "Unable to add decoder to pipeline"
-msgstr "プリセットファイルをロードできません."
+msgstr "デコーダーをパイプラインに追加できません"
 
 #: src/import/ImportGStreamer.cpp
-#, fuzzy
 msgid "GStreamer Importer"
-msgstr "GStreamerの起動に失敗しました. "
+msgstr "GStreamer 取り込み機能"
 
 #: src/import/ImportGStreamer.cpp
 #, fuzzy
@@ -13146,17 +13138,16 @@ msgstr "'%s' から '%s' へリネームできません．"
 
 #: src/import/ImportGStreamer.cpp
 msgid "File doesn't contain any audio streams."
-msgstr ""
+msgstr "ファイルがオーディオストリームを含んでいません."
 
 #: src/import/ImportGStreamer.cpp
-#, fuzzy
 msgid "Unable to import file, state change failed."
-msgstr "テストファイルを作成あるいは開けません．"
+msgstr "ファイルを取り込めません. ステート変更に失敗しました."
 
 #: src/import/ImportGStreamer.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "GStreamer Error: %s"
-msgstr "GStreamer %s: %s"
+msgstr "GStreamer エラー: %s"
 
 #: src/import/ImportLOF.cpp
 msgid "List of Files in basic text format"
@@ -13197,21 +13188,19 @@ msgid "Invalid track offset in LOF file."
 msgstr "LOF ファイル中のトラックオフセットは無効です."
 
 #: src/import/ImportMIDI.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not open file %s: Filename too short."
-msgstr ""
-"ファイルが開けません:\n"
-"  %s"
+msgstr "ファイル %s が開けません: ファイル名が短すぎます."
 
 #: src/import/ImportMIDI.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not open file %s: Incorrect filetype."
-msgstr ": 不正なファイルの種類."
+msgstr "ファイル %s が開けません: ファイルの種類が不正確です."
 
 #: src/import/ImportMIDI.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not open file %s."
-msgstr "ファイルが開けません"
+msgstr "ファイル %s が開けません."
 
 #: src/import/ImportMP3.cpp
 msgid "MP3 files"
@@ -13309,35 +13298,35 @@ msgstr "次回からは表示せず, いつも上記設定を使用する(&W)"
 #: src/import/ImportPlugin.h src/import/ImportRaw.cpp
 #, c-format
 msgid "Importing %s"
-msgstr "'%s' を取り込む"
+msgstr "%s を取り込む"
 
 #: src/import/ImportQT.cpp
 msgid "QuickTime files"
-msgstr "Quick Time ファイル"
+msgstr "QuickTime ファイル"
 
 #: src/import/ImportQT.cpp
 msgid "Unable to start QuickTime extraction"
-msgstr "QuickTimeによる抽出を開始できません."
+msgstr "QuickTime による抽出を開始できません"
 
 #: src/import/ImportQT.cpp
 msgid "Unable to set QuickTime render quality"
-msgstr "QuickTime処理品質を設定できません."
+msgstr "QuickTime 処理品質を設定できません"
 
 #: src/import/ImportQT.cpp
 msgid "Unable to set QuickTime discrete channels property"
-msgstr "QuickTimeディスクリートチャンネルを正しく設定できません."
+msgstr "QuickTime ディスクリートチャンネルを正しく設定できません"
 
 #: src/import/ImportQT.cpp
 msgid "Unable to get QuickTime sample size property"
-msgstr "QuickTimeサンプルサイズを正しく設定できません."
+msgstr "QuickTime サンプルサイズを正しく取得できません"
 
 #: src/import/ImportQT.cpp
 msgid "Unable to retrieve stream description"
-msgstr "ストリーム記述を取り出すことができません."
+msgstr "ストリーム記述を取得できません"
 
 #: src/import/ImportQT.cpp
 msgid "Unable to get fill buffer"
-msgstr "バッファーに入力できません. "
+msgstr "フィルバッファーを取得できません"
 
 #. i18n-hint: 'Raw' means 'unprocessed' here and should usually be tanslated.
 #: src/import/ImportRaw.cpp
@@ -13420,13 +13409,12 @@ msgid "Sample rate:"
 msgstr "サンプリング周波数:"
 
 #: src/import/RawAudioGuess.cpp
-#, fuzzy
 msgid "Bad data size"
-msgstr "メタデータをロード："
+msgstr "不正なデータサイズ"
 
 #: src/ondemand/ODComputeSummaryTask.h
 msgid "Import complete. Calculating waveform"
-msgstr "取り込み完了. 波形の計算中."
+msgstr "取り込み完了. 波形を計算中"
 
 #: src/ondemand/ODDecodeTask.h
 msgid "Decoding Waveform"
