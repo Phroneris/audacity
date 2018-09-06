@@ -4863,9 +4863,8 @@ msgid "Edit Metadata Tags"
 msgstr "メタデータタグを編集"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Metadata Tags"
-msgstr "メタデータタグを編集"
+msgstr "メタデータタグ"
 
 #: src/Menus.cpp
 #, c-format
@@ -6534,7 +6533,7 @@ msgstr "アルバム名"
 
 #: src/Tags.cpp
 msgid "Track Number"
-msgstr "トラックナンバー:"
+msgstr "トラック番号"
 
 #: src/Tags.cpp
 msgid "Year"
@@ -6542,7 +6541,7 @@ msgstr "年"
 
 #: src/Tags.cpp
 msgid "Genre"
-msgstr "ジャンル:"
+msgstr "ジャンル"
 
 #: src/Tags.cpp src/prefs/MousePrefs.cpp
 msgid "Comments"
@@ -6550,7 +6549,7 @@ msgstr "コメント"
 
 #: src/Tags.cpp
 msgid "Use arrow keys (or ENTER key after editing) to navigate fields."
-msgstr "矢印キーを使ってフィールド内を移動してください.（編集後はリターン） "
+msgstr "矢印キーを使ってフィールド内を移動してください (編集後はリターン)."
 
 #: src/Tags.cpp
 msgid "Tag"
@@ -6570,7 +6569,7 @@ msgstr "削除(&R)"
 
 #: src/Tags.cpp
 msgid "Genres"
-msgstr "ジャンル:"
+msgstr "ジャンル"
 
 #: src/Tags.cpp
 msgid "E&dit..."
@@ -6598,7 +6597,7 @@ msgstr "ジャンルを編集"
 
 #: src/Tags.cpp
 msgid "Unable to save genre file."
-msgstr "ジャンルファイルに保存できません. "
+msgstr "ジャンルファイルに保存できません."
 
 #: src/Tags.cpp
 msgid "Reset Genres"
@@ -6610,11 +6609,11 @@ msgstr "ジャンルリストを既定値にリセットしてよろしいです
 
 #: src/Tags.cpp
 msgid "Unable to open genre file."
-msgstr "ジャンルファイルを開けません"
+msgstr "ジャンルファイルを開けません."
 
 #: src/Tags.cpp
 msgid "Load Metadata As:"
-msgstr "メタデータをロード："
+msgstr "メタデータをロード:"
 
 #: src/Tags.cpp
 msgid "Error Loading Metadata"
