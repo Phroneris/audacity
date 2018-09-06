@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-07 00:27+0900\n"
+"PO-Revision-Date: 2018-09-07 00:48+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -15113,34 +15113,29 @@ msgstr "一時停止"
 
 #: src/toolbars/ControlToolBar.cpp
 msgid "Skip to Start"
-msgstr "初期位置まで進める"
+msgstr "最初に移動"
 
 #: src/toolbars/ControlToolBar.cpp
 msgid "Skip to End"
-msgstr "終わりまで進める"
+msgstr "最後に移動"
 
 #: src/toolbars/ControlToolBar.cpp
-#, fuzzy
 msgid "Loop Play"
-msgstr "ループ再生(&L)"
+msgstr "ループ再生"
 
 #: src/toolbars/ControlToolBar.cpp
-#, fuzzy
 msgid "Record New Track"
-msgstr "新しいトラック"
+msgstr "新規トラックに録音"
 
 #: src/toolbars/ControlToolBar.cpp
-#, fuzzy
 msgid "Append Record"
-msgstr "追加録音 (&D)"
+msgstr "追加録音"
 
 #: src/toolbars/ControlToolBar.cpp
-#, fuzzy
 msgid "Select to End"
 msgstr "最後まで選択"
 
 #: src/toolbars/ControlToolBar.cpp
-#, fuzzy
 msgid "Select to Start"
 msgstr "最初まで選択"
 
@@ -15282,14 +15277,14 @@ msgid "Recording Volume (Unavailable; use system mixer.)"
 msgstr "録音ボリューム (使用不可; システムミキサーをお使いください.)"
 
 #: src/toolbars/MixerToolBar.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Playback Volume: %s (emulated)"
-msgstr "再生ボリューム: %%.2f%s"
+msgstr "再生ボリューム: %s (エミュレート)"
 
 #: src/toolbars/MixerToolBar.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Playback Volume: %s"
-msgstr "再生ボリューム: %%.2f%s"
+msgstr "再生ボリューム: %s"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Playback Volume (Unavailable; use system mixer.)"
@@ -15305,23 +15300,20 @@ msgid "Scrub Ruler"
 msgstr "ルーラー"
 
 #: src/toolbars/ScrubbingToolBar.cpp src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Scrubbing"
-msgstr "スクラブ"
+msgstr "スクラブ中"
 
 #. i18n-hint: These commands assist the user in finding a sound by ear. ...
 #. "Scrubbing" is variable-speed playback, ...
 #. "Seeking" is normal speed playback but with skips
 #.
 #: src/toolbars/ScrubbingToolBar.cpp
-#, fuzzy
 msgid "Stop Scrubbing"
-msgstr "スクリプトの停止"
+msgstr "スクラブ停止"
 
 #: src/toolbars/ScrubbingToolBar.cpp
-#, fuzzy
 msgid "Start Scrubbing"
-msgstr "スクリプトの開始"
+msgstr "スクラブ開始"
 
 #. i18n-hint: These commands assist the user in finding a sound by ear. ...
 #. "Scrubbing" is variable-speed playback, ...
@@ -15329,12 +15321,11 @@ msgstr "スクリプトの開始"
 #.
 #: src/toolbars/ScrubbingToolBar.cpp
 msgid "Stop Seeking"
-msgstr ""
+msgstr "シーク停止"
 
 #: src/toolbars/ScrubbingToolBar.cpp
-#, fuzzy
 msgid "Start Seeking"
-msgstr "モニターを開始"
+msgstr "シーク開始"
 
 #: src/toolbars/ScrubbingToolBar.cpp
 msgid "Hide Scrub Ruler"
@@ -15419,24 +15410,22 @@ msgid "Low and High Frequencies"
 msgstr "周波数のローとハイ"
 
 #: src/toolbars/SpectralSelectionBar.cpp
-#, fuzzy
 msgid "Center Frequency"
-msgstr "中心周波数:"
+msgstr "中心周波数"
 
 #: src/toolbars/SpectralSelectionBar.cpp
-#, fuzzy
 msgid "Bandwidth"
-msgstr "帯域幅:"
+msgstr "帯域幅"
 
 #. i18n-hint: %s will be replaced by the name of the kind of toolbar.
 #: src/toolbars/ToolBar.cpp
 #, c-format
 msgid "Audacity %s Toolbar"
-msgstr "Audacity %s ツールバー"
+msgstr "Audacity %sツールバー"
 
 #: src/toolbars/ToolBar.cpp
 msgid "Click and drag to resize toolbar"
-msgstr "ツールバーをリサイズするためにはクリック後にドラックして下さい."
+msgstr "ツールバーをリサイズするためにはクリック後にドラックしてください"
 
 #: src/toolbars/ToolDock.cpp
 msgid "ToolDock"
@@ -15456,7 +15445,7 @@ msgstr "タイムシフトツール"
 
 #: src/toolbars/ToolsToolBar.cpp
 msgid "Zoom Tool"
-msgstr "拡大ツール "
+msgstr "拡大ツール"
 
 #: src/toolbars/ToolsToolBar.cpp
 #: src/tracks/playabletrack/wavetrack/ui/SampleHandle.cpp
