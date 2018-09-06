@@ -1670,8 +1670,9 @@ msgid ""
 "Copying these files into your project will remove this dependency.\n"
 "This is safer, but needs more disk space."
 msgstr ""
-"以下のファイルからオーディオをコピーするとプロジェクトは自己完結になります.\n"
-"この作業はより多くのディスク領域を必要としますが, より安全です. "
+"以下のファイルからオーディオをコピーするとプロジェクトの依存性が解決されま"
+"す.\n"
+"安全になりますが, より多くのディスク領域を必要とします."
 
 #: src/Dependencies.cpp
 msgid ""
@@ -1684,7 +1685,7 @@ msgstr ""
 "\n"
 "行方不明と表示されたファイルは移動または消去されたもので, コピーすることはで"
 "きません.\n"
-"これらを元に戻すことでプロジェクトにコピーすることができます."
+"これらを元の場所に戻すことでプロジェクトにコピーできるようになります."
 
 #: src/Dependencies.cpp
 msgid "Project Dependencies"
@@ -1707,7 +1708,6 @@ msgid "Cancel Save"
 msgstr "保存をキャンセル"
 
 #: src/Dependencies.cpp
-#, fuzzy
 msgid "Save Without Copying"
 msgstr "コピーせずに保存"
 
@@ -1738,20 +1738,19 @@ msgid "Whenever a project depends on other files:"
 msgstr "プロジェクトが別のファイルに依存するときはいつも："
 
 #: src/Dependencies.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "MISSING %s"
-msgstr "行方不明"
+msgstr "行方不明 %s"
 
 #: src/Dependencies.cpp
-#, fuzzy
 msgid "&Copy Names to Clipboard"
-msgstr "クリップボードへコピー"
+msgstr "名前をクリップボードへコピー(&C)"
 
 #: src/Dependencies.cpp
 msgid ""
 "If you proceed, your project will not be saved to disk. Is this what you "
 "want?"
-msgstr "もし続行すると, プロジェクトはディスクに保存されません. 続行しますか？"
+msgstr "続行すると, プロジェクトはディスクに保存されません. 続行しますか？"
 
 #: src/Dependencies.cpp
 msgid ""
@@ -1762,12 +1761,12 @@ msgid ""
 "imported files, it will no longer be self-contained. If you then Save "
 "without copying those files in, you may lose data."
 msgstr ""
-"このプロジェクトは現時点では自己完結型であり、外部オーディオファイルとの依存"
+"このプロジェクトは現時点では自己完結的であり、外部オーディオファイルとの依存"
 "関係はありません．\n"
 "\n"
 "もし外部と依存関係があるファイルを取り込んだ場合、このプロジェクトはもはや自"
-"己完結型ではなくなります．したがってコピーせずに保存するとデータを失う可能性"
-"があります．"
+"己完結ではなくなります．したがってコピーせずに保存するとデータを失う可能性が"
+"あります."
 
 #: src/Dependencies.cpp
 msgid "Dependency Check"
