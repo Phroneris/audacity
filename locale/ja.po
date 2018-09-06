@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-06 14:39+0900\n"
+"PO-Revision-Date: 2018-09-06 14:53+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -2659,9 +2659,8 @@ msgstr ""
 "\" に変更してください."
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "History"
-msgstr "履歴(&H)..."
+msgstr "履歴"
 
 #: src/HistoryWindow.cpp
 msgid "&Manage History"
@@ -2672,13 +2671,12 @@ msgid "Action"
 msgstr "アクション"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "Reclaimable Space"
-msgstr "可変スピード"
+msgstr "要求容量"
 
 #: src/HistoryWindow.cpp
 msgid "&Total space used"
-msgstr "総使用スペース(&T)"
+msgstr "総使用容量(&T)"
 
 #: src/HistoryWindow.cpp
 msgid "&Undo Levels Available"
@@ -2694,14 +2692,12 @@ msgid "&Discard"
 msgstr "破棄(&D)"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "Clipboard space used"
-msgstr "総使用スペース(&T)"
+msgstr "使用クリップボード容量"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "Discard"
-msgstr "破棄(&D)"
+msgstr "破棄"
 
 #: src/HistoryWindow.cpp src/export/ExportCL.cpp
 msgid "&OK"
