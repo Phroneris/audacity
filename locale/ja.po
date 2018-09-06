@@ -5703,14 +5703,12 @@ msgid "Main Mix"
 msgstr "主ミックス"
 
 #: src/Project.cpp
-#, fuzzy
 msgid "Horizontal Scrollbar"
-msgstr "水平"
+msgstr "水平スクロールバー"
 
 #: src/Project.cpp
-#, fuzzy
 msgid "Vertical Scrollbar"
-msgstr "垂直方向ステレオ"
+msgstr "垂直スクロールバー"
 
 #: src/Project.cpp
 #, c-format
@@ -5733,9 +5731,8 @@ msgid "%sSave changes to %s?"
 msgstr "%s%s の変更を保存しますか？"
 
 #: src/Project.cpp
-#, fuzzy
 msgid "Save project before closing?"
-msgstr "閉じる前に変更を保存しますか？"
+msgstr "閉じる前にプロジェクトを保存しますか？"
 
 #: src/Project.cpp
 msgid ""
@@ -5752,7 +5749,7 @@ msgstr ""
 "\n"
 "以前開いたトラックを保存するには:\n"
 "キャンセルをクリックして, 編集 > 取り消し ですべての\n"
-"トラックを開いてから, ファイル > プロジェクトを保存 を実行してください. "
+"トラックを開いてから, ファイル > プロジェクトを保存 を実行してください."
 
 #: src/Project.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -5890,8 +5887,8 @@ msgid ""
 "open this file."
 msgstr ""
 "このファイルは Audacity %s を用いて保存されました. \n"
-"あなたは Audacity %s を使用しています - このファイルを開くには, 新しいバー"
-"ジョンにアップグレードする必要があります. "
+"あなたは Audacity %s を使用しています. このファイルを開くには, 新しいバージョ"
+"ンにアップグレードする必要があります."
 
 #: src/Project.cpp
 msgid "Can't open project file"
@@ -6126,7 +6123,7 @@ msgstr "取り込み完了. オンデマンドの波形計算が実行中. %2.0f
 #: src/Project.cpp
 #, c-format
 msgid "Could not create autosave file: %s"
-msgstr "自動保存ファイルを生成できません: %s"
+msgstr "自動保存ファイルを作成できません: %s"
 
 #: src/Project.cpp
 #, c-format
@@ -6187,25 +6184,25 @@ msgstr "トラックの削除"
 
 #: src/Project.cpp
 msgid "Less than 1 minute"
-msgstr ""
+msgstr "1分未満"
 
 #: src/Project.cpp
 #, c-format
 msgid "%d hour"
 msgid_plural "%d hours"
-msgstr[0] ""
+msgstr[0] "%d 時間"
 
 #: src/Project.cpp
 #, c-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] ""
+msgstr[0] "%d 分"
 
 #. i18n-hint: A time in hours and minutes. Only translate the "and".
 #: src/Project.cpp
 #, c-format
 msgid "%s and %s."
-msgstr ""
+msgstr "%s %s."
 
 #: src/Resample.cpp
 msgid "Low Quality (Fastest)"
