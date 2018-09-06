@@ -1481,40 +1481,38 @@ msgstr "本当に %s を削除しますか？"
 
 #. i18n-hint: Benchmark means a software speed test
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Benchmark"
-msgstr "ベンチマーク(&R)..."
+msgstr "ベンチマーク"
 
 #: src/Benchmark.cpp
 msgid "Disk Block Size (KB):"
-msgstr ""
+msgstr "ディスクブロックサイズ(KB):"
 
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Number of Edits:"
-msgstr "繰り返し回数の追加:"
+msgstr "編集回数:"
 
 #: src/Benchmark.cpp
 msgid "Test Data Size (MB):"
-msgstr ""
+msgstr "テストデータサイズ(MB):"
 
 #. i18n-hint: A "seed" is a number that initializes a
 #. pseudorandom number generating algorithm
 #: src/Benchmark.cpp
 msgid "Random Seed:"
-msgstr ""
+msgstr "ランダムシード:"
 
 #: src/Benchmark.cpp
 msgid "Show detailed info about each block file"
-msgstr ""
+msgstr "各ブロックファイルの詳細情報を表示"
 
 #: src/Benchmark.cpp
 msgid "Show detailed info about each editing operation"
-msgstr ""
+msgstr "各編集処理の詳細情報を表示"
 
 #: src/Benchmark.cpp
 msgid "Run"
-msgstr ""
+msgstr "実行"
 
 #. i18n-hint verb
 #: src/Benchmark.cpp src/tracks/ui/TrackButtonHandles.cpp
@@ -1525,27 +1523,24 @@ msgstr "閉じる"
 #. i18n-hint: Benchmark means a software speed test;
 #. leave untranslated file extension .txt
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "benchmark.txt"
-msgstr "ベンチマーク(&R)..."
+msgstr "benchmark.txt"
 
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Export Benchmark Data as:"
-msgstr "スペクトルデータの書き出し:"
+msgstr "ベンチマークデータの書き出し:"
 
 #: src/Benchmark.cpp
 msgid "Block size should be in the range 1 - 1024 KB."
-msgstr ""
+msgstr "ブロックサイズは 1～1024 KB でなければなりません."
 
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Number of edits should be in the range 1 - 10000."
-msgstr "最大ノート番号は 1から 128までの整数でなければなりません"
+msgstr "編集回数は 1～10000 でなければなりません."
 
 #: src/Benchmark.cpp
 msgid "Test data size should be in the range 1 - 2000 MB."
-msgstr ""
+msgstr "テストデータサイズは 1～2000 MB でなければなりません."
 
 #: src/Benchmark.cpp
 #, c-format
@@ -1553,9 +1548,8 @@ msgid "Using %d chunks of %d samples each, for a total of %.1f MB.\n"
 msgstr ""
 
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Preparing...\n"
-msgstr "プレビューの準備中"
+msgstr "準備中...\n"
 
 #: src/Benchmark.cpp
 #, c-format
@@ -1563,9 +1557,9 @@ msgid "Expected len %d, track len %lld.\n"
 msgstr ""
 
 #: src/Benchmark.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Performing %d edits...\n"
-msgstr "リピートの適用"
+msgstr ""
 
 #: src/Benchmark.cpp
 #, c-format
@@ -1583,9 +1577,9 @@ msgid "Cut (%d, %d) failed.\n"
 msgstr ""
 
 #: src/Benchmark.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Paste: %d\n"
-msgstr "ペースト"
+msgstr ""
 
 #: src/Benchmark.cpp
 #, c-format
@@ -1636,9 +1630,8 @@ msgid "Time to check all data: %ld ms\n"
 msgstr ""
 
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Reading data again...\n"
-msgstr "オーディオを録音"
+msgstr ""
 
 #: src/Benchmark.cpp
 #, c-format
@@ -1657,9 +1650,8 @@ msgid "TEST FAILED!!!\n"
 msgstr ""
 
 #: src/Benchmark.cpp
-#, fuzzy
 msgid "Benchmark completed successfully.\n"
-msgstr "ファイルの復号に成功しました\n"
+msgstr "ベンチマークは正常に完了しました.\n"
 
 #: src/Dependencies.cpp
 msgid "Removing Dependencies"
