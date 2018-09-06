@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-06 14:53+0900\n"
+"PO-Revision-Date: 2018-09-06 16:43+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -5555,14 +5555,13 @@ msgid "A♯/B♭"
 msgstr ""
 
 #: src/PluginManager.cpp
-#, fuzzy
 msgid "Manage Plug-ins"
-msgstr "プラグイン %s を読み込むことに失敗しました. "
+msgstr "プラグインの管理"
 
 #: src/PluginManager.cpp
 msgid "Select effects, click the Enable or Disable button, then click OK."
 msgstr ""
-"エフェクトを選んで有効または無効をクリックし、OKをクリックしてください."
+"エフェクトを選んで有効化または無効化をクリックし, OKをクリックしてください."
 
 #. i18n-hint: This is before radio buttons selecting which effects to show
 #: src/PluginManager.cpp
@@ -5594,7 +5593,7 @@ msgstr "有効のものを表示"
 #. i18n-hint: Radio button to show just the newly discovered effects
 #: src/PluginManager.cpp
 msgid "Ne&w"
-msgstr "新規(&W) "
+msgstr "新規(&W)"
 
 #: src/PluginManager.cpp
 msgid "Show new"
@@ -5622,72 +5621,74 @@ msgstr "有効化(&E)"
 
 #: src/PluginManager.cpp
 msgid "&Disable"
-msgstr "無効(&D)"
+msgstr "無効化(&D)"
 
 #: src/PluginManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Enabling effects or commands:\n"
 "\n"
 "%s"
 msgstr ""
-"エフェクトの有効化: \n"
+"エフェクトやコマンドの有効化:\n"
 "\n"
 "%s"
 
 #: src/PluginManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Enabling effect or command:\n"
 "\n"
 "%s"
 msgstr ""
-"エフェクトの有効化: \n"
+"エフェクトやコマンドの有効化:\n"
 "\n"
 "%s"
 
 #: src/PluginManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Effect or Command at %s failed to register:\n"
 "%s"
-msgstr "エフェクトの初期化に失敗しました"
+msgstr ""
+"%s のエフェクトまたはコマンドが登録できませんでした:\n"
+"%s"
 
 #: src/PluginManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Overwrite the plug-in file %s?"
-msgstr "既存のファイルを上書き"
+msgstr "プラグインファイル %s を上書きしますか？"
 
 #: src/PluginManager.cpp
 msgid "Plug-in already exists"
-msgstr ""
+msgstr "プラグインが既に存在します"
 
 #: src/PluginManager.cpp
 msgid "Plug-in file is in use.  Failed to overwrite"
-msgstr ""
+msgstr "プラグインファイルは使用中です.  上書きできませんでした"
 
 #: src/PluginManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to register:\n"
 "%s"
-msgstr "%s を削除できません． "
+msgstr ""
+"登録失敗:\n"
+"%s"
 
 #: src/PluginManager.cpp
-#, fuzzy
 msgid "Enable this plug-in?"
 msgid_plural "Enable these plug-ins?"
-msgstr[0] "プラグイン %s を読み込むことに失敗しました. "
+msgstr[0] "このプラグインを有効化しますか？"
 
 #: src/PluginManager.cpp
-#, fuzzy
 msgid "Enable new plug-ins"
-msgstr "プラグイン %s を読み込むことに失敗しました. "
+msgstr "新規プラグインを有効化"
 
 #: src/Prefs.cpp
 #, c-format
 msgid "Failed to remove %s"
-msgstr "%s を削除できません． "
+msgstr "%s を削除できませんでした"
 
 #: src/Prefs.cpp
 msgid "Failed!"
@@ -7552,9 +7553,8 @@ msgid "Exports to a file."
 msgstr "複数ファイルの書き出し"
 
 #: src/commands/LoadCommands.cpp
-#, fuzzy
 msgid "Builtin Commands"
-msgstr "コマンドを選択"
+msgstr "内蔵コマンド"
 
 #: src/commands/LoadCommands.cpp src/effects/LoadEffects.cpp
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
@@ -7564,9 +7564,8 @@ msgid "The Audacity Team"
 msgstr "Audacityチーム"
 
 #: src/commands/LoadCommands.cpp
-#, fuzzy
 msgid "Provides builtin commands to Audacity"
-msgstr "Audacityにビルトインエフェクトを提供"
+msgstr "Audacityに内蔵コマンドを提供"
 
 #: src/commands/LoadCommands.cpp
 msgid "Unknown built-in command name"
@@ -9163,9 +9162,8 @@ msgid "Echo"
 msgstr "エコー"
 
 #: src/effects/Effect.cpp
-#, fuzzy
 msgid "Built-in"
-msgstr "ビルトインエフェクト"
+msgstr "内蔵エフェクト"
 
 #: src/effects/Effect.cpp
 msgid "Preparing preview"
@@ -9176,13 +9174,13 @@ msgid "Previewing"
 msgstr "プレビュー"
 
 #: src/effects/Effect.cpp src/toolbars/ControlToolBar.cpp
-#, fuzzy
 msgid ""
 "Error opening sound device.\n"
 "Try changing the audio host, playback device and the project sample rate."
 msgstr ""
-"サウンドデバイスのオープン時にエラーが発生しました. 再生デバイス設定と, プロ"
-"ジェクトのサンプリング周波数のチェックをして下さい."
+"サウンドデバイスのオープン時にエラーが発生しました.\n"
+"音声ホスト, 再生デバイス, プロジェクトのサンプリング周波数などを変えてみてく"
+"ださい."
 
 #: src/effects/Effect.cpp
 #, fuzzy
@@ -9282,11 +9280,11 @@ msgstr "ベンダー: %s"
 #: src/effects/Effect.cpp
 #, c-format
 msgid "Description: %s"
-msgstr "記述: %s"
+msgstr "説明: %s"
 
 #: src/effects/Effect.cpp
 msgid "About"
-msgstr "Audacity について"
+msgstr "情報"
 
 #: src/effects/Effect.cpp
 #, c-format
@@ -9299,7 +9297,7 @@ msgstr "プリセットの保存"
 
 #: src/effects/Effect.cpp
 msgid "Preset name:"
-msgstr "プリセット名: "
+msgstr "プリセット名:"
 
 #: src/effects/Effect.cpp
 msgid "You must specify a name"
@@ -9347,9 +9345,9 @@ msgid "Applied effect: %s"
 msgstr "エフェクトの適用: %s"
 
 #: src/effects/EffectManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Applied command: %s"
-msgstr "エフェクトの適用: %s"
+msgstr "コマンドの適用: %s"
 
 #: src/effects/EffectManager.cpp
 #, c-format
@@ -9364,14 +9362,14 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報はヘルプ->ログ表示をご覧下さい"
+"詳細情報はヘルプの「ログの表示(L)」をご覧ください"
 
 #: src/effects/EffectManager.cpp
 msgid "Effect failed to initialize"
 msgstr "エフェクトの初期化に失敗しました"
 
 #: src/effects/EffectManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Attempting to initialize the following command failed:\n"
 "\n"
@@ -9379,16 +9377,15 @@ msgid ""
 "\n"
 "More information may be available in Help->Show Log"
 msgstr ""
-"次のエフェクトの初期化に失敗しました:\n"
+"次のコマンドの初期化に失敗しました:\n"
 "\n"
 "%s\n"
 "\n"
-"詳細情報はヘルプ->ログ表示をご覧下さい"
+"詳細情報はヘルプの「ログの表示(L)」をご覧ください"
 
 #: src/effects/EffectManager.cpp
-#, fuzzy
 msgid "Command failed to initialize"
-msgstr "エフェクトの初期化に失敗しました"
+msgstr "コマンドの初期化に失敗しました"
 
 #: src/effects/EffectRack.cpp
 msgid "Effects Rack"
@@ -9871,11 +9868,11 @@ msgstr "上下を反転"
 
 #: src/effects/LoadEffects.cpp
 msgid "Builtin Effects"
-msgstr "ビルトインエフェクト"
+msgstr "内蔵エフェクト"
 
 #: src/effects/LoadEffects.cpp
 msgid "Provides builtin effects to Audacity"
-msgstr "Audacityにビルトインエフェクトを提供"
+msgstr "Audacityに内蔵エフェクトを提供"
 
 #: src/effects/LoadEffects.cpp
 msgid "Unknown built-in effect name"
