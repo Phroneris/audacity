@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-07 01:24+0900\n"
+"PO-Revision-Date: 2018-09-07 03:37+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: -1,622,3258,-1,817,-1,3156,-1,-1,1089\n"
+"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,-1,-1,1089\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -4267,7 +4267,7 @@ msgstr "トラック選択..."
 
 #: src/Menus.cpp
 msgid "Set Track Status..."
-msgstr "トラックステータス設定..."
+msgstr "トラックステータスの設定..."
 
 #: src/Menus.cpp
 msgid "Set Track Audio..."
@@ -4311,11 +4311,11 @@ msgstr "選択..."
 
 #: src/Menus.cpp
 msgid "Set Track..."
-msgstr "トラック設定..."
+msgstr "トラックの設定..."
 
 #: src/Menus.cpp
 msgid "Get Info..."
-msgstr "情報を取得..."
+msgstr "情報の取得..."
 
 #: src/Menus.cpp
 msgid "Message..."
@@ -5144,9 +5144,8 @@ msgstr ""
 #: src/Menus.cpp src/commands/PreferenceCommands.cpp
 #: src/commands/SetProjectCommand.cpp src/commands/SetTrackInfoCommand.cpp
 #: src/tracks/ui/TrackControls.cpp
-#, fuzzy
 msgid "Name:"
-msgstr "名前"
+msgstr "名前:"
 
 #: src/Menus.cpp
 #, fuzzy
@@ -7296,9 +7295,8 @@ msgid "Threshold:"
 msgstr "閾値:"
 
 #: src/commands/CompareAudioCommand.h
-#, fuzzy
 msgid "Compare Audio"
-msgstr "ラベル付きオーディオのコピー"
+msgstr "音声比較"
 
 #: src/commands/CompareAudioCommand.h
 #, fuzzy
@@ -7322,73 +7320,63 @@ msgid "Does the demo action."
 msgstr ""
 
 #: src/commands/DragCommand.cpp src/widgets/wxPanelWrapper.h
-#, fuzzy
 msgid "Panel"
-msgstr "Panel 1"
+msgstr "パネル"
 
 #: src/commands/DragCommand.cpp
-#, fuzzy
 msgid "Application"
-msgstr "増幅 dB"
+msgstr "アプリケーション"
 
 #: src/commands/DragCommand.cpp
-#, fuzzy
 msgid "Track 0"
-msgstr "トラック"
+msgstr "トラック0"
 
 #: src/commands/DragCommand.cpp
-#, fuzzy
 msgid "Track 1"
-msgstr "トラック"
+msgstr "トラック1"
 
 #. i18n-hint abbreviates "Identity" or "Identifier"
 #: src/commands/DragCommand.cpp
 msgid "Id:"
-msgstr ""
+msgstr "ID:"
 
 #: src/commands/DragCommand.cpp
-#, fuzzy
 msgid "Window Name:"
-msgstr "ウィンドウサイズ:"
+msgstr "ウィンドウ名:"
 
 #: src/commands/DragCommand.cpp
-#, fuzzy
 msgid "From X:"
-msgstr "変更前:"
+msgstr "出発X:"
 
 #: src/commands/DragCommand.cpp
-#, fuzzy
 msgid "From Y:"
-msgstr "変更前:"
+msgstr "出発Y:"
 
 #: src/commands/DragCommand.cpp
 msgid "To X:"
-msgstr ""
+msgstr "到着X:"
 
 #: src/commands/DragCommand.cpp
 msgid "To Y:"
-msgstr ""
+msgstr "到着Y:"
 
 #: src/commands/DragCommand.cpp src/commands/SelectCommand.cpp
 msgid "Relative To:"
-msgstr ""
+msgstr "相対位置:"
 
 #: src/commands/DragCommand.h
-#, fuzzy
 msgid "Drag"
-msgstr "左-ドラッグ"
+msgstr "ドラッグ"
 
 #: src/commands/DragCommand.h
 msgid "Drags mouse from one place to another."
 msgstr ""
 
 #: src/commands/GetInfoCommand.cpp
-#, fuzzy
 msgid "Commands"
 msgstr "コマンド"
 
 #: src/commands/GetInfoCommand.cpp
-#, fuzzy
 msgid "Menus"
 msgstr "メニュー"
 
@@ -7397,12 +7385,10 @@ msgid "Preferences"
 msgstr "環境設定"
 
 #: src/commands/GetInfoCommand.cpp src/commands/GetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Clips"
-msgstr "クリッピング"
+msgstr "クリップ"
 
 #: src/commands/GetInfoCommand.cpp
-#, fuzzy
 msgid "Envelopes"
 msgstr "エンベロープ"
 
@@ -7418,16 +7404,16 @@ msgstr ""
 #. i18n-hint JavaScript Object Notation
 #: src/commands/GetInfoCommand.cpp
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 #. i18n-hint name of a computer programming language
 #: src/commands/GetInfoCommand.cpp
 msgid "LISP"
-msgstr ""
+msgstr "LISP"
 
 #: src/commands/GetInfoCommand.cpp
 msgid "Brief"
-msgstr ""
+msgstr "Brief"
 
 #: src/commands/GetInfoCommand.cpp src/effects/Effect.cpp
 msgid "Type:"
@@ -7439,9 +7425,8 @@ msgid "Format:"
 msgstr "フォーマット:"
 
 #: src/commands/GetInfoCommand.h
-#, fuzzy
 msgid "Get Info"
-msgstr "情報"
+msgstr "情報の取得"
 
 #: src/commands/GetInfoCommand.h
 #, fuzzy
@@ -7449,7 +7434,6 @@ msgid "Gets information in JSON format."
 msgstr "information can be recorded."
 
 #: src/commands/GetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Types:"
 msgstr "タイプ:"
 
@@ -7464,35 +7448,31 @@ msgstr ""
 
 #: src/commands/HelpCommand.cpp src/export/ExportCL.cpp
 msgid "Command:"
-msgstr "コマンド"
+msgstr "コマンド:"
 
 #: src/commands/HelpCommand.h
 msgid "Gives help on a command."
 msgstr ""
 
 #: src/commands/ImportExportCommands.cpp src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "File Name:"
-msgstr "ファイルタイプ："
+msgstr "ファイル名:"
 
 #: src/commands/ImportExportCommands.cpp
-#, fuzzy
 msgid "Number of Channels:"
-msgstr "繰り返し回数の追加:"
+msgstr "チャンネル数:"
 
 #: src/commands/ImportExportCommands.h
-#, fuzzy
 msgid "Import2"
-msgstr "取り込み"
+msgstr "取り込み2"
 
 #: src/commands/ImportExportCommands.h
 msgid "Imports from a file."
 msgstr ""
 
 #: src/commands/ImportExportCommands.h
-#, fuzzy
 msgid "Export2"
-msgstr "書き出し"
+msgstr "書き出し2"
 
 #: src/commands/ImportExportCommands.h
 #, fuzzy
@@ -7520,7 +7500,7 @@ msgstr ""
 
 #: src/commands/MessageCommand.cpp src/commands/SetLabelCommand.cpp
 msgid "Text:"
-msgstr ""
+msgstr "テキスト:"
 
 #  i18n-hint: '-help' is the option and needs to stay in
 #  * English. This displays a list of available options
@@ -7530,24 +7510,20 @@ msgid "Echos a message."
 msgstr "このヘルプメッセージ"
 
 #: src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "Add to History"
-msgstr "取り消しの履歴"
+msgstr "履歴に追加"
 
 #: src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "Add to History:"
-msgstr "取り消しの履歴"
+msgstr "履歴に追加:"
 
 #: src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "Compress:"
-msgstr "圧縮"
+msgstr "圧縮:"
 
 #: src/commands/OpenSaveCommands.h
-#, fuzzy
 msgid "Open Project2"
-msgstr "新しいプロジェクト"
+msgstr "プロジェクトを開く2"
 
 #: src/commands/OpenSaveCommands.h
 #, fuzzy
@@ -7555,9 +7531,8 @@ msgid "Opens a project."
 msgstr "Audacity プロジェクトファイルを開く"
 
 #: src/commands/OpenSaveCommands.h
-#, fuzzy
 msgid "Save Project2"
-msgstr "プロジェクトファイルを保存(&S)"
+msgstr "プロジェクトを保存2"
 
 #: src/commands/OpenSaveCommands.h
 #, fuzzy
@@ -7565,13 +7540,12 @@ msgid "Saves a project."
 msgstr "プロジェクトファイルを保存(&S)"
 
 #: src/commands/PreferenceCommands.cpp src/commands/SetEnvelopeCommand.cpp
-#, fuzzy
 msgid "Value:"
-msgstr "値"
+msgstr "値:"
 
 #: src/commands/PreferenceCommands.cpp
 msgid "Reload:"
-msgstr ""
+msgstr "更新:"
 
 #: src/commands/PreferenceCommands.h
 msgid "Get Preference"
@@ -7590,12 +7564,7 @@ msgstr ""
 msgid "Sets the value of a single preference."
 msgstr "1つ以上のトラックに対してピーク振幅を設定します"
 
-#  i18n-hint: This refers to a "window function", used in the
-#  Frequency analyze dialog box.
-#  i18n-hint: This refers to a "window function", used in the
-#  Frequency analyze dialog box.
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Window"
 msgstr "ウィンドウ"
 
@@ -7610,14 +7579,12 @@ msgid "Window Plus"
 msgstr "ウィンドウPlusを取り込み"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Fullscreen"
-msgstr "フルスクリーン表示on/off"
+msgstr "フルスクリーン"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Toolbars"
-msgstr "ツールバー(&T)"
+msgstr "ツールバー"
 
 #: src/commands/ScreenshotCommand.cpp src/prefs/EffectsPrefs.cpp
 msgid "Effects"
@@ -7629,29 +7596,24 @@ msgid "Scriptables"
 msgstr "スクリプト"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Selectionbar"
 msgstr "選択バー"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Trackpanel"
 msgstr "トラックパネル"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "First Two Tracks"
-msgstr "最初のトラック"
+msgstr "最初の2トラック"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "First Three Tracks"
-msgstr "最初のトラック"
+msgstr "最初の3トラック"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "First Four Tracks"
-msgstr "最初のトラック"
+msgstr "最初の4トラック"
 
 #: src/commands/ScreenshotCommand.cpp
 #, fuzzy
@@ -7664,9 +7626,8 @@ msgid "First Track Plus"
 msgstr "最初のトラック"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "All Tracks"
-msgstr "トラック（高）"
+msgstr "全トラック"
 
 #: src/commands/ScreenshotCommand.cpp
 #, fuzzy
@@ -7675,11 +7636,11 @@ msgstr "トラック（高）"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Blue"
-msgstr ""
+msgstr "青"
 
 #: src/commands/ScreenshotCommand.cpp src/effects/Noise.cpp
 msgid "White"
-msgstr "ホワイト"
+msgstr "白"
 
 #: src/commands/ScreenshotCommand.cpp src/effects/Effect.cpp
 #: src/prefs/QualityPrefs.cpp src/prefs/TracksBehaviorsPrefs.cpp
@@ -7688,18 +7649,16 @@ msgid "None"
 msgstr "無し"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Path:"
-msgstr "パス"
+msgstr "パス:"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Capture What:"
-msgstr ""
+msgstr "キャプチャ対象:"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Background:"
-msgstr "背面(&B):"
+msgstr "背景:"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Bring To Top:"
@@ -7711,61 +7670,52 @@ msgid "Error trying to save file: %s"
 msgstr "ファイル保存時のエラー: "
 
 #: src/commands/ScreenshotCommand.h
-#, fuzzy
 msgid "Screenshot"
-msgstr "スクリーンショットツール(&S)..."
+msgstr "スクリーンショット"
 
 #: src/commands/ScreenshotCommand.h
 msgid "Takes screenshots."
 msgstr ""
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Project Start"
-msgstr "プロジェクト"
+msgstr "プロジェクトの最初"
 
 #: src/commands/SelectCommand.cpp src/commands/SetProjectCommand.cpp
-#, fuzzy
 msgid "Project"
 msgstr "プロジェクト"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Project End"
-msgstr "プロジェクト"
+msgstr "プロジェクトの最後"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Selection Start"
-msgstr "選択開始:"
+msgstr "選択範囲の最初"
 
 #: src/commands/SelectCommand.cpp src/toolbars/SelectionBar.cpp
 msgid "Selection"
-msgstr "選択"
+msgstr "選択範囲"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Selection End"
-msgstr "選択の最後"
+msgstr "選択範囲の最後"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Start Time:"
-msgstr "開始時刻"
+msgstr "開始時刻:"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "End Time:"
-msgstr "終了時刻"
+msgstr "終了時刻:"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "High:"
-msgstr "ハイパスフィルター"
+msgstr "高:"
 
 #: src/commands/SelectCommand.cpp
 msgid "Low:"
-msgstr ""
+msgstr "低:"
 
 #. i18n-hint verb, imperative
 #: src/commands/SelectCommand.cpp
@@ -7773,9 +7723,8 @@ msgid "Set"
 msgstr "設定"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Add"
-msgstr "追加(&A)"
+msgstr "追加"
 
 #: src/commands/SelectCommand.cpp src/effects/EffectRack.cpp
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
@@ -7783,34 +7732,28 @@ msgid "Remove"
 msgstr "削除"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "First Track:"
-msgstr "最初のトラック"
+msgstr "最初のトラック:"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Track Count:"
-msgstr "ドック量:"
+msgstr "トラックカウント:"
 
 #: src/commands/SelectCommand.cpp
-#, fuzzy
 msgid "Mode:"
-msgstr "モード"
+msgstr "モード:"
 
 #: src/commands/SelectCommand.h
-#, fuzzy
 msgid "Select Time"
-msgstr "MIDI ファイルを選択..."
+msgstr "時間選択"
 
 #: src/commands/SelectCommand.h
-#, fuzzy
 msgid "Select Frequencies"
-msgstr "周波数"
+msgstr "周波数選択"
 
 #: src/commands/SelectCommand.h
-#, fuzzy
 msgid "Select Tracks"
-msgstr "トラックの並べ替え(&O)"
+msgstr "トラック選択"
 
 #: src/commands/SelectCommand.h src/prefs/MousePrefs.cpp
 msgid "Select"
@@ -7836,75 +7779,64 @@ msgid "Selects Audio."
 msgstr "オーディオホストの選択"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Color 0"
-msgstr "色"
+msgstr "色0"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Color 1"
-msgstr "色"
+msgstr "色1"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Color 2"
-msgstr "色"
+msgstr "色2"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Color 3"
-msgstr "色"
+msgstr "色3"
 
 #: src/commands/SetClipCommand.cpp
 msgid "At:"
 msgstr ""
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Colour:"
-msgstr "色"
+msgstr "色:"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetLabelCommand.cpp
-#, fuzzy
 msgid "Start:"
-msgstr "開始"
+msgstr "開始:"
 
 #: src/commands/SetClipCommand.h
-#, fuzzy
 msgid "Set Clip"
-msgstr "次のツール"
+msgstr "クリップ設定"
 
 #: src/commands/SetClipCommand.h
 msgid "Sets various values for a clip."
 msgstr ""
 
 #: src/commands/SetEnvelopeCommand.cpp
-#, fuzzy
 msgid "Time:"
-msgstr "時間"
+msgstr "時間:"
 
 #: src/commands/SetEnvelopeCommand.cpp
-#, fuzzy
 msgid "Delete:"
-msgstr "削除"
+msgstr "削除:"
 
 #: src/commands/SetEnvelopeCommand.h
-#, fuzzy
 msgid "Set Envelope"
-msgstr "エンベロープ"
+msgstr "エンベロープ設定"
 
 #: src/commands/SetEnvelopeCommand.h
 msgid "Sets an envelope point position."
 msgstr ""
 
 #: src/commands/SetLabelCommand.cpp
-#, fuzzy
 msgid "Label Index"
-msgstr "ラベルの編集"
+msgstr "ラベル番号"
 
 #: src/commands/SetLabelCommand.cpp
 msgid "End:"
-msgstr ""
+msgstr "終了:"
 
 #: src/commands/SetLabelCommand.cpp
 #, fuzzy
@@ -7912,9 +7844,8 @@ msgid "Selected:"
 msgstr "選択"
 
 #: src/commands/SetLabelCommand.h
-#, fuzzy
 msgid "Set Label"
-msgstr "分離ラベル"
+msgstr "ラベル設定"
 
 #: src/commands/SetLabelCommand.h
 msgid "Sets various values for a label."
@@ -7934,59 +7865,50 @@ msgid "Y:"
 msgstr ""
 
 #: src/commands/SetProjectCommand.cpp
-#, fuzzy
 msgid "Width:"
-msgstr "幅"
+msgstr "幅:"
 
 #: src/commands/SetProjectCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Height:"
-msgstr "右"
+msgstr "高さ:"
 
 #: src/commands/SetProjectCommand.h
-#, fuzzy
 msgid "Set Project"
-msgstr "プロジェクトファイルを保存(&S)"
+msgstr "プロジェクト設定"
 
 #: src/commands/SetProjectCommand.h
 msgid "Sets various values for a project."
 msgstr ""
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Track Index:"
-msgstr "トラックの最後(&E)"
+msgstr "トラック番号:"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Channel Index:"
-msgstr "チャンネルモード:"
+msgstr "チャンネル番号:"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Unnamed"
-msgstr "無名"
+msgstr "無題"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Selected"
 msgstr "選択"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Focused"
-msgstr "一時停止"
+msgstr "フォーカス"
 
 #  i18n-hint: Title of the Gain slider, used to adjust the volume
 #  i18n-hint: Title of the Gain slider, used to adjust the volume
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Gain:"
-msgstr "ゲイン調整"
+msgstr "ゲイン:"
 
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "Pan:"
-msgstr ""
+msgstr "パン:"
 
 #: src/commands/SetTrackInfoCommand.cpp src/prefs/TracksPrefs.cpp
 msgid "Waveform"
@@ -8003,67 +7925,56 @@ msgid "Linear"
 msgstr "リニア"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Reset"
-msgstr "リセット(&E)"
+msgstr "リセット"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Times 2"
-msgstr "時間"
+msgstr "2倍"
 
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "HalfWave"
-msgstr ""
+msgstr "半波"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Display:"
-msgstr "表示"
+msgstr "表示:"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Scale:"
-msgstr "スケール"
+msgstr "スケール:"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "VZoom:"
-msgstr "拡大"
+msgstr "垂直拡大:"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Use Spectral Prefs"
-msgstr "スペクトル上の処理"
+msgstr "スペクトル環境設定を使用"
 
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "Spectral Select"
 msgstr "スペクトル選択"
 
 #: src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Gray Scale"
-msgstr "スケール(&C)"
+msgstr "グレースケール"
 
 #: src/commands/SetTrackInfoCommand.h
-#, fuzzy
 msgid "Set Track"
-msgstr "新しいトラック"
+msgstr "トラックの設定"
 
 #: src/commands/SetTrackInfoCommand.h
-#, fuzzy
 msgid "Set Track Status"
-msgstr "トラックの最初(&S)"
+msgstr "トラックステータスの設定"
 
 #: src/commands/SetTrackInfoCommand.h
-#, fuzzy
 msgid "Set Track Audio"
-msgstr "無音化"
+msgstr "トラック音声設定"
 
 #: src/commands/SetTrackInfoCommand.h
-#, fuzzy
 msgid "Set Track Visuals"
-msgstr "トラックの並べ替え(&O)"
+msgstr "トラック表示設定"
 
 #: src/commands/SetTrackInfoCommand.h
 msgid "Sets various values for a track."
