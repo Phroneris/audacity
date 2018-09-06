@@ -1152,14 +1152,12 @@ msgid "&Details"
 msgstr ""
 
 #: src/BatchCommandDialog.cpp
-#, fuzzy
 msgid "Choose command"
-msgstr "コマンドを選択(&H)"
+msgstr "コマンドを選択"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "No Action"
-msgstr "アクション"
+msgstr "アクション無し"
 
 #. i18n-hint: before is adverb; MP3 names an audio file format
 #: src/BatchCommands.cpp
@@ -1175,37 +1173,31 @@ msgstr "書き出し"
 
 #. i18n-hint: FLAC names an audio file format
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Export as FLAC"
-msgstr "ラベルの書き出し:"
+msgstr "FLACとして書き出し"
 
 #. i18n-hint: MP3 names an audio file format
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Export as MP3"
-msgstr "書き出し"
+msgstr "MP3として書き出し"
 
 #. i18n-hint: Ogg names an audio file format
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Export as Ogg"
-msgstr "書き出し"
+msgstr "Oggとして書き出し"
 
 #. i18n-hint: WAV names an audio file format
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Export as WAV"
-msgstr "ラベルの書き出し:"
+msgstr "WAVとして書き出し"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "MP3 Conversion"
-msgstr "リアルタイム変換:"
+msgstr ""
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Fade Ends"
-msgstr "フェードイン"
+msgstr ""
 
 #: src/BatchCommands.cpp
 #, fuzzy
@@ -1213,23 +1205,20 @@ msgid "Select to Ends"
 msgstr "最後まで選択"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Special Command"
-msgstr "コマンドを選択"
+msgstr "特殊コマンド"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Effect"
 msgstr "エフェクト"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Menu Command (With Parameters)"
-msgstr "編集パラメータ(&E)"
+msgstr "メニューコマンド (パラメータ有り)"
 
 #: src/BatchCommands.cpp
 msgid "Menu Command (No Parameters)"
-msgstr ""
+msgstr "メニューコマンド (パラメータ無し)"
 
 #: src/BatchCommands.cpp
 msgid "cleaned"
@@ -1273,25 +1262,23 @@ msgstr "自動実行コマンド %s は認識されません. "
 
 #. i18n-hint: active verb in past tense
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Applied Macro"
-msgstr "チェインを適用"
+msgstr "マクロ適用"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Apply Macro"
-msgstr "チェインを適用"
+msgstr "マクロ適用"
 
 #. i18n-hint: active verb in past tense
 #: src/BatchCommands.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Applied Macro '%s'"
-msgstr "エフェクトの適用: %s"
+msgstr "マクロ適用 '%s'"
 
 #: src/BatchCommands.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Apply '%s'"
-msgstr "%s を適用"
+msgstr "マクロ適用 '%s'"
 
 #: src/BatchCommands.cpp
 #, c-format
@@ -1315,63 +1302,56 @@ msgstr "%s を適用"
 
 #: src/BatchProcessDialog.cpp
 msgid "Macros Palette"
-msgstr ""
+msgstr "マクロパレット"
 
 #. i18n-hint: A macro is a sequence of commands that can be applied
 #. * to one or more audio files.
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Select Macro"
-msgstr "カーブを選択"
+msgstr "マクロを選択"
 
 #. i18n-hint: This is the heading for a column in the edit macros dialog
 #: src/BatchProcessDialog.cpp
 msgid "Macro"
-msgstr ""
+msgstr "マクロ"
 
 #: src/BatchProcessDialog.cpp
 msgid "Apply Macro to:"
-msgstr ""
+msgstr "マクロ適用先:"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "&Project"
-msgstr "プロジェクト"
+msgstr "プロジェクト(&P)"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Apply macro to project"
-msgstr "現在のプロジェクトに適用(&P)"
+msgstr "マクロをプロジェクトに適用"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "&Files..."
-msgstr "ファイル(&F)"
+msgstr "ファイル(&F)..."
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Apply macro to files..."
-msgstr "ファイルへ適用(&F)..."
+msgstr "マクロをファイルに適用..."
 
 #. i18n-hint: The Expand button makes the dialog bigger, with more in it
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "&Expand"
-msgstr "拡張"
+msgstr "展開(&E)"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "No macro selected"
-msgstr "チェインが選択されていません."
+msgstr "マクロが選択されていません"
 
 #: src/BatchProcessDialog.cpp
 #, c-format
 msgid "Applying '%s' to current project"
-msgstr "'%s'を現在のプロジェクトに適用中"
+msgstr "'%s' を現在のプロジェクトに適用中"
 
 #: src/BatchProcessDialog.cpp
 msgid "Please save and close the current project first."
-msgstr "現在のプロジェクトを先に保存して閉じてください. "
+msgstr "先に現在のプロジェクトを保存して閉じてください."
 
 #: src/BatchProcessDialog.cpp
 msgid "Select file(s) for batch processing..."
@@ -1395,14 +1375,12 @@ msgid "&Cancel"
 msgstr "キャンセル(&C)"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Manage Macros"
-msgstr "カーブの管理"
+msgstr "マクロの管理"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Remo&ve"
-msgstr "削除"
+msgstr "削除(&V)"
 
 #: src/BatchProcessDialog.cpp src/effects/Equalization.cpp
 msgid "&Rename..."
@@ -1418,9 +1396,8 @@ msgid "E&xport..."
 msgstr "書き出し(&X)..."
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Edit Steps"
-msgstr "ラベルの編集"
+msgstr "編集ステップ"
 
 #. i18n-hint: This is the number of the command in the list
 #: src/BatchProcessDialog.cpp
@@ -1440,9 +1417,8 @@ msgid "&Insert"
 msgstr "挿入(&I)"
 
 #: src/BatchProcessDialog.cpp src/LabelTrack.cpp
-#, fuzzy
 msgid "&Edit..."
-msgstr "編集(&D)..."
+msgstr "編集(&E)..."
 
 #: src/BatchProcessDialog.cpp src/LabelDialog.cpp
 msgid "De&lete"
@@ -1463,41 +1439,39 @@ msgstr "既定値(&F)"
 #. i18n-hint: The Shrink button makes the dialog smaller, with less in it
 #: src/BatchProcessDialog.cpp
 msgid "Shrin&k"
-msgstr ""
+msgstr "畳む(&K)"
 
 #. i18n-hint: This is the last item in a list.
 #: src/BatchProcessDialog.cpp
 msgid "- END -"
-msgstr "終了"
+msgstr "- 終了 -"
 
 #: src/BatchProcessDialog.cpp
 #, c-format
 msgid "%s changed"
-msgstr "%s　が変更されました"
+msgstr "%s が変更されました"
 
 #: src/BatchProcessDialog.cpp
 msgid "Do you want to save the changes?"
-msgstr "変更を保存しますか \""
+msgstr "変更を保存しますか？"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Enter name of new macro"
-msgstr "新しいチェインの名前を入力"
+msgstr "新しいマクロの名前を入力"
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Name of new macro"
-msgstr "新しいチェインの名前"
+msgstr "新しいマクロの名前"
 
 #: src/BatchProcessDialog.cpp
 msgid "Name must not be blank"
-msgstr "名前は空白ではだめです"
+msgstr "空白の名前にはできません"
 
 #. i18n-hint: The %c will be replaced with 'forbidden characters', like '/' and '\'.
 #: src/BatchProcessDialog.cpp
 #, c-format
 msgid "Names may not contain '%c' and '%c'"
-msgstr "名前は '%c'　や '%c'　を含んではいけません"
+msgstr "名前は '%c' や '%c' を含んではいけません"
 
 #. i18n-hint: %s will be replaced by the name of a file.
 #: src/BatchProcessDialog.cpp
