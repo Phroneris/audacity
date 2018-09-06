@@ -11455,9 +11455,9 @@ msgid "Unable to export"
 msgstr "書き出しできません"
 
 #: src/export/Export.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Are you sure you want to export the file as \"%s\"?\n"
-msgstr "本当に \" として保存しますか"
+msgstr "本当に \"%s\" として書き出しますか？\n"
 
 #: src/export/Export.cpp
 #, c-format
@@ -11469,12 +11469,12 @@ msgid ""
 "\n"
 "Are you sure you want to export the file under this name?"
 msgstr ""
-"%s ファイルを名前 \"%s\"で保存しようとしています.\n"
+"%s ファイルを \"%s\" という名前で保存しようとしています.\n"
 "\n"
-"通常これらのファイルは\".%s\"で終わります. いくつかのプログラムは非標準の拡張"
-"子のファイルを開くことができません.\n"
+"通常これらのファイルは \".%s\" で終わるものであり, プログラムによっては非標準"
+"の拡張子のファイルは開くことができません.\n"
 "\n"
-"本当にこの名前で書き出しますか?"
+"本当にこの名前でファイルを書き出しますか？"
 
 #: src/export/Export.cpp
 msgid "Sorry, pathnames longer than 256 characters not supported."
@@ -11588,9 +11588,8 @@ msgid "Exporting the selected audio using command-line encoder"
 msgstr "選択したオーディオをコマンドラインエンコーダを使って書き出し"
 
 #: src/export/ExportCL.cpp
-#, fuzzy
 msgid "Exporting the audio using command-line encoder"
-msgstr "選択したオーディオをコマンドラインエンコーダを使って書き出し"
+msgstr "オーディオをコマンドラインエンコーダを使って書き出し"
 
 #: src/export/ExportCL.cpp
 msgid "Command Output"
@@ -12232,7 +12231,7 @@ msgstr "コーデックが見つかりませんでした"
 
 #: src/export/ExportFLAC.cpp
 msgid "0 (fastest)"
-msgstr "0 (最も高速)"
+msgstr "0 (最速)"
 
 #: src/export/ExportFLAC.cpp
 msgid "1"
@@ -12285,7 +12284,7 @@ msgstr "FLACファイル"
 #: src/export/ExportFLAC.cpp
 #, c-format
 msgid "FLAC export couldn't open %s"
-msgstr "FLAC書き出しが %s を開けませんでした."
+msgstr "FLAC書き出しが %s を開けませんでした"
 
 #: src/export/ExportFLAC.cpp
 #, c-format
@@ -12311,7 +12310,7 @@ msgstr "MP2ファイル"
 #: src/export/ExportMP2.cpp
 msgid "Cannot export MP2 with this sample rate and bit rate"
 msgstr ""
-"このサンプリング周波数とビットレートではMP2ファイルに書き出しできません."
+"このサンプリング周波数とビットレートではMP2ファイルに書き出しできません"
 
 #: src/export/ExportMP2.cpp src/export/ExportMP3.cpp src/export/ExportOGG.cpp
 msgid "Unable to open target file for writing"
