@@ -4495,51 +4495,47 @@ msgstr "右側の選択境界を設定"
 
 #: src/Menus.cpp
 msgid "Can't delete track with active audio"
-msgstr "アクティブなオーディオと一緒にトラックの削除はできません. "
+msgstr "アクティブなオーディオと一緒にトラックの削除はできません"
 
 #. i18n-hint: Past tense of 'to move', as in 'moved audio track up'.
 #: src/Menus.cpp
 #, fuzzy, c-format
 msgid "Moved '%s' to Top"
-msgstr "移動 '%s' %s"
+msgstr "'%s' を最上段へ移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Track to Top"
-msgstr "トラックを最上段へ移動(&T)"
+msgstr "トラックを最上段へ移動"
 
 #. i18n-hint: Past tense of 'to move', as in 'moved audio track up'.
 #: src/Menus.cpp
 #, fuzzy, c-format
 msgid "Moved '%s' to Bottom"
-msgstr "トラックを最下段へ移動(&B)"
+msgstr "'%s' を最下段へ移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Track to Bottom"
-msgstr "トラックを最下段へ移動(&B)"
+msgstr "トラックを最下段へ移動"
 
 #. i18n-hint: Past tense of 'to move', as in 'moved audio track up'.
 #: src/Menus.cpp
 #, fuzzy, c-format
 msgid "Moved '%s' Up"
-msgstr "移動 '%s' %s"
+msgstr "'%s' を上へ移動"
 
 #: src/Menus.cpp
 #, fuzzy, c-format
 msgid "Moved '%s' Down"
-msgstr "移動 '%s' %s"
+msgstr "'%s' を下へ移動"
 
 #. i18n-hint: Past tense of 'to move', as in 'moved audio track up'.
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Track Up"
-msgstr "トラックを上へ移動(&U)"
+msgstr "トラックを上へ移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Move Track Down"
-msgstr "トラックを下へ移動(&D)"
+msgstr "トラックを下へ移動"
 
 #. i18n-hint: filename containing exported text from label tracks
 #: src/Menus.cpp
@@ -4551,14 +4547,12 @@ msgid "There are no label tracks to export."
 msgstr "書き出すトラックラベルはありません."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Please select only one Note Track at a time."
-msgstr "一度に１つのトラックのみ測定できます."
+msgstr "一度に1つのノートトラックだけ選択してください."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Please select a Note Track."
-msgstr "操作を選んでください"
+msgstr "ノートトラックを選択してください."
 
 #: src/Menus.cpp
 msgid "Export MIDI As:"
@@ -4606,11 +4600,11 @@ msgstr "切り取り分割"
 
 #: src/Menus.cpp
 msgid "Pasting one type of track into another is not allowed."
-msgstr "オーディオデータを別の種類のトラックにはコピーできません. "
+msgstr "異なる種類のトラックにはコピーできません."
 
 #: src/Menus.cpp
 msgid "Copying stereo audio into a mono track is not allowed."
-msgstr "ステレオのオーディオデータはモノラルトラックにコピーできません．. "
+msgstr "ステレオのオーディオデータはモノラルトラックにコピーできません."
 
 #: src/Menus.cpp
 msgid "Pasted from the clipboard"
@@ -4883,19 +4877,19 @@ msgstr "ミックスと実行"
 #: src/Menus.cpp src/TrackPanelAx.cpp
 #, c-format
 msgid "Track %d"
-msgstr "トラック %d "
+msgstr "トラック %d"
 
 #. i18n-hint: given the name of a track, specify its left channel
 #: src/Menus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s left"
-msgstr "左"
+msgstr "%s 左"
 
 #. i18n-hint: given the name of a track, specify its right channel
 #: src/Menus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s right"
-msgstr "右"
+msgstr "%s 右"
 
 #. i18n-hint: in the string after this one,
 #. First %s is replaced with the noun "start" or "end"
@@ -5143,29 +5137,25 @@ msgid "Name:"
 msgstr "名前:"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "New label"
-msgstr "ラベルを付ける"
+msgstr "新規ラベル"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Please select in a mono track."
-msgstr "操作を選んでください"
+msgstr "モノラルトラックを選択してください."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Please select in a stereo track."
-msgstr "操作を選んでください"
+msgstr "ステレオトラックを選択してください."
 
 #: src/Menus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Please select at least %d channels."
-msgstr "操作を選んでください"
+msgstr "少なくとも %d チャンネルは選択してください."
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Please select a time within a clip."
-msgstr "操作を選んでください"
+msgstr "クリップ内の時間を選択してください."
 
 #: src/Menus.cpp
 msgid "Edited labels"
