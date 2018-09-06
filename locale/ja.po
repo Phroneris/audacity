@@ -5132,11 +5132,13 @@ msgid ""
 "\n"
 "Please close any additional projects and try again."
 msgstr ""
+"タイマー録音は複数のプロジェクトが開かれた状態では使えません.\n"
+"\n"
+"他のプロジェクトを閉じてやり直してください."
 
 #: src/Menus.cpp src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Timer Recording"
-msgstr "スライダー録音"
+msgstr "タイマー録音"
 
 #: src/Menus.cpp
 msgid ""
@@ -5144,6 +5146,9 @@ msgid ""
 "\n"
 "Please save or close this project and try again."
 msgstr ""
+"タイマー録音は未保存の変更がある状態では使えません.\n"
+"\n"
+"このプロジェクトを保存するか閉じるかして, やり直してください."
 
 #: src/Menus.cpp src/commands/PreferenceCommands.cpp
 #: src/commands/SetProjectCommand.cpp src/commands/SetTrackInfoCommand.cpp
@@ -6749,12 +6754,11 @@ msgstr "タイムトラック"
 
 #: src/TimerRecordDialog.cpp
 msgid "Audacity Timer Record"
-msgstr "Audacity タイマー録音"
+msgstr "Audacityタイマー録音"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Save Timer Recording As"
-msgstr "スライダー録音"
+msgstr "タイマー録音の保存"
 
 #: src/TimerRecordDialog.cpp
 msgid ""
@@ -6772,15 +6776,15 @@ msgstr "プロジェクトのタイマー録音の保存エラー"
 
 #: src/TimerRecordDialog.cpp
 msgid "Duration is zero. Nothing will be recorded."
-msgstr "間隔がゼロです. なにも録音されません."
+msgstr "継続時間がゼロです. なにも録音されません."
 
 #: src/TimerRecordDialog.cpp
 msgid "Error in Duration"
-msgstr "時間間隔エラー"
+msgstr "継続時間エラー"
 
 #: src/TimerRecordDialog.cpp
 msgid "Automatic Save path is invalid."
-msgstr ""
+msgstr "自動保存パスが不正です."
 
 #: src/TimerRecordDialog.cpp
 msgid "Error in Automatic Save"
@@ -6788,7 +6792,7 @@ msgstr "自動保存エラー"
 
 #: src/TimerRecordDialog.cpp
 msgid "Automatic Export path is invalid."
-msgstr ""
+msgstr "自動書き出しパスが不正です."
 
 #: src/TimerRecordDialog.cpp
 msgid "Error in Automatic Export"
@@ -6805,20 +6809,25 @@ msgid ""
 "Planned recording duration:   %s\n"
 "Recording time remaining on disk:   %s"
 msgstr ""
+"このタイマー録音を完遂するには, 現在の設定ではディスクの空き容量が足りませ"
+"ん.\n"
+"\n"
+"続行しますか？\n"
+"\n"
+"予定録音継続時間:   %s\n"
+"ディスクに録音可能な時間:   %s"
 
 #: src/TimerRecordDialog.cpp
 msgid "Timer Recording Disk Space Warning"
-msgstr ""
+msgstr "タイマー録音の空き容量警告"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Current Project"
-msgstr "現在のプロジェクトに適用(&P)"
+msgstr "現在のプロジェクト"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Recording start:"
-msgstr "録音の開始"
+msgstr "録音開始:"
 
 #: src/TimerRecordDialog.cpp src/effects/DtmfGen.cpp src/effects/Noise.cpp
 #: src/effects/Silence.cpp src/effects/ToneGen.cpp src/effects/TruncSilence.cpp
@@ -6827,28 +6836,24 @@ msgid "Duration:"
 msgstr "継続時間:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Recording end:"
-msgstr "録音の終了"
+msgstr "録音終了:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Automatic Save enabled:"
-msgstr "自動"
+msgstr "自動保存を使用:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Automatic Export enabled:"
-msgstr "自動"
+msgstr "自動書き出しを使用:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Action after Timer Recording:"
-msgstr "Audacity タイマー録音"
+msgstr "タイマー録音後の動作:"
 
 #: src/TimerRecordDialog.cpp
 msgid "Audacity Timer Record Progress"
-msgstr "Audacity のタイマー録音が動作中です"
+msgstr "Audacityタイマー録音進捗"
 
 #: src/TimerRecordDialog.cpp
 msgid "Timer Recording stopped."
@@ -6963,86 +6968,73 @@ msgid "099 days 024 h 060 m 060 s"
 msgstr "099 days 024 h 060 m 060 s"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Automatic Save"
-msgstr "自動"
+msgstr "自動保存"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Enable &Automatic Save?"
-msgstr "補正の有効化(&C)"
+msgstr "自動保存(&A)"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Save Project As:"
-msgstr "プロジェクトファイルを別名で保存(&A)..."
+msgstr "プロジェクト保存先:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Automatic Export"
-msgstr "自動"
+msgstr "自動書き出し"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Enable Automatic &Export?"
-msgstr "書き出しできません"
+msgstr "自動書き出し(&E)"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Export Project As:"
-msgstr "既定値の書き出し"
+msgstr "プロジェクト書き出し先:"
 
 #: src/TimerRecordDialog.cpp src/prefs/GUIPrefs.cpp src/prefs/PlaybackPrefs.cpp
 #: src/prefs/RecordingPrefs.cpp
-#, fuzzy
 msgid "Options"
-msgstr "オプション:"
+msgstr "オプション"
 
 #: src/TimerRecordDialog.cpp
 msgid "Do nothing"
-msgstr ""
+msgstr "何もしない"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Exit Audacity"
-msgstr "Audacity を終了"
+msgstr "Audacityを終了"
 
 #: src/TimerRecordDialog.cpp
 msgid "Restart system"
-msgstr ""
+msgstr "システムを再起動"
 
 #: src/TimerRecordDialog.cpp
 msgid "Shutdown system"
-msgstr ""
+msgstr "システムをシャットダウン"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "After Recording completes:"
-msgstr "録音メーター"
+msgstr "録音完了後:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Waiting to start recording at:"
-msgstr "録音開始を待っています %s \n"
+msgstr "録音開始予定:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Recording duration:"
-msgstr "オーディオを録音"
+msgstr "録音継続時間:"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Scheduled to stop at:"
-msgstr "最初まで選択"
+msgstr "録音停止予定:"
 
 #: src/TimerRecordDialog.cpp
 msgid "Audacity Timer Record - Waiting for Start"
-msgstr "Audacity タイマー録音 - 開始待機中"
+msgstr "Audacityタイマー録音 - 開始待機中"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Recording will commence in:"
-msgstr "録音デバイス"
+msgstr "録音開始まであと"
 
 #: src/TimerRecordDialog.cpp
 #, fuzzy
@@ -7055,9 +7047,8 @@ msgid "Recording Exported:"
 msgstr "録音の終了"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Audacity Timer Record - Waiting"
-msgstr "Audacity タイマー録音 - 開始待機中"
+msgstr "Audacityタイマー録音 - 待機中"
 
 #. i18n-hint Esc is a key on the keyboard
 #: src/TrackPanel.cpp
