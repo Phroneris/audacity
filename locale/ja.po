@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-07 00:48+0900\n"
+"PO-Revision-Date: 2018-09-07 01:24+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -5253,7 +5253,7 @@ msgstr "新しいサンプリング周波数(Hz):"
 
 #: src/Menus.cpp src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "The entered value is invalid"
-msgstr "入力された値は不適切です. "
+msgstr "入力された値は不適切です"
 
 #: src/Menus.cpp
 #, c-format
@@ -5283,7 +5283,7 @@ msgstr "トラックの合成と表示"
 #: src/MixerBoard.cpp src/Project.cpp src/TrackPanel.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackSliderHandles.cpp
 msgid "Gain"
-msgstr "ゲイン調整"
+msgstr "ゲイン"
 
 #. i18n-hint: title of the MIDI Velocity slider
 #. i18n-hint: Title of the Velocity slider, used to adjust the volume of note tracks
@@ -5302,7 +5302,7 @@ msgstr "楽器"
 #: src/MixerBoard.cpp src/Project.cpp src/TrackPanel.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackSliderHandles.cpp
 msgid "Pan"
-msgstr "パンスライダー"
+msgstr "パン"
 
 #. i18n-hint: This is on a button that will silence this track.
 #: src/MixerBoard.cpp src/TrackPanel.cpp src/commands/SetTrackInfoCommand.cpp
@@ -7042,31 +7042,31 @@ msgstr "Audacityタイマー録音 - 待機中"
 #. i18n-hint Esc is a key on the keyboard
 #: src/TrackPanel.cpp
 msgid "(Esc to cancel)"
-msgstr ""
+msgstr "(Escキーでキャンセル)"
 
 #: src/TrackPanel.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Stereo, %dHz"
-msgstr "Stereo, "
+msgstr "ステレオ, %dHz"
 
 #: src/TrackPanel.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Mono, %dHz"
-msgstr "Mono, "
+msgstr "モノラル, %dHz"
 
 #: src/TrackPanel.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Left, %dHz"
-msgstr "左,"
+msgstr "左, %dHz"
 
 #: src/TrackPanel.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Right, %dHz"
-msgstr "右,"
+msgstr "右, %dHz"
 
 #: src/TrackPanel.cpp
 msgid "Stereo, 999999Hz"
-msgstr "ステレオトラック, 999999Hz"
+msgstr "ステレオ, 999999Hz"
 
 #: src/TrackPanelAx.cpp
 msgid "TrackView"
@@ -7075,54 +7075,48 @@ msgstr "トラックビュー"
 #. i18n-hint: This is for screen reader software and indicates that
 #. this track is muted. (The mute button is on.)
 #: src/TrackPanelAx.cpp
-#, fuzzy
 msgid " Muted"
-msgstr "ミュート"
+msgstr " ミュート"
 
 #. i18n-hint: This is for screen reader software and indicates that
 #. this track is soloed. (The Solo button is on.)
 #: src/TrackPanelAx.cpp
-#, fuzzy
 msgid " Soloed"
-msgstr "ソロ"
+msgstr " ソロ"
 
 #. i18n-hint: This is for screen reader software and indicates that
 #. this track is selected.
 #: src/TrackPanelAx.cpp
-#, fuzzy
 msgid " Selected"
-msgstr "選択"
+msgstr " 選択"
 
 #. i18n-hint: This is for screen reader software and indicates that
 #. this track is shown with a sync-locked icon.
 #. The absence of a dash between Sync and Locked is deliberate -
 #. if present, Jaws reads it as "dash".
 #: src/TrackPanelAx.cpp
-#, fuzzy
 msgid " Sync Locked"
-msgstr "同期ロックが選択されました"
+msgstr " 同期ロック"
 
 #: src/TrackPanelAx.cpp
 msgid " Mute On"
-msgstr "ミュート入"
+msgstr " ミュート(ON)"
 
 #: src/TrackPanelAx.cpp
 msgid " Solo On"
-msgstr "ソロ入り"
+msgstr " ソロ(ON)"
 
 #: src/TrackPanelAx.cpp
 msgid " Select On"
-msgstr "選択"
+msgstr " 選択(ON)"
 
 #: src/TrackPanelResizeHandle.cpp
 msgid "Click and drag to adjust relative size of stereo tracks."
-msgstr ""
-"ステレオトラックの相対サイズを変更するためにはクリックした後にドラッグして下"
-"さい"
+msgstr "クリック＆ドラッグでステレオトラックの相対サイズを変更します."
 
 #: src/TrackPanelResizeHandle.cpp
 msgid "Click and drag to resize the track."
-msgstr "トラックをリサイズするためにはクリック後にドラックして下さい."
+msgstr "クリック＆ドラッグでトラックのサイズを変更します."
 
 #. i18n-hint: Voice key is an experimental/incomplete feature that
 #. is used to navigate in vocal recordings, to move forwards and
@@ -15295,9 +15289,8 @@ msgid "Seek"
 msgstr "シーク"
 
 #: src/toolbars/ScrubbingToolBar.cpp
-#, fuzzy
 msgid "Scrub Ruler"
-msgstr "ルーラー"
+msgstr "スクラブルーラー"
 
 #: src/toolbars/ScrubbingToolBar.cpp src/tracks/ui/Scrubbing.cpp
 msgid "Scrubbing"
@@ -15329,11 +15322,11 @@ msgstr "シーク開始"
 
 #: src/toolbars/ScrubbingToolBar.cpp
 msgid "Hide Scrub Ruler"
-msgstr ""
+msgstr "スクラブルーラーを非表示"
 
 #: src/toolbars/ScrubbingToolBar.cpp
 msgid "Show Scrub Ruler"
-msgstr ""
+msgstr "スクラブルーラーを表示"
 
 #: src/toolbars/SelectionBar.cpp
 msgid "Project Rate (Hz)"
@@ -15425,7 +15418,7 @@ msgstr "Audacity %sツールバー"
 
 #: src/toolbars/ToolBar.cpp
 msgid "Click and drag to resize toolbar"
-msgstr "ツールバーをリサイズするためにはクリック後にドラックしてください"
+msgstr "クリック＆ドラッグでツールバーのサイズを変更"
 
 #: src/toolbars/ToolDock.cpp
 msgid "ToolDock"
@@ -15474,16 +15467,15 @@ msgstr "ループ変速再生"
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Drag one or more label boundaries."
-msgstr "ひとつあるいはそれ以上のラベル境界をドラッグ"
+msgstr "1つ以上のラベル境界をドラッグしてください."
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Drag label boundary."
-msgstr "ラベル境界をドラッグ"
+msgstr "ラベル境界をドラッグしてください."
 
 #: src/tracks/labeltrack/ui/LabelTextHandle.cpp
-#, fuzzy
 msgid "Click to edit label text"
-msgstr "開始"
+msgstr "クリックでラベル文字を編集"
 
 #: src/tracks/labeltrack/ui/LabelTrackControls.cpp
 msgid "&Font..."
@@ -15492,7 +15484,7 @@ msgstr "フォント(&F)..."
 #. i18n-hint: (noun) This is the font for the label track.
 #: src/tracks/labeltrack/ui/LabelTrackControls.cpp
 msgid "Label Track Font"
-msgstr "トラックラベルのフォント"
+msgstr "ラベルトラックのフォント"
 
 #. i18n-hint: (noun) The name of the typeface
 #: src/tracks/labeltrack/ui/LabelTrackControls.cpp
@@ -15518,34 +15510,32 @@ msgid ""
 "Click to vertically zoom in. Shift-click to zoom out. Drag to specify a zoom "
 "region."
 msgstr ""
-"クリックで垂直方向に拡大, シフトキーを押しながらクリックで縮小, 範囲を選択す"
-"るためにはドラッグして下さい."
+"クリックで垂直方向に拡大, Shift+クリックで縮小, ドラッグで拡大範囲を指定しま"
+"す."
 
 #: src/tracks/playabletrack/notetrack/ui/NoteTrackVZoomHandle.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
-#, fuzzy
 msgid "Right-click for menu."
-msgstr "右クリック"
+msgstr "右クリックでメニューを表示します."
 
 #: src/tracks/playabletrack/notetrack/ui/NoteTrackVZoomHandle.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
-#, fuzzy
 msgid "Zoom Reset\tShift-Right-Click"
-msgstr "拡大して合わせる\tShift-Right-Click"
+msgstr "拡大をリセット\tShift+右クリック"
 
 #: src/tracks/playabletrack/notetrack/ui/NoteTrackVZoomHandle.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
 msgid "Zoom In\tLeft-Click/Left-Drag"
-msgstr "縮小\tLeft-Click/Left-Drag"
+msgstr "縮小\t左クリック/左ドラッグ"
 
 #: src/tracks/playabletrack/notetrack/ui/NoteTrackVZoomHandle.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
 msgid "Zoom Out\tShift-Left-Click"
-msgstr "拡大\tShift-Left-Click"
+msgstr "拡大\tShift+左クリック"
 
 #: src/tracks/playabletrack/notetrack/ui/StretchHandle.cpp
 msgid "Click and drag to stretch selected region."
-msgstr "クリックおよびドラッグして選択領域をストレッチします."
+msgstr "クリック＆ドラッグで選択領域をストレッチします."
 
 #. i18n-hint: (noun) The track that is used for MIDI notes which can be
 #. dragged to change their duration.
@@ -15563,7 +15553,7 @@ msgstr "ストレッチ"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Left-Click to expand, Right-Click to remove"
-msgstr ""
+msgstr "左クリックで展開, 右クリックで削除"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Left-Click to merge clips"
@@ -15571,7 +15561,7 @@ msgstr ""
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Merged Clips"
-msgstr "クリップを連結"
+msgstr "連結したクリップ"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Merge"
@@ -15579,27 +15569,27 @@ msgstr "連結"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Expanded Cut Line"
-msgstr "切り取り線を拡張"
+msgstr "展開したカットライン"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 #: src/tracks/ui/TrackButtonHandles.cpp
 msgid "Expand"
-msgstr "拡張"
+msgstr "展開"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Removed Cut Line"
-msgstr "カットラインの除去"
+msgstr "削除したカットライン"
 
 #: src/tracks/playabletrack/wavetrack/ui/SampleHandle.cpp
 msgid "Click and drag to edit the samples"
-msgstr "サンプルをエディットするためにはクリックした後にドラッグして下さい"
+msgstr "クリック＆ドラッグでサンプルを編集"
 
 #: src/tracks/playabletrack/wavetrack/ui/SampleHandle.cpp
-#, fuzzy
 msgid ""
 "To use Draw, choose 'Waveform' or 'Waveform (dB)' in the Track Dropdown Menu."
 msgstr ""
-"描画を行うには, '波形'をトラックのドロップダウンメニューで選んでください. "
+"描画を行うには, トラックのドロップダウンメニューで '波形' または '波形(dB)' "
+"を選んでください."
 
 #: src/tracks/playabletrack/wavetrack/ui/SampleHandle.cpp
 msgid "To use Draw, zoom in further until you can see the individual samples."
@@ -15614,9 +15604,9 @@ msgid "Sample Edit"
 msgstr "サンプルの編集"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Instrument %i"
-msgstr "楽器"
+msgstr "楽器 %i"
 
 #. i18n-hint: The strings name a track and a format
 #. i18n-hint: The strings name a track and a channel choice (mono, left, or right)
@@ -15626,9 +15616,8 @@ msgid "Changed '%s' to %s"
 msgstr "'%s' から %s に変更されました"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
-#, fuzzy
 msgid "WaveColor Change"
-msgstr "レートの変更"
+msgstr "波形色の変更"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Format Change"
@@ -15636,52 +15625,51 @@ msgstr "フォーマットの変更"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "8000 Hz"
-msgstr ""
+msgstr "8000 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "11025 Hz"
-msgstr ""
+msgstr "11025 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
-#, fuzzy
 msgid "16000 Hz"
-msgstr "0100000.0100 Hz"
+msgstr "16000 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "22050 Hz"
-msgstr ""
+msgstr "22050 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "44100 Hz"
-msgstr ""
+msgstr "44100 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "48000 Hz"
-msgstr ""
+msgstr "48000 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "88200 Hz"
-msgstr ""
+msgstr "88200 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "96000 Hz"
-msgstr ""
+msgstr "96000 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "176400 Hz"
-msgstr ""
+msgstr "176400 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "192000 Hz"
-msgstr ""
+msgstr "192000 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "352800 Hz"
-msgstr ""
+msgstr "352800 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "384000 Hz"
-msgstr ""
+msgstr "384000 Hz"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "&Other..."
@@ -15695,7 +15683,7 @@ msgstr "'%s' から %s Hz に変更されました"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Rate Change"
-msgstr "レートの変更"
+msgstr "サンプリング周波数の変更"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Set Rate"
@@ -15730,14 +15718,12 @@ msgid "Spl&it Stereo Track"
 msgstr "ステレオトラックを分離 (&I)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
-#, fuzzy
 msgid "Split Stereo to Mo&no"
-msgstr "ステレオからモノラルへ'%s'"
+msgstr "ステレオからモノラルに分離(&N)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
-#, fuzzy
 msgid "&Wave Color"
-msgstr "波形"
+msgstr "波形色(&W)"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "&Format"
@@ -15752,10 +15738,12 @@ msgid ""
 "To change Spectrogram Settings, stop any\n"
 "playing or recording first."
 msgstr ""
+"スペクトログラム設定を変更するには,\n"
+"まず再生や録音を停止してください."
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Stop the Audio First"
-msgstr ""
+msgstr "まず音声の停止を"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp plug-ins/rms.ny
 msgid "Mono"
@@ -15810,27 +15798,24 @@ msgid "Split to Mono"
 msgstr "ステレオからモノラルへ"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
-#, fuzzy
 msgid "Zoom x1/2"
-msgstr "拡大"
+msgstr "半分に縮小"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
-#, fuzzy
 msgid "Zoom x2"
-msgstr "拡大"
+msgstr "2倍に拡大"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
 msgid "Half Wave"
-msgstr ""
+msgstr "半波"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
-#, fuzzy
 msgid "Zoom Reset"
-msgstr "縮小"
+msgstr "拡大をリセット"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackVZoomHandle.cpp
 msgid "Zoom to Fit\tShift-Right-Click"
-msgstr "拡大して合わせる\tShift-Right-Click"
+msgstr "拡大して合わせる\tShift+右クリック"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Change lower speed limit (%) to:"
@@ -15883,12 +15868,10 @@ msgid "Set time track interpolation to logarithmic"
 msgstr "タイムトラックの補完を対数にセット"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
-#, fuzzy
 msgid "&Linear scale"
 msgstr "リニア(&L)"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
-#, fuzzy
 msgid "L&ogarithmic scale"
 msgstr "対数(&O)"
 
@@ -15901,13 +15884,12 @@ msgid "Logarithmic &Interpolation"
 msgstr "対数補完(&I)"
 
 #: src/tracks/ui/EnvelopeHandle.cpp
-#, fuzzy
 msgid "Click and drag to warp playback time"
-msgstr "トラックの時間を移動するためにはクリックした後にドラッグして下さい"
+msgstr "クリック＆ドラッグで再生時間を移動"
 
 #: src/tracks/ui/EnvelopeHandle.cpp
 msgid "Click and drag to edit the amplitude envelope"
-msgstr "増幅域をエディットするためにはクリックした後にドラッグして下さい"
+msgstr "クリック＆ドラッグで振幅エンベロープを編集"
 
 #. i18n-hint: (verb) Audacity has just adjusted the envelope .
 #: src/tracks/ui/EnvelopeHandle.cpp
@@ -15927,24 +15909,20 @@ msgid "Seeking"
 msgstr "シーク"
 
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Scrub &Ruler"
-msgstr "ルーラー"
+msgstr "スクラブルーラー(&R)"
 
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Playing at Speed"
-msgstr "高速再生"
+msgstr "変速再生中"
 
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Move mouse pointer to Seek"
-msgstr "トラックを最上段へ移動"
+msgstr "マウスポインタを動かしてシーク"
 
 #: src/tracks/ui/Scrubbing.cpp
-#, fuzzy
 msgid "Move mouse pointer to Scrub"
-msgstr "トラックを最下段へ移動(&B)"
+msgstr "マウスポインタを動かしてスクラブ"
 
 #: src/tracks/ui/Scrubbing.cpp
 msgid "Scru&bbing"
@@ -15952,33 +15930,31 @@ msgstr "スクラブ(&B)"
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move left selection boundary."
-msgstr "左の選択範囲を移動させるためにはクリックした後にドラッグして下さい."
+msgstr "クリック＆ドラッグで選択範囲の左端を移動します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move right selection boundary."
-msgstr "右の選択範囲を移動させるためにはクリックした後にドラッグして下さい."
+msgstr "クリック＆ドラッグで選択範囲の右端を移動します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move bottom selection frequency."
-msgstr "最低選択周波数を移動させるためにはクリックした後にドラッグして下さい."
+msgstr "クリック＆ドラッグで最低選択周波数を移動します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move top selection frequency."
-msgstr "最高選択周波数を移動させるためにはクリックした後にドラッグして下さい."
+msgstr "クリック＆ドラッグで最高選択周波数を移動します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move center selection frequency to a spectral peak."
-msgstr ""
-"選択中心周波数をスペクトルピークに移動させるためにはクリックした後にドラッグ"
-"して下さい."
+msgstr "クリック＆ドラッグで選択中心周波数をスペクトルピークに移動します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to move center selection frequency."
-msgstr "中心選択周波数を移動させるためにはクリックした後にドラッグして下さい."
+msgstr "クリック＆ドラッグで中心選択周波数を移動します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to adjust frequency bandwidth."
-msgstr "周波数帯域を調整するにはクリックした後にドラッグして下さい"
+msgstr "クリック＆ドラッグで周波数帯域を調整します."
 
 #. i18n-hint: These are the names of a menu and a command in that menu
 #: src/tracks/ui/SelectHandle.cpp
@@ -15988,39 +15964,38 @@ msgstr "編集, 設定.."
 #: src/tracks/ui/SelectHandle.cpp
 #, c-format
 msgid "Multi-Tool Mode: %s for Mouse and Keyboard Preferences."
-msgstr "マルチツールモード:  マウスとキーボード設定のための%s."
+msgstr "マルチツールモード: %s でマウスとキーボードの環境設定を開きます."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to set frequency bandwidth."
-msgstr "クリックおよびドラッグして周波数帯域を設定して下さい."
+msgstr "クリック＆ドラッグで周波数帯域を設定します."
 
 #: src/tracks/ui/SelectHandle.cpp
 msgid "Click and drag to select audio"
-msgstr "クリックおよびドラッグしてオーディオを選択して下さい."
+msgstr "クリック＆ドラッグでオーディオを選択"
 
 #. i18n-hint: "Snapping" means automatic alignment of selection edges to any nearby label or clip boundaries
 #: src/tracks/ui/SelectHandle.cpp
 msgid "(snapping)"
-msgstr ""
+msgstr "(スナップ中)"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
 msgid "Click and drag to move a track in time"
-msgstr "トラックの時間を移動するためにはクリックした後にドラッグして下さい"
+msgstr "クリック＆ドラッグでトラックの時間を移動"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
-#, fuzzy
 msgid "Moved clips to another track"
-msgstr "別のトラックを移動されたクリップ"
+msgstr "クリップを別のトラックに移動"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Time shifted tracks/clips right %.02f seconds"
-msgstr "%.2f 秒から %.2f 秒までの無音トラックを選択"
+msgstr "トラックまたはクリップを右に %.02f 秒タイムシフト"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Time shifted tracks/clips left %.02f seconds"
-msgstr "%.2f 秒から %.2f 秒までの無音トラックを選択"
+msgstr "トラックまたはクリップを左に %.02f 秒タイムシフト"
 
 #: src/tracks/ui/TrackButtonHandles.cpp
 msgid "Collapse"
@@ -16051,14 +16026,13 @@ msgid "Move Track to &Bottom"
 msgstr "トラックを最下段へ移動(&B)"
 
 #: src/tracks/ui/TrackControls.cpp
-#, fuzzy
 msgid "Set Track Name"
-msgstr "トラック名"
+msgstr "トラック名を設定"
 
 #: src/tracks/ui/TrackControls.cpp
 #, c-format
 msgid "Renamed '%s' to '%s'"
-msgstr "%s' から '%s' へリネーム"
+msgstr "'%s' から '%s' へリネーム"
 
 #: src/tracks/ui/TrackControls.cpp
 msgid "Name Change"
@@ -16066,36 +16040,35 @@ msgstr "名前の変更"
 
 #. i18n-hint: Command names a modifier key on Macintosh keyboards
 #: src/tracks/ui/TrackSelectHandle.cpp
-#, fuzzy
 msgid "Command-Click"
-msgstr "コマンド"
+msgstr "Command+クリック"
 
 #. i18n-hint: Ctrl names a modifier key on Windows or Linux keyboards
 #: src/tracks/ui/TrackSelectHandle.cpp
-#, fuzzy
 msgid "Ctrl-Click"
-msgstr "Ctrl-Left-Click"
+msgstr "Ctrl+左クリック"
 
 #: src/tracks/ui/TrackSelectHandle.cpp
 #, c-format
 msgid "%s to select or deselect track. Drag up or down to change track order."
 msgstr ""
+"%sでトラックを選択/選択解除します. 上下ドラッグでトラックの順番を変更します."
 
 #: src/tracks/ui/TrackSelectHandle.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s to select or deselect track."
-msgstr "操作を選んでください"
+msgstr "%sでトラックを選択/選択解除します."
 
 #. i18n-hint: will substitute name of track for %s
 #: src/tracks/ui/TrackSelectHandle.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Moved '%s' up"
-msgstr "移動 '%s' %s"
+msgstr "'%s' を上に移動"
 
 #: src/tracks/ui/TrackSelectHandle.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Moved '%s' down"
-msgstr "移動 '%s' %s"
+msgstr "'%s' を下に移動"
 
 #: src/tracks/ui/TrackSelectHandle.cpp
 msgid "Move Track"
@@ -16103,11 +16076,11 @@ msgstr "トラックの移動"
 
 #: src/tracks/ui/ZoomHandle.cpp
 msgid "Click to Zoom In, Shift-Click to Zoom Out"
-msgstr "クリックで拡大, シフトキーを押しながらクリックで縮小"
+msgstr "クリックで拡大, Shift+クリックで縮小"
 
 #: src/tracks/ui/ZoomHandle.cpp
 msgid "Drag to Zoom Into Region, Right-Click to Zoom Out"
-msgstr "ドラッグで範囲を拡大, 右ボタン-クリックで縮小"
+msgstr "ドラッグで範囲を拡大, 右クリックで縮小"
 
 #: src/tracks/ui/ZoomHandle.cpp
 msgid "Left=Zoom In, Right=Zoom Out, Middle=Normal"
@@ -16147,13 +16120,13 @@ msgstr "R"
 #: src/widgets/ASlider.cpp
 #, c-format
 msgid "%.0f%% Left"
-msgstr ""
+msgstr "%.0f%%左"
 
 #. i18n-hint: Stereo pan setting
 #: src/widgets/ASlider.cpp
 #, c-format
 msgid "%.0f%% Right"
-msgstr ""
+msgstr "%.0f%%右"
 
 #: src/widgets/FileHistory.cpp
 msgid "&Clear"
@@ -16646,45 +16619,36 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 #: src/widgets/ProgressDialog.cpp
-#, fuzzy
 msgid "Are you sure you wish to cancel?"
-msgstr "本当に %s を削除しますか？"
+msgstr "本当にキャンセルしますか？"
 
 #: src/widgets/ProgressDialog.cpp
-#, fuzzy
 msgid "Confirm Cancel"
-msgstr "削除の確認"
+msgstr "キャンセルの確認"
 
 #: src/widgets/ProgressDialog.cpp
-#, fuzzy
 msgid "Are you sure you wish to stop?"
-msgstr "本当に %s を削除しますか？"
+msgstr "本当に停止しますか？"
 
 #: src/widgets/ProgressDialog.cpp
-#, fuzzy
 msgid "Confirm Stop"
-msgstr "確認"
+msgstr "停止の確認"
 
 #: src/widgets/ProgressDialog.cpp
-#, fuzzy
 msgid "Are you sure you wish to close?"
-msgstr "本当に %s を削除しますか？"
+msgstr "本当に閉じますか？"
 
 #: src/widgets/ProgressDialog.cpp
-#, fuzzy
 msgid "Confirm Close"
-msgstr "確認"
+msgstr "閉じる確認"
 
 #: src/widgets/Ruler.cpp
 msgid "Timeline actions disabled during recording"
 msgstr "録音中はタイムライン操作は無効です"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Click and drag to adjust, double-click to reset"
-msgstr ""
-"ステレオトラックの相対サイズを変更するためにはクリックした後にドラッグして下"
-"さい"
+msgstr "クリック＆ドラッグで調整, ダブルクリックでリセット"
 
 #: src/widgets/Ruler.cpp
 #, fuzzy
@@ -16696,38 +16660,36 @@ msgid "Timeline"
 msgstr "タイムライン"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Click or drag to begin Seek"
-msgstr "サンプルをエディットするためにはクリックした後にドラッグして下さい"
+msgstr "クリックまたはドラッグでシーク開始"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Click or drag to begin Scrub"
-msgstr "ツールバーをリサイズするためにはクリック後にドラックして下さい."
+msgstr "クリックまたはドラッグでスクラブ開始"
 
 #: src/widgets/Ruler.cpp
 msgid "Click & move to Scrub. Click & drag to Seek."
-msgstr ""
+msgstr "クリック＆移動でスクラブ, クリック＆ドラッグでシークします."
 
 #: src/widgets/Ruler.cpp
 msgid "Move to Seek"
-msgstr ""
+msgstr "移動でシーク"
 
 #: src/widgets/Ruler.cpp
 msgid "Move to Scrub"
-msgstr ""
+msgstr "移動でスクラブ"
 
 #: src/widgets/Ruler.cpp
 msgid "Drag to Seek.  Release to stop seeking."
-msgstr ""
+msgstr "ドラッグでシーク, 放すとシークを停止します."
 
 #: src/widgets/Ruler.cpp
 msgid "Drag to Seek.  Release and move to Scrub."
-msgstr ""
+msgstr "ドラッグでシーク, 放して動かすとスクラブします."
 
 #: src/widgets/Ruler.cpp
 msgid "Move to Scrub. Drag to Seek."
-msgstr ""
+msgstr "移動でスクラブ, ドラッグでシークします."
 
 #: src/widgets/Ruler.cpp
 msgid "Quick-Play disabled"
@@ -16738,14 +16700,12 @@ msgid "Quick-Play enabled"
 msgstr "タイムライン - クイック再生が有効です"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Click to unpin"
-msgstr "クリックしてモニター"
+msgstr "クリックでピン解除"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Click to pin"
-msgstr "開始"
+msgstr "クリックでピン留め"
 
 #: src/widgets/Ruler.cpp
 msgid "Disable Quick-Play"
@@ -16773,7 +16733,7 @@ msgstr "タイムラインツールヒントを有効化"
 
 #: src/widgets/Ruler.cpp
 msgid "Do not scroll while playing"
-msgstr "再生中はスクロールしないでください"
+msgstr "再生時にスクロールしない"
 
 #: src/widgets/Ruler.cpp
 msgid "Update display while playing"
@@ -16788,14 +16748,12 @@ msgid "Unlock Play Region"
 msgstr "再生領域をアンロック"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Disable Scrub Ruler"
-msgstr "メーターを無効化"
+msgstr "スクラブルーラーを無効化"
 
 #: src/widgets/Ruler.cpp
-#, fuzzy
 msgid "Enable Scrub Ruler"
-msgstr "カットライン機能(切り取った領域をクリックで復活可能）を有効にする(&T)"
+msgstr "スクラブルーラーを有効化"
 
 #: src/widgets/Warning.cpp
 msgid "Don't show this warning again"
