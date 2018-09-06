@@ -11625,11 +11625,11 @@ msgstr ""
 "FFmpeg : エラー - 出力ファイル \"%s\"にオーディオストリームを追加できません."
 
 #: src/export/ExportFFmpeg.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "FFmpeg : ERROR - Can't open output file \"%s\" to write. Error code is %d."
 msgstr ""
-"FFmpeg : エラー - 出力ファイル\"%s\"にヘッダーを書き込めません. エラーコード "
+"FFmpeg : エラー - 書き込むべき出力ファイル \"%s\" を開けません. エラーコード "
 "%d."
 
 #: src/export/ExportFFmpeg.cpp
@@ -11647,7 +11647,7 @@ msgid ""
 "Support for this codec is probably not compiled in."
 msgstr ""
 "FFmpegはオーディオコーデック 0x%x を発見できませんでした. \n"
-"このコーデックの対応はおそらくコンパイルされていません. "
+"このコーデックの対応はおそらくコンパイルされていません."
 
 #: src/export/ExportFFmpeg.cpp
 #, c-format
@@ -11720,7 +11720,7 @@ msgstr "オーディオを %s として書き出し"
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Invalid sample rate"
-msgstr "無効なレートです"
+msgstr "無効なサンプリング周波数です"
 
 #: src/export/ExportFFmpeg.cpp
 #, c-format
@@ -11737,9 +11737,9 @@ msgid ""
 "The project sample rate (%d) and bit rate (%d kbps) combination is not\n"
 "supported by the current output file format.  "
 msgstr ""
-"プロジェクトのサンプリング周波数 (%d) とビットレート (%d kbps)　の組み合わせ"
+"プロジェクトのサンプリング周波数 (%d) とビットレート (%d kbps) の組み合わせ"
 "は\n"
-"現在のファイル形式ではサポートされていません. "
+"現在のファイル形式ではサポートされていません.  "
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "You may resample to one of the rates below."
@@ -11775,9 +11775,8 @@ msgid "Open custom FFmpeg format options"
 msgstr "カスタムFFmpegフォーマットオプションを開く"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Error Saving FFmpeg Presets"
-msgstr "VSTプリセットの保存時にエラーが発生しました"
+msgstr "FFmpegプリセットの保存時にエラーが発生しました"
 
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
@@ -11954,7 +11953,7 @@ msgid ""
 "0 - automatic\n"
 "Recommended - 192000"
 msgstr ""
-"ビットレート (bits/秒) - 生成されるファイルのファイルサイズと品質に影響\n"
+"ビットレート (bit/秒) - 生成されるファイルのファイルサイズと品質に影響\n"
 "いくつかのコーデックは特定の値(128k, 192k, 256k など)のみ可能\n"
 "0 - 自動\n"
 "推奨 - 192000"
@@ -11981,7 +11980,7 @@ msgid ""
 "0 - don't change sample rate"
 msgstr ""
 "サンプリング周波数 (Hz)\n"
-"0 - サンプリング周波数を変更しないでください."
+"0 - サンプリング周波数を変更しない"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Cutoff:"
@@ -12008,8 +12007,8 @@ msgid ""
 "Most players won't play anything other than LC"
 msgstr ""
 "AAC プロファイル\n"
-"Low Complexity (LC)低複雑度 既定値\n"
-"ほとんどのプレーヤは, LC以外のものを再生できません"
+"Low Complexity (LC, 低複雑度) - 既定値\n"
+"ほとんどのプレーヤーは, LC以外のものを再生できません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "FLAC options"
@@ -12115,8 +12114,9 @@ msgid ""
 "min - 0\n"
 "max - 32 (with LPC) or 4 (without LPC)"
 msgstr ""
-"最大予測次数オプション\n"
-"1 - 既定値\n"
+"最大予測次数\n"
+"オプション\n"
+"-1 - 既定値\n"
 "最小 - 0\n"
 "最大 - 32 (LPCあり) あるいは 4 (LPCなし)"
 
@@ -12199,7 +12199,7 @@ msgstr ""
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "You can't delete a preset without name"
-msgstr "無名のプリセットを削除することはできません. "
+msgstr "無名のプリセットを削除することはできません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
@@ -12208,11 +12208,11 @@ msgstr "プリセット '%s' を削除しますか？"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "You can't save a preset without name"
-msgstr "名前なしではプリセット値を保存できません."
+msgstr "無名のプリセットを保存することはできません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file with presets to import"
-msgstr "取り込みのためのプリセットを記録した xmlファイルの選択"
+msgstr "取り込むプリセットを記録した xml ファイルを選択"
 
 #: src/export/ExportFFmpegDialogs.cpp src/prefs/KeyConfigPrefs.cpp
 msgid "XML files (*.xml)|*.xml|All files|*"
@@ -12220,7 +12220,7 @@ msgstr "XML ファイル (*.xml)|*.xml|すべてのファイル|*"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file to export presets into"
-msgstr "プリセット書き出しのための xml ファイルを選択してください"
+msgstr "プリセットを書き出す xml ファイルを選択"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Failed to guess format"
