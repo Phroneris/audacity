@@ -16079,14 +16079,12 @@ msgid "Start Monitoring"
 msgstr "モニターを開始"
 
 #: src/widgets/Meter.cpp
-#, fuzzy
 msgid "Recording Meter Options"
-msgstr "録音メーター"
+msgstr "録音メーターオプション"
 
 #: src/widgets/Meter.cpp
-#, fuzzy
 msgid "Playback Meter Options"
-msgstr "再生メーター"
+msgstr "再生メーターオプション"
 
 #: src/widgets/Meter.cpp
 msgid "Refresh Rate"
@@ -16098,17 +16096,17 @@ msgid ""
 "changes. A rate of 30 per second or less should prevent\n"
 "the meter affecting audio quality on slower machines."
 msgstr ""
-"リフレッシュレートを高くするとメータはより頻繁な変化を表示します. \n"
-"低性能なコンピューターの場合, メータ表示がオーディオ品質に影響す\n"
-"るのを防ぐためレートを毎秒30回以下にしてください."
+"リフレッシュレートを高くするとメーターはより頻繁な変化を表示します. \n"
+"低性能なコンピューターの場合, メーター表示がオーディオ品質に影響する\n"
+"のを防ぐため, レートを毎秒30回以下にしてください."
 
 #: src/widgets/Meter.cpp
 msgid "Meter refresh rate per second [1-100]: "
-msgstr "メーターの1秒あたりのリフレッシュレート [1-100]:"
+msgstr "メーターの1秒あたりのリフレッシュレート [1-100]: "
 
 #: src/widgets/Meter.cpp
 msgid "Meter refresh rate per second [1-100]"
-msgstr "メーターの1秒あたりのリフレッシュレート [1-100]:"
+msgstr "メーターの1秒あたりのリフレッシュレート [1-100]"
 
 #: src/widgets/Meter.cpp
 msgid "Meter Style"
@@ -16144,25 +16142,25 @@ msgstr "垂直"
 
 #: src/widgets/Meter.cpp
 msgid " Monitoring "
-msgstr "モニター"
+msgstr " モニター "
 
 #: src/widgets/Meter.cpp
 msgid " Active "
-msgstr "アクティブ"
+msgstr " アクティブ "
 
 #: src/widgets/Meter.cpp
 #, c-format
 msgid " Peak %2.f dB"
-msgstr "ピーク %2.f dB"
+msgstr " ピーク %2.f dB"
 
 #: src/widgets/Meter.cpp
 #, c-format
 msgid " Peak %.2f "
-msgstr "ピーク %.2f "
+msgstr " ピーク %.2f "
 
 #: src/widgets/Meter.cpp
 msgid " Clipped "
-msgstr "クリップ"
+msgstr " クリッピング "
 
 #: src/widgets/MultiDialog.cpp
 msgid "Show Log for Details"
