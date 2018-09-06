@@ -724,12 +724,12 @@ msgid ""
 "\n"
 "It has been removed from the list of recent files."
 msgstr ""
-"%s は存在しません. \n"
+"%s が見つかりませんでした. \n"
 "\n"
-"最近のファイルから削除されています. "
+"最近のファイル一覧から削除しました."
 
 #: src/AudacityApp.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "One or more external audio files could not be found.\n"
 "It is possible they were moved, deleted, or the drive they were on was "
@@ -741,15 +741,15 @@ msgid ""
 "Choose Help > Diagnostics > Check Dependencies to view a list of locations "
 "of the missing files."
 msgstr ""
-"外部オーディオファイルが見つかりませんでした．\n"
-"それらは移動されたか, 消去されたか保存されているドライブが外れている可能性が"
-"あります．\n"
-"影響するオーディオ部分は無音で置き換えられました．\n"
+"1つ以上の外部オーディオファイルが見つかりませんでした.\n"
+"移動または消去されたか, あるいは保存されているドライブが外れている可能性があ"
+"ります.\n"
+"影響するオーディオ部分は無音で置き換えられました.\n"
 "最初に検出された欠落ファイル:\n"
 "%s\n"
 "他にも欠落ファイルがあるかもしれません.\n"
-"ファイル > 依存性のチェックを選んでそれらファイルの元の場所を確認してくださ"
-"い．"
+"ヘルプ > 診断 > 依存性のチェック から, 見つからないファイルの場所を確認してく"
+"ださい."
 
 #: src/AudacityApp.cpp
 msgid "Files Missing"
@@ -758,7 +758,7 @@ msgstr "ファイルが見つかりません"
 #: src/AudacityApp.cpp
 #, c-format
 msgid "Language \"%s\" is unknown"
-msgstr ""
+msgstr "\"%s\" は不明な言語です"
 
 #: src/AudacityApp.cpp
 msgid "Master Gain Control"
@@ -815,14 +815,15 @@ msgid "&File"
 msgstr "ファイル(&F)"
 
 #: src/AudacityApp.cpp
-#, fuzzy
 msgid ""
 "Audacity could not find a safe place to store temporary files.\n"
 "Audacity needs a place where automatic cleanup programs won't delete the "
 "temporary files.\n"
 "Please enter an appropriate directory in the preferences dialog."
 msgstr ""
-"Audacity はテンポラリファイルを保存する場所を見つけられませんでした.\n"
+"Audacity はテンポラリファイルを保存する安全な場所を見つけられませんでした.\n"
+"自動クリーンアッププログラムにテンポラリファイルを削除されないような場所が必"
+"要となります.\n"
 "設定メニューでテンポラリファイルを保存するディレクトリ名を入力してください."
 
 #: src/AudacityApp.cpp
@@ -938,7 +939,7 @@ msgstr "Audacity プロジェクトファイル"
 #: src/AudacityException.h src/commands/MessageCommand.h
 #: src/widgets/ErrorDialog.cpp
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 #: src/AudacityLogger.cpp
 msgid "Audacity Log"
@@ -966,9 +967,9 @@ msgid "Save log to:"
 msgstr "ログ保存先:"
 
 #: src/AudacityLogger.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't save log to file: %s"
-msgstr "ログを保存できません:"
+msgstr "ログをファイルに保存できませんでした: %s"
 
 #: src/AudioIO.cpp
 msgid "Could not find any audio devices.\n"
@@ -1007,11 +1008,13 @@ msgid "Error Initializing Midi"
 msgstr "MIDIの初期化時にエラーが発生しました"
 
 #: src/AudioIO.cpp src/toolbars/ControlToolBar.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Error opening recording device.\n"
 "Error code: %s"
-msgstr "サウンドデバイスを開く際にエラーが発生しました"
+msgstr ""
+"録音デバイスを開く際にエラーが発生しました.\n"
+"エラーコード: %s"
 
 #: src/AudioIO.cpp
 msgid "Out of memory!"
@@ -5721,9 +5724,9 @@ msgstr "<無題>"
 
 #. i18n-hint: The first %s numbers the project, the second %s is the project name.
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%sSave changes to %s?"
-msgstr "変更を保存しますか？"
+msgstr "%s%s の変更を保存しますか？"
 
 #: src/Project.cpp
 #, fuzzy
@@ -5748,9 +5751,8 @@ msgstr ""
 "トラックを開いてから, ファイル > プロジェクトを保存 を実行してください. "
 
 #: src/Project.cpp src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Select one or more files"
-msgstr "１つもしくは複数のオーディオファイルを選択して下さい..."
+msgstr "1つ以上のファイルを選択してください"
 
 #: src/Project.cpp
 #, c-format
@@ -5844,13 +5846,13 @@ msgstr ""
 "きませんでした."
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not decode file: %s"
-msgstr "復号できません:"
+msgstr "ファイルを復号できません: %s"
 
 #: src/Project.cpp
 msgid "Error decoding file"
-msgstr "ファイルの複合化中にエラー発生"
+msgstr "ファイル複合化エラー"
 
 #: src/Project.cpp
 msgid "Project was recovered"
@@ -5913,12 +5915,12 @@ msgstr ""
 
 #: src/Project.cpp
 msgid "Warning - Empty Project"
-msgstr "警告：プロジェクトは空です. "
+msgstr "警告 - 空のプロジェクト"
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not create safety file: %s"
-msgstr "自動保存ファイルが書き込めません:"
+msgstr "安全なファイルを作成できません: %s"
 
 #: src/Project.cpp
 #, c-format
@@ -5939,8 +5941,8 @@ msgid ""
 "Could not save project. Path not found.  Try creating \n"
 "directory \"%s\" before saving project with this name."
 msgstr ""
-"プロジェクトを保存できませんでした． パスが不明です． \n"
-"ディレクトリ \"%s\"を作成してからやり直してください．"
+"プロジェクトを保存できませんでした. パスが不明です. \n"
+"この名前で保存する前にディレクトリ \"%s\" を作成してみてください."
 
 #: src/Project.cpp src/commands/ScreenshotCommand.cpp
 #, c-format
@@ -5966,17 +5968,16 @@ msgid ""
 "another project.\n"
 "Please try again and select an original name."
 msgstr ""
-"指定されたファイル名は他プロジェクトを上書きする可能性があるのでプロジェクト"
+"指定されたファイル名は他プロジェクトを上書きする恐れがあるため, プロジェクト"
 "は保存されませんでした.\n"
-"別のファイル名でやりなおしてください."
+"別のファイル名でやり直してください."
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%sSave Lossless Copy of Project \"%s\" As..."
-msgstr "圧縮されたプロジェクトを \"%s\" として保存..."
+msgstr "%sプロジェクトの無劣化コピーを \"%s\" として保存..."
 
 #: src/Project.cpp
-#, fuzzy
 msgid ""
 "'Save Lossless Copy of Project' is for an Audacity project, not an audio "
 "file.\n"
@@ -5985,25 +5986,21 @@ msgid ""
 "Lossless copies of project are a good way to backup your project, \n"
 "with no loss of quality, but the projects are large.\n"
 msgstr ""
-"'圧縮されたプロジェクトの保存' はAudacityプロジェクトファイルが対象で、オー"
-"ディオファイルではありません.\n"
-"他のアプリで使う可能性があるオーディオファイルの場合は'書き出し'をお使いくだ"
-"さい..\n"
+"'プロジェクトの無劣化コピーを保存' はAudacityプロジェクトファイルが対象で, "
+"オーディオファイルではありません.\n"
+"他のアプリで使う可能性があるオーディオファイルの場合は '書き出し' をお使いく"
+"ださい.\n"
 "\n"
-"圧縮されたプロジェクトファイルはプロジェクトをオンラインで送る場合に便利です"
-"が\n"
-"オーディオ品質が劣化します.\n"
-"\n"
-"圧縮されたプロジェクトファイルを開くには通常より時間を要します, なぜなら\n"
-"個々の圧縮されたトラックを取り込むからです.\n"
+"プロジェクトの無劣化コピーは品質劣化が起きないためプロジェクトをバックアップ"
+"する場合に便利ですが,\n"
+"ファイルサイズが大きくなります.\n"
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%sSave Compressed Copy of Project \"%s\" As..."
-msgstr "圧縮されたプロジェクトを \"%s\" として保存..."
+msgstr "%sプロジェクトの圧縮コピーを \"%s\" として保存..."
 
 #: src/Project.cpp
-#, fuzzy
 msgid ""
 "'Save Compressed Copy of Project' is for an Audacity project, not an audio "
 "file.\n"
@@ -6012,10 +6009,10 @@ msgid ""
 "Compressed project files are a good way to transmit your project online, \n"
 "but they have some loss of fidelity.\n"
 msgstr ""
-"'圧縮されたプロジェクトの保存' はAudacityプロジェクトファイルが対象で、オー"
+"'プロジェクトの圧縮コピーを保存' はAudacityプロジェクトファイルが対象で、オー"
 "ディオファイルではありません.\n"
-"他のアプリで使う可能性があるオーディオファイルの場合は'書き出し'をお使いくだ"
-"さい..\n"
+"他のアプリで使う可能性があるオーディオファイルの場合は '書き出し' をお使いく"
+"ださい.\n"
 "\n"
 "圧縮されたプロジェクトファイルはプロジェクトをオンラインで送る場合に便利です"
 "が\n"
@@ -6025,34 +6022,31 @@ msgstr ""
 "個々の圧縮されたトラックを取り込むからです.\n"
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%sSave Project \"%s\" As..."
-msgstr "プロジェクトを\"%s\" として保存... "
+msgstr "%sプロジェクトを \"%s\" として保存..."
 
 #: src/Project.cpp
 msgid ""
 "'Save Project' is for an Audacity project, not an audio file.\n"
 "For an audio file that will open in other apps, use 'Export'.\n"
 msgstr ""
-"'圧縮されたプロジェクトの保存' はAudacityプロジェクトファイルが対象で、オー"
-"ディオファイルではありません.\n"
-"他のアプリで使う可能性があるオーディオファイルの場合は'書き出し'をお使いくだ"
-"さい..\n"
+"プロジェクトの保存はAudacityプロジェクトファイルが対象で、オーディオファイル"
+"ではありません.\n"
+"他のアプリで使う可能性があるオーディオファイルの場合は '書き出し' をお使いく"
+"ださい.\n"
 
 #: src/Project.cpp
-#, fuzzy
 msgid ""
 "Saving a copy must not overwrite an existing saved project.\n"
 "Please try again and select an original name."
 msgstr ""
-"指定されたファイル名は他プロジェクトを上書きする可能性があるのでプロジェクト"
-"は保存されませんでした.\n"
-"別のファイル名でやりなおしてください."
+"既存のプロジェクトをコピーで上書き保存してはいけません.\n"
+"別のファイル名でやり直してください."
 
 #: src/Project.cpp
-#, fuzzy
 msgid "Error Saving Copy of Project"
-msgstr "プロジェクトファイルの保存時にエラーが発生しました"
+msgstr "プロジェクトのコピーの保存エラー"
 
 #. i18n-hint: In each case, %s is the name
 #. of the file being overwritten.
@@ -6066,23 +6060,27 @@ msgid ""
 "\"%s\"\n"
 "will be irreversibly overwritten."
 msgstr ""
+"以下のプロジェクトを上書きしてよろしいですか？\n"
+"\"%s\"\n"
+"\n"
+"\"はい\" を選ぶと, プロジェクト\n"
+"\"%s\"\n"
+"は上書きされ, 元に戻せません."
 
 #. i18n-hint: Heading: A warning that a project is about to be overwritten.
 #: src/Project.cpp
-#, fuzzy
 msgid "Overwrite Project Warning"
-msgstr "既存のファイルを上書き"
+msgstr "プロジェクト上書きの警告"
 
 #: src/Project.cpp
-#, fuzzy
 msgid ""
 "The project will not saved because the selected project is open in another "
 "window.\n"
 "Please try again and select an original name."
 msgstr ""
-"指定されたファイル名は他プロジェクトを上書きする可能性があるのでプロジェクト"
-"は保存されませんでした.\n"
-"別のファイル名でやりなおしてください."
+"選択されたプロジェクトが他のウィンドウで開かれているため, プロジェクトは保存"
+"されませんでした.\n"
+"別のファイル名でやり直してください."
 
 #: src/Project.cpp
 msgid "Created new project"
@@ -6098,9 +6096,9 @@ msgid "Delete"
 msgstr "削除"
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Disk space remaining for recording: %s"
-msgstr "録音可能時間: %d 分"
+msgstr "録音できる空き容量: %s"
 
 #: src/Project.cpp
 msgid "On-demand import and waveform calculation complete."
@@ -6122,14 +6120,14 @@ msgid ""
 msgstr "取り込み完了. オンデマンドの波形計算が実行中. %2.0f%% 完了."
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not create autosave file: %s"
-msgstr "自動保存ファイルが書き込めません:"
+msgstr "自動保存ファイルを生成できません: %s"
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not remove old autosave file: %s"
-msgstr "古い自動保存ファイルを削除できません:"
+msgstr "古い自動保存ファイルを削除できません: %s"
 
 #: src/Project.cpp
 #, c-format
@@ -6168,11 +6166,11 @@ msgstr "録音"
 
 #: src/Project.cpp
 msgid "Adjusted gain"
-msgstr "ゲインの調整:"
+msgstr "ゲイン調整"
 
 #: src/Project.cpp
 msgid "Adjusted Pan"
-msgstr "パンの調整."
+msgstr "パン調整"
 
 #: src/Project.cpp
 #, c-format
@@ -6296,7 +6294,7 @@ msgstr "画面全部を取り込み"
 
 #: src/Screenshot.cpp
 msgid "Wait 5 seconds and capture frontmost window/dialog"
-msgstr "5秒後に最前面のウィンドウ/ダイアログを取り込みます."
+msgstr "5秒後に最前面のウィンドウ/ダイアログを取り込みます"
 
 #: src/Screenshot.cpp
 msgid "false"
@@ -6759,20 +6757,18 @@ msgid "Save Timer Recording As"
 msgstr "スライダー録音"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid ""
 "The selected file name could not be used\n"
 "for Timer Recording because it would overwrite another project.\n"
 "Please try again and select an original name."
 msgstr ""
-"指定されたファイル名は他プロジェクトを上書きする可能性があるのでプロジェクト"
-"は保存されませんでした.\n"
-"別のファイル名でやりなおしてください."
+"指定されたファイル名は他プロジェクトを上書きする恐れがあるため,\n"
+"タイマー録音で使用することはできません.\n"
+"別のファイル名でやり直してください."
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Error Saving Timer Recording Project"
-msgstr "プロジェクトファイルの保存時にエラーが発生しました"
+msgstr "プロジェクトのタイマー録音の保存エラー"
 
 #: src/TimerRecordDialog.cpp
 msgid "Duration is zero. Nothing will be recorded."
@@ -6787,18 +6783,16 @@ msgid "Automatic Save path is invalid."
 msgstr ""
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Error in Automatic Save"
-msgstr "時間間隔エラー"
+msgstr "自動保存エラー"
 
 #: src/TimerRecordDialog.cpp
 msgid "Automatic Export path is invalid."
 msgstr ""
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Error in Automatic Export"
-msgstr "時間間隔エラー"
+msgstr "自動書き出しエラー"
 
 #: src/TimerRecordDialog.cpp
 #, c-format
@@ -6857,38 +6851,45 @@ msgid "Audacity Timer Record Progress"
 msgstr "Audacity のタイマー録音が動作中です"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Timer Recording stopped."
-msgstr "タイマーを使った録音(&T)... "
+msgstr "タイマー録音は停止しました."
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy
 msgid "Timer Recording completed."
-msgstr "処理完了"
+msgstr "タイマー録音が完了しました."
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
 "Recording saved: %s"
-msgstr "録音の終了"
+msgstr ""
+"%s\n"
+"\n"
+"録音を保存しました: %s"
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
 "Error saving recording."
-msgstr "プロジェクトファイルの保存時にエラーが発生しました"
+msgstr ""
+"%s\n"
+"\n"
+"録音ファイルの保存にエラーが発生しました."
 
 #: src/TimerRecordDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
 "Recording exported: %s"
-msgstr "録音の終了"
+msgstr ""
+"%s\n"
+"\n"
+"録音を書き出しました: %s"
 
 #: src/TimerRecordDialog.cpp
 #, c-format
@@ -6897,6 +6898,9 @@ msgid ""
 "\n"
 "Error exporting recording."
 msgstr ""
+"%s\n"
+"\n"
+"録音ファイルの書き出しにエラーが発生しました."
 
 #: src/TimerRecordDialog.cpp
 #, c-format
@@ -6905,6 +6909,9 @@ msgid ""
 "\n"
 "'%s' has been canceled due to the error(s) noted above."
 msgstr ""
+"%s\n"
+"\n"
+"上記のエラーにより, '%s' はキャンセルされました."
 
 #: src/TimerRecordDialog.cpp
 #, c-format
@@ -6913,6 +6920,9 @@ msgid ""
 "\n"
 "'%s' has been canceled as the recording was stopped."
 msgstr ""
+"%s\n"
+"\n"
+"録音が停止したため, '%s' はキャンセルされました."
 
 #. i18n-hint: This string is used to configure the controls for times when the recording is
 #. * started and stopped. As such it is important that only the alphabetic parts of the string
@@ -7231,43 +7241,43 @@ msgid ""
 "this is a bug, please tell us exactly where it occurred."
 msgstr ""
 "最後の操作に問題がありました. もしこれがバグであると\n"
-"お思いの場合は, 正確にどこで起こったかお知らせください. "
+"思われる場合は, どこで起こったか正確にご報告ください."
 
 #: src/commands/CommandManager.cpp
 msgid "Disallowed"
 msgstr "許可されませんでした"
 
 #: src/commands/CommandManager.cpp
-#, fuzzy
 msgid ""
 "You can only do this when playing and recording are\n"
 "stopped. (Pausing is not sufficient.)"
 msgstr ""
-"録音と再生が停止しているときのみ, この作業は可能です. \n"
+"録音や再生が停止しているときのみ, この作業は可能です.\n"
 "(一時停止状態でも不可）"
 
 #: src/commands/CommandManager.cpp
-#, fuzzy
 msgid ""
 "You must first select some stereo audio to perform this\n"
 "action. (You cannot use this with mono.)"
 msgstr ""
-"ステレオのオーディオを最初に選んでください．\n"
-"(モノラルのオーディオには利用できません)"
+"この操作を適用するステレオ音声を最初に選択してください.\n"
+"(モノラル音声には利用できません)"
 
 #: src/commands/CommandManager.cpp
-#, fuzzy
 msgid "No Audio Selected"
-msgstr "チェインが選択されていません."
+msgstr "音声が選択されていません"
 
 #. i18n-hint: %s will be replaced by the name of an action, such as Normalize, Cut, Fade.
 #: src/commands/CommandManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You must first select some audio for '%s' to act on.\n"
 "\n"
 "Ctrl + A selects all audio."
-msgstr "最初にオーディオを選択してください."
+msgstr ""
+"'%s' の実行対象となる音声を最初に選択してください.\n"
+"\n"
+"Ctrl+Aで全ての音声が選択できます."
 
 #. i18n-hint: %s will be replaced by the name of an action, such as Normalize, Cut, Fade.
 #: src/commands/CommandManager.cpp
@@ -7276,6 +7286,7 @@ msgid ""
 "Select the audio for %s to use (for example, Cmd + A to Select All) then try "
 "again."
 msgstr ""
+"%s に利用させる音声を選択 (例えばCmd+Aで全選択) してやり直してください."
 
 #. i18n-hint: %s will be replaced by the name of an action, such as Normalize, Cut, Fade.
 #: src/commands/CommandManager.cpp
@@ -7284,26 +7295,26 @@ msgid ""
 "Select the audio for %s to use (for example, Ctrl + A to Select All) then "
 "try again."
 msgstr ""
+"%s に利用させる音声を選択 (例えばCtrl+Aで全選択) してやり直してください."
 
 #: src/commands/CommandManager.cpp
-#, fuzzy
 msgid ""
 "You must first select some audio to perform this action.\n"
 "(Selecting other kinds of track won't work.)"
 msgstr ""
-"最初にオーディオを選んでください. \n"
-"(オーディオ以外のトラックには利用できません)"
+"この操作を適用する音声を最初に選択してください.\n"
+"(音声以外のトラックには利用できません)"
 
 #. i18n-hint: %s will be replaced by the name of an action, such as "Remove Tracks".
 #: src/commands/CommandManager.cpp
 #, c-format
 msgid "\"%s\" requires one or more tracks to be selected."
-msgstr ""
+msgstr "\"%s\" を使うには1つ以上のトラックの選択が必要です."
 
 #: src/commands/CommandManager.cpp
 #, c-format
 msgid "Loaded %d keyboard shortcuts\n"
-msgstr "%d キーボードショートカットは読み込まれました\n"
+msgstr "%d 個のキーボードショートカットを読み込みました\n"
 
 #: src/commands/CommandManager.cpp
 msgid "Loading Keyboard Shortcuts"
@@ -11267,6 +11278,9 @@ msgid ""
 "in the track Spectrogram settings and select the\n"
 "frequency range for the effect to act on."
 msgstr ""
+"'スペクトルエフェクト' の利用の際は,\n"
+"トラックのスペクトログラム設定から 'スペクトル選択' を有効化し,\n"
+"エフェクトを適用する周波数帯を選択してください."
 
 #: src/effects/nyquist/Nyquist.cpp
 #, c-format
@@ -13247,21 +13261,27 @@ msgid ""
 "copying).\n"
 "\n"
 msgstr ""
+"非圧縮音声ファイルの取り込みは, ファイルをプロジェクトにコピーする方法と, "
+"ファイルのある場所から直接 (コピーせず) 読み取る方法があります.\n"
+"\n"
 
 #: src/import/ImportPCM.cpp
 msgid ""
 "Your current preference is set to copy in.\n"
 "\n"
 msgstr ""
+"現在はコピーする方法が選択されています.\n"
+"\n"
 
 #: src/import/ImportPCM.cpp
 msgid ""
 "Your current preference is set to read directly.\n"
 "\n"
 msgstr ""
+"現在は直接読み取る方法が選択されています.\n"
+"\n"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid ""
 "Reading the files directly allows you to play or edit them almost "
 "immediately.  This is less safe than copying in, because you must retain the "
@@ -13271,17 +13291,13 @@ msgid ""
 "\n"
 "How do you want to import the current file(s)?"
 msgstr ""
-"非圧縮オーディオファイルを取り込むには、そのファイルをプロジェクトにコピーす"
-"る方法とそのファイルを直接読み込む(コピーせずに)方法とがあります.\n"
+"ファイルを直接読み込むことですぐに再生や編集を行えますが, この方法は該当ファ"
+"イルの名前や場所をそのままにしておかなければいけないため, 安全性では劣りま"
+"す.\n"
+"ヘルプ > 診断 > 依存性のチェック にて, 直接読み込んだファイルの名前と場所を表"
+"示することができます.\n"
 "\n"
-"現在の設定は %s.\n"
-"\n"
-"ファイルを直接読み込むことですぐに再生や編集を行えますが, この方法はそれらの"
-"ファイルのファイル名と場所を変えることができないため安全性では劣ります.\n"
-"ファイル > 依存性のチェック にて直接読み込んだファイルの名前と場所を表示する"
-"ことができます.\n"
-"\n"
-"どのようにファイルを取り込みますか?"
+"どのようにファイルを取り込みますか？"
 
 #: src/import/ImportPCM.cpp
 msgid "Choose an import method"
@@ -13289,11 +13305,11 @@ msgstr "取り込み方法を選んでください"
 
 #: src/import/ImportPCM.cpp
 msgid "Make a &copy of the files before editing (safer)"
-msgstr "編集の前に非圧縮のオーディオファイルをコピーする(より安全です)(&C)"
+msgstr "編集前にファイルのコピーを作成する(安全)(&C)"
 
 #: src/import/ImportPCM.cpp
 msgid "Read the files &directly from the original (faster)"
-msgstr "非圧縮のオーディオファイルから直接読み込みます(高速)(&D)"
+msgstr "元ファイルから直接読み込む(高速)(&D)"
 
 #: src/import/ImportPCM.cpp
 msgid "Don't &warn again and always use my choice above"
