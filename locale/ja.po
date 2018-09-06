@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-05 17:42+0900\n"
+"PO-Revision-Date: 2018-09-06 14:39+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: -1,622,3258,817,717,0,-1,-1,-1,1089\n"
+"X-Poedit-Bookmarks: -1,622,3258,-1,817,-1,3156,-1,-1,1089\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -6411,9 +6411,8 @@ msgstr "デバイス"
 
 #: src/Screenshot.cpp src/commands/ScreenshotCommand.cpp
 #: src/toolbars/TranscriptionToolBar.cpp
-#, fuzzy
 msgid "Play-at-Speed"
-msgstr "スピードを変えて再生"
+msgstr "変速再生"
 
 #: src/Screenshot.cpp src/commands/ScreenshotCommand.cpp
 #: src/toolbars/ScrubbingToolBar.cpp
@@ -8360,13 +8359,12 @@ msgid "n/a"
 msgstr "適用不可"
 
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgid "Changes the speed of a track, also changing its pitch"
-msgstr "トラックのスピードとピッチを同時に変更します"
+msgstr "トラックの再生速度を変更し, ピッチも同時に変わります"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "Change Speed, affecting both Tempo and Pitch"
-msgstr "スピードの変更 (テンポとピッチの双方に影響します)"
+msgstr "速度の変更 (テンポとピッチの双方に影響します)"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "Speed Multiplier:"
@@ -8403,7 +8401,7 @@ msgstr "新しい長さ:"
 
 #: src/effects/ChangeSpeed.h
 msgid "Change Speed"
-msgstr "スピードの変更"
+msgstr "速度の変更"
 
 #: src/effects/ChangeTempo.cpp
 #, fuzzy
@@ -12550,7 +12548,7 @@ msgstr "品質"
 
 #: src/export/ExportMP3.cpp
 msgid "Variable Speed:"
-msgstr "可変スピード"
+msgstr "可変時の処理速度:"
 
 #: src/export/ExportMP3.cpp
 msgid "Channel Mode:"
@@ -15597,16 +15595,15 @@ msgstr "スライドツール"
 
 #: src/toolbars/TranscriptionToolBar.cpp
 msgid "Play at selected speed"
-msgstr "選択したスピードで再生"
+msgstr "選択した速度で再生"
 
 #: src/toolbars/TranscriptionToolBar.cpp
 msgid "Playback Speed"
 msgstr "再生速度"
 
 #: src/toolbars/TranscriptionToolBar.cpp
-#, fuzzy
 msgid "Looped-Play-at-Speed"
-msgstr "ループ再生"
+msgstr "ループ変速再生"
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Drag one or more label boundaries."
@@ -15974,7 +15971,7 @@ msgstr "最低速度制限を変更 (%):"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Lower speed limit"
-msgstr "最低スピードの制限"
+msgstr "最低速度の制限"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Change upper speed limit (%) to:"
