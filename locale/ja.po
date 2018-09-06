@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-07 03:37+0900\n"
+"PO-Revision-Date: 2018-09-07 03:59+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -229,7 +229,7 @@ msgstr "無題"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Nyquist Effect Workbench - "
-msgstr "Nyquistエフェクトワークベンチ -"
+msgstr "Nyquistエフェクトワークベンチ - "
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp src/PluginManager.cpp
 #: src/prefs/ModulePrefs.cpp
@@ -1149,7 +1149,7 @@ msgstr "パラメータ(&P)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Details"
-msgstr ""
+msgstr "詳細(&D)"
 
 #: src/BatchCommandDialog.cpp
 msgid "Choose command"
@@ -1193,11 +1193,11 @@ msgstr "WAVとして書き出し"
 
 #: src/BatchCommands.cpp
 msgid "MP3 Conversion"
-msgstr ""
+msgstr "MP3 Conversion"
 
 #: src/BatchCommands.cpp
 msgid "Fade Ends"
-msgstr ""
+msgstr "Fade Ends"
 
 #: src/BatchCommands.cpp
 #, fuzzy
@@ -1258,7 +1258,7 @@ msgstr "コマンド %s はまだ実装されていません"
 #: src/BatchCommands.cpp
 #, c-format
 msgid "Your batch command of %s was not recognized."
-msgstr "自動実行コマンド %s は認識されません. "
+msgstr "自動実行コマンド %s は認識されません."
 
 #. i18n-hint: active verb in past tense
 #: src/BatchCommands.cpp
@@ -5186,19 +5186,16 @@ msgid "Unable to save device info"
 msgstr "デバイス情報を保存失敗"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "MIDI Device Info"
-msgstr "MIDIデバイス"
+msgstr "MIDIデバイス情報"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Save MIDI Device Info"
-msgstr "デバイス情報を保存"
+msgstr "MIDIデバイス情報を保存"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Unable to save MIDI device info"
-msgstr "デバイス情報を保存失敗"
+msgstr "MIDIデバイス情報が保存できません"
 
 #. i18n-hint: One or more audio tracks have been panned
 #: src/Menus.cpp
@@ -5396,9 +5393,8 @@ msgstr "ノートトラック"
 #  i18n-hint: One-letter abbreviation for Left, in VU Meter
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
-#, fuzzy
 msgid "C"
-msgstr "LC"
+msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
@@ -5407,9 +5403,8 @@ msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
-#, fuzzy
 msgid "D"
-msgstr "Db"
+msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
@@ -5433,9 +5428,8 @@ msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
-#, fuzzy
 msgid "G"
-msgstr "GB"
+msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
@@ -5454,9 +5448,8 @@ msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
-#, fuzzy
 msgid "B"
-msgstr "dB"
+msgstr ""
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
@@ -7100,7 +7093,7 @@ msgstr "クリック＆ドラッグでトラックのサイズを変更します
 #. a region of audio to be able to use this feature.
 #: src/VoiceKey.cpp
 msgid "Selection is too small to use voice key."
-msgstr "ボイスキーを使うには選択範囲は小さすぎです. "
+msgstr "ボイスキーを使うには選択範囲が小さすぎます."
 
 #: src/VoiceKey.cpp
 msgid "Calibration Results\n"
@@ -9353,9 +9346,9 @@ msgid "Max dB"
 msgstr "最大 dB"
 
 #: src/effects/Equalization.cpp src/effects/ScienFilter.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%d dB"
-msgstr "%3d dB"
+msgstr "%d dB"
 
 #: src/effects/Equalization.cpp src/effects/ScienFilter.cpp
 msgid "- dB"
@@ -9368,12 +9361,12 @@ msgstr "最小 dB"
 #: src/effects/Equalization.cpp
 #, c-format
 msgid "%d Hz"
-msgstr ""
+msgstr "%d Hz"
 
 #: src/effects/Equalization.cpp
 #, c-format
 msgid "%g kHz"
-msgstr ""
+msgstr "%g kHz"
 
 #: src/effects/Equalization.cpp
 msgid "&EQ Type:"
@@ -9865,7 +9858,7 @@ msgstr "ノイズ:"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Re&duce"
-msgstr "現象(&D)"
+msgstr "低減(&D)"
 
 #: src/effects/NoiseReduction.cpp src/effects/NoiseRemoval.cpp
 msgid "&Isolate"
@@ -9881,7 +9874,7 @@ msgstr "高度な設定"
 
 #: src/effects/NoiseReduction.cpp
 msgid "&Window types"
-msgstr "ウインドウタイプ(&W)"
+msgstr "ウィンドウタイプ(&W)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "8"
@@ -9990,7 +9983,7 @@ msgstr "アタック/ディケイ時間"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Re&move"
-msgstr " 消去(&M) "
+msgstr "消去(&M)"
 
 #: src/effects/Normalize.cpp
 #, fuzzy
@@ -11044,9 +11037,8 @@ msgid "Effect Output"
 msgstr "エフェクト出力"
 
 #: src/effects/ladspa/LadspaEffect.h
-#, fuzzy
 msgid "LADSPA"
-msgstr "LADSPAエフェクト(&L)"
+msgstr "LADSPA"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "LV2 Effect Settings"
@@ -11330,18 +11322,17 @@ msgid "File could not be saved"
 msgstr "ファイルを保存できません"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Value range:\n"
 "%s to %s"
-msgstr "値が範囲外です: %.*f to %.*f"
+msgstr ""
+"値の範囲:\n"
+"%s ～ %s"
 
-#  i18n-hint: You do not need to translate "LOF"
-#  i18n-hint: You do not need to translate "LOF"
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Value Error"
-msgstr "LOF エラー"
+msgstr "値エラー"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid ""
@@ -15216,7 +15207,7 @@ msgstr "スクラブルーラーを表示"
 
 #: src/toolbars/SelectionBar.cpp
 msgid "Project Rate (Hz)"
-msgstr "プロジェクトのサンプリングレート(Hz)"
+msgstr "プロジェクトのサンプリング周波数(Hz)"
 
 #  i18n-hint: Set snap-to mode on or off
 #  i18n-hint: Set snap-to mode on or off
@@ -15974,7 +15965,7 @@ msgstr "左=拡大, 右=縮小, 中央=通常"
 
 #: src/widgets/AButton.cpp
 msgid " (disabled)"
-msgstr "(無効)"
+msgstr " (無効)"
 
 #: src/widgets/AButton.cpp src/widgets/Meter.cpp
 msgid "Press"
@@ -16648,9 +16639,8 @@ msgid "NaN"
 msgstr "NaN"
 
 #: src/widgets/numformatter.cpp
-#, fuzzy
 msgid "Infinity"
-msgstr "-無限"
+msgstr "無限"
 
 #: src/widgets/numformatter.cpp
 msgid "-Infinity"
@@ -16669,9 +16659,9 @@ msgid "Malformed number"
 msgstr "不正な形式の数字"
 
 #: src/widgets/valnum.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Not in range %d to %d"
-msgstr "範囲外"
+msgstr "%d から %d までの範囲外"
 
 #: src/widgets/valnum.cpp
 msgid "Value overflow"
@@ -16682,19 +16672,19 @@ msgid "Too many decimal digits"
 msgstr "桁数が多すぎます"
 
 #: src/widgets/valnum.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Value not in range: %s to %s"
-msgstr "値が範囲外です: %.*f to %.*f"
+msgstr "値が範囲外です: %s ～ %s"
 
 #: src/widgets/valnum.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Value must not be less than %s"
-msgstr "値は %.*f以上でなければなりません"
+msgstr "値は %s より小さくてはいけません"
 
 #: src/widgets/valnum.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Value must not be greather than %s"
-msgstr "値は%.*f以下でなければなりません"
+msgstr "値は %s より大きくてはいけません"
 
 #: src/widgets/valnum.cpp
 msgid "e"
