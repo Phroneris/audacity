@@ -1074,9 +1074,8 @@ msgid ""
 "Some projects were not saved properly the last time Audacity was run.\n"
 "Fortunately, the following projects can be automatically recovered:"
 msgstr ""
-"いくつかのプロジェクトはAudacityの最後の動作状態が保存されていませんでし"
-"た. \n"
-"以下のプロジェクトは自動的に回復できる可能性があります. "
+"Audacityの最終実行時に適切に保存されなかったプロジェクトがあります.\n"
+"以下のプロジェクトは自動回復できる可能性があります:"
 
 #: src/AutoRecovery.cpp
 msgid "Recoverable projects"
@@ -1089,43 +1088,41 @@ msgstr "名前"
 
 #: src/AutoRecovery.cpp
 msgid "After recovery, save the project to save the changes to disk."
-msgstr "リカバリー後、変更点を保存するためにプロジェクト保存を行ってください."
+msgstr "回復後は, 変更点を保存するためにプロジェクトの保存を行ってください."
 
 #: src/AutoRecovery.cpp
 msgid "Quit Audacity"
-msgstr "Audacity を終了"
+msgstr "Audacityを終了"
 
 #: src/AutoRecovery.cpp
 msgid "Discard Projects"
-msgstr "プロジェクトを廃棄"
+msgstr "プロジェクトを破棄"
 
 #: src/AutoRecovery.cpp
 msgid "Recover Projects"
 msgstr "プロジェクトを回復"
 
 #: src/AutoRecovery.cpp
-#, fuzzy
 msgid ""
 "Are you sure you want to discard all recoverable projects?\n"
 "\n"
 "Choosing \"Yes\" discards all recoverable projects immediately."
 msgstr ""
-"すべてのプロジェクトを廃棄してもよろしいですか?\n"
+"すべての回復可能なプロジェクトを破棄してもよろしいですか?\n"
 "\n"
-"\"はい\" を選ぶとすべてのプロジェクトが即座に廃棄されます. "
+"\"はい\" を選ぶとすべてのプロジェクトが即座に破棄されます."
 
 #: src/AutoRecovery.cpp
 msgid "Confirm Discard Projects"
-msgstr "プロジェクト廃棄の確認"
+msgstr "プロジェクト破棄の確認"
 
 #: src/AutoRecovery.cpp src/TimerRecordDialog.cpp
 msgid "Could not enumerate files in auto save directory."
 msgstr "自動保存ディレクトリ内のファイルに番号を振ることができません."
 
 #: src/AutoRecovery.cpp
-#, fuzzy
 msgid "Error Decoding File"
-msgstr "ファイルの複合化中にエラー発生"
+msgstr "ファイル復号エラー"
 
 #: src/BatchCommandDialog.cpp
 msgid "Select Command"
@@ -2085,7 +2082,7 @@ msgstr ""
 
 #: src/DirManager.cpp
 msgid "Warning: Problems in Automatic Recovery"
-msgstr "警告：　自動回復に問題が発生しています．"
+msgstr "警告: 自動回復に問題が発生しています"
 
 #: src/DirManager.cpp
 #, c-format
@@ -5716,7 +5713,7 @@ msgstr "Audacity version %s へようこそ"
 #. i18n-hint: E.g this is recovered audio that had been lost.
 #: src/Project.cpp
 msgid "(Recovered)"
-msgstr "回復済み"
+msgstr "(回復済)"
 
 #: src/Project.cpp
 msgid "<untitled>"
@@ -5857,7 +5854,7 @@ msgstr "ファイルの複合化中にエラー発生"
 
 #: src/Project.cpp
 msgid "Project was recovered"
-msgstr "プロジェクトは回復されました. "
+msgstr "プロジェクトは回復されました"
 
 #: src/Project.cpp
 msgid "Recover"
