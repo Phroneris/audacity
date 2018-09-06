@@ -6632,7 +6632,7 @@ msgstr "タグファイル保存エラー"
 msgid ""
 "Audacity could not write file:\n"
 "  %s."
-msgstr "ファイル %s が書き込めません"
+msgstr "ファイル %s が書き込めませんでした."
 
 #. i18n-hint: A theme is a consistent visual style across an application's
 #. graphical user interface, including choices of colors, and similarity of images
@@ -6643,7 +6643,7 @@ msgstr "ファイル %s が書き込めません"
 msgid ""
 "Theme written to:\n"
 "  %s."
-msgstr ""
+msgstr "テーマが %s に書き込まれました."
 
 #: src/Theme.cpp
 #, c-format
@@ -6651,14 +6651,14 @@ msgid ""
 "Audacity could not open file:\n"
 "  %s\n"
 "for writing."
-msgstr "書き込むためのファイル %s を開けません"
+msgstr "書き込むためのファイル %s を開けませんでした."
 
 #: src/Theme.cpp
 #, c-format
 msgid ""
 "Audacity could not write images to file:\n"
 "  %s."
-msgstr "イメージをファイル %s に書き込めません:"
+msgstr "イメージをファイル %s に書き込めませんでした."
 
 #. i18n-hint "Cee" means the C computer programming language
 #: src/Theme.cpp
@@ -6675,9 +6675,8 @@ msgid ""
 "  %s.\n"
 "Theme not loaded."
 msgstr ""
-"ファイル %s \n"
-"が見つかりません. \n"
-"テーマはロードされません. "
+"ファイル %s が見つかりませんでした. \n"
+"テーマはロードされません."
 
 #: src/Theme.cpp
 #, c-format
@@ -6686,17 +6685,16 @@ msgid ""
 "  %s.\n"
 "Bad png format perhaps?"
 msgstr ""
-"ファイル %s \n"
-"がロードできません. \n"
-"png フォーマットが不正である可能性があります？"
+"ファイル %s がロードできませんでした. \n"
+"不正な png フォーマットではありませんか？"
 
 #: src/Theme.cpp
 msgid ""
 "Audacity could not read its default theme.\n"
 "Please report the problem."
 msgstr ""
-"既定のテーマを読み取ることができません. \n"
-"問題を報告してください. "
+"既定のテーマを読み取ることができませんでした. \n"
+"問題を報告してください."
 
 #: src/Theme.cpp
 #, c-format
@@ -6704,7 +6702,7 @@ msgid ""
 "None of the expected theme component files\n"
 " were found in:\n"
 "  %s."
-msgstr "テーマを構成するファイルが　%s の中に見つかりません. "
+msgstr "テーマを構成するファイルが %s の中に見つかりませんでした."
 
 #: src/Theme.cpp
 #, c-format
@@ -6712,8 +6710,8 @@ msgid ""
 "Could not create directory:\n"
 "  %s"
 msgstr ""
-"ディレクトを作れません: \n"
-" %s"
+"ディレクトリを作成できませんでした:\n"
+"  %s"
 
 #: src/Theme.cpp
 #, fuzzy, c-format
@@ -6723,8 +6721,8 @@ msgid ""
 "were already present.  Overwrite?"
 msgstr ""
 "%s\n"
-"にあるすべての要求されたファイルは\n"
-"既に存在しています. "
+"にて要求されたファイルのうち,\n"
+"既に存在するファイルがあります. 上書きしますか？"
 
 #: src/Theme.cpp
 #, c-format
@@ -6732,8 +6730,8 @@ msgid ""
 "Audacity could not save file:\n"
 "  %s"
 msgstr ""
-"ファイルに保存できません:\n"
-"%s"
+"ファイルに保存できませんでした:\n"
+"  %s"
 
 #: src/TimeDialog.h src/TimerRecordDialog.cpp src/effects/DtmfGen.cpp
 #: src/effects/Noise.cpp src/effects/Silence.cpp src/effects/ToneGen.cpp
