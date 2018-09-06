@@ -1786,9 +1786,8 @@ msgstr ""
 "環境設定で他のテンポラリディレクトリを選択してください."
 
 #: src/DirManager.cpp
-#, fuzzy
 msgid "Cleaning project temporary files"
-msgstr "テンポラリファイルのクリア中"
+msgstr "プロジェクトのテンポラリファイルのクリア中"
 
 #: src/DirManager.cpp
 msgid "Cleaning up temporary files"
@@ -1820,7 +1819,7 @@ msgid ""
 msgstr ""
 "Audacity は無用なブロックファイル %s を見つけました. \n"
 "プロジェクトを全チェックするために, プロジェクトを保存して再読み込みすること"
-"を検討してください. "
+"を検討してください."
 
 #  i18n-hint: This is the pattern for filenames that are created
 #  when a file needs to be backed up to a different name.  For
@@ -1838,14 +1837,14 @@ msgstr "%s-old%d"
 
 #: src/DirManager.cpp
 msgid "Unable to open/create test file."
-msgstr "テストファイルを作成あるいは開けません．"
+msgstr "テストファイルを作成あるいは開けません."
 
 #. i18n-hint: %s is the name of a file.
 #. need braces to avoid compiler warning about ambiguous else, see the macro
 #: src/DirManager.cpp
 #, c-format
 msgid "Unable to remove '%s'."
-msgstr "'%s' を削除できません． "
+msgstr "'%s' を削除できません."
 
 #: src/DirManager.cpp
 #, c-format
@@ -1855,7 +1854,7 @@ msgstr "リネームされたファイル: %s\n"
 #: src/DirManager.cpp
 #, c-format
 msgid "Unable to rename '%s' to '%s'."
-msgstr "'%s' から '%s' へリネームできません．"
+msgstr "'%s' から '%s' へリネームできません."
 
 #: src/DirManager.cpp
 #, c-format
@@ -1869,7 +1868,7 @@ msgstr "ブロック %s は新しいエイリアス名に変更されました\n
 #. "Found problems with <sequence> when checking project file."
 #: src/DirManager.cpp
 msgid "Project check read faulty Sequence tags."
-msgstr "プロジェクトチェッカーが不正なシーケンスタグを読み込みました. "
+msgstr "プロジェクトチェッカーが不正なシーケンスタグを読み込みました."
 
 #: src/DirManager.cpp
 msgid "Close project immediately with no changes"
@@ -1881,12 +1880,12 @@ msgid ""
 "save the project in its current state, unless you \"Close project immediately"
 "\" on further error alerts."
 msgstr ""
-"ログ記載箇所の補修を継続しさらにエラーチェックを行います.  \"すぐにプロジェク"
+"ログ記載箇所の補修を継続しさらにエラーチェックを行います. \"すぐにプロジェク"
 "トを閉じる\" を選択しない限りプロジェクトは現在の状態に保たれます."
 
 #: src/DirManager.cpp
 msgid "Warning - Problems Reading Sequence Tags"
-msgstr "警告 - シーケンスタグ読込みに問題が発生しています．"
+msgstr "警告 - シーケンスタグ読み込みに問題が発生しています"
 
 #: src/DirManager.cpp
 msgid "Inspecting project file data"
@@ -2260,12 +2259,9 @@ msgstr ""
 msgid "Audacity successfully wrote a file in %s but failed to rename it as %s."
 msgstr ""
 
-#  i18n-hint: You do not need to translate "LOF"
-#  i18n-hint: You do not need to translate "LOF"
 #: src/FileException.h
-#, fuzzy
 msgid "File Error"
-msgstr "LOF エラー"
+msgstr "ファイルエラー"
 
 #. i18n-hint: %s will be the error message from libsndfile
 #: src/FileFormats.cpp
@@ -4570,13 +4566,15 @@ msgstr "MIDI の出力:"
 
 #: src/Menus.cpp
 msgid "MIDI file (*.mid)|*.mid|Allegro file (*.gro)|*.gro"
-msgstr "MIDI ファイル (*.mid)|*.mid|Allegro file (*.gro)|*.gro"
+msgstr "MIDIファイル(*.mid)|*.mid|Allegroファイル(*.gro)|*.gro"
 
 #: src/Menus.cpp
 msgid ""
 "You have selected a filename with an unrecognized file extension.\n"
 "Do you want to continue?"
-msgstr "識別できない拡張子のファイル名を選びました.つづけますか?"
+msgstr ""
+"識別できない拡張子のファイル名を選びました.\n"
+"続行しますか？"
 
 #: src/Menus.cpp
 msgid "Export MIDI"
@@ -4819,17 +4817,16 @@ msgid "Import Labels"
 msgstr "ラベルの取り込み"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select a MIDI file"
-msgstr "MIDI ファイルを選択..."
+msgstr "MIDI ファイルを選択"
 
 #: src/Menus.cpp
 msgid ""
 "MIDI and Allegro files (*.mid;*.midi;*.gro)|*.mid;*.midi;*.gro|MIDI files (*."
 "mid;*.midi)|*.mid;*.midi|Allegro files (*.gro)|*.gro|All files|*"
 msgstr ""
-"MIDIおよびAllegroファイル(*.mid;*.midi;*.gro)|*.mid;*.midi;*.gro|MIDI files "
-"(*.mid;*.midi)|*.mid;*.midi|Allegro files (*.gro)|*.gro|All files|*"
+"MIDIおよびAllegroファイル(*.mid;*.midi;*.gro)|*.mid;*.midi;*.gro|MIDIファイル"
+"(*.mid;*.midi)|*.mid;*.midi|Allegroファイル(*.gro)|*.gro|All files|*"
 
 #: src/Menus.cpp
 #, c-format
@@ -4841,9 +4838,8 @@ msgid "Import MIDI"
 msgstr "MIDI の取り込み"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Select any uncompressed audio file"
-msgstr "非圧縮オーディオファイルを選択して下さい..."
+msgstr "非圧縮オーディオファイルを選択してください"
 
 #: src/Menus.cpp
 msgid "All files|*"
@@ -6101,14 +6097,13 @@ msgid ""
 "Import(s) complete. Running %d on-demand waveform calculations. Overall %2.0f"
 "%% complete."
 msgstr ""
-"複数取り込み完了. オンデマンドによる %d この波形計算が実行中. 全体の %2.0f%% "
-"完了."
+"取り込み完了. %d 件のオンデマンド波形計算が実行中. 全体の %2.0f%% 完了."
 
 #: src/Project.cpp
 #, c-format
 msgid ""
 "Import complete. Running an on-demand waveform calculation. %2.0f%% complete."
-msgstr "取り込み完了. オンデマンドの波形計算が実行中. %2.0f%% 完了."
+msgstr "取り込み完了. 1 件のオンデマンド波形計算が実行中. 全体の %2.0f%% 完了."
 
 #: src/Project.cpp
 #, c-format
