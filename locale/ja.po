@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-23 15:50+0900\n"
+"PO-Revision-Date: 2018-09-23 18:23+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -2439,22 +2439,20 @@ msgid "More:</b> Visit our [[https://wiki.audacityteam.org/index.php|Wiki]] for 
 msgstr "もっと知りたい！:</b> [[http://wiki.audacityteam.org/index.php|Wiki]] (ヒントや小技、チュートリアル、エフェクトプラグイン)"
 
 #: src/HelpText.cpp
-#, fuzzy
 msgid "Audacity can import unprotected files in many other formats (such as M4A and WMA, compressed WAV files from portable recorders and audio from video files) if you download and install the optional [[https://manual.audacityteam.org/man/faq_opening_and_saving_files.html#foreign| FFmpeg library]] to your computer."
-msgstr "Audacityはコンピューターに <a href=\"http://manual.audacityteam.org/o/man/faq_opening_and_saving_files.html#foreign\"> FFmpegライブラリ</a>をインストールすることでさまざまな形式のファイル (たとえばM4A, WMA, ポータブルレコーダーからの圧縮されたWAV, ビデオファイルのオーディオなど)を取り込むことができます。"
+msgstr "Audacityでは他にも、プロテクトのない様々な形式のファイル (たとえばM4A、WMA、ポータブルレコーダーの圧縮WAV、ビデオファイルのオーディオなど)を取り込むことが、[[https://manual.audacityteam.org/man/faq_opening_and_saving_files.html#foreign|FFmpegライブラリ]]をインストールすることによって可能になります。"
 
 #: src/HelpText.cpp
-#, fuzzy
 msgid "You can also read our help on importing [[https://manual.audacityteam.org/man/playing_and_recording.html#midi|MIDI files]] and tracks from [[https://manual.audacityteam.org/man/faq_opening_and_saving_files.html#fromcd| audio CDs]]."
-msgstr "<a href=\"http://manual.audacityteam.org/o/man/faq_opening_and_saving_files.html#midi\">MIDIファイル</a>および<a href=\"http://manual.audacityteam.org/o/man/faq_opening_and_saving_files.html#fromcd\">オーディオCD</a>のトラックを取り込む際には私たちのヘルプもご覧ください。"
+msgstr "[[https://manual.audacityteam.org/man/playing_and_recording.html#midi|MIDIファイル]]や[[https://manual.audacityteam.org/man/faq_opening_and_saving_files.html#fromcd|オーディオCDトラック]]の取り込みについてのヘルプも、あわせてご覧ください。"
 
 #: src/HelpText.cpp
 msgid "The Manual does not appear to be installed. Please [[*URL*|view the Manual online]].<br><br>To always view the Manual online, change \"Location of Manual\" in Interface Preferences to \"From Internet\"."
-msgstr "マニュアルがインストールされていないようです。[[*URL*|オンラインで]]ご覧ください。<br><br>マニュアルを常にオンラインで閲覧するには、インターフェース設定の「マニュアルの場所」を「インターネットから」に変更してください。"
+msgstr "マニュアルがインストールされていないようです。<br>[[*URL*|オンラインで]]ご覧ください。<br><br>マニュアルを常にオンラインで閲覧するには、<br>インターフェース設定の「マニュアルの場所」を<br>「インターネットから」に変更してください。"
 
 #: src/HelpText.cpp
 msgid "The Manual does not appear to be installed. Please [[*URL*|view the Manual online]] or [[https://manual.audacityteam.org/man/unzipping_the_manual.html| download the Manual]].<br><br>To always view the Manual online, change \"Location of Manual\" in Interface Preferences to \"From Internet\"."
-msgstr "マニュアルがインストールされていないようです。[[*URL*|オンライン]]でご覧になるか、[[https://manual.audacityteam.org/man/unzipping_the_manual.html|マニュアルをダウンロード]]してください。<br><br>マニュアルを常にオンラインで閲覧するには、インターフェース設定の「マニュアルの場所」を「インターネットから」に変更してください。"
+msgstr "マニュアルがインストールされていないようです。<br>[[*URL*|オンライン]]でご覧になるか、[[https://manual.audacityteam.org/man/unzipping_the_manual.html|マニュアルをダウンロード]]してください。<br><br>マニュアルを常にオンラインで閲覧するには、<br>インターフェース設定の「マニュアルの場所」を<br>「インターネットから」に変更してください。"
 
 #: src/HistoryWindow.cpp
 msgid "History"
@@ -13466,16 +13464,16 @@ msgstr "キーボードショートカットの書き出し時にエラーが発
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "You may not assign a key to this entry"
-msgstr "このエントリー にキーをアサインしなくても構いません"
+msgstr "このエントリーにキーを割り当てることはできません"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "You must select a binding before assigning a shortcut"
-msgstr "ショートカットをアサインする前にバインディングを選んでください"
+msgstr "ショートカットの割り当て対象となる操作を選んでください"
 
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
 msgid "%s - %s"
-msgstr ""
+msgstr "%s - %s"
 
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
@@ -13490,15 +13488,13 @@ msgid ""
 "\n"
 "instead.  Otherwise, click Cancel."
 msgstr ""
-"キーボードショートカット「%s」は次のように既にアサイン済みです:\n"
+"%s は既に以下の操作へ割り当てられています:\n"
 "\n"
 "\t「%s」\n"
 "\n"
-"以下でよければOKをクリックしてください\n"
+"割り当てを以下に替えますか？\n"
 "\n"
-"\t「%s」\n"
-"\n"
-"そうでない場合、キャンセルをクリックしてください。"
+"\t「%s」"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "MP3 Export Library"
