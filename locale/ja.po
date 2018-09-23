@@ -2048,15 +2048,15 @@ msgstr ""
 
 #: src/FFmpeg.cpp
 msgid "FFmpeg startup failed"
-msgstr "FFmpegの起動に失敗しました。"
+msgstr "FFmpegの起動に失敗しました"
 
 #: src/FFmpeg.cpp
 msgid "FFmpeg library not found"
-msgstr "FFmpeg ライブラリが見つかりません。"
+msgstr "FFmpeg ライブラリが見つかりません"
 
 #: src/FFmpeg.cpp
 msgid "Locate FFmpeg"
-msgstr "FFmpegの場所を設定"
+msgstr "FFmpegの場所を指定"
 
 #: src/FFmpeg.cpp
 #, c-format
@@ -2066,7 +2066,7 @@ msgstr "ファイル「%s」が FFmpeg を通じて取り込み/書き出しを�
 #: src/FFmpeg.cpp
 #, c-format
 msgid "Location of '%s':"
-msgstr "「%s」の場所 :"
+msgstr "「%s」の場所:"
 
 #: src/FFmpeg.cpp
 #, c-format
@@ -2075,7 +2075,7 @@ msgstr "「%s」を見つけるには、ここをクリック -->"
 
 #: src/FFmpeg.cpp src/export/ExportCL.cpp src/export/ExportMP3.cpp
 msgid "Browse..."
-msgstr "ブラウズ..."
+msgstr "参照..."
 
 #: src/FFmpeg.cpp
 msgid "To get a free copy of FFmpeg, click here -->"
@@ -2099,7 +2099,7 @@ msgstr "「%s」はどこにありますか？"
 
 #: src/FFmpeg.cpp
 msgid "Failed to find compatible FFmpeg libraries."
-msgstr "コンパチブルなFFmpegライブラリが存在しません。"
+msgstr "互換性のあるFFmpegライブラリが見つかりません。"
 
 #: src/FFmpeg.h
 msgid "FFmpeg not found"
@@ -2116,25 +2116,25 @@ msgstr ""
 "AudacityはFFmpegによりオーディオを取り込もうとしましたが、\n"
 "必要なライブラリが見つかりませんでした。\n"
 "\n"
-"FFmpeg取り込みのためには、環境設定 > ライブラリ\n"
-"にてFFmpegライブラリをダウンロードし設定してください。"
+"FFmpegによる取り込みを使用するには、環境設定 > ライブラリ にて\n"
+"FFmpegライブラリをダウンロードまたは指定してください。"
 
 #: src/FFmpeg.h
 msgid "Do not show this warning again"
-msgstr "この警告を再表示しないでください。"
+msgstr "この警告を再表示しない"
 
 #. i18n-hint: do not translate avformat.  Preserve the computer gibberish.
 #: src/FFmpeg.h
 msgid "Only avformat.dll|*avformat*.dll|Dynamically Linked Libraries (*.dll)|*.dll|All Files|*"
-msgstr "Only avformat.dll|*avformat*.dll|Dynamically Linked Libraries (*.dll)|*.dll|All Files|*"
+msgstr "avformat.dll のみ|*avformat*.dll|動的リンクライブラリ (*.dll)|*.dll|すべてのファイル|*"
 
 #: src/FFmpeg.h
 msgid "Dynamic Libraries (*.dylib)|*.dylib|All Files (*)|*"
-msgstr "ダイナミックライブラリ (*.dylib)|*.dylib|全ファイル (*)|*"
+msgstr "動的ライブラリ (*.dylib)|*.dylib|すべてのファイル (*)|*"
 
 #: src/FFmpeg.h
 msgid "Only libavformat.so|libavformat*.so*|Dynamically Linked Libraries (*.so*)|*.so*|All Files (*)|*"
-msgstr "libavformat.so|libavformat.so*|ダイナミックリンクライブラリ (*.so*)|*.so*|全ファイル (*)|* のみ"
+msgstr "libavformat.so のみ|libavformat.so*|動的リンクライブラリ (*.so*)|*.so*|すべてのファイル (*)|*"
 
 #: src/FileException.cpp
 #, fuzzy, c-format
@@ -11860,7 +11860,7 @@ msgstr ""
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "You can't delete a preset without name"
-msgstr "無名のプリセットを削除することはできません"
+msgstr "無題のプリセットを削除することはできません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
@@ -11869,7 +11869,7 @@ msgstr "プリセット「%s」を削除しますか？"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "You can't save a preset without name"
-msgstr "無名のプリセットを保存することはできません"
+msgstr "無題のプリセットを保存することはできません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file with presets to import"
@@ -13517,7 +13517,7 @@ msgstr "MP3 ライブラリ:"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "&Locate..."
-msgstr "場所(&L)..."
+msgstr "場所を指定(&L)..."
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "LAME MP3 Library:"
@@ -13537,7 +13537,7 @@ msgstr "FFmpeg ライブラリバージョン:"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "No compatible FFmpeg library was found"
-msgstr "コンパチブルなFFmpegライブラリが見つかりません"
+msgstr "互換性のあるFFmpegライブラリが見つかりません"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "FFmpeg Library:"
@@ -13545,7 +13545,7 @@ msgstr "FFmpeg ライブラリ:"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "Loca&te..."
-msgstr "場所(&T)..."
+msgstr "場所を指定(&T)..."
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "Dow&nload"
@@ -13560,8 +13560,8 @@ msgid ""
 "Audacity has automatically detected valid FFmpeg libraries.\n"
 "Do you still want to locate them manually?"
 msgstr ""
-"Audacityは有効なFFmpegライブラリを自動検出しました。\n"
-"それにもかかわらず手動で設定しますか？"
+"Audacityは既に、有効なFFmpegライブラリを自動検出しています。\n"
+"それでも手動で指定しますか？"
 
 #. i18n-hint: untranslatable acronym for "Musical Instrument Device Interface"
 #: src/prefs/MidiIOPrefs.cpp
