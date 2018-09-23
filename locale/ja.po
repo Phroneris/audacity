@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-23 15:35+0900\n"
+"PO-Revision-Date: 2018-09-23 15:50+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -836,7 +836,7 @@ msgid ""
 "Use the New or Open commands in the currently running Audacity\n"
 "process to open multiple projects simultaneously.\n"
 msgstr ""
-"複数のプロジェクトを同時に開いて作業するためには、新規　あるいは開くコマンドを、\n"
+"複数のプロジェクトを同時に開いて作業するためには、新規 あるいは 開く コマンドを、\n"
 "今動作している Audacity において使ってください。\n"
 
 #: src/AudacityApp.cpp
@@ -1860,7 +1860,7 @@ msgstr "欠損オーディオを無音で置き換えます。"
 
 #: src/DirManager.cpp
 msgid "Warning - Missing Aliased File(s)"
-msgstr "警告　-　エイリアスファイルが不足しています"
+msgstr "警告 - エイリアスファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check replaced missing aliased file(s) with silence."
@@ -1875,7 +1875,7 @@ msgid ""
 "from the current audio in the project."
 msgstr ""
 "「%s」フォルダのプロジェクトチェックは\n"
-"%lld 個の欠落エイリアス　(.auf)　ブロックファイルを検出しました。\n"
+"%lld 個の欠落エイリアス (.auf) ブロックファイルを検出しました。\n"
 "Audacity は、それらのファイルをプロジェクト中の元の\n"
 "オーディオから復元することができます。"
 
@@ -1893,7 +1893,7 @@ msgstr "これ以上の変更をしないでプロジェクトをすぐに閉じ
 
 #: src/DirManager.cpp
 msgid "Warning - Missing Alias Summary File(s)"
-msgstr "警告　-　エイリアス要約ファイルが不足しています"
+msgstr "警告 - エイリアス要約ファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check regenerated missing alias summary file(s)."
@@ -1934,7 +1934,7 @@ msgstr "欠落したオーディオデータを無音で置換する (恒久的�
 
 #: src/DirManager.cpp
 msgid "Warning - Missing Audio Data Block File(s)"
-msgstr "警告　-　オーディオデータブロックファイルが見つかりません"
+msgstr "警告 - オーディオデータブロックファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check replaced missing audio data block file(s) with silence."
@@ -1967,7 +1967,7 @@ msgstr "無用なファイルの削除"
 
 #: src/DirManager.cpp
 msgid "Warning - Orphan Block File(s)"
-msgstr "警告　-　無用なブロックファイル "
+msgstr "警告 - 無用なブロックファイル"
 
 #: src/DirManager.cpp
 msgid "Cleaning up unused directories in project data"
@@ -4692,12 +4692,12 @@ msgstr "描画"
 #: src/Menus.cpp
 #, c-format
 msgid "Mixed and rendered %d tracks into one new stereo track"
-msgstr "%d　個のトラックを一つの新しいステレオトラックにミックスして作成"
+msgstr "%d 個のトラックを一つの新しいステレオトラックにミックスして作成"
 
 #: src/Menus.cpp
 #, c-format
 msgid "Mixed and rendered %d tracks into one new mono track"
-msgstr "%d　個のトラックを一つの新しいモノラルトラックにミックスして作成"
+msgstr "%d 個のトラックを一つの新しいモノラルトラックにミックスして作成"
 
 #: src/Menus.cpp src/Mix.cpp
 msgid "Mix and Render"
@@ -5649,7 +5649,7 @@ msgstr "古い自動保存ファイルを削除できませんでした"
 
 #: src/Project.cpp
 msgid "<unrecognized version -- possibly corrupt project file>"
-msgstr "<バージョンを認識できません　--　プロジェクトファイルが破壊されている可能性があります>"
+msgstr "<バージョンを認識できません -- プロジェクトファイルが破壊されている可能性があります>"
 
 #: src/Project.cpp
 #, c-format
@@ -11396,8 +11396,8 @@ msgid ""
 "The project sample rate (%d) is not supported by the current output\n"
 "file format.  "
 msgstr ""
-"プロジェクトのサンプリング周波数 (%d)　は現在の出力ファイル形式では\n"
-"サポートされていません。"
+"プロジェクトのサンプリング周波数 (%d) は現在の出力ファイル形式では\n"
+"サポートされていません。  "
 
 #: src/export/ExportFFmpeg.cpp
 #, c-format
@@ -14722,7 +14722,7 @@ msgstr "再生メーター"
 #. apparently is helpful to partially sighted people.
 #: src/toolbars/MeterToolBar.cpp
 msgid "Meter-Record"
-msgstr "メーター　録音"
+msgstr "録音メーター"
 
 #. i18n-hint: (noun) The meter that shows the loudness of the audio playing.
 #. This is the name used in screen reader software, where having 'Meter' first
