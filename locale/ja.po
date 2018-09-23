@@ -9069,31 +9069,28 @@ msgid "Adjusts the volume levels of particular frequencies"
 msgstr "特定の周波数の音量を調節します"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid ""
 "To use this EQ curve in a macro, please choose a new name for it.\n"
 "Choose the 'Save/Manage Curves...' button and rename the 'unnamed' curve, then use that one."
 msgstr ""
-"EQカーブをバッチ・チェインの中で使うには、新しい名前を選択してください。\n"
-"「カーブの保存/管理...」ボタンを選択し、「無名」カーブをリネームしてからご使用ください。"
+"EQ曲線をマクロの中で使うには、新しい名前を選択してください。\n"
+"「曲線の保存/管理...」を選択し、「無題」曲線をリネームしてからご使用ください。"
 
 #: src/effects/Equalization.cpp
 msgid "EQ Curve needs a different name"
-msgstr "EQカーブには別の名前が必要です"
+msgstr "EQ曲線には別の名前が必要です"
 
 #: src/effects/Equalization.cpp
 msgid "To apply Equalization, all selected tracks must have the same sample rate."
-msgstr "イコライゼーションを適用するためには、選択されたトラックはすべてが同一のサンプリング周波数でなければなりません。"
+msgstr "イコライザーを適用するためには、すべての選択トラックが同一のサンプリング周波数でなければなりません。"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid "Track sample rate is too low for this effect."
-msgstr "トラックが長すぎるため選択範囲をリピートすることができません。"
+msgstr "トラックのサンプリング周波数が低すぎるため、このエフェクトを使うことができません。"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid "Effect Unavailable"
-msgstr "プレビューは使用できません"
+msgstr "エフェクト利用不能"
 
 #: src/effects/Equalization.cpp src/effects/ScienFilter.cpp
 msgid "+ dB"
@@ -9136,7 +9133,7 @@ msgstr "描画(&D)"
 
 #: src/effects/Equalization.cpp
 msgid "Draw Curves"
-msgstr "カーブの描画"
+msgstr "曲線の描画"
 
 #: src/effects/Equalization.cpp
 msgid "&Graphic"
@@ -9144,7 +9141,7 @@ msgstr "グラフィック(&G)"
 
 #: src/effects/Equalization.cpp
 msgid "Graphic EQ"
-msgstr "グラフィックイコライザ"
+msgstr "グラフィックEQ"
 
 #: src/effects/Equalization.cpp
 msgid "Interpolation type"
@@ -9172,11 +9169,11 @@ msgstr "曲線を選択(&S):"
 
 #: src/effects/Equalization.cpp
 msgid "Select Curve"
-msgstr "カーブを選択"
+msgstr "曲線を選択"
 
 #: src/effects/Equalization.cpp
 msgid "S&ave/Manage Curves..."
-msgstr "カーブの保存/管理(&A)..."
+msgstr "曲線の保存/管理(&A)..."
 
 #: src/effects/Equalization.cpp
 msgid "Fla&tten"
@@ -9196,7 +9193,7 @@ msgstr "グリッドライン表示"
 
 #: src/effects/Equalization.cpp
 msgid "&Processing: "
-msgstr "処理中(&P):"
+msgstr "処理(&P): "
 
 #: src/effects/Equalization.cpp
 msgid "D&efault"
@@ -9225,7 +9222,7 @@ msgstr "ベンチ (&B)"
 #. i18n-hint: name of the 'unnamed' custom curve
 #: src/effects/Equalization.cpp
 msgid "unnamed"
-msgstr "無名"
+msgstr "無題"
 
 #. i18n-hint: EQ stands for 'Equalization'.
 #: src/effects/Equalization.cpp
@@ -9236,42 +9233,42 @@ msgid ""
 "Error message says:\n"
 "%s"
 msgstr ""
-"イコライザ曲線の読み込みエラー:\n"
+"EQ曲線ファイルの読み込みにエラーが発生しました:\n"
 "%s\n"
 "エラーメッセージ:\n"
 "%s"
 
 #: src/effects/Equalization.cpp
 msgid "Error Loading EQ Curves"
-msgstr "イコライザ曲線の読み込みエラー"
+msgstr "EQ曲線の読み込みエラー"
 
 #: src/effects/Equalization.cpp
 msgid "Error Saving Equalization Curves"
-msgstr "イコライゼーションカーブの保存時にエラーが発生しました"
+msgstr "EQ曲線の保存にエラーが発生しました"
 
 #: src/effects/Equalization.cpp
 msgid "Requested curve not found, using 'unnamed'"
-msgstr "要求されたカーブが見つかりません。「無名」をお使いください"
+msgstr "要求された曲線が見つかりません。「無題」をお使いください"
 
 #: src/effects/Equalization.cpp
 msgid "Curve not found"
-msgstr "カーブが見つかりません"
+msgstr "曲線が見つかりません"
 
 #: src/effects/Equalization.cpp
 msgid "Manage Curves List"
-msgstr "カーブリストの管理"
+msgstr "曲線リストの管理"
 
 #: src/effects/Equalization.cpp
 msgid "Manage Curves"
-msgstr "カーブの管理"
+msgstr "曲線の管理"
 
 #: src/effects/Equalization.cpp
 msgid "&Curves"
-msgstr "カーブ(&C)"
+msgstr "曲線 (&C)"
 
 #: src/effects/Equalization.cpp
 msgid "Curve Name"
-msgstr "カーブ名"
+msgstr "曲線名"
 
 #: src/effects/Equalization.cpp
 msgid "D&elete..."
@@ -9286,30 +9283,30 @@ msgid ""
 "Rename 'unnamed' to save a new entry.\n"
 "'OK' saves all changes, 'Cancel' doesn't."
 msgstr ""
-"新しいカーブを保存するには「無名」をリネームしてください。\n"
+"新しい曲線を保存するには「無題」をリネームしてください。\n"
 "「OK」で変更を保存、「キャンセル」で取り消します。"
 
 #: src/effects/Equalization.cpp
 msgid "'unnamed' always stays at the bottom of the list"
-msgstr "「無名」は常にリストの一番最後にあります"
+msgstr "「無題」の位置はリストの一番最後に固定されています"
 
 #: src/effects/Equalization.cpp
 msgid "'unnamed' is special"
-msgstr "「無名」は特殊"
+msgstr "「無題」は特殊です"
 
 #: src/effects/Equalization.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Rename '%s' to..."
-msgstr "「%s」から「%s」へリネーム"
+msgstr "「%s」をリネーム..."
 
 #: src/effects/Equalization.cpp
 msgid "Rename..."
 msgstr "リネーム..."
 
 #: src/effects/Equalization.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Rename '%s'"
-msgstr "オリジナルの'"
+msgstr "「%s」をリネーム"
 
 #: src/effects/Equalization.cpp
 msgid "Name is the same as the original one"
@@ -9320,43 +9317,43 @@ msgid "Same name"
 msgstr "同名"
 
 #: src/effects/Equalization.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Overwrite existing curve '%s'?"
-msgstr "このカーブを上書きします。'"
+msgstr "既存の曲線「%s」を上書きしますか？"
 
 #: src/effects/Equalization.cpp
 msgid "Curve exists"
-msgstr "カーブはすでに存在します。"
+msgstr "既に存在する曲線"
 
 #: src/effects/Equalization.cpp
 msgid "You cannot delete the 'unnamed' curve."
-msgstr "「無名」カーブは削除できません。"
+msgstr "「無題」曲線は削除できません。"
 
 #: src/effects/Equalization.cpp
 msgid "Can't delete 'unnamed'"
-msgstr "「無名」カーブは削除できません"
+msgstr "「無題」は削除できません"
 
 #: src/effects/Equalization.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Delete '%s'?"
-msgstr "削除してもいいですか'"
+msgstr "「%s」を削除しますか？"
 
 #: src/effects/Equalization.cpp src/export/ExportFFmpegDialogs.cpp
 msgid "Confirm Deletion"
 msgstr "削除の確認"
 
 #: src/effects/Equalization.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Delete %d items?"
-msgstr "%d 回リピートされました"
+msgstr "%d 個のアイテムを削除しますか？"
 
 #: src/effects/Equalization.cpp
 msgid "You cannot delete the 'unnamed' curve, it is special."
-msgstr "「無名」カーブを削除することはできません。"
+msgstr "「無題」曲線は特殊であり、削除はできません。"
 
 #: src/effects/Equalization.cpp
 msgid "Choose an EQ curve file"
-msgstr "イコライザカーブの選択"
+msgstr "EQ曲線の選択"
 
 #: src/effects/Equalization.cpp
 msgid "xml files (*.xml;*.XML)|*.xml;*.XML"
@@ -9364,32 +9361,32 @@ msgstr "xml ファイル (*.xml;*.XML)|*.xml;*.XML"
 
 #: src/effects/Equalization.cpp
 msgid "Export EQ curves as..."
-msgstr "EQカーブを別名で書き出し..."
+msgstr "EQ曲線を別名で書き出し..."
 
 #: src/effects/Equalization.cpp
 msgid "You cannot export 'unnamed' curve, it is special."
-msgstr "「無名」カーブを削除することはできません。"
+msgstr "「無題」曲線は特殊であり、書き出しはできません。"
 
 #: src/effects/Equalization.cpp
 msgid "Cannot Export 'unnamed'"
-msgstr "「無名」を書き出すことはできません"
+msgstr "「無題」は書き出しできません"
 
 #: src/effects/Equalization.cpp
 #, c-format
 msgid "%d curves exported to %s"
-msgstr "%d カーブが%sに書き出されました。"
+msgstr "%d 個の曲線が %s に書き出されました"
 
 #: src/effects/Equalization.cpp
 msgid "Curves exported"
-msgstr "書き出されたカーブ"
+msgstr "曲線を書き出しました"
 
 #: src/effects/Equalization.cpp
 msgid "No curves exported"
-msgstr "カーブは書き出されませんでした"
+msgstr "曲線は書き出されませんでした"
 
 #: src/effects/Equalization.h
 msgid "Equalization"
-msgstr "イコライゼーション"
+msgstr "イコライザー (EQ)"
 
 #: src/effects/Equalization48x.cpp
 #, c-format
