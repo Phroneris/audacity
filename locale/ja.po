@@ -1656,17 +1656,17 @@ msgstr "コピーしない"
 
 #: src/Dependencies.cpp
 msgid "Copy All Files (Safer)"
-msgstr "すべてのファイルをコピーします（より安全）"
+msgstr "すべてのファイルをコピー（より安全）"
 
 #. i18n-hint: One of the choices of what you want Audacity to do when
 #. * Audacity finds a project depends on another file.
 #: src/Dependencies.cpp
 msgid "Ask me"
-msgstr "質問してください"
+msgstr "確認する"
 
 #: src/Dependencies.cpp
 msgid "Always copy all files (safest)"
-msgstr "常にすべてのファイルをコピーする（最も安全）"
+msgstr "常にすべてのファイルをコピー（最も安全）"
 
 #: src/Dependencies.cpp
 msgid "Never copy any files"
@@ -1674,7 +1674,7 @@ msgstr "ファイルをコピーしない"
 
 #: src/Dependencies.cpp
 msgid "Whenever a project depends on other files:"
-msgstr "プロジェクトが別のファイルに依存するときはいつも："
+msgstr "プロジェクトが別のファイルに依存する場合："
 
 #: src/Dependencies.cpp
 #, c-format
@@ -1718,28 +1718,27 @@ msgstr ""
 
 #: src/DirManager.cpp
 msgid "Cleaning project temporary files"
-msgstr "プロジェクトのテンポラリファイルのクリア中"
+msgstr "プロジェクトの一時ファイルのクリア中"
 
 #: src/DirManager.cpp
 msgid "Cleaning up temporary files"
-msgstr "テンポラリファイルのクリア中"
+msgstr "一時ファイルのクリア中"
 
 #: src/DirManager.cpp
 msgid "Saving project data files"
-msgstr "プロジェクトファイルを保存中"
+msgstr "プロジェクトデータファイルの保存中"
 
 #: src/DirManager.cpp
-#, fuzzy
 msgid "Cleaning up after failed save"
-msgstr "テンポラリファイルのクリア中"
+msgstr "保存失敗後のクリア中"
 
 #: src/DirManager.cpp
 msgid "Cleaning up cache directories"
-msgstr "キャッシュディレクトリをクリア中"
+msgstr "キャッシュディレクトリのクリア中"
 
 #: src/DirManager.cpp
 msgid "mkdir in DirManager::MakeBlockFilePath failed."
-msgstr "DirManager::MakeBlockFilePathにてmkdirが失敗しました。"
+msgstr "mkdir が DirManager::MakeBlockFilePath において失敗しました。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -1797,15 +1796,15 @@ msgstr "ブロック %s は新しいエイリアス名に変更されました\n
 #. "Found problems with <sequence> when checking project file."
 #: src/DirManager.cpp
 msgid "Project check read faulty Sequence tags."
-msgstr "プロジェクトチェッカーが不正なシーケンスタグを読み込みました。"
+msgstr "プロジェクトチェックが不正なシーケンスタグを読み込みました。"
 
 #: src/DirManager.cpp
 msgid "Close project immediately with no changes"
-msgstr "何も変更せずにすぐにプロジェクトを閉じる"
+msgstr "何も変更せずにプロジェクトをすぐに閉じる"
 
 #: src/DirManager.cpp
 msgid "Continue with repairs noted in log, and check for more errors. This will save the project in its current state, unless you \"Close project immediately\" on further error alerts."
-msgstr "ログ記載箇所の補修を継続しさらにエラーチェックを行います。「すぐにプロジェクトを閉じる」を選択しない限りプロジェクトは現在の状態に保たれます。"
+msgstr "ログ記載箇所の補修を継続しエラーチェックを行います。「プロジェクトをすぐに閉じる」を選択しない限りプロジェクトは現在の状態に保たれます。"
 
 #: src/DirManager.cpp
 msgid "Warning - Problems Reading Sequence Tags"
@@ -1834,7 +1833,7 @@ msgid ""
 "project in its current state, unless you \"Close \n"
 "project immediately\" on further error alerts."
 msgstr ""
-"フォルダ「%s」のチェックにおいて\n"
+"フォルダ「%s」のプロジェクトチェックにおいて、\n"
 "%lld 個のオーディオファイルの欠損が見つかりました\n"
 "(「エイリアスファイル」)。Audacityはこれらのファイルを\n"
 "自動的に復旧することはできません。\n"
@@ -1864,7 +1863,7 @@ msgstr "警告 - エイリアスファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check replaced missing aliased file(s) with silence."
-msgstr "プロジェクトチェックは欠落したエイリアスファイルを無音で置換しました。"
+msgstr "   プロジェクトチェックは欠落したエイリアスファイルを無音で置換しました。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -1874,14 +1873,14 @@ msgid ""
 "Audacity can fully regenerate these files \n"
 "from the current audio in the project."
 msgstr ""
-"「%s」フォルダのプロジェクトチェックは\n"
-"%lld 個の欠落エイリアス (.auf) ブロックファイルを検出しました。\n"
-"Audacity は、それらのファイルをプロジェクト中の元の\n"
-"オーディオから復元することができます。"
+"フォルダ「%s」のプロジェクトチェックにおいて、\n"
+"%lld 個の欠落エイリアス (.auf) ブロックファイルが検出されました。\n"
+"Audacity は、プロジェクト中の元のオーディオから\n"
+"これらのファイルを復元することができます。"
 
 #: src/DirManager.cpp
 msgid "Regenerate alias summary files (safe and recommended)"
-msgstr "エイリアス要約ファイルを再生成する (安全かつ推奨)"
+msgstr "エイリアス要約ファイルを再生成 (安全かつ推奨)"
 
 #: src/DirManager.cpp
 msgid "Fill in silence for missing display data (this session only)"
@@ -1897,7 +1896,7 @@ msgstr "警告 - エイリアス要約ファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check regenerated missing alias summary file(s)."
-msgstr "プロジェクトチェックは欠落したエイリアス要約ファイルを再生成しました。"
+msgstr "   プロジェクトチェックは欠落したエイリアス要約ファイルを再生成しました。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -1915,22 +1914,22 @@ msgid ""
 "Note that for the second option, the waveform \n"
 "may not show silence."
 msgstr ""
-"「%s」フォルダのプロジェクトチェックは\n"
+"フォルダ「%s」のプロジェクトチェックにおいて、\n"
 "バグかシステムクラッシュあるいは偶発的な削除によって\n"
-"オーディオデータのブロックファイル(.au)%lld 個が行方不明\n"
-"であることを検出しました。Audacity はそれらの失われた\n"
+"オーディオデータのブロックファイル(.au) %lld 個が行方不明\n"
+"であることが検出されました。Audacity はこれらの失われた\n"
 "データを自動的に回復することはできません。\n"
 "\n"
-"下記のオプションのいずれかにより、\n"
-"それらのファイルを見つけ出し元の場所へ\n"
-"の回復を試みることができます。\n"
+"下記の1番目か2番目のオプションを選ぶと、\n"
+"後でそれらのファイルを手動で見つけ出して元の場所に\n"
+"手動で置き直すチャンスが生まれます。\n"
 "\n"
 "2番目のオプションでは波形が無音を表示しない\n"
 "可能性があります。"
 
 #: src/DirManager.cpp
 msgid "Replace missing audio with silence (permanent immediately)"
-msgstr "欠落したオーディオデータを無音で置換する (恒久的にいますぐ)"
+msgstr "欠落したオーディオを無音で置換 (恒久的に今すぐ)"
 
 #: src/DirManager.cpp
 msgid "Warning - Missing Audio Data Block File(s)"
@@ -1938,11 +1937,11 @@ msgstr "警告 - オーディオデータブロックファイルが見つかり
 
 #: src/DirManager.cpp
 msgid "   Project check replaced missing audio data block file(s) with silence."
-msgstr "プロジェクトチェックは欠落したオーディオデータブロックファイルを無音によって置換しました。"
+msgstr "   プロジェクトチェックは欠落したオーディオデータブロックファイルを無音によって置換しました。"
 
 #: src/DirManager.cpp
 msgid "   Project check ignored orphan block file(s). They will be deleted when project is saved."
-msgstr "プロジェクトチェックは無効なブロックファイルを無視しました。これらはプロジェクトの保存時に削除されます。"
+msgstr "   プロジェクトチェックは無効なブロックファイルを無視しました。これらはプロジェクトの保存時に削除されます。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -1952,18 +1951,18 @@ msgid ""
 "unused by this project, but might belong to other projects. \n"
 "They are doing no harm and are small."
 msgstr ""
-"「%s」フォルダのプロジェクトチェックは\n"
-"%d 個の無用なブロックファイルを見つけました。これらのファイルは\n"
-"使われておらず、なんらかのバグかクラッシュ時に残されたものと思われます。\n"
+"フォルダ「%s」のプロジェクトチェックにおいて、\n"
+"%d 個の無用なブロックファイルが見つかりました。これらのファイルは\n"
+"使われておらず、何らかのバグかクラッシュ時に残されたものと思われます。\n"
 "これらはサイズも小さく無害です。"
 
 #: src/DirManager.cpp
 msgid "Continue without deleting; ignore the extra files this session"
-msgstr "削除せずに続行; 余分なファイルは無視してください。"
+msgstr "削除せずに続行 (このセッションでは余計なファイルを無視)"
 
 #: src/DirManager.cpp
 msgid "Delete orphan files (permanent immediately)"
-msgstr "無用なファイルの削除"
+msgstr "無用なファイルの削除 (恒久的に今すぐ)"
 
 #: src/DirManager.cpp
 msgid "Warning - Orphan Block File(s)"
@@ -2148,13 +2147,13 @@ msgid "Audacity failed to read from a file in %s."
 msgstr "ファイル %s が書き込めません"
 
 #: src/FileException.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Audacity failed to write to a file.\n"
 "Perhaps %s is not writable or the disk is full."
 msgstr ""
-"プロジェクトファイルが保存できません。%s は書き込みできないか、\n"
-"ディスクが一杯です。"
+"ファイルを保存できませんでした。\n"
+"%s は書き込みできないか、ディスクが一杯です。"
 
 #: src/FileException.cpp
 #, c-format
@@ -2597,18 +2596,17 @@ msgid "Press F2 or double click to edit cell contents."
 msgstr "F2を押すか、ダブルクリックしてセルコメントを編集"
 
 #: src/LabelDialog.cpp src/Menus.cpp
-#, fuzzy
 msgid "Select a text file containing labels"
-msgstr "ラベルを含むテキストファイルを選択して下さい..."
+msgstr "ラベルを含むテキストファイルを選択"
 
 #: src/LabelDialog.cpp src/Menus.cpp
 msgid "Text files (*.txt)|*.txt|All files|*"
-msgstr "Text files (*.txt)|*.txt|All files|*"
+msgstr "テキストファイル (*.txt)|*.txt|すべてのファイル|*"
 
 #: src/LabelDialog.cpp src/Menus.cpp src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not open file: %s"
-msgstr "ファイルが開けません:「%s」"
+msgstr "ファイルが開けませんでした: %s"
 
 #: src/LabelDialog.cpp
 msgid "No labels to export."
@@ -5516,7 +5514,7 @@ msgstr "<無題>"
 #: src/Project.cpp
 #, c-format
 msgid "%sSave changes to %s?"
-msgstr "%s%s の変更を保存しますか？"
+msgstr "%s変更の保存: %s"
 
 #: src/Project.cpp
 msgid "Save project before closing?"
@@ -10604,7 +10602,7 @@ msgstr "プリセットファイルを読み込めません。"
 #: src/effects/VST/VSTEffect.cpp src/xml/XMLFileReader.cpp
 #, c-format
 msgid "Could not open file: \"%s\""
-msgstr "ファイルが開けません:「%s」"
+msgstr "ファイルが開けませんでした:「%s」"
 
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
@@ -12795,7 +12793,7 @@ msgstr "次回からは表示せず、いつも上記設定を使用する(&W)"
 #: src/import/ImportPlugin.h src/import/ImportRaw.cpp
 #, c-format
 msgid "Importing %s"
-msgstr "%s を取り込む"
+msgstr "%s を取り込み中..."
 
 #: src/import/ImportQT.cpp
 msgid "QuickTime files"
