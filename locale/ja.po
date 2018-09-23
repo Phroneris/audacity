@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-23 14:38+0900\n"
+"PO-Revision-Date: 2018-09-23 14:42+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
 msgid "File '%s' already exists, do you really want to overwrite it?"
-msgstr "ファイル '%s' はすでに存在します。上書きしてもよろしいですか?"
+msgstr "ファイル '%s' はすでに存在します。上書きしてもよろしいですか？"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp src/LangChoice.cpp
 msgid "Confirm"
@@ -1052,7 +1052,7 @@ msgid ""
 "\n"
 "Choosing \"Yes\" discards all recoverable projects immediately."
 msgstr ""
-"すべての回復可能なプロジェクトを破棄してもよろしいですか?\n"
+"すべての回復可能なプロジェクトを破棄してもよろしいですか？\n"
 "\n"
 "\"はい\" を選ぶとすべてのプロジェクトが即座に破棄されます。"
 
@@ -5201,7 +5201,7 @@ msgstr "Audacityモジュールローダー"
 
 #: src/ModuleManager.cpp
 msgid "Try and load this module?"
-msgstr "このモジュールをロードして試してみますか?"
+msgstr "このモジュールをロードして試してみますか？"
 
 #. i18n-hint: This is for screen reader software and indicates that
 #. this is a Note track.
@@ -5579,7 +5579,7 @@ msgstr ""
 "\n"
 "万が一ファイルが壊れてしまったときのために、まずバックアップを取ってください。\n"
 "\n"
-"このファイルを開きますか?"
+"このファイルを開きますか？"
 
 #: src/Project.cpp
 msgid "1.0 or earlier"
@@ -6357,7 +6357,7 @@ msgstr "ジャンルをリセット"
 
 #: src/Tags.cpp
 msgid "Are you sure you want to reset the genre list to defaults?"
-msgstr "ジャンルリストを既定値にリセットしてよろしいですか?"
+msgstr "ジャンルリストを既定値にリセットしてよろしいですか？"
 
 #: src/Tags.cpp
 msgid "Unable to open genre file."
@@ -10619,7 +10619,7 @@ msgstr "VSTプリセットの保存時にエラーが発生しました"
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
 msgid "This parameter file was saved from %s.  Continue?"
-msgstr "このパラメータファイルは %s から保存されました。続けますか?"
+msgstr "このパラメータファイルは %s から保存されました。続けますか？"
 
 #. i18n-hint: Abbreviates Virtual Studio Technology, an audio software protocol
 #. developed by Steinberg GmbH
@@ -11448,7 +11448,7 @@ msgstr "FFmpegプリセットの保存時にエラーが発生しました"
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
 msgid "Overwrite preset '%s'?"
-msgstr "既存のファイル '%s' を上書きしますか?"
+msgstr "既存のファイル '%s' を上書きしますか？"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Confirm Overwrite"
@@ -11470,7 +11470,7 @@ msgstr "プリセット '%s' は存在しません。"
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
 msgid "Replace preset '%s'?"
-msgstr "プリセット %s を置き換えますか?"
+msgstr "プリセット %s を置き換えますか？"
 
 #  i18n-hint: One-letter abbreviation for Left, in the Pan slider
 #  i18n-hint: One-letter abbreviation for Left, in the Pan slider
@@ -13199,7 +13199,7 @@ msgstr "未使用フィルター:"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "There are space characters (spaces, newlines, tabs or linefeeds) in one of the items. They are likely to break the pattern matching. Unless you know what you are doing, it is recommended to trim spaces. Do you want Audacity to trim spaces for you?"
-msgstr "空白、改行、タブまたはラインフィードなどの無効文字が含まれています。パターンマッチングが失敗することがありますので、意図的に使用されたのでない限り、これら無効文字を削除することを推奨します。自動的に削除しますか?"
+msgstr "空白、改行、タブまたはラインフィードなどの無効文字が含まれています。パターンマッチングが失敗することがありますので、意図的に使用されたのでない限り、これら無効文字を削除することを推奨します。自動的に削除しますか？"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Spaces detected"
@@ -13207,7 +13207,7 @@ msgstr "空白が検出されました"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Do you really want to delete selected rule?"
-msgstr "選択したルールを削除してもよろしいですか?"
+msgstr "選択したルールを削除してもよろしいですか？"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "Rule deletion confirmation"
@@ -13563,7 +13563,7 @@ msgid ""
 "Do you still want to locate them manually?"
 msgstr ""
 "Audacityは有効なFFmpegライブラリを自動検出しました。\n"
-"それにもかかわらず手動で設定しますか?"
+"それにもかかわらず手動で設定しますか？"
 
 #. i18n-hint: untranslatable acronym for "Musical Instrument Device Interface"
 #: src/prefs/MidiIOPrefs.cpp
