@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-23 18:59+0900\n"
+"PO-Revision-Date: 2018-09-24 05:05+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -4620,7 +4620,7 @@ msgstr "周波数解析"
 
 #: src/Menus.cpp
 msgid "Contrast Analysis (WCAG 2 compliance)"
-msgstr "コントラスト解析(WCAG 2準拠)"
+msgstr "コントラスト解析 (WCAG2準拠)"
 
 #: src/Menus.cpp
 #, c-format
@@ -6916,7 +6916,7 @@ msgstr ""
 #: src/commands/AudacityCommand.cpp src/effects/Effect.cpp
 #, c-format
 msgid "Applying %s..."
-msgstr "%sを適用中..."
+msgstr "%s を適用中..."
 
 #: src/commands/AudacityCommand.cpp src/effects/Effect.cpp
 #: src/effects/vamp/VampEffect.cpp src/widgets/ASlider.cpp
@@ -7047,7 +7047,7 @@ msgstr "ディレイ時間 (秒):"
 
 #: src/commands/Demo.cpp src/effects/Echo.cpp
 msgid "Decay factor:"
-msgstr "減衰ファクター"
+msgstr "減衰ファクター:"
 
 #: src/commands/Demo.h
 msgid "Demo"
@@ -7155,7 +7155,7 @@ msgstr "Brief"
 
 #: src/commands/GetInfoCommand.cpp src/effects/Effect.cpp
 msgid "Type:"
-msgstr "タイプ:"
+msgstr "種類:"
 
 #: src/commands/GetInfoCommand.cpp src/export/ExportFFmpegDialogs.cpp
 #: src/export/ExportMultiple.cpp
@@ -7173,7 +7173,7 @@ msgstr "information can be recorded."
 
 #: src/commands/GetTrackInfoCommand.cpp
 msgid "Types:"
-msgstr "タイプ:"
+msgstr "種類:"
 
 #: src/commands/GetTrackInfoCommand.h
 #, fuzzy
@@ -7802,9 +7802,8 @@ msgid "Tone controls"
 msgstr ""
 
 #: src/effects/BassTreble.cpp
-#, fuzzy
 msgid "Ba&ss (dB):"
-msgstr "バス (dB):"
+msgstr "バス (dB) (&S):"
 
 #: src/effects/BassTreble.cpp
 msgid "Bass (dB):"
@@ -7816,16 +7815,15 @@ msgstr "バス"
 
 #: src/effects/BassTreble.cpp
 msgid "&Treble (dB):"
-msgstr "トレブル(dB)(&T):"
+msgstr "トレブル (dB) (&T):"
 
 #: src/effects/BassTreble.cpp
 msgid "Treble"
 msgstr "トレブル"
 
 #: src/effects/BassTreble.cpp
-#, fuzzy
 msgid "&Volume (dB):"
-msgstr "トレブル(dB)(&T):"
+msgstr "ボリューム (&V):"
 
 #: src/effects/BassTreble.cpp
 msgid "Level"
@@ -7840,9 +7838,8 @@ msgid "Bass and Treble"
 msgstr "バスとトレブル"
 
 #: src/effects/ChangePitch.cpp
-#, fuzzy
 msgid "Changes the pitch of a track without changing its tempo"
-msgstr "テンポを変えずにピッチの変更"
+msgstr "テンポを変えずにトラックのピッチを変更します"
 
 #: src/effects/ChangePitch.cpp
 msgid "High Quality Pitch Change"
@@ -7850,7 +7847,7 @@ msgstr ""
 
 #: src/effects/ChangePitch.cpp
 msgid "Change Pitch without Changing Tempo"
-msgstr "テンポを変えずにピッチの変更"
+msgstr "テンポを変えずにピッチを変更"
 
 #: src/effects/ChangePitch.cpp
 #, c-format
@@ -7865,7 +7862,7 @@ msgstr "ピッチ"
 #: src/effects/ChangePitch.cpp src/effects/ChangeSpeed.cpp
 #: src/effects/ChangeTempo.cpp
 msgid "from"
-msgstr "から"
+msgstr "変更前"
 
 #: src/effects/ChangePitch.cpp
 msgid "from Octave"
@@ -7874,7 +7871,7 @@ msgstr "変更前オクターブ"
 #: src/effects/ChangePitch.cpp src/effects/ChangeSpeed.cpp
 #: src/effects/ChangeTempo.cpp
 msgid "to"
-msgstr "to"
+msgstr "→ 変更後"
 
 #: src/effects/ChangePitch.cpp
 msgid "to Octave"
@@ -7886,7 +7883,7 @@ msgstr "音程差 (半音):"
 
 #: src/effects/ChangePitch.cpp
 msgid "Semitones (half-steps)"
-msgstr "音程差(半音):"
+msgstr "音程差 (半音)"
 
 #: src/effects/ChangePitch.cpp
 msgid "Frequency"
@@ -7894,11 +7891,11 @@ msgstr "周波数"
 
 #: src/effects/ChangePitch.cpp
 msgid "from (Hz)"
-msgstr "から (Hz)"
+msgstr "変更前 (Hz)"
 
 #: src/effects/ChangePitch.cpp
 msgid "to (Hz)"
-msgstr "へ (Hz)"
+msgstr "変更後 (Hz)"
 
 #: src/effects/ChangePitch.cpp src/effects/ChangeSpeed.cpp
 #: src/effects/ChangeTempo.cpp
@@ -7918,14 +7915,6 @@ msgstr ""
 msgid "Change Pitch"
 msgstr "ピッチの変更"
 
-#  i18n-hint: n/a is an English
-#  abbreviation meaning "not
-#  applicable" (in other words,
-#  unimportant, not relevant).
-#  i18n-hint: n/a is an English
-#  abbreviation meaning "not
-#  applicable" (in other words,
-#  unimportant, not relevant).
 #. i18n-hint: n/a is an English abbreviation meaning "not applicable".
 #. i18n-hint: Can mean "not available," "not applicable," "no answer"
 #: src/effects/ChangeSpeed.cpp src/effects/audiounits/AudioUnitEffect.cpp
@@ -7953,11 +7942,11 @@ msgstr "標準のLPレコード回転数:"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "From rpm"
-msgstr "RPMから"
+msgstr "変更前回転数"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "To rpm"
-msgstr "RPMへ"
+msgstr "変更後回転数"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "Selection Length"
@@ -7969,7 +7958,7 @@ msgstr "現在の長さ:"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "Current length of selection."
-msgstr "現在の選択されている長さ"
+msgstr "現在の選択されている長さです。"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "New Length:"
@@ -7980,9 +7969,8 @@ msgid "Change Speed"
 msgstr "速度の変更"
 
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgid "Changes the tempo of a selection without changing its pitch"
-msgstr "ピッチを変えずにテンポの変更"
+msgstr "ピッチを変えずに選択範囲のテンポを変更します"
 
 #: src/effects/ChangeTempo.cpp
 #, fuzzy
@@ -7991,31 +7979,28 @@ msgstr "テンポ変更の最終値 (%)"
 
 #: src/effects/ChangeTempo.cpp
 msgid "Change Tempo without Changing Pitch"
-msgstr "ピッチを変えずにテンポの変更"
+msgstr "ピッチを変えずにテンポを変更"
 
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgid "Beats per minute"
-msgstr "1分あたりの拍数 (BPM):"
+msgstr "1分間の拍数 (BPM)"
 
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgid "Beats per minute, from"
-msgstr "1分あたりの拍数 (BPM):"
+msgstr "1分間の拍数 (BPM)、変更前"
 
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgid "Beats per minute, to"
-msgstr "1分あたりの拍数 (BPM):"
+msgstr "1分間の拍数 (BPM)、変更後"
 
 #: src/effects/ChangeTempo.cpp
 msgid "Length (seconds)"
 msgstr "長さ (秒)"
 
 #: src/effects/ChangeTempo.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Length in seconds from %s, to"
-msgstr "長さ (秒)へ"
+msgstr "長さ (秒)、%s からの変更後"
 
 #: src/effects/ChangeTempo.h
 msgid "Change Tempo"
@@ -8036,7 +8021,7 @@ msgstr "選択範囲は %d サンプル以上でなくてはなりません。"
 
 #: src/effects/ClickRemoval.cpp
 msgid "Threshold (lower is more sensitive):"
-msgstr "閾値の選択（低くすると感度が高くなります）:"
+msgstr "閾値の選択 (低くすると感度が高くなります):"
 
 #: src/effects/ClickRemoval.cpp src/effects/Compressor.cpp
 msgid "Threshold"
@@ -8044,7 +8029,7 @@ msgstr "閾値"
 
 #: src/effects/ClickRemoval.cpp
 msgid "Max Spike Width (higher is more sensitive):"
-msgstr "最大のスパイク幅（大きくすると、より感度が高くなります）"
+msgstr "最大スパイク幅 (大きくすると、より感度が高くなります)"
 
 #: src/effects/ClickRemoval.cpp
 msgid "Max Spike Width"
@@ -8100,7 +8085,7 @@ msgstr "圧縮の後0dBになるようにゲインを調整する"
 
 #: src/effects/Compressor.cpp
 msgid "Compress based on Peaks"
-msgstr "ピークに基づく圧縮 "
+msgstr "ピークに基づく圧縮"
 
 #: src/effects/Compressor.cpp
 #, c-format
@@ -8185,14 +8170,13 @@ msgstr ""
 "トラックの対象部分を選択してください。"
 
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Please select an audio track."
-msgstr "操作を選んでください"
+msgstr "オーディオトラックを選択してください。"
 
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
 msgid "Contrast Analyzer, for measuring RMS volume differences between two selections of audio."
-msgstr "2つのオーディオ同士のrmsボリュームの差を計測するコントラストアナライザ"
+msgstr "2つの選択オーディオ同士のRMSボリュームの差を計測する、コントラスト解析機能です。"
 
 #: src/effects/Contrast.cpp src/effects/ToneGen.cpp
 #: src/toolbars/SelectionBar.cpp
@@ -8201,7 +8185,7 @@ msgstr "終了"
 
 #: src/effects/Contrast.cpp
 msgid "Volume    "
-msgstr "ボリューム"
+msgstr "ボリューム    "
 
 #: src/effects/Contrast.cpp
 msgid "&Foreground:"
@@ -8255,18 +8239,18 @@ msgstr "差異(&D):"
 #: src/effects/Contrast.cpp
 #, c-format
 msgid "RMS = %s."
-msgstr ""
+msgstr "RMS = %s"
 
 #. i18n-hint: dB abbreviates decibels
 #: src/effects/Contrast.cpp
 #, c-format
 msgid "%s dB"
-msgstr ""
+msgstr "%s dB"
 
 #: src/effects/Contrast.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%.2f"
-msgstr "%.1f dB"
+msgstr "%.2f"
 
 #: src/effects/Contrast.cpp
 msgid "zero"
@@ -8274,62 +8258,58 @@ msgstr "ゼロ"
 
 #: src/effects/Contrast.cpp
 msgid "indeterminate"
-msgstr " 確定できません"
+msgstr "確定できません"
 
 #. i18n-hint: dB abbreviates decibels
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%.2f dB RMS"
-msgstr "%.1f dB"
+msgstr "%.2f dB RMS"
 
 #. i18n-hint: dB abbreviates decibels
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Infinite dB difference"
-msgstr "無限の差分"
+msgstr "無限の dB 差分"
 
 #: src/effects/Contrast.cpp
 msgid "Difference is indeterminate."
-msgstr "差分を確定できません"
+msgstr "差分を確定できません。"
 
 #. i18n-hint: dB abbreviates decibels
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Difference = %.2f RMS dB."
-msgstr "差分 = %.1f 平均 rms dB."
+msgstr "差分 = %.2f RMS dB"
 
 #. i18n-hint: dB abbreviates decibels
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Difference = infinite RMS dB."
-msgstr "差分 = 無限の平均 rms dB."
+msgstr "差分 = ∞ RMS dB"
 
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Foreground level too high"
-msgstr "前景終了時間"
+msgstr "前景レベルが高すぎます"
 
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Background level too high"
-msgstr "背景終了時間"
+msgstr "背景レベルが高すぎます"
 
 #: src/effects/Contrast.cpp
 msgid "Background higher than foreground"
-msgstr ""
+msgstr "背景 ＞ 前景"
 
 #. i18n-hint: WCAG abbreviates Web Content Accessibility Guidelines
 #: src/effects/Contrast.cpp
 msgid "WCAG2 Pass"
-msgstr "WCAG2 経路"
+msgstr "WCAG2 合格"
 
 #. i18n-hint: WCAG abbreviates Web Content Accessibility Guidelines
 #: src/effects/Contrast.cpp
 msgid "WCAG2 Fail"
-msgstr "WCAG2 失敗"
+msgstr "WCAG2 不合格"
 
 #. i18n-hint: i.e. difference in loudness at the moment.
 #: src/effects/Contrast.cpp
@@ -8341,18 +8321,17 @@ msgid "Measured foreground level"
 msgstr "計測された前景レベル"
 
 #: src/effects/Contrast.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%.2f dB"
-msgstr "%.1f dB"
+msgstr "%.2f dB"
 
 #: src/effects/Contrast.cpp
 msgid "No foreground measured"
 msgstr "前景レベルは計測されませんでした"
 
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Foreground not yet measured"
-msgstr "前景レベルは計測されませんでした"
+msgstr "前景レベル未計測"
 
 #: src/effects/Contrast.cpp
 msgid "Measured background level"
@@ -8363,13 +8342,12 @@ msgid "No background measured"
 msgstr "背景レベルは計測されませんでした"
 
 #: src/effects/Contrast.cpp
-#, fuzzy
 msgid "Background not yet measured"
-msgstr "背景レベルは計測されませんでした"
+msgstr "背景レベル未計測"
 
 #: src/effects/Contrast.cpp
 msgid "Export Contrast Result As:"
-msgstr "コントラスト結果を書き出す："
+msgstr "コントラスト結果の書き出し:"
 
 #. i18n-hint: WCAG abbreviates Web Content Accessibility Guidelines
 #: src/effects/Contrast.cpp
@@ -8379,7 +8357,7 @@ msgstr "WCAG 2.0 Success Criteria 1.4.7 コントラスト結果"
 #: src/effects/Contrast.cpp
 #, c-format
 msgid "Filename = %s."
-msgstr "ファイル名 = %s."
+msgstr "ファイル名 = %s"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground"
@@ -8388,12 +8366,12 @@ msgstr "前景"
 #: src/effects/Contrast.cpp
 #, c-format
 msgid "Time started = %2d hour(s), %2d minute(s), %.2f seconds."
-msgstr "開始時間 = %2d 時間、%2d 分、%.2f 秒"
+msgstr "開始時間 = %2d 時間 %2d 分 %.2f 秒"
 
 #: src/effects/Contrast.cpp
 #, c-format
 msgid "Time ended = %2d hour(s), %2d minute(s), %.2f seconds."
-msgstr "終了時間 = %2d 時間、%2d 分、%.2f 秒"
+msgstr "終了時間 = %2d 時間 %2d 分 %.2f 秒"
 
 #: src/effects/Contrast.cpp
 msgid "Background"
@@ -8405,15 +8383,15 @@ msgstr "結果"
 
 #: src/effects/Contrast.cpp
 msgid "Success Criteria 1.4.7 of WCAG 2.0: Pass"
-msgstr "WCAG2.0のSuccess Criteria 1.4.7: 合格"
+msgstr "WCAG 2.0 Success Criteria 1.4.7: 合格"
 
 #: src/effects/Contrast.cpp
 msgid "Success Criteria 1.4.7 of WCAG 2.0: Fail"
-msgstr "WCAG2.0のSuccess Criteria 1.4.7: 不合格"
+msgstr "WCAG 2.0 Success Criteria 1.4.7: 不合格"
 
 #: src/effects/Contrast.cpp
 msgid "Data gathered"
-msgstr "データ収集済み"
+msgstr "データ収集日時"
 
 #: src/effects/Distortion.cpp
 #, fuzzy
@@ -8671,9 +8649,8 @@ msgstr ""
 
 #. i18n-hint: Control range.
 #: src/effects/Distortion.cpp
-#, fuzzy
 msgid " (0 to 100):"
-msgstr "(%) [-50 to 100]:"
+msgstr ""
 
 #. i18n-hint: Control range.
 #: src/effects/Distortion.cpp
@@ -8710,16 +8687,16 @@ msgstr "トーン持続時間:"
 
 #: src/effects/DtmfGen.cpp
 msgid "ms"
-msgstr "ミリ秒"
+msgstr "ms"
 
 #: src/effects/DtmfGen.cpp
 msgid "Silence duration:"
 msgstr "無音持続時間:"
 
 #: src/effects/DtmfGen.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%.0f ms"
-msgstr "%.0f:1"
+msgstr "%.0f ms"
 
 #: src/effects/DtmfGen.h
 msgid "DTMF Tones"
@@ -8727,7 +8704,7 @@ msgstr "DTMFトーン"
 
 #: src/effects/Echo.cpp
 msgid "Repeats the selected audio again and again"
-msgstr "選択したオーディオを 何度も繰り返します"
+msgstr "選択したオーディオを何度も繰り返します"
 
 #: src/effects/Echo.cpp src/effects/FindClipping.cpp
 #: src/effects/Paulstretch.cpp
@@ -8836,7 +8813,7 @@ msgstr "オプション..."
 #: src/effects/Effect.cpp
 #, c-format
 msgid "Type: %s"
-msgstr "タイプ: %s"
+msgstr "種類: %s"
 
 #: src/effects/Effect.cpp
 #, c-format
@@ -9412,11 +9389,11 @@ msgstr "クリッピング"
 
 #: src/effects/FindClipping.cpp
 msgid "Start threshold (samples):"
-msgstr "開始閾値 (samples)"
+msgstr "開始閾値 (サンプル数)"
 
 #: src/effects/FindClipping.cpp
 msgid "Stop threshold (samples):"
-msgstr "停止閾値 (samples)"
+msgstr "停止閾値 (サンプル数)"
 
 #: src/effects/FindClipping.h
 msgid "Find Clipping"
@@ -9547,6 +9524,7 @@ msgid "Sensiti&vity (dB):"
 msgstr "感度(dB)(&V):"
 
 #: src/effects/NoiseReduction.cpp
+#, fuzzy
 msgid "Old Sensitivity"
 msgstr "Old感度"
 
@@ -9608,7 +9586,7 @@ msgstr "ウィンドウタイプ(&W)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "8"
-msgstr "8 "
+msgstr "8"
 
 #: src/effects/NoiseReduction.cpp
 msgid "16"
@@ -9644,7 +9622,7 @@ msgstr "2048(デフォルト)"
 
 #: src/effects/NoiseReduction.cpp
 msgid "4096"
-msgstr "4096 "
+msgstr "4096"
 
 #: src/effects/NoiseReduction.cpp
 msgid "8192"
@@ -9826,9 +9804,8 @@ msgid "Normalize"
 msgstr "正規化"
 
 #: src/effects/Paulstretch.cpp
-#, fuzzy
 msgid "Paulstretch is only for an extreme time-stretch or \"stasis\" effect"
-msgstr "Paulstretchは極端な時間ストレッチか「stasis」エフェクトにのみお使いください"
+msgstr "Paulストレッチは、極端な時間伸縮か「停滞」的エフェクトの用途にのみお使いください"
 
 #. i18n-hint: This is how many times longer the sound will be, e.g. applying
 #. * the effect to a 1-second sample, with the default Stretch Factor of 10.0
@@ -9836,7 +9813,7 @@ msgstr "Paulstretchは極端な時間ストレッチか「stasis」エフェク�
 #.
 #: src/effects/Paulstretch.cpp
 msgid "Stretch Factor:"
-msgstr "伸張ファクター"
+msgstr "伸縮倍率:"
 
 #: src/effects/Paulstretch.cpp
 msgid "Time Resolution (seconds):"
@@ -9873,70 +9850,63 @@ msgstr ""
 
 #: src/effects/Paulstretch.h
 msgid "Paulstretch"
-msgstr "Paulstretch"
+msgstr "Paulストレッチ"
 
 #: src/effects/Phaser.cpp
 msgid "Combines phase-shifted signals with the original signal"
 msgstr "元の信号に位相シフトした信号を組み合わせます"
 
 #: src/effects/Phaser.cpp
-#, fuzzy
 msgid "&Stages:"
-msgstr "ステージ:"
+msgstr "ステージ(&S):"
 
 #: src/effects/Phaser.cpp
 msgid "Stages"
 msgstr "ステージ"
 
 #: src/effects/Phaser.cpp
-#, fuzzy
 msgid "&Dry/Wet:"
-msgstr "ドライ/ウェット"
+msgstr "ドライ/ウェット(&D):"
 
 #: src/effects/Phaser.cpp
 msgid "Dry Wet"
 msgstr "ドライ ウェット"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
-#, fuzzy
 msgid "LFO Freq&uency (Hz):"
-msgstr "LFO 周波数 (Hz):"
+msgstr "LFO 周波数 (Hz) (&U):"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
 msgid "LFO frequency in hertz"
 msgstr "LFO 周波数 (Hz)"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
-#, fuzzy
 msgid "LFO Sta&rt Phase (deg.):"
-msgstr "LFO 初期位相 (角度):"
+msgstr "LFO 初期位相 (角度) (&R):"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
 msgid "LFO start phase in degrees"
-msgstr "LFO 初期位相 (角度):"
+msgstr "LFO 初期位相 (角度)"
 
 #: src/effects/Phaser.cpp
-#, fuzzy
 msgid "Dept&h:"
-msgstr "深度:"
+msgstr "深度(&H):"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
 msgid "Depth in percent"
 msgstr "パーセント表記による深さ"
 
 #: src/effects/Phaser.cpp
-#, fuzzy
 msgid "Feedbac&k (%):"
-msgstr "フィードバック (%):"
+msgstr "フィードバック (%) (&K):"
 
 #: src/effects/Phaser.cpp
 msgid "Feedback in percent"
 msgstr "パーセント表記によるフィードバック"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
-#, fuzzy
 msgid "&Output gain (dB):"
-msgstr "出力ゲイン(dB):"
+msgstr "出力ゲイン(dB) (&O):"
 
 #: src/effects/Phaser.cpp src/effects/Wahwah.cpp
 msgid "Output gain (dB)"
@@ -9996,14 +9966,14 @@ msgid "New selection length: dd:hh:mm:ss"
 msgstr "新しい選択範囲: dd:hh:mm:ss"
 
 #: src/effects/Repeat.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Current selection length: %s"
-msgstr "現在の選択範囲:"
+msgstr "現在の選択範囲: %s"
 
 #: src/effects/Repeat.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "New selection length: %s"
-msgstr "新しい選択範囲:"
+msgstr "新しい選択範囲: %s"
 
 #: src/effects/Repeat.cpp
 msgid "Warning: No repeats."
@@ -10296,11 +10266,11 @@ msgstr "ピッチシフト初期値"
 
 #: src/effects/TimeScale.cpp
 msgid "(semitones) [-12 to 12]:"
-msgstr "(半音) [-12 to 12]:"
+msgstr "(半音) [-12～12]:"
 
 #: src/effects/TimeScale.cpp
 msgid "(%) [-50 to 100]:"
-msgstr "(%) [-50 to 100]:"
+msgstr "(%) [-50～100]:"
 
 #: src/effects/TimeScale.cpp
 msgid "Final Pitch Shift"
@@ -10406,7 +10376,7 @@ msgstr "圧縮:"
 
 #: src/effects/TruncSilence.cpp src/import/ImportRaw.cpp
 msgid "%"
-msgstr ""
+msgstr "%"
 
 #: src/effects/TruncSilence.cpp
 #, fuzzy
@@ -10437,13 +10407,12 @@ msgstr "シェルVSTをスキャンしています"
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
 msgid "Registering %d of %d: %-64.64s"
-msgstr "%d (%dの）を登録: %-64.64s"
+msgstr ""
 
 #: src/effects/VST/VSTEffect.cpp src/effects/ladspa/LadspaEffect.cpp
 #: src/effects/lv2/LoadLV2.cpp src/effects/vamp/LoadVamp.cpp
-#, fuzzy
 msgid "Could not load the library"
-msgstr "MP3 エンコーディングライブラリが開けません"
+msgstr "ライブラリが読み込めません"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "VST Effect Options"
@@ -10455,86 +10424,102 @@ msgstr "バッファーサイズ"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "The buffer size controls the number of samples sent to the effect "
-msgstr "The buffer size controls the number of samples sent to the effect "
+msgstr "バッファーサイズは、エフェクトに都度渡されるサンプル数を制御します。 "
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "on each iteration. Smaller values will cause slower processing and "
-msgstr "on each iteration. Smaller values will cause slower processing and "
+msgstr "小さくすると処理が遅くなることがあり、一部のエフェクトでは適切な動作のために "
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "some effects require 8192 samples or less to work properly. However "
-msgstr "some effects require 8192 samples or less to work properly. However "
+msgstr ""
+" \n"
+"8192 サンプル以下とすべき場合もあります。 "
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "most effects can accept large buffers and using them will greatly "
-msgstr "most effects can accept large buffers and using them will greatly "
+msgstr ""
+" \n"
+"しかし大抵のエフェクトはもっと大きな値に対応しており、 "
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "reduce processing time."
-msgstr "reduce processing time."
+msgstr ""
+" \n"
+"そのように設定することで処理速度の短縮が期待できます。"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "&Buffer Size (8 to 1048576 samples):"
-msgstr "バッファーサイズ(8 to 1048576 サンプル) (&B):"
+msgstr "バッファーサイズ (8～1048576 サンプル) (&B):"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Latency Compensation"
-msgstr "レイテンシ－補正"
+msgstr "レイテンシ－補償"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "As part of their processing, some VST effects must delay returning "
-msgstr "As part of their processing, some VST effects must delay returning "
+msgstr "VSTによっては、処理の過程でAudacityへ返す音声がどうしても遅延することがあります。 "
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "audio to Audacity. When not compensating for this delay, you will "
-msgstr "audio to Audacity. When not compensating for this delay, you will "
+msgstr ""
+" \n"
+"この遅延を補償しないと、音声に微小な無音が挿入されたように"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "notice that small silences have been inserted into the audio. "
-msgstr "notice that small silences have been inserted into the audio. "
+msgstr "聞こえてしまいます。 "
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "Enabling this option will provide that compensation, but it may "
-msgstr "Enabling this option will provide that compensation, but it may "
+msgstr ""
+" \n"
+"このオプションを有効化することで補償を行います。 "
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "not work for all VST effects."
-msgstr "すべてのVSTエフェクトに有効とは限りません。"
+msgstr ""
+" \n"
+"ただし、すべてのVSTエフェクトに有効とは限りません。"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Enable &compensation"
-msgstr "補正の有効化(&C)"
+msgstr "補償を有効化 (&C)"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Graphical Mode"
-msgstr "グラフィックモード"
+msgstr "グラフィカルモード"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Most VST effects have a graphical interface for setting parameter values."
-msgstr "ほとんどのVSTエフェクトはパラメータ値設定用のグラフィカルインタフェースを持っています。"
+msgstr "ほとんどのVSTエフェクトには、パラメータ設定用のグラフィカルインターフェースがあります。"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid " A basic text-only method is also available. "
-msgstr "基本的なテキストのみによる方法も可能です。"
+msgstr ""
+" \n"
+"一方で、テキストだけの基本的なものも利用可能です。 "
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/lv2/LV2Effect.cpp
 msgid " Reopen the effect for this to take effect."
-msgstr "このエフェクトを有効にするために再度オープンしてください。"
+msgstr ""
+" \n"
+"変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Enable &graphical interface"
-msgstr "グラフィカルインタフェース有効化 (&G)"
+msgstr "グラフィカルインターフェースを有効化 (&G)"
 
 #: src/effects/VST/VSTEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Audio In: %d, Audio Out: %d"
-msgstr "オーディオ出力:"
+msgstr "音声入力: %d、音声出力: %d"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Save VST Preset As:"
@@ -10542,7 +10527,7 @@ msgstr "別名でVSTプリセットを保存:"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Unrecognized file extension."
-msgstr "識別できない拡張子のファイル"
+msgstr "識別できないファイル拡張子です。"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Error Saving VST Presets"
@@ -10567,7 +10552,7 @@ msgstr "VSTプラグインの初期化に失敗しました\n"
 #: src/effects/VST/VSTEffect.cpp src/effects/ladspa/LadspaEffect.cpp
 #: src/effects/lv2/LV2Effect.cpp
 msgid "Effect Settings"
-msgstr "エフェクトセッティング"
+msgstr "エフェクト設定"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Unable to allocate memory when loading presets file."
@@ -10588,9 +10573,8 @@ msgid "Error writing to file: \"%s\""
 msgstr "ファイルの書き込みエラー:「%s」"
 
 #: src/effects/VST/VSTEffect.cpp
-#, fuzzy
 msgid "Error Saving Effect Presets"
-msgstr "VSTプリセットの保存時にエラーが発生しました"
+msgstr "エフェクトプリセットの保存時にエラーが発生しました"
 
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
@@ -10600,36 +10584,32 @@ msgstr "このパラメータファイルは %s から保存されました。�
 #. i18n-hint: Abbreviates Virtual Studio Technology, an audio software protocol
 #. developed by Steinberg GmbH
 #: src/effects/VST/VSTEffect.h
-#, fuzzy
 msgid "VST"
-msgstr "VSTエフェクト(&S)"
+msgstr "VST"
 
 #: src/effects/Wahwah.cpp
 msgid "Rapid tone quality variations, like that guitar sound so popular in the 1970's"
-msgstr "1970年代流行のギターサウンドのような急激な音質変化"
+msgstr "1970年代ギターサウンドのような急激な音質変化"
 
 #: src/effects/Wahwah.cpp
-#, fuzzy
 msgid "Dept&h (%):"
-msgstr "深度 (%):"
+msgstr "深度 (%) (&H):"
 
 #: src/effects/Wahwah.cpp
-#, fuzzy
 msgid "Reso&nance:"
-msgstr "応答:"
+msgstr "レゾナンス(&N):"
 
 #: src/effects/Wahwah.cpp
 msgid "Resonance"
-msgstr "共振"
+msgstr "レゾナンス"
 
 #: src/effects/Wahwah.cpp
-#, fuzzy
 msgid "Wah Frequency Offse&t (%):"
-msgstr "ワウ (Wah) 周波数オフセット (%):"
+msgstr "ワウ (Wah) 周波数オフセット (%) (&T):"
 
 #: src/effects/Wahwah.cpp
 msgid "Wah frequency offset in percent"
-msgstr "ワウ (Wah) 周波数オフセット (%):"
+msgstr "ワウ (Wah) 周波数オフセット (%)"
 
 #: src/effects/Wahwah.h
 msgid "Wahwah"
@@ -10637,25 +10617,23 @@ msgstr "ワウワウ (Wahwah)"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Audio Unit Effects"
-msgstr "オーディオユニットエフェクト"
+msgstr "Audio Unit エフェクト"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Provides Audio Unit Effects support to Audacity"
-msgstr "Audacityをオーディオユニットエフェクト対応にします"
+msgstr "Audacity を Audio Unit エフェクト対応にします"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "Could not find component"
-msgstr "ファイルまたはコンテンツをロードできませんでした。"
+msgstr "コンポーネントが見つかりませんでした"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "Could not initialize component"
-msgstr "MP3 エンコーディングライブラリを初期化できません！"
+msgstr "コンポーネントを初期化できませんでした"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Audio Unit Effect Options"
-msgstr "オーディオユニットエフェクトオプション"
+msgstr "Audio Unit エフェクトオプション"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp src/prefs/KeyConfigPrefs.cpp
 msgid "Full"
@@ -10670,36 +10648,38 @@ msgid "Basic"
 msgstr "Basic"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
+#, fuzzy
 msgid "As part of their processing, some Audio Unit effects must delay returning "
 msgstr "As part of their processing, some VST effects must delay returning "
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
+#, fuzzy
 msgid "not work for all Audio Unit effects."
 msgstr "not work for all Audio Unit effects."
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "User Interface"
-msgstr "ユーザーインタフェース"
+msgstr "ユーザーインターフェース"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select \"Full\" to use the graphical interface if supplied by the Audio Unit."
-msgstr "グラフィカルインタフェースを使うには「Full」を選んでください。"
+msgstr "Audio Unit が提供するグラフィカルインターフェースを使うには「Full」を選んでください。"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid " Select \"Generic\" to use the system supplied generic interface."
-msgstr " システムのインタフェースを使うには「Generic」を選んでください。"
+msgstr " システムのインターフェースを使うには「Generic」を選んでください。"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid " Select \"Basic\" for a basic text-only interface. "
-msgstr " テキスト型インタフェ－スにするには「Basic」を選んでください。"
+msgstr " テキスト型インターフェ－スにするには「Basic」を選んでください。 "
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select &interface"
-msgstr "インタフェースの選択(&I)"
+msgstr "インターフェースの選択(&I)"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Export Audio Unit Presets"
-msgstr "オーディオユニットプリセットの書き出し"
+msgstr "Audio Unit プリセットの書き出し"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Presets (may select multiple)"
@@ -10711,16 +10691,15 @@ msgstr "プリセット"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Import Audio Unit Presets"
-msgstr "オーディオユニットプリセットの取り込み"
+msgstr "Audio Unit プリセットの取り込み"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Location"
 msgstr "場所"
 
 #: src/effects/audiounits/AudioUnitEffect.h
-#, fuzzy
 msgid "AudioUnit"
-msgstr "オーディオユニット"
+msgstr "AudioUnit"
 
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "LADSPA Effects"
@@ -10739,10 +10718,12 @@ msgid "LADSPA Effect Options"
 msgstr "LADSPAエフェクトオプション"
 
 #: src/effects/ladspa/LadspaEffect.cpp
+#, fuzzy
 msgid "As part of their processing, some LADSPA effects must delay returning "
 msgstr "As part of their processing, some VST effects must delay returning "
 
 #: src/effects/ladspa/LadspaEffect.cpp
+#, fuzzy
 msgid "not work for all LADSPA effects."
 msgstr "not work for all LADSPA effects."
 
@@ -10756,21 +10737,25 @@ msgstr "LADSPA"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "LV2 Effect Settings"
-msgstr "LV2エフェクトセッティング"
+msgstr "LV2エフェクト設定"
 
 #: src/effects/lv2/LV2Effect.cpp
+#, fuzzy
 msgid "As part of their processing, some LV2 effects must delay returning "
 msgstr "As part of their processing, some LV2 effects must delay returning "
 
 #: src/effects/lv2/LV2Effect.cpp
+#, fuzzy
 msgid "Enabling this setting will provide that compensation, but it may "
 msgstr "Enabling this setting will provide that compensation, but it may "
 
 #: src/effects/lv2/LV2Effect.cpp
+#, fuzzy
 msgid "not work for all LV2 effects."
 msgstr "not work for all LV2 effects."
 
 #: src/effects/lv2/LV2Effect.cpp
+#, fuzzy
 msgid "LV2 effects can have a graphical interface for setting parameter values."
 msgstr "ほとんどのLV2エフェクトはパラメータ値設定用のグラフィカルインタフェースを持っています。"
 
