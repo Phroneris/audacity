@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-24 05:05+0900\n"
+"PO-Revision-Date: 2018-09-24 05:39+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA\n"
 "Language: ja\n"
@@ -3468,7 +3468,7 @@ msgstr "リサンプリング(&R)..."
 
 #: src/Menus.cpp
 msgid "Remo&ve Tracks"
-msgstr "トラック削除(&V)"
+msgstr "トラックを削除(&V)"
 
 #: src/Menus.cpp
 msgid "M&ute/Unmute"
@@ -4667,27 +4667,27 @@ msgstr "メタデータタグ"
 #: src/Menus.cpp
 #, c-format
 msgid "Rendered all audio in track '%s'"
-msgstr "トラック「%s」にあるすべてのオーディオの再描画"
+msgstr "トラック「%s」にあるすべてのオーディオをレンダリングしました"
 
 #. i18n-hint: Convert the audio into a more usable form, so apply
 #. * panning and amplification and write to some external file.
 #: src/Menus.cpp
 msgid "Render"
-msgstr "描画"
+msgstr "レンダリング"
 
 #: src/Menus.cpp
 #, c-format
 msgid "Mixed and rendered %d tracks into one new stereo track"
-msgstr "%d 個のトラックを一つの新しいステレオトラックにミックスして作成"
+msgstr "%d 個のトラックを単一の新規ステレオトラックにミックスしてレンダリングしました"
 
 #: src/Menus.cpp
 #, c-format
 msgid "Mixed and rendered %d tracks into one new mono track"
-msgstr "%d 個のトラックを一つの新しいモノラルトラックにミックスして作成"
+msgstr "%d 個のトラックを単一の新規モノラルトラックにミックスしてレンダリングしました"
 
 #: src/Menus.cpp src/Mix.cpp
 msgid "Mix and Render"
-msgstr "ミックスと実行"
+msgstr "ミックスとレンダリング"
 
 #. i18n-hint: compose a name identifying an unnamed track by number
 #. i18n-hint: The %d is replaced by th enumber of the track.
@@ -8012,7 +8012,7 @@ msgstr "クリック除去はオーディオトラックのクリック音を除
 
 #: src/effects/ClickRemoval.cpp
 msgid "Algorithm not effective on this audio. Nothing changed."
-msgstr "このオーディオには効果ありません。何も変化しませんでした。"
+msgstr "このオーディオには効果がありません。何も変化しませんでした。"
 
 #: src/effects/ClickRemoval.cpp
 #, c-format
@@ -11219,7 +11219,7 @@ msgstr "(外部プログラム)"
 #: src/export/ExportCL.cpp src/export/ExportPCM.cpp
 #, c-format
 msgid "Cannot export audio to %s"
-msgstr "%s というファイル名でオーディオを書き出すことができません"
+msgstr "オーディオを %s に書き出すことができません"
 
 #: src/export/ExportCL.cpp src/export/ExportMultiple.cpp
 msgid "Export"
@@ -12356,7 +12356,7 @@ msgstr "このフォーマットでオーディオを書き出すことができ
 #: src/export/ExportPCM.cpp
 #, c-format
 msgid "Exporting the selected audio as %s"
-msgstr "選択したオーディオを %s というファイル名で書き出し"
+msgstr "選択したオーディオを %s として書き出し"
 
 #. i18n-hint: %s will be the error message from libsndfile, which
 #. * is usually something unhelpful (and untranslated) like "system
@@ -12368,7 +12368,7 @@ msgid ""
 "Libsndfile says \"%s\""
 msgstr ""
 "ファイル %s の書き込み中にエラーが発生しました (ディスクに空きはありますか？)。\n"
-"Libsndfileメッセージ:「%s」"
+"Libsndfileメッセージ: %s"
 
 #: src/import/Import.cpp
 #, c-format
@@ -19037,7 +19037,7 @@ msgstr ""
 #~ msgstr "AVX Threaded"
 
 #~ msgid "Most Audio Unit effects have a graphical interface for setting parameter values."
-#~ msgstr "ほとんどのオーディオユニットエフェクトはパラメータ値設定用のグラフィカルインタフェースを持っています。"
+#~ msgstr "ほとんどの Audio Unit エフェクトはパラメータ値設定用のグラフィカルインタフェースを持っています。"
 
 #, fuzzy
 #~ msgid "LV2 Effects Module"
@@ -19662,7 +19662,7 @@ msgstr ""
 #~ msgstr "ステレオトラックの両チャンネルは同じ長さでなければなりません。"
 
 #~ msgid "Display Audio Unit effects in Graphical Mode"
-#~ msgstr "オーディオユニットエフェクトをグラフィカルモードで表示"
+#~ msgstr "Audio Unit エフェクトをグラフィカルモードで表示"
 
 #~ msgid "&Rescan VST effects next time Audacity is started"
 #~ msgstr "Audacityが次回起動された時点でVSTエフェクトを再スキャン(&R)"
