@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-24 05:39+0900\n"
+"PO-Revision-Date: 2018-09-24 20:08+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
-"Language-Team: Atsushi YOSHIDA\n"
+"Language-Team: Atsushi YOSHIDA and Phroneris\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -425,7 +425,7 @@ msgstr "品質保証"
 
 #: src/AboutDialog.cpp
 msgid "documentation and support, French"
-msgstr "ドキュメンテーションとサポート（フランス語）"
+msgstr "ドキュメンテーションとサポート (フランス語)"
 
 #: src/AboutDialog.cpp
 msgid "accessibility advisor"
@@ -1666,7 +1666,7 @@ msgstr "コピーしない"
 
 #: src/Dependencies.cpp
 msgid "Copy All Files (Safer)"
-msgstr "すべてのファイルをコピー（より安全）"
+msgstr "すべてのファイルをコピー (より安全)"
 
 #. i18n-hint: One of the choices of what you want Audacity to do when
 #. * Audacity finds a project depends on another file.
@@ -1676,7 +1676,7 @@ msgstr "確認する"
 
 #: src/Dependencies.cpp
 msgid "Always copy all files (safest)"
-msgstr "常にすべてのファイルをコピー（最も安全）"
+msgstr "常にすべてのファイルをコピー (最も安全)"
 
 #: src/Dependencies.cpp
 msgid "Never copy any files"
@@ -6171,15 +6171,15 @@ msgstr "1時間"
 
 #: src/Screenshot.cpp
 msgid "Short Tracks"
-msgstr "トラック（低）"
+msgstr "トラック (低)"
 
 #: src/Screenshot.cpp
 msgid "Medium Tracks"
-msgstr "トラック（中）"
+msgstr "トラック (中)"
 
 #: src/Screenshot.cpp
 msgid "Tall Tracks"
-msgstr "トラック（高）"
+msgstr "トラック (高)"
 
 #: src/Screenshot.cpp
 msgid "Choose a location to save screenshot images"
@@ -6962,7 +6962,7 @@ msgid ""
 "stopped. (Pausing is not sufficient.)"
 msgstr ""
 "録音や再生が停止しているときのみ、この作業は可能です。\n"
-"(一時停止状態でも不可）"
+"(一時停止状態でも不可)"
 
 #: src/commands/CommandManager.cpp
 msgid ""
@@ -9541,7 +9541,7 @@ msgid ""
 "Select a few seconds of just noise so Audacity knows what to filter out,\n"
 "then click Get Noise Profile:"
 msgstr ""
-"Audacity が除去すべき対象を判断するために、ノイズのみの区間（数秒間）を\n"
+"Audacity が除去すべき対象を判断するために、ノイズのみの区間 (数秒間) を\n"
 "選択し、次にクリックすることでノイズプロファイルを獲得します:"
 
 #: src/effects/NoiseReduction.cpp src/effects/NoiseRemoval.cpp
@@ -9712,7 +9712,7 @@ msgstr "DCオフセットの除去...\n"
 
 #: src/effects/Normalize.cpp
 msgid "Normalizing without removing DC offset...\n"
-msgstr "正規化（DCオフセット除去なし）...\n"
+msgstr "正規化 (DCオフセット除去なし)...\n"
 
 #: src/effects/Normalize.cpp
 msgid "Not doing anything...\n"
