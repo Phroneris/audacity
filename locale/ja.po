@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-24 20:08+0900\n"
+"PO-Revision-Date: 2018-09-25 13:00+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA and Phroneris\n"
 "Language: ja\n"
@@ -1842,12 +1842,12 @@ msgstr ""
 "(「エイリアスファイル」)。Audacityはこれらのファイルを\n"
 "自動的に復旧することはできません。\n"
 "\n"
-"以下に示す1番目か2番目の方法で、欠損ファイル\n"
+"下記の1番目か2番目の方法で、欠損ファイル\n"
 "を見つけ出し元の場所に保存できる可能性が\n"
 "あります。\n"
 "\n"
-"2番目の方法では波形が無音でなくなる可能性が\n"
-"あります。\n"
+"2番目の方法では波形が無音を表示しない\n"
+"可能性があります。\n"
 "\n"
 "3番目の方法を選べば、その後のエラー発生で\n"
 "「プロジェクトをすぐに閉じる」ことがない限り、\n"
@@ -1859,7 +1859,7 @@ msgstr "欠落した音声を無音として扱う (このセッションのみ)
 
 #: src/DirManager.cpp
 msgid "Replace missing audio with silence (permanent immediately)."
-msgstr "欠損音声を無音で置き換えます。"
+msgstr "欠落した音声を無音で置換 (恒久的に今すぐ)"
 
 #: src/DirManager.cpp
 msgid "Warning - Missing Aliased File(s)"
@@ -1924,11 +1924,11 @@ msgstr ""
 "であることが検出されました。Audacity はこれらの失われた\n"
 "データを自動的に回復することはできません。\n"
 "\n"
-"下記の1番目か2番目のオプションを選ぶと、\n"
+"下記の1番目か2番目の方法を選ぶと、\n"
 "後でそれらのファイルを手動で見つけ出して元の場所に\n"
 "手動で置き直すチャンスが生まれます。\n"
 "\n"
-"2番目のオプションでは波形が無音を表示しない\n"
+"2番目の方法では波形が無音を表示しない\n"
 "可能性があります。"
 
 #: src/DirManager.cpp
@@ -4068,7 +4068,7 @@ msgstr "フォーカスしたトラックを最下段へ移動(&B)"
 #. i18n-hint: Scriptables are commands normally used from Python, Perl etc.
 #: src/Menus.cpp
 msgid "&Scriptables I"
-msgstr "スクリプト用Ⅰ(&S)"
+msgstr "スクリプト用機能Ⅰ(&S)"
 
 #: src/Menus.cpp
 msgid "Select Time..."
@@ -4120,7 +4120,7 @@ msgstr "プロジェクト設定..."
 
 #: src/Menus.cpp
 msgid "Scripta&bles II"
-msgstr "スクリプト用Ⅱ(&B)"
+msgstr "スクリプト用機能Ⅱ(&B)"
 
 #: src/Menus.cpp src/TimerRecordDialog.cpp
 msgid "Select..."
@@ -5515,11 +5515,11 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"保存により、プロジェクトのトラックは消去されます。\n"
+"保存すると、プロジェクトにはトラックが無くなります。\n"
 "\n"
-"以前開いたトラックを保存するには:\n"
-"キャンセルをクリックして、編集 > 取り消し ですべての\n"
-"トラックを開いてから、ファイル > プロジェクトを保存 を実行してください。"
+"以前開いていたトラックを保存するには:\n"
+"キャンセルをクリックし、編集 > 元に戻す ですべてのトラックを\n"
+"開いてから、ファイル > プロジェクトファイルを保存 を実行する。"
 
 #: src/Project.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -5554,7 +5554,7 @@ msgid ""
 "\n"
 "Open this file now?"
 msgstr ""
-"このファイルはAudacity バージョン%sにより保存されました.データフォーマットは変わっています。\n"
+"このファイルは Audacity version %s により保存されました。データフォーマットは変わっています。\n"
 "\n"
 "Audacityはこのファイルを開いたり保存することができますが、このバージョンで保存すると\n"
 "1.2以前のバージョンでは開くことができなくなります。\n"
@@ -5569,7 +5569,7 @@ msgstr "1.0 より以前"
 
 #: src/Project.cpp
 msgid "Warning - Opening Old Project File"
-msgstr "古いプロジェクトファイルを開いています"
+msgstr "警告 - 古いプロジェクトファイルを開いています"
 
 #: src/Project.cpp
 msgid ""
@@ -5585,7 +5585,7 @@ msgstr ""
 
 #: src/Project.cpp
 msgid "Warning - Backup File Detected"
-msgstr "バックアップファイルが検出されました"
+msgstr "警告 - バックアップファイルが検出されました"
 
 #: src/Project.cpp
 msgid "Error opening file"
@@ -5664,11 +5664,11 @@ msgid ""
 "Save anyway?"
 msgstr ""
 "プロジェクトは空です。\n"
-"もし保存済みであれば、そのプロジェクトにはトラックがありません。\n"
+"保存すると、プロジェクトにはトラックが無くなります。\n"
 "\n"
 "以前開いていたトラックを保存するには:\n"
-"「No」をクリックし、編集>やり直しで全トラックが\n"
-"開かれるまで繰り返し、ファイル>プロジェクトの保存を実行する。\n"
+"「いいえ」をクリックし、編集 > 元に戻す ですべてのトラックを\n"
+"開いてから、ファイル > プロジェクトファイルを保存 を実行する。\n"
 "\n"
 "保存しますか？"
 
@@ -6050,9 +6050,8 @@ msgid "All Effects"
 msgstr "全エフェクト"
 
 #: src/Screenshot.cpp
-#, fuzzy
 msgid "All Scriptables"
-msgstr "すべてのファイル|*"
+msgstr "全スクリプト用機能"
 
 #: src/Screenshot.cpp
 msgid "All Preferences"
@@ -6201,7 +6200,7 @@ msgstr ""
 #: src/Sequence.cpp
 #, fuzzy
 msgid "Warning - Truncating Overlong Block File"
-msgstr "警告　-　無用なブロックファイル "
+msgstr "警告 -　無用なブロックファイル "
 
 #  i18n-hint: The name of the Help menu
 #: src/ShuttleGui.cpp src/commands/HelpCommand.h src/effects/Equalization.cpp
@@ -6283,7 +6282,7 @@ msgstr "コメント"
 
 #: src/Tags.cpp
 msgid "Use arrow keys (or ENTER key after editing) to navigate fields."
-msgstr "矢印キーを使ってフィールド内を移動してください (編集後はリターン)."
+msgstr "矢印キー (編集後は Enter キー) を使ってフィールド内を移動してください。"
 
 #: src/Tags.cpp
 msgid "Tag"
@@ -7329,9 +7328,8 @@ msgid "Effects"
 msgstr "エフェクト"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Scriptables"
-msgstr "スクリプト"
+msgstr "スクリプト用機能"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Selectionbar"
@@ -7731,11 +7729,11 @@ msgstr "増幅 dB"
 
 #: src/effects/Amplify.cpp
 msgid "New Peak Amplitude (dB):"
-msgstr "新しい最大振幅"
+msgstr "新規最大振幅 (dB):"
 
 #: src/effects/Amplify.cpp
 msgid "Allow clipping"
-msgstr "クリッピングを可能にする"
+msgstr "クリッピングを許容する"
 
 #: src/effects/Amplify.h
 msgid "Amplify"
@@ -7759,7 +7757,7 @@ msgstr "ダッキング量:"
 
 #: src/effects/AutoDuck.cpp
 msgid "Maximum pause:"
-msgstr "最大休止:"
+msgstr "最大休止長さ:"
 
 #. i18n-hint: Name of time display format that shows time in seconds
 #: src/effects/AutoDuck.cpp src/effects/TruncSilence.cpp
@@ -7938,7 +7936,7 @@ msgstr "速度倍増:"
 #. i18n-hint: "rpm" is an English abbreviation meaning "revolutions per minute".
 #: src/effects/ChangeSpeed.cpp
 msgid "Standard Vinyl rpm:"
-msgstr "標準のLPレコード回転数:"
+msgstr "標準レコード回転数:"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "From rpm"
@@ -8915,7 +8913,7 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報はヘルプの「ログの表示(L)」をご覧ください"
+"詳細情報は、ヘルプ > 診断 > ログの表示 をご覧ください"
 
 #: src/effects/EffectManager.cpp
 msgid "Effect failed to initialize"
@@ -8934,7 +8932,7 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報はヘルプの「ログの表示(L)」をご覧ください"
+"詳細情報は、ヘルプ > 診断 > ログの表示 をご覧ください"
 
 #: src/effects/EffectManager.cpp
 msgid "Command failed to initialize"
@@ -9985,11 +9983,11 @@ msgstr "リピート"
 
 #: src/effects/Reverb.cpp
 msgid "Vocal I"
-msgstr "ボーカル I"
+msgstr "ボーカルⅠ"
 
 #: src/effects/Reverb.cpp
 msgid "Vocal II"
-msgstr "ボーカル II"
+msgstr "ボーカルⅡ"
 
 #: src/effects/Reverb.cpp
 msgid "Bathroom"
@@ -10087,12 +10085,12 @@ msgstr "バターワース"
 #. i18n-hint: Chebyshev is the name of the person after whom the filter type is named.
 #: src/effects/ScienFilter.cpp
 msgid "Chebyshev Type I"
-msgstr "チェビシェフ タイプI"
+msgstr "第一種チェビシェフ"
 
 #. i18n-hint: Chebyshev is the name of the person after whom the filter type is named.
 #: src/effects/ScienFilter.cpp
 msgid "Chebyshev Type II"
-msgstr "チェビシェフ タイプII"
+msgstr "第二種チェビシェフ"
 
 #: src/effects/ScienFilter.cpp
 msgid "Lowpass"
@@ -10852,8 +10850,8 @@ msgid ""
 "(about %.1f hours at 44100 Hz sample rate)."
 msgstr ""
 "選択領域が長すぎます。\n"
-"最大値は2147483647 サンプルです。\n"
-"(44100 Hzサンプリングレートの場合約13.5時間)."
+"最大値は 2147483647 サンプルです。\n"
+"(サンプリング周波数 44100 Hz の場合、約 13.5 時間)"
 
 #: src/effects/nyquist/Nyquist.cpp
 #, fuzzy
@@ -10916,7 +10914,7 @@ msgstr "Nyquist は音声を返しませんでした。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "[Warning: Nyquist returned invalid UTF-8 string, converted here as Latin-1]"
-msgstr "[警告：Nyquistは不正なUTF-8文字列を返しましたので、Latin-1に変換しました。]"
+msgstr "[警告: Nyquistは不正なUTF-8文字列を返しましたので、Latin-1に変換しました。]"
 
 #: src/effects/nyquist/Nyquist.cpp
 #, fuzzy, c-format
@@ -10929,7 +10927,7 @@ msgid ""
 "Bad Nyquist 'control' type specification: '%s' in plug-in file '%s'.\n"
 "Control not created."
 msgstr ""
-"不正なNyquist 'control' タイプ: '%s' －　プラグインファイル　'%s'.\n"
+"不正なNyquist 'control' タイプ: '%s' - プラグインファイル '%s'.\n"
 "Controlは作成できませんでした。"
 
 #: src/effects/nyquist/Nyquist.cpp
@@ -10948,7 +10946,7 @@ msgid ""
 " ."
 msgstr ""
 "このコードはSALに似ていますがリターン文がありません。SALであれば\n"
-"\treturn s * 0.1　\n"
+"\treturn s * 0.1\n"
 "のようなリターン文、あるいはLISPであれば\n"
 "\t(mult s 0.1)\n"
 "のように文頭の括弧を使用してください。"
@@ -14254,7 +14252,7 @@ msgstr ""
 "背景として読み込みます。\n"
 "\n"
 "(現時点ではトランスポートツールバーと波形の色にのみ反映されます画像が他のアイコンも\n"
-"表示していてもそれらは反映されません.)"
+"表示していてもそれらは反映されません。)"
 
 #: src/prefs/ThemePrefs.cpp
 #, fuzzy
@@ -14705,7 +14703,7 @@ msgstr "録音ボリューム: %.2f"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Recording Volume (Unavailable; use system mixer.)"
-msgstr "録音ボリューム (使用不可; システムミキサーをお使いください。)"
+msgstr "録音ボリューム (使用不能。システムミキサーをお使いください)"
 
 #: src/toolbars/MixerToolBar.cpp
 #, c-format
@@ -14719,7 +14717,7 @@ msgstr "再生ボリューム: %s"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Playback Volume (Unavailable; use system mixer.)"
-msgstr "再生ボリューム (使用不可; システムミキサーをお使いください。)"
+msgstr "再生ボリューム (使用不能。システムミキサーをお使いください)"
 
 #: src/toolbars/ScrubbingToolBar.cpp
 msgid "Seek"
@@ -16421,7 +16419,7 @@ msgstr "秒であらわされる周波数へ"
 #: plug-ins/SpectralEditParametricEQ.ny
 #, fuzzy, lisp-format
 msgid "~aCenter frequency must be above 0 Hz."
-msgstr "最低周波数は少なくとも　0Hzでなければなりません。"
+msgstr "最低周波数は少なくとも 0Hzでなければなりません。"
 
 #: plug-ins/SpectralEditParametricEQ.ny
 #, lisp-format
@@ -16951,7 +16949,7 @@ msgstr ""
 #: plug-ins/highpass.ny plug-ins/lowpass.ny plug-ins/notch.ny
 #, fuzzy
 msgid "Frequency must be at least 0.1 Hz."
-msgstr "最低周波数は少なくとも　0Hzでなければなりません。"
+msgstr "最低周波数は少なくとも 0Hzでなければなりません。"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 #, lisp-format
@@ -18213,7 +18211,7 @@ msgstr ""
 #~ msgstr "コピー取り込み"
 
 #~ msgid "&Display a mono channel as virtual stereo"
-#~ msgstr "モノラルチャンネルを仮想ステレオとして表示（&D）"
+#~ msgstr "モノラルチャンネルを仮想ステレオとして表示(&D)"
 
 #~ msgid " (emulated)"
 #~ msgstr "(エミュレーテッド)"
@@ -19113,7 +19111,7 @@ msgstr ""
 #~ msgstr "非圧縮書き出し設定"
 
 #~ msgid "(Not all combinations of headers and encodings are possible.)"
-#~ msgstr "(ヘッダーとエンコーディングのすべての組み合わせが可能だとは限りません.)"
+#~ msgstr "(ヘッダーとエンコーディングのすべての組み合わせが可能だとは限りません。)"
 
 #~ msgid "There are no options for this format.\n"
 #~ msgstr "この形式にはオプションはありません。\n"
@@ -19168,7 +19166,7 @@ msgstr ""
 #~ msgstr "エフェクトの登録"
 
 #~ msgid "&Select Plug-ins to Install or press ENTER to Install All"
-#~ msgstr "プラグインを選択して（ENTERを押すことで全部）インストール(&S)"
+#~ msgstr "プラグインを選択して (ENTERを押すことで全部) インストール(&S)"
 
 #~ msgid "High-quality Sinc Interpolation"
 #~ msgstr "高品位サイン補完"
@@ -19682,7 +19680,7 @@ msgstr ""
 #~ msgstr "回復しません"
 
 #~ msgid "Confirm?"
-#~ msgstr "確認?"
+#~ msgstr "確認？"
 
 #, fuzzy
 #~ msgid "Change input device"
@@ -19755,14 +19753,14 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Input Volume (Unavailable; use system mixer.)"
-#~ msgstr "出力ボリューム (使用不可; システムミキサーをお使いください.)"
+#~ msgstr "出力ボリューム (使用不能。システムミキサーをお使いください)"
 
 #, fuzzy
 #~ msgid "Output Volume: %.2f%s"
 #~ msgstr "出力ボリューム"
 
 #~ msgid "Output Volume (Unavailable; use system mixer.)"
-#~ msgstr "出力ボリューム (使用不可; システムミキサーをお使いください.)"
+#~ msgstr "出力ボリューム (使用不能。システムミキサーをお使いください)"
 
 #, fuzzy
 #~ msgid "Playback Level Slider"
