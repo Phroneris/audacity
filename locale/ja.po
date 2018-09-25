@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-25 14:59+0900\n"
+"PO-Revision-Date: 2018-09-26 01:30+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA and Phroneris\n"
 "Language: ja\n"
@@ -56,11 +56,11 @@ msgstr "Nyquist ワークベンチ(&N)..."
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "&Undo\tCtrl+Z"
-msgstr "取り消し(&U)\tCtrl+Z"
+msgstr "元に戻す(&U)\tCtrl+Z"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "&Redo\tCtrl+Y"
-msgstr "繰り返し(&R)\tCtrl+Y"
+msgstr "やり直し(&R)\tCtrl+Y"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Cu&t\tCtrl+X"
@@ -316,11 +316,11 @@ msgstr "すべてのテキストを選択"
 #: lib-src/mod-nyq-bench/NyqBench.cpp src/toolbars/EditToolBar.cpp
 #: src/widgets/KeyView.cpp
 msgid "Undo"
-msgstr "取り消し"
+msgstr "元に戻す"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Undo last change"
-msgstr "直前の変更を取り消す"
+msgstr "直前の変更を元に戻す"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp src/toolbars/EditToolBar.cpp
 #: src/widgets/KeyView.cpp
@@ -329,7 +329,7 @@ msgstr "やり直し"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Redo previous change"
-msgstr "1 つ前の変更を繰り返す"
+msgstr "直前の変更をやり直す"
 
 #: lib-src/mod-nyq-bench/NyqBench.cpp
 msgid "Find"
@@ -2469,7 +2469,7 @@ msgstr "総使用容量(&T)"
 
 #: src/HistoryWindow.cpp
 msgid "&Undo Levels Available"
-msgstr "取り消し可能なレベル(&U)"
+msgstr "元に戻せるレベル(&U)"
 
 #: src/HistoryWindow.cpp
 msgid "&Levels To Discard"
@@ -2795,11 +2795,11 @@ msgstr "編集(&E)"
 
 #: src/Menus.cpp
 msgid "&Undo"
-msgstr "取り消し(&U)"
+msgstr "元に戻す(&U)"
 
 #: src/Menus.cpp
 msgid "&Redo"
-msgstr "繰り返し(&R)"
+msgstr "やり直し(&R)"
 
 #: src/Menus.cpp
 msgid "&Delete"
@@ -4252,12 +4252,12 @@ msgstr "最近のファイル(&F)"
 #: src/Menus.cpp
 #, c-format
 msgid "&Undo %s"
-msgstr "%s を取り消し(&U)"
+msgstr "%s を元に戻す(&U)"
 
 #: src/Menus.cpp
 #, c-format
 msgid "&Redo %s"
-msgstr "%s を繰り返し(&R)"
+msgstr "%s をやり直し(&R)"
 
 #: src/Menus.cpp
 msgid "Tracks sorted by time"
@@ -4400,11 +4400,11 @@ msgstr "選択した音声を書き出し"
 
 #: src/Menus.cpp
 msgid "Nothing to undo"
-msgstr "取り消しはありません"
+msgstr "元に戻すものはありません"
 
 #: src/Menus.cpp
 msgid "Nothing to redo"
-msgstr "繰り返しはありません"
+msgstr "やり直すものはありません"
 
 #: src/Menus.cpp
 msgid "Cut to the clipboard"
