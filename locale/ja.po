@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-25 14:37+0900\n"
+"PO-Revision-Date: 2018-09-25 14:59+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA and Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: -1,530,-1,-1,-1,-1,-1,-1,-1,1089\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -2583,7 +2582,7 @@ msgstr "新規..."
 
 #: src/LabelDialog.cpp
 msgid "Press F2 or double click to edit cell contents."
-msgstr "F2 を押すか、ダブルクリックしてセルコメントを編集"
+msgstr "F2 を押すか、ダブルクリックしてセル内容を編集します。"
 
 #: src/LabelDialog.cpp src/Menus.cpp
 msgid "Select a text file containing labels"
@@ -2608,11 +2607,11 @@ msgstr "ラベルの書き出し:"
 
 #: src/LabelDialog.cpp
 msgid "New Label Track"
-msgstr "新規ラベルトラック "
+msgstr "新規ラベルトラック"
 
 #: src/LabelDialog.cpp
 msgid "Enter track name"
-msgstr "トラック名の入力:"
+msgstr "トラック名を入力"
 
 #. i18n-hint: (noun) it's the name of a kind of track.
 #. i18n-hint: This is for screen reader software and indicates that
@@ -5636,7 +5635,7 @@ msgstr "<バージョンを認識できません -- プロジェクトファイ�
 #: src/Project.cpp
 #, c-format
 msgid "Couldn't find the project data folder: \"%s\""
-msgstr "プロジェクトデータフォルダーが見つかりません:「%s」"
+msgstr "プロジェクトデータフォルダが見つかりません:「%s」"
 
 #. i18n-hint: %s will be replaced by the version number.
 #: src/Project.cpp
@@ -10453,7 +10452,7 @@ msgstr "バッファーサイズ (8～1048576 サンプル) (&B):"
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Latency Compensation"
-msgstr "レイテンシ－補償"
+msgstr "レイテンシー補償"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "As part of their processing, some VST effects must delay returning "
@@ -12940,7 +12939,7 @@ msgstr "ミリ秒"
 
 #: src/prefs/DevicePrefs.cpp
 msgid "&Latency compensation:"
-msgstr "レイテンシ－補正(&L):"
+msgstr "レイテンシー補償(&L):"
 
 #: src/prefs/DevicePrefs.cpp
 msgid "No audio interfaces"
@@ -13533,7 +13532,7 @@ msgstr "MIDI インターフェースがありません"
 
 #: src/prefs/MidiIOPrefs.cpp
 msgid "The MIDI Synthesizer Latency must be an integer"
-msgstr "MIDI シンセサイザーのレイテンシは整数でなければなりません"
+msgstr "MIDI シンセサイザーのレイテンシーは整数でなければなりません"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "Modules"
