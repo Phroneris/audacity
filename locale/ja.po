@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-25 13:32+0900\n"
+"PO-Revision-Date: 2018-09-25 14:14+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA and Phroneris\n"
 "Language: ja\n"
@@ -30,7 +30,7 @@ msgstr "確認"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 msgid "Please choose an existing file."
-msgstr "存在するファイルを選択して下さい。"
+msgstr "存在するファイルを選択してください。"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp src/AudioIO.cpp
 #: src/AutoRecovery.cpp src/Menus.cpp src/Project.cpp src/TimerRecordDialog.cpp
@@ -807,7 +807,7 @@ msgstr ""
 
 #: src/AudacityApp.cpp
 msgid "Audacity is now going to exit. Please launch Audacity again to use the new temporary directory."
-msgstr "Audacity を終了させます。新しいテンポラリディレクトリを使うために、Audacity を再起動して下さい。"
+msgstr "Audacity を終了させます。新しいテンポラリディレクトリを使うために、Audacity を再起動してください。"
 
 #: src/AudacityApp.cpp
 msgid ""
@@ -13406,7 +13406,7 @@ msgstr "既定値(&D)"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Select an XML file containing Audacity keyboard shortcuts..."
-msgstr "Audacty のキーボードショートカットが定義されている XML ファイルを選択して下さい..."
+msgstr "Audacty のキーボードショートカットが定義されている XML ファイルを選択してください..."
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Error Importing Keyboard Shortcuts"
