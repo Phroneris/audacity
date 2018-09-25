@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-25 14:14+0900\n"
+"PO-Revision-Date: 2018-09-25 14:37+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA and Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: -1,-1,-1,-1,-1,-1,-1,-1,-1,1089\n"
+"X-Poedit-Bookmarks: -1,530,-1,-1,-1,-1,-1,-1,-1,1089\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -722,7 +722,7 @@ msgstr ""
 "最初に検出された欠落ファイル:\n"
 "%s\n"
 "他にも欠落ファイルがあるかもしれません。\n"
-"ヘルプ > 診断 > 依存性のチェック から、見つからないファイルの場所を確認してください。"
+"[ヘルプ] > [診断] > [依存性のチェック] から、見つからないファイルの場所を確認してください。"
 
 #: src/AudacityApp.cpp
 msgid "Files Missing"
@@ -2048,7 +2048,7 @@ msgstr ""
 "FFmpeg は設定されており以前は正常に読み込まれていましたが、                      \n"
 "今回の Audacity 起動時に読み込み失敗しました。                       \n"
 "\n"
-"環境設定 > ライブラリ で再設定してください。"
+"[環境設定] > [ライブラリ] で再設定してください。"
 
 #: src/FFmpeg.cpp
 msgid "FFmpeg startup failed"
@@ -2120,7 +2120,7 @@ msgstr ""
 "Audacity は FFmpeg により音声を取り込もうとしましたが、\n"
 "必要なライブラリが見つかりませんでした。\n"
 "\n"
-"FFmpeg による取り込みを使用するには、環境設定 > ライブラリ にて\n"
+"FFmpeg による取り込みを使用するには、[環境設定] > [ライブラリ] にて\n"
 "FFmpeg ライブラリをダウンロードまたは指定してください。"
 
 #: src/FFmpeg.h
@@ -5310,7 +5310,7 @@ msgstr "プラグインの管理"
 
 #: src/PluginManager.cpp
 msgid "Select effects, click the Enable or Disable button, then click OK."
-msgstr "エフェクトを選んで有効化または無効化をクリックし、OK をクリックしてください。"
+msgstr "エフェクトを選んで [有効化] または [無効化] をクリックし、[OK] をクリックしてください。"
 
 #. i18n-hint: This is before radio buttons selecting which effects to show
 #: src/PluginManager.cpp
@@ -5518,8 +5518,8 @@ msgstr ""
 "保存すると、プロジェクトにはトラックが無くなります。\n"
 "\n"
 "以前開いていたトラックを保存するには:\n"
-"キャンセルをクリックし、編集 > 元に戻す ですべてのトラックを\n"
-"開いてから、ファイル > プロジェクトファイルを保存 を実行する。"
+"[キャンセル] をクリックし、[編集] > [元に戻す] ですべてのトラックを\n"
+"開いてから、[ファイル] > [プロジェクトファイルを保存] を実行する。"
 
 #: src/Project.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -5667,8 +5667,8 @@ msgstr ""
 "保存すると、プロジェクトにはトラックが無くなります。\n"
 "\n"
 "以前開いていたトラックを保存するには:\n"
-"「いいえ」をクリックし、編集 > 元に戻す ですべてのトラックを\n"
-"開いてから、ファイル > プロジェクトファイルを保存 を実行する。\n"
+"[いいえ] をクリックし、[編集] > [元に戻す] ですべてのトラックを\n"
+"開いてから、[ファイル] > [プロジェクトファイルを保存] を実行する。\n"
 "\n"
 "保存しますか？"
 
@@ -8913,7 +8913,7 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報は、ヘルプ > 診断 > ログの表示 をご覧ください"
+"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください"
 
 #: src/effects/EffectManager.cpp
 msgid "Effect failed to initialize"
@@ -8932,7 +8932,7 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報は、ヘルプ > 診断 > ログの表示 をご覧ください"
+"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください"
 
 #: src/effects/EffectManager.cpp
 msgid "Command failed to initialize"
@@ -9240,7 +9240,7 @@ msgid ""
 "'OK' saves all changes, 'Cancel' doesn't."
 msgstr ""
 "新しい曲線を保存するには「無題」をリネームしてください。\n"
-"「OK」で変更を保存、「キャンセル」で取り消します。"
+"[OK] で変更を保存、[キャンセル] で取り消します。"
 
 #: src/effects/Equalization.cpp
 msgid "'unnamed' always stays at the bottom of the list"
@@ -9539,8 +9539,8 @@ msgid ""
 "Select a few seconds of just noise so Audacity knows what to filter out,\n"
 "then click Get Noise Profile:"
 msgstr ""
-"Audacity が除去すべき対象を判断するために、ノイズのみの区間 (数秒間) を\n"
-"選択し、次にクリックすることでノイズプロファイルを獲得します:"
+"Audacity が除去すべき対象を判断するために、ノイズのみの区間 (数秒間) を選択し、\n"
+"その後 [ノイズプロファイルの取得] をクリックしてください:"
 
 #: src/effects/NoiseReduction.cpp src/effects/NoiseRemoval.cpp
 msgid "&Get Noise Profile"
@@ -9555,8 +9555,8 @@ msgid ""
 "Select all of the audio you want filtered, choose how much noise you want\n"
 "filtered out, and then click 'OK' to reduce noise.\n"
 msgstr ""
-"フィルタリングしたい音声をすべて選択し、除去の程度を選択し、次に「OK」をクリック\n"
-"することでノイズを除去します。\n"
+"フィルタリングしたい音声をすべて選択し、除去の程度を選択し、最後に [OK] を\n"
+"クリックすることでノイズを除去します。\n"
 
 #: src/effects/NoiseReduction.cpp src/effects/NoiseRemoval.cpp
 msgid "Noise:"
@@ -9663,8 +9663,8 @@ msgid ""
 "Select all of the audio you want filtered, choose how much noise you want\n"
 "filtered out, and then click 'OK' to remove noise.\n"
 msgstr ""
-"フィルタリングしたい音声をすべて選択し、除去の程度を選択し、次に「OK」をクリック\n"
-"することでノイズを除去します。\n"
+"フィルタリングしたい音声をすべて選択し、除去の程度を選択し、最後に [OK] を\n"
+"クリックすることでノイズを除去します。\n"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Noise re&duction (dB):"
@@ -11143,7 +11143,7 @@ msgid ""
 msgstr ""
 "欠落したエイリアスファイルを上書きしようとしています。\n"
 "               元の音声を復元するためのパス情報がないためこのファイルを書き込むことができません。\n"
-"               ヘルプ > 診断 > 依存性のチェック から、すべての欠損ファイルの場所を確認してください。\n"
+"               [ヘルプ] > [診断] > [依存性のチェック] から、すべての欠損ファイルの場所を確認してください。\n"
 "               異なるファイル名やフォルダを指定すれば書き出すことができます。"
 
 #: src/export/Export.cpp
@@ -11241,7 +11241,7 @@ msgid ""
 "You can configure it at Preferences > Libraries."
 msgstr ""
 "続けるには正しく設定された FFmpeg が必要です。\n"
-"環境設定 > ライブラリ にて設定できます。"
+"[環境設定] > [ライブラリ] にて設定できます。"
 
 #: src/export/ExportFFmpeg.cpp
 #, c-format
@@ -12378,7 +12378,7 @@ msgid ""
 msgstr ""
 "「%s」は MIDI ファイルであり、音声ファイルではありません。\n"
 "Audacity はこの種のファイルを再生用に開くことはできませんが、\n"
-"ファイル > 取り込み > MIDI の取り込み をクリックすることで編集はできます。"
+"[ファイル] > [取り込み] > [MIDI の取り込み] をクリックすることで編集はできます。"
 
 #: src/import/Import.cpp
 msgid "Select stream(s) to import"
@@ -12541,7 +12541,7 @@ msgid ""
 "Use the 'File > Open' command to open Audacity Projects."
 msgstr ""
 "「%s」は Audacity プロジェクトファイルです。\n"
-"Audacity プロジェクトファイルを開くには「ファイル > 開く」コマンドをお使いください。"
+"Audacity プロジェクトファイルを開くには [ファイル] > [開く] コマンドをお使いください。"
 
 #: src/import/Import.cpp
 #, c-format
@@ -12550,7 +12550,7 @@ msgid ""
 "Try installing FFmpeg. For uncompressed files, also try File > Import > Raw Data."
 msgstr ""
 "Audacity はこのファイル「%s」の種類を認識できませんでした。\n"
-"このファイルが非圧縮ファイルの場合、「ロー (Raw) データの取り込み」を試してください。"
+"このファイルが非圧縮ファイルの場合、[ファイル] > [取り込み] > [ロー (Raw) データの取り込み] をお試しください。"
 
 #: src/import/Import.cpp
 #, c-format
@@ -12723,7 +12723,7 @@ msgid ""
 "How do you want to import the current file(s)?"
 msgstr ""
 "ファイルを直接読み込むことですぐに再生や編集を行えますが、この方法は該当ファイルの名前や場所をそのままにしておかなければいけないため、安全性では劣ります。\n"
-"ヘルプ > 診断 > 依存性のチェック にて、直接読み込んだファイルの名前と場所を表示することができます。\n"
+"[ヘルプ] > [診断] > [依存性のチェック] にて、直接読み込んだファイルの名前と場所を表示することができます。\n"
 "\n"
 "どのようにファイルを取り込みますか？"
 
