@@ -7743,19 +7743,19 @@ msgstr "増幅"
 
 #: src/effects/AutoDuck.cpp
 msgid "Reduces (ducks) the volume of one or more tracks whenever the volume of a specified \"control\" track reaches a particular level"
-msgstr "指定された「コントロール」トラックが特定のレベルに達したら1つ以上のトラックのレベルを下げます"
+msgstr "指定された「コントロール」トラックが特定のレベルに達したら1つ以上のトラックのレベルを低減 (ダッキング) します"
 
 #: src/effects/AutoDuck.cpp
 msgid "You selected a track which does not contain audio. AutoDuck can only process audio tracks."
-msgstr "音声を含まないトラックが選ばれました。オートドックは音声トラックのみを処理できます。"
+msgstr "音声を含まないトラックが選ばれました。自動ダッキングは音声トラックのみを処理できます。"
 
 #: src/effects/AutoDuck.cpp
 msgid "Auto Duck needs a control track which must be placed below the selected track(s)."
-msgstr "オートドックは、選択したトラックの下にコントロールトラックを必要とします。"
+msgstr "自動ダッキングは、選択したトラックの下にコントロールトラックを必要とします。"
 
 #: src/effects/AutoDuck.cpp
 msgid "Duck amount:"
-msgstr "ドック量:"
+msgstr "ダッキング量:"
 
 #: src/effects/AutoDuck.cpp
 msgid "Maximum pause:"
@@ -7790,7 +7790,7 @@ msgstr "プレビューは使用できません"
 
 #: src/effects/AutoDuck.h
 msgid "Auto Duck"
-msgstr "オートドック"
+msgstr "自動ダッキング"
 
 #: src/effects/BassTreble.cpp
 #, fuzzy
@@ -19192,10 +19192,10 @@ msgstr ""
 #~ msgstr "有効な数値を入力してください。"
 
 #~ msgid "Auto Duck..."
-#~ msgstr "オートドック..."
+#~ msgstr "自動ダッキング..."
 
 #~ msgid "Processing Auto Duck..."
-#~ msgstr "音声ドックでの処理..."
+#~ msgstr "自動ダッキング処理..."
 
 #~ msgid "Applied effect: %s bass = %.1f dB, treble = %.1f dB"
 #~ msgstr "エフェクトの適用: %s バス = %.1f dB, トレブル = %.1f dB"
@@ -19935,7 +19935,7 @@ msgstr ""
 #~ msgstr "メタデータタグを編集"
 
 #~ msgid "Auto Duck by Markus Meyer"
-#~ msgstr "Markus Meyer のオートドック"
+#~ msgstr "Markus Meyer の自動ダッキング"
 
 #~ msgid "Change Length..."
 #~ msgstr "長さの変更..."
