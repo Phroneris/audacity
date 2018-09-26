@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-26 01:30+0900\n"
+"PO-Revision-Date: 2018-09-26 19:06+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
-"Language-Team: Atsushi YOSHIDA and Phroneris\n"
+"Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -503,7 +503,7 @@ msgstr "<h3>Audacity "
 
 #: src/AboutDialog.cpp
 msgid "Audacity the free, open source, cross-platform software for recording and editing sounds."
-msgstr "Audacity は無料でオープンソースでクロスプラットフォームな録音・音声編集ソフトです。"
+msgstr "Audacity は、録音と音声編集のために開発された<br>無料 &amp; オープンソース &amp; クロスプラットフォームなソフトウェアです。"
 
 #: src/AboutDialog.cpp
 msgid "Credits"
@@ -1683,7 +1683,7 @@ msgstr "ファイルをコピーしない"
 
 #: src/Dependencies.cpp
 msgid "Whenever a project depends on other files:"
-msgstr "プロジェクトが別のファイルに依存する場合："
+msgstr "プロジェクトが別のファイルに依存する場合:"
 
 #: src/Dependencies.cpp
 #, c-format
@@ -9972,7 +9972,7 @@ msgstr "新しい選択範囲: %s"
 
 #: src/effects/Repeat.cpp
 msgid "Warning: No repeats."
-msgstr "警告：リピートがありません。"
+msgstr "警告: リピートがありません。"
 
 #: src/effects/Repeat.h
 msgid "Repeat"
@@ -10153,7 +10153,7 @@ msgstr "MIDI を音声に同期"
 
 #: src/effects/ScoreAlignDialog.cpp
 msgid "Frame Period:"
-msgstr "フレーム長："
+msgstr "フレーム長:"
 
 #: src/effects/ScoreAlignDialog.cpp
 msgid "Frame Period"
@@ -10189,7 +10189,7 @@ msgstr "無音のスレッショルド"
 #. It is OK to leave it in English.
 #: src/effects/ScoreAlignDialog.cpp
 msgid "Presmooth Time:"
-msgstr "プリスムース時間："
+msgstr "プリスムース時間:"
 
 #: src/effects/ScoreAlignDialog.cpp
 msgid "Presmooth Time"
@@ -13393,7 +13393,7 @@ msgstr "設定(&S)"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Note: Pressing Cmd+Q will quit. All other keys are valid."
-msgstr "メモ: Cmd+Q で終了。他のキーすべては有効です。"
+msgstr "ヒント: Cmd+Q で終了。他のキーはすべて有効です。"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "&Import..."
@@ -14069,7 +14069,7 @@ msgstr "周波数ゲインには負は指定できません"
 
 #: src/prefs/SpectrogramSettings.cpp
 msgid "The frequency gain must be no more than 60 dB/dec"
-msgstr "周波数利得は 60 dB/dec 以下にしてください"
+msgstr "周波数利得は 60dB/dec 以下にしてください"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Spectrogram Settings"
@@ -14146,7 +14146,7 @@ msgstr "窓関数の種類(&T):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "&Zero padding factor"
-msgstr "ゼロパディング(&Z)"
+msgstr "ゼロ埋め倍数(&Z)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Ena&ble Spectral Selection"
@@ -15039,7 +15039,7 @@ msgstr "楽器 %i"
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 #, c-format
 msgid "Changed '%s' to %s"
-msgstr "「%s」から %s に変更されました"
+msgstr "「%s」を %s に変更しました"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "WaveColor Change"
@@ -15105,7 +15105,7 @@ msgstr "その他(&O)..."
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 #, c-format
 msgid "Changed '%s' to %s Hz"
-msgstr "「%s」から %s Hz に変更されました"
+msgstr "「%s」を %s Hz に変更しました"
 
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Rate Change"
@@ -15262,7 +15262,7 @@ msgstr "上位速度の制限"
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 #, c-format
 msgid "Set range to '%ld' - '%ld'"
-msgstr "範囲を「%ld」から「%ld」に設定"
+msgstr "範囲を「%ld」～「%ld」に設定"
 
 #. i18n-hint: (verb)
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
@@ -15283,15 +15283,15 @@ msgstr "タイムトラックを対数にセット"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Set time track interpolation to linear"
-msgstr "タイムトラックの補完をリニアにセット"
+msgstr "タイムトラックの補間をリニアにセット"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Set Interpolation"
-msgstr "補完の設定"
+msgstr "補間の設定"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Set time track interpolation to logarithmic"
-msgstr "タイムトラックの補完を対数にセット"
+msgstr "タイムトラックの補間を対数にセット"
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "&Linear scale"
@@ -15307,7 +15307,7 @@ msgstr "範囲(&R)..."
 
 #: src/tracks/timetrack/ui/TimeTrackControls.cpp
 msgid "Logarithmic &Interpolation"
-msgstr "対数補完(&I)"
+msgstr "対数補間(&I)"
 
 #: src/tracks/ui/EnvelopeHandle.cpp
 msgid "Click and drag to warp playback time"
@@ -15523,18 +15523,12 @@ msgstr "押す"
 msgid "Button"
 msgstr "ボタン"
 
-#  i18n-hint: One-letter abbreviation for Left, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Left, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Left, in VU Meter
 #. i18n-hint: One-letter abbreviation for Left, in the Pan slider
 #. i18n-hint: One-letter abbreviation for Left, in VU Meter
 #: src/widgets/ASlider.cpp src/widgets/Meter.cpp
 msgid "L"
 msgstr "L"
 
-#  i18n-hint: One-letter abbreviation for Right, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Right, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Right, in VU Meter
 #. i18n-hint: One-letter abbreviation for Right, in the Pan slider
 #. i18n-hint: One-letter abbreviation for Right, in VU Meter
 #: src/widgets/ASlider.cpp src/widgets/Meter.cpp
@@ -15833,7 +15827,7 @@ msgstr "0100 時間 060 分 060 秒+.24 フレーム"
 #. * frames) at 24 frames per second (commonly used for films)
 #: src/widgets/NumericTextCtrl.cpp
 msgid "film frames (24 fps)"
-msgstr "フィルムフレーム (24 fps)"
+msgstr "フィルムフレーム (24fps)"
 
 #. i18n-hint: Format string for displaying time in frames at 24 frames per
 #. * second. Change the comma
@@ -16209,7 +16203,7 @@ msgstr "不正な形式の数字"
 #: src/widgets/valnum.cpp
 #, c-format
 msgid "Not in range %d to %d"
-msgstr "%d から %d までの範囲外"
+msgstr "%d～%d の範囲外"
 
 #: src/widgets/valnum.cpp
 msgid "Value overflow"
