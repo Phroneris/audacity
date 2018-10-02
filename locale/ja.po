@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-09-26 19:06+0900\n"
+"PO-Revision-Date: 2018-09-27 10:57+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -9312,7 +9312,7 @@ msgstr "EQ 曲線の選択"
 
 #: src/effects/Equalization.cpp
 msgid "xml files (*.xml;*.XML)|*.xml;*.XML"
-msgstr "xml ファイル (*.xml;*.XML)|*.xml;*.XML"
+msgstr "XML ファイル (*.xml;*.XML)|*.xml;*.XML"
 
 #: src/effects/Equalization.cpp
 msgid "Export EQ curves as..."
@@ -10995,7 +10995,7 @@ msgstr ""
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist scripts (*.ny)|*.ny|Lisp scripts (*.lsp)|*.lsp|Text files (*.txt)|*.txt|All files|*"
-msgstr "Nyquist scripts (*.ny)|*.ny|Lisp scripts (*.lsp)|*.lsp|Text files (*.txt)|*.txt|All files|*"
+msgstr "Nyquist スクリプト (*.ny)|*.ny|Lisp スクリプト (*.lsp)|*.lsp|テキストファイル (*.txt)|*.txt|すべてのファイル|*"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "File could not be loaded"
@@ -11828,7 +11828,7 @@ msgstr "無題のプリセットを保存することはできません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file with presets to import"
-msgstr "取り込むプリセットを記録した xml ファイルを選択"
+msgstr "取り込むプリセットを記録した XML ファイルを選択"
 
 #: src/export/ExportFFmpegDialogs.cpp src/prefs/KeyConfigPrefs.cpp
 msgid "XML files (*.xml)|*.xml|All files|*"
@@ -11836,7 +11836,7 @@ msgstr "XML ファイル (*.xml)|*.xml|すべてのファイル|*"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file to export presets into"
-msgstr "プリセットを書き出す xml ファイルを選択"
+msgstr "プリセットを書き出す XML ファイルを選択"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Failed to guess format"
@@ -12332,7 +12332,7 @@ msgstr "WAV (Microsoft) 24bit PCM 符号あり"
 
 #: src/export/ExportPCM.cpp
 msgid "WAV (Microsoft) 32-bit float PCM"
-msgstr "WAV (Microsoft) 32bit PCM 符号あり"
+msgstr "WAV (Microsoft) 32bit 浮動小数点 PCM"
 
 #: src/export/ExportPCM.cpp
 msgid "Header:"
