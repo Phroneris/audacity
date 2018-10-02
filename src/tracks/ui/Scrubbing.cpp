@@ -17,6 +17,7 @@ Paul Licameli split from TrackPanel.cpp
 #include "../../Project.h"
 #include "../../TrackPanel.h"
 #include "../../TrackPanelCell.h"
+#include "../../prefs/PlaybackPrefs.h"
 #include "../../prefs/TracksPrefs.h"
 #include "../../toolbars/ControlToolBar.h"
 #include "../../toolbars/ScrubbingToolBar.h"
@@ -161,6 +162,12 @@ auto Scrubber::ScrubPollerThread::Entry() -> ExitCode
 }
 
 #endif
+
+bool Scrubber::ShouldScrubPinned()
+{
+   return TracksPrefs::GetPinnedHeadPreference() &&
+      !PlaybackPrefs::GetUnpinnedScrubbingPreference();
+}
 
 class Scrubber::ScrubPoller : public wxTimer
 {
@@ -357,7 +364,7 @@ bool Scrubber::MaybeStartScrubbing(wxCoord xx)
             AudioIOStartStreamOptions options(mProject->GetDefaultPlayOptions());
             options.pScrubbingOptions = &mOptions;
             options.timeTrack = NULL;
-            mOptions.delay = (ScrubPollInterval_ms * 0.9 / 1000.0);
+            mOptions.delay = (ScrubPollInterval_ms / 1000.0);
             mOptions.isPlayingAtSpeed = false;
             mOptions.minSpeed = 0.0;
 #ifdef USE_TRANSCRIPTION_TOOLBAR
@@ -463,7 +470,7 @@ bool Scrubber::StartSpeedPlay(double speed, double time0, double time1)
    AudioIOStartStreamOptions options(mProject->GetSpeedPlayOptions());
    options.pScrubbingOptions = &mOptions;
    options.timeTrack = NULL;
-   mOptions.delay = (ScrubPollInterval_ms * 0.9 / 1000.0);
+   mOptions.delay = (ScrubPollInterval_ms / 1000.0);
    mOptions.minSpeed = speed -0.01;
    mOptions.maxSpeed = speed +0.01;
 
@@ -563,7 +570,23 @@ void Scrubber::ContinueScrubbingPoll()
       else
 #endif
       {
-         const double time = viewInfo.PositionToTime(position.x, trackPanel->GetLeftOffset());
+         const auto origin = trackPanel->GetLeftOffset();
+         auto xx = position.x;
+         if (!seek && !mSmoothScrollingScrub) {
+            // If mouse is out-of-bounds, so that we scrub at maximum speed
+            // toward the mouse position, then move the target time to a more
+            // extreme position to avoid catching-up and halting before the
+            // screen scrolls.
+            int width;
+            trackPanel->GetTracksUsableArea(&width, NULL);
+            auto delta = xx - origin;
+            if (delta < 0)
+               delta -= width;
+            else if (delta >= width)
+               delta += width;
+            xx = origin + delta;
+         }
+         const double time = viewInfo.PositionToTime(xx, origin);
          mOptions.adjustStart = seek;
          mOptions.minSpeed = seek ? 1.0 : 0.0;
          mOptions.maxSpeed = seek ? 1.0 : mMaxSpeed;
@@ -594,7 +617,7 @@ void Scrubber::ContinueScrubbingUI()
       // Dragging scrub can stop with mouse up
       // Stop and set cursor
       bool bShift = state.ShiftDown();
-      mProject->DoPlayStopSelect(true, bShift);
+      GetMenuCommandHandler(*mProject).DoPlayStopSelect(*mProject, true, bShift);
       wxCommandEvent evt;
       mProject->GetControlToolBar()->OnStop(evt);
       return;
@@ -660,7 +683,8 @@ void Scrubber::StopScrubbing()
       const wxMouseState state(::wxGetMouseState());
       // Stop and set cursor
       bool bShift = state.ShiftDown();
-      mProject->DoPlayStopSelect(true, bShift);
+      GetMenuCommandHandler(*mProject).
+         DoPlayStopSelect(*mProject, true, bShift);
    }
 
    mScrubStartPosition = -1;
@@ -997,7 +1021,7 @@ void Scrubber::DoScrub(bool seek)
    if( !CanScrub() )
       return;
    const bool wasScrubbing = HasMark() || IsScrubbing();
-   const bool scroll = TracksPrefs::GetPinnedHeadPreference();
+   const bool scroll = ShouldScrubPinned();
    if (!wasScrubbing) {
       auto tp = mProject->GetTrackPanel();
       wxCoord xx = tp->ScreenToClient(::wxGetMouseState().GetPosition()).x;
@@ -1081,7 +1105,7 @@ const wxString &Scrubber::GetUntranslatedStateString() const
    static wxString empty;
 
    if (IsSpeedPlaying()) {
-      return(_("Playing at Speed"));
+      return XO("Playing at Speed");
    }
    else if (HasMark()) {
       auto &item = FindMenuItem(Seeks() || TemporarilySeeks());

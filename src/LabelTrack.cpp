@@ -1970,10 +1970,8 @@ bool LabelTrack::OnKeyDown(SelectedRegion &newSel, wxKeyEvent & event)
 
       case WXK_ESCAPE:
          if (mRestoreFocus >= 0) {
-            TrackListIterator iter(GetActiveProject()->GetTracks());
-            Track *track = iter.First();
-            while (track && mRestoreFocus--)
-               track = iter.Next();
+            auto track = *GetActiveProject()->GetTracks()->Any()
+               .begin().advance(mRestoreFocus);
             if (track)
                GetActiveProject()->GetTrackPanel()->SetFocusedTrack(track);
             mRestoreFocus = -1;
@@ -2103,7 +2101,8 @@ bool LabelTrack::OnChar(SelectedRegion &WXUNUSED(newSel), wxKeyEvent & event)
       gPrefs->Read(wxT("/Gui/DialogForNameNewLabel"), &useDialog, false);
       if (useDialog) {
          wxString title;
-         if (p->DialogForLabelName(charCode, title) == wxID_CANCEL) {
+         if (MenuCommandHandler::DialogForLabelName(*p, charCode, title) ==
+             wxID_CANCEL) {
             return false;
          }
          SetSelected(true);
@@ -2239,7 +2238,7 @@ void LabelTrack::OnContextMenu(wxCommandEvent & evt)
    case OnEditSelectedLabelID: {
       int ndx = GetLabelIndex(p->GetSel0(), p->GetSel1());
       if (ndx != -1)
-         p->DoEditLabels(this, ndx);
+         GetMenuCommandHandler(*p).DoEditLabels(*p, this, ndx);
    }
       break;
    }
@@ -2548,42 +2547,47 @@ Track::Holder LabelTrack::Copy(double t0, double t1, bool) const
 
 bool LabelTrack::PasteOver(double t, const Track * src)
 {
-   if (src->GetKind() != Track::Label)
+   auto result = src->TypeSwitch< bool >( [&](const LabelTrack *sl) {
+      int len = mLabels.size();
+      int pos = 0;
+
+      while (pos < len && mLabels[pos].getT0() < t)
+         pos++;
+
+      for (auto &labelStruct: sl->mLabels) {
+         LabelStruct l {
+            labelStruct.selectedRegion,
+            labelStruct.getT0() + t,
+            labelStruct.getT1() + t,
+            labelStruct.title
+         };
+         mLabels.insert(mLabels.begin() + pos++, l);
+      }
+
+      return true;
+   } );
+
+   if (! result )
       // THROW_INCONSISTENCY_EXCEPTION; // ?
-      return false;
+      ;
 
-   int len = mLabels.size();
-   int pos = 0;
-
-   while (pos < len && mLabels[pos].getT0() < t)
-      pos++;
-
-   auto sl = static_cast<const LabelTrack *>(src);
-   for (auto &labelStruct: sl->mLabels) {
-      LabelStruct l {
-         labelStruct.selectedRegion,
-         labelStruct.getT0() + t,
-         labelStruct.getT1() + t,
-         labelStruct.title
-      };
-      mLabels.insert(mLabels.begin() + pos++, l);
-   }
-
-   return true;
+   return result;
 }
 
 void LabelTrack::Paste(double t, const Track *src)
 {
-   if (src->GetKind() != Track::Label)
+   bool bOk = src->TypeSwitch< bool >( [&](const LabelTrack *lt) {
+      double shiftAmt = lt->mClipLen > 0.0 ? lt->mClipLen : lt->GetEndTime();
+
+      ShiftLabelsOnInsert(shiftAmt, t);
+      PasteOver(t, src);
+
+      return true;
+   } );
+
+   if ( !bOk )
       // THROW_INCONSISTENCY_EXCEPTION; // ?
-      return;
-
-   LabelTrack *lt = (LabelTrack *)src;
-
-   double shiftAmt = lt->mClipLen > 0.0 ? lt->mClipLen : lt->GetEndTime();
-
-   ShiftLabelsOnInsert(shiftAmt, t);
-   PasteOver(t, src);
+      ;
 }
 
 // This repeats the labels in a time interval a specified number of times.

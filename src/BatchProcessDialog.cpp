@@ -461,7 +461,7 @@ void ApplyMacroDialog::OnApplyToFiles(wxCommandEvent & WXUNUSED(event))
       auto success = GuardedCall< bool >( [&] {
          project->Import(files[i]);
          project->ZoomAfterImport(nullptr);
-         project->OnSelectAll(*project);
+         GetMenuCommandHandler(*project).OnSelectAll(*project);
          if (!mMacroCommands.ApplyMacro(mCatalog))
             return false;
 
@@ -476,6 +476,7 @@ void ApplyMacroDialog::OnApplyToFiles(wxCommandEvent & WXUNUSED(event))
       
       project->ResetProjectToEmpty();
    }
+
    Show();
    Raise();
 }
@@ -618,8 +619,11 @@ void MacrosWindow::PopulateOrExchange(ShuttleGui & S)
                S.Id(AddButtonID).AddButton(_("&New"));
                mRemove = S.Id(RemoveButtonID).AddButton(_("Remo&ve"));
                mRename = S.Id(RenameButtonID).AddButton(_("&Rename..."));
+// Not yet ready for prime time.
+#if 0
                S.Id(ImportButtonID).AddButton(_("I&mport..."))->Enable( false);
                S.Id(ExportButtonID).AddButton(_("E&xport..."))->Enable( false);
+#endif
             }
             S.EndVerticalLay();
          }
@@ -744,7 +748,8 @@ void MacrosWindow::AddItem(const wxString &Action, const wxString &Params)
 void MacrosWindow::UpdateMenus()
 {
    // OK even on mac, as dialog is modal.
-   GetActiveProject()->RebuildMenuBar();
+   auto p = GetActiveProject();
+   GetMenuCommandHandler(*p).RebuildMenuBar(*p);
 }
 
 void MacrosWindow::UpdateDisplay( bool bExpanded )

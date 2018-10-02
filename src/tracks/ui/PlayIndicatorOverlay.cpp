@@ -85,23 +85,21 @@ void PlayIndicatorOverlayBase::Draw(OverlayPanel &panel, wxDC &dc)
       for ( const auto &data : tp->Cells() )
       {
          Track *const pTrack = dynamic_cast<Track*>(data.first.get());
-         if (!pTrack)
-            continue;
-
-         // Don't draw the indicator in label tracks
-         if (pTrack->GetKind() == Track::Label)
-         {
-            continue;
-         }
-
-         // Draw the NEW indicator in its NEW location
-         // AColor::Line includes both endpoints so use GetBottom()
-         const wxRect &rect = data.second;
-         AColor::Line(dc,
-                      mLastIndicatorX,
-                      rect.GetTop(),
-                      mLastIndicatorX,
-                      rect.GetBottom());
+         if (pTrack) pTrack->TypeSwitch(
+            [](LabelTrack *) {
+               // Don't draw the indicator in label tracks
+            },
+            [&](Track *) {
+               // Draw the NEW indicator in its NEW location
+               // AColor::Line includes both endpoints so use GetBottom()
+               const wxRect &rect = data.second;
+               AColor::Line(dc,
+                            mLastIndicatorX,
+                            rect.GetTop(),
+                            mLastIndicatorX,
+                            rect.GetBottom());
+            }
+         );
       }
    }
    else if(auto ruler = dynamic_cast<AdornedRulerPanel*>(&panel)) {
@@ -145,6 +143,8 @@ void PlayIndicatorOverlay::OnTimer(wxCommandEvent &event)
    }
 
    auto trackPanel = mProject->GetTrackPanel();
+   int width;
+   trackPanel->GetTracksUsableArea(&width, nullptr);
 
    if (!mProject->IsAudioActive()) {
       mNewIndicatorX = -1;
@@ -152,8 +152,6 @@ void PlayIndicatorOverlay::OnTimer(wxCommandEvent &event)
       const auto &scrubber = mProject->GetScrubber();
       if (scrubber.HasMark()) {
          auto position = scrubber.GetScrubStartPosition();
-         int width;
-         trackPanel->GetTracksUsableArea(&width, nullptr);
          const auto offset = trackPanel->GetLeftOffset();
          if(position >= trackPanel->GetLeftOffset() &&
             position < offset + width)
@@ -166,9 +164,13 @@ void PlayIndicatorOverlay::OnTimer(wxCommandEvent &event)
       // Calculate the horizontal position of the indicator
       const double playPos = viewInfo.mRecentStreamTime;
 
+      using Mode = AudacityProject::PlaybackScroller::Mode;
+      const Mode mode = mProject->GetPlaybackScroller().GetMode();
+      const bool pinned = ( mode == Mode::Pinned || mode == Mode::Right );
+
       // Use a small tolerance to avoid flicker of play head pinned all the way
       // left or right
-      const auto tolerance = 1.5 * kTimerInterval / 1000.0;
+      const auto tolerance = pinned ? 1.5 * kTimerInterval / 1000.0 : 0;
       bool onScreen = playPos >= 0.0 &&
          between_incexc(viewInfo.h - tolerance,
          playPos,
@@ -182,15 +184,21 @@ void PlayIndicatorOverlay::OnTimer(wxCommandEvent &event)
           playPos >= 0 && !onScreen ) {
          // msmeyer: But only if not playing looped or in one-second mode
          // PRL: and not scrolling with play/record head fixed
-         using Mode = AudacityProject::PlaybackScroller::Mode;
-         const Mode mode = mProject->GetPlaybackScroller().GetMode();
-         const bool pinned = ( mode == Mode::Pinned || mode == Mode::Right );
          if (!pinned &&
              mProject->mLastPlayMode != PlayMode::loopedPlay &&
              mProject->mLastPlayMode != PlayMode::oneSecondPlay &&
              !gAudioIO->IsPaused())
          {
-            mProject->TP_ScrollWindow(playPos);
+            auto newPos = playPos;
+            if (playPos < viewInfo.h) {
+               // This is possible when scrubbing backwards.
+               // We want to page leftward by (at least) a whole screen, not
+               // just a little bit equal to the scrubbing poll interval
+               // duration.
+               newPos = viewInfo.OffsetTimeByPixels( newPos, -width );
+               newPos = std::max( newPos, mProject->ScrollingLowerBoundTime() );
+            }
+            mProject->TP_ScrollWindow(newPos);
             // Might yet be off screen, check it
             onScreen = playPos >= 0.0 &&
             between_incexc(viewInfo.h,

@@ -541,49 +541,40 @@ struct AudioIO::ScrubState
    }
 
    void Get(sampleCount &startSample, sampleCount &endSample,
-         sampleCount &duration)
+         sampleCount inDuration, sampleCount &duration)
    {
       // Called by the thread that calls AudioIO::FillBuffers
       startSample = endSample = duration = -1LL;
-      Duration dd { *this };
-      if (dd.duration <= 0)
-         return;
 
       Message message( mMessage.Read() );
       if ( !mStarted ) {
+         // Make some initial silence
          const sampleCount s0 { llrint( mRate *
             std::max( message.options.minTime,
                std::min( message.options.maxTime, mStartTime ) ) ) };
-         const sampleCount s1 ( message.options.bySpeed
-            ? s0.as_double() +
-               llrint(dd.duration.as_double() * message.end) // end is a speed
-            : llrint(message.end * mRate)            // end is a time
-         );
-         auto actualDuration = std::max(sampleCount{1}, dd.duration);
-         auto success = mData.Init(nullptr,
-            s0, s1, actualDuration, message.options, mRate);
-         if ( !success ) {
-            // If not, we can wait to enqueue again later
-            dd.Cancel();
-            return;
-         }
+         mData.mS0 = mData.mS1 = s0;
+         mData.mGoal = -1;
+         mData.mDuration = duration = inDuration;
+         mData.mSilence = 0;
          mStarted = true;
       }
       else {
          Data newData;
-         auto previous = &mData;
+         inDuration += mAccumulatedSeekDuration;
 
          // Use the previous end as NEW start.
-         const auto s0 = previous->mS1;
+         const auto s0 = mData.mS1;
          const sampleCount s1 ( message.options.bySpeed
             ? s0.as_double() +
-               lrint(dd.duration.as_double() * message.end) // end is a speed
+               lrint(inDuration.as_double() * message.end) // end is a speed
             : lrint(message.end * mRate)            // end is a time
          );
          auto success =
-            newData.Init(previous, s0, s1, dd.duration, message.options, mRate);
-         if ( !success ) {
-            dd.Cancel();
+            newData.Init(mData, s0, s1, inDuration, message.options, mRate);
+         if (success)
+            mAccumulatedSeekDuration = 0;
+         else {
+            mAccumulatedSeekDuration += inDuration;
             return;
          }
          mData = newData;
@@ -639,10 +630,11 @@ private:
          , mSilence(0)
       {}
 
-      bool Init(Data *previous, sampleCount s0, sampleCount s1,
+      bool Init(Data &rPrevious, sampleCount s0, sampleCount s1,
          sampleCount duration,
          const ScrubbingOptions &options, double rate)
       {
+         auto previous = &rPrevious;
          auto origDuration = duration;
          mSilence = 0;
 
@@ -665,7 +657,6 @@ private:
             adjustedSpeed = true;
          }
          else if (!adjustStart &&
-            previous &&
             previous->mGoal >= 0 &&
             previous->mGoal == s1)
          {
@@ -776,39 +767,11 @@ private:
       sampleCount mSilence;
    };
 
-   using Clock = std::chrono::steady_clock;
-
-   struct Duration {
-      Duration (ScrubState &queue_) : queue(queue_)
-      {
-         do {
-            clockTime = Clock::now();
-            using Seconds = std::chrono::duration<double>;
-            const auto elapsed = std::chrono::duration_cast<Seconds>(
-               clockTime - queue.mLastScrubTime);
-            duration = static_cast<long long>( queue.mRate * elapsed.count() );
-         } while( duration <= 0 && (::wxMilliSleep(1), true) );
-      }
-      ~Duration ()
-      {
-         if(!cancelled)
-            queue.mLastScrubTime = clockTime;
-      }
-
-      void Cancel() { cancelled = true; }
-
-      ScrubState &queue;
-      Clock::time_point clockTime;
-      sampleCount duration;
-      bool cancelled { false };
-   };
-
    double mStartTime;
    bool mStarted{ false };
    std::atomic<bool> mStopped { false };
    Data mData;
    const double mRate;
-   Clock::time_point mLastScrubTime { Clock::now() };
    struct Message {
       Message() = default;
       Message(const Message&) = default;
@@ -816,6 +779,7 @@ private:
       ScrubbingOptions options;
    };
    MessageBuffer<Message> mMessage;
+   sampleCount mAccumulatedSeekDuration{};
 };
 #endif
 
@@ -1927,20 +1891,17 @@ int AudioIO::StartStream(const TransportTracks &tracks,
       // group determination should mimic what is done in audacityAudioCallback()
       // when calling RealtimeProcess().
       int group = 0;
-      for (size_t i = 0, cnt = mPlaybackTracks.size(); i < cnt; i++)
+      for (size_t i = 0, cnt = mPlaybackTracks.size(); i < cnt;)
       {
          const WaveTrack *vt = mPlaybackTracks[i].get();
 
-         unsigned chanCnt = 1;
-         if (vt->GetLinked())
-         {
-            i++;
-            chanCnt++;
-         }
+         // TODO: more-than-two-channels
+         unsigned chanCnt = TrackList::Channels(vt).size();
+         i += chanCnt;
 
          // Setup for realtime playback at the rate of the realtime
          // stream, not the rate of the track.
-         em.RealtimeAddProcessor(group++, chanCnt, mRate);
+         em.RealtimeAddProcessor(group++, std::min(2u, chanCnt), mRate);
       }
    }
 
@@ -2467,10 +2428,13 @@ void AudioIO::StopStream()
       // PortAudio callback can use the information that we are stopping to fade
       // out the audio.  Give PortAudio callback a chance to do so.
       mAudioThreadFillBuffersLoopRunning = false;
-      // IF we were being more careful, we would loop and test for the fade out 
-      // having been done.  But 200ms is the max we can reasonably wait here 
-      // in any case, so we should not wait longer.
-      wxMilliSleep(200);
+      long latency;
+      gPrefs->Read(  wxT("/AudioIO/LatencyDuration"), &latency, DEFAULT_LATENCY_DURATION );
+      // If we can gracefully fade out in 200ms, with the faded-out play buffers making it through 
+      // the sound card, then do so.  If we can't, don't wait around.  Just stop quickly and accept 
+      // there will be a click.
+      if( latency < 150 )
+         wxMilliSleep( latency + 50);
    }
 
    wxMutexLocker locker(mSuspendAudioThread);
@@ -3279,6 +3243,9 @@ size_t AudioIO::GetCommonlyFreePlayback()
 
 size_t AudioIO::GetCommonlyReadyPlayback()
 {
+   if (mPlaybackTracks.empty())
+      return 0;
+
    auto commonlyAvail = mPlaybackBuffers[0]->AvailForGet();
    for (unsigned i = 1; i < mPlaybackTracks.size(); ++i)
       commonlyAvail = std::min(commonlyAvail,
@@ -3812,7 +3779,7 @@ void AudioIO::FillBuffers()
       // region - then we should just fill the buffer.
       //
       // May produce a larger amount when initially priming the buffer, or
-      // perhaps again later in play to avoid unerfilling the queue and falling
+      // perhaps again later in play to avoid underfilling the queue and falling
       // behind the real-time demand on the consumer side in the callback.
       auto nReady = GetCommonlyReadyPlayback();
       auto nNeeded =
@@ -3921,7 +3888,7 @@ void AudioIO::FillBuffers()
                {
                   sampleCount startSample, endSample;
                   mScrubState->Get(
-                     startSample, endSample, mScrubDuration);
+                     startSample, endSample, available, mScrubDuration);
                   if (mScrubDuration < 0)
                   {
                      // Can't play anything
@@ -3940,12 +3907,12 @@ void AudioIO::FillBuffers()
                         mScrubSpeed = 0;
                      else
                         mScrubSpeed =
-                           double(std::abs(diff)) / mScrubDuration.as_double();
+                           double(diff) / mScrubDuration.as_double();
                      if (!mSilentScrub)
                      {
                         for (i = 0; i < mPlaybackTracks.size(); i++)
                            mPlaybackMixers[i]->SetTimesAndSpeed(
-                              startTime, endTime, mScrubSpeed);
+                              startTime, endTime, fabs( mScrubSpeed ));
                      }
                      mTimeQueue.mLastTime = startTime;
                   }
@@ -4902,47 +4869,31 @@ int AudioIO::AudioCallback(const void *inputBuffer, void *outputBuffer,
          numSolo++;
 #endif
 
-
-   // MOVE_TO: CountDroppedTracks() function
-   bool dropAllQuickly = true; //i.e. drop all channels, without any fade out.
-   for (unsigned t = 0; t < numPlaybackTracks; t++)
-   {
-      WaveTrack *vt = mPlaybackTracks[t].get();
-      bool drop = false;
-      bool dropQuickly = false;
-      bool linkFlag = false;
-      
-      if (linkFlag) {
-         linkFlag = false;
-         if (vt->GetChannelIgnoringPan() == Track::LeftChannel)
-            dropQuickly = dropQuickly && (vt->GetOldChannelGain(0) == 0.0);
-         if (vt->GetChannelIgnoringPan() == Track::RightChannel )
-            dropQuickly = dropQuickly && (vt->GetOldChannelGain(1) == 0.0);
-      }
-      else {
-         drop = mPaused;
-         dropQuickly = false;
-
+   auto dropTrack = [&] ( const WaveTrack &wt ) {
+      return mPaused || (!wt.GetSolo() && (
          // Cut if somebody else is soloing
-         if (numSolo>0 && !vt->GetSolo())
-            drop = true;
+         numSolo > 0 ||
+         // Cut if we're muted (and not soloing)
+         wt.GetMute()
+      ));
+   };
 
-         // Cut if we're muted (unless we're soloing)
-         if (vt->GetMute() && !vt->GetSolo())
-            drop = true;
+   auto doneMicrofading = [&] ( const WaveTrack &wt ) {
+      const auto channel = wt.GetChannelIgnoringPan();
+      if ((channel == Track::LeftChannel  || channel == Track::MonoChannel) &&
+         wt.GetOldChannelGain(0) != 0.0)
+         return false;
+      if ((channel == Track::RightChannel || channel == Track::MonoChannel) &&
+         wt.GetOldChannelGain(1) != 0.0)
+         return false;
+      return true;
+   };
 
-         linkFlag = vt->GetLinked();
-
-         dropQuickly = drop;
-         if (vt->GetChannelIgnoringPan() == Track::LeftChannel ||
-            vt->GetChannelIgnoringPan() == Track::MonoChannel )
-            dropQuickly = dropQuickly && (vt->GetOldChannelGain(0) == 0.0);
-         if (vt->GetChannelIgnoringPan() == Track::RightChannel ||
-            vt->GetChannelIgnoringPan() == Track::MonoChannel )
-            dropQuickly = dropQuickly && (vt->GetOldChannelGain(1) == 0.0);
-      }
-      dropAllQuickly = dropAllQuickly && dropQuickly;
-   }
+   const bool dropAllQuickly = std::all_of(
+      mPlaybackTracks.begin(), mPlaybackTracks.end(),
+      [&]( const std::shared_ptr< WaveTrack > &vt )
+         { return dropTrack( *vt ) && doneMicrofading( *vt ); }
+   );
 
 // This is a quick route, when paused and already at zero level on all channels.
 // However, we always fade-out into a pause, hence the 'dropAllQuickly' test
@@ -4990,9 +4941,6 @@ int AudioIO::AudioCallback(const void *inputBuffer, void *outputBuffer,
          // - Applying a linearly interpolated gain.
          // I would expect us not to need the fast paths, since linearly interpolated gain
          // is very cheap to process.
-         bool drop = false;
-         bool dropQuickly = false;
-         bool linkFlag = false;
 
          float *outputFloats = (float *)outputBuffer;
          for( unsigned i = 0; i < framesPerBuffer*numPlaybackChannels; i++)
@@ -5039,49 +4987,43 @@ int AudioIO::AudioCallback(const void *inputBuffer, void *outputBuffer,
          const auto toGet =
             std::min<size_t>(framesPerBuffer, GetCommonlyReadyPlayback());
 
+         bool drop = false;
+         bool dropQuickly = false;
          for (unsigned t = 0; t < numPlaybackTracks; t++)
          {
             WaveTrack *vt = mPlaybackTracks[t].get();
 
             chans[chanCnt] = vt;
 
-            if (linkFlag) {
-               linkFlag = false;
-               if (vt->GetChannelIgnoringPan() == Track::LeftChannel)
-                  dropQuickly = dropQuickly && (vt->GetOldChannelGain(0) == 0.0);
-               if (vt->GetChannelIgnoringPan() == Track::RightChannel )
-                  dropQuickly = dropQuickly && (vt->GetOldChannelGain(1) == 0.0);
-            }
+            // TODO: more-than-two-channels
+            auto nextTrack =
+               t + 1 < numPlaybackTracks
+                  ? mPlaybackTracks[t + 1].get()
+                  : nullptr;
+            bool firstChannel = vt->IsLeader();
+            bool lastChannel = !nextTrack || nextTrack->IsLeader();
+
+            if ( ! firstChannel )
+               dropQuickly = dropQuickly && doneMicrofading( *vt );
             else {
-               drop = mPaused;
-               dropQuickly = false;
+               drop = dropTrack( *vt );
 
-               // Cut if somebody else is soloing
-               if (numSolo>0 && !vt->GetSolo())
-                  drop = true;
-
-               // Cut if we're muted (unless we're soloing)
-               if (vt->GetMute() && !vt->GetSolo())
-                  drop = true;
-
-               linkFlag = vt->GetLinked();
                selected = vt->GetSelected();
-
-               // If we have a mono track, clear the right channel
-               if (!linkFlag)
-               {
+               
+               if ( lastChannel ) {
+                  // TODO: more-than-two-channels
+#if 1
+                  // If we have a mono track, clear the right channel
                   memset(tempBufs[1], 0, framesPerBuffer * sizeof(float));
+#else
+                  // clear any other channels
+                  for ( size_t c = chanCnt + 1; c < numPlaybackChannels; ++c )
+                     memset(tempBufs[c], 0, framesPerBuffer * sizeof(float));
+#endif
                }
 
-               dropQuickly = drop;
-               if (vt->GetChannelIgnoringPan() == Track::LeftChannel ||
-                  vt->GetChannelIgnoringPan() == Track::MonoChannel )
-                  dropQuickly = dropQuickly && (vt->GetOldChannelGain(0) == 0.0);
-               if (vt->GetChannelIgnoringPan() == Track::RightChannel ||
-                  vt->GetChannelIgnoringPan() == Track::MonoChannel )
-                  dropQuickly = dropQuickly && (vt->GetOldChannelGain(1) == 0.0);
+               dropQuickly = drop && doneMicrofading( *vt );
             }
-
 
 #define ORIGINAL_DO_NOT_PLAY_ALL_MUTED_TRACKS_TO_END
 #ifdef ORIGINAL_DO_NOT_PLAY_ALL_MUTED_TRACKS_TO_END
@@ -5122,7 +5064,7 @@ int AudioIO::AudioCallback(const void *inputBuffer, void *outputBuffer,
             maxLen = std::max(maxLen, len);
 
 
-            if (linkFlag)
+            if ( ! lastChannel )
             {
                continue;
             }

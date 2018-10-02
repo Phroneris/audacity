@@ -143,6 +143,16 @@ wxTopLevelWindow *ScreenshotCommand::GetFrontWindow(AudacityProject *project)
    wxWindow *front = NULL;
    wxWindow *proj = wxGetTopLevelParent(project);
 
+
+   // JKC: The code below is no longer such a good idea.
+   // We now have options to directly capture toolbars, effects, preferences.
+   // We now also may have more than one dialog open, so who is to say 
+   // which one we want to capture?  Additionally, as currently written,
+   // it may capture the screenshot dialog itself (on Linux)
+   // IF we still keep this code in future, it needs a rethink.
+   // Possibly as well as the kWindow options, we should offer kDialog options, 
+   // which attempt to do what this once did.
+#if 0
    // This is kind of an odd hack.  There's no method to enumerate all
    // possible windows, so we search the whole screen for any windows
    // that are not this one and not the given Audacity project and
@@ -156,13 +166,14 @@ wxTopLevelWindow *ScreenshotCommand::GetFrontWindow(AudacityProject *project)
          wxWindow *win = wxFindWindowAtPoint(wxPoint(x, y));
          if (win) {
             win = wxGetTopLevelParent(win);
-            if (win != mIgnore && win != proj) {
+            if (win != mIgnore && win != proj  && win->IsShown()) {
                front = win;
                break;
             }
          }
       }
    }
+#endif
 
    if (!front || !front->IsTopLevel()) {
       return (wxTopLevelWindow *)proj;
@@ -766,19 +777,13 @@ wxRect ScreenshotCommand::GetTrackRect( AudacityProject * pProj, TrackPanel * pa
       return rect;
    };
 
-   TrackListIterator iter(pProj->GetTracks());
    int count = 0;
-   for (auto t = iter.First(); t; t = iter.Next()) {
+   for (auto t : pProj->GetTracks()->Leaders()) {
       count +=  1;
       if( count > n )
       {
          wxRect r =  FindRectangle( *panel, *t );
          return r;
-      }
-      if( t->GetLinked() ){
-         t = iter.Next();
-         if( !t )
-            break;
       }
    }
    return wxRect( 0,0,0,0);

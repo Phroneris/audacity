@@ -501,18 +501,7 @@ bool MacroCommands::IsMono()
       return false;
    }
 
-   TrackListIterator iter(tracks);
-   Track *t = iter.First();
-   bool mono = true;
-   while (t) {
-      if (t->GetLinked()) {
-         mono = false;
-         break;
-      }
-      t = iter.Next();
-   }
-
-   return mono;
+   return ( tracks->Any() - &Track::IsLeader ).empty();
 }
 
 wxString MacroCommands::BuildCleanFileName(const wxString &fileName, const wxString &extension)
@@ -730,18 +719,18 @@ bool MacroCommands::ApplyEffectCommand(
    {
       if( plug->GetPluginType() == PluginTypeAudacityCommand )
          // and apply the effect...
-         res = project->DoAudacityCommand(ID, 
+         res = GetMenuCommandHandler(*project).DoAudacityCommand(ID,
             Context,
-            AudacityProject::OnEffectFlags::kConfigured |
-            AudacityProject::OnEffectFlags::kSkipState |
-            AudacityProject::OnEffectFlags::kDontRepeatLast);
+            MenuCommandHandler::OnEffectFlags::kConfigured |
+            MenuCommandHandler::OnEffectFlags::kSkipState |
+            MenuCommandHandler::OnEffectFlags::kDontRepeatLast);
       else
          // and apply the effect...
-         res = project->DoEffect(ID, 
+         res = GetMenuCommandHandler(*project).DoEffect(ID, 
             Context,
-            AudacityProject::OnEffectFlags::kConfigured |
-            AudacityProject::OnEffectFlags::kSkipState |
-            AudacityProject::OnEffectFlags::kDontRepeatLast);
+            MenuCommandHandler::OnEffectFlags::kConfigured |
+            MenuCommandHandler::OnEffectFlags::kSkipState |
+            MenuCommandHandler::OnEffectFlags::kDontRepeatLast);
    }
 
    return res;
@@ -802,7 +791,7 @@ bool MacroCommands::ApplyCommandInBatchMode( const wxString &friendlyCommand,
 {
    AudacityProject *project = GetActiveProject();
    // Recalc flags and enable items that may have become enabled.
-   project->UpdateMenus(false);
+   GetMenuCommandHandler(*project).UpdateMenus(*project, false);
    // enter batch mode...
    bool prevShowMode = project->GetShowId3Dialog();
    project->mBatchMode++;
