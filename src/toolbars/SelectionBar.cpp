@@ -116,6 +116,7 @@ SelectionBar::SelectionBar()
    // will occur.
    // Refer to bug #462 for a scenario where the division-by-zero causes
    // Audacity to fail.
+   // We expect mRate to be set from the project later.
    mRate = (double) gPrefs->Read(wxT("/SamplingRate/DefaultProjectSampleRate"),
       AudioIO::GetOptimalSupportedSampleRate());
 
@@ -341,7 +342,12 @@ void SelectionBar::Populate()
 
 void SelectionBar::UpdatePrefs()
 {
-   mRate = (double) gPrefs->Read(wxT("/SamplingRate/DefaultProjectSampleRate"), AudioIO::GetOptimalSupportedSampleRate());
+   // The project rate is no longer driven from here.
+   // When preferences change, the Project learns about it too.
+   // If necessary we can drive the SelectionBar mRate via the Project
+   // calling our SetRate().
+   // As of 13-Sep-2018, changes to the sample rate pref will only affect 
+   // creation of new projects, not the smaple rate in existing ones.
 
    wxCommandEvent e;
    e.SetInt(mStartTime->GetFormatIndex());
@@ -658,6 +664,7 @@ void SelectionBar::SetRate(double rate)
       // if the rate is actually being changed
       mRate = rate;   // update the stored rate
       mRateBox->SetValue(wxString::Format(wxT("%d"), (int)rate));
+
       // update the TimeTextCtrls if they exist
       NumericTextCtrl ** Ctrls[5] = { &mStartTime, &mEndTime, &mLengthTime, &mCenterTime, &mAudioTime };
       int i;

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-08-30 12:04+0100\n"
+"POT-Creation-Date: 2018-08-31 22:53+0100\n"
 "PO-Revision-Date: 2018-05-25 00:24+0000\n"
 "Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/klyok/audacity/language/"
@@ -13966,6 +13966,14 @@ msgstr "짧은 시간(&S):"
 msgid "Lo&ng period:"
 msgstr "긴 시간(&N):"
 
+#: src/prefs/PlaybackPrefs.cpp
+msgid "&Vari-Speed Play"
+msgstr ""
+
+#: src/prefs/PlaybackPrefs.cpp
+msgid "Always scrub un&pinned"
+msgstr ""
+
 #: src/prefs/PrefsDialog.cpp
 msgid "Audacity Preferences"
 msgstr "오데시티 환경 설정"
@@ -17255,6 +17263,11 @@ msgstr ""
 #, fuzzy
 msgid "Rhythm track duration"
 msgstr "트랙 제거"
+
+#: plug-ins/rhythmtrack.ny
+#, fuzzy
+msgid "Used if 'Number of bars' = 0"
+msgstr "반복 횟수"
 
 #: plug-ins/rhythmtrack.ny
 #, fuzzy

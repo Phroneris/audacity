@@ -1190,11 +1190,17 @@ void Ruler::Update(const TimeTrack* timetrack)// Envelope *speedEnv, long minSpe
                }
             }
          }
-         // If we've dropped minor labels through overcrowding, then don't show
-         // any of them.  We're allowed though to drop ones which correspond to the
-         // major numbers.
-         if( nDroppedMinorLabels > (mNumMajor+ (mLabelEdges ? 2:0)) )
-            mNumMinor = 0;
+      }
+
+      // If we've dropped minor labels through overcrowding, then don't show
+      // any of them.  We're allowed though to drop ones which correspond to the
+      // major numbers.
+      if( nDroppedMinorLabels > (mNumMajor+ (mLabelEdges ? 2:0)) ){
+         // Old code dropped the labels AND their ticks, like so:
+         //    mNumMinor = 0;
+         // Nowadays we just drop the labels.
+         for(i=0; i<mNumMinor; i++)
+            mMinorLabels[i].text = "";
       }
 
       // Left and Right Edges
@@ -2210,7 +2216,7 @@ public:
    static std::shared_ptr<PlayheadHandle>
    HitTest( const AudacityProject *pProject, wxCoord xx )
    {
-      if( TracksPrefs::GetPinnedHeadPreference() &&
+      if( ControlToolBar::IsTransportingPinned() &&
           pProject->IsAudioActive() )
       {
          const auto targetX = GetPlayHeadX( pProject );
@@ -2373,7 +2379,7 @@ private:
             if (!scrubber.HasMark()) {
                // Asynchronous scrub poller gets activated here
                scrubber.MarkScrubStart(
-                  event.event.m_x, TracksPrefs::GetPinnedHeadPreference(), false);
+                  event.event.m_x, Scrubber::ShouldScrubPinned(), false);
             }
          }
       }
@@ -2875,7 +2881,7 @@ auto AdornedRulerPanel::QPHandle::Click
          if(scrubber.HasMark()) {
             // We can't stop scrubbing yet (see comments in Bug 1391),
             // but we can pause it.
-            pProject->OnPause( *pProject );
+            GetMenuCommandHandler(*pProject).OnPause(*pProject);
          }
 
          // Store the initial play region state
@@ -2899,7 +2905,7 @@ void AdornedRulerPanel::HandleQPClick(wxMouseEvent &evt, wxCoord mousePosX)
    // Temporarily unlock locked play region
    if (mPlayRegionLock && evt.LeftDown()) {
       //mPlayRegionLock = true;
-      mProject->OnUnlockPlayRegion(*mProject);
+      GetMenuCommandHandler(*mProject).OnUnlockPlayRegion(*mProject);
    }
 
    mLeftDownClickUnsnapped = mQuickPlayPosUnsnapped;
@@ -3149,7 +3155,7 @@ void AdornedRulerPanel::HandleQPRelease(wxMouseEvent &evt)
       if (mPlayRegionLock) {
          // Restore Locked Play region
          SetPlayRegion(mOldPlayRegionStart, mOldPlayRegionEnd);
-         mProject->OnLockPlayRegion(*mProject);
+         GetMenuCommandHandler(*mProject).OnLockPlayRegion(*mProject);
          // and release local lock
          mPlayRegionLock = false;
       }
@@ -3171,7 +3177,7 @@ auto AdornedRulerPanel::QPHandle::Cancel
             mParent->mOldPlayRegionStart, mParent->mOldPlayRegionEnd);
          if (mParent->mPlayRegionLock) {
             // Restore Locked Play region
-            pProject->OnLockPlayRegion(*pProject);
+            GetMenuCommandHandler(*pProject).OnLockPlayRegion(*pProject);
             // and release local lock
             mParent->mPlayRegionLock = false;
          }
@@ -3287,6 +3293,8 @@ void AdornedRulerPanel::UpdateButtonStates()
    };
 
    {
+      // The button always reflects the pinned head preference, even though
+      // there is also a Playback preference that may overrule it for scrubbing
       bool state = TracksPrefs::GetPinnedHeadPreference();
       auto pinButton = static_cast<AButton*>(FindWindow(OnTogglePinnedStateID));
       if( !state )
@@ -3305,7 +3313,7 @@ void AdornedRulerPanel::UpdateButtonStates()
 
 void AdornedRulerPanel::OnTogglePinnedState(wxCommandEvent & /*event*/)
 {
-   mProject->OnTogglePinnedHead(*mProject);
+   GetMenuCommandHandler(*mProject).OnTogglePinnedHead(*mProject);
    UpdateButtonStates();
 }
 
@@ -3443,9 +3451,9 @@ void AdornedRulerPanel::OnAutoScroll(wxCommandEvent&)
 void AdornedRulerPanel::OnLockPlayRegion(wxCommandEvent&)
 {
    if (mProject->IsPlayRegionLocked())
-      mProject->OnUnlockPlayRegion(*mProject);
+      GetMenuCommandHandler(*mProject).OnUnlockPlayRegion(*mProject);
    else
-      mProject->OnLockPlayRegion(*mProject);
+      GetMenuCommandHandler(*mProject).OnLockPlayRegion(*mProject);
 }
 
 
@@ -3664,7 +3672,7 @@ void AdornedRulerPanel::DoDrawIndicator
       dc->DrawPolygon( 3, tri );
    }
    else {
-      bool pinned = TracksPrefs::GetPinnedHeadPreference();
+      bool pinned = ControlToolBar::IsTransportingPinned();
       wxBitmap & bmp = theTheme.Bitmap( pinned ? 
          (playing ? bmpPlayPointerPinned : bmpRecordPointerPinned) :
          (playing ? bmpPlayPointer : bmpRecordPointer) 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-08-30 12:04+0100\n"
+"POT-Creation-Date: 2018-08-31 22:53+0100\n"
 "PO-Revision-Date: 2017-12-01 18:06+0800\n"
 "Last-Translator: mkpoli <snowwolf1001@gmail.com>\n"
 "Language-Team: \n"
@@ -14241,6 +14241,14 @@ msgstr "短區間(&S)："
 msgid "Lo&ng period:"
 msgstr "長區間(&N)："
 
+#: src/prefs/PlaybackPrefs.cpp
+msgid "&Vari-Speed Play"
+msgstr ""
+
+#: src/prefs/PlaybackPrefs.cpp
+msgid "Always scrub un&pinned"
+msgstr ""
+
 #: src/prefs/PrefsDialog.cpp
 msgid "Audacity Preferences"
 msgstr "Audacity 偏好設定"
@@ -17601,6 +17609,11 @@ msgstr ""
 #, fuzzy
 msgid "Rhythm track duration"
 msgstr "移除軌道"
+
+#: plug-ins/rhythmtrack.ny
+#, fuzzy
+msgid "Used if 'Number of bars' = 0"
+msgstr "重複次數"
 
 #: plug-ins/rhythmtrack.ny
 #, fuzzy

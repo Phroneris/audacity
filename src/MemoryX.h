@@ -8,10 +8,6 @@
 #define safenew new
 #endif
 
-// Conditional compilation switch indicating whether to rely on
-// std:: containers knowing about rvalue references
-#undef __AUDACITY_OLD_STD__
-
 
 #include <functional>
 
@@ -322,83 +318,6 @@ static char*THIS_FILE = __FILE__;
 #endif
 #endif
 
-// Frequently, we need to use a vector or list of unique_ptr if we can, but default
-// to shared_ptr if we can't (because containers know how to copy elements only,
-// not move them).
-#ifdef __AUDACITY_OLD_STD__
-template<typename T> using movable_ptr = std::shared_ptr<T>;
-template<typename T, typename Deleter> using movable_ptr_with_deleter_base = std::shared_ptr<T>;
-#else
-template<typename T> using movable_ptr = std::unique_ptr<T>;
-template<typename T, typename Deleter> using movable_ptr_with_deleter_base = std::unique_ptr<T, Deleter>;
-#endif
-
-template<typename T, typename... Args>
-inline movable_ptr<T> make_movable(Args&&... args)
-{
-   return std::
-#ifdef __AUDACITY_OLD_STD__
-      make_shared
-#else
-      make_unique
-#endif
-      <T>(std::forward<Args>(args)...);
-}
-
-template<typename T, typename Deleter> class movable_ptr_with_deleter
-   : public movable_ptr_with_deleter_base < T, Deleter >
-{
-public:
-   // Do not expose a constructor that takes only a pointer without deleter
-   // That is important when implemented with shared_ptr
-   movable_ptr_with_deleter() {};
-   movable_ptr_with_deleter(T* p, const Deleter &d)
-      : movable_ptr_with_deleter_base<T, Deleter>( p, d ) {}
-
-#ifdef __AUDACITY_OLD_STD__
-
-   // copy
-   movable_ptr_with_deleter(const movable_ptr_with_deleter &that)
-      : movable_ptr_with_deleter_base < T, Deleter > ( that )
-   {
-   }
-
-   movable_ptr_with_deleter &operator= (const movable_ptr_with_deleter& that)
-   {
-      if (this != &that) {
-         ((movable_ptr_with_deleter_base<T, Deleter>&)(*this)) =
-            that;
-      }
-      return *this;
-   }
-
-#else
-
-   // move
-   movable_ptr_with_deleter(movable_ptr_with_deleter &&that)
-      : movable_ptr_with_deleter_base < T, Deleter > ( std::move(that) )
-   {
-   }
-
-   movable_ptr_with_deleter &operator= (movable_ptr_with_deleter&& that)
-   {
-      if (this != &that) {
-         ((movable_ptr_with_deleter_base<T, Deleter>&)(*this)) =
-         std::move(that);
-      }
-      return *this;
-   }
-
-#endif
-};
-
-template<typename T, typename Deleter, typename... Args>
-inline movable_ptr_with_deleter<T, Deleter>
-make_movable_with_deleter(const Deleter &d, Args&&... args)
-{
-   return movable_ptr_with_deleter<T, Deleter>(safenew T(std::forward<Args>(args)...), d);
-}
-
 /*
  * A deleter for pointers obtained with malloc
  */
@@ -633,8 +552,7 @@ struct IteratorRange : public std::pair<Iterator, Iterator> {
    R max( Unary unary_op = {} ) const
    {
       return this->accumulate(
-         -std::numeric_limits< R >::max(),
-         // std::numeric_limits< R >::lowest(), // TODO C++11
+         std::numeric_limits< R >::lowest(),
          (const R&(*)(const R&, const R&)) std::max,
          unary_op
       );
@@ -691,96 +609,6 @@ IteratorRange< typename Container::const_iterator >
 make_iterator_range( const Container &container )
 {
    return { container.begin(), container.end() };
-}
-
-/*
- * Transform an iterator sequence, as another iterator sequence
- */
-template <
-   typename Result,
-   typename Iterator
->
-class transform_iterator
-   : public std::iterator<
-      typename std::iterator_traits<Iterator>::iterator_category,
-      const Result
-   >
-{
-   // This takes a function on iterators themselves, not on the
-   // dereference of those iterators, in case you ever need the generality.
-   using Function = std::function< Result( const Iterator& ) >;
-
-private:
-   Iterator mIterator;
-   Function mFunction;
-
-public:
-   transform_iterator(const Iterator &iterator, const Function &function)
-      : mIterator( iterator )
-      , mFunction( function )
-   {}
-
-   transform_iterator &operator ++ ()
-      { ++this->mIterator; return *this; }
-   transform_iterator operator ++ (int)
-      { auto copy{*this}; ++this->mIterator; return copy; }
-   transform_iterator &operator -- ()
-      { --this->mIterator; return *this; }
-   transform_iterator operator -- (int)
-      { auto copy{*this}; --this->mIterator; return copy; }
-
-   typename transform_iterator::reference operator * ()
-      { return this->mFunction(this->mIterator); }
-
-   friend inline bool operator == (
-      const transform_iterator &a, const transform_iterator &b)
-      { return a.mIterator == b.mIterator; }
-   friend inline bool operator != (
-      const transform_iterator &a, const transform_iterator &b)
-      { return !(a == b); }
-};
-
-template <
-   typename Iterator,
-   typename Function
->
-transform_iterator<
-   decltype( std::declval<Function>() ( std::declval<Iterator>() ) ),
-   Iterator
->
-make_transform_iterator(const Iterator &iterator, Function function)
-{
-   return { iterator, function };
-}
-
-template < typename Function, typename Iterator > struct value_transformer
-{
-   // Adapts a function on values to a function on iterators.
-   Function function;
-
-   auto operator () (const Iterator &iterator)
-      -> decltype( function( *iterator ) ) const
-   { return this->function( *iterator ); }
-};
-
-template <
-   typename Function,
-   typename Iterator
->
-using value_transform_iterator = transform_iterator<
-   decltype( std::declval<Function>()( *std::declval<Iterator>() ) ),
-   Iterator
->;
-
-template <
-   typename Function,
-   typename Iterator
->
-value_transform_iterator< Function, Iterator >
-make_value_transform_iterator(const Iterator &iterator, Function function)
-{
-   using NewFunction = value_transformer<Function, Iterator>;
-   return { iterator, NewFunction{ function } };
 }
 
 #if !wxCHECK_VERSION(3, 1, 0)

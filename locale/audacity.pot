@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: audacity 2.3.0\n"
+"Project-Id-Version: audacity 2.3.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-08-30 12:04+0100\n"
+"POT-Creation-Date: 2018-08-31 22:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -13293,6 +13293,14 @@ msgstr ""
 msgid "Lo&ng period:"
 msgstr ""
 
+#: src/prefs/PlaybackPrefs.cpp
+msgid "&Vari-Speed Play"
+msgstr ""
+
+#: src/prefs/PlaybackPrefs.cpp
+msgid "Always scrub un&pinned"
+msgstr ""
+
 #: src/prefs/PrefsDialog.cpp
 msgid "Audacity Preferences"
 msgstr ""
@@ -16495,6 +16503,10 @@ msgstr ""
 
 #: plug-ins/rhythmtrack.ny
 msgid "Rhythm track duration"
+msgstr ""
+
+#: plug-ins/rhythmtrack.ny
+msgid "Used if 'Number of bars' = 0"
 msgstr ""
 
 #: plug-ins/rhythmtrack.ny
