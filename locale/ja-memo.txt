@@ -1,0 +1,141 @@
+
+■ Lispフォーマット
+
+  (format 出力先 フォーマット arg0 ... argN )
+                      ↓
+    ~ [[ param1 ] , ][[ param2 ] , ] ... [ paramN ][ : ][ @ ] 指定文字
+  
+    パラメータになり得るのは
+    ・整数
+    ・'      : 文字をパラメータに
+    ・V又はv : 引数を消費してそれをパラメータに
+    ・#      : 引数の残り数をパラメータに
+
+□ 単純出力 : ~N%とか書くとNの数だけ連続出力。
+  ~% : 改行。
+  ~& : カーソル位置が行頭でない場合に改行。
+  ~| : 改ページ。
+  ~~ : チルダ自体。
+
+□ 引数1個消費出力
+  ~a : Aesthetic "美的" 出力。
+       引数をprinc出力（エスケープやクォートのない出力）。
+       パラメータ mincol, colinc, minpad, padchar は、指定個数の文字列を前後に挿入する類のやつ。
+  ~s : Standard "標準" 出力。
+       引数をprin1出力（普通の、Lisp用出力）。パラメータは~aと同じ。
+  ~w : Write。なんかとにかく出力。
+  ~c : 文字。
+  ~d : 整数。
+       パラメータ mincol, padchar, commachar, comma-interval は、符号と桁埋めと桁区切り。
+  ~b : バイナリ。         パラメータは~dと同じ。
+  ~o : 8進数。            パラメータ同じ。
+  ~x : 16進数。           パラメータ同じ。
+  ~r : Radix "基数" 進数。パラメータは似たり寄ったり。
+  ~f : 浮動小数点数。
+       パラメータ w, d, k, overflowchar, padchar は、符号と桁埋めと指数と桁合わせ。
+  ~e : Exponential "指数" 浮動小数点数。e+1とか書くやつ。   パラメータは~fと似たり寄ったり。
+  ~g : General "一般" 浮動小数点数。引数の絶対値で~eか~fに。パラメータは似たり寄ったり。
+  ~$ : Monetary "通貨" 浮動小数点数。                       パラメータは似たり寄ったり。
+
+□ レイアウト調整
+  ~t        : タブ。パラメータ colnum, colinc は、位置（数）と相対化。
+  ~< ... ~> : Justification "寄せ"。中に書いたフォーマットを左寄せや右寄せにする。
+  ~(改行) :
+       直後の改行を含め、次にまともな文字が現れるまでの空白文字を全て無視する。
+       ":" で修飾すると直後の改行だけを無視、"@" だと直後の改行だけを保持。
+
+□ 制御
+  ~*, ~[ ... ~], ~{ ... ~}, ~?, ~( ... ~), ~p, ~^
+
+出典: http://super.para.media.kyoto-u.ac.jp/~tasuku/format-func.html
+
+
+■ 半角・全角間のスペース挿入則
+
+・特定の記号や約物を除き、全角と半角の間には半角スペースを入れる。
+・丸括弧は半角とし、閉じ丸括弧と開き丸括弧の間には半角スペースを入れる。
+・アクセスキーの開き丸括弧の前には半角スペースを入れないが、前が閉じ丸括弧の場合は入れる。
+
+([^\x01-\x7E「」、。～])([^\"\:\+\=\[\]\<\>\)\/\|\\ \x{00A1}-\x{FFFF}])(?!\&|\.\.)
+\1 \2
+
+(?<!\\)([^\"\:\+\-\=\[\]\<\>\(\/\|\\ \x{00A1}-\x{FFFF}])([^\x01-\x7E「」、。～♯♭])
+\1 \2
+
+\)\(
+\) \(
+
+(?<!\)) (?=\(\&)
+[delete]
+
+
+■ メモ
+
+#: plug-ins/StudioFadeOut.ny
+#, lisp-format
+msgid "Selection too short.~%It must be more than 2 samples."
+とあるが、サンプリング周波数8000Hzでは12サンプル選択してやっとこれが出なくなった。
+
+#: plug-ins/adjustable-fade.ny
+#, lisp-format
+msgid "~aPercentage values cannot be more than 1000 %."
+とあるが、別にエラーも出ず1000%以上にできる。
+
+#: plug-ins/adjustable-fade.ny
+#, lisp-format
+msgid ""
+"~adB values cannot be more than +100 dB.~%~%~\n"
+"                                 Hint: 6 dB doubles the amplitude~%~\n"
+"                                 t-6 dB halves the amplitude."
+とあるが、100dB超えにすると空のエラーが出てこれが表示されない。
+あと3行目頭のtは恐らく~tの間違いか。
+
+#: plug-ins/delay.ny
+#, lisp-format
+msgid "Number of echoes '~a' outside valid range 1 to 50.~%~a"
+という感じのがこれ含め4つあるが、いずれもここにあるエラー文ではなくもっと簡素なアラートが出る。
+
+Regular Interval Labelsが、音声を選択して適当にパラメータ入れて実行しても
+"Nyquist returned the value: 2"と出るだけでよくわからない。
+デバッグするとそれに加えて"error: bad argument type - NIL"云々というのが出るので正しい動作ではなさそう。
+
+#: plug-ins/highpass.ny plug-ins/lowpass.ny
+#, lisp-format
+msgid ""
+"Error:~%~%Frequency (~a Hz) is too high for track sample rate.~%~%~\n"
+"                   Track sample rate is ~a Hz~%~\n"
+"                   Frequency must be less than ~a Hz."
+が、訳しても効かない。
+
+リズムトラックの生成のソーステキストに"Used if 'Number ～"が無い。
+ただしpotファイルを見たらあったので、更新で追加されたのを私が適用してないだけっぽい。うっかり。
+何なら他の変なとこもそれで直るかもしれない。
+
+#: plug-ins/sample-data-export.ny
+#, lisp-format
+msgid ""
+"~a~%Sample Rate: ~a Hz. Sample values on ~a scale. ~a.~%~aLength processed: ~a ~\n"
+"                  samples, ~a seconds.~%Peak amplitude: ~a (linear) ~a dB.  Unweighted RMS: ~a dB.~%~\n"
+"                  DC offset: ~a~a"
+などのヘッダー兼ダイアログが訳しても効かない。原文との不整合はない。謎。
+HTML出力では効いてる。
+
+【サンプルデータの読み込みはファイル内に純ASCII文字しか許さないので、ファイルに出力される文字列は翻訳不能】
+
+#: plug-ins/sample-data-import.ny
+#, lisp-format
+msgid ""
+"Error~%~\n"
+"                        '~a' could not be opened.~%~\n"
+"                        Check that file exists."
+などのダイアログも効かない。
+
+#: plug-ins/vocalrediso.ny
+msgid ""
+" - The two channels are identical, i.e. dual mono.\n"
+"   The center can't be removed.\n"
+"      Any remaining difference may be caused by lossy encoding."
+などの全ての解析ダイアログ（ただし"A fairly good value"以外）が効かない。
+A fairly～は1行なので、改行が悪さをしてるんじゃないか感がある。
+
+

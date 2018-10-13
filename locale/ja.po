@@ -8,15 +8,16 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-10-09 01:52+0900\n"
+"PO-Revision-Date: 2018-10-13 14:01+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Bookmarks: -1,3553,3637,3648,3715,-1,-1,-1,-1,-1\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -6991,13 +6992,13 @@ msgstr ""
 #: src/commands/CommandManager.cpp
 #, c-format
 msgid "Select the audio for %s to use (for example, Cmd + A to Select All) then try again."
-msgstr "%s に利用させる音声を選択 (例えば Cmd+A で全選択) してやり直してください。"
+msgstr "%s に利用させる音声を選択してやり直してください (例えば Cmd+A で全選択)。"
 
 #. i18n-hint: %s will be replaced by the name of an action, such as Normalize, Cut, Fade.
 #: src/commands/CommandManager.cpp
 #, c-format
 msgid "Select the audio for %s to use (for example, Ctrl + A to Select All) then try again."
-msgstr "%s に利用させる音声を選択 (例えば Ctrl+A で全選択) してやり直してください。"
+msgstr "%s に利用させる音声を選択してやり直してください (例えば Ctrl+A で全選択)。"
 
 #: src/commands/CommandManager.cpp
 msgid ""
@@ -10783,20 +10784,19 @@ msgstr "Audacity を LV2 エフェクト対応にします"
 
 #: src/effects/nyquist/LoadNyquist.cpp
 msgid "Nyquist Effects"
-msgstr "ナイキストエフェクト"
+msgstr "Nyquist エフェクト"
 
 #: src/effects/nyquist/LoadNyquist.cpp
 msgid "Provides Nyquist Effects support to Audacity"
-msgstr "Audacity をナイキストエフェクト対応にします"
+msgstr "Audacity を Nyquist エフェクト対応にします"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Applying Nyquist Effect..."
 msgstr "Nyquist エフェクトを適用中..."
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Nyquist Effects Prompt"
-msgstr "ナイキストエフェクト"
+msgstr "Nyquist エフェクトプロンプト"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist Prompt"
@@ -10819,7 +10819,7 @@ msgid ""
 "frequency range for the effect to act on."
 msgstr ""
 "「スペクトルエフェクト」の利用の際は、\n"
-"トラックのスペクトログラム設定から「スペクトル選択」を有効化し、\n"
+"トラックのスペクトログラム設定から [スペクトル選択] を有効化し、\n"
 "エフェクトを適用する周波数帯を選択してください。"
 
 #: src/effects/nyquist/Nyquist.cpp
@@ -10828,9 +10828,8 @@ msgid "error: File \"%s\" specified in header but not found in plug-in path.\n"
 msgstr ""
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Audio selection required."
-msgstr "終了点を選択領域の終わりに"
+msgstr "音声を選択する必要があります。"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist Error"
@@ -10852,9 +10851,8 @@ msgstr ""
 "(サンプリング周波数 44100 Hz の場合、約 13.5 時間)"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Debug Output: "
-msgstr "Nyquist 出力"
+msgstr "デバッグ出力: "
 
 #. i18n-hint: An effect "returned" a message.
 #: src/effects/nyquist/Nyquist.cpp
@@ -10891,7 +10889,7 @@ msgstr "プラグイン名"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned the value:"
-msgstr "Nyquist が返した値: "
+msgstr "Nyquist が返した値:"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned too many audio channels.\n"
@@ -10906,13 +10904,12 @@ msgid "Nyquist returned an empty array.\n"
 msgstr "Nyquist は空のアレイを返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Nyquist returned nil audio.\n"
-msgstr "Nyquist は音声を返しませんでした。\n"
+msgstr "Nyquist は nil 音声を返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "[Warning: Nyquist returned invalid UTF-8 string, converted here as Latin-1]"
-msgstr "[警告: Nyquist は不正な UTF-8 文字列を返しましたので、Latin-1 に変換しました。]"
+msgstr "[警告: Nyquist が不正な UTF-8 文字列を返したので、ここでは Latin-1 に変換しました。]"
 
 #: src/effects/nyquist/Nyquist.cpp
 #, fuzzy, c-format
@@ -10974,7 +10971,7 @@ msgstr ""
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Enter Nyquist Command: "
-msgstr "Nyquist コマンドを入力:"
+msgstr "Nyquist コマンドを入力: "
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "&Use legacy (version 3) syntax."
@@ -11025,14 +11022,12 @@ msgstr ""
 
 #: src/effects/nyquist/Nyquist.cpp src/widgets/wxPanelWrapper.h
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Select a file"
-msgstr "MIDI ファイルを選択..."
+msgstr "ファイルを選択"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Save file as"
-msgstr "ファイル保存"
+msgstr "名前を付けて保存"
 
 #: src/effects/nyquist/Nyquist.cpp src/export/Export.cpp
 #: src/export/ExportMultiple.cpp
@@ -11079,7 +11074,7 @@ msgstr "プログラム"
 #. It is not an abbreviation for anything.  See http://vamp-plugins.org
 #: src/effects/vamp/VampEffect.h
 msgid "Vamp"
-msgstr ""
+msgstr "Vamp"
 
 #: src/export/Export.cpp
 msgid "No format specific options"
@@ -16194,7 +16189,7 @@ msgstr "%d～%d の範囲外"
 
 #: src/widgets/valnum.cpp
 msgid "Value overflow"
-msgstr "値がオーバーフロー"
+msgstr "値のオーバーフロー"
 
 #: src/widgets/valnum.cpp
 msgid "Too many decimal digits"
@@ -16249,18 +16244,16 @@ msgid "Could not load file: \"%s\""
 msgstr "ファイルが開けません:「%s」"
 
 #: plug-ins/SilenceMarker.ny
-#, fuzzy
 msgid "Silence Finder"
-msgstr "無音ジェネレータ"
+msgstr "無音の検出"
 
 #: plug-ins/SilenceMarker.ny
-#, fuzzy
 msgid "Finding silence..."
-msgstr "無音の短縮中..."
+msgstr "無音の検出中..."
 
 #: plug-ins/SilenceMarker.ny
 msgid "Alex S. Brown"
-msgstr ""
+msgstr "Alex S. Brown"
 
 #: plug-ins/SilenceMarker.ny plug-ins/SoundFinder.ny
 #: plug-ins/SpectralEditMulti.ny plug-ins/SpectralEditParametricEQ.ny
@@ -16273,87 +16266,81 @@ msgstr ""
 #: plug-ins/sample-data-import.ny plug-ins/tremolo.ny plug-ins/vocalrediso.ny
 #: plug-ins/vocalremover.ny plug-ins/vocoder.ny
 msgid "Released under terms of the GNU General Public License version 2"
-msgstr ""
+msgstr "GNU General Public License version 2 の下に公開"
 
 #: plug-ins/SilenceMarker.ny plug-ins/SoundFinder.ny
 msgid "Treat audio below this level as silence [ -dB]"
-msgstr ""
+msgstr "この値未満のレベルの音声を無音と見なす [-dB]"
 
 #: plug-ins/SilenceMarker.ny
-#, fuzzy
 msgid "Minimum duration of silence [seconds]"
-msgstr "最小検出間隔: 0.001 秒"
+msgstr "最小無音間隔 [秒]"
 
 #: plug-ins/SilenceMarker.ny
 msgid "Label placement [seconds before silence ends]"
-msgstr ""
+msgstr "無音終端直前のラベル位置 [秒]"
 
 #: plug-ins/SilenceMarker.ny
 #, lisp-format
 msgid "No silences found. Try reducing the silence~%level and minimum silence duration."
-msgstr ""
+msgstr "無音は検出されませんでした。~%無音レベルや無音間隔を小さくしてみてください。"
 
 #: plug-ins/SoundFinder.ny
-#, fuzzy
 msgid "Sound Finder"
-msgstr "無音ジェネレータ"
+msgstr "音声の検出"
 
 #: plug-ins/SoundFinder.ny
-#, fuzzy
 msgid "Finding sound..."
-msgstr "クリッピングの検出..."
+msgstr "音声の検出中..."
 
 #: plug-ins/SoundFinder.ny
 msgid "Jeremy R. Brown"
-msgstr ""
+msgstr "Jeremy R. Brown"
 
 #: plug-ins/SoundFinder.ny
-#, fuzzy
 msgid "Minimum duration of silence between sounds [seconds]"
-msgstr "最小検出間隔: 0.001 秒"
+msgstr "音声間の最小無音間隔 [秒]"
 
 #: plug-ins/SoundFinder.ny
 msgid "Label starting point [seconds before sound starts]"
-msgstr ""
+msgstr "音声始端直前のラベル位置 [秒]"
 
 #: plug-ins/SoundFinder.ny
 msgid "Label ending point [seconds after sound ends]"
-msgstr ""
+msgstr "音声終端直後のラベル位置 [秒]"
 
 #: plug-ins/SoundFinder.ny
 msgid "Add a label at the end of the track? [No=0, Yes=1]"
-msgstr ""
+msgstr "トラックの末尾にラベルを追加 [いいえ=0、はい=1]"
 
 #: plug-ins/SoundFinder.ny
 #, lisp-format
 msgid "No sounds found. Try reducing the silence~%level and minimum silence duration."
-msgstr ""
+msgstr "音声は検出されませんでした。~%無音レベルや無音間隔を小さくしてみてください。"
 
 #: plug-ins/SoundFinder.ny
 msgid "[End]"
-msgstr ""
+msgstr "[終]"
 
 #: plug-ins/SpectralEditMulti.ny
-#, fuzzy
 msgid "Spectral edit multi tool"
-msgstr "スペクトルの選択"
+msgstr "スペクトル編集: マルチツール"
 
 #: plug-ins/SpectralEditMulti.ny plug-ins/SpectralEditParametricEQ.ny
 #: plug-ins/SpectralEditShelves.ny
-#, fuzzy
 msgid "Filtering..."
-msgstr "FilterLength"
+msgstr "フィルター適用中..."
 
 #: plug-ins/SpectralEditMulti.ny plug-ins/SpectralEditParametricEQ.ny
 #: plug-ins/SpectralEditShelves.ny
 msgid "Paul Licameli"
-msgstr ""
+msgstr "Paul Licameli"
 
 #: plug-ins/SpectralEditMulti.ny plug-ins/SpectralEditParametricEQ.ny
 #: plug-ins/SpectralEditShelves.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~aPlease select frequencies."
-msgstr "周波数"
+msgstr "~a周波数を選択してください。"
 
 #: plug-ins/SpectralEditMulti.ny
 #, lisp-format
@@ -16362,6 +16349,8 @@ msgid ""
 "                       frequencies are both ~a Hz).~%~\n"
 "                       Please select a frequency range."
 msgstr ""
+"~a帯域幅がゼロです（選択周波数が上下ともに ~a Hz）。~%~\n"
+"幅のある周波数選択をしてください。"
 
 #: plug-ins/SpectralEditMulti.ny
 #, lisp-format
@@ -16370,36 +16359,38 @@ msgid ""
 "                      Try increasing the low frequency bound~%~\n"
 "                      or reduce the filter 'Width'."
 msgstr ""
+"~aノッチフィルターのパラメータを適用できませんでした。~%~\n"
+"低域周波数を高くするか、フィルタリングする帯域幅を~%~\n"
+"狭くしてみてください。"
 
 #: plug-ins/SpectralEditMulti.ny plug-ins/SpectralEditParametricEQ.ny
 #: plug-ins/SpectralEditShelves.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error.~%"
-msgstr "エラー"
+msgstr "エラー。~%"
 
 #: plug-ins/SpectralEditParametricEQ.ny
-#, fuzzy
 msgid "Spectral edit parametric EQ"
-msgstr "スペクトルの選択"
+msgstr "スペクトル編集: パラメトリック EQ"
 
 #: plug-ins/SpectralEditParametricEQ.ny plug-ins/SpectralEditShelves.ny
 msgid "Gain (dB)"
 msgstr "ゲイン (dB)"
 
 #: plug-ins/SpectralEditParametricEQ.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~aLow frequency is undefined."
-msgstr "秒であらわされる周波数へ"
+msgstr "~a低域周波数が未定義です。"
 
 #: plug-ins/SpectralEditParametricEQ.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~aHigh frequency is undefined."
-msgstr "秒であらわされる周波数へ"
+msgstr "~a高域周波数が未定義です。"
 
 #: plug-ins/SpectralEditParametricEQ.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~aCenter frequency must be above 0 Hz."
-msgstr "最低周波数は少なくとも 0Hz でなければなりません。"
+msgstr "~a中央周波数は 0Hz より大きくなければなりません。"
 
 #: plug-ins/SpectralEditParametricEQ.ny
 #, lisp-format
@@ -16408,6 +16399,8 @@ msgid ""
 "                        For the current track, the high frequency setting cannot~%~\n"
 "                        be greater than ~a Hz"
 msgstr ""
+"~aトラックのサンプリング周波数より高い周波数が選択されています。~%~\n"
+"現在のトラックでは、高域周波数の設定が ~a Hzを超えてはいけません"
 
 #: plug-ins/SpectralEditParametricEQ.ny plug-ins/SpectralEditShelves.ny
 #, lisp-format
@@ -16416,170 +16409,146 @@ msgid ""
 "                         frequencies are both ~a Hz).~%~\n"
 "                         Please select a frequency range."
 msgstr ""
+"~a帯域幅がゼロです（選択周波数が上下ともに ~a Hz）。~%~\n"
+"幅のある周波数選択をしてください。"
 
 #: plug-ins/SpectralEditShelves.ny
-#, fuzzy
 msgid "Spectral edit shelves"
-msgstr "スペクトルの選択"
+msgstr "スペクトル編集: シェルビング"
 
 #: plug-ins/StudioFadeOut.ny
-#, fuzzy
 msgid "Studio Fade Out"
-msgstr "フェードアウト"
+msgstr "スタジオフェードアウト"
 
 #: plug-ins/StudioFadeOut.ny plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Applying Fade..."
-msgstr "適用中..."
+msgstr "フェードを適用中..."
 
 #: plug-ins/StudioFadeOut.ny plug-ins/adjustable-fade.ny
 #: plug-ins/crossfadeclips.ny plug-ins/crossfadetracks.ny plug-ins/delay.ny
 #: plug-ins/equalabel.ny plug-ins/limiter.ny plug-ins/sample-data-export.ny
 #: plug-ins/sample-data-import.ny plug-ins/tremolo.ny plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Steve Daulton"
-msgstr "Steve Daulton による"
+msgstr "Steve Daulton"
 
 #: plug-ins/StudioFadeOut.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Selection too short.~%It must be more than 2 samples."
-msgstr "選択範囲は %d サンプル以上でなくてはなりません。"
+msgstr "選択範囲が短すぎます。2 サンプル以上選択する必要があります。"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Adjustable Fade"
-msgstr "パンの調整。"
+msgstr "高度なフェード"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Fade Type"
-msgstr "フィルター形式(&F):"
+msgstr "フェードの種類"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Fade Up"
 msgstr "フェードイン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Fade Down"
-msgstr "フェードイン"
+msgstr "フェードアウト"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "S-Curve Up"
-msgstr "カーブ名"
+msgstr "S 字曲線フェードイン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "S-Curve Down"
-msgstr "下へ"
+msgstr "S 字曲線フェードアウト"
 
 #: plug-ins/adjustable-fade.ny
 msgid "Mid-fade Adjust (%)"
-msgstr ""
+msgstr "曲線調整 (%)"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Start/End as"
-msgstr "開始"
+msgstr "開始値/終了値の単位"
 
 #: plug-ins/adjustable-fade.ny
 msgid "% of Original"
-msgstr ""
+msgstr "原音の割合 (%)"
 
-#  i18n-hint: Title of the Gain slider, used to adjust the volume
-#  i18n-hint: Title of the Gain slider, used to adjust the volume
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "dB Gain"
-msgstr "ゲイン調整"
+msgstr "ゲイン (dB)"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Start (or end)"
-msgstr "開始"
+msgstr "開始 (または終了)"
 
 #: plug-ins/adjustable-fade.ny
 msgid "End (or start)"
-msgstr ""
+msgstr "終了 (または開始)"
 
 #: plug-ins/adjustable-fade.ny
 msgid "Handy Presets (override controls)"
-msgstr ""
+msgstr "お手軽プリセット (パラメータを上書きします)"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "None Selected"
-msgstr "選択"
+msgstr "選択なし"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Linear In"
-msgstr "リニア"
+msgstr "直線イン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Linear Out"
-msgstr "リニア"
+msgstr "直線アウト"
 
 #: plug-ins/adjustable-fade.ny
 msgid "Exponential In"
-msgstr ""
+msgstr "指数的イン"
 
 #: plug-ins/adjustable-fade.ny
 msgid "Exponential Out"
-msgstr ""
+msgstr "指数的アウト"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Logarithmic In"
-msgstr "対数"
+msgstr "対数的イン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Logarithmic Out"
-msgstr "対数"
+msgstr "対数的アウト"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Rounded In"
-msgstr "フェードアウト"
+msgstr "丸イン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Rounded Out"
-msgstr "フェードアウト"
+msgstr "丸アウト"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Cosine In"
-msgstr "コサイン"
+msgstr "コサイン曲線イン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "Cosine Out"
-msgstr "コサイン"
+msgstr "コサイン曲線アウト"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "S-Curve In"
-msgstr "カーブ名"
+msgstr "S 字曲線イン"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy
 msgid "S-Curve Out"
-msgstr "カーブはすでに存在します。"
+msgstr "S 字曲線アウト"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~aPercentage values cannot be negative."
-msgstr "周波数ゲインには負は指定できません"
+msgstr "~aパーセント値に負の数値は指定できません。"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~aPercentage values cannot be more than 1000 %."
-msgstr "周波数ゲインには負は指定できません"
+msgstr "~aパーセント値に 1000% を超える数値は指定できません。"
 
 #: plug-ins/adjustable-fade.ny
 #, lisp-format
@@ -16588,254 +16557,234 @@ msgid ""
 "                                 Hint: 6 dB doubles the amplitude~%~\n"
 "                                 t-6 dB halves the amplitude."
 msgstr ""
+"~adB 値に +100dB を超える数値は指定できません。~%~%~\n"
+"                                 ヒント: 6dB で振幅が 2 倍に、~%~\n"
+"                                 ~t-6dB で振幅が半分になります。"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error~%~%"
-msgstr "エラー"
+msgstr "エラー~%~%"
 
 #: plug-ins/beat.ny
-#, fuzzy
 msgid "Beat Finder"
-msgstr "リピート"
+msgstr "拍の検出"
 
 #: plug-ins/beat.ny
-#, fuzzy
 msgid "Finding beats..."
-msgstr "クリッピングの検出..."
+msgstr "拍の検出中..."
 
 #: plug-ins/beat.ny
-#, fuzzy
 msgid "Threshold Percentage"
-msgstr "ノイズの閾値:"
+msgstr "閾値 (%)"
 
 #: plug-ins/clipfix.ny
-#, fuzzy
 msgid "Clip Fix"
-msgstr "クリッピング"
+msgstr "クリッピングの修復"
 
 #: plug-ins/clipfix.ny
-#, fuzzy
 msgid "Reconstructing clips..."
-msgstr "クリック音やポップ音の除去..."
+msgstr "クリッピングの修復中..."
 
 #: plug-ins/clipfix.ny
 msgid "Benjamin Schwartz and Steve Daulton"
-msgstr ""
+msgstr "Benjamin Schwartz, Steve Daulton"
 
 #: plug-ins/clipfix.ny
 msgid "Licensing confirmed under terms of the GNU General Public License version 2"
-msgstr ""
+msgstr "GNU General Public License version 2 の下にライセンス承認"
 
 #: plug-ins/clipfix.ny
 msgid "Threshold of Clipping (%)"
-msgstr ""
+msgstr "クリッピング閾値 (%)"
 
 #: plug-ins/clipfix.ny
 msgid "Reduce amplitude to allow for restored peaks (dB)"
-msgstr ""
+msgstr "修復ピークがとり得る振幅を低減 (dB)"
 
 #: plug-ins/crossfadeclips.ny
-#, fuzzy
 msgid "Crossfade Clips"
-msgstr "ノートトラック"
+msgstr "クロスフェード: クリップ"
 
 #: plug-ins/crossfadeclips.ny plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Crossfading..."
-msgstr "ノートトラック"
+msgstr "クリップのクロスフェード中..."
 
 #: plug-ins/crossfadeclips.ny
 #, lisp-format
 msgid "Error.~%Invalid selection.~%More than 2 audio clips selected."
-msgstr ""
+msgstr "エラー。~%不正な選択です。~%2 個を超える音声クリップが選択されています。"
 
 #: plug-ins/crossfadeclips.ny
 #, lisp-format
 msgid "Error.~%Invalid selection.~%Empty space at start/ end of the selection."
-msgstr ""
+msgstr "エラー。~%不正な選択です。~%選択範囲の始端または終端が空白スペースです。"
 
 #: plug-ins/crossfadeclips.ny
 #, lisp-format
 msgid "Error.~%Crossfade Clips may only be applied to one track."
-msgstr ""
+msgstr "エラー。~%クリップのクロスフェードは 1 つのトラックにだけ適用できます。"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Crossfade Tracks"
-msgstr "ノートトラック"
+msgstr "クロスフェード: トラック"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Fade type"
-msgstr "ファイルタイプ："
+msgstr "フェードの種類"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Constant Gain"
-msgstr "一定"
+msgstr "固定ゲイン"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Constant Power 1"
-msgstr "一定"
+msgstr "固定パワー 1"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Constant Power 2"
-msgstr "一定"
+msgstr "固定パワー 2"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Custom Curve"
-msgstr "トラック名"
+msgstr "カスタム曲線"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Custom curve"
-msgstr "トラック名"
+msgstr "カスタム曲線"
 
 #: plug-ins/crossfadetracks.ny
-#, fuzzy
 msgid "Fade direction"
-msgstr "直接読み込み"
+msgstr "フェード方向"
 
 #: plug-ins/crossfadetracks.ny
 msgid "Alternating Out / In"
-msgstr ""
+msgstr "アウト/インで交互"
 
 #: plug-ins/crossfadetracks.ny
 msgid "Alternating In / Out"
-msgstr ""
+msgstr "イン/アウトで交互"
 
 #: plug-ins/crossfadetracks.ny
 #, lisp-format
 msgid "Error.~%Select 2 (or more) tracks to crossfade."
-msgstr ""
+msgstr "エラー。~%クロスフェードするトラックを 2 つ以上選んでください。"
 
 #: plug-ins/delay.ny
 msgid "Delay"
 msgstr "ディレイ"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Applying Delay Effect..."
-msgstr "Nyquist エフェクトを適用中..."
+msgstr "ディレイエフェクトを適用中..."
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Delay type"
-msgstr "キータイプ"
+msgstr "ディレイの種類"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Regular"
-msgstr "矩形"
+msgstr "通常"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Bouncing Ball"
-msgstr "前後を反転"
+msgstr "ボールバウンド (間隔が徐々に狭く)"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Reverse Bouncing Ball"
-msgstr "前後を反転"
+msgstr "逆ボールバウンド (間隔が徐々に広く)"
 
 #: plug-ins/delay.ny
 msgid "Delay level per echo (dB)"
-msgstr ""
+msgstr "繰り返しごとのディレイレベル (dB)"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Delay time (seconds)"
-msgstr "ディレイ時間 (秒):"
+msgstr "ディレイ時間 (秒)"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Pitch change effect"
-msgstr "エフェクトのプレビュー"
+msgstr "ピッチ変更効果"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Pitch/Tempo"
-msgstr "ピッチとテンポの変更"
+msgstr "ピッチ/テンポ"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Low-quality Pitch Shift"
-msgstr "ピッチシフト終了値"
+msgstr "低品質ピッチシフト"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Pitch change per echo (semitones)"
-msgstr "エフェクトのプレビュー"
+msgstr "繰り返しごとのピッチ変更 (半音)"
 
 #: plug-ins/delay.ny
-#, fuzzy
 msgid "Number of echoes"
-msgstr "繰り返し回数の追加:"
+msgstr "繰り返し回数"
 
 #: plug-ins/delay.ny
 msgid "Allow duration to change"
-msgstr ""
+msgstr "余韻の分だけ音声時間を伸ばす"
 
 #: plug-ins/delay.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Number of echoes '~a' outside valid range 1 to 50.~%~a"
-msgstr "最大ノート番号は 1 から 128 までの整数でなければなりません"
+msgstr "繰り返し回数「~a」は、適正な範囲 1～50 から外れています。~%~a"
 
 #: plug-ins/delay.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Pitch change '~a' outside valid range -12 to +12 semitones.~%~a"
-msgstr "最大ノート番号は 1 から 128 までの整数でなければなりません"
+msgstr "ピッチ変更値「~a」は、適正な範囲 -12～+12 半音から外れています。~%~a"
 
 #: plug-ins/delay.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Delay time '~a' outside valid range 0 to 10 seconds.~%~a"
-msgstr "最大ノート番号は 1 から 128 までの整数でなければなりません"
+msgstr "ディレイ時間「~a」は、適正な範囲 0～10 秒から外れています。~%~a"
 
 #: plug-ins/delay.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Delay level '~a' outside valid range -30 to +6 dB.~%~a"
-msgstr "最大ノート番号は 1 から 128 までの整数でなければなりません"
+msgstr "ディレイレベル「~a」は、適正な範囲 -30～+6 dB から外れています。~%~a"
 
 #: plug-ins/delay.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error.~%~a"
-msgstr "エラー"
+msgstr "エラー。~%~a"
 
 #: plug-ins/equalabel.ny
+#, fuzzy
 msgid "Regular Interval Labels"
-msgstr ""
+msgstr "等間隔ラベル"
 
 #: plug-ins/equalabel.ny
+#, fuzzy
 msgid "Adding equally-spaced labels to the label track..."
-msgstr ""
+msgstr "ラベルトラックにラベルを等間隔で追加中..."
 
 #: plug-ins/equalabel.ny
+#, fuzzy
 msgid "Use 'Number of labels' OR 'Label interval'"
-msgstr ""
+msgstr "「ラベル数」と「ラベル間隔」のどちらを使うか"
 
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "Number of Labels"
-msgstr "繰り返し回数の追加:"
+msgstr "ラベル数"
 
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "Label Interval"
-msgstr "ラベルの編集"
+msgstr "ラベル間隔"
 
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "Number of labels"
-msgstr "繰り返し回数の追加:"
+msgstr "ラベル数"
 
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "Label interval (seconds)"
-msgstr "長さ (秒)"
+msgstr "ラベル間隔 (秒)"
 
 #: plug-ins/equalabel.ny
 msgid "Adjust label interval to fit length"
@@ -16844,7 +16793,7 @@ msgstr ""
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "Label text"
-msgstr "ラベルの編集"
+msgstr "ラベル文"
 
 #: plug-ins/equalabel.ny
 msgid "Minimum number of digits in label"
@@ -16883,53 +16832,49 @@ msgid "Begin numbering from"
 msgstr ""
 
 #: plug-ins/highpass.ny
-#, fuzzy
 msgid "High-Pass Filter"
-msgstr "クラッシックフィルター"
+msgstr "ハイパスフィルター"
 
 #: plug-ins/highpass.ny
-#, fuzzy
 msgid "Performing High-Pass Filter..."
-msgstr "クラッシック・フィルターの適用"
+msgstr "ハイパスフィルターを実行中..."
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Dominic Mazzoni"
-msgstr "Dominic Mazzoni による"
+msgstr "Dominic Mazzoni"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny plug-ins/notch.ny
 #: plug-ins/rissetdrum.ny plug-ins/tremolo.ny
 msgid "Frequency (Hz)"
-msgstr "周波数 (Hz):"
+msgstr "周波数 (Hz)"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 msgid "Roll-off (dB per octave)"
-msgstr ""
+msgstr "減衰傾度 (オクターブあたり)"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 msgid "6 dB"
-msgstr ""
+msgstr "6 dB"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 msgid "12 dB"
-msgstr ""
+msgstr "12 dB"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 msgid "24 dB"
-msgstr ""
+msgstr "24 dB"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 msgid "36 dB"
-msgstr ""
+msgstr "36 dB"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 msgid "48 dB"
-msgstr ""
+msgstr "48 dB"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny plug-ins/notch.ny
-#, fuzzy
 msgid "Frequency must be at least 0.1 Hz."
-msgstr "最低周波数は少なくとも 0Hz でなければなりません。"
+msgstr "周波数は少なくとも 0.1Hz である必要があります。"
 
 #: plug-ins/highpass.ny plug-ins/lowpass.ny
 #, lisp-format
@@ -16938,96 +16883,90 @@ msgid ""
 "                   Track sample rate is ~a Hz~%~\n"
 "                   Frequency must be less than ~a Hz."
 msgstr ""
+"エラー:~%~%周波数 (~a Hz) がトラックのサンプリング周波数に対して高すぎます。~%~%~\n"
+"トラックのサンプリング周波数は ~a Hz です。~%~\n"
+"周波数指定を ~a Hz より低くする必要があります。"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Limiter"
-msgstr "リミッタ"
+msgstr "リミッター"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Limiting..."
-msgstr "正規化..."
+msgstr "リミッターを適用中..."
 
 #: plug-ins/limiter.ny
 msgid "Type"
-msgstr "タイプ"
+msgstr "種類"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Soft Limit"
-msgstr "リミッタ"
+msgstr "ソフトなリミッター"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Hard Limit"
-msgstr "リミッタ"
+msgstr "ハードなリミッター"
 
 #. i18n-hint: clipping of wave peaks and troughs, not division of a track into clips
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Soft Clip"
-msgstr "次のツール"
+msgstr "ソフトなクリッピング"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Hard Clip"
-msgstr "クリッピングの検出"
+msgstr "ハードなクリッピング"
 
 #: plug-ins/limiter.ny
 msgid ""
 "Input Gain (dB)\n"
 "mono/Left"
 msgstr ""
+"入力ゲイン (dB)\n"
+"モノラルまたは左"
 
 #: plug-ins/limiter.ny
 msgid ""
 "Input Gain (dB)\n"
 "Right channel"
 msgstr ""
+"入力ゲイン (dB)\n"
+"右チャンネル"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Limit to (dB)"
-msgstr "レベル (dB) (&L):"
+msgstr "リミットレベル (dB)"
 
 #: plug-ins/limiter.ny
 msgid "Hold (ms)"
-msgstr ""
+msgstr "ホールド (ms)"
 
 #: plug-ins/limiter.ny
-#, fuzzy
 msgid "Apply Make-up Gain"
-msgstr "ApplyGain"
+msgstr "メイクアップゲインを適用"
 
 #: plug-ins/lowpass.ny
-#, fuzzy
 msgid "Low-Pass Filter"
-msgstr "クラッシックフィルター"
+msgstr "ローパスフィルター"
 
 #: plug-ins/lowpass.ny
-#, fuzzy
 msgid "Performing Low-Pass Filter..."
-msgstr "クラッシック・フィルターの適用"
+msgstr "ローパスフィルターを実行中..."
 
 #: plug-ins/notch.ny
-#, fuzzy
 msgid "Notch Filter"
-msgstr "フィルター長"
+msgstr "ノッチフィルター"
 
 #: plug-ins/notch.ny
-#, fuzzy
 msgid "Applying Notch Filter..."
-msgstr "レベラーを適用..."
+msgstr "ノッチフィルターを適用中..."
 
 #: plug-ins/notch.ny
-#, fuzzy
 msgid "Steve Daulton and Bill Wharrie"
-msgstr "Steve Daulton による"
+msgstr "Steve Daulton, Bill Wharrie"
 
 #: plug-ins/notch.ny
 msgid "Q (higher value reduces width)"
-msgstr ""
+msgstr "Q (大きいほど幅が狭くなります)"
 
 #: plug-ins/notch.ny
 #, lisp-format
@@ -17036,264 +16975,237 @@ msgid ""
 "                 Track sample rate is ~a Hz.~%~\n"
 "                 Frequency must be less than ~a Hz."
 msgstr ""
+"エラー:~%~%周波数 (~a Hz) がトラックのサンプリング周波数に対して高すぎます。~%~%~\n"
+"トラックのサンプリング周波数は ~a Hz です。~%~\n"
+"周波数指定を ~a Hz より低くする必要があります。"
 
 #: plug-ins/pluck.ny
 msgid "Pluck"
-msgstr ""
+msgstr "プラック"
 
 #: plug-ins/pluck.ny
-#, fuzzy
 msgid "Generating pluck sound..."
-msgstr "トーンの作成"
+msgstr "プラック音を生成中..."
 
 #: plug-ins/pluck.ny
 msgid "MIDI values for C notes: 36, 48, 60 [middle C], 72, 84, 96."
-msgstr ""
+msgstr "ドの MIDI ノート番号: 36、48、60 [中央ド]、72、84、96。"
 
 #: plug-ins/pluck.ny
 msgid "David R.Sky"
-msgstr ""
+msgstr "David R.Sky"
 
 #: plug-ins/pluck.ny
 msgid "Pluck MIDI pitch"
-msgstr ""
+msgstr "プラック MIDI 音高"
 
 #: plug-ins/pluck.ny
-#, fuzzy
 msgid "Fade-out type"
-msgstr "ファイルタイプ："
+msgstr "フェードアウトの種類"
 
 #: plug-ins/pluck.ny
 msgid "Abrupt"
-msgstr ""
+msgstr "急"
 
 #: plug-ins/pluck.ny
 msgid "Gradual"
-msgstr ""
+msgstr "緩やか"
 
 #: plug-ins/pluck.ny
-#, fuzzy
 msgid "Duration (60s max)"
-msgstr "継続時間"
+msgstr "音価 (最大 60 秒)"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Rhythm Track"
-msgstr "トラックの削除"
+msgstr "リズムトラック"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Generating Rhythm..."
-msgstr "チャープ音の作成"
+msgstr "リズムを生成中..."
 
 #: plug-ins/rhythmtrack.ny
 msgid "Tempo (bpm)"
-msgstr ""
+msgstr "テンポ (BPM)"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "30 - 300 beats/minute"
-msgstr "1 分あたりの拍数へ"
+msgstr "30～300 拍/分"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Beats per bar"
-msgstr "1 分あたりの拍数 (BPM):"
+msgstr "小節あたりの拍数"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "1 - 20 beats/measure"
-msgstr "1 分あたりの拍数へ"
+msgstr "1～20 拍/小節"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Swing amount"
-msgstr "ディストーション"
+msgstr "スウィング量"
 
 #: plug-ins/rhythmtrack.ny
 msgid "+/- 1"
-msgstr ""
+msgstr "-1～+1"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Set 'Number of bars' to zero to enable the 'Rhythm track duration'."
-msgstr ""
+msgstr "「小節数」を 0 にすると、「リズムトラックの長さ」が有効になります。"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Number of bars"
-msgstr "繰り返し回数の追加:"
+msgstr "小節数"
 
 #: plug-ins/rhythmtrack.ny
 msgid "1 - 1000 bars"
-msgstr ""
+msgstr "1～1000 小節"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Rhythm track duration"
-msgstr "トラックの削除"
+msgstr "リズムトラックの長さ"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Start time offset"
-msgstr "オフセットの開始:"
+msgstr "開始時間オフセット"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Silence before first beat"
-msgstr "最初のラベル以前の音声データを含む"
+msgstr "1 拍目の前に無音を挿入"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Beat sound"
-msgstr "リピート"
+msgstr "音色"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Metronome Tick"
-msgstr ""
+msgstr "メトロノーム"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Ping (short)"
-msgstr ""
+msgstr "電子音 (短)"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Ping (long)"
-msgstr ""
+msgstr "電子音 (長)"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Cowbell"
-msgstr ""
+msgstr "カウベル"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Resonant Noise"
-msgstr "ノイズの除去"
+msgstr "共振ノイズ"
 
 #: plug-ins/rhythmtrack.ny
-#, fuzzy
 msgid "Noise Click"
-msgstr "ノイズフロア"
+msgstr "ノイズクリック"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Drip (short)"
-msgstr ""
+msgstr "しずく (短)"
 
 #: plug-ins/rhythmtrack.ny
 msgid "Drip (long)"
-msgstr ""
+msgstr "しずく (長)"
 
 #: plug-ins/rhythmtrack.ny
 msgid "MIDI pitch of strong beat"
-msgstr ""
+msgstr "強拍の MIDI 音高"
 
 #: plug-ins/rhythmtrack.ny
 msgid "18 - 116"
-msgstr ""
+msgstr "18～116"
 
 #: plug-ins/rhythmtrack.ny
 msgid "MIDI pitch of weak beat"
-msgstr ""
+msgstr "弱拍の MIDI 音高"
 
 #: plug-ins/rhythmtrack.ny
 msgid ""
 "Set either 'Number of bars' or\n"
 "'Rhythm track duration' to greater than zero."
 msgstr ""
+"「小節数」か「リズムトラックの長さ」のどちらかを\n"
+"0 より大きい値に設定してください。"
 
 #: plug-ins/rissetdrum.ny
-#, fuzzy
 msgid "Risset Drum"
-msgstr "ノイズの作成"
+msgstr "Risset ドラム"
 
 #: plug-ins/rissetdrum.ny
-#, fuzzy
 msgid "Generating Risset Drum..."
-msgstr "ノイズの作成"
+msgstr "Risset ドラムを生成中..."
 
 #: plug-ins/rissetdrum.ny
-#, fuzzy
 msgid "Steven Jones"
-msgstr "Steve Daulton による"
+msgstr "Steven Jones"
 
 #: plug-ins/rissetdrum.ny
-#, fuzzy
 msgid "Decay (seconds)"
-msgstr "ディレイ時間 (秒):"
+msgstr "ディケイ (秒)"
 
 #: plug-ins/rissetdrum.ny
-#, fuzzy
 msgid "Center frequency of noise (Hz)"
-msgstr "中心周波数と帯域幅"
+msgstr "ノイズの中央周波数 (Hz)"
 
 #: plug-ins/rissetdrum.ny
 msgid "Width of noise band (Hz)"
-msgstr ""
+msgstr "ノイズバンドの帯域幅 (Hz)"
 
 #: plug-ins/rissetdrum.ny
 msgid "Amount of noise in mix (percent)"
-msgstr ""
+msgstr "ノイズのミックス量 (%)"
 
 #: plug-ins/rissetdrum.ny
-#, fuzzy
 msgid "Amplitude (0 - 1)"
-msgstr "振幅 (0-1):"
+msgstr "振幅 (0-1)"
 
 #: plug-ins/rms.ny
-#, fuzzy
 msgid "Left"
 msgstr "左"
 
 #: plug-ins/rms.ny
-#, fuzzy
 msgid "Right"
 msgstr "右"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Sample Data Export"
-msgstr "書き出しできません"
+msgstr "サンプルデータの書き出し"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Analyzing..."
-msgstr "適用中..."
+msgstr "解析中..."
 
 #: plug-ins/sample-data-export.ny
 msgid "Limit output to first"
-msgstr ""
+msgstr "上限先頭サンプル数"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Measurement scale"
-msgstr "計測を選択(&M)"
+msgstr "計測スケール"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Export data to"
-msgstr "音声の書き出し"
+msgstr "データ保存先"
 
 #: plug-ins/sample-data-export.ny
 msgid "Index (text files only)"
-msgstr ""
+msgstr "インデックス (テキストファイル時のみ）"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Sample Count"
-msgstr "サンプルの編集"
+msgstr "サンプル数"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Time Indexed"
-msgstr "ラベルの編集"
+msgstr "時間"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Include header information"
-msgstr "コンパイル情報"
+msgstr "ヘッダー情報を含める"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Minimal"
-msgstr "最低"
+msgstr "最低限"
 
 #: plug-ins/sample-data-export.ny
 msgid "All"
@@ -17301,76 +17213,79 @@ msgstr "すべて"
 
 #: plug-ins/sample-data-export.ny
 msgid "Optional header text"
-msgstr ""
+msgstr "ヘッダー追記文"
 
 #: plug-ins/sample-data-export.ny
 msgid "Channel layout for stereo"
-msgstr ""
+msgstr "ステレオチャンネル記述順"
 
 #. i18n-hint: Left and Right
 #: plug-ins/sample-data-export.ny
 msgid "L-R on Same Line"
-msgstr ""
+msgstr "左右を同じ行に"
 
 #: plug-ins/sample-data-export.ny
 msgid "Alternate Lines"
-msgstr ""
+msgstr "交互の行に"
 
 #. i18n-hint: L for Left
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "L Channel First"
-msgstr "%d チャンネル"
+msgstr "左チャンネルを最初に"
 
-#  i18n-hint: '-help' is the option and needs to stay in
-#  * English. This displays a list of available options
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Show messages"
-msgstr "このヘルプメッセージ"
+msgstr "メッセージを表示"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Errors Only"
-msgstr "エラー: "
+msgstr "エラー時のみ"
 
 #. i18n-hint abbreviates negative infinity
 #: plug-ins/sample-data-export.ny
 msgid "[-inf]"
-msgstr ""
+msgstr "[-∞]"
 
+# jp: ヘッダーなし＆「左チャンネルを最初に」
 #: plug-ins/sample-data-export.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Left Channel.~%~%"
-msgstr "左チャンネル"
+msgstr "左チャンネル:~%~%"
 
+# jp: ヘッダーなし＆「左チャンネルを最初に」
 #: plug-ins/sample-data-export.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~%~%Right Channel.~%~%"
-msgstr "右チャンネル"
+msgstr "~%~%右チャンネル~%~%"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~aData written to:~%~a"
-msgstr ""
+msgstr "~aデータを書き出しました:~%~a"
 
+# jp: 最低限ヘッダー
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Sample Rate: ~a Hz.  Sample values on ~a scale.~%~a~%~a"
-msgstr ""
+msgstr "サンプリング周波数: ~a Hz.  サンプル値スケール: ~a.~%~a~%~a"
 
+# jp: 標準ヘッダー（HTML）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a   ~a~%~aSample Rate: ~a Hz.~%Length processed: ~a samples ~a seconds.~a"
-msgstr ""
+msgstr "~a   ~a~%~aサンプリング周波数: ~a Hz.~%処理長さ: ~a サンプル, ~a 秒.~a"
 
+# jp: 標準ヘッダー
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid ""
 "~a   ~a~%~aSample Rate: ~a Hz. Sample values on ~a scale.~%~\n"
 "                     Length processed: ~a samples ~a seconds.~a"
 msgstr ""
+"~a   ~a~%~aサンプリング周波数: ~a Hz. サンプル値スケール: ~a.~%~\n"
+"処理長さ: ~a サンプル, ~a 秒.~a"
 
+# jp: 完全ヘッダー
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid ""
@@ -17378,107 +17293,104 @@ msgid ""
 "                  samples, ~a seconds.~%Peak amplitude: ~a (linear) ~a dB.  Unweighted RMS: ~a dB.~%~\n"
 "                  DC offset: ~a~a"
 msgstr ""
+"~a~%サンプリング周波数: ~a Hz. サンプル値スケール: ~a. ~a.~%~a処理長さ: ~a ~\n"
+"                  サンプル, ~a 秒.~%ピーク振幅: ~a (リニア), ~a dB.  重みなし RMS: ~a dB.~%~\n"
+"                  DC オフセット: ~a~a"
 
+# ja: 完全ヘッダーの最後（モノラル）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a linear, ~a dB."
-msgstr ""
+msgstr "~a (リニア), ~a dB."
 
+# ja: 完全ヘッダーの最後（ステレオ）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left: ~a lin, ~a dB | Right: ~a lin, ~a dB."
-msgstr ""
+msgstr "左: ~a (リニア), ~a dB | 右: ~a (リニア), ~a dB."
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~a samples."
-msgstr "サンプル"
+msgstr "~a サンプル."
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "~a seconds."
-msgstr "秒"
+msgstr "~a 秒."
 
 #: plug-ins/sample-data-export.ny
 msgid "Audio data analysis:"
-msgstr ""
+msgstr "音声データ解析:"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "<b>Sample Rate:</b> &nbsp;&nbsp;~a Hz."
-msgstr ""
+msgstr "<b>サンプリング周波数:</b> &nbsp;&nbsp;~a Hz."
 
 #. i18n-hint: abbreviates "decibels"
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "<b>Peak Amplitude:</b> &nbsp;&nbsp;~a (linear) &nbsp;&nbsp;~a dB."
-msgstr ""
+msgstr "<b>ピーク振幅:</b> &nbsp;&nbsp;~a (リニア), &nbsp;&nbsp;~a dB."
 
 #. i18n-hint: RMS abbreviates root-mean-square, a method of averaging a signal; there also "weighted" versions of it but this isn't that
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "<b>RMS</b> (unweighted): &nbsp;&nbsp;~a dB."
-msgstr ""
+msgstr "<b>RMS</b> (重みなし): &nbsp;&nbsp;~a dB."
 
 #. i18n-hint: DC derives from "direct current" in electronics, really means the zero frequency component of a signal
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "<b>DC Offset:</b> &nbsp;&nbsp;~a"
-msgstr ""
+msgstr "<b>DC オフセット:</b> &nbsp;&nbsp;~a"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a linear, &nbsp;&nbsp;~a dB."
-msgstr ""
+msgstr "~a (リニア), &nbsp;&nbsp;~a dB."
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left: ~a lin, ~a dB | Right: ~a linear, &nbsp;&nbsp;~a dB."
-msgstr ""
+msgstr "左: ~a (リニア), ~a dB | 右: ~a (リニア), &nbsp;&nbsp;~a dB."
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "sample data"
-msgstr "サンプルの編集"
+msgstr "サンプルデータ"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Sample #"
-msgstr "サンプル"
+msgstr "サンプル #"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Value (linear)"
-msgstr "リニア"
+msgstr "値 (リニア)"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Value (dB)"
-msgstr "トレブル (dB) (&T):"
+msgstr "値 (dB)"
 
 #: plug-ins/sample-data-export.ny
 msgid "audio sample value analysis"
-msgstr ""
+msgstr "音声サンプル値解析"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Left (linear)"
-msgstr "リニア"
+msgstr "左 (リニア)"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Right (linear)"
-msgstr "リニア"
+msgstr "右 (リニア)"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Left (dB)"
-msgstr "レベル (dB) (&L):"
+msgstr "左 (dB)"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "Right (dB)"
-msgstr "右、"
+msgstr "右 (dB)"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
@@ -17486,84 +17398,77 @@ msgid ""
 "Produced with <span>Sample Data Export</span> for\n"
 "<a href=\"~a\">Audacity</a> by Steve\n"
 "Daulton"
-msgstr ""
+msgstr "<a href=\"~a\">Audacity</a> プラグイン「<span>サンプルデータの書き出し</span>」によって生成。- Steve Daulton"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "linear"
 msgstr "リニア"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "2 channels (stereo)"
 msgstr "2 チャンネル (ステレオ)"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "1 channel (mono)"
 msgstr "1 チャンネル (モノラル)"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "One column per channel.~%"
-msgstr ""
+msgstr "1 列につき 1 チャンネル。~%"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "One row per channel.~%"
-msgstr ""
+msgstr "1 行につき 1 チャンネル。~%"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left channel then Right channel on same line.~%"
-msgstr ""
+msgstr "左チャンネル→右チャンネルの順で同じ行に併記。~%"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left and right channels on alternate lines.~%"
-msgstr ""
+msgstr "左右のチャンネルを交互の行に記録。~%"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left channel first then right channel.~%"
-msgstr ""
+msgstr "左チャンネルの後に右チャンネルを記録。~%"
 
 #: plug-ins/sample-data-export.ny
 msgid "Unspecified channel order"
-msgstr ""
+msgstr "チャンネル記述順未指定"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Error.~%\"~a\" cannot be written."
-msgstr ""
+msgstr "エラー。~%「~a」に書き込めませんでした。"
 
 #: plug-ins/sample-data-import.ny
-#, fuzzy
 msgid "Sample Data Import"
-msgstr "サンプリング周波数変換(&V):"
+msgstr "サンプルデータの取り込み"
 
 #: plug-ins/sample-data-import.ny
-#, fuzzy
 msgid "Reading and rendering samples..."
-msgstr "トラックの合成と表示"
+msgstr "サンプルを読み取り＆レンダリング中..."
 
 #: plug-ins/sample-data-import.ny
-#, fuzzy
 msgid "Select file"
-msgstr "MIDI ファイルを選択..."
+msgstr "ファイルを選択"
 
 #: plug-ins/sample-data-import.ny
 msgid "Invalid data handling"
-msgstr ""
+msgstr "不正データの扱い"
 
 #: plug-ins/sample-data-import.ny
-#, fuzzy
 msgid "Throw Error"
-msgstr "エラー"
+msgstr "エラーを表示"
 
 #: plug-ins/sample-data-import.ny
 msgid "Read as Zero"
-msgstr ""
+msgstr "0 として読み取り"
 
 #: plug-ins/sample-data-import.ny
 #, lisp-format
@@ -17572,6 +17477,9 @@ msgid ""
 "                        '~a' could not be opened.~%~\n"
 "                        Check that file exists."
 msgstr ""
+"エラー~%~\n"
+"「~a」を開けませんでした。~%~\n"
+"ファイルが存在するかどうか確認してください。"
 
 #: plug-ins/sample-data-import.ny
 #, lisp-format
@@ -17580,6 +17488,13 @@ msgid ""
 "              The file must contain only plain ASCII text.~%~\n"
 "              (Invalid byte '~a' at byte number: ~a)"
 msgstr ""
+"エラー:~%~\n"
+"ファイルはプレーン ASCII テキストだけで書かれている必要があります。~%~\n"
+"(不正バイト値「~a」がバイト番号 ~a に見つかりました)~%~\n"
+"※訳註:~%~\n"
+"「サンプルデータの書き出し」機能で書き出したファイルの場合、日本語ヘッダーのせいでこのエラーになります。~%~\n"
+"また、ヘッダーが英数字のみで書かれていたとしても、ヘッダー自体をコメントアウト (行頭セミコロン) しないとダメです。~%~\n"
+"他にも色々制限があるので、詳細はマニュアルの「Sample Data Import」記事→「Obtaining suitable data」項を参照。"
 
 #: plug-ins/sample-data-import.ny
 #, lisp-format
@@ -17588,106 +17503,98 @@ msgid ""
 "              Data must be numbers in plain ASCII text.~%~\n"
 "              '~a' is not a numeric value."
 msgstr ""
+"エラー:~%~\n"
+"データはプレーン ASCII テキストによる数値である必要があります。~%~\n"
+"「~a」は数値ではありません。~%~\n"
+"※訳註:~%~\n"
+"「サンプルデータの書き出し」機能で書き出したファイルの場合、ヘッダーがあるとこのエラーになります。~%~\n"
+"ヘッダーなどの非数値文字列は、行頭セミコロンでコメントアウトしないとダメです。~%~\n"
+"他にも色々制限があるので、詳細はマニュアルの「Sample Data Import」記事→「Obtaining suitable data」項を参照。"
 
 #: plug-ins/sample-data-import.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error.~%Unable to open file"
-msgstr "ジャンルファイルを開けません"
+msgstr "エラー。~%ファイルを開けません"
 
 #: plug-ins/tremolo.ny
 msgid "Tremolo"
-msgstr ""
+msgstr "トレモロ"
 
 #: plug-ins/tremolo.ny
-#, fuzzy
 msgid "Applying Tremolo..."
-msgstr "レベラーを適用..."
+msgstr "トレモロを適用中..."
 
 #: plug-ins/tremolo.ny
-#, fuzzy
 msgid "Waveform type"
-msgstr "波形"
+msgstr "波形の種類"
 
 #: plug-ins/tremolo.ny
-#, fuzzy
 msgid "Inverse Sawtooth"
-msgstr "のこぎり波"
+msgstr "逆のこぎり波"
 
 #: plug-ins/tremolo.ny
-#, fuzzy
 msgid "Starting phase (degrees)"
-msgstr "LFO 初期位相 (角度):"
+msgstr "LFO 初期位相 (度)"
 
 #: plug-ins/tremolo.ny
-#, fuzzy
 msgid "Wet level (percent)"
-msgstr "2-レベル"
+msgstr "ウェットレベル (%)"
 
 #: plug-ins/vocalrediso.ny
 msgid "Vocal Reduction and Isolation"
-msgstr ""
+msgstr "ボーカルの低減と分離"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Applying Action..."
-msgstr "適用中..."
+msgstr "アクションを適用中..."
 
 #: plug-ins/vocalrediso.ny
 msgid "Robert Haenggi"
-msgstr ""
+msgstr "Robert Haenggi"
 
 #: plug-ins/vocalrediso.ny plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Remove Vocals"
-msgstr "特殊な削除・切り取り(&E)"
+msgstr "ボーカル音を除去"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Isolate Vocals"
-msgstr "分離(&I)"
+msgstr "ボーカル音を分離"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Isolate Vocals and Invert"
-msgstr "分離(&I)"
+msgstr "ボーカル音を分離＆位相反転"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Remove Center"
-msgstr "カットラインの除去"
+msgstr "中央の音を除去"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Isolate Center"
-msgstr "中央"
+msgstr "中央の音を分離"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Isolate Center and Invert"
-msgstr "中央"
+msgstr "中央の音を分離＆位相反転"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Remove Center Classic: Mono"
-msgstr "カットラインの除去"
+msgstr "中央除去 (旧版): モノラル"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Analyze"
-msgstr "解析(&A)"
+msgstr "解析"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Strength"
-msgstr "FilterLength"
+msgstr "強度"
 
 #: plug-ins/vocalrediso.ny
 msgid "Low Cut for Vocals (Hz)"
-msgstr ""
+msgstr "ボーカル音のローカット (Hz)"
 
 #: plug-ins/vocalrediso.ny
 msgid "High Cut for Vocals (Hz)"
-msgstr ""
+msgstr "ボーカル音のハイカット (Hz)"
 
 #: plug-ins/vocalrediso.ny
 #, lisp-format
@@ -17701,11 +17608,19 @@ msgid ""
 "Variation of residuals: ~a\n"
 "y equals ~a plus ~a times x~%"
 msgstr ""
+"平均 x: ~a, y: ~a\n"
+"共分散 x y: ~a\n"
+"平均分散 x: ~a, y: ~a\n"
+"標準偏差 x: ~a, y: ~a\n"
+"相関係数: ~a\n"
+"決定係数: ~a \n"
+"残差分散: ~a\n"
+"y ＝ ~a ＋ ~a × x~%"
 
 #: plug-ins/vocalrediso.ny
 #, lisp-format
 msgid "Pan position: ~a~%The left and right channels are correlated by about ~a %. This means:~%~a~%"
-msgstr ""
+msgstr "パン位置: ~a~%左右のチャンネルの関連度はおよそ ~a % です。この意味は以下の通りです:~%~a~%"
 
 #: plug-ins/vocalrediso.ny
 msgid ""
@@ -17713,22 +17628,29 @@ msgid ""
 "   The center can't be removed.\n"
 "      Any remaining difference may be caused by lossy encoding."
 msgstr ""
+" - 2 つのチャンネルが完全に同一。言わば両モノラル。\n"
+"   中央の音を除去することはできない。\n"
+"      差が残るとしたら、それはエンコード時の劣化のせい。"
 
 #: plug-ins/vocalrediso.ny
 msgid ""
 " - The two Channels are strongly related, i.e. nearly mono or extremely panned.\n"
 "   Most likely, the center extraction will be poor."
 msgstr ""
+" - 2 つのチャンネルの関連が強い。ほぼモノラルか、あるいは極端なパン振り。\n"
+"   中央音の抽出は、十中八九貧弱なものになるはず。"
 
 #: plug-ins/vocalrediso.ny
 msgid " - A fairly good value, at least stereo in average and not too wide spread."
-msgstr ""
+msgstr " - 非常に良好な数値。少なくとも平均的なステレオ音声であり、極端な広がりはない。"
 
 #: plug-ins/vocalrediso.ny
 msgid ""
 " - An ideal value for Stereo.\n"
 "  However, the center extraction depends also on the used reverb."
 msgstr ""
+" - ステレオとして理想的な数値。\n"
+"  といっても、中央音の抽出は使われているリバーブにも依存する。"
 
 #: plug-ins/vocalrediso.ny
 msgid ""
@@ -17736,6 +17658,9 @@ msgid ""
 "   Either you have only noise or the piece is mastered in a unbalanced manner.\n"
 "   The center extraction can still be good though."
 msgstr ""
+" - 2 つのチャンネルは相互にほぼ関連していない。\n"
+"   ノイズ音源なのか、あるいは常識外れのマスタリングが施された音源なのか。\n"
+"   といっても、それなりに中央音を抽出できる可能性がある。"
 
 #: plug-ins/vocalrediso.ny
 msgid ""
@@ -17743,6 +17668,9 @@ msgid ""
 "   This can cause strange effects.\n"
 "   Especially when played by only one speaker."
 msgstr ""
+" - ステレオトラックでこそあるが、場の広がりが明らかに並外れている。\n"
+"   このような音源は、特に 1 つだけのスピーカーで再生した場合などに\n"
+"   おかしな効果になることがある。"
 
 #: plug-ins/vocalrediso.ny
 msgid ""
@@ -17751,60 +17679,54 @@ msgid ""
 "   to spread the signal over the physical distance between the speakers.\n"
 " Don't expect good results from a center removal."
 msgstr ""
+" - 2 つのチャンネルがほとんど同一。\n"
+"   明らかに疑似ステレオエフェクトが使われている\n"
+"   (スピーカー同士の物理的距離を超越した信号の広がりを狙うもの)。\n"
+" まともな中央音除去効果を期待しない方が良い。"
 
 #: plug-ins/vocalrediso.ny
 msgid "This plug-in works only with stereo tracks."
-msgstr ""
+msgstr "このプラグインはステレオトラックでのみ機能します。"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Vocal Remover"
-msgstr "トラックの削除"
+msgstr "ボーカルの除去"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Removing center-panned audio..."
-msgstr "クリック音やポップ音の除去..."
+msgstr "中央にパン振りされた音声を除去中..."
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Remove vocals or view Help"
-msgstr "特殊な削除・切り取り(&E)"
+msgstr "ボーカル音の除去またはヘルプの表示"
 
-#  i18n-hint: The name of the Help menu
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "View Help"
-msgstr "ヘルプ"
+msgstr "ヘルプの表示"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Removal choice"
-msgstr "ノイズの除去"
+msgstr "除去方法の選択"
 
 #: plug-ins/vocalremover.ny
 msgid "Simple (Entire Spectrum)"
-msgstr ""
+msgstr "単純 (スペクトル全体)"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Remove Frequency Band"
-msgstr "中心周波数:"
+msgstr "周波数帯域を指定して除去"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Retain Frequency Band"
-msgstr "リニア周波数軸"
+msgstr "周波数帯域を指定して保持"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Frequency band from (Hz)"
-msgstr "周波数 (Hz):"
+msgstr "周波数帯域の下限 (Hz)"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Frequency band to (Hz)"
-msgstr "周波数 (Hz):"
+msgstr "周波数帯域の上限 (Hz)"
 
 #: plug-ins/vocalremover.ny
 #, lisp-format
@@ -17835,6 +17757,30 @@ msgid ""
 "or bass), try 'Retain frequency band'. This only removes\n"
 "frequencies outside the limits, retaining the others."
 msgstr ""
+"ボーカルの除去は、ステレオトラックでのみ利用できます。\n"
+"音源ファイルは WAV や AIFF などの無劣化フォーマットの方が、\n"
+"MP3 などの圧縮フォーマットよりも正確に除去できます。\n"
+"除去されるのはパン振りが中央になっている (左右で等しい大きさに聞こえる)\n"
+"ボーカル音やその他の音声であり、たいていのボーカル音は\n"
+"そのようなミックスになっています。\n"
+"チャンネルを片方だけ位相反転してから両チャンネルのパンを中央に振ると、\n"
+"原音において中央で鳴っていたあらゆる音声が相殺され、聞こえなくなります。\n"
+"しかし、これでは同じく中央に配置されることの多いドラムなどの音声までもが、\n"
+"目的に反して一緒くたに消えてしまいかねません。\n"
+"そのため、もしボーカルの音域が中央に共存する他の楽器と異なっているならば、\n"
+"除去対象を特定の周波数だけに絞り込むという解決策が考えられます。~%\n"
+"ということで、ボーカルの除去では 3 種類の除去方法をお選びいただけます。\n"
+"「単純」では、片方の周波数スペクトル全体を位相反転します。\n"
+"ボーカルと一緒に中央にいる他のパートの音声も過剰に除去されてしまうかも\n"
+"しれませんので、その場合は他の方式をお試しください。\n"
+"もしボーカル音が他の音と違うピッチにあるなら (例えば女声の高域など)、\n"
+"試すべきは「周波数帯域を指定して除去」です。\n"
+"[周波数帯域の～] 欄で指定した下限‐上限間の周波数帯のみを除去します。\n"
+"元のボーカル音に対して最も効能著しい周波数範囲がどこにあるのか、\n"
+"数値を入力しながらご自身の耳で確かめてみてください。\n"
+"もしそれでも何か特定の周波数範囲にある楽器 (ドラムの低域やベースなど) が\n"
+"過度に除去されてしまうなら、「周波数帯域を指定して保持」をお試しください。\n"
+"これは範囲外の周波数のものを取り除き、範囲内のものを保持する機能です。"
 
 #: plug-ins/vocalremover.ny
 #, lisp-format
@@ -17844,6 +17790,10 @@ msgid ""
 "channels, use 'Make Stereo Track' on the Track~%~\n"
 "Drop-Down Menu, then run Vocal Remover again.~%"
 msgstr ""
+"~%ボーカルの除去は、分離されていないステレオトラックでのみ利用できます。~%~\n"
+"左右のチャンネルが分離済みのステレオトラックに適用する場合、~%~\n"
+"トラックのドロップダウンメニューから [ステレオトラックの作成] を選び、~%~\n"
+"その後改めてボーカルの除去を実行してください。~%"
 
 #: plug-ins/vocalremover.ny
 #, lisp-format
@@ -17854,73 +17804,68 @@ msgid ""
 "              A very narrow stop-band filter may have~%~\n"
 "              unexpected results.~%~%"
 msgstr ""
+"警告:~%~\n"
+"              選択されているバンドストップフィルターは~%~\n"
+"              ~a Hz ～ ~a Hz です。~%~\n"
+"              非常に狭いバンドパスフィルターの適用は、~%~\n"
+"              予期しない結果を生むことがあります。~%~%"
 
 #: plug-ins/vocalremover.ny
-#, fuzzy
 msgid "Current settings returned the original audio."
-msgstr "Nyquist は音声を返しませんでした。\n"
+msgstr "現在の設定では原音のままの音声となりました。"
 
 #: plug-ins/vocoder.ny
 msgid "Vocoder"
-msgstr ""
+msgstr "ボコーダー"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Processing Vocoder..."
-msgstr "処理完了"
+msgstr "ボコーダー処理中..."
 
 #: plug-ins/vocoder.ny
 msgid "Edgar-RFT"
-msgstr ""
+msgstr "Edgar-RFT"
 
 #: plug-ins/vocoder.ny
 msgid "Distance: (1 to 120, default = 20)"
-msgstr ""
+msgstr "距離: (1～120、デフォルトは 20)"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Output choice"
-msgstr "再生デバイス"
+msgstr "出力の選択"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Both Channels"
-msgstr "%d チャンネル"
+msgstr "両チャンネル"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Right Only"
-msgstr "右チャンネル"
+msgstr "右チャンネルのみ"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Number of vocoder bands"
-msgstr "繰り返し回数の追加:"
+msgstr "ボコーダーバンドの数"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Amplitude of original audio (percent)"
-msgstr "周波数 (Hz):"
+msgstr "原音の振幅 (%)"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Amplitude of white noise (percent)"
-msgstr "周波数 (Hz):"
+msgstr "ホワイトノイズの振幅 (%)"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Amplitude of Radar Needles (percent)"
-msgstr "周波数 (Hz):"
+msgstr "くし歯の振幅 (%)"
 
 #: plug-ins/vocoder.ny
-#, fuzzy
 msgid "Frequency of Radar Needles (Hz)"
-msgstr "周波数 (Hz):"
+msgstr "くし歯の周波数 (Hz)"
 
 #: plug-ins/vocoder.ny
 #, lisp-format
 msgid "Error.~%Stereo track required."
-msgstr ""
+msgstr "エラー。~%ステレオトラックが必要です。"
 
 #~ msgid ""
 #~ "Latency Correction setting has caused the recorded audio to be hidden before zero.\n"
