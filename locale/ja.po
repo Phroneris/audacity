@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-08-30 12:04+0100\n"
-"PO-Revision-Date: 2018-10-13 14:01+0900\n"
+"POT-Creation-Date: 2018-10-10 15:25+0100\n"
+"PO-Revision-Date: 2018-10-13 15:06+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2211,7 +2211,7 @@ msgstr "対数周波数軸"
 #: src/effects/AutoDuck.cpp src/effects/Compressor.cpp
 #: src/effects/Equalization.cpp src/effects/Normalize.cpp
 #: src/effects/ScienFilter.cpp src/effects/TruncSilence.cpp
-#: src/widgets/Meter.cpp plug-ins/rms.ny plug-ins/sample-data-export.ny
+#: src/widgets/Meter.cpp plug-ins/sample-data-export.ny
 msgid "dB"
 msgstr "dB"
 
@@ -4617,14 +4617,6 @@ msgid "%s, %s"
 msgstr ""
 
 #: src/Menus.cpp
-msgid "Frequency Analysis"
-msgstr "周波数解析"
-
-#: src/Menus.cpp
-msgid "Contrast Analysis (WCAG 2 compliance)"
-msgstr "コントラスト解析 (WCAG2 準拠)"
-
-#: src/Menus.cpp
 #, c-format
 msgid "Imported labels from '%s'"
 msgstr "「%s」からラベルを取り込む"
@@ -5943,6 +5935,14 @@ msgstr[0] "%d 分"
 #, c-format
 msgid "%s and %s."
 msgstr "%s %s."
+
+#: src/Project.cpp
+msgid "Frequency Analysis"
+msgstr "周波数解析"
+
+#: src/Project.cpp
+msgid "Contrast Analysis (WCAG 2 compliance)"
+msgstr "コントラスト解析 (WCAG2 準拠)"
 
 #: src/Resample.cpp
 msgid "Low Quality (Fastest)"
@@ -8162,6 +8162,10 @@ msgid "You can only measure one track at a time."
 msgstr "一度に１つのトラックのみ測定できます。"
 
 #: src/effects/Contrast.cpp
+msgid "Please select an audio track."
+msgstr "音声トラックを選択してください。"
+
+#: src/effects/Contrast.cpp
 msgid ""
 "Invalid audio selection.\n"
 "Please ensure that audio is selected."
@@ -8176,10 +8180,6 @@ msgid ""
 msgstr ""
 "測定対象がありません。\n"
 "トラックの対象部分を選択してください。"
-
-#: src/effects/Contrast.cpp
-msgid "Please select an audio track."
-msgstr "音声トラックを選択してください。"
 
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
@@ -9726,6 +9726,11 @@ msgstr "ステレオ対の 1 番目のトラックを解析中: %s"
 
 #: src/effects/Normalize.cpp
 #, c-format
+msgid "Analyzing second track of stereo pair: %s"
+msgstr "ステレオ対の 2 番目のトラックを解析中: %s"
+
+#: src/effects/Normalize.cpp
+#, c-format
 msgid "Processing: %s"
 msgstr "処理中: %s"
 
@@ -9733,11 +9738,6 @@ msgstr "処理中: %s"
 #, c-format
 msgid "Processing stereo channels independently: %s"
 msgstr "ステレオチャンネルを個別処理中: %s"
-
-#: src/effects/Normalize.cpp
-#, c-format
-msgid "Analyzing second track of stereo pair: %s"
-msgstr "ステレオ対の 2 番目のトラックを解析中: %s"
 
 #: src/effects/Normalize.cpp
 #, c-format
@@ -12017,7 +12017,7 @@ msgstr "チャンネルモード:"
 msgid "Joint Stereo"
 msgstr "ジョイントステレオ"
 
-#: src/export/ExportMP3.cpp plug-ins/rms.ny
+#: src/export/ExportMP3.cpp
 msgid "Stereo"
 msgstr "ステレオ"
 
@@ -13804,6 +13804,14 @@ msgstr "ステップ (短) (&S):"
 msgid "Lo&ng period:"
 msgstr "ステップ (長) (&N):"
 
+#: src/prefs/PlaybackPrefs.cpp
+msgid "&Vari-Speed Play"
+msgstr "変速再生(&V)"
+
+#: src/prefs/PlaybackPrefs.cpp
+msgid "Always scrub un&pinned"
+msgstr "スクラブ時にピン留めを無視(&P)"
+
 #: src/prefs/PrefsDialog.cpp
 msgid "Audacity Preferences"
 msgstr "Audacity の環境設定"
@@ -15165,7 +15173,7 @@ msgstr ""
 msgid "Stop the Audio First"
 msgstr "まず音声の停止を"
 
-#: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp plug-ins/rms.ny
+#: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "Mono"
 msgstr "モノラル"
 
@@ -17064,6 +17072,10 @@ msgid "Rhythm track duration"
 msgstr "リズムトラックの長さ"
 
 #: plug-ins/rhythmtrack.ny
+msgid "Used if 'Number of bars' = 0"
+msgstr "「小節数」が 0 の場合に有効"
+
+#: plug-ins/rhythmtrack.ny
 msgid "Start time offset"
 msgstr "開始時間オフセット"
 
@@ -17158,14 +17170,6 @@ msgstr "ノイズのミックス量 (%)"
 #: plug-ins/rissetdrum.ny
 msgid "Amplitude (0 - 1)"
 msgstr "振幅 (0-1)"
-
-#: plug-ins/rms.ny
-msgid "Left"
-msgstr "左"
-
-#: plug-ins/rms.ny
-msgid "Right"
-msgstr "右"
 
 #: plug-ins/sample-data-export.ny
 msgid "Sample Data Export"
@@ -17866,6 +17870,12 @@ msgstr "くし歯の周波数 (Hz)"
 #, lisp-format
 msgid "Error.~%Stereo track required."
 msgstr "エラー。~%ステレオトラックが必要です。"
+
+#~ msgid "Left"
+#~ msgstr "左"
+
+#~ msgid "Right"
+#~ msgstr "右"
 
 #~ msgid ""
 #~ "Latency Correction setting has caused the recorded audio to be hidden before zero.\n"
