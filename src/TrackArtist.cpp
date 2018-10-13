@@ -1520,29 +1520,29 @@ void TrackArtist::DrawWaveform(TrackPanelDrawingContext &context,
    auto target2 = dynamic_cast<CutlineHandle*>(context.target.get());
 #endif
    for (const auto loc : track->GetCachedLocations()) {
-      bool highlight = false;
+      bool highlightLoc = false;
 #ifdef EXPERIMENTAL_TRACK_PANEL_HIGHLIGHTING
-      highlight =
+      highlightLoc =
          target2 && target2->GetTrack().get() == track &&
          target2->GetLocation() == loc;
 #endif
       const int xx = zoomInfo.TimeToPosition(loc.pos);
       if (xx >= 0 && xx < rect.width) {
-         dc.SetPen( highlight ? AColor::uglyPen : *wxGREY_PEN );
+         dc.SetPen( highlightLoc ? AColor::uglyPen : *wxGREY_PEN );
          AColor::Line(dc, (int) (rect.x + xx - 1), rect.y, (int) (rect.x + xx - 1), rect.y + rect.height);
          if (loc.typ == WaveTrackLocation::locationCutLine) {
-            dc.SetPen( highlight ? AColor::uglyPen : *wxRED_PEN );
+            dc.SetPen( highlightLoc ? AColor::uglyPen : *wxRED_PEN );
          }
          else {
 #ifdef EXPERIMENTAL_DA
             // JKC Black does not show up enough.
-            dc.SetPen(highlight ? AColor::uglyPen : *wxWHITE_PEN);
+            dc.SetPen(highlightLoc ? AColor::uglyPen : *wxWHITE_PEN);
 #else
-            dc.SetPen(highlight ? AColor::uglyPen : *wxBLACK_PEN);
+            dc.SetPen(highlightLoc ? AColor::uglyPen : *wxBLACK_PEN);
 #endif
          }
          AColor::Line(dc, (int) (rect.x + xx), rect.y, (int) (rect.x + xx), rect.y + rect.height);
-         dc.SetPen( highlight ? AColor::uglyPen : *wxGREY_PEN );
+         dc.SetPen( highlightLoc ? AColor::uglyPen : *wxGREY_PEN );
          AColor::Line(dc, (int) (rect.x + xx + 1), rect.y, (int) (rect.x + xx + 1), rect.y + rect.height);
       }
    }
@@ -1841,19 +1841,19 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
    // the envelope and using a colored pen for the selected
    // part of the waveform
    {
-      double t0, t1;
+      double tt0, tt1;
       if (track->GetSelected() || track->IsSyncLockSelected()) {
-         t0 = track->LongSamplesToTime(track->TimeToLongSamples(selectedRegion.t0())),
-            t1 = track->LongSamplesToTime(track->TimeToLongSamples(selectedRegion.t1()));
+         tt0 = track->LongSamplesToTime(track->TimeToLongSamples(selectedRegion.t0())),
+            tt1 = track->LongSamplesToTime(track->TimeToLongSamples(selectedRegion.t1()));
       }
       else
-         t0 = t1 = 0.0;
+         tt0 = tt1 = 0.0;
       DrawWaveformBackground(dc, leftOffset, mid,
          env,
          zoomMin, zoomMax,
          track->ZeroLevelYCoordinate(mid),
          dB, dBRange,
-         t0, t1, zoomInfo, drawEnvelope,
+         tt0, tt1, zoomInfo, drawEnvelope,
          !track->GetSelected(), highlightEnvelope);
    }
 
@@ -1899,17 +1899,19 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
       }
    }
 
+   // TODO Add a comment to say what this loop does.
+   // Possily make it into a subroutine.
    for (unsigned ii = 0; ii < nPortions; ++ii) {
       WavePortion &portion = portions[ii];
       const bool showIndividualSamples = portion.averageZoom > threshold1;
       const bool showPoints = portion.averageZoom > threshold2;
-      wxRect& rect = portion.rect;
-      rect.Intersect(mid);
-      wxASSERT(rect.width >= 0);
+      wxRect& rectPortion = portion.rect;
+      rectPortion.Intersect(mid);
+      wxASSERT(rectPortion.width >= 0);
 
       float *useMin = 0, *useMax = 0, *useRms = 0;
       int *useBl = 0;
-      WaveDisplay fisheyeDisplay(rect.width);
+      WaveDisplay fisheyeDisplay(rectPortion.width);
       int skipped = 0, skippedLeft = 0, skippedRight = 0;
       if (portion.inFisheye) {
          if (!showIndividualSamples) {
@@ -1917,12 +1919,12 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
             const auto numSamples = clip->GetNumSamples();
             // Get wave display data for different magnification
             int jj = 0;
-            for (; jj < rect.width; ++jj) {
+            for (; jj < rectPortion.width; ++jj) {
                const double time =
                   zoomInfo.PositionToTime(jj, -leftOffset) - tOffset;
                const auto sample = (sampleCount)floor(time * rate + 0.5);
                if (sample < 0) {
-                  ++rect.x;
+                  ++rectPortion.x;
                   ++skippedLeft;
                   continue;
                }
@@ -1931,9 +1933,9 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
                fisheyeDisplay.where[jj - skippedLeft] = sample;
             }
 
-            skippedRight = rect.width - jj;
+            skippedRight = rectPortion.width - jj;
             skipped = skippedRight + skippedLeft;
-            rect.width -= skipped;
+            rectPortion.width -= skipped;
 
             // where needs a sentinel
             if (jj > 0)
@@ -1941,7 +1943,7 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
                1 + fisheyeDisplay.where[jj - skippedLeft - 1];
             fisheyeDisplay.width -= skipped;
             // Get a wave display for the fisheye, uncached.
-            if (rect.width > 0)
+            if (rectPortion.width > 0)
                if (!clip->GetWaveDisplay(
                      fisheyeDisplay, t0, -1.0, // ignored
                      isLoadingOD))
@@ -1962,9 +1964,9 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
 
       leftOffset += skippedLeft;
 
-      if (rect.width > 0) {
+      if (rectPortion.width > 0) {
          if (!showIndividualSamples) {
-            std::vector<double> vEnv2(rect.width);
+            std::vector<double> vEnv2(rectPortion.width);
             double *const env2 = &vEnv2[0];
             clip->GetEnvelope()->GetValues
                ( tOffset,
@@ -1973,8 +1975,8 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
                  // and then interpolate the display
                  0, // 1.0 / rate,
 
-                 env2, rect.width, leftOffset, zoomInfo );
-            DrawMinMaxRMS(dc, rect, env2,
+                 env2, rectPortion.width, leftOffset, zoomInfo );
+            DrawMinMaxRMS(dc, rectPortion, env2,
                zoomMin, zoomMax,
                dB, dBRange,
                useMin, useMax, useRms, useBl,
@@ -1986,14 +1988,14 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
             auto target = dynamic_cast<SampleHandle*>(context.target.get());
             highlight = target && target->GetTrack().get() == track;
 #endif
-            DrawIndividualSamples(dc, leftOffset, rect, zoomMin, zoomMax,
+            DrawIndividualSamples(dc, leftOffset, rectPortion, zoomMin, zoomMax,
                dB, dBRange,
                clip, zoomInfo,
                bigPoints, showPoints, muted, highlight);
          }
       }
 
-      leftOffset += rect.width + skippedRight;
+      leftOffset += rectPortion.width + skippedRight;
    }
 
    if (drawEnvelope) {

@@ -1078,6 +1078,7 @@ bool AudacityApp::OnExceptionInMainLoop()
 
    try { throw; }
    catch ( AudacityException &e ) {
+      (void)e;// Compiler food
       // Here is the catch-all for our own exceptions
 
       // Use CallAfter to delay this to the next pass of the event loop,
@@ -1875,9 +1876,9 @@ bool AudacityApp::CreateSingleInstanceChecker(const wxString &dir)
             if (parser->GetParamCount() > 0)
             {
                // Send each parameter to existing Audacity
-               for (size_t i = 0, cnt = parser->GetParamCount(); i < cnt; i++)
+               for (size_t j = 0, cnt = parser->GetParamCount(); j < cnt; j++)
                {
-                  ok = conn->Execute(parser->GetParam(i));
+                  ok = conn->Execute(parser->GetParam(j));
                }
              }
             else
