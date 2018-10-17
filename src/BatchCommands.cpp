@@ -30,6 +30,7 @@ processing.  See also MacrosWindow and ApplyMacroDialog.
 #include "effects/EffectManager.h"
 #include "FileNames.h"
 #include "Internat.h"
+#include "Menus.h"
 #include "PluginManager.h"
 #include "Prefs.h"
 #include "Shuttle.h"
@@ -791,7 +792,7 @@ bool MacroCommands::ApplyCommandInBatchMode( const wxString &friendlyCommand,
 {
    AudacityProject *project = GetActiveProject();
    // Recalc flags and enable items that may have become enabled.
-   GetMenuCommandHandler(*project).UpdateMenus(*project, false);
+   GetMenuManager(*project).UpdateMenus(*project, false);
    // enter batch mode...
    bool prevShowMode = project->GetShowId3Dialog();
    project->mBatchMode++;

@@ -11,6 +11,7 @@
 
 #include "Audacity.h"
 #include "AudacityApp.h"
+#include "Menus.h"
 #include "Project.h"
 #include "commands/CommandContext.h"
 
@@ -42,7 +43,7 @@ void MenuCommandHandler::DoMacMinimize(AudacityProject *project)
 #endif
 
       // So that the Minimize menu command disables
-      GetMenuCommandHandler(*project).UpdateMenus(*project);
+      GetMenuManager(*project).UpdateMenus(*project);
    }
 }
 

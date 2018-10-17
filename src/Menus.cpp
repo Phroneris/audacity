@@ -11,27 +11,32 @@
 *******************************************************************//**
 
 \file Menus.cpp
-\brief All AudacityProject functions that provide the menus.
-Implements AudacityProjectCommandFunctor.
+\brief Functions that provide most of the menu actions.
 
   This file implements the method that creates the menu bar, plus
-  all of the methods that get called when you select an item
+  most of the methods that get called when you select an item
   from a menu.
-
-  All of the menu bar handling is part of the class AudacityProject,
-  but the event handlers for all of the menu items have been moved
-  to Menus.h and Menus.cpp for clarity.
 
 *//****************************************************************//**
 
-\class AudacityProjectCommandFunctor
-\brief AudacityProjectCommandFunctor, derived from CommandFunctor,
-simplifies construction of menu items.
+\class MenuCommandHandler
+\brief MenuCommandHandler contains many command handlers for individual 
+menu items.
+
+*//****************************************************************//**
+
+\class MenuCreator
+\brief MenuCreator is responsible for creating the main menu bar.
+
+*//****************************************************************//**
+
+\class MenuManager
+\brief MenuManager handles updates to menu state.
 
 *//*******************************************************************/
 
 #include "Audacity.h"
-#include "Project.h"
+#include "Menus.h"
 
 #include <cfloat>
 #include <iterator>
@@ -75,6 +80,7 @@ simplifies construction of menu items.
 #include "HistoryWindow.h"
 #include "LyricsWindow.h"
 #include "MixerBoard.h"
+#include "Project.h"
 #include "Internat.h"
 #include "FileFormats.h"
 #include "ModuleManager.h"
@@ -145,6 +151,9 @@ simplifies construction of menu items.
 MenuCommandHandler &GetMenuCommandHandler(AudacityProject &project)
 { return *project.mMenuCommandHandler; }
 
+MenuManager &GetMenuManager(AudacityProject &project)
+{ return *project.mMenuManager; }
+
 MenuCommandHandler::MenuCommandHandler()
 {
    //Initialize the last selection adjustment time.
@@ -152,6 +161,13 @@ MenuCommandHandler::MenuCommandHandler()
 }
 
 MenuCommandHandler::~MenuCommandHandler()
+{
+}
+
+MenuCreator::MenuCreator(){
+}
+
+MenuCreator::~MenuCreator()
 {
    if (wxGetApp().GetRecentFiles())
    {
@@ -309,6 +325,14 @@ static bool SortEffectsByType(const PluginDescriptor *a, const PluginDescriptor 
 
 void MenuCommandHandler::UpdatePrefs()
 {
+   gPrefs->Read(wxT("/GUI/CircularTrackNavigation"), &mCircularTrackNavigation,
+                false);
+   gPrefs->Read(wxT("/AudioIO/SeekShortPeriod"), &mSeekShort, 1.0);
+   gPrefs->Read(wxT("/AudioIO/SeekLongPeriod"), &mSeekLong, 15.0);
+}
+
+void MenuManager::UpdatePrefs()
+{
    bool bSelectAllIfNone;
    gPrefs->Read(wxT("/GUI/SelectAllOnNone"), &bSelectAllIfNone, false);
    // 0 is grey out, 1 is Autoselect, 2 is Give warnings.
@@ -320,12 +344,6 @@ void MenuCommandHandler::UpdatePrefs()
    mWhatIfNoSelection = bSelectAllIfNone ? 1 : 2;
 #endif
    mStopIfWasPaused = true;  // not configurable for now, but could be later.
-
-   gPrefs->Read(wxT("/GUI/CircularTrackNavigation"), &mCircularTrackNavigation,
-                false);
-
-   gPrefs->Read(wxT("/AudioIO/SeekShortPeriod"), &mSeekShort, 1.0);
-   gPrefs->Read(wxT("/AudioIO/SeekLongPeriod"), &mSeekLong, 15.0);
 }
 
 /// CreateMenusAndCommands builds the menus, and also rebuilds them after
@@ -340,7 +358,7 @@ static CommandHandlerObject &findMenuCommandHandler(AudacityProject &project)
    static_cast<CommandFunctorPointer>(& MenuCommandHandler :: X)
 #define XXO(X) _(X), wxString{X}.Contains("...")
 
-void MenuCommandHandler::CreateMenusAndCommands(AudacityProject &project)
+void MenuCreator::CreateMenusAndCommands(AudacityProject &project)
 {
    CommandManager *c = project.GetCommandManager();
    wxArrayString names;
@@ -501,7 +519,7 @@ void MenuCommandHandler::CreateMenusAndCommands(AudacityProject &project)
          AudioIONotBusyFlag | RedoAvailableFlag,
          AudioIONotBusyFlag | RedoAvailableFlag);
 
-      ModifyUndoMenuItems(project);
+      MenuManager::ModifyUndoMenuItems(project);
 
       c->AddSeparator();
 
@@ -1510,16 +1528,16 @@ void MenuCommandHandler::CreateMenusAndCommands(AudacityProject &project)
       c->SetDefaultFlags(AlwaysEnabledFlag, AlwaysEnabledFlag);
       c->AddSeparator();
 
-      c->AddGlobalCommand(wxT("PrevWindow"), XXO("Move Backward Through Active Windows"), FN(PrevWindow), wxT("Alt+Shift+F6"));
-      c->AddGlobalCommand(wxT("NextWindow"), XXO("Move Forward Through Active Windows"), FN(NextWindow), wxT("Alt+F6"));
+      c->AddGlobalCommand(wxT("PrevWindow"), XXO("Move Backward Through Active Windows"), FN(OnPrevWindow), wxT("Alt+Shift+F6"));
+      c->AddGlobalCommand(wxT("NextWindow"), XXO("Move Forward Through Active Windows"), FN(OnNextWindow), wxT("Alt+F6"));
 
       //////////////////////////////////////////////////////////////////////////
 
       c->SetDefaultFlags(AlwaysEnabledFlag, AlwaysEnabledFlag);
       c->BeginSubMenu(_("F&ocus"));
 
-      c->AddItem(wxT("PrevFrame"), XXO("Move &Backward from Toolbars to Tracks"), FN(PrevFrame), wxT("Ctrl+Shift+F6"));
-      c->AddItem(wxT("NextFrame"), XXO("Move F&orward from Toolbars to Tracks"), FN(NextFrame), wxT("Ctrl+F6"));
+      c->AddItem(wxT("PrevFrame"), XXO("Move &Backward from Toolbars to Tracks"), FN(OnPrevFrame), wxT("Ctrl+Shift+F6"));
+      c->AddItem(wxT("NextFrame"), XXO("Move F&orward from Toolbars to Tracks"), FN(OnNextFrame), wxT("Ctrl+F6"));
 
       c->SetDefaultFlags(TracksExistFlag | TrackPanelHasFocus,
          TracksExistFlag | TrackPanelHasFocus);
@@ -1804,7 +1822,7 @@ void MenuCommandHandler::CreateMenusAndCommands(AudacityProject &project)
 
 
 
-void MenuCommandHandler::PopulateMacrosMenu( CommandManager* c, CommandFlag flags  )
+void MenuCreator::PopulateMacrosMenu( CommandManager* c, CommandFlag flags  )
 {
    wxArrayString names = MacroCommands::GetNames();
    int i;
@@ -1822,7 +1840,7 @@ void MenuCommandHandler::PopulateMacrosMenu( CommandManager* c, CommandFlag flag
 /// The effects come from a plug in list
 /// This code iterates through the list, adding effects into
 /// the menu.
-void MenuCommandHandler::PopulateEffectsMenu(CommandManager* c,
+void MenuCreator::PopulateEffectsMenu(CommandManager* c,
                                           EffectType type,
                                           CommandFlag batchflags,
                                           CommandFlag realflags)
@@ -1884,7 +1902,7 @@ void MenuCommandHandler::PopulateEffectsMenu(CommandManager* c,
    return;
 }
 
-void MenuCommandHandler::AddEffectMenuItems(CommandManager *c,
+void MenuCreator::AddEffectMenuItems(CommandManager *c,
    std::vector<const PluginDescriptor*> & plugs,
    CommandFlag batchflags,
    CommandFlag realflags,
@@ -2025,7 +2043,7 @@ void MenuCommandHandler::AddEffectMenuItems(CommandManager *c,
    return;
 }
 
-void MenuCommandHandler::AddEffectMenuItemGroup(CommandManager *c,
+void MenuCreator::AddEffectMenuItemGroup(CommandManager *c,
                                              const wxArrayString & names,
                                              const std::vector<bool> &vHasDialog,
                                              const PluginIDList & plugs,
@@ -2130,7 +2148,7 @@ void MenuCommandHandler::AddEffectMenuItemGroup(CommandManager *c,
 
 #undef FN
 
-void MenuCommandHandler::CreateRecentFilesMenu(CommandManager *c)
+void MenuCreator::CreateRecentFilesMenu(CommandManager *c)
 {
    // Recent Files and Recent Projects menus
 
@@ -2149,7 +2167,8 @@ void MenuCommandHandler::CreateRecentFilesMenu(CommandManager *c)
 
 }
 
-void MenuCommandHandler::ModifyUndoMenuItems(AudacityProject &project)
+// TODO: This surely belongs in CommandManager?
+void MenuManager::ModifyUndoMenuItems(AudacityProject &project)
 {
    wxString desc;
    auto &undoManager = *project.GetUndoManager();
@@ -2182,7 +2201,7 @@ void MenuCommandHandler::ModifyUndoMenuItems(AudacityProject &project)
    }
 }
 
-void MenuCommandHandler::RebuildMenuBar(AudacityProject &project)
+void MenuCreator::RebuildMenuBar(AudacityProject &project)
 {
    // On OSX, we can't rebuild the menus while a modal dialog is being shown
    // since the enabled state for menus like Quit and Preference gets out of
@@ -2217,7 +2236,7 @@ void AudacityProject::RebuildOtherMenus()
 {
 }
 
-CommandFlag MenuCommandHandler::GetFocusedFrame(AudacityProject &project)
+CommandFlag MenuManager::GetFocusedFrame(AudacityProject &project)
 {
    wxWindow *w = wxWindow::FindFocus();
 
@@ -2247,7 +2266,7 @@ CommandFlag MenuCommandHandler::GetFocusedFrame(AudacityProject &project)
    return AlwaysEnabledFlag;
 }
 
-CommandFlag MenuCommandHandler::GetUpdateFlags
+CommandFlag MenuManager::GetUpdateFlags
 (AudacityProject &project, bool checkActive)
 {
    // This method determines all of the flags that determine whether
@@ -2417,7 +2436,7 @@ CommandFlag MenuCommandHandler::GetUpdateFlags
 // time range is selected.
 void AudacityProject::SelectAllIfNone()
 {
-   auto flags = GetMenuCommandHandler(*this).GetUpdateFlags(*this);
+   auto flags = GetMenuManager(*this).GetUpdateFlags(*this);
    if(!(flags & TracksSelectedFlag) ||
       (mViewInfo.selectedRegion.isPoint()))
       GetMenuCommandHandler(*this).OnSelectSomething(*this);
@@ -2426,21 +2445,21 @@ void AudacityProject::SelectAllIfNone()
 // Stop playing or recording, if paused.
 void AudacityProject::StopIfPaused()
 {
-   auto flags = GetMenuCommandHandler(*this).GetUpdateFlags(*this);
+   auto flags = GetMenuManager(*this).GetUpdateFlags(*this);
    if( flags & PausedFlag )
       GetMenuCommandHandler(*this).OnStop(*this);
 }
 
-void MenuCommandHandler::ModifyAllProjectToolbarMenus()
+void MenuManager::ModifyAllProjectToolbarMenus()
 {
    AProjectArray::iterator i;
    for (i = gAudacityProjects.begin(); i != gAudacityProjects.end(); ++i) {
       auto &project = **i;
-      GetMenuCommandHandler(project).ModifyToolbarMenus(project);
+      GetMenuManager(project).ModifyToolbarMenus(project);
    }
 }
 
-void MenuCommandHandler::ModifyToolbarMenus(AudacityProject &project)
+void MenuManager::ModifyToolbarMenus(AudacityProject &project)
 {
    // Refreshes can occur during shutdown and the toolmanager may already
    // be deleted, so protect against it.
@@ -2513,7 +2532,7 @@ void MenuCommandHandler::ModifyToolbarMenus(AudacityProject &project)
 
 // checkActive is a temporary hack that should be removed as soon as we
 // get multiple effect preview working
-void MenuCommandHandler::UpdateMenus(AudacityProject &project, bool checkActive)
+void MenuManager::UpdateMenus(AudacityProject &project, bool checkActive)
 {
    //ANSWER-ME: Why UpdateMenus only does active project?
    //JKC: Is this test fixing a bug when multiple projects are open?
@@ -2521,7 +2540,7 @@ void MenuCommandHandler::UpdateMenus(AudacityProject &project, bool checkActive)
    if (&project != GetActiveProject())
       return;
 
-   auto flags = GetUpdateFlags(project, checkActive);
+   auto flags = GetMenuManager(project).GetUpdateFlags(project, checkActive);
    auto flags2 = flags;
 
    // We can enable some extra items if we have select-all-on-none.
@@ -2592,7 +2611,7 @@ void MenuCommandHandler::UpdateMenus(AudacityProject &project, bool checkActive)
    }
 #endif
 
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 //
@@ -3158,7 +3177,7 @@ void MenuCommandHandler::OnToggleSoundActivated(const CommandContext &WXUNUSED(c
    gPrefs->Read(wxT("/AudioIO/SoundActivatedRecord"), &pause, false);
    gPrefs->Write(wxT("/AudioIO/SoundActivatedRecord"), !pause);
    gPrefs->Flush();
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 }
 
 void MenuCommandHandler::OnTogglePinnedHead(const CommandContext &context)
@@ -3167,7 +3186,7 @@ void MenuCommandHandler::OnTogglePinnedHead(const CommandContext &context)
 
    bool value = !TracksPrefs::GetPinnedHeadPreference();
    TracksPrefs::SetPinnedHeadPreference(value, true);
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 
    // Change what happens in case transport is in progress right now
    auto ctb = GetActiveProject()->GetControlToolBar();
@@ -3194,7 +3213,7 @@ void MenuCommandHandler::OnTogglePlayRecording(const CommandContext &WXUNUSED(co
 #endif
    gPrefs->Write(wxT("/AudioIO/Duplex"), !Duplex);
    gPrefs->Flush();
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 }
 
 void MenuCommandHandler::OnToggleSWPlaythrough(const CommandContext &WXUNUSED(context) )
@@ -3203,7 +3222,7 @@ void MenuCommandHandler::OnToggleSWPlaythrough(const CommandContext &WXUNUSED(co
    gPrefs->Read(wxT("/AudioIO/SWPlaythrough"), &SWPlaythrough, false);
    gPrefs->Write(wxT("/AudioIO/SWPlaythrough"), !SWPlaythrough);
    gPrefs->Flush();
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 }
 
 #ifdef EXPERIMENTAL_AUTOMATED_INPUT_LEVEL_ADJUSTMENT
@@ -3214,7 +3233,7 @@ void AudacityProject::OnToggleAutomatedInputLevelAdjustment(
    gPrefs->Read(wxT("/AudioIO/AutomatedInputLevelAdjustment"), &AVEnabled, false);
    gPrefs->Write(wxT("/AudioIO/AutomatedInputLevelAdjustment"), !AVEnabled);
    gPrefs->Flush();
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 }
 #endif
 
@@ -3336,22 +3355,26 @@ void MenuCommandHandler::OnSkipEnd(const CommandContext &context)
 
 void MenuCommandHandler::OnSeekLeftShort(const CommandContext &context)
 {
-   SeekLeftOrRight( context, DIRECTION_LEFT, CURSOR_MOVE );
+   auto &project = context.project;
+   SeekLeftOrRight( project, DIRECTION_LEFT, CURSOR_MOVE );
 }
 
 void MenuCommandHandler::OnSeekRightShort(const CommandContext &context)
 {
-   SeekLeftOrRight( context, DIRECTION_RIGHT, CURSOR_MOVE );
+   auto &project = context.project;
+   SeekLeftOrRight( project, DIRECTION_RIGHT, CURSOR_MOVE );
 }
 
 void MenuCommandHandler::OnSeekLeftLong(const CommandContext &context)
 {
-   SeekLeftOrRight( context, DIRECTION_LEFT, SELECTION_EXTEND );
+   auto &project = context.project;
+   SeekLeftOrRight( project, DIRECTION_LEFT, SELECTION_EXTEND );
 }
 
 void MenuCommandHandler::OnSeekRightLong(const CommandContext &context)
 {
-   SeekLeftOrRight( context, DIRECTION_RIGHT, SELECTION_EXTEND );
+   auto &project = context.project;
+   SeekLeftOrRight( project, DIRECTION_RIGHT, SELECTION_EXTEND );
 }
 
 void MenuCommandHandler::OnSelToStart(const CommandContext &context)
@@ -3371,16 +3394,16 @@ void MenuCommandHandler::OnSelToEnd(const CommandContext &context)
 void MenuCommandHandler::OnMoveToNextLabel(const CommandContext &context)
 {
    auto &project = context.project;
-   OnMoveToLabel(project, true);
+   DoMoveToLabel(project, true);
 }
 
 void MenuCommandHandler::OnMoveToPrevLabel(const CommandContext &context)
 {
    auto &project = context.project;
-   OnMoveToLabel(project, false);
+   DoMoveToLabel(project, false);
 }
 
-void MenuCommandHandler::OnMoveToLabel(AudacityProject &project, bool next)
+void MenuCommandHandler::DoMoveToLabel(AudacityProject &project, bool next)
 {
    auto tracks = project.GetTracks();
    auto trackPanel = project.GetTrackPanel();
@@ -3439,7 +3462,7 @@ void MenuCommandHandler::OnMoveToLabel(AudacityProject &project, bool next)
 /// block or not.
 
 /// \todo Merge related methods, OnPrevTrack and OnNextTrack.
-void MenuCommandHandler::OnPrevTrack( AudacityProject &project, bool shift )
+void MenuCommandHandler::DoPrevTrack( AudacityProject &project, bool shift )
 {
    auto trackPanel = project.GetTrackPanel();
    auto tracks = project.GetTracks();
@@ -3549,7 +3572,7 @@ void MenuCommandHandler::OnPrevTrack( AudacityProject &project, bool shift )
 /// The following method moves to the next track,
 /// selecting and unselecting depending if you are on the start of a
 /// block or not.
-void MenuCommandHandler::OnNextTrack( AudacityProject &project, bool shift )
+void MenuCommandHandler::DoNextTrack( AudacityProject &project, bool shift )
 {
    auto trackPanel = project.GetTrackPanel();
    auto tracks = project.GetTracks();
@@ -3652,13 +3675,13 @@ void MenuCommandHandler::OnNextTrack( AudacityProject &project, bool shift )
 void MenuCommandHandler::OnCursorUp(const CommandContext &context)
 {
    auto &project = context.project;
-   OnPrevTrack( project, false );
+   DoPrevTrack( project, false );
 }
 
 void MenuCommandHandler::OnCursorDown(const CommandContext &context)
 {
    auto &project = context.project;
-   OnNextTrack( project, false );
+   DoNextTrack( project, false );
 }
 
 void MenuCommandHandler::OnFirstTrack(const CommandContext &context)
@@ -3702,13 +3725,13 @@ void MenuCommandHandler::OnLastTrack(const CommandContext &context)
 void MenuCommandHandler::OnShiftUp(const CommandContext &context)
 {
    auto &project = context.project;
-   OnPrevTrack( project, true );
+   DoPrevTrack( project, true );
 }
 
 void MenuCommandHandler::OnShiftDown(const CommandContext &context)
 {
    auto &project = context.project;
-   OnNextTrack( project, true );
+   DoNextTrack( project, true );
 }
 
 #include "TrackPanelAx.h"
@@ -3777,67 +3800,67 @@ bool MenuCommandHandler::OnlyHandleKeyUp( const CommandContext &context )
 void MenuCommandHandler::OnCursorLeft(const CommandContext &context)
 {
    if( !OnlyHandleKeyUp( context ) )
-      SeekLeftOrRight( context, DIRECTION_LEFT, CURSOR_MOVE);
+      SeekLeftOrRight( context.project, DIRECTION_LEFT, CURSOR_MOVE);
 }
 
 void MenuCommandHandler::OnCursorRight(const CommandContext &context)
 {
    if( !OnlyHandleKeyUp( context ) )
-      SeekLeftOrRight( context, DIRECTION_RIGHT, CURSOR_MOVE);
+      SeekLeftOrRight( context.project, DIRECTION_RIGHT, CURSOR_MOVE);
 }
 
 void MenuCommandHandler::OnCursorShortJumpLeft(const CommandContext &context)
 {
-   OnCursorMove( context, -mSeekShort );
+   DoCursorMove( context.project, -mSeekShort );
 }
 
 void MenuCommandHandler::OnCursorShortJumpRight(const CommandContext &context)
 {
-   OnCursorMove( context, mSeekShort );
+   DoCursorMove( context.project, mSeekShort );
 }
 
 void MenuCommandHandler::OnCursorLongJumpLeft(const CommandContext &context)
 {
-   OnCursorMove( context, -mSeekLong );
+   DoCursorMove( context.project, -mSeekLong );
 }
 
 void MenuCommandHandler::OnCursorLongJumpRight(const CommandContext &context)
 {
-   OnCursorMove( context, mSeekLong );
+   DoCursorMove( context.project, mSeekLong );
 }
 
 void MenuCommandHandler::OnSelSetExtendLeft(const CommandContext &context)
 {
-   OnBoundaryMove( context, DIRECTION_LEFT);
+   DoBoundaryMove( context.project, DIRECTION_LEFT);
 }
 
 void MenuCommandHandler::OnSelSetExtendRight(const CommandContext &context)
 {
-   OnBoundaryMove( context, DIRECTION_RIGHT);
+   DoBoundaryMove( context.project, DIRECTION_RIGHT);
 }
 
 void MenuCommandHandler::OnSelExtendLeft(const CommandContext &context)
 {
    if( !OnlyHandleKeyUp( context ) )
-      SeekLeftOrRight( context, DIRECTION_LEFT, SELECTION_EXTEND );
+      SeekLeftOrRight( context.project, DIRECTION_LEFT, SELECTION_EXTEND );
 }
 
 void MenuCommandHandler::OnSelExtendRight(const CommandContext &context)
 {
    if( !OnlyHandleKeyUp( context ) )
-      SeekLeftOrRight( context, DIRECTION_RIGHT, SELECTION_EXTEND );
+      SeekLeftOrRight( context.project, DIRECTION_RIGHT, SELECTION_EXTEND );
 }
 
 void MenuCommandHandler::OnSelContractLeft(const CommandContext &context)
 {
    if( !OnlyHandleKeyUp( context ) )
-      SeekLeftOrRight( context, DIRECTION_RIGHT, SELECTION_CONTRACT );
+      SeekLeftOrRight( context.project, DIRECTION_RIGHT, SELECTION_CONTRACT );
 }
 
 void MenuCommandHandler::OnSelContractRight(const CommandContext &context)
 {
    if( !OnlyHandleKeyUp( context ) )
-      SeekLeftOrRight( context, DIRECTION_LEFT, SELECTION_CONTRACT );
+      SeekLeftOrRight( context.project, DIRECTION_LEFT, SELECTION_CONTRACT );
 }
 
 #include "tracks/ui/TimeShiftHandle.h"
@@ -4109,19 +4132,19 @@ void MenuCommandHandler::NextOrPrevFrame(AudacityProject &project, bool forward)
    }
 }
 
-void MenuCommandHandler::NextFrame(const CommandContext &context)
+void MenuCommandHandler::OnNextFrame(const CommandContext &context)
 {
    auto &project = context.project;
    NextOrPrevFrame(project, true);
 }
 
-void MenuCommandHandler::PrevFrame(const CommandContext &context)
+void MenuCommandHandler::OnPrevFrame(const CommandContext &context)
 {
    auto &project = context.project;
    NextOrPrevFrame(project, false);
 }
 
-void MenuCommandHandler::NextWindow(const CommandContext &context)
+void MenuCommandHandler::OnNextWindow(const CommandContext &context)
 {
    auto &project = context.project;
    auto isEnabled = project.IsEnabled();
@@ -4181,7 +4204,7 @@ void MenuCommandHandler::NextWindow(const CommandContext &context)
 #endif
 }
 
-void MenuCommandHandler::PrevWindow(const CommandContext &context)
+void MenuCommandHandler::OnPrevWindow(const CommandContext &context)
 {
    auto &project = context.project;
    auto isEnabled = project.IsEnabled();
@@ -4830,7 +4853,7 @@ bool MenuCommandHandler::DoEffect(
          // For now, we're limiting realtime preview to a single effect, so
          // make sure the menus reflect that fact that one may have just been
          // opened.
-         UpdateMenus(project, false);
+         GetMenuManager(project).UpdateMenus(project, false);
       }
 
    } );
@@ -4868,7 +4891,7 @@ bool MenuCommandHandler::DoEffect(
       // or analyze effects.
       if (type == EffectTypeProcess) {
          wxString shortDesc = em.GetCommandName(ID);
-         mLastEffect = ID;
+         GetMenuManager(project).mLastEffect = ID;
          wxString lastEffectDesc;
          /* i18n-hint: %s will be the name of the effect which will be
           * repeated if this menu item is chosen */
@@ -4914,9 +4937,11 @@ void MenuCommandHandler::OnEffect(const CommandContext &context)
 
 void MenuCommandHandler::OnRepeatLastEffect(const CommandContext &context)
 {
-   if (!mLastEffect.IsEmpty())
+   auto lastEffect = GetMenuManager(context.project).mLastEffect;
+   if (!lastEffect.IsEmpty())
    {
-      DoEffect(mLastEffect, context, OnEffectFlags::kConfigured);
+      DoEffect(lastEffect,
+         context, OnEffectFlags::kConfigured);
    }
 }
 
@@ -4926,7 +4951,7 @@ void MenuCommandHandler::RebuildAllMenuBars()
    for( size_t i = 0; i < gAudacityProjects.size(); i++ ) {
       AudacityProject *p = gAudacityProjects[i].get();
 
-      GetMenuCommandHandler(*p).RebuildMenuBar(*p);
+      GetMenuManager(*p).RebuildMenuBar(*p);
 #if defined(__WXGTK__)
       // Workaround for:
       //
@@ -4940,7 +4965,7 @@ void MenuCommandHandler::RebuildAllMenuBars()
    }
 }
 
-void MenuCommandHandler::OnManagePluginsMenu
+void MenuCommandHandler::DoManagePluginsMenu
 (AudacityProject &project, EffectType type)
 {
    if (PluginManager::Get().ShowManager(&project, type))
@@ -4950,25 +4975,25 @@ void MenuCommandHandler::OnManagePluginsMenu
 void MenuCommandHandler::OnManageGenerators(const CommandContext &context)
 {
    auto &project = context.project;
-   OnManagePluginsMenu(project, EffectTypeGenerate);
+   DoManagePluginsMenu(project, EffectTypeGenerate);
 }
 
 void MenuCommandHandler::OnManageEffects(const CommandContext &context)
 {
    auto &project = context.project;
-   OnManagePluginsMenu(project, EffectTypeProcess);
+   DoManagePluginsMenu(project, EffectTypeProcess);
 }
 
 void MenuCommandHandler::OnManageAnalyzers(const CommandContext &context)
 {
    auto &project = context.project;
-   OnManagePluginsMenu(project, EffectTypeAnalyze);
+   DoManagePluginsMenu(project, EffectTypeAnalyze);
 }
 
 void MenuCommandHandler::OnManageTools(const CommandContext &context )
 {
    auto &project = context.project;
-   OnManagePluginsMenu(project, EffectTypeTool);
+   DoManagePluginsMenu(project, EffectTypeTool);
 }
 
 
@@ -5203,7 +5228,7 @@ void MenuCommandHandler::OnExportMIDI(const CommandContext &context)
 #endif // USE_MIDI
 
 
-void MenuCommandHandler::OnExport
+void MenuCommandHandler::DoExport
 (AudacityProject &project, const wxString & Format )
 {
    auto tracks = project.GetTracks();
@@ -5275,25 +5300,25 @@ void MenuCommandHandler::OnExport
 void MenuCommandHandler::OnExportAudio(const CommandContext &context)
 {
    auto &project = context.project;
-   OnExport(project, "");
+   DoExport(project, "");
 }
 
 void MenuCommandHandler::OnExportMp3(const CommandContext &context)
 {
    auto &project = context.project;
-   OnExport(project, "MP3");
+   DoExport(project, "MP3");
 }
 
 void MenuCommandHandler::OnExportWav(const CommandContext &context)
 {
    auto &project = context.project;
-   OnExport(project, "WAV");
+   DoExport(project, "WAV");
 }
 
 void MenuCommandHandler::OnExportOgg(const CommandContext &context)
 {
    auto &project = context.project;
-   OnExport(project, "OGG");
+   DoExport(project, "OGG");
 }
 
 
@@ -5338,7 +5363,7 @@ void MenuCommandHandler::OnPreferences(const CommandContext &context)
    for (size_t i = 0; i < gAudacityProjects.size(); i++) {
       AudacityProject *p = gAudacityProjects[i].get();
 
-      GetMenuCommandHandler(*p).RebuildMenuBar(*p);
+      GetMenuManager(*p).RebuildMenuBar(*p);
       p->RebuildOtherMenus();
 // TODO: The comment below suggests this workaround is obsolete.
 #if defined(__WXGTK__)
@@ -5376,7 +5401,7 @@ void MenuCommandHandler::OnReloadPreferences(const CommandContext &context )
    for (size_t i = 0; i < gAudacityProjects.size(); i++) {
       AudacityProject *p = gAudacityProjects[i].get();
 
-      GetMenuCommandHandler(*p).RebuildMenuBar(*p);
+      GetMenuManager(*p).RebuildMenuBar(*p);
       p->RebuildOtherMenus();
 // TODO: The comment below suggests this workaround is obsolete.
 #if defined(__WXGTK__)
@@ -5443,7 +5468,7 @@ void MenuCommandHandler::OnUndo(const CommandContext &context)
       // Mixer board may need to change for selection state and pan/gain
       mixerBoard->Refresh();
 
-   ModifyUndoMenuItems(project);
+   MenuManager::ModifyUndoMenuItems(project);
 }
 
 void MenuCommandHandler::OnRedo(const CommandContext &context)
@@ -5478,7 +5503,7 @@ void MenuCommandHandler::OnRedo(const CommandContext &context)
       // Mixer board may need to change for selection state and pan/gain
       mixerBoard->Refresh();
 
-   ModifyUndoMenuItems(project);
+   MenuManager::ModifyUndoMenuItems(project);
 }
 
 void MenuCommandHandler::FinishCopy
@@ -6815,17 +6840,17 @@ void MenuCommandHandler::OnSelectPrevClipBoundaryToCursor
 (const CommandContext &context)
 {
    auto &project = context.project;
-   OnSelectClipBoundary(project, false);
+   DoSelectClipBoundary(project, false);
 }
 
 void MenuCommandHandler::OnSelectCursorToNextClipBoundary
 (const CommandContext &context)
 {
    auto &project = context.project;
-   OnSelectClipBoundary(project, true);
+   DoSelectClipBoundary(project, true);
 }
 
-void MenuCommandHandler::OnSelectClipBoundary(AudacityProject &project, bool next)
+void MenuCommandHandler::DoSelectClipBoundary(AudacityProject &project, bool next)
 {
    auto &selectedRegion = project.GetViewInfo().selectedRegion;
    auto trackPanel = project.GetTrackPanel();
@@ -7042,16 +7067,16 @@ bool MenuCommandHandler::ChannelsHaveDifferentClipBoundaries(
 void MenuCommandHandler::OnSelectPrevClip(const CommandContext &context)
 {
    auto &project = context.project;
-   OnSelectClip(project, false);
+   DoSelectClip(project, false);
 }
 
 void MenuCommandHandler::OnSelectNextClip(const CommandContext &context)
 {
    auto &project = context.project;
-   OnSelectClip(project, true);
+   DoSelectClip(project, true);
 }
 
-void MenuCommandHandler::OnSelectClip(AudacityProject &project, bool next)
+void MenuCommandHandler::DoSelectClip(AudacityProject &project, bool next)
 {
    auto &selectedRegion = project.GetViewInfo().selectedRegion;
    auto trackPanel = project.GetTrackPanel();
@@ -7408,7 +7433,7 @@ void MenuCommandHandler::OnApplyMacroDirectly(const CommandContext &context )
 #else
    dlg.ApplyMacroToProject( Name, false );
 #endif
-   ModifyUndoMenuItems( project );
+   MenuManager::ModifyUndoMenuItems( project );
 }
 
 void MenuCommandHandler::OnApplyMacrosPalette(const CommandContext &context )
@@ -7485,7 +7510,7 @@ void MenuCommandHandler::OnShowTransportToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide(TransportBarID);
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowDeviceToolBar(const CommandContext &context)
@@ -7494,7 +7519,7 @@ void MenuCommandHandler::OnShowDeviceToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( DeviceBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowEditToolBar(const CommandContext &context)
@@ -7503,7 +7528,7 @@ void MenuCommandHandler::OnShowEditToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( EditBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowMeterToolBar(const CommandContext &context)
@@ -7517,7 +7542,7 @@ void MenuCommandHandler::OnShowMeterToolBar(const CommandContext &context)
       toolManager->Expose( RecordMeterBarID, false );
    }
    toolManager->ShowHide( MeterBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowRecordMeterToolBar(const CommandContext &context)
@@ -7530,7 +7555,7 @@ void MenuCommandHandler::OnShowRecordMeterToolBar(const CommandContext &context)
       toolManager->Expose( MeterBarID, false );
    }
    toolManager->ShowHide( RecordMeterBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowPlayMeterToolBar(const CommandContext &context)
@@ -7544,7 +7569,7 @@ void MenuCommandHandler::OnShowPlayMeterToolBar(const CommandContext &context)
    }
 
    toolManager->ShowHide( PlayMeterBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowMixerToolBar(const CommandContext &context)
@@ -7553,7 +7578,7 @@ void MenuCommandHandler::OnShowMixerToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( MixerBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowScrubbingToolBar(const CommandContext &context)
@@ -7562,7 +7587,7 @@ void MenuCommandHandler::OnShowScrubbingToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( ScrubbingBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowSelectionToolBar(const CommandContext &context)
@@ -7571,7 +7596,7 @@ void MenuCommandHandler::OnShowSelectionToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( SelectionBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 #ifdef EXPERIMENTAL_SPECTRAL_EDITING
@@ -7581,7 +7606,7 @@ void MenuCommandHandler::OnShowSpectralSelectionToolBar(const CommandContext &co
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( SpectralSelectionBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 #endif
 
@@ -7591,7 +7616,7 @@ void MenuCommandHandler::OnShowToolsToolBar(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( ToolsBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnShowTranscriptionToolBar(const CommandContext &context)
@@ -7600,7 +7625,7 @@ void MenuCommandHandler::OnShowTranscriptionToolBar(const CommandContext &contex
    auto toolManager = project.GetToolManager();
 
    toolManager->ShowHide( TranscriptionBarID );
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 void MenuCommandHandler::OnResetToolBars(const CommandContext &context)
@@ -7609,7 +7634,7 @@ void MenuCommandHandler::OnResetToolBars(const CommandContext &context)
    auto toolManager = project.GetToolManager();
 
    toolManager->Reset();
-   ModifyToolbarMenus(project);
+   MenuManager::ModifyToolbarMenus(project);
 }
 
 #if defined(EXPERIMENTAL_EFFECTS_RACK)
@@ -8211,17 +8236,17 @@ void MenuCommandHandler::OnCursorNextClipBoundary(const CommandContext &context)
 {
    AudacityProject &project = context.project;
 
-   OnCursorClipBoundary(project, true);
+   DoCursorClipBoundary(project, true);
 }
 
 void MenuCommandHandler::OnCursorPrevClipBoundary(const CommandContext &context)
 {
    AudacityProject &project = context.project;
 
-   OnCursorClipBoundary(project, false);
+   DoCursorClipBoundary(project, false);
 }
 
-void MenuCommandHandler::OnCursorClipBoundary
+void MenuCommandHandler::DoCursorClipBoundary
 (AudacityProject &project, bool next)
 {
    auto &selectedRegion = project.GetViewInfo().selectedRegion;
@@ -8433,7 +8458,7 @@ void MenuCommandHandler::HandleAlign
          : _("Align Together");
    }
 
-   if ((unsigned)index >= mAlignLabelsCount) { // This is an alignLabelsNoSync command.
+   if ((unsigned)index >= GetMenuManager(project).mAlignLabelsCount) { // This is an alignLabelsNoSync command.
       for (auto t : tracks->SelectedLeaders< AudioTrack >()) {
          // This shifts different tracks in different ways, so no sync-lock move.
          // Only align Wave and Note tracks end to end.
@@ -8473,7 +8498,8 @@ void MenuCommandHandler::OnAlignNoSync(const CommandContext &context)
    auto &project = context.project;
 
    // Add length of alignLabels array so that we can handle this in AudacityProject::HandleAlign.
-   HandleAlign(project, context.index + mAlignLabelsCount, false);
+   HandleAlign(project,
+      context.index + GetMenuManager(project).mAlignLabelsCount, false);
 }
 
 void MenuCommandHandler::OnAlign(const CommandContext &context)
@@ -9198,7 +9224,7 @@ void MenuCommandHandler::OnSyncLock(const CommandContext &context)
    gPrefs->Flush();
 
    // Toolbar, project sync-lock handled within
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 
    trackPanel->Refresh(false);
 }
@@ -9258,7 +9284,7 @@ void MenuCommandHandler::OnToggleTypeToCreateLabel(const CommandContext &WXUNUSE
    gPrefs->Read(wxT("/GUI/TypeToCreateLabel"), &typeToCreateLabel, true);
    gPrefs->Write(wxT("/GUI/TypeToCreateLabel"), !typeToCreateLabel);
    gPrefs->Flush();
-   ModifyAllProjectToolbarMenus();
+   MenuManager::ModifyAllProjectToolbarMenus();
 }
 
 void MenuCommandHandler::OnRemoveTracks(const CommandContext &context)
@@ -9501,11 +9527,6 @@ void MenuCommandHandler::OnMidiDeviceInfo(const CommandContext &context)
 }
 #endif
 
-void MenuCommandHandler::OnSeparator(const CommandContext &WXUNUSED(context) )
-{
-
-}
-
 void MenuCommandHandler::OnCollapseAllTracks(const CommandContext &context)
 {
    auto &project = context.project;
@@ -9530,7 +9551,7 @@ void MenuCommandHandler::OnExpandAllTracks(const CommandContext &context)
    project.RedrawProject();
 }
 
-void MenuCommandHandler::OnPanTracks(AudacityProject &project, float PanValue)
+void MenuCommandHandler::DoPanTracks(AudacityProject &project, float PanValue)
 {
    auto tracks = project.GetTracks();
    auto mixerBoard = project.GetMixerBoard();
@@ -9557,19 +9578,19 @@ void MenuCommandHandler::OnPanTracks(AudacityProject &project, float PanValue)
 void MenuCommandHandler::OnPanLeft(const CommandContext &context)
 {
    auto &project = context.project;
-   OnPanTracks( project, -1.0);
+   DoPanTracks( project, -1.0);
 }
 
 void MenuCommandHandler::OnPanRight(const CommandContext &context)
 {
    auto &project = context.project;
-   OnPanTracks( project, 1.0);
+   DoPanTracks( project, 1.0);
 }
 
 void MenuCommandHandler::OnPanCenter(const CommandContext &context)
 {
    auto &project = context.project;
-   OnPanTracks( project, 0.0);
+   DoPanTracks( project, 0.0);
 }
 
 void MenuCommandHandler::OnMuteAllTracks(const CommandContext &context)
@@ -9781,10 +9802,8 @@ void MenuCommandHandler::OnFullScreen(const CommandContext &context)
 
 // Handle small cursor and play head movements
 void MenuCommandHandler::SeekLeftOrRight
-(const CommandContext &context, double direction, SelectionOperation operation)
+(AudacityProject &project, double direction, SelectionOperation operation)
 {
-   auto &project = context.project;
-
    // PRL:  What I found and preserved, strange though it be:
    // During playback:  jump depends on preferences and is independent of the zoom
    // and does not vary if the key is held
@@ -9812,7 +9831,7 @@ void MenuCommandHandler::SeekLeftOrRight
    enum { LARGER_MULTIPLIER = 4 };
    const double seekStep = (fast ? LARGER_MULTIPLIER : 1.0) * direction;
 
-   SeekWhenAudioInactive( context, seekStep, TIME_UNIT_PIXELS, operation);
+   SeekWhenAudioInactive( project, seekStep, TIME_UNIT_PIXELS, operation);
 }
 
 void MenuCommandHandler::SeekWhenAudioActive(double seekStep)
@@ -9831,9 +9850,8 @@ void MenuCommandHandler::SeekWhenAudioActive(double seekStep)
 }
 
 
-void MenuCommandHandler::OnBoundaryMove(const CommandContext &context, int step)
+void MenuCommandHandler::DoBoundaryMove(AudacityProject &project, int step)
 {
-   auto &project = context.project;
    auto &viewInfo = project.GetViewInfo();
    auto trackPanel = project.GetTrackPanel();
    auto tracks = project.GetTracks();
@@ -9896,17 +9914,16 @@ void MenuCommandHandler::OnBoundaryMove(const CommandContext &context, int step)
 }
 
 void MenuCommandHandler::SeekWhenAudioInactive
-(const CommandContext &context, double seekStep, TimeUnit timeUnit,
+(AudacityProject &project, double seekStep, TimeUnit timeUnit,
 SelectionOperation operation)
 {
-   auto &project = context.project;
    auto &viewInfo = project.GetViewInfo();
    auto trackPanel = project.GetTrackPanel();
    auto tracks = project.GetTracks();
 
    if( operation == CURSOR_MOVE )
    {
-      MoveWhenAudioInactive( context, seekStep, timeUnit);
+      MoveWhenAudioInactive( project, seekStep, timeUnit);
       return;
    }
 
@@ -9921,7 +9938,7 @@ SelectionOperation operation)
    bool bMoveT0 = (operation == SELECTION_CONTRACT && seekStep > 0) ||
 	   (operation == SELECTION_EXTEND && seekStep < 0);
    // newT is where we want to move to
-   double newT = OffsetTime( context,
+   double newT = OffsetTime( project,
       bMoveT0 ? t0 : t1, seekStep, timeUnit, snapToTime);
    // constrain to be in the track/screen limits.
    newT = std::max( 0.0, newT );
@@ -9943,9 +9960,8 @@ SelectionOperation operation)
 
 // Moving a cursor, and collapsed selection.
 void MenuCommandHandler::MoveWhenAudioInactive
-(const CommandContext &context, double seekStep, TimeUnit timeUnit)
+(AudacityProject &project, double seekStep, TimeUnit timeUnit)
 {
-   auto &project = context.project;
    auto &viewInfo = project.GetViewInfo();
    auto trackPanel = project.GetTrackPanel();
    auto tracks = project.GetTracks();
@@ -9962,7 +9978,7 @@ void MenuCommandHandler::MoveWhenAudioInactive
    // Already in cursor mode?
    if( viewInfo.selectedRegion.isPoint() )
    {
-      double newT = OffsetTime(context,
+      double newT = OffsetTime(project,
          t0, seekStep, timeUnit, snapToTime);
       // constrain.
       newT = std::max(0.0, newT);
@@ -9995,10 +10011,9 @@ void MenuCommandHandler::MoveWhenAudioInactive
 }
 
 double MenuCommandHandler::OffsetTime
-(const CommandContext &context,
+(AudacityProject &project,
  double t, double offset, TimeUnit timeUnit, int snapToTime)
 {
-   auto &project = context.project;
    auto &viewInfo = project.GetViewInfo();
 
     if (timeUnit == TIME_UNIT_SECONDS)
@@ -10041,19 +10056,17 @@ double MenuCommandHandler::GridMove
 
 
 // Move the cursor forward or backward, while paused or while playing.
-void MenuCommandHandler::OnCursorMove(
-   const CommandContext &context, double seekStep)
+void MenuCommandHandler::DoCursorMove(
+   AudacityProject &project, double seekStep)
 {
-   auto &project = context.project;
-
-    if (project.IsAudioActive()) {
-        SeekWhenAudioActive(seekStep);
-    }
-    else
-    {
-        mLastSelectionAdjustment = ::wxGetLocalTimeMillis();
-        MoveWhenAudioInactive(context, seekStep, TIME_UNIT_SECONDS);
-    }
+   if (project.IsAudioActive()) {
+      SeekWhenAudioActive(seekStep);
+   }
+   else
+   {
+      mLastSelectionAdjustment = ::wxGetLocalTimeMillis();
+      MoveWhenAudioInactive(project, seekStep, TIME_UNIT_SECONDS);
+   }
 
    project.ModifyState(false);
 }

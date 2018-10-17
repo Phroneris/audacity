@@ -89,6 +89,7 @@ array of Ruler::Label.
 #include "../TimeTrack.h"
 #include "../TrackPanel.h"
 #include "../TrackPanelCellIterator.h"
+#include "../Menus.h"
 #include "../NumberScale.h"
 #include "../Prefs.h"
 #include "../Snap.h"
@@ -2715,10 +2716,10 @@ namespace {
          // IsScrubbing is true if Scrubbing OR seeking.
          if( scrubber.IsScrubbing() )
             // User is dragging already, explain.
-            return _("Drag to Seek.  Release to stop seeking.");
+            return _("Drag to Seek. Release to stop seeking.");
          else
             // User has clicked but not yet moved or released.
-            return _("Drag to Seek.  Release and move to Scrub.");
+            return _("Drag to Seek. Release and move to Scrub.");
       }
       // Since mouse is up, mention moving first.
       return _("Move to Scrub. Drag to Seek.");

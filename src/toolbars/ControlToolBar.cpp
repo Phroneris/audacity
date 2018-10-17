@@ -61,6 +61,7 @@
 #include "../AllThemeResources.h"
 #include "../AudioIO.h"
 #include "../ImageManipulation.h"
+#include "../Menus.h"
 #include "../Prefs.h"
 #include "../Project.h"
 #include "../Theme.h"
@@ -1054,7 +1055,7 @@ bool ControlToolBar::DoRecord(AudacityProject &project,
    CommandFlag flags = AlwaysEnabledFlag; // 0 means recalc flags.
 
    // NB: The call may have the side effect of changing flags.
-   bool allowed = GetMenuCommandHandler(project).TryToMakeActionAllowed(
+   bool allowed = GetMenuManager(project).TryToMakeActionAllowed(
       project,
       flags,
       AudioIONotBusyFlag | CanStopAudioStreamFlag,
