@@ -14884,7 +14884,7 @@ msgstr "エンベロープツール"
 
 #: src/toolbars/ToolsToolBar.cpp
 msgid "Time Shift Tool"
-msgstr "タイムシフトツール"
+msgstr "移動ツール"
 
 #: src/toolbars/ToolsToolBar.cpp
 msgid "Zoom Tool"
@@ -15428,17 +15428,17 @@ msgstr "クリック＆ドラッグでトラックの時間を移動"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
 msgid "Moved clips to another track"
-msgstr "クリップを別のトラックに移動"
+msgstr "クリップを別のトラックに移動しました"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
 #, c-format
 msgid "Time shifted tracks/clips right %.02f seconds"
-msgstr "トラックまたはクリップを右に %.02f 秒タイムシフト"
+msgstr "トラックまたはクリップを右に %.02f 秒移動しました"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
 #, c-format
 msgid "Time shifted tracks/clips left %.02f seconds"
-msgstr "トラックまたはクリップを左に %.02f 秒タイムシフト"
+msgstr "トラックまたはクリップを左に %.02f 秒移動しました"
 
 #: src/tracks/ui/TrackButtonHandles.cpp
 msgid "Collapse"
