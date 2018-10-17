@@ -1140,20 +1140,20 @@ msgstr "Ogg として書き出し"
 msgid "Export as WAV"
 msgstr "WAV として書き出し"
 
+# jp: デフォルトマクロ名だがファイル名でもある
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "MP3 Conversion"
 msgstr "MP3 Conversion"
 
+# jp: デフォルトマクロ名だがファイル名でもある
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Fade Ends"
 msgstr "Fade Ends"
 
+# jp: デフォルトマクロ名だがファイル名でもある…という立ち位置のものだった。現在は無効。
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Select to Ends"
-msgstr "最後まで選択"
+msgstr "Select to Ends"
 
 #: src/BatchCommands.cpp
 msgid "Special Command"
@@ -1171,9 +1171,10 @@ msgstr "メニューコマンド (パラメータ有り)"
 msgid "Menu Command (No Parameters)"
 msgstr "メニューコマンド (パラメータ無し)"
 
+# jp: パス名
 #: src/BatchCommands.cpp
 msgid "cleaned"
-msgstr ""
+msgstr "cleaned"
 
 #: src/BatchCommands.cpp
 #, c-format
@@ -1192,6 +1193,8 @@ msgid ""
 "Cannot create directory 'cleaned'. \n"
 "File already exists that is not a directory"
 msgstr ""
+"「cleaned」ディレクトリを作成できません。\n"
+"ディレクトリではなく、ファイルが既に存在しています"
 
 #: src/BatchCommands.cpp
 msgid "Ogg Vorbis support is not included in this build of Audacity"
