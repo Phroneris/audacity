@@ -793,8 +793,8 @@ msgid ""
 "Audacity needs a place where automatic cleanup programs won't delete the temporary files.\n"
 "Please enter an appropriate directory in the preferences dialog."
 msgstr ""
-"Audacity はテンポラリファイルを保存する安全な場所を見つけられませんでした。\n"
-"自動クリーンアッププログラムにテンポラリファイルを削除されないような場所が必要となります。\n"
+"Audacity は一時ファイルを保存する安全な場所を見つけられませんでした。\n"
+"自動クリーンアッププログラムに一時ファイルを削除されないような場所が必要となります。\n"
 "環境設定ダイアログで適切なディレクトリ名を入力してください。"
 
 #: src/AudacityApp.cpp
@@ -802,12 +802,12 @@ msgid ""
 "Audacity could not find a place to store temporary files.\n"
 "Please enter an appropriate directory in the preferences dialog."
 msgstr ""
-"Audacity はテンポラリファイルを保存する場所を見つけられませんでした。\n"
+"Audacity は一時ファイルを保存する場所を見つけられませんでした。\n"
 "環境設定ダイアログで適切なディレクトリ名を入力してください。"
 
 #: src/AudacityApp.cpp
 msgid "Audacity is now going to exit. Please launch Audacity again to use the new temporary directory."
-msgstr "Audacity を終了させます。新しいテンポラリディレクトリを使うために、Audacity を再起動してください。"
+msgstr "Audacity を終了させます。新しい一時ディレクトリを利用するには、Audacity を再起動してください。"
 
 #: src/AudacityApp.cpp
 msgid ""
@@ -824,8 +824,8 @@ msgid ""
 "Audacity was not able to lock the temporary files directory.\n"
 "This folder may be in use by another copy of Audacity.\n"
 msgstr ""
-"Audacity はテンポラリファイルのあるフォルダをロックできません。\n"
-"このフォルダは別に起動された Audacity が使用しているようです。\n"
+"Audacity は一時ファイルのあるフォルダをロックできませんでした。\n"
+"このフォルダは別に起動している Audacity が使用中のようです。\n"
 
 #: src/AudacityApp.cpp
 msgid "Do you still want to start Audacity?"
@@ -833,7 +833,7 @@ msgstr "それでも Audacity を開始しますか？"
 
 #: src/AudacityApp.cpp
 msgid "Error Locking Temporary Folder"
-msgstr "テンポラリフォルダのロックに失敗"
+msgstr "一時フォルダのロックに失敗"
 
 #: src/AudacityApp.cpp
 msgid "The system has detected that another copy of Audacity is running.\n"
@@ -1727,7 +1727,7 @@ msgid ""
 "Please select another temporary directory in Preferences."
 msgstr ""
 "ディスクの空き容量がわずかしか残っていません。\n"
-"環境設定で他のテンポラリディレクトリを選択してください。"
+"環境設定で他の一時ディレクトリを選択してください。"
 
 #: src/DirManager.cpp
 msgid "Cleaning project temporary files"
@@ -12977,7 +12977,7 @@ msgstr "ディレクトリ"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Temporary files directory"
-msgstr "テンポラリディレクトリ"
+msgstr "一時ファイルのディレクトリ"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "&Location:"
@@ -13008,12 +13008,12 @@ msgid ""
 "If the available system memory falls below this value, audio will no longer\n"
 "be cached in memory and will be written to disk."
 msgstr ""
-"使用可能なシステムメモリのサイズがこの値を下回った場合、音声は\n"
-"メモリにキャッシュされず、ディスクに書き込まれます。"
+"使用可能なシステムメモリのサイズがこの値を下回った場合、\n"
+"音声はメモリにキャッシュされず、ディスクに書き込まれます。"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Choose a location to place the temporary directory"
-msgstr "テンポラリディレクトリの指定"
+msgstr "一時ディレクトリの設置場所を指定"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "unavailable - above location doesn't exist"
@@ -13027,11 +13027,11 @@ msgstr "ディレクトリ %s は適切ではありません (クリーンアッ
 #: src/prefs/DirectoriesPrefs.cpp
 #, c-format
 msgid "Directory %s does not exist. Create it?"
-msgstr "ディレクトリ %s はありません。作りますか？"
+msgstr "ディレクトリ %s はありません。作成しますか？"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "New Temporary Directory"
-msgstr "新しいテンポラリディレクトリ"
+msgstr "新しい一時ディレクトリ"
 
 #: src/prefs/DirectoriesPrefs.cpp
 #, c-format
@@ -13040,11 +13040,11 @@ msgstr "ディレクトリ %s は書き込みできません"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Changes to temporary directory will not take effect until Audacity is restarted"
-msgstr "変更されたテンポラリディレクトリは Audacity を再起動するまで有効になりません"
+msgstr "一時ディレクトリの変更は Audacity を再起動するまで有効になりません"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Temp Directory Update"
-msgstr "テンポラリディレクトリの更新"
+msgstr "一時ディレクトリの更新"
 
 #: src/prefs/EffectsPrefs.cpp
 msgid "Enable Effects"
@@ -13266,29 +13266,29 @@ msgstr "起動時に「ヘルプ情報のご案内」を表示(&H)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Show e&xtra menus"
-msgstr "拡張メニューを表示(&R)"
+msgstr "[拡張] メニューを表示(&R)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Show alternative &styling (Mac vs PC)"
-msgstr ""
+msgstr "代用スタイルを表示 (Mac vs PC)(&S)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "&Beep on completion of longer activities"
 msgstr "長い処理が完了したときにビープを鳴らす(&B)"
 
 #: src/prefs/GUIPrefs.cpp
-#, fuzzy
 msgid "Re&tain labels if selection snaps to a label"
-msgstr "消去時に選択範囲の端のラベルを残す(&T)"
+msgstr "選択範囲の端でスナップしたラベルを消去時に残す(&T)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "B&lend system and Audacity theme"
-msgstr "システムと Audacity のテーマをブレンドする"
+msgstr "システムと Audacity のテーマをブレンドする(&L)"
 
+# jp: 独自アクセスキー
 #. i18n-hint: RTL stands for 'Right to Left'
 #: src/prefs/GUIPrefs.cpp
 msgid "Use mostly Left-to-Right layouts in RTL languages"
-msgstr ""
+msgstr "右横書き言語 (右から読む言語) でも左横書きレイアウトを使用(&Y)"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "Import / Export"
@@ -13553,11 +13553,11 @@ msgstr "モジュール"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "Ask"
-msgstr "Ask"
+msgstr "確認"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "Failed"
-msgstr "Failed"
+msgstr "失敗"
 
 #: src/prefs/ModulePrefs.cpp
 msgid ""
@@ -13567,19 +13567,19 @@ msgstr "これらは試用モジュールです。マニュアルを熟読しよ
 
 #: src/prefs/ModulePrefs.cpp
 msgid "'Ask' means Audacity will ask if you want to load the module each time it starts."
-msgstr "「Ask」は Audacity 起動時にモジュールをロードするか毎回尋ねるという意味です。"
+msgstr "「確認」は Audacity 起動時にモジュールをロードするか毎回尋ねるという意味です。"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "'Failed' means Audacity thinks the module is broken and won't run it."
-msgstr "「Failed」はモジュールが壊れており実行不可能な状態です。"
+msgstr "「失敗」はモジュールが壊れており実行不可能な状態です。"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "'New' means no choice has been made yet."
-msgstr "「New」は何も選択されていないことを示します。"
+msgstr "「新規」は何も選択されていないことを示します。"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "Changes to these settings only take effect when Audacity starts up."
-msgstr "変更された設定は Audacity 再起動時に有効になります。"
+msgstr "設定の変更は Audacity の再起動時に有効になります。"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "No modules were found"
@@ -13639,7 +13639,7 @@ msgstr "左ダブルクリック"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Select Clip or Entire Track"
-msgstr "すべてのトラックあるいはクリップを選択"
+msgstr "トラック全体またはクリップを選択"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Wheel-Rotate"
@@ -13880,11 +13880,11 @@ msgstr "矩形"
 
 #: src/prefs/QualityPrefs.cpp plug-ins/tremolo.ny
 msgid "Triangle"
-msgstr "三角"
+msgstr "三角形"
 
 #: src/prefs/QualityPrefs.cpp
 msgid "Shaped"
-msgstr "シェイプド"
+msgstr "ノイズシェーピング"
 
 #: src/prefs/QualityPrefs.cpp
 msgid "Other..."
@@ -13934,7 +13934,7 @@ msgstr "オーバーダブ: 録音中に他のトラックを再生(&O)"
 
 #: src/prefs/RecordingPrefs.cpp
 msgid "Use &hardware to play other tracks"
-msgstr ""
+msgstr "他のトラックの再生にハードウェアを使用(&H)"
 
 #: src/prefs/RecordingPrefs.cpp
 msgid "&Software playthrough of input"
@@ -14362,7 +14362,7 @@ msgstr "ゼロより左側へのスクロールを有効化(&Z)"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "Advanced &vertical zooming"
-msgstr "高度な垂直拡大"
+msgstr "高度な垂直拡大(&V)"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "Solo &Button:"
