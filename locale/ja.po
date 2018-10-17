@@ -2706,11 +2706,11 @@ msgstr "未分類"
 
 #: src/Menus.cpp
 msgid "&Save Project"
-msgstr "プロジェクトファイルを保存(&S)"
+msgstr "保存(&S)"
 
 #: src/Menus.cpp
 msgid "Save Project &As..."
-msgstr "プロジェクトファイルを別名で保存(&A)..."
+msgstr "名前を付けて保存(&A)..."
 
 #: src/Menus.cpp
 msgid "Save Lossless Copy of Project..."
@@ -5483,9 +5483,9 @@ msgstr ""
 "\n"
 "保存すると、プロジェクトにはトラックが無くなります。\n"
 "\n"
-"以前開いていたトラックを保存するには:\n"
+"以前開いていたトラックを保存する方法は次の通りです:\n"
 "[キャンセル] をクリックし、[編集] > [元に戻す] ですべてのトラックを\n"
-"開いてから、[ファイル] > [プロジェクトファイルを保存] を実行する。"
+"開いてから、[ファイル] > [保存] > [保存] を実行する。"
 
 #: src/Project.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -5632,11 +5632,11 @@ msgstr ""
 "プロジェクトは空です。\n"
 "保存すると、プロジェクトにはトラックが無くなります。\n"
 "\n"
-"以前開いていたトラックを保存するには:\n"
+"以前開いていたトラックを保存する方法は次の通りです:\n"
 "[いいえ] をクリックし、[編集] > [元に戻す] ですべてのトラックを\n"
-"開いてから、[ファイル] > [プロジェクトファイルを保存] を実行する。\n"
+"開いてから、[ファイル] > [保存] > [保存] を実行する。\n"
 "\n"
-"保存しますか？"
+"本当に保存しますか？"
 
 #: src/Project.cpp
 msgid "Warning - Empty Project"
@@ -5746,7 +5746,7 @@ msgid ""
 "'Save Project' is for an Audacity project, not an audio file.\n"
 "For an audio file that will open in other apps, use 'Export'.\n"
 msgstr ""
-"[プロジェクトファイルを保存] によって保存されるのは、音声ファイルではなく Audacity プロジェクトファイルです。\n"
+"[保存] によって保存されるのは、音声ファイルではなく Audacity プロジェクトファイルです。\n"
 "他のアプリでも利用するような音声ファイルを保存する場合は [書き出し] をお使いください。\n"
 
 #: src/Project.cpp
