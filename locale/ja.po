@@ -3467,7 +3467,7 @@ msgstr "新しいトラックにミックスして作成(&W)"
 
 #: src/Menus.cpp
 msgid "&Resample..."
-msgstr "リサンプリング(&R)..."
+msgstr "再サンプリング(&R)..."
 
 #: src/Menus.cpp
 msgid "Remo&ve Tracks"
@@ -3563,7 +3563,7 @@ msgstr "トラックの並べ替え(&O)"
 
 #: src/Menus.cpp
 msgid "Sort by Time"
-msgstr "時間でソート"
+msgstr "時間順で並べ替え"
 
 #: src/Menus.cpp
 msgid "By &Start Time"
@@ -3571,7 +3571,7 @@ msgstr "開始時刻(&S)"
 
 #: src/Menus.cpp
 msgid "Sort by Name"
-msgstr "名前でソート"
+msgstr "名前順で並べ替え"
 
 #: src/Menus.cpp
 msgid "By &Name"
@@ -5000,7 +5000,7 @@ msgstr ""
 
 #: src/Menus.cpp src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Resample"
-msgstr "リサンプリング"
+msgstr "再サンプリング"
 
 #: src/Menus.cpp src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "New sample rate (Hz):"
@@ -5017,11 +5017,11 @@ msgstr "%d トラックを再サンプリング中"
 
 #: src/Menus.cpp
 msgid "Resampled audio track(s)"
-msgstr "リサンプリングされた音声トラック"
+msgstr "再サンプリングされた音声トラック"
 
 #: src/Menus.cpp
 msgid "Resample Track"
-msgstr "トラックのリサンプリング"
+msgstr "トラックの再サンプリング"
 
 #: src/Mix.cpp
 msgid "Mix"
@@ -11323,7 +11323,7 @@ msgstr ""
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "You may resample to one of the rates below."
-msgstr "以下のサンプリング周波数のうちの一つへリサンプリングしましょう。"
+msgstr "以下のサンプリング周波数のうちの一つへ再サンプリングしましょう。"
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Sample Rates"
@@ -14928,13 +14928,13 @@ msgstr "拡大\tShift+左クリック"
 
 #: src/tracks/playabletrack/notetrack/ui/StretchHandle.cpp
 msgid "Click and drag to stretch selected region."
-msgstr "クリック＆ドラッグで選択領域をストレッチします。"
+msgstr "クリック＆ドラッグで選択領域を伸縮します。"
 
 #. i18n-hint: (noun) The track that is used for MIDI notes which can be
 #. dragged to change their duration.
 #: src/tracks/playabletrack/notetrack/ui/StretchHandle.cpp
 msgid "Stretch Note Track"
-msgstr "ノートトラックをストレッチ"
+msgstr "ノートトラックを伸縮"
 
 #. i18n-hint: In the history list, indicates a MIDI note has
 #. been dragged to change its duration (stretch it). Using either past
@@ -14942,7 +14942,7 @@ msgstr "ノートトラックをストレッチ"
 #. shorter.
 #: src/tracks/playabletrack/notetrack/ui/StretchHandle.cpp
 msgid "Stretch"
-msgstr "ストレッチ"
+msgstr "伸縮"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Left-Click to expand, Right-Click to remove"
