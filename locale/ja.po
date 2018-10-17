@@ -6888,17 +6888,20 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"%s: 以下の設定を読み込めませんでした。デフォルト設定が適用されます。\n"
+"\n"
+"%s"
 
 #: src/commands/AudacityCommand.cpp src/effects/Effect.cpp
 #, c-format
 msgid "Applying %s..."
-msgstr "%s を適用中..."
+msgstr "「%s」を適用中..."
 
 #: src/commands/AudacityCommand.cpp src/effects/Effect.cpp
 #: src/effects/vamp/VampEffect.cpp src/widgets/ASlider.cpp
 #, c-format
 msgid "%s: %s"
-msgstr ""
+msgstr "%s: %s"
 
 #: src/commands/BatchEvalCommand.cpp
 #, fuzzy
@@ -7084,7 +7087,7 @@ msgstr "ドラッグ"
 
 #: src/commands/DragCommand.h
 msgid "Drags mouse from one place to another."
-msgstr ""
+msgstr "ある箇所から他の箇所へマウスをドラッグします。"
 
 #: src/commands/GetInfoCommand.cpp
 msgid "Commands"
@@ -7143,22 +7146,20 @@ msgid "Get Info"
 msgstr "情報の取得"
 
 #: src/commands/GetInfoCommand.h
-#, fuzzy
 msgid "Gets information in JSON format."
-msgstr "information can be recorded."
+msgstr "JSON 形式で情報を取得します。"
 
 #: src/commands/GetTrackInfoCommand.cpp
 msgid "Types:"
 msgstr "種類:"
 
 #: src/commands/GetTrackInfoCommand.h
-#, fuzzy
 msgid "Get Track Info"
-msgstr "トラックを下へ移動(&D)"
+msgstr "トラック情報の取得"
 
 #: src/commands/GetTrackInfoCommand.h
 msgid "Gets track values as JSON."
-msgstr ""
+msgstr "トラックの値を JSON として取得します。"
 
 #: src/commands/HelpCommand.cpp src/export/ExportCL.cpp
 msgid "Command:"
@@ -7166,7 +7167,7 @@ msgstr "コマンド:"
 
 #: src/commands/HelpCommand.h
 msgid "Gives help on a command."
-msgstr ""
+msgstr "コマンドのヘルプを取得します。"
 
 #: src/commands/ImportExportCommands.cpp src/commands/OpenSaveCommands.cpp
 msgid "File Name:"
@@ -7182,16 +7183,15 @@ msgstr "取り込み2"
 
 #: src/commands/ImportExportCommands.h
 msgid "Imports from a file."
-msgstr ""
+msgstr "ファイルから取り込みます。"
 
 #: src/commands/ImportExportCommands.h
 msgid "Export2"
 msgstr "書き出し2"
 
 #: src/commands/ImportExportCommands.h
-#, fuzzy
 msgid "Exports to a file."
-msgstr "複数ファイルの書き出し"
+msgstr "ファイルに書き出します。"
 
 #: src/commands/LoadCommands.cpp
 msgid "Builtin Commands"
@@ -7210,18 +7210,15 @@ msgstr "Audacity に内蔵コマンドを提供"
 
 #: src/commands/LoadCommands.cpp
 msgid "Unknown built-in command name"
-msgstr ""
+msgstr "不明な内蔵コマンド名"
 
 #: src/commands/MessageCommand.cpp src/commands/SetLabelCommand.cpp
 msgid "Text:"
 msgstr "テキスト:"
 
-#  i18n-hint: '-help' is the option and needs to stay in
-#  * English. This displays a list of available options
 #: src/commands/MessageCommand.h
-#, fuzzy
 msgid "Echos a message."
-msgstr "このヘルプメッセージ"
+msgstr "テキストを表示します。"
 
 #: src/commands/OpenSaveCommands.cpp
 msgid "Add to History"
@@ -7240,18 +7237,16 @@ msgid "Open Project2"
 msgstr "プロジェクトを開く2"
 
 #: src/commands/OpenSaveCommands.h
-#, fuzzy
 msgid "Opens a project."
-msgstr "Audacity プロジェクトファイルを開く"
+msgstr "プロジェクトを開きます。"
 
 #: src/commands/OpenSaveCommands.h
 msgid "Save Project2"
 msgstr "プロジェクトを保存2"
 
 #: src/commands/OpenSaveCommands.h
-#, fuzzy
 msgid "Saves a project."
-msgstr "プロジェクトファイルを保存(&S)"
+msgstr "プロジェクトを保存します。"
 
 #: src/commands/PreferenceCommands.cpp src/commands/SetEnvelopeCommand.cpp
 msgid "Value:"
@@ -7271,12 +7266,11 @@ msgstr "環境設定を設定"
 
 #: src/commands/PreferenceCommands.h
 msgid "Gets the value of a single preference."
-msgstr ""
+msgstr "単一の環境設定値を取得します。"
 
 #: src/commands/PreferenceCommands.h
-#, fuzzy
 msgid "Sets the value of a single preference."
-msgstr "1 つ以上のトラックに対してピーク振幅を設定します"
+msgstr "単一の環境設定値を設定します。"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Window"
@@ -7378,9 +7372,9 @@ msgid "Bring To Top:"
 msgstr ""
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Error trying to save file: %s"
-msgstr "ファイル保存時のエラー: "
+msgstr "ファイル保存エラー: %s"
 
 #: src/commands/ScreenshotCommand.h
 msgid "Screenshot"
@@ -7388,7 +7382,7 @@ msgstr "スクリーンショット"
 
 #: src/commands/ScreenshotCommand.h
 msgid "Takes screenshots."
-msgstr ""
+msgstr "スクリーンショットを撮影します。"
 
 #: src/commands/SelectCommand.cpp
 msgid "Project Start"
@@ -7473,23 +7467,20 @@ msgid "Select"
 msgstr "選択"
 
 #: src/commands/SelectCommand.h
-#, fuzzy
 msgid "Selects a time range."
-msgstr "MIDI ファイルを選択..."
+msgstr "時間で範囲選択します。"
 
 #: src/commands/SelectCommand.h
 msgid "Selects a frequency range."
-msgstr ""
+msgstr "周波数で範囲選択します。"
 
 #: src/commands/SelectCommand.h
-#, fuzzy
 msgid "Selects a range of tracks."
-msgstr "操作を選んでください"
+msgstr "トラックを範囲選択します。"
 
 #: src/commands/SelectCommand.h
-#, fuzzy
 msgid "Selects Audio."
-msgstr "音声ホストの選択"
+msgstr "音声を選択します。"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
 msgid "Color 0"
@@ -7509,15 +7500,15 @@ msgstr "色 3"
 
 #: src/commands/SetClipCommand.cpp
 msgid "At:"
-msgstr ""
+msgstr "開始点:"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
 msgid "Colour:"
-msgstr "色:"
+msgstr "新規色:"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetLabelCommand.cpp
 msgid "Start:"
-msgstr "開始:"
+msgstr "新規開始点:"
 
 #: src/commands/SetClipCommand.h
 msgid "Set Clip"
@@ -7525,7 +7516,7 @@ msgstr "クリップ設定"
 
 #: src/commands/SetClipCommand.h
 msgid "Sets various values for a clip."
-msgstr ""
+msgstr "クリップの様々な値を設定します。"
 
 #: src/commands/SetEnvelopeCommand.cpp
 msgid "Time:"
@@ -7541,7 +7532,7 @@ msgstr "エンベロープ設定"
 
 #: src/commands/SetEnvelopeCommand.h
 msgid "Sets an envelope point position."
-msgstr ""
+msgstr "エンベロープポイントの位置を設定します。"
 
 #: src/commands/SetLabelCommand.cpp
 msgid "Label Index"
@@ -7561,20 +7552,19 @@ msgstr "ラベル設定"
 
 #: src/commands/SetLabelCommand.h
 msgid "Sets various values for a label."
-msgstr ""
+msgstr "ラベルの様々な値を設定します。"
 
 #: src/commands/SetProjectCommand.cpp
-#, fuzzy
 msgid "Resize:"
-msgstr "残存(&U)"
+msgstr "サイズ変更:"
 
 #: src/commands/SetProjectCommand.cpp
 msgid "X:"
-msgstr ""
+msgstr "X:"
 
 #: src/commands/SetProjectCommand.cpp
 msgid "Y:"
-msgstr ""
+msgstr "Y:"
 
 #: src/commands/SetProjectCommand.cpp
 msgid "Width:"
@@ -7590,7 +7580,7 @@ msgstr "プロジェクト設定"
 
 #: src/commands/SetProjectCommand.h
 msgid "Sets various values for a project."
-msgstr ""
+msgstr "プロジェクトの様々な値を設定します。"
 
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "Track Index:"
@@ -7690,7 +7680,7 @@ msgstr "トラック表示設定"
 
 #: src/commands/SetTrackInfoCommand.h
 msgid "Sets various values for a track."
-msgstr ""
+msgstr "トラックの様々な値を設定します。"
 
 # jp: 説明
 #: src/effects/Amplify.cpp
