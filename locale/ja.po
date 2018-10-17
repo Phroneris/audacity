@@ -6373,7 +6373,7 @@ msgstr "イメージをファイル %s に書き込めませんでした。"
 msgid ""
 "Theme as Cee code written to:\n"
 "  %s."
-msgstr ""
+msgstr "テーマを C 言語コードとして %s に書き込みました。"
 
 #: src/Theme.cpp
 #, c-format
@@ -6400,8 +6400,8 @@ msgid ""
 "Audacity could not read its default theme.\n"
 "Please report the problem."
 msgstr ""
-"既定のテーマを読み取ることができませんでした。\n"
-"問題を報告してください。"
+"デフォルトのテーマを読み取ることができませんでした。\n"
+"是非この問題を報告してください。"
 
 #: src/Theme.cpp
 #, c-format
@@ -6421,13 +6421,13 @@ msgstr ""
 "  %s"
 
 #: src/Theme.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Some required files in:\n"
 "  %s\n"
 "were already present.  Overwrite?"
 msgstr ""
-"%s\n"
+"  %s\n"
 "にて要求されたファイルのうち、\n"
 "既に存在するファイルがあります。上書きしますか？"
 
@@ -14195,7 +14195,6 @@ msgid "Info"
 msgstr "情報"
 
 #: src/prefs/ThemePrefs.cpp
-#, fuzzy
 msgid ""
 "Themability is an experimental feature.\n"
 "\n"
@@ -14209,24 +14208,21 @@ msgid ""
 msgstr ""
 "テーマは実験的な機能です。\n"
 "\n"
-"お試しになるには、\"テーマキャッシュを保存\" をクリックして ImageCacheVxx.png ファイル\n"
+"お試しになるには、[テーマキャッシュを保存] をクリックして ImageCacheVxx.png ファイル\n"
 "を探し、Gimp などの画像エディタで画像や色などを修正してください。\n"
 "\n"
-"\"テーマキャッシュの読み込み\" をクリックすると、色や画像が修正されたものを Audacity の\n"
-"背景として読み込みます。\n"
+"[テーマキャッシュを読み込む] をクリックすると、変更が Audacity に読み込まれます。\n"
 "\n"
-"(現時点ではトランスポートツールバーと波形の色にのみ反映されます画像が他のアイコンも\n"
-"表示していてもそれらは反映されません。)"
+"(現時点では、録音/再生ツールバーと波形の色のみ反映されます。画像には他のアイコンも\n"
+"存在しますが、それらは反映されません。)"
 
 #: src/prefs/ThemePrefs.cpp
-#, fuzzy
 msgid ""
 "This is a debug version of Audacity, with an extra button, 'Output Sourcery'.  This will save a\n"
 "C version of the image cache that can be compiled in as a default."
 msgstr ""
-"Audacity を 'Sourcery 出力' 外部ボタンつきでコンパイルしています。\n"
-"これは最初から含まれている C バージョンのイメージキャッシュを\n"
-"保存することになります。"
+"この Audacity は [Output Sourcery] ボタンが追加されたデバッグ版です。\n"
+"デフォルトとしてコンパイルに含めることができる C 版の画像キャッシュを保存できます。"
 
 #: src/prefs/ThemePrefs.cpp
 msgid ""
