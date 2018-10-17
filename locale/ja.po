@@ -2422,7 +2422,7 @@ msgstr " [[file:quick_help.html|クイックヘルプ]] (ローカルディス�
 
 #: src/HelpText.cpp
 msgid " [[file:index.html|Manual]] - if not installed locally, [[https://manual.audacityteam.org/|view online]]"
-msgstr " [[file:index.html|マニュアル]] (ローカルディスク上か、[[https://manual.audacityteam.org/quick_help.html|インターネット版]])"
+msgstr " [[file:index.html|マニュアル]] (ローカルディスク上か、[[https://manual.audacityteam.org/|インターネット版]])"
 
 #: src/HelpText.cpp
 msgid " [[https://forum.audacityteam.org/|Forum]] - ask your question directly, online."
