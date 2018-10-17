@@ -24,6 +24,7 @@
 
 #include "AudioIO.h"
 #include "LabelTrack.h"
+#include "Menus.h"
 #include "ModuleManager.h"
 #include "Prefs.h"
 #include "Project.h"
@@ -1632,7 +1633,7 @@ bool NyqBench::Validate()
 {
    if (mScript->GetLastPosition() > 0 && mScript->IsModified()) {
       int ans;
-      ans = AudacityMessageBox(_("Code has been modified.  Are you sure?"),
+      ans = AudacityMessageBox(_("Code has been modified. Are you sure?"),
                          _("Warning"),
                          wxYES_NO | wxICON_QUESTION,
                          this);

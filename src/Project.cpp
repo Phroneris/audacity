@@ -106,6 +106,7 @@ scroll information.  It also has some status flags.
 #include "LabelTrack.h"
 #include "Legacy.h"
 #include "LyricsWindow.h"
+#include "Menus.h"
 #include "Mix.h"
 #include "NoteTrack.h"
 #include "Prefs.h"
@@ -980,6 +981,7 @@ AudacityProject::AudacityProject(wxWindow * parent, wxWindowID id,
    //
 
    mMenuCommandHandler = std::make_unique<MenuCommandHandler>();
+   mMenuManager = std::make_unique<MenuManager>();
 
    UpdatePrefs();
 
@@ -1140,7 +1142,7 @@ AudacityProject::AudacityProject(wxWindow * parent, wxWindowID id,
    mTrackPanel->AddOverlay(mScrubOverlay.get());
 #endif
 
-   mMenuCommandHandler->CreateMenusAndCommands(*this);
+   mMenuManager->CreateMenusAndCommands(*this);
 
    mTrackPanel->SetBackgroundCell(mBackgroundCell);
 
@@ -1361,6 +1363,7 @@ void AudacityProject::UpdatePrefs()
    SetProjectTitle();
 
    GetMenuCommandHandler(*this).UpdatePrefs();
+   GetMenuManager(*this).UpdatePrefs();
 
    if (mTrackPanel) {
       mTrackPanel->UpdatePrefs();
@@ -2040,7 +2043,7 @@ void AudacityProject::FixScrollbars()
       mTrackPanel->Refresh(false);
    }
 
-   GetMenuCommandHandler(*this).UpdateMenus(*this);
+   GetMenuManager(*this).UpdateMenus(*this);
 
    if (oldhstate != newhstate || oldvstate != newvstate) {
       UpdateLayout();
@@ -2268,7 +2271,7 @@ void AudacityProject::DoScroll()
          GetTrackPanel()->HandleCursorForPresentMouseState(); } );
 }
 
-bool MenuCommandHandler::ReportIfActionNotAllowed
+bool MenuManager::ReportIfActionNotAllowed
 ( AudacityProject &project,
   const wxString & Name, CommandFlag & flags, CommandFlag flagsRqd, CommandFlag mask )
 {
@@ -2285,14 +2288,14 @@ bool MenuCommandHandler::ReportIfActionNotAllowed
 /// Determines if flags for command are compatible with current state.
 /// If not, then try some recovery action to make it so.
 /// @return whether compatible or not after any actions taken.
-bool MenuCommandHandler::TryToMakeActionAllowed
+bool MenuManager::TryToMakeActionAllowed
 ( AudacityProject &project,
   CommandFlag & flags, CommandFlag flagsRqd, CommandFlag mask )
 {
    bool bAllowed;
 
    if( !flags )
-      flags = GetUpdateFlags(project);
+      flags = GetMenuManager(project).GetUpdateFlags(project);
 
    bAllowed = ((flags & mask) == (flagsRqd & mask));
    if( bAllowed )
@@ -2305,7 +2308,7 @@ bool MenuCommandHandler::TryToMakeActionAllowed
    if( mStopIfWasPaused && (MissingFlags & AudioIONotBusyFlag ) ){
       project.StopIfPaused();
       // Hope this will now reflect stopped audio.
-      flags = GetUpdateFlags(project);
+      flags = GetMenuManager(project).GetUpdateFlags(project);
       bAllowed = ((flags & mask) == (flagsRqd & mask));
       if( bAllowed )
          return true;
@@ -2335,7 +2338,7 @@ bool MenuCommandHandler::TryToMakeActionAllowed
    // This was 'OnSelectAll'.  Changing it to OnSelectSomething means if
    // selecting all tracks is enough, we just do that.
    GetMenuCommandHandler(project).OnSelectSomething(project);
-   flags = GetUpdateFlags(project);
+   flags = GetMenuManager(project).GetUpdateFlags(project);
    bAllowed = ((flags & mask) == (flagsRqd & mask));
    return bAllowed;
 }
@@ -2356,7 +2359,7 @@ void AudacityProject::OnMenu(wxCommandEvent & event)
    }
 #endif
    bool handled = mCommandManager.HandleMenuID(
-      event.GetId(), GetMenuCommandHandler(*this).GetUpdateFlags(*this),
+      event.GetId(), GetMenuManager(*this).GetUpdateFlags(*this),
       NoFlagsSpecifed);
 
    if (handled)
@@ -2369,7 +2372,7 @@ void AudacityProject::OnMenu(wxCommandEvent & event)
 
 void AudacityProject::OnUpdateUI(wxUpdateUIEvent & WXUNUSED(event))
 {
-   GetMenuCommandHandler(*this).UpdateMenus(*this);
+   GetMenuManager(*this).UpdateMenus(*this);
 }
 
 void AudacityProject::MacShowUndockedToolbars(bool show)
@@ -3915,7 +3918,7 @@ bool AudacityProject::DoSave (const bool fromSaveAs,
 
       if( !wxDir::Exists( projPath ) ){
          AudacityMessageBox(wxString::Format(
-            _("Could not save project. Path not found.  Try creating \ndirectory \"%s\" before saving project with this name."),
+            _("Could not save project. Path not found. Try creating \ndirectory \"%s\" before saving project with this name."),
             projPath),
                       _("Error Saving Project"),
                       wxICON_ERROR, this);
@@ -3959,11 +3962,13 @@ bool AudacityProject::DoSave (const bool fromSaveAs,
    if (!success)
       return false;
 
+   Maybe<DirManager::ProjectSetter> pSetter;
+
    if (fromSaveAs && !bWantSaveCopy) {
       // We are about to move files from the current directory to
       // the NEW directory.  We need to make sure files that belonged
       // to the last saved project don't get erased, so we "lock" them, so that
-      // SetProject() copies instead of moves the files.
+      // ProjectSetter's constructor copies instead of moves the files.
       // (Otherwise the NEW project would be fine, but the old one would
       // be empty of all of its files.)
 
@@ -3977,19 +3982,17 @@ bool AudacityProject::DoSave (const bool fromSaveAs,
 
       // This renames the project directory, and moves or copies
       // all of our block files over.
-      success = mDirManager->SetProject(projPath, projName, true);
+      pSetter.create( *mDirManager, projPath, projName, true );
 
-      if (!success)
+      if (!pSetter->Ok())
          return false;
    }
 
    // Commit the writing of the .aup only now, after we know that the _data
    // folder also saved with no problems.
-   // Error recovery in case this fails might not be correct -- there is no
-   // provision to undo the effects of SetProject -- but it is very unlikely
-   // that this will happen:  only renaming and removing of files happens,
-   // not writes that might exhaust space.  So DO give a second dialog in
-   // case the unusual happens.
+   // It is very unlikely that errors will happen:
+   // only renaming and removing of files, not writes that might exhaust space.
+   // So DO give a second dialog in case the unusual happens.
    success = success && GuardedCall< bool >( [&] {
          saveFile.PostCommit();
          return true;
@@ -3999,6 +4002,9 @@ bool AudacityProject::DoSave (const bool fromSaveAs,
       return false;
 
    // SAVE HAS SUCCEEDED -- following are further no-fail commit operations.
+
+   if (pSetter)
+      pSetter->Commit();
 
    if ( !bWantSaveCopy )
    {
@@ -4585,9 +4591,9 @@ void AudacityProject::InitialState()
    if (mHistoryWindow)
       mHistoryWindow->UpdateDisplay();
 
-   GetMenuCommandHandler(*this).ModifyUndoMenuItems(*this);
+   GetMenuManager(*this).ModifyUndoMenuItems(*this);
 
-   GetMenuCommandHandler(*this).UpdateMenus(*this);
+   GetMenuManager(*this).UpdateMenus(*this);
    this->UpdateLyrics();
    this->UpdateMixerBoard();
 }
@@ -4623,9 +4629,9 @@ void AudacityProject::PushState(const wxString &desc,
    if (mHistoryWindow)
       mHistoryWindow->UpdateDisplay();
 
-   GetMenuCommandHandler(*this).ModifyUndoMenuItems(*this);
+   GetMenuManager(*this).ModifyUndoMenuItems(*this);
 
-   GetMenuCommandHandler(*this).UpdateMenus(*this);
+   GetMenuManager(*this).UpdateMenus(*this);
 
    // Some state pushes, like changing a track gain control (& probably others),
    // should not repopulate Lyrics Window and MixerBoard.
@@ -4707,7 +4713,7 @@ void AudacityProject::PopState(const UndoState &state)
 
    HandleResize();
 
-   GetMenuCommandHandler(*this).UpdateMenus(*this);
+   GetMenuManager(*this).UpdateMenus(*this);
    this->UpdateLyrics();
    this->UpdateMixerBoard();
 
@@ -4723,7 +4729,7 @@ void AudacityProject::SetStateTo(unsigned int n)
    HandleResize();
    mTrackPanel->SetFocusedTrack(NULL);
    mTrackPanel->Refresh(false);
-   GetMenuCommandHandler(*this).ModifyUndoMenuItems(*this);
+   GetMenuManager(*this).ModifyUndoMenuItems(*this);
    this->UpdateLyrics();
    this->UpdateMixerBoard();
 }

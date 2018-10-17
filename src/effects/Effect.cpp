@@ -41,6 +41,7 @@ greater use in future.
 #include "../AudacityException.h"
 #include "../AudioIO.h"
 #include "../LabelTrack.h"
+#include "../Menus.h"
 #include "../Mix.h"
 #include "../Prefs.h"
 #include "../Project.h"
@@ -3240,7 +3241,7 @@ void EffectUIHost::OnApply(wxCommandEvent & evt)
    {
       auto flags = AlwaysEnabledFlag;
       bool allowed =
-         GetMenuCommandHandler(*mProject).ReportIfActionNotAllowed(
+         GetMenuManager(*mProject).ReportIfActionNotAllowed(
          *mProject,
          mEffect->GetTranslatedName(),
          flags,
