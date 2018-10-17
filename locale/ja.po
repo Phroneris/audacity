@@ -10473,7 +10473,7 @@ msgstr "レイテンシー補償"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "As part of their processing, some VST effects must delay returning "
-msgstr "VST によっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。 "
+msgstr "VST エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。 "
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
@@ -10664,14 +10664,14 @@ msgid "Basic"
 msgstr "Basic"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "As part of their processing, some Audio Unit effects must delay returning "
-msgstr "As part of their processing, some VST effects must delay returning "
+msgstr "Audio Unit エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。 "
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "not work for all Audio Unit effects."
-msgstr "not work for all Audio Unit effects."
+msgstr ""
+" \n"
+"ただし、すべての Audio Unit エフェクトに有効とは限りません。"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "User Interface"
@@ -10727,21 +10727,21 @@ msgstr "LADSPA エフェクトの提供"
 
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "Audacity no longer uses vst-bridge"
-msgstr ""
+msgstr "Audacity はもう VST ブリッジを必要としません"
 
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "LADSPA Effect Options"
 msgstr "LADSPA エフェクトオプション"
 
 #: src/effects/ladspa/LadspaEffect.cpp
-#, fuzzy
 msgid "As part of their processing, some LADSPA effects must delay returning "
-msgstr "As part of their processing, some VST effects must delay returning "
+msgstr "LADSPA エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。 "
 
 #: src/effects/ladspa/LadspaEffect.cpp
-#, fuzzy
 msgid "not work for all LADSPA effects."
-msgstr "not work for all LADSPA effects."
+msgstr ""
+" \n"
+"ただし、すべての LADSPA エフェクトに有効とは限りません。"
 
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "Effect Output"
@@ -10756,28 +10756,28 @@ msgid "LV2 Effect Settings"
 msgstr "LV2 エフェクト設定"
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy
 msgid "As part of their processing, some LV2 effects must delay returning "
-msgstr "As part of their processing, some LV2 effects must delay returning "
+msgstr "LV2 エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。 "
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy
 msgid "Enabling this setting will provide that compensation, but it may "
-msgstr "Enabling this setting will provide that compensation, but it may "
+msgstr ""
+" \n"
+"このオプションを有効化することで補償を行います。 "
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy
 msgid "not work for all LV2 effects."
-msgstr "not work for all LV2 effects."
+msgstr ""
+" \n"
+"ただし、すべての LV2 エフェクトに有効とは限りません。"
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy
 msgid "LV2 effects can have a graphical interface for setting parameter values."
 msgstr "ほとんどの LV2 エフェクトはパラメータ値設定用のグラフィカルインタフェースを持っています。"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "Couldn't instantiate effect"
-msgstr ""
+msgstr "エフェクトのインスタンスを生成できませんでした"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "Generator"
@@ -10791,7 +10791,7 @@ msgstr "継続時間(&D):"
 #. "Linux Audio Developer's Simple Plugin API (LADSPA) version 2"
 #: src/effects/lv2/LV2Effect.h
 msgid "LV2"
-msgstr ""
+msgstr "LV2"
 
 #: src/effects/lv2/LoadLV2.cpp
 msgid "LV2 Effects"
