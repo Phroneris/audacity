@@ -71,10 +71,23 @@
 
 ■ メモ
 
+dummyString～系の読み上げ用のやつは、日本語の語順の関係でそう簡単には訳せない。
+
+言語設定の選択肢"System"が無い。
+
+#: src/widgets/Ruler.cpp
+msgid "Record/Play head"
+て何。
+
+環境設定でFFmpegライブラリ導入済みの状態から更に指定を行おうとした場合に出るダイアログの
+タイトル文字列"Success"が無い。
+
 #: plug-ins/StudioFadeOut.ny
 #, lisp-format
 msgid "Selection too short.~%It must be more than 2 samples."
-とあるが、サンプリング周波数8000Hzでは12サンプル選択してやっとこれが出なくなった。
+とあるが、サンプリング周波数        <s>8000Hzでは12サンプル選択してやっとこれが出なくなった。</s>
+22050Hzではサンプル1個までがこのエラー、2個からは正常になった。
+96000Hzではサンプル5個までがこのエラー、7個からは正常、6個のみエラーは出ないが処理後に7になった。
 
 #: plug-ins/adjustable-fade.ny
 #, lisp-format
@@ -88,7 +101,7 @@ msgid ""
 "                                 Hint: 6 dB doubles the amplitude~%~\n"
 "                                 t-6 dB halves the amplitude."
 とあるが、100dB超えにすると空のエラーが出てこれが表示されない。
-あと3行目頭のtは恐らく~tの間違いか。
+あと3行目頭のtは恐らく~tの間違いか。nyファイルの方では\tとなってるが…。
 
 #: plug-ins/delay.ny
 #, lisp-format
@@ -107,10 +120,6 @@ msgid ""
 "                   Frequency must be less than ~a Hz."
 が、訳しても効かない。
 
-リズムトラックの生成のソーステキストに"Used if 'Number ～"が無い。
-ただしpotファイルを見たらあったので、更新で追加されたのを私が適用してないだけっぽい。うっかり。
-何なら他の変なとこもそれで直るかもしれない。
-
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid ""
@@ -120,7 +129,7 @@ msgid ""
 などのヘッダー兼ダイアログが訳しても効かない。原文との不整合はない。謎。
 HTML出力では効いてる。
 
-【サンプルデータの読み込みはファイル内に純ASCII文字しか許さないので、ファイルに出力される文字列は翻訳不能】
+【サンプルデータの読み込みはファイル内に純ASCII文字しか許さないので、ファイルに出力される文字列は翻訳注意】
 
 #: plug-ins/sample-data-import.ny
 #, lisp-format
@@ -128,7 +137,7 @@ msgid ""
 "Error~%~\n"
 "                        '~a' could not be opened.~%~\n"
 "                        Check that file exists."
-などのダイアログも効かない。
+などのダイアログが訳しても効かない。
 
 #: plug-ins/vocalrediso.ny
 msgid ""
@@ -137,5 +146,17 @@ msgid ""
 "      Any remaining difference may be caused by lossy encoding."
 などの全ての解析ダイアログ（ただし"A fairly good value"以外）が効かない。
 A fairly～は1行なので、改行が悪さをしてるんじゃないか感がある。
+
+
+
+
+□ メモ（済）
+
+リズムトラックの生成のソーステキストに"Used if 'Number ～"が無い。
+ただしpotファイルを見たらあったので、更新で追加されたのを私が適用してないだけっぽい。うっかり。
+→直しました。（喜）
+何なら他の変なとこもそれで直るかもしれない。
+→直りませんでした。（泣）
+
 
 

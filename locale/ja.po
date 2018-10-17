@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-10 15:25+0100\n"
-"PO-Revision-Date: 2018-10-13 15:06+0900\n"
+"PO-Revision-Date: 2018-10-17 22:14+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: -1,3553,3637,3648,3715,-1,-1,-1,-1,-1\n"
+"X-Poedit-Bookmarks: -1,-1,3399,-1,3715,-1,-1,-1,-1,-1\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -477,18 +477,6 @@ msgstr "Audacity は世界中の[[https://www.audacityteam.org/about/credits|ボ
 msgid "If you find a bug or have a suggestion for us, please write, in English, to our [[https://forum.audacityteam.org/|forum]]. For help, view the tips and tricks on our [[https://wiki.audacityteam.org/|wiki]] or visit our [[https://forum.audacityteam.org/|forum]]."
 msgstr "もしバグを発見されたり私たちへのご提案をお持ちの場合は、[[https://forum.audacityteam.org/|フォーラム]]にて英語でお書きください。ヘルプが必要な場合は、[[https://wiki.audacityteam.org/|Wiki ページ]]でヒントや便利な使い方をご覧になるか、または[[https://forum.audacityteam.org/|フォーラム]]にアクセスしてみてください。"
 
-#  i18n-hint: The translation of "translator_credits" will appear
-#  in the credits in the About Audacity window.  Use this to add
-#  your own name(s) to the credits.
-#  For example:  "English translation by Dominic Mazzoni."
-#  i18n-hint: The translation of "translator_credits" will appear
-#  in the credits in the About Audacity window.  Use this to add
-#  your own name(s) to the credits.
-#  For example:  "English translation by Dominic Mazzoni."
-#  i18n-hint: The translation of "translator_credits" will appear
-#  in the credits in the About Audacity window.  Use this to add
-#  your own name(s) to the credits.
-#  For example:  "English translation by Dominic Mazzoni."
 #. i18n-hint: The translation of "translator_credits" will appear
 #. *  in the credits in the About Audacity window.  Use this to add
 #. *  your own name(s) to the credits.
@@ -815,8 +803,8 @@ msgid ""
 "data loss or cause your system to crash.\n"
 "\n"
 msgstr ""
-"Audacity を二つ同時に動作させることは、データを喪失したり、\n"
-"システムを停止させたりすることがあります。\n"
+"Audacity を 2 つ同時に動作させると、データの喪失や、\n"
+"システムのクラッシュの危険性があります。\n"
 "\n"
 
 #: src/AudacityApp.cpp
@@ -849,7 +837,7 @@ msgstr ""
 
 #: src/AudacityApp.cpp
 msgid "Audacity is already running"
-msgstr "Audacity は既に起動されています"
+msgstr "Audacity は既に起動しています"
 
 #. i18n-hint: This controls the number of bytes that Audacity will
 #. *           use when writing files to the disk
@@ -862,8 +850,6 @@ msgstr "最大ディスクブロックをバイトで設定"
 msgid "decode an autosave file"
 msgstr "自動保存ファイルの復号"
 
-#  i18n-hint: '-help' is the option and needs to stay in
-#  * English. This displays a list of available options
 #. i18n-hint: This displays a list of available options
 #: src/AudacityApp.cpp
 msgid "this help message"
@@ -874,7 +860,6 @@ msgstr "このヘルプメッセージ"
 msgid "run self diagnostics"
 msgstr "自己診断の実行"
 
-#  i18n-hint '-version' needs to stay in English.
 #. i18n-hint: This displays the Audacity version
 #: src/AudacityApp.cpp
 msgid "display Audacity version"
@@ -1086,11 +1071,11 @@ msgstr "コマンド(&C)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Edit Parameters"
-msgstr "編集パラメータ(&E)"
+msgstr "パラメータを編集(&E)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Use Preset"
-msgstr "プリセットの使用(&U)"
+msgstr "プリセットを使用(&U)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Parameters"
@@ -1182,11 +1167,12 @@ msgid ""
 "Export recording to %s\n"
 "/%s/%s%s"
 msgstr ""
+"録音を書き出し: %s\n"
+"/%s/%s%s"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Export recording"
-msgstr "スライダー録音"
+msgstr "録音を書き出し"
 
 #: src/BatchCommands.cpp
 msgid ""
@@ -2165,7 +2151,7 @@ msgstr ""
 #: src/FileException.cpp
 #, c-format
 msgid "Audacity successfully wrote a file in %s but failed to rename it as %s."
-msgstr ""
+msgstr "ファイルを %s に書き込むことはできましたが、%s にリネームすることはできませんでした。"
 
 #: src/FileException.h
 msgid "File Error"
@@ -2189,9 +2175,11 @@ msgstr "標準自己相関"
 msgid "Cuberoot Autocorrelation"
 msgstr "立方根自己相関"
 
+# ja: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally
+# efficient multipitch analysis model」という論文が元祖らしいということやEACという頭文字があてられ得るということなどまではわかり、被引用文献に1つ日本語のものがあったのでそれが参考になるかもと思ったが、無料で見れる範囲ではEACについて特に触れられていなかったし、詳細な中身を確認するために大学図書館にまで出向くガッツも無いので諦める。っていうか立方根自己相関とやらすら見つけられなかったんだが…。
 #: src/FreqWindow.cpp
 msgid "Enhanced Autocorrelation"
-msgstr "強調された自己相関 (Enhanced Autocorrelation)"
+msgstr "強調自己相関"
 
 #. i18n-hint: This is a technical term, derived from the word
 #. * "spectrum".  Do not translate it unless you are sure you
@@ -2335,7 +2323,7 @@ msgstr "遅延 (秒)\t周波数 (Hz)\tレベル"
 
 #: src/HelpText.cpp
 msgid "Welcome!"
-msgstr "ようこそ"
+msgstr "ようこそ！"
 
 #. i18n-hint: Title for a topic.
 #: src/HelpText.cpp
@@ -2715,9 +2703,10 @@ msgstr "保存(&S)"
 msgid "Save Project &As..."
 msgstr "名前を付けて保存(&A)..."
 
+# jp: 独自アクセスキー
 #: src/Menus.cpp
 msgid "Save Lossless Copy of Project..."
-msgstr "プロジェクトの無劣化コピーを保存..."
+msgstr "プロジェクトの無劣化コピーを保存(&L)..."
 
 #: src/Menus.cpp
 msgid "&Save Compressed Copy of Project..."
@@ -3643,21 +3632,19 @@ msgstr "スクリーンショット(&S)..."
 msgid "&Run Benchmark..."
 msgstr "ベンチマーク(&R)..."
 
+# jp: 独自アクセスキー
 #: src/Menus.cpp
 msgid "Simulate Recording Errors"
-msgstr "録音エラーをシミュレーション"
+msgstr "録音エラーをシミュレーション(&C)"
 
+# jp: 独自アクセスキー
 #: src/Menus.cpp
 msgid "Detect Upstream Dropouts"
-msgstr "ドロップアウトを検出"
+msgstr "ドロップアウトを検出(&D)"
 
-#  i18n-hint: This refers to a "window function", used in the
-#  Frequency analyze dialog box.
-#  i18n-hint: This refers to a "window function", used in the
-#  Frequency analyze dialog box.
 #: src/Menus.cpp
 msgid "&Window"
-msgstr "窓関数(&W)"
+msgstr "ウィンドウ(&W)"
 
 #. i18n-hint: Standard Macintosh Window menu item:  Make (the current
 #. * window) shrink to an icon on the dock
@@ -3873,20 +3860,14 @@ msgstr "録音チャンネルの変更(&N)..."
 msgid "&Selection"
 msgstr "選択(&S)"
 
-#  i18n-hint: Set snap-to mode on or off
-#  i18n-hint: Set snap-to mode on or off
 #: src/Menus.cpp
 msgid "Snap-To &Off"
 msgstr "スナップ: なし(&O)"
 
-#  i18n-hint: Set snap-to mode on or off
-#  i18n-hint: Set snap-to mode on or off
 #: src/Menus.cpp
 msgid "Snap-To &Nearest"
 msgstr "スナップ: 最近傍(&N)"
 
-#  i18n-hint: Set snap-to mode on or off
-#  i18n-hint: Set snap-to mode on or off
 #: src/Menus.cpp
 msgid "Snap-To &Prior"
 msgstr "スナップ: 1 つ前(&P)"
@@ -4892,7 +4873,7 @@ msgstr "新しいラベルトラックが作られました"
 
 #: src/Menus.cpp
 msgid "This version of Audacity only allows one time track for each project window."
-msgstr "本バージョンでは時間トラックはプロジェクトウィンドウに 1 つのみ可能です。"
+msgstr "このバージョンの Audacity では、時間トラックはプロジェクトウィンドウに 1 つのみ可能です。"
 
 #: src/Menus.cpp
 msgid "Created new time track"
@@ -4991,14 +4972,12 @@ msgstr "MIDI デバイス情報が保存できません"
 
 #. i18n-hint: One or more audio tracks have been panned
 #: src/Menus.cpp
-#, fuzzy
 msgid "Panned audio track(s)"
-msgstr "リサンプリングされた音声トラック"
+msgstr "1 個以上の音声トラックをパン振りしました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Pan Track"
-msgstr "トラック"
+msgstr "トラックをパン振り"
 
 #: src/Menus.cpp
 msgid ""
@@ -5873,7 +5852,7 @@ msgstr ""
 
 #: src/Project.cpp
 msgid "Turn off dropout detection"
-msgstr ""
+msgstr "ドロップアウトの検出を無効にする"
 
 #: src/Project.cpp
 msgid "Recorded Audio"
@@ -5946,19 +5925,16 @@ msgstr "高品質"
 msgid "Best Quality (Slowest)"
 msgstr "最高品質 (最低速)"
 
-#  i18n-hint: Audio data bit depth (precison): 16-bit integers
 #. i18n-hint: Audio data bit depth (precision): 16-bit integers
 #: src/SampleFormat.cpp
 msgid "16-bit PCM"
 msgstr "16bit PCM"
 
-#  i18n-hint: Audio data bit depth (precison): 24-bit integers
 #. i18n-hint: Audio data bit depth (precision): 24-bit integers
 #: src/SampleFormat.cpp
 msgid "24-bit PCM"
 msgstr "24bit PCM"
 
-#  i18n-hint: Audio data bit depth (precison): 32-bit floating point
 #. i18n-hint: Audio data bit depth (precision): 32-bit floating point
 #: src/SampleFormat.cpp src/prefs/QualityPrefs.cpp
 msgid "32-bit float"
@@ -6173,21 +6149,20 @@ msgstr "ファイルの保存場所を選んでください"
 
 #: src/Screenshot.cpp
 msgid "Capture failed!"
-msgstr "キャプチャ失敗"
+msgstr "キャプチャ失敗！"
 
 #: src/Sequence.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Sequence has block file exceeding maximum %s samples per block.\n"
 "Truncating to this maximum length."
 msgstr ""
-"長さ %s > mMaxSamples %s のブロックファイルがシーケンス中にあります。\n"
-"長さ mMaxSamples に切りそろえます。"
+"ブロックあたり %s サンプルを超えるブロックファイルがシーケンス内にあります。\n"
+"上限の長さに切りそろえます。"
 
 #: src/Sequence.cpp
-#, fuzzy
 msgid "Warning - Truncating Overlong Block File"
-msgstr "警告 - 無用なブロックファイル "
+msgstr "警告 - 超過ブロックファイルの切り捨て"
 
 #  i18n-hint: The name of the Help menu
 #: src/ShuttleGui.cpp src/commands/HelpCommand.h src/effects/Equalization.cpp
@@ -6235,9 +6210,10 @@ msgstr "録音起動レベル (dB):"
 msgid "Welcome to Audacity!"
 msgstr "Audacity へようこそ！"
 
+# jp: 独自アクセスキー
 #: src/SplashDialog.cpp
 msgid "Don't show this again at start up"
-msgstr "このメッセージを次回からは開始時に表示しない"
+msgstr "次回からは起動時に表示しない(&D)"
 
 #: src/Tags.cpp
 msgid "Artist Name"
@@ -6869,27 +6845,25 @@ msgid "Direction Changes  -- mean: %1.4f  sd: (%1.4f)\n"
 msgstr "方向の変化  -- 平均: %1.4f  標準偏差: (%1.4f)\n"
 
 #: src/VoiceKey.cpp
-#, fuzzy
 msgid "Calibration Complete"
-msgstr "校正結果\n"
+msgstr "校正完了"
 
 #: src/WaveClip.cpp
-#, fuzzy
 msgid "Resampling failed."
-msgstr "再サンプリングは無効になっています。"
+msgstr "再サンプリングに失敗しました。"
 
 #: src/WaveTrack.cpp
 msgid "There is not enough room available to paste the selection"
-msgstr "選択範囲をペーストするには余裕がありません。"
+msgstr "選択範囲をペーストするのに十分な余裕がありません"
 
 #: src/WaveTrack.cpp
 msgid "There is not enough room available to expand the cut line"
-msgstr "カットラインを延長するのに十分な余裕がありません。"
+msgstr "カットラインを延長するのに十分な余裕がありません"
 
 #: src/blockfile/NotYetAvailableException.cpp
 #, c-format
 msgid "This operation cannot be done until importation of %s completes."
-msgstr ""
+msgstr "この操作は %s の取り込みが完了するまでは行うことができません。"
 
 #: src/commands/AudacityCommand.cpp src/effects/Effect.cpp
 #, c-format
@@ -12159,7 +12133,9 @@ msgstr "MP3 エンコーダにおいて、エラー %ld が返されました"
 msgid ""
 "The project sample rate (%d) is not supported by the MP3\n"
 "file format.  "
-msgstr "プロジェクトのサンプリング周波数 (%d) は MP3 ではサポートされていません。"
+msgstr ""
+"プロジェクトのサンプリング周波数 (%d) は、\n"
+"MP3 ファイル形式ではサポートされていません。  "
 
 #: src/export/ExportMP3.cpp
 #, c-format
@@ -12167,8 +12143,8 @@ msgid ""
 "The project sample rate (%d) and bit rate (%d kbps) combination is not\n"
 "supported by the MP3 file format.  "
 msgstr ""
-"プロジェクトのサンプリング周波数 (%d) とビットレート (%d kbps) の組み合わせは\n"
-"MP3 ファイル形式ではサポートされていません。"
+"プロジェクトのサンプリング周波数 (%d) とビットレート (%d kbps) の組み合わせは、\n"
+"MP3 ファイル形式ではサポートされていません。  "
 
 #: src/export/ExportMP3.cpp
 msgid "MP3 export library not found"
@@ -12603,9 +12579,8 @@ msgid "GStreamer Importer"
 msgstr "GStreamer 取り込み機能"
 
 #: src/import/ImportGStreamer.cpp
-#, fuzzy
 msgid "Unable to set stream state to paused."
-msgstr "「%s」から「%s」へリネームできません。"
+msgstr "ストリーム状態を pause に設定できません。"
 
 #: src/import/ImportGStreamer.cpp
 msgid "File doesn't contain any audio streams."
@@ -12708,7 +12683,8 @@ msgid ""
 "When importing uncompressed audio files you can either copy them into the project, or read them directly from their current location (without copying).\n"
 "\n"
 msgstr ""
-"非圧縮音声ファイルの取り込みは、ファイルをプロジェクトにコピーする方法と、ファイルのある場所から直接 (コピーせず) 読み取る方法があります。\n"
+"非圧縮音声ファイルの取り込みは、ファイルをプロジェクトにコピーする方法と、\n"
+"ファイルのある場所から直接 (コピーせず) 読み取る方法があります。\n"
 "\n"
 
 #: src/import/ImportPCM.cpp
@@ -12734,8 +12710,11 @@ msgid ""
 "\n"
 "How do you want to import the current file(s)?"
 msgstr ""
-"ファイルを直接読み込むことですぐに再生や編集を行えますが、この方法は該当ファイルの名前や場所をそのままにしておかなければいけないため、安全性では劣ります。\n"
-"[ヘルプ] > [診断] > [依存性のチェック] にて、直接読み込んだファイルの名前と場所を表示することができます。\n"
+"ファイルを直接読み込むことですぐに再生や編集を行えますが、\n"
+"この方法は該当ファイルの名前や場所をそのままにしておく必要があるため、\n"
+"安全性では劣ります。\n"
+"[ヘルプ] > [診断] > [依存性のチェック] にて、\n"
+"直接読み込んだファイルの名前と場所を表示することができます。\n"
 "\n"
 "どのようにファイルを取り込みますか？"
 
@@ -12758,7 +12737,7 @@ msgstr "次回からは表示せず、いつも上記設定を使用する(&W)"
 #: src/import/ImportPlugin.h src/import/ImportRaw.cpp
 #, c-format
 msgid "Importing %s"
-msgstr "%s を取り込み中..."
+msgstr "%s を取り込み中"
 
 #: src/import/ImportQT.cpp
 msgid "QuickTime files"
@@ -14836,13 +14815,13 @@ msgstr "クリック/選択範囲を %s に合わせる"
 #: src/toolbars/SelectionBar.cpp
 #, c-format
 msgid "%s - driven"
-msgstr ""
+msgstr "%s基準"
 
 #. i18n-hint: %s1 is replaced e.g by 'Length', %s2 e.g by 'Center'.
 #: src/toolbars/SelectionBar.cpp
 #, c-format
 msgid "Selection %s.  %s won't change."
-msgstr ""
+msgstr "%s基準で選択。%sは変更されません。"
 
 #: src/toolbars/SpectralSelectionBar.cpp
 msgid "Center frequency and Width"
@@ -15003,7 +14982,7 @@ msgstr "左クリックで展開、右クリックで削除"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Left-Click to merge clips"
-msgstr ""
+msgstr "左クリックでクリップを連結"
 
 #: src/tracks/playabletrack/wavetrack/ui/CutlineHandle.cpp
 msgid "Merged Clips"
@@ -16119,7 +16098,7 @@ msgstr "クイック再生が無効です"
 
 #: src/widgets/Ruler.cpp
 msgid "Quick-Play enabled"
-msgstr "タイムライン - クイック再生が有効です"
+msgstr "クイック再生が有効です"
 
 #: src/widgets/Ruler.cpp
 msgid "Click to unpin"
@@ -16239,22 +16218,19 @@ msgstr "e"
 
 #: src/widgets/wxPanelWrapper.h
 msgid "Dialog"
-msgstr ""
+msgstr "ダイアログ"
 
 #: src/widgets/wxPanelWrapper.h
-#, fuzzy
 msgid "Select a directory"
-msgstr "ディレクトリの作成"
+msgstr "ディレクトリの選択"
 
 #: src/widgets/wxPanelWrapper.h
-#, fuzzy
 msgid "Directory Dialog"
-msgstr "ディレクトリ"
+msgstr "ディレクトリダイアログ"
 
 #: src/widgets/wxPanelWrapper.h
-#, fuzzy
 msgid "File Dialog"
-msgstr "ダイアログの検索"
+msgstr "ファイルダイアログ"
 
 #: src/xml/XMLFileReader.cpp
 #, c-format
