@@ -4273,20 +4273,20 @@ msgstr "トラックが時間で並び替えられました"
 msgid "Tracks sorted by name"
 msgstr "トラックが名前で並び替えられました"
 
+# ja: 読み上げ用
 #: src/Menus.cpp
-#, fuzzy
 msgid "no label track"
-msgstr "ラベルトラック"
+msgstr "ラベルトラックがありません"
 
+# ja: 読み上げ用
 #: src/Menus.cpp
-#, fuzzy
 msgid "no label track at or below focused track"
-msgstr "フォーカスしたトラックを左へパン"
+msgstr "フォーカスしたトラックやその下のトラックに、ラベルトラックがありません"
 
+# ja: 読み上げ用
 #: src/Menus.cpp
-#, fuzzy
 msgid "no labels in label track"
-msgstr "新しいラベルトラックが作られました"
+msgstr "ラベルトラックにラベルがありません"
 
 #: src/Menus.cpp
 msgid "Time shifted clips to the right"
@@ -4605,6 +4605,8 @@ msgstr "新しく分離"
 #: src/Menus.cpp
 msgid "dummyStringOnSelectClip"
 msgstr ""
+"※読み上げ用。翻訳者への注記参照。\n"
+"[拡張] > [変速再生] > [前/次のラベルに移動]"
 
 #: src/Menus.cpp
 #, c-format
@@ -4714,6 +4716,8 @@ msgstr "%s 右"
 #: src/Menus.cpp
 msgid "dummyStringClipBoundaryMessage"
 msgstr ""
+"※読み上げ用。翻訳者への注記参照。\n"
+"[選択] > [クリップの境界] > [～から～まで] 系"
 
 #: src/Menus.cpp
 #, c-format
@@ -4742,6 +4746,8 @@ msgstr "終了"
 #: src/Menus.cpp
 msgid "dummyStringClipBoundaryMessageLong"
 msgstr ""
+"※読み上げ用。翻訳者への注記参照。\n"
+"[選択] > [クリップの境界] > [～から～まで] 系 (複数のクリップ端を含む選択)"
 
 #: src/Menus.cpp
 #, c-format
