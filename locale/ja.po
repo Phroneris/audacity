@@ -5161,118 +5161,115 @@ msgstr "このモジュールをロードして試してみますか？"
 msgid "Note Track"
 msgstr "ノートトラック"
 
-#  i18n-hint: One-letter abbreviation for Left, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Left, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Left, in VU Meter
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "C♯"
-msgstr ""
+msgstr "C♯"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "D♯"
-msgstr ""
+msgstr "D♯"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "E"
-msgstr ""
+msgstr "E"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "F"
-msgstr ""
+msgstr "F"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "F♯"
-msgstr ""
+msgstr "F♯"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "G"
-msgstr ""
+msgstr "G"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "G♯"
-msgstr ""
+msgstr "G♯"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "A♯"
-msgstr ""
+msgstr "A♯"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "D♭"
-msgstr ""
+msgstr "D♭"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "E♭"
-msgstr ""
+msgstr "E♭"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "G♭"
-msgstr ""
+msgstr "G♭"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "A♭"
-msgstr ""
+msgstr "A♭"
 
 #. i18n-hint: Name of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "B♭"
-msgstr ""
+msgstr "B♭"
 
 #. i18n-hint: Two, alternate names of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "C♯/D♭"
-msgstr ""
+msgstr "C♯/D♭"
 
 #. i18n-hint: Two, alternate names of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "D♯/E♭"
-msgstr ""
+msgstr "D♯/E♭"
 
 #. i18n-hint: Two, alternate names of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "F♯/G♭"
-msgstr ""
+msgstr "F♯/G♭"
 
 #. i18n-hint: Two, alternate names of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "G♯/A♭"
-msgstr ""
+msgstr "G♯/A♭"
 
 #. i18n-hint: Two, alternate names of a musical note in the 12-tone chromatic scale
 #: src/PitchName.cpp
 msgid "A♯/B♭"
-msgstr ""
+msgstr "A♯/B♭"
 
 #: src/PluginManager.cpp
 msgid "Manage Plug-ins"
