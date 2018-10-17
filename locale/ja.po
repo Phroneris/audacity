@@ -3512,35 +3512,35 @@ msgstr "中央(&C)"
 
 #: src/Menus.cpp
 msgid "&Align End to End"
-msgstr "開始点を別トラックの最終点に合わせる(&A)"
+msgstr "数珠つなぎに整列(&A)"
 
 #: src/Menus.cpp
 msgid "Align &Together"
-msgstr "同じ位置に整列(&T)"
+msgstr "同じ開始点に整列(&T)"
 
 #: src/Menus.cpp
 msgid "Start to &Zero"
-msgstr "開始点をゼロ位置に(&Z)"
+msgstr "開始点を 0 秒位置に移動(&Z)"
 
 #: src/Menus.cpp
 msgid "Start to &Cursor/Selection Start"
-msgstr "カーソル/選択範囲の始めを開始点に(&C)"
+msgstr "開始点をカーソルまたは選択範囲の始めに移動(&C)"
 
 #: src/Menus.cpp
 msgid "Start to Selection &End"
-msgstr "選択範囲の終わりを開始点に(&E)"
+msgstr "開始点を選択範囲の終わりに移動(&E)"
 
 #: src/Menus.cpp
 msgid "End to Cu&rsor/Selection Start"
-msgstr "終了点をカーソル/選択範囲の始めに(&R)"
+msgstr "終了点をカーソルまたは選択範囲の始めに移動(&R)"
 
 #: src/Menus.cpp
 msgid "End to Selection En&d"
-msgstr "終了点を選択範囲の終わりに(&D)"
+msgstr "終了点を選択範囲の終わりに移動(&D)"
 
 #: src/Menus.cpp
 msgid "&Align Tracks"
-msgstr "トラックを揃える(&A)"
+msgstr "トラックの整列と移動(&A)"
 
 #: src/Menus.cpp
 msgid "&Move Selection with Tracks (on/off)"
@@ -3736,7 +3736,7 @@ msgstr "拡大ツール(&Z)"
 
 #: src/Menus.cpp
 msgid "&Time Shift Tool"
-msgstr "タイムシフトツール(&T)"
+msgstr "移動ツール(&T)"
 
 #: src/Menus.cpp
 msgid "&Multi Tool"
@@ -4287,22 +4287,20 @@ msgstr "新しいラベルトラックが作られました"
 
 #: src/Menus.cpp
 msgid "Time shifted clips to the right"
-msgstr ""
+msgstr "クリップを右に移動しました"
 
-#  i18n-hint: %s is a direction like left or right
 #: src/Menus.cpp
-#, fuzzy
 msgid "Time shifted clips to the left"
-msgstr "タイムシフトされたトラック/クリップ %s %.02f 秒"
+msgstr "クリップを左に移動しました"
 
 #: src/Menus.cpp src/prefs/MousePrefs.cpp src/tracks/ui/TimeShiftHandle.cpp
 msgid "Time-Shift"
-msgstr "タイムシフト"
+msgstr "時間移動"
 
+# jp: 読み上げ用
 #: src/Menus.cpp
-#, fuzzy
 msgid "clip not moved"
-msgstr "Nyquist スクリプトは保存されていません。"
+msgstr "クリップは移動していません"
 
 #: src/Menus.cpp
 msgid "Set Left Selection Boundary"
@@ -4754,114 +4752,92 @@ msgstr[0] ""
 #. noun -- "start" in this example -- is the object of a verb (not of
 #. an implied preposition "from").
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved start to zero"
-msgstr "%s を整列/移動しました"
+msgstr "開始点を 0 秒位置に整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned start to zero"
-msgstr "開始点をゼロ位置に"
+msgstr "開始点を 0 秒位置に移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align/Move Start"
-msgstr "%s を整列/移動"
+msgstr "開始点を整列/移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align Start"
-msgstr "振幅 初期値"
+msgstr "開始点を移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved start to cursor/selection start"
-msgstr "カーソル/選択領域の始めを開始点に"
+msgstr "開始点をカーソル/選択範囲の始めに整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned start to cursor/selection start"
-msgstr "カーソル/選択領域の始めを開始点に"
+msgstr "開始点をカーソル/選択範囲の始めに移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved start to selection end"
-msgstr "選択領域の終わりを開始点に"
+msgstr "開始点を選択範囲の終わりに整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned start to selection end"
-msgstr "選択領域の終わりを開始点に"
+msgstr "開始点を選択範囲の終わりに移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved end to cursor/selection start"
-msgstr "終了点をカーソル/選択領域の始めに"
+msgstr "終了点をカーソル/選択範囲の始めに整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned end to cursor/selection start"
-msgstr "終了点をカーソル/選択領域の始めに"
+msgstr "終了点をカーソル/選択範囲の始めに移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align/Move End"
-msgstr "%s を整列/移動"
+msgstr "終了点を整列/移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align End"
-msgstr "%s を整列"
+msgstr "終了点を移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved end to selection end"
-msgstr "選択範囲の最後を終端にしました"
+msgstr "終了点を選択範囲の終わりに整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned end to selection end"
-msgstr "選択範囲の最後を終端にしました"
+msgstr "終了点を選択範囲の終わりに移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved end to end"
-msgstr "%s を整列/移動しました"
+msgstr "数珠つなぎに整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned end to end"
-msgstr "開始点を別トラックの最終点に合わせる(&A)"
+msgstr "数珠つなぎに整列しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align/Move End to End"
-msgstr "開始点を別トラックの最終点に合わせる(&A)"
+msgstr "数珠つなぎに整列/移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align End to End"
-msgstr "開始点を別トラックの最終点に合わせる(&A)"
+msgstr "数珠つなぎに整列"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned/Moved together"
-msgstr "%s を整列/移動しました"
+msgstr "同じ開始点に整列/移動しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Aligned together"
-msgstr "同じ位置に整列(&T)"
+msgstr "同じ開始点に整列しました"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align/Move Together"
-msgstr "同じ位置に整列(&T)"
+msgstr "同じ開始点に整列/移動"
 
 #: src/Menus.cpp
-#, fuzzy
 msgid "Align Together"
-msgstr "同じ位置に整列(&T)"
+msgstr "同じ開始点に整列"
 
 #: src/Menus.cpp
 msgid "Synchronizing MIDI and Audio Tracks"
