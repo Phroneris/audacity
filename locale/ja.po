@@ -7902,9 +7902,8 @@ msgstr "変更: ピッチの変更(&P)"
 #: src/effects/ChangeSpeed.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "n/a"
-msgstr "適用不可"
+msgstr "n/a"
 
 # jp: 説明
 #: src/effects/ChangeSpeed.cpp
@@ -8651,7 +8650,7 @@ msgstr "トーンと無音の比:"
 
 #: src/effects/DtmfGen.cpp
 msgid "Duty cycle:"
-msgstr "デューティー比:"
+msgstr "デューティ比:"
 
 #: src/effects/DtmfGen.cpp
 msgid "Tone duration:"
@@ -9368,7 +9367,7 @@ msgstr "フェードアウト(&O)"
 
 #: src/effects/FindClipping.cpp
 msgid "Creates labels where clipping is detected"
-msgstr ""
+msgstr "クリッピングが検出された箇所にラベルを生成します"
 
 #: src/effects/FindClipping.cpp
 msgid "Clipping"
@@ -9410,7 +9409,7 @@ msgstr "Audacity に内蔵エフェクトを提供"
 
 #: src/effects/LoadEffects.cpp
 msgid "Unknown built-in effect name"
-msgstr ""
+msgstr "不明な内蔵エフェクト名"
 
 #: src/effects/Noise.cpp
 msgid "Pink"
@@ -9645,7 +9644,7 @@ msgstr "判定法(&M)"
 
 #: src/effects/NoiseRemoval.cpp src/effects/NoiseRemoval.h
 msgid "Noise Removal"
-msgstr "ノイズ除去"
+msgstr "ノイズの除去"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Removes constant background noise such as fans, tape noise, or hums"
@@ -9815,6 +9814,10 @@ msgid ""
 "Try increasing the audio selection to at least %.1f seconds,\n"
 "or reducing the 'Time Resolution' to less than %.1f seconds."
 msgstr ""
+"音声選択範囲が短すぎてプレビューできません。\n"
+"\n"
+"音声選択時間を最低でも %.1f 秒まで伸ばすか、\n"
+"「時間分解能」を %.1f 秒より小さくしてください。"
 
 #. i18n-hint: 'Time Resolution' is the name of a control in the Paulstretch effect.
 #: src/effects/Paulstretch.cpp
@@ -9825,6 +9828,10 @@ msgid ""
 "For the current audio selection, the maximum\n"
 "'Time Resolution' is %.1f seconds."
 msgstr ""
+"プレビューできません。\n"
+"\n"
+"現在の音声選択において、「時間分解能」の\n"
+"最大値は %.1f 秒です。"
 
 #. i18n-hint: 'Time Resolution' is the name of a control in the Paulstretch effect.
 #: src/effects/Paulstretch.cpp
@@ -9835,6 +9842,10 @@ msgid ""
 "Try increasing the audio selection to at least %.1f seconds,\n"
 "or reducing the 'Time Resolution' to less than %.1f seconds."
 msgstr ""
+"選択範囲に対して「時間分解能」が長すぎます。\n"
+"\n"
+"音声選択時間を長くとも %.1f 秒まで縮めるか、\n"
+"「時間分解能」を %.1f 秒より小さくしてください。"
 
 # jp: 独自アクセスキー
 # jp: 連続的伸縮は「伸縮」なのに対しこちらは「ストレッチ」なので、特別に同じグループになるようまとめる
@@ -10248,7 +10259,7 @@ msgstr "ステレオからモノラルへ"
 
 #: src/effects/TimeScale.cpp
 msgid "Allows continuous changes to the tempo and/or pitch"
-msgstr "テンポ and/or ピッチを継続的に変更します"
+msgstr "テンポやピッチを連続的に変化させます"
 
 #: src/effects/TimeScale.cpp
 msgid "Initial Tempo Change (%)"
@@ -10303,11 +10314,11 @@ msgstr "矩形波、エイリアス成分なし"
 
 #: src/effects/ToneGen.cpp
 msgid "Generates an ascending or descending tone of one of four types"
-msgstr ""
+msgstr "4 種類の中から 1 つ選んで、上昇音や加工音を生成します"
 
 #: src/effects/ToneGen.cpp
 msgid "Generates a constant frequency tone of one of four types"
-msgstr ""
+msgstr "4 種類の中から 1 つ選んで、一定周波数の音を生成します"
 
 #: src/effects/ToneGen.cpp
 msgid "Waveform:"
@@ -10364,13 +10375,14 @@ msgstr "音量が設定値より低い場合に自動的に切り詰めます"
 msgid "When truncating independently, there may only be one selected audio track in each Sync-Locked Track Group."
 msgstr ""
 
+# jp: [解析] > [無音の検出] との区別のために、「の」を削除
 #: src/effects/TruncSilence.cpp
 msgid "Detect Silence"
-msgstr "無音の検出"
+msgstr "無音検出"
 
 #: src/effects/TruncSilence.cpp
 msgid "Truncate to:"
-msgstr "無音の短縮:"
+msgstr "切り詰め:"
 
 #: src/effects/TruncSilence.cpp
 msgid "Compress to:"
@@ -10608,11 +10620,11 @@ msgstr "レゾナンス"
 
 #: src/effects/Wahwah.cpp
 msgid "Wah Frequency Offse&t (%):"
-msgstr "ワウ (Wah) 周波数オフセット (%) (&T):"
+msgstr "ワウ周波数オフセット (%) (&T):"
 
 #: src/effects/Wahwah.cpp
 msgid "Wah frequency offset in percent"
-msgstr "ワウ (Wah) 周波数オフセット (%)"
+msgstr "ワウ周波数オフセット (%)"
 
 # jp: 独自アクセスキー
 #: src/effects/Wahwah.h
@@ -10813,12 +10825,11 @@ msgstr "Nyquist プロンプト(&Q)"
 #. i18n-hint: It is acceptable to translate this the same as for "Nyquist Prompt"
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist Worker"
-msgstr ""
+msgstr "Nyquist ワーカー"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Ill-formed Nyquist plug-in header"
-msgstr "Nyquist 出力"
+msgstr "不正な Nyquist プラグインヘッダー"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid ""
@@ -10833,7 +10844,7 @@ msgstr ""
 #: src/effects/nyquist/Nyquist.cpp
 #, c-format
 msgid "error: File \"%s\" specified in header but not found in plug-in path.\n"
-msgstr ""
+msgstr "エラー: ファイル「%s」がヘッダーにて指定されましたが、プラグインパスに見つかりませんでした。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Audio selection required."
@@ -10848,15 +10859,15 @@ msgid "Sorry, cannot apply effect on stereo tracks where the tracks don't match.
 msgstr "個々のチャンネルが一致しないステレオトラック上では適用できません。"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Selection too long for Nyquist code.\n"
 "Maximum allowed selection is %ld samples\n"
 "(about %.1f hours at 44100 Hz sample rate)."
 msgstr ""
-"選択領域が長すぎます。\n"
-"最大値は 2147483647 サンプルです。\n"
-"(サンプリング周波数 44100 Hz の場合、約 13.5 時間)"
+"Nyquist コードが処理できる選択範囲を超えています。\n"
+"最大値は %ld サンプルです。\n"
+"(サンプリング周波数 44100 Hz の場合、約 %.1f 時間)"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Debug Output: "
@@ -10869,35 +10880,36 @@ msgid ""
 "'%s' returned:\n"
 "%s"
 msgstr ""
+"「%s」が以下を返しました:\n"
+"%s"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Processing complete."
-msgstr "処理完了"
+msgstr "処理完了。"
 
 #. i18n-hint: Don't translate ';type tool'.
 #: src/effects/nyquist/Nyquist.cpp
 msgid "';type tool' effects cannot return audio from Nyquist.\n"
-msgstr ""
+msgstr "「;type tool」エフェクトは Nyquist から音声を返せません。\n"
 
 #. i18n-hint: Don't translate ';type tool'.
 #: src/effects/nyquist/Nyquist.cpp
 msgid "';type tool' effects cannot return labels from Nyquist.\n"
-msgstr ""
+msgstr "「;type tool」エフェクトは Nyquist からラベルを返せません。\n"
 
 #. i18n-hint: "%s" is replaced by name of plug-in.
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "nyx_error returned from %s.\n"
-msgstr "MP3 エンコーダにおいて、エラー %ld が返されました。"
+msgstr "%s から nyx_error が返されました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "plug-in"
-msgstr "プラグイン名"
+msgstr "プラグイン"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned the value:"
-msgstr "Nyquist が返した値:"
+msgstr "Nyquist 返り値:"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned too many audio channels.\n"
@@ -10905,11 +10917,11 @@ msgstr "Nyquist は複数の音声チャンネルを返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned one audio channel as an array.\n"
-msgstr "Nyquist は１つの音声チャンネルを１つのアレイとして返しました。\n"
+msgstr "Nyquist は 1 つの音声チャンネルを 1 つの配列として返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned an empty array.\n"
-msgstr "Nyquist は空のアレイを返しました。\n"
+msgstr "Nyquist は空の配列を返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned nil audio.\n"
@@ -10920,26 +10932,24 @@ msgid "[Warning: Nyquist returned invalid UTF-8 string, converted here as Latin-
 msgstr "[警告: Nyquist が不正な UTF-8 文字列を返したので、ここでは Latin-1 に変換しました。]"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "This version of Audacity does not support Nyquist plug-in version %ld"
-msgstr "この Audacity のバージョンは %s サポート機能と一緒にコンパイルされていません。"
+msgstr "このバージョンの Audacity は、バージョン %ld の Nyquist プラグインをサポートしていません"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Bad Nyquist 'control' type specification: '%s' in plug-in file '%s'.\n"
 "Control not created."
 msgstr ""
-"不正な Nyquist 'control' タイプ: '%s' - プラグインファイル '%s'.\n"
-"Control は作成できませんでした。"
+"不正な Nyquist 'control' タイプ:「%s」(プラグインファイル「%s」）。\n"
+"control は作成できませんでした。"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Could not open file"
-msgstr "ファイルが開けません"
+msgstr "ファイルが開けませんでした"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid ""
 "Your code looks like SAL syntax, but there is no 'return' statement.\n"
 "For SAL, use a return statement such as:\n"
@@ -10949,25 +10959,24 @@ msgid ""
 " ."
 msgstr ""
 "このコードは SAL に似ていますがリターン文がありません。SAL であれば\n"
-"\treturn s * 0.1\n"
+"\treturn *track* * 0.1\n"
 "のようなリターン文、あるいは LISP であれば\n"
-"\t(mult s 0.1)\n"
-"のように文頭の括弧を使用してください。"
+"\t(mult *track* 0.1)\n"
+"のように括弧で始まる文を使用してください。"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Error in Nyquist code"
-msgstr "Nyquist コードのエラー"
+msgstr "Nyquist コードエラー"
 
 #. i18n-hint: refers to programming "languages"
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Could not determine language"
-msgstr "復号できません:"
+msgstr "言語を判定できませんでした"
 
 #: src/effects/nyquist/Nyquist.cpp
 #, c-format
 msgid "\"%s\" is not a valid file path."
-msgstr ""
+msgstr "「%s」は適正なファイルパスではありません。"
 
 #. i18n-hint: Warning that there is one quotation mark rather than a pair.
 #: src/effects/nyquist/Nyquist.cpp
@@ -10976,6 +10985,8 @@ msgid ""
 "Mismatched quotes in\n"
 "%s"
 msgstr ""
+"引用符の不整合:\n"
+"%s"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Enter Nyquist Command: "
@@ -10983,7 +10994,7 @@ msgstr "Nyquist コマンドを入力: "
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "&Use legacy (version 3) syntax."
-msgstr "レガシーなシンタックス (バージョン 3) の使用(&U)"
+msgstr "レガシーなシンタックス (バージョン 3) を使用(&U)"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "&Load"
@@ -16452,7 +16463,7 @@ msgstr "Steve Daulton"
 #: plug-ins/StudioFadeOut.ny
 #, lisp-format
 msgid "Selection too short.~%It must be more than 2 samples."
-msgstr "選択範囲が短すぎます。2 サンプル以上選択する必要があります。"
+msgstr "選択範囲が短すぎます。2 サンプルより多く選択する必要があります。"
 
 # jp: 独自アクセスキー
 #: plug-ins/adjustable-fade.ny
