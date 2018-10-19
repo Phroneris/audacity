@@ -59,6 +59,7 @@
 
 #include "../Experimental.h"
 #include "../commands/CommandContext.h"
+#include "../commands/CommandManager.h"
 
 IMPLEMENT_CLASS(EditToolBar, ToolBar);
 
@@ -302,7 +303,7 @@ void EditToolBar::OnButton(wxCommandEvent &event)
 
    auto flags = GetMenuManager(*p).GetUpdateFlags(*p);
    const CommandContext context( *GetActiveProject() );
-   cm->HandleTextualCommand(EditToolbarButtonList[id].commandName, context, flags, NoFlagsSpecifed);
+   cm->HandleTextualCommand(EditToolbarButtonList[id].commandName, context, flags, NoFlagsSpecified);
 }
 
 
