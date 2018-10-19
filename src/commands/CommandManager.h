@@ -146,59 +146,53 @@ class AUDACITY_DLL_API CommandManager final : public XMLTagHandler
    wxMenu* BeginSubMenu(const wxString & tName);
    void EndSubMenu();
 
-   /*
-   void InsertItem(const wxString & name,
-                   const wxString & label,
-                   CommandHandlerFinder finder,
-                   CommandFunctorPointer callback,
-                   const wxString & after,
-                   int checkmark = -1);
-    */
+   // For specifying unusual arguments in AddItem
+   struct Options
+   {
+      Options() {}
+      // Allow implicit construction from an accelerator string, which is
+      // a very common case
+      Options( const wxChar *accel_ ) : accel{ accel_ } {}
+      // A two-argument constructor for another common case
+      Options( const wxChar *accel_, const wxString &longName_ )
+      : accel{ accel_ }, longName{ longName_ } {}
+
+      Options &&Accel (const wxChar *value) &&
+         { accel = value; return std::move(*this); }
+      Options &&CheckState (bool value) &&
+         { check = value ? 1 : 0; return std::move(*this); }
+      Options &&IsEffect () &&
+         { bIsEffect = true; return std::move(*this); }
+      Options &&Parameter (const CommandParameter &value) &&
+         { parameter = value; return std::move(*this); }
+      Options &&Mask (CommandMask value) &&
+         { mask = value; return std::move(*this); }
+      Options &&LongName (const wxString &value) &&
+         { longName = value; return std::move(*this); }
+
+      const wxChar *accel{ wxT("") };
+      int check{ -1 }; // default value means it's not a check item
+      bool bIsEffect{ false };
+      CommandParameter parameter{};
+      CommandMask mask{ NoFlagsSpecified };
+      wxString longName{}; // translated
+   };
 
    void AddItemList(const wxString & name,
                     const TranslatedInternalString items[],
                     size_t nItems,
                     CommandHandlerFinder finder,
                     CommandFunctorPointer callback,
+                    CommandFlag flags,
                     bool bIsEffect = false);
-
-   void AddCheck(const wxChar *name,
-                 const wxChar *label,
-                 bool hasDialog,
-                 CommandHandlerFinder finder,
-                 CommandFunctorPointer callback,
-                 int checkmark = 0);
-
-   void AddCheck(const wxChar *name,
-                 const wxChar *label,
-                 bool hasDialog,
-                 CommandHandlerFinder finder,
-                 CommandFunctorPointer callback,
-                 int checkmark,
-                 CommandFlag flags,
-                 CommandMask mask);
-
-   void AddItem(const wxChar *name,
-                const wxChar *label,
-                bool hasDialog,
-                CommandHandlerFinder finder,
-                CommandFunctorPointer callback,
-                CommandFlag flags = NoFlagsSpecifed,
-                CommandMask mask   = NoFlagsSpecifed,
-                bool bIsEffect = false, 
-                const CommandParameter &parameter = CommandParameter{});
 
    void AddItem(const wxChar *name,
                 const wxChar *label_in,
                 bool hasDialog,
                 CommandHandlerFinder finder,
                 CommandFunctorPointer callback,
-                const wxChar *accel,
-                CommandFlag flags = NoFlagsSpecifed,
-                CommandMask mask   = NoFlagsSpecifed,
-                int checkmark = -1,
-                bool bIsEffect = false, 
-                const CommandParameter &parameter = CommandParameter{});
+                CommandFlag flags,
+                const Options &options = {});
 
    void AddSeparator();
 
@@ -208,16 +202,14 @@ class AUDACITY_DLL_API CommandManager final : public XMLTagHandler
                    const wxChar *label,
                    CommandHandlerFinder finder,
                    CommandFunctorPointer callback,
-                   CommandFlag flags = NoFlagsSpecifed,
-                   CommandMask mask   = NoFlagsSpecifed);
+                   CommandFlag flags);
 
    void AddCommand(const wxChar *name,
                    const wxChar *label,
                    CommandHandlerFinder finder,
                    CommandFunctorPointer callback,
                    const wxChar *accel,
-                   CommandFlag flags = NoFlagsSpecifed,
-                   CommandMask mask   = NoFlagsSpecifed);
+                   CommandFlag flags);
 
    void AddGlobalCommand(const wxChar *name,
                          const wxChar *label,
@@ -225,28 +217,12 @@ class AUDACITY_DLL_API CommandManager final : public XMLTagHandler
                          CommandHandlerFinder finder,
                          CommandFunctorPointer callback,
                          const wxChar *accel);
-   //
-   // Command masks
-   //
-
-   // For NEW items/commands
-   void SetDefaultFlags(CommandFlag flags, CommandMask mask);
-   CommandFlag GetDefaultFlags() const { return mDefaultFlags; }
-   CommandMask GetDefaultMask() const { return mDefaultMask; }
 
    void SwapMenuBars();
    void SetOccultCommands( bool bOccult);
-   CommandManager * SetLongName( const wxString & name ){ 
-      mLongNameForItem = name; 
-      return this;
-   }
 
 
    void SetCommandFlags(const wxString &name, CommandFlag flags, CommandMask mask);
-   void SetCommandFlags(const wxChar **names,
-                        CommandFlag flags, CommandMask mask);
-   // Pass multiple command names as const wxChar *, terminated by NULL
-   void SetCommandFlags(CommandFlag flags, CommandMask mask, ...);
 
    //
    // Modifying menus
@@ -413,10 +389,6 @@ private:
    std::unique_ptr<wxMenu> uCurrentMenu;
    wxMenu *mCurrentMenu {};
 
-   wxString mLongNameForItem;
-
-   CommandFlag mDefaultFlags;
-   CommandMask mDefaultMask;
    bool bMakingOccultCommands;
 };
 

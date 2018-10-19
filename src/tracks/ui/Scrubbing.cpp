@@ -33,6 +33,8 @@ Paul Licameli split from TrackPanel.cpp
 #include "../../widgets/Ruler.h"
 #include "../../commands/CommandFunctors.h"
 #include "../../commands/CommandContext.h"
+#include "../../commands/CommandManager.h"
+
 
 #include <algorithm>
 
@@ -1161,19 +1163,19 @@ void Scrubber::AddMenuItems()
    cm->BeginSubMenu(_("Scru&bbing"));
    for (const auto &item : menuItems) {
       if (item.StatusTest)
-         cm->AddCheck(item.name, wxGetTranslation(item.label),
+         cm->AddItem( item.name, wxGetTranslation(item.label),
                       // No menu items yet have dialogs
                       false,
                       findme, static_cast<CommandFunctorPointer>(item.memFn),
-                      false,
-                      item.flags, item.flags);
+                      item.flags,
+                      CommandManager::Options{}.CheckState( false ) );
       else
          // The start item
-         cm->AddItem(item.name, wxGetTranslation(item.label),
+         cm->AddItem( item.name, wxGetTranslation(item.label),
                      // No menu items yet have dialogs
                      false,
                      findme, static_cast<CommandFunctorPointer>(item.memFn),
-                     item.flags, item.flags);
+                     item.flags );
    }
    cm->EndSubMenu();
    CheckMenuItems();
