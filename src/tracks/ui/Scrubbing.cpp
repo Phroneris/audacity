@@ -1156,29 +1156,26 @@ bool Scrubber::CanScrub() const
 static CommandHandlerObject &findme(AudacityProject &project)
 { return project.GetScrubber(); }
 
-void Scrubber::AddMenuItems()
+MenuTable::BaseItemPtr Scrubber::Menu()
 {
-   auto cm = mProject->GetCommandManager();
+   using Options = CommandManager::Options;
 
-   cm->BeginSubMenu(_("Scru&bbing"));
+   MenuTable::BaseItemPtrs ptrs;
    for (const auto &item : menuItems) {
-      if (item.StatusTest)
-         cm->AddItem( item.name, wxGetTranslation(item.label),
-                      // No menu items yet have dialogs
-                      false,
-                      findme, static_cast<CommandFunctorPointer>(item.memFn),
-                      item.flags,
-                      CommandManager::Options{}.CheckState( false ) );
-      else
-         // The start item
-         cm->AddItem( item.name, wxGetTranslation(item.label),
-                     // No menu items yet have dialogs
-                     false,
-                     findme, static_cast<CommandFunctorPointer>(item.memFn),
-                     item.flags );
+      ptrs.push_back( MenuTable::Command( item.name, wxGetTranslation(item.label),
+          // No menu items yet have dialogs
+          false,
+          findme, static_cast<CommandFunctorPointer>(item.memFn),
+          item.flags,
+          item.StatusTest
+             ? // a checkmark item
+               Options{}.CheckState( (this->*item.StatusTest)() )
+             : // not a checkmark item
+               Options{}
+      ) );
    }
-   cm->EndSubMenu();
-   CheckMenuItems();
+
+   return MenuTable::Menu( _("Scru&bbing"), std::move( ptrs ) );
 }
 
 void Scrubber::PopulatePopupMenu(wxMenu &menu)

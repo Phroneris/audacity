@@ -783,7 +783,8 @@ bool NyquistEffect::Process()
 
    for (;
         bOnePassTool || pRange->first != pRange->second;
-        ++pRange->first) {
+        (void) (!pRange || (++pRange->first, true))
+   ) {
       mCurTrack[0] = pRange ? *pRange->first : nullptr;
       mCurNumChannels = 1;
       if ( (mT1 >= mT0) || bOnePassTool ) {
@@ -3228,9 +3229,10 @@ static void RegisterFunctions()
    if (firstTime) {
       firstTime = false;
 
+      // All function names must be UP-CASED
       static const FUNDEF functions[] = {
          { "_", SUBR, gettext },
-         { "ngettext", SUBR, ngettext },
+         { "NGETTEXT", SUBR, ngettext },
          { "AUD-DO",  SUBR, xlc_aud_do },
        };
 

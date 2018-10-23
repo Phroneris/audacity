@@ -597,35 +597,61 @@ wxMenuBar * CommandManager::CurrentMenuBar() const
 }
 
 ///
-/// Swap the last two menu bars in the list,
-/// to make the previous menu bar 'current' again.
 /// Typically used to switch back and forth
 /// between adding to a hidden menu bar and
-/// adding to one that is visible,
+/// adding to one that is visible
 ///
-void CommandManager::SwapMenuBars()
+void CommandManager::PopMenuBar()
 {
-    int l = mMenuBarList.size();
-    wxASSERT(l >= 2);
-    std::swap(mMenuBarList[l - 2], mMenuBarList[l - 1]);
+   auto iter = mMenuBarList.end();
+   if ( iter != mMenuBarList.begin() )
+      mMenuBarList.erase( --iter );
+   else
+      wxASSERT( false );
 }
 
 
 ///
 /// This starts a NEW menu
 ///
-void CommandManager::BeginMenu(const wxString & tName)
+wxMenu *CommandManager::BeginMenu(const wxString & tName)
+{
+   if ( mCurrentMenu )
+      return BeginSubMenu( tName );
+   else
+      return BeginMainMenu( tName );
+}
+
+
+///
+/// This attaches a menu, if it's main, to the menubar
+//  and in all cases ends the menu
+///
+void CommandManager::EndMenu()
+{
+   if ( mSubMenuList.empty() )
+      EndMainMenu();
+   else
+      EndSubMenu();
+}
+
+
+///
+/// This starts a NEW menu
+///
+wxMenu *CommandManager::BeginMainMenu(const wxString & tName)
 {
    uCurrentMenu = std::make_unique<wxMenu>();
    mCurrentMenu = uCurrentMenu.get();
    mCurrentMenuName = tName;
+   return mCurrentMenu;
 }
 
 
 ///
 /// This attaches a menu to the menubar and ends the menu
 ///
-void CommandManager::EndMenu()
+void CommandManager::EndMainMenu()
 {
    // Add the menu to the menubar after all menu items have been
    // added to the menu to allow OSX to rearrange special menu
@@ -728,6 +754,13 @@ void CommandManager::AddItem(const wxChar *name,
                              CommandFlag flags,
                              const Options &options)
 {
+   if (options.global) {
+      wxASSERT( flags == AlwaysEnabledFlag );
+      AddGlobalCommand(
+         name, label_in, hasDialog, finder, callback, options.accel );
+      return;
+   }
+
    wxASSERT( flags != NoFlagsSpecified );
 
    auto mask = options.mask;
@@ -772,7 +805,7 @@ void CommandManager::AddItem(const wxChar *name,
 /// When you call Enable on this command name, it will enable or disable
 /// all of the items at once.
 void CommandManager::AddItemList(const wxString & name,
-                                 const TranslatedInternalString items[],
+                                 const IdentInterfaceSymbol items[],
                                  size_t nItems,
                                  CommandHandlerFinder finder,
                                  CommandFunctorPointer callback,
@@ -780,9 +813,10 @@ void CommandManager::AddItemList(const wxString & name,
                                  bool bIsEffect)
 {
    for (size_t i = 0, cnt = nItems; i < cnt; i++) {
+      auto translated = items[i].Translation();
       CommandListEntry *entry = NewIdentifier(name,
-                                              items[i].TranslatedForMenu(),
-                                              items[i].TranslatedForMenu(),
+                                              translated,
+                                              translated,
                                               // No means yet to specify !
                                               false,
                                               CurrentMenu(),
@@ -917,7 +951,6 @@ CommandListEntry *CommandManager::NewIdentifier(const wxString & nameIn,
       return prev;
 
    {
-      // Make a unique_ptr or shared_ptr as appropriate:
       auto entry = std::make_unique<CommandListEntry>();
 
       wxString labelPrefix;
@@ -1798,9 +1831,24 @@ void CommandManager::WriteXML(XMLWriter &xmlFile) const
    xmlFile.EndTag(wxT("audacitykeyboard"));
 }
 
-void CommandManager::SetOccultCommands( bool bOccult)
+void CommandManager::BeginOccultCommands()
 {
-   bMakingOccultCommands = bOccult;
+   // To do:  perhaps allow occult item switching at lower levels of the
+   // menu tree.
+   wxASSERT( !CurrentMenu() );
+
+   // Make a temporary menu bar collecting items added after.
+   // This bar will be discarded but other side effects on the command
+   // manager persist.
+   mTempMenuBar = AddMenuBar(wxT("ext-menu"));
+   bMakingOccultCommands = true;
+}
+
+void CommandManager::EndOccultCommands()
+{
+   PopMenuBar();
+   bMakingOccultCommands = false;
+   mTempMenuBar.reset();
 }
 
 void CommandManager::SetCommandFlags(const wxString &name,
