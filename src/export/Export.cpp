@@ -391,7 +391,7 @@ bool Exporter::Process(AudacityProject *project, bool selectedOnly, double t0, d
 
    // Let user edit MetaData
    if (mPlugins[mFormat]->GetCanMetaData(mSubFormat)) {
-      if (!(GetMenuCommandHandler(*project).DoEditMetadata( *project,
+      if (!(EditActions::DoEditMetadata( *project,
          _("Edit Metadata Tags"), _("Exported Tags"),
          mProject->GetShowId3Dialog()))) {
          return false;
@@ -1029,7 +1029,7 @@ bool Exporter::SetAutoExportOptions(AudacityProject *project) {
 
    // Let user edit MetaData
    if (mPlugins[mFormat]->GetCanMetaData(mSubFormat)) {
-      if (!(GetMenuCommandHandler(*project).DoEditMetadata( *project,
+      if (!(EditActions::DoEditMetadata( *project,
          _("Edit Metadata Tags"),
          _("Exported Tags"), mProject->GetShowId3Dialog()))) {
          return false;

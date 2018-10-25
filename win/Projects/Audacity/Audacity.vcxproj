@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\src\AboutDialog.cpp" />
     <ClCompile Include="..\..\..\src\AColor.cpp" />
+    <ClCompile Include="..\..\..\src\AdornedRulerPanel.cpp" />
     <ClCompile Include="..\..\..\src\AudacityApp.cpp" />
     <ClCompile Include="..\..\..\src\AudacityException.cpp" />
     <ClCompile Include="..\..\..\src\AudacityHeaders.cpp">
@@ -189,6 +190,20 @@
     <ClCompile Include="..\..\..\src\LyricsWindow.cpp" />
     <ClCompile Include="..\..\..\src\Matrix.cpp" />
     <ClCompile Include="..\..\..\src\Menus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\ClipMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\EditMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\ExtraMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\FileMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\HelpMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\LabelMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\NavigationMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\PluginMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\SelectMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\ToolbarMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\TrackMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\TransportMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\ViewMenus.cpp" />
+    <ClCompile Include="..\..\..\src\menus\WindowMenus.cpp" />
     <ClCompile Include="..\..\..\src\Mix.cpp" />
     <ClCompile Include="..\..\..\src\MixerBoard.cpp" />
     <ClCompile Include="..\..\..\lib-src\lib-widget-extra\NonGuiThread.cpp" />
@@ -467,6 +482,7 @@
     <ClInclude Include="..\..\..\include\audacity\Types.h" />
     <ClInclude Include="..\..\..\src\AboutDialog.h" />
     <ClInclude Include="..\..\..\src\AColor.h" />
+    <ClInclude Include="..\..\..\src\AdornedRulerPanel.h" />
     <ClInclude Include="..\..\..\src\AllThemeResources.h" />
     <ClInclude Include="..\..\..\src\Audacity.h" />
     <ClInclude Include="..\..\..\src\AudacityApp.h" />
