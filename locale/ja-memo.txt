@@ -50,6 +50,7 @@
 出典: http://super.para.media.kyoto-u.ac.jp/~tasuku/format-func.html
 
 
+
 ■ 半角・全角間のスペース挿入則
 
 ・特定の記号や約物を除き、全角と半角の間には半角スペースを入れる。
@@ -69,7 +70,60 @@
 [delete]
 
 
-■ メモ
+
+■ 改行コード
+
+\.git\config ファイルの autoCRLF = input により、
+リモートの改行コードはLFのままローカルに持ってきて、ローカルの改行コードは何であろうとLFに変換してリモートに渡すよう設定した。
+なお、一時間違ってfalseにしてしまったのでリモートがCRに感染した恐れがあり、ついでなのでローカル/リモート共に徹底LF化しようとしたが、
+改行コードの変更は差分に見なされないせいでえらい苦労した。
+全てが済んだ後にうろ覚えで手順を記録しておく。記録が正しい保証も、この操作が適切な保証もないけど。
+っていうかこの前後で git grep --cached -I $'\r' の結果に変化がないので（どちらも問題ない結果）、やる意味なかったまである。
+
+ 1. ローカルjaにチェックアウト。
+ 2. ja系ファイル（jaの必要ファイル）をどこかに移動し、他ファイル（ignoreされないもの）を全部削除してコミット＆プッシュ。
+    これでjaはローカルもリモートも真っ白に。
+ 3. ja系ファイルをNotepad++で手動LF化。
+ 4. ローカルmasterとリモートmasterを削除。
+    なお、リモートはGitHubの設定でリモートのデフォルトブランチをmaster以外にしてからじゃないと無理。
+ 5. upstreamのmasterをローカルの新規masterブランチとして作成＆originにプッシュ（リモートmasterのLF化）。
+    ついでにまたGitHub側でリモートのデフォルトブランチをmasterに戻しておく。
+ 6. jaにチェックアウトしてmasterをマージし、避難していたja系ファイルを上書き追加してコミット＆プッシュ。
+    これでローカル/リモート共に全部LFになるが、この時のコミットメッセージを仮に「復帰」と書いたとすると、
+    GitHubのblobで見た時に全ての行のコミットメッセージが「復帰」になってしまう。
+ 7. jaを真っ白化直前のコミットでチェックアウト（変更も破棄）し、すぐに新しいブランチja-jpを作成。
+ 8. 避難していたja系ファイルを上書き追加してja-jpをコミット＆プッシュ。
+    …つまり6の上書き追加は要らんかったのだが、コミットメッセージ事故の説明のために記述しておく（っていうか実際やったし）。
+ 9. ローカルとリモートのjaブランチを削除。
+10. ローカルとリモートのja-jpブランチをjaに改名。
+
+
+
+■ 「等間隔ラベル」の「Adjust ～」機能を理解するために2018/10/26/04:00時点のWiki説明文を翻訳
+   （なお、理解できなかった）
+
+この制御項目のデフォルト設定は「いいえ」。
+  この設定はラベル生成基準が「数のみ」の場合にしか適用されない。（訳註：え、下に「数と間隔」の場合が説明されてるけど？）
+
+この制御項目のドロップダウンメニューで「はい」を選ぶと、必要に応じてユーザーの選択した【ラベル間隔】を調整する。調整は全ての【区画】が同じ長さになるように行われ、それは最後のラベルから選択範囲の終端までの区画も含む。
+
+・ただのラベル:
+  （ラベル領域の長さ = 0）
+  『区画』は、あるラベルとその次のラベルの（または最後のラベルと選択範囲終端の）時間間隔として定義される。別の表現をすれば、区画はラベル間隔に等しくなる。
+・領域ラベル:
+  （ラベル領域の長さ > 0）
+  『区画』は、ラベルの始端から終端までの時間として定義される。別の表現をすれば、区画はラベル領域に等しくなる。
+
+「いいえ」に設定すると、ラベル間隔は【ラベルの間隔】で指定する長さと完全に等しくなる。ただし、最後のラベルから選択範囲の終端までの区画はそうでない場合がある（選択長さが間隔長さでちょうど割り切れるかどうかによる）。
+
+ラベル生成基準で「数と間隔」を選択している場合、ラベル間隔は常に【ラベルの間隔】で指定した長さになる。
+ラベル生成基準で「数のみ」を選択している場合、ラベルは常に選択範囲を等しく満たすように配置される。
+・ただのラベルでは、間隔は必ず選択範囲をラベル数で割った長さになる。
+・領域ラベルでは、最後の領域の終端は必ず選択範囲の終端になる。
+
+
+
+■ 問題
 
 dummyString～系の読み上げ用のやつは、日本語の語順の関係でそう簡単には訳せない。
 
@@ -82,75 +136,18 @@ msgid "Record/Play head"
 環境設定でFFmpegライブラリ導入済みの状態から更に指定を行おうとした場合に出るダイアログの
 タイトル文字列"Success"が無い。
 
-#: plug-ins/StudioFadeOut.ny
-#, lisp-format
-msgid "Selection too short.~%It must be more than 2 samples."
-とあるが、サンプリング周波数        <s>8000Hzでは12サンプル選択してやっとこれが出なくなった。</s>
-22050Hzではサンプル1個までがこのエラー、2個からは正常になった。
-96000Hzではサンプル5個までがこのエラー、7個からは正常、6個のみエラーは出ないが処理後に7になった。
 
-#: plug-ins/adjustable-fade.ny
-#, lisp-format
-msgid "~aPercentage values cannot be more than 1000 %."
-とあるが、別にエラーも出ず1000%以上にできる。
 
-#: plug-ins/adjustable-fade.ny
-#, lisp-format
-msgid ""
-"~adB values cannot be more than +100 dB.~%~%~\n"
-"                                 Hint: 6 dB doubles the amplitude~%~\n"
-"                                 t-6 dB halves the amplitude."
-とあるが、100dB超えにすると空のエラーが出てこれが表示されない。
-あと3行目頭のtは恐らく~tの間違いか。nyファイルの方では\tとなってるが…。
-
-#: plug-ins/delay.ny
-#, lisp-format
-msgid "Number of echoes '~a' outside valid range 1 to 50.~%~a"
-という感じのがこれ含め4つあるが、いずれもここにあるエラー文ではなくもっと簡素なアラートが出る。
-
-Regular Interval Labelsが、音声を選択して適当にパラメータ入れて実行しても
-"Nyquist returned the value: 2"と出るだけでよくわからない。
-デバッグするとそれに加えて"error: bad argument type - NIL"云々というのが出るので正しい動作ではなさそう。
-
-#: plug-ins/highpass.ny plug-ins/lowpass.ny
-#, lisp-format
-msgid ""
-"Error:~%~%Frequency (~a Hz) is too high for track sample rate.~%~%~\n"
-"                   Track sample rate is ~a Hz~%~\n"
-"                   Frequency must be less than ~a Hz."
-が、訳しても効かない。
-
-#: plug-ins/sample-data-export.ny
-#, lisp-format
-msgid ""
-"~a~%Sample Rate: ~a Hz. Sample values on ~a scale. ~a.~%~aLength processed: ~a ~\n"
-"                  samples, ~a seconds.~%Peak amplitude: ~a (linear) ~a dB.  Unweighted RMS: ~a dB.~%~\n"
-"                  DC offset: ~a~a"
-などのヘッダー兼ダイアログが訳しても効かない。原文との不整合はない。謎。
-HTML出力では効いてる。
+■ Nyquistの問題
 
 【サンプルデータの読み込みはファイル内に純ASCII文字しか許さないので、ファイルに出力される文字列は翻訳注意】
 
-#: plug-ins/sample-data-import.ny
-#, lisp-format
-msgid ""
-"Error~%~\n"
-"                        '~a' could not be opened.~%~\n"
-"                        Check that file exists."
-などのダイアログが訳しても効かない。
-
-#: plug-ins/vocalrediso.ny
-msgid ""
-" - The two channels are identical, i.e. dual mono.\n"
-"   The center can't be removed.\n"
-"      Any remaining difference may be caused by lossy encoding."
-などの全ての解析ダイアログ（ただし"A fairly good value"以外）が効かない。
-A fairly～は1行なので、改行が悪さをしてるんじゃないか感がある。
+サンプルデータの書き出しと等間隔ラベルが、翻訳して実行すると、
+大量の"wxUniChar::FromHi8bit(): invalid multibyte character"エラーを吐く。
 
 
 
-
-□ メモ（済）
+□ 問題（済）
 
 リズムトラックの生成のソーステキストに"Used if 'Number ～"が無い。
 ただしpotファイルを見たらあったので、更新で追加されたのを私が適用してないだけっぽい。うっかり。
@@ -160,3 +157,71 @@ A fairly～は1行なので、改行が悪さをしてるんじゃないか感�
 
 
 
+□ Nyquistの問題（済）
+
+#: plug-ins/StudioFadeOut.ny
+#, lisp-format
+msgid "Selection too short.~%It must be more than 2 samples."
+とあるが、サンプリング周波数        <s>8000Hzでは12サンプル選択してやっとこれが出なくなった。</s>
+22050Hzではサンプル1個までがこのエラー、2個からは正常になった。
+96000Hzではサンプル5個までがこのエラー、7個からは正常、6個のみエラーは出ないが処理後に7になった。
+→トラックとプロジェクトのサンプリング周波数を混同してた。
+
+#: plug-ins/adjustable-fade.ny
+#, lisp-format
+msgid "~aPercentage values cannot be more than 1000 %."
+とあるが、別にエラーも出ず1000%以上にできる。
+→修正された。
+
+#: plug-ins/delay.ny
+#, lisp-format
+msgid "Number of echoes '~a' outside valid range 1 to 50.~%~a"
+という感じのがこれ含め4つあるが、いずれもここにあるエラー文ではなくもっと簡素なアラートが出る。
+→削除された。
+
+#: plug-ins/highpass.ny plug-ins/lowpass.ny
+#, lisp-format
+msgid ""
+"Error:~%~%Frequency (~a Hz) is too high for track sample rate.~%~%~\n"
+"                   Track sample rate is ~a Hz~%~\n"
+"                   Frequency must be less than ~a Hz."
+が、訳しても効かない。
+#: plug-ins/sample-data-export.ny
+#, lisp-format
+msgid ""
+"~a~%Sample Rate: ~a Hz. Sample values on ~a scale. ~a.~%~aLength processed: ~a ~\n"
+"                  samples, ~a seconds.~%Peak amplitude: ~a (linear) ~a dB.  Unweighted RMS: ~a dB.~%~\n"
+"                  DC offset: ~a~a"
+などのヘッダー兼ダイアログが訳しても効かない。原文との不整合はない。謎。
+HTML出力では効いてる。
+#: plug-ins/sample-data-import.ny
+#, lisp-format
+msgid ""
+"Error~%~\n"
+"                        '~a' could not be opened.~%~\n"
+"                        Check that file exists."
+などのダイアログが訳しても効かない。
+#: plug-ins/vocalrediso.ny
+msgid ""
+" - The two channels are identical, i.e. dual mono.\n"
+"   The center can't be removed.\n"
+"      Any remaining difference may be caused by lossy encoding."
+などの全ての解析ダイアログ（ただし"A fairly good value"以外）が効かない。
+A fairly～は1行なので、改行が悪さをしてるんじゃないか感がある。
+→複数行系は少なくとも認知され、原文の頭の空白を消すとひとまず効くことが確認された。
+  たぶん追って抜本的修正がされる。
+
+#: plug-ins/adjustable-fade.ny
+#, lisp-format
+msgid ""
+"~adB values cannot be more than +100 dB.~%~%~\n"
+"                                 Hint: 6 dB doubles the amplitude~%~\n"
+"                                 t-6 dB halves the amplitude."
+とあるが、100dB超えにすると空のエラーが出てこれが表示されない。
+あと3行目頭のtは恐らく~tの間違いか。nyファイルの方では\tとなってるが…。
+→タブ文字についても上記同様、追って修正される。
+
+Regular Interval Labelsが、音声を選択して適当にパラメータ入れて実行しても
+"Nyquist returned the value: 2"と出るだけでよくわからない。
+デバッグするとそれに加えて"error: bad argument type - NIL"云々というのが出るので正しい動作ではなさそう。
+→ひとまず解決された。
