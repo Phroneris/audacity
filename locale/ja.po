@@ -3422,7 +3422,7 @@ msgstr "ファイルを復号できません: %s"
 
 #: src/Project.cpp
 msgid "Error decoding file"
-msgstr "ファイル複合化エラー"
+msgstr "ファイル復号エラー"
 
 #: src/Project.cpp
 msgid "Project was recovered"
@@ -13043,7 +13043,7 @@ msgstr "取り込み完了。波形を計算中"
 
 #: src/ondemand/ODDecodeTask.h
 msgid "Decoding Waveform"
-msgstr "波形を復号化中"
+msgstr "波形を復号中"
 
 #: src/ondemand/ODWaveTrackTaskQueue.cpp
 #, c-format
