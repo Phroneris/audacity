@@ -3819,11 +3819,11 @@ msgstr "大きくする"
 
 #: src/Screenshot.cpp
 msgid "Blue Bkgnd"
-msgstr "ブルーの背景"
+msgstr "青い背景色"
 
 #: src/Screenshot.cpp
 msgid "White Bkgnd"
-msgstr "白の背景"
+msgstr "白い背景色"
 
 #: src/Screenshot.cpp
 msgid "Capture Window Only"
@@ -3835,15 +3835,15 @@ msgstr "ウィンドウ全体"
 
 #: src/Screenshot.cpp
 msgid "Capture Window Plus"
-msgstr "ウィンドウ Plus を取り込み"
+msgstr "ウィンドウとその周辺"
 
 #: src/Screenshot.cpp
 msgid "Capture Full Screen"
-msgstr "画面全部を取り込み"
+msgstr "画面全体"
 
 #: src/Screenshot.cpp
 msgid "Wait 5 seconds and capture frontmost window/dialog"
-msgstr "5 秒後に最前面のウィンドウ/ダイアログを取り込みます"
+msgstr "5 秒後に最前面のウィンドウ/ダイアログを取り込む"
 
 #: src/Screenshot.cpp
 msgid "false"
@@ -5135,18 +5135,16 @@ msgid "Window"
 msgstr "ウィンドウ"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Full Window"
-msgstr "FFT ウィンドウ:"
+msgstr "ウィンドウ全体"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Window Plus"
-msgstr "ウィンドウ Plus を取り込み"
+msgstr "ウィンドウと周辺"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Fullscreen"
-msgstr "フルスクリーン"
+msgstr "画面全体"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Toolbars"
@@ -5181,23 +5179,20 @@ msgid "First Four Tracks"
 msgstr "最初の 4 トラック"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "Tracks Plus"
-msgstr "トラックパネル"
+msgstr "トラックと周辺"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "First Track Plus"
-msgstr "最初のトラック"
+msgstr "最初のトラックと周辺"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "All Tracks"
 msgstr "全トラック"
 
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgid "All Tracks Plus"
-msgstr "トラック（高）"
+msgstr "全トラックと周辺"
 
 #: src/commands/ScreenshotCommand.cpp
 msgid "Blue"
