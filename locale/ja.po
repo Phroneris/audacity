@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-10-26 22:25+0900\n"
+"PO-Revision-Date: 2018-10-26 22:35+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -749,53 +749,65 @@ msgstr "クリックでピン解除"
 msgid "Click to pin"
 msgstr "クリックでピン留め"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Disable Quick-Play"
-msgstr "簡易再生を無効化"
+msgstr "簡易再生を無効化(&Q)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Enable Quick-Play"
-msgstr "簡易再生を有効化"
+msgstr "簡易再生を有効化(&Q)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Disable dragging selection"
-msgstr "ドラッグ選択を無効化"
+msgstr "ドラッグ選択を無効化(&D)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Enable dragging selection"
-msgstr "ドラッグ選択を有効化"
+msgstr "ドラッグ選択を有効化(&D)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Disable Timeline Tooltips"
-msgstr "タイムラインツールヒントを無効化"
+msgstr "タイムラインツールヒントを無効化(&T)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Enable Timeline Tooltips"
-msgstr "タイムラインツールヒントを有効化"
+msgstr "タイムラインツールヒントを有効化(&T)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Do not scroll while playing"
-msgstr "再生時にスクロールしない"
+msgstr "再生時にスクロールしない(&P)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Update display while playing"
-msgstr "再生中も表示を更新"
+msgstr "再生中も表示を更新(&P)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Lock Play Region"
-msgstr "再生領域をロック"
+msgstr "再生領域をロック(&L)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Unlock Play Region"
-msgstr "再生領域をアンロック"
+msgstr "再生領域をロック解除(&L)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Disable Scrub Ruler"
-msgstr "スクラブルーラーを無効化"
+msgstr "スクラブルーラーを無効化(&S)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Enable Scrub Ruler"
-msgstr "スクラブルーラーを有効化"
+msgstr "スクラブルーラーを有効化(&S)"
 
 #: src/AudacityApp.cpp
 #, c-format
