@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-10-26 22:35+0900\n"
+"PO-Revision-Date: 2018-10-26 23:11+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1330,7 +1330,7 @@ msgstr "自動実行コマンド %s は認識されません。"
 #. i18n-hint: active verb in past tense
 #: src/BatchCommands.cpp
 msgid "Applied Macro"
-msgstr "マクロ適用"
+msgstr "マクロを適用しました"
 
 #: src/BatchCommands.cpp
 msgid "Apply Macro"
@@ -1340,7 +1340,7 @@ msgstr "マクロ適用"
 #: src/BatchCommands.cpp
 #, c-format
 msgid "Applied Macro '%s'"
-msgstr "マクロ適用「%s」"
+msgstr "マクロ「%s」を適用しました"
 
 #: src/BatchCommands.cpp
 #, c-format
@@ -11409,7 +11409,7 @@ msgstr "新しいラベルにテキストをペースト"
 #. regions.
 #: src/menus/LabelMenus.cpp
 msgid "Cut labeled audio regions to clipboard"
-msgstr "ラベル付き音声領域を切り取ってクリップボードへ"
+msgstr "ラベル付き音声領域をクリップボードに切り取りました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
@@ -11419,18 +11419,18 @@ msgstr "ラベル付き音声の切り取り"
 #. i18n-hint: (verb) Audacity has just deleted the labeled audio regions
 #: src/menus/LabelMenus.cpp
 msgid "Deleted labeled audio regions"
-msgstr "削除されたラベル付き音声領域"
+msgstr "ラベル付き音声領域を削除しました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Delete Labeled Audio"
-msgstr "ラベル付き音声領域の削除"
+msgstr "ラベル付き音声の削除"
 
 #. i18n-hint: (verb) Audacity has just split cut the labeled audio
 #. regions
 #: src/menus/LabelMenus.cpp
 msgid "Split Cut labeled audio regions to clipboard"
-msgstr "ラベル付き音声領域を分割切り取りしてクリップボードへ"
+msgstr "ラベル付き音声領域をクリップボードに分割切り取りしました"
 
 #. i18n-hint: (verb) Do a special kind of cut on the labels
 #: src/menus/LabelMenus.cpp
@@ -11441,27 +11441,27 @@ msgstr "ラベル付き音声の分割切り取り"
 #. the labeled audio regions
 #: src/menus/LabelMenus.cpp
 msgid "Split Deleted labeled audio regions"
-msgstr "分割消去されたラベル付き音声領域"
+msgstr "ラベル付き音声領域を分割消去しました"
 
 #. i18n-hint: (verb) Do a special kind of DELETE on labeled audio
 #. regions
 #: src/menus/LabelMenus.cpp
 msgid "Split Delete Labeled Audio"
-msgstr "ラベル付き音声領域の分割消去"
+msgstr "ラベル付き音声の分割消去"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Silenced labeled audio regions"
-msgstr "無音化されたラベル付き音声領域"
+msgstr "ラベル付き音声領域を無音化しました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Silence Labeled Audio"
-msgstr "ラベル付き音声領域の無音化"
+msgstr "ラベル付き音声の無音化"
 
 #: src/menus/LabelMenus.cpp
 msgid "Copied labeled audio regions to clipboard"
-msgstr "コピーされたラベル付き音声領域をクリップボードへ"
+msgstr "ラベル付き音声領域をクリップボードにコピーしました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
@@ -11472,30 +11472,30 @@ msgstr "ラベル付き音声のコピー"
 #. audio (a point or a region)
 #: src/menus/LabelMenus.cpp
 msgid "Split labeled audio (points or regions)"
-msgstr "ラベル付き音声の分割 (ポイントまたは領域)"
+msgstr "ラベル付き音声 (ポイントまたは領域) を分割しました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Split Labeled Audio"
-msgstr "ラベル付き音声領域の分割"
+msgstr "ラベル付き音声の分割"
 
 #. i18n-hint: (verb) Audacity has just joined the labeled audio (points or
 #. regions)
 #: src/menus/LabelMenus.cpp
 msgid "Joined labeled audio (points or regions)"
-msgstr "結合されたラベル付き音声領域 (ポイントまたは領域)"
+msgstr "ラベル付き音声 (ポイントまたは領域) を結合しました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Join Labeled Audio"
-msgstr "ラベル付き音声領域の結合"
+msgstr "ラベル付き音声の結合"
 
 #. i18n-hint: (verb) Audacity has just detached the labeled audio regions.
 #. This message appears in history and tells you about something
 #. Audacity has done.
 #: src/menus/LabelMenus.cpp
 msgid "Detached labeled audio regions"
-msgstr "分離されたラベル付き音声領域"
+msgstr "ラベル付き音声領域を分離しました"
 
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
@@ -11528,7 +11528,7 @@ msgstr "タイピングで即ラベル作成 (オン/オフ) (&T)"
 
 #: src/menus/LabelMenus.cpp
 msgid "La&beled Audio"
-msgstr "ラベル付きの音声(&B)"
+msgstr "ラベル付き音声(&B)"
 
 #  i18n-hint: Labeled Regions submenu
 #. i18n-hint: (verb)
@@ -12342,11 +12342,11 @@ msgstr "MIDI を音声と同期"
 
 #: src/menus/TrackMenus.cpp
 msgid "Synchronizing MIDI and Audio Tracks"
-msgstr "MIDI を音声と同期"
+msgstr "MIDI を音声と同期中"
 
 #: src/menus/TrackMenus.cpp
 msgid "Removed audio track(s)"
-msgstr "削除された音声トラック"
+msgstr "音声トラックを削除しました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Remove Track"
@@ -12394,19 +12394,19 @@ msgstr "トラックを下へ移動"
 
 #: src/menus/TrackMenus.cpp
 msgid "Created new audio track"
-msgstr "新しい音声トラックが作られました"
+msgstr "新規音声トラックを作りました"
 
 #: src/menus/TrackMenus.cpp
 msgid "New Track"
-msgstr "新しいトラック"
+msgstr "新規トラック"
 
 #: src/menus/TrackMenus.cpp
 msgid "Created new stereo audio track"
-msgstr "新しいステレオ音声トラックが作られました"
+msgstr "新規ステレオ音声トラックを作りました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Created new label track"
-msgstr "新しいラベルトラックが作られました"
+msgstr "新規ラベルトラックを作りました"
 
 #: src/menus/TrackMenus.cpp
 msgid "This version of Audacity only allows one time track for each project window."
@@ -12414,12 +12414,12 @@ msgstr "このバージョンの Audacity では、時間トラックはプロ�
 
 #: src/menus/TrackMenus.cpp
 msgid "Created new time track"
-msgstr "新しいタイムトラックが作られました"
+msgstr "新規タイムトラックを作りました"
 
 #: src/menus/TrackMenus.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "New sample rate (Hz):"
-msgstr "新しいサンプリング周波数 (Hz):"
+msgstr "新規サンプリング周波数 (Hz):"
 
 #: src/menus/TrackMenus.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
@@ -12433,7 +12433,7 @@ msgstr "%d トラックを再サンプリング中"
 
 #: src/menus/TrackMenus.cpp
 msgid "Resampled audio track(s)"
-msgstr "再サンプリングされた音声トラック"
+msgstr "音声トラックを再サンプリングしました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Resample Track"
@@ -12463,7 +12463,7 @@ msgstr "アラインメント処理中に内部エラーが発生しました。
 
 #: src/menus/TrackMenus.cpp
 msgid "Tracks sorted by time"
-msgstr "トラックが時間で並び替えられました"
+msgstr "トラックを時間で並び替えました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Sort by Time"
@@ -12471,7 +12471,7 @@ msgstr "時間順で並べ替え"
 
 #: src/menus/TrackMenus.cpp
 msgid "Tracks sorted by name"
-msgstr "トラックが名前で並び替えられました"
+msgstr "トラックを名前で並び替えました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Sort by Name"
@@ -13044,7 +13044,7 @@ msgstr "取り込み完了。波形を計算中"
 
 #: src/ondemand/ODDecodeTask.h
 msgid "Decoding Waveform"
-msgstr "波形を復号化"
+msgstr "波形を復号化中"
 
 #: src/ondemand/ODWaveTrackTaskQueue.cpp
 #, c-format
@@ -15503,7 +15503,7 @@ msgstr "クリック＆ドラッグで振幅エンベロープを編集"
 #. i18n-hint: (verb) Audacity has just adjusted the envelope .
 #: src/tracks/ui/EnvelopeHandle.cpp
 msgid "Adjusted envelope."
-msgstr "エンベロープの調整。"
+msgstr "エンベロープを調整しました。"
 
 #. i18n-hint: These commands assist the user in finding a sound by ear. ...
 #. "Scrubbing" is variable-speed playback, ...
