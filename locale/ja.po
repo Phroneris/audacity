@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-10-26 06:59+0900\n"
+"PO-Revision-Date: 2018-10-26 22:25+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -735,11 +735,11 @@ msgstr "移動でスクラブ、ドラッグでシークします。"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Quick-Play disabled"
-msgstr "クイック再生が無効です"
+msgstr "簡易再生が無効です"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Quick-Play enabled"
-msgstr "クイック再生が有効です"
+msgstr "簡易再生が有効です"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Click to unpin"
@@ -751,11 +751,11 @@ msgstr "クリックでピン留め"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Disable Quick-Play"
-msgstr "クイック再生を無効化"
+msgstr "簡易再生を無効化"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Enable Quick-Play"
-msgstr "クイック再生を有効化"
+msgstr "簡易再生を有効化"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Disable dragging selection"
@@ -2525,7 +2525,7 @@ msgstr "ヘルプ情報を得るには:"
 
 #: src/HelpText.cpp
 msgid " [[file:quick_help.html|Quick Help]] - if not installed locally, [[https://manual.audacityteam.org/quick_help.html|view online]]"
-msgstr " [[file:quick_help.html|クイックヘルプ]] (ローカルディスク上か、[[https://manual.audacityteam.org/quick_help.html|インターネット版]])"
+msgstr " [[file:quick_help.html|簡易ヘルプ]] (ローカルディスク上か、[[https://manual.audacityteam.org/quick_help.html|インターネット版]])"
 
 #: src/HelpText.cpp
 msgid " [[file:index.html|Manual]] - if not installed locally, [[https://manual.audacityteam.org/|view online]]"
@@ -11343,7 +11343,7 @@ msgstr "MIDI デバイス情報が保存できません"
 
 #: src/menus/HelpMenus.cpp
 msgid "&Quick Fix..."
-msgstr "クイック解決(&Q)..."
+msgstr "お手軽解決(&Q)..."
 
 #: src/menus/HelpMenus.cpp
 msgid "&Getting Started"
@@ -11355,7 +11355,7 @@ msgstr "Audacity マニュアル(&M)"
 
 #: src/menus/HelpMenus.cpp
 msgid "&Quick Help..."
-msgstr "クイックヘルプ(&Q)..."
+msgstr "簡易ヘルプ(&Q)..."
 
 #: src/menus/HelpMenus.cpp
 msgid "&Manual..."
@@ -15764,7 +15764,7 @@ msgstr "解決"
 
 #: src/widgets/HelpSystem.cpp
 msgid "Quick Fixes"
-msgstr "クイック解決"
+msgstr "お手軽解決"
 
 #: src/widgets/HelpSystem.cpp
 msgid "Nothing to do"
@@ -15772,7 +15772,7 @@ msgstr "やることなし"
 
 #: src/widgets/HelpSystem.cpp
 msgid "No quick, easily fixed problems were found"
-msgstr "迅速簡単に解決できるような問題は見つかりませんでした"
+msgstr "お手軽に解決できる問題は見つかりませんでした"
 
 #: src/widgets/HelpSystem.cpp
 msgid "Clocks on the Tracks"
