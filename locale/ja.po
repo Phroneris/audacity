@@ -8990,9 +8990,8 @@ msgid "Edit Metadata Tags"
 msgstr "メタデータタグを編集"
 
 #: src/export/Export.cpp
-#, fuzzy
 msgid "Exported Tags"
-msgstr "書き出し"
+msgstr "タグの書き出し"
 
 #: src/export/Export.cpp
 msgid "All selected audio is muted."
@@ -10929,11 +10928,11 @@ msgstr "クリップを右へ(&H)"
 
 #: src/menus/EditMenus.cpp
 msgid "Pasted text from the clipboard"
-msgstr "クリップボードからペーストされたテキスト"
+msgstr "クリップボードからテキストをペーストしました"
 
 #: src/menus/EditMenus.cpp src/menus/LabelMenus.cpp
 msgid "Pasted from the clipboard"
-msgstr "クリップボードからペーストする"
+msgstr "クリップボードからペーストしました"
 
 #: src/menus/EditMenus.cpp
 msgid "Nothing to undo"
@@ -10945,7 +10944,7 @@ msgstr "やり直すものはありません"
 
 #: src/menus/EditMenus.cpp
 msgid "Cut to the clipboard"
-msgstr "切り取った内容をクリップボードに退避"
+msgstr "クリップボードに切り取りました"
 
 #: src/menus/EditMenus.cpp
 msgid "Pasting one type of track into another is not allowed."
@@ -10957,7 +10956,7 @@ msgstr "ステレオの音声データはモノラルトラックにコピーで
 
 #: src/menus/EditMenus.cpp
 msgid "Duplicated"
-msgstr "複製済み"
+msgstr "複製しました"
 
 #: src/menus/EditMenus.cpp
 msgid "Duplicate"
@@ -10965,30 +10964,30 @@ msgstr "複製"
 
 #: src/menus/EditMenus.cpp
 msgid "Split-cut to the clipboard"
-msgstr "切り取った内容をクリップボードに退避"
+msgstr "クリップボードに分割切り取りしました"
 
 #: src/menus/EditMenus.cpp
 msgid "Split Cut"
-msgstr "切り取り分割"
+msgstr "分割切り取り"
 
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Split-deleted %.2f seconds at t=%.2f"
-msgstr "%.2f 秒分離削除しました (位置 %.2f)"
+msgstr "%.2f 秒分割削除しました (位置: %.2f 秒)"
 
 #: src/menus/EditMenus.cpp
 msgid "Split Delete"
-msgstr "分離削除"
+msgstr "分割削除"
 
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Silenced selected tracks for %.2f seconds at %.2f"
-msgstr "%.2f 秒から %.2f 秒までの無音トラックを選択"
+msgstr "選択トラックの %.2f 秒間を無音化しました (位置: %.2f 秒)"
 
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Trim selected audio tracks from %.2f seconds to %.2f seconds"
-msgstr "%.2f 秒から %.2f 秒までの選択された音声トラックをトリミング"
+msgstr "%.2f 秒から %.2f 秒までの選択音声トラックをトリミングしました"
 
 #: src/menus/EditMenus.cpp
 msgid "Trim Audio"
@@ -11010,7 +11009,7 @@ msgstr "新しく分離"
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Joined %.2f seconds at t=%.2f"
-msgstr "%.2f 秒連結しました (位置 %.2f)"
+msgstr "%.2f 秒連結しました (位置: %.2f 秒)"
 
 #: src/menus/EditMenus.cpp
 msgid "Join"
@@ -11019,7 +11018,7 @@ msgstr "結合"
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Detached %.2f seconds at t=%.2f"
-msgstr "%.2f 秒分離しました (位置 %.2f)"
+msgstr "%.2f 秒分離しました (位置: %.2f 秒)"
 
 #: src/menus/EditMenus.cpp
 msgid "Detach"
