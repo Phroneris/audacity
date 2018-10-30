@@ -2690,12 +2690,12 @@ msgstr "終了時刻"
 #. i18n-hint: (noun) of a label
 #: src/LabelDialog.cpp src/toolbars/SpectralSelectionBar.cpp
 msgid "Low Frequency"
-msgstr "低周波数"
+msgstr "低周波数域"
 
 #. i18n-hint: (noun) of a label
 #: src/LabelDialog.cpp src/toolbars/SpectralSelectionBar.cpp
 msgid "High Frequency"
-msgstr "高周波数"
+msgstr "高周波数域"
 
 #: src/LabelDialog.cpp
 msgid "New..."
@@ -15010,7 +15010,7 @@ msgstr "中心周波数と帯域幅"
 
 #: src/toolbars/SpectralSelectionBar.cpp
 msgid "Low and High Frequencies"
-msgstr "周波数のローとハイ"
+msgstr "周波数の低域と高域"
 
 #: src/toolbars/SpectralSelectionBar.cpp
 msgid "Center Frequency"
