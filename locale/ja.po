@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-10-26 23:11+0900\n"
+"PO-Revision-Date: 2018-10-30 19:15+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3565,1692,3399,463,540,1026,1733,2206,2398,-1\n"
+"X-Poedit-Bookmarks: 3565,3399,463,2398,1048,-1,-1,-1,-1,-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
@@ -693,9 +693,8 @@ msgid "Click and drag to adjust, double-click to reset"
 msgstr "クリック＆ドラッグで調整、ダブルクリックでリセット"
 
 #: src/AdornedRulerPanel.cpp
-#, fuzzy
 msgid "Record/Play head"
-msgstr "録音の終了"
+msgstr "録音/再生の位置"
 
 #: src/AdornedRulerPanel.cpp
 msgid "Timeline"
@@ -959,7 +958,7 @@ msgid ""
 "Use the New or Open commands in the currently running Audacity\n"
 "process to open multiple projects simultaneously.\n"
 msgstr ""
-"複数のプロジェクトを同時に開いて作業するためには、新規 あるいは 開く コマンドを、\n"
+"複数のプロジェクトを同時に開いて作業するためには、[新規] あるいは [開く] コマンドを、\n"
 "今動作している Audacity において使ってください。\n"
 
 #: src/AudacityApp.cpp
@@ -1325,7 +1324,7 @@ msgstr "コマンド %s はまだ実装されていません"
 #: src/BatchCommands.cpp
 #, c-format
 msgid "Your batch command of %s was not recognized."
-msgstr "自動実行コマンド %s は認識されません。"
+msgstr "自動実行コマンド %s は認識されませんでした。"
 
 #. i18n-hint: active verb in past tense
 #: src/BatchCommands.cpp
@@ -2785,7 +2784,7 @@ msgstr "ラベル消去"
 
 #: src/LabelTrack.cpp
 msgid "One or more saved labels could not be read."
-msgstr ""
+msgstr "保存した 1 個以上のラベルが読み込めませんでした。"
 
 #: src/LabelTrack.cpp
 msgid "Edited labels"
@@ -3758,7 +3757,7 @@ msgstr[0] "%d 分"
 #: src/Project.cpp
 #, c-format
 msgid "%s and %s."
-msgstr "%s %s."
+msgstr "%s %s。"
 
 #: src/Project.cpp
 msgid "Frequency Analysis"
@@ -4772,19 +4771,18 @@ msgid "%s: %s"
 msgstr "%s: %s"
 
 #: src/commands/BatchEvalCommand.cpp
-#, fuzzy
 msgid "Batch Command"
-msgstr "コマンド"
+msgstr "自動実行コマンド"
 
 #: src/commands/Command.cpp
 #, c-format
 msgid "%s is not a parameter accepted by %s"
-msgstr ""
+msgstr "%s は、%s に指定できるパラメータではありません"
 
 #: src/commands/Command.cpp
 #, c-format
 msgid "Invalid value for parameter '%s': should be %s"
-msgstr ""
+msgstr "パラメータ「%s」の値が不正です。%s である必要があります"
 
 #: src/commands/CommandManager.cpp src/prefs/MousePrefs.cpp
 #: src/widgets/KeyView.cpp
@@ -4872,7 +4870,7 @@ msgstr "キーボードショートカットの読み込み"
 
 #: src/commands/CommandTargets.cpp
 msgid "Long Message"
-msgstr ""
+msgstr "メッセージ出力"
 
 #: src/commands/CompareAudioCommand.cpp src/effects/AutoDuck.cpp
 #: src/effects/Compressor.cpp src/effects/TruncSilence.cpp
@@ -4884,9 +4882,8 @@ msgid "Compare Audio"
 msgstr "音声比較"
 
 #: src/commands/CompareAudioCommand.h
-#, fuzzy
 msgid "Compares a range on two tracks."
-msgstr "ピークに基づく圧縮 "
+msgstr "2 つのトラックのレンジを比較します。"
 
 #: src/commands/Demo.cpp src/effects/Echo.cpp
 msgid "Delay time (seconds):"
@@ -4896,13 +4893,14 @@ msgstr "ディレイ時間 (秒):"
 msgid "Decay factor:"
 msgstr "減衰倍数:"
 
+# jp: デモはデモなのであえて翻訳しない
 #: src/commands/Demo.h
 msgid "Demo"
-msgstr ""
+msgstr "Demo"
 
 #: src/commands/Demo.h
 msgid "Does the demo action."
-msgstr ""
+msgstr "Does the demo action."
 
 #: src/commands/DragCommand.cpp src/widgets/wxPanelWrapper.h
 msgid "Panel"
@@ -4982,9 +4980,10 @@ msgstr "エンベロープ"
 msgid "Labels"
 msgstr "ラベル"
 
+# jp: 正直訳しようがないけど訳さないのも浮くし、まあこんなもんか
 #: src/commands/GetInfoCommand.cpp
 msgid "Boxes"
-msgstr ""
+msgstr "ボックス"
 
 #. i18n-hint JavaScript Object Notation
 #: src/commands/GetInfoCommand.cpp
@@ -7286,11 +7285,11 @@ msgstr "不明な内蔵エフェクト名"
 
 #: src/effects/Noise.cpp
 msgid "Pink"
-msgstr "ピンク"
+msgstr "ピンクノイズ"
 
 #: src/effects/Noise.cpp
 msgid "Brownian"
-msgstr "Brownian"
+msgstr "ブラウニアンノイズ"
 
 #: src/effects/Noise.cpp
 msgid "Generates one of three different types of noise"
@@ -7386,9 +7385,8 @@ msgid "Sensiti&vity (dB):"
 msgstr "感度 (dB) (&V):"
 
 #: src/effects/NoiseReduction.cpp
-#, fuzzy
 msgid "Old Sensitivity"
-msgstr "Old 感度"
+msgstr "旧式感度"
 
 # jp: 独自アクセスキー
 #: src/effects/NoiseReduction.cpp src/effects/NoiseReduction.h
@@ -8123,6 +8121,7 @@ msgid "Creates audio of zero amplitude"
 msgstr "振幅ゼロの音声を作ります"
 
 # jp: 独自アクセスキー
+# jp: 「編集」メニューにおいては「～を元に戻す」に使われるのでちょっと変
 #: src/effects/Silence.h src/menus/EditMenus.cpp
 msgid "Silence"
 msgstr "無音(&S)"
@@ -8251,7 +8250,7 @@ msgstr "音量が設定値より低い場合に自動的に切り詰めます"
 
 #: src/effects/TruncSilence.cpp
 msgid "When truncating independently, there may only be one selected audio track in each Sync-Locked Track Group."
-msgstr ""
+msgstr "別々に切り詰める場合、トラックの同期ロックグループごとに 1 個のトラックしか選択することはできません。"
 
 # jp: [解析] > [無音の検出] との区別のために、「の」を削除
 #: src/effects/TruncSilence.cpp
@@ -9093,7 +9092,7 @@ msgstr "%s - R"
 
 #: src/export/Export.cpp
 msgid "Mixer Panel"
-msgstr "ミキサパネル"
+msgstr "ミキサーパネル"
 
 #: src/export/Export.cpp
 #, c-format
@@ -10703,41 +10702,29 @@ msgstr "Raw データの取り込み"
 msgid "Import Raw Data"
 msgstr "Raw データの取り込み"
 
-#  i18n-hint: Refers to byte-order.  Don't translate "endianness" if you don't
-#  know the correct technical word.
-#  i18n-hint: Refers to byte-order.  Don't translate "endianness" if you don't
-#  know the correct technical word.
 #. i18n-hint: Refers to byte-order.  Don't translate "endianness" if you don't
 #. know the correct technical word.
 #: src/import/ImportRaw.cpp
 msgid "No endianness"
 msgstr "エンディアン無し"
 
-#  i18n-hint: Refers to byte-order.  Don't translate this if you don't
-#  know the correct technical word.
 #. i18n-hint: Refers to byte-order.  Don't translate this if you don't
 #. know the correct technical word.
 #: src/import/ImportRaw.cpp
 msgid "Little-endian"
 msgstr "リトルエンディアン"
 
-#  i18n-hint: Refers to byte-order.  Don't translate this if you don't
-#  know the correct technical word.
 #. i18n-hint: Refers to byte-order.  Don't translate this if you don't
 #. know the correct technical word.
 #: src/import/ImportRaw.cpp
 msgid "Big-endian"
-msgstr "ビックエンディアン (バイトオーダ)"
+msgstr "ビックエンディアン"
 
-#  i18n-hint: Refers to byte-order.  Don't translate "endianness" if you don't
-#  know the correct technical word.
-#  i18n-hint: Refers to byte-order.  Don't translate "endianness" if you don't
-#  know the correct technical word.
 #. i18n-hint: Refers to byte-order.  Don't translate "endianness" if you don't
 #. know the correct technical word.
 #: src/import/ImportRaw.cpp
 msgid "Default endianness"
-msgstr "既定エンディアン (バイトオーダ)"
+msgstr "既定のエンディアン"
 
 #: src/import/ImportRaw.cpp
 msgid "1 Channel (Mono)"
@@ -10880,7 +10867,7 @@ msgstr "クリップは移動していません"
 
 #: src/menus/ClipMenus.cpp src/menus/EditMenus.cpp
 msgid "Clip B&oundaries"
-msgstr "クリップの境界(&D)"
+msgstr "クリップの境界(&O)"
 
 #: src/menus/ClipMenus.cpp
 msgid "Pre&vious Clip Boundary to Cursor"
@@ -12826,7 +12813,7 @@ msgstr "音による録音起動 (オン/オフ) (&C)"
 
 #: src/menus/TransportMenus.cpp
 msgid "Pinned Play/Record &Head (on/off)"
-msgstr "再生/録音位置をピン留め (オン/オフ) (&H)"
+msgstr "再生/録音の位置をピン留め (オン/オフ) (&H)"
 
 #: src/menus/TransportMenus.cpp
 msgid "&Overdub (on/off)"
