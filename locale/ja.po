@@ -2742,9 +2742,10 @@ msgstr "トラック名を入力"
 msgid "Label Track"
 msgstr "ラベルトラック"
 
+# jp: 動詞かどうかわからんので無難な訳に (下の連中も同じく)
 #: src/LabelTrack.cpp src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Modified Label"
-msgstr "変更されたラベル"
+msgstr "ラベル変更"
 
 #: src/LabelTrack.cpp src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Label Edit"
@@ -2752,7 +2753,7 @@ msgstr "ラベルの編集"
 
 #: src/LabelTrack.cpp src/menus/LabelMenus.cpp
 msgid "Added label"
-msgstr "ラベルを付ける"
+msgstr "ラベル追加"
 
 #. i18n-hint: (verb)
 #: src/LabelTrack.cpp src/menus/EditMenus.cpp
@@ -2775,7 +2776,7 @@ msgstr "ラベル消去(&D)"
 
 #: src/LabelTrack.cpp
 msgid "Deleted Label"
-msgstr "消去されたラベル"
+msgstr "ラベル消去"
 
 #: src/LabelTrack.cpp
 msgid "One or more saved labels could not be read."
@@ -2783,7 +2784,7 @@ msgstr ""
 
 #: src/LabelTrack.cpp
 msgid "Edited labels"
-msgstr "編集されたラベル"
+msgstr "ラベル編集"
 
 #: src/LabelTrack.cpp src/commands/PreferenceCommands.cpp
 #: src/commands/SetProjectCommand.cpp src/commands/SetTrackInfoCommand.cpp
