@@ -3688,7 +3688,7 @@ msgstr "本来のレート: %d"
 #. recording
 #: src/Project.cpp
 msgid "Dropouts"
-msgstr ""
+msgstr "ドロップアウト"
 
 #: src/Project.cpp
 msgid ""
@@ -3698,6 +3698,10 @@ msgid ""
 "\n"
 "You are saving directly to a slow external storage device\n"
 msgstr ""
+"ラベル位置で音声録音が失われました。以下の原因が考えられます:\n"
+"\n"
+"・CPU 使用率の面で他のアプリケーションが Audacity と競合している\n"
+"・プロジェクトを低速な外付けストレージデバイスに直接保存している\n"
 
 #: src/Project.cpp
 msgid "Turn off dropout detection"
