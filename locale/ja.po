@@ -2612,24 +2612,29 @@ msgstr "破棄"
 msgid "&OK"
 msgstr "OK(&O)"
 
+# jp: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
 #: src/InconsistencyException.cpp
 #, c-format
 msgid ""
 "Internal error in %s at %s line %d.\n"
 "Please inform the Audacity team at https://forum.audacityteam.org/."
 msgstr ""
+"Internal error in %s at %s line %d.\n"
+"是非、Audacity チーム (https://forum.audacityteam.org/) にご報告ください。"
 
+# jp: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
 #: src/InconsistencyException.cpp
 #, c-format
 msgid ""
 "Internal error at %s line %d.\n"
 "Please inform the Audacity team at https://forum.audacityteam.org/."
 msgstr ""
+"Internal error at %s line %d.\n"
+"是非、Audacity チーム (https://forum.audacityteam.org/) にご報告ください。"
 
 #: src/InconsistencyException.h
-#, fuzzy
 msgid "Internal Error"
-msgstr "(外部プログラム)"
+msgstr "内部エラー"
 
 #: src/Internat.cpp
 msgid "Unable to determine"
