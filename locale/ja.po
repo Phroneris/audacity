@@ -6238,129 +6238,130 @@ msgstr "データ収集日時"
 
 #: src/effects/Distortion.cpp
 msgid "Hard Clipping"
-msgstr ""
+msgstr "Hard Clipping"
 
 #: src/effects/Distortion.cpp
 msgid "Soft Clipping"
-msgstr ""
+msgstr "Soft Clipping"
 
 #: src/effects/Distortion.cpp
 msgid "Soft Overdrive"
-msgstr ""
+msgstr "Soft Overdrive"
 
 #: src/effects/Distortion.cpp
 msgid "Medium Overdrive"
-msgstr ""
+msgstr "Medium Overdrive"
 
 #: src/effects/Distortion.cpp
 msgid "Hard Overdrive"
-msgstr ""
+msgstr "Hard Overdrive"
 
 #: src/effects/Distortion.cpp
 msgid "Cubic Curve (odd harmonics)"
-msgstr ""
+msgstr "Cubic Curve (odd harmonics)"
 
 #: src/effects/Distortion.cpp
 msgid "Even Harmonics"
-msgstr ""
+msgstr "Even Harmonics"
 
 #: src/effects/Distortion.cpp
 msgid "Expand and Compress"
-msgstr ""
+msgstr "Expand and Compress"
 
 #: src/effects/Distortion.cpp
 msgid "Leveller"
-msgstr ""
+msgstr "Leveller"
 
 #: src/effects/Distortion.cpp
 msgid "Rectifier Distortion"
-msgstr ""
+msgstr "Rectifier Distortion"
 
 #: src/effects/Distortion.cpp
 msgid "Hard Limiter 1413"
-msgstr ""
+msgstr "Hard Limiter 1413"
 
+# jp: ここから下はプリセット名には無い
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Hard clip -12dB, 80% make-up gain"
-msgstr ""
+msgstr "Hard clip -12dB, 80% make-up gain"
 
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Soft clip -12dB, 80% make-up gain"
-msgstr ""
+msgstr "Soft clip -12dB, 80% make-up gain"
 
 #: src/effects/Distortion.cpp
 msgid "Fuzz Box"
-msgstr ""
+msgstr "Fuzz Box"
 
 #: src/effects/Distortion.cpp
 msgid "Walkie-talkie"
-msgstr ""
+msgstr "Walkie-talkie"
 
 #: src/effects/Distortion.cpp
 msgid "Blues drive sustain"
-msgstr ""
+msgstr "Blues drive sustain"
 
 #: src/effects/Distortion.cpp
 msgid "Light Crunch Overdrive"
-msgstr ""
+msgstr "Light Crunch Overdrive"
 
 #: src/effects/Distortion.cpp
 msgid "Heavy Overdrive"
-msgstr ""
+msgstr "Heavy Overdrive"
 
 #: src/effects/Distortion.cpp
 msgid "3rd Harmonic (Perfect Fifth)"
-msgstr ""
+msgstr "3rd Harmonic (Perfect Fifth)"
 
 #: src/effects/Distortion.cpp
 msgid "Valve Overdrive"
-msgstr ""
+msgstr "Valve Overdrive"
 
 #: src/effects/Distortion.cpp
 msgid "2nd Harmonic (Octave)"
-msgstr ""
+msgstr "2nd Harmonic (Octave)"
 
 #: src/effects/Distortion.cpp
 msgid "Gated Expansion Distortion"
-msgstr ""
+msgstr "Gated Expansion Distortion"
 
 #: src/effects/Distortion.cpp
 msgid "Leveller, Light, -70dB noise floor"
-msgstr ""
+msgstr "Leveller, Light, -70dB noise floor"
 
 #: src/effects/Distortion.cpp
 msgid "Leveller, Moderate, -70dB noise floor"
-msgstr ""
+msgstr "Leveller, Moderate, -70dB noise floor"
 
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heavy, -70dB noise floor"
-msgstr ""
+msgstr "Leveller, Heavy, -70dB noise floor"
 
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heavier, -70dB noise floor"
-msgstr ""
+msgstr "Leveller, Heavier, -70dB noise floor"
 
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heaviest, -70dB noise floor"
-msgstr ""
+msgstr "Leveller, Heaviest, -70dB noise floor"
 
 #: src/effects/Distortion.cpp
 msgid "Half-wave Rectifier"
-msgstr ""
+msgstr "Half-wave Rectifier"
 
 #: src/effects/Distortion.cpp
 msgid "Full-wave Rectifier"
-msgstr ""
+msgstr "Full-wave Rectifier"
 
 #: src/effects/Distortion.cpp
 msgid "Full-wave Rectifier (DC blocked)"
-msgstr ""
+msgstr "Full-wave Rectifier (DC blocked)"
 
 #: src/effects/Distortion.cpp
 msgid "Percussion Limiter"
-msgstr ""
+msgstr "Percussion Limiter"
 
 #: src/effects/Distortion.cpp
 msgid "Upper Threshold"
