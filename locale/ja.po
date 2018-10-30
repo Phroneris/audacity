@@ -17059,20 +17059,20 @@ msgstr "種類"
 
 #: plug-ins/limiter.ny
 msgid "Soft Limit"
-msgstr "ソフトなリミッター"
+msgstr "控え目なリミッティング"
 
 #: plug-ins/limiter.ny
 msgid "Hard Limit"
-msgstr "ハードなリミッター"
+msgstr "過激なリミッティング"
 
 #. i18n-hint: clipping of wave peaks and troughs, not division of a track into clips
 #: plug-ins/limiter.ny
 msgid "Soft Clip"
-msgstr "ソフトなクリッピング"
+msgstr "控え目なクリッピング"
 
 #: plug-ins/limiter.ny
 msgid "Hard Clip"
-msgstr "ハードなクリッピング"
+msgstr "過激なクリッピング"
 
 #: plug-ins/limiter.ny
 msgid ""
