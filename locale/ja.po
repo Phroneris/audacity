@@ -3641,7 +3641,7 @@ msgstr "新しいプロジェクトが作られました"
 #: src/Project.cpp
 #, c-format
 msgid "Deleted %.2f seconds at t=%.2f"
-msgstr "%.2f 秒削除しました (位置 %.2f)"
+msgstr "%2$.2f 秒地点で %1$.2f 秒削除しました"
 
 #: src/Project.cpp
 msgid "Delete"
@@ -8289,7 +8289,7 @@ msgstr "シェル VST をスキャンしています"
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
 msgid "Registering %d of %d: %-64.64s"
-msgstr ""
+msgstr "%2$d 個中 %1$d 個目を登録中: %3$-64.64s"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/ladspa/LadspaEffect.cpp
 #: src/effects/lv2/LoadLV2.cpp src/effects/vamp/LoadVamp.cpp
@@ -10803,17 +10803,15 @@ msgstr ""
 #, c-format
 msgid "%s %d of %d clip %s"
 msgid_plural "%s %d of %d clips %s"
-msgstr[0] ""
+msgstr[0] "クリップ%3$d個中%2$d個目の%1$s、%4$s"
 
 #: src/menus/ClipMenus.cpp
-#, fuzzy
 msgid "start"
-msgstr "開始"
+msgstr "始め"
 
 #: src/menus/ClipMenus.cpp
-#, fuzzy
 msgid "end"
-msgstr "終了"
+msgstr "終わり"
 
 #. i18n-hint: in the string after this one,
 #. First two %s are each replaced with the noun "start"
@@ -10834,7 +10832,7 @@ msgstr ""
 #, c-format
 msgid "%s %d and %s %d of %d clip %s"
 msgid_plural "%s %d and %s %d of %d clips %s"
-msgstr[0] ""
+msgstr[0] "クリップ%5$d個中%2$d個目の%1$sと%4$d個目の%3$s、%6$s"
 
 #. i18n-hint: in the string after this one,
 #. first number identifies one of a sequence of clips,
@@ -10844,13 +10842,13 @@ msgstr[0] ""
 msgid "dummyStringOnSelectClip"
 msgstr ""
 "※読み上げ用。翻訳者への注記参照。\n"
-"[拡張] > [変速再生] > [前/次のラベルに移動]"
+"[選択] > [クリップの境界] > [前/次のクリップ] 系"
 
 #: src/menus/ClipMenus.cpp
 #, c-format
 msgid "%d of %d clip %s"
 msgid_plural "%d of %d clips %s"
-msgstr[0] ""
+msgstr[0] "クリップ%2$d個中%1$d個目、%3$s"
 
 #: src/menus/ClipMenus.cpp
 msgid "Time shifted clips to the right"
@@ -10969,7 +10967,7 @@ msgstr "分割切り取り"
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Split-deleted %.2f seconds at t=%.2f"
-msgstr "%.2f 秒分割削除しました (位置: %.2f 秒)"
+msgstr "%2$.2f 秒地点で %1$.2f 秒分割削除しました"
 
 #: src/menus/EditMenus.cpp
 msgid "Split Delete"
@@ -10978,12 +10976,12 @@ msgstr "分割削除"
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Silenced selected tracks for %.2f seconds at %.2f"
-msgstr "選択トラックの %.2f 秒間を無音化しました (位置: %.2f 秒)"
+msgstr "選択トラックを %2$.2f 秒地点で %1$.2f 秒間無音化しました"
 
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Trim selected audio tracks from %.2f seconds to %.2f seconds"
-msgstr "%.2f 秒から %.2f 秒までの選択音声トラックをトリミングしました"
+msgstr "選択音声トラックを %.2f 秒から %.2f 秒までトリミングしました"
 
 #: src/menus/EditMenus.cpp
 msgid "Trim Audio"
@@ -11005,7 +11003,7 @@ msgstr "新しく分離"
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Joined %.2f seconds at t=%.2f"
-msgstr "%.2f 秒連結しました (位置: %.2f 秒)"
+msgstr "%2$.2f 秒地点で %1$.2f 秒連結しました"
 
 #: src/menus/EditMenus.cpp
 msgid "Join"
@@ -11014,7 +11012,7 @@ msgstr "結合"
 #: src/menus/EditMenus.cpp
 #, c-format
 msgid "Detached %.2f seconds at t=%.2f"
-msgstr "%.2f 秒分離しました (位置: %.2f 秒)"
+msgstr "%2$.2f 秒地点で %1$.2f 秒分離しました"
 
 #: src/menus/EditMenus.cpp
 msgid "Detach"
