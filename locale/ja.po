@@ -3685,7 +3685,7 @@ msgstr "古い自動保存ファイルを削除できません: %s"
 #: src/Project.cpp
 #, c-format
 msgid "Actual Rate: %d"
-msgstr "本来のレート: %d"
+msgstr "本来のサンプリング周波数: %d"
 
 #. i18n-hint:  A name given to a track, appearing as its menu button.
 #. The translation should be short or else it will not display well.
