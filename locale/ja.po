@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-10-30 19:15+0900\n"
+"PO-Revision-Date: 2018-11-06 22:48+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3565,3399,463,2398,1048,-1,-1,-1,-1,-1\n"
+"X-Poedit-Bookmarks: 3565,3399,463,2398,1048,-1,-1,-1,-1,3669\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
@@ -15920,7 +15920,7 @@ msgstr "操作を選んでください"
 #. * on the end to the word for seconds. Don't change the numbers.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000 seconds"
-msgstr "01000,01000秒"
+msgstr "0100万010000秒"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes
 #. * and seconds
@@ -16011,7 +16011,7 @@ msgstr "サンプル"
 #. * can change the numbers to an appropriate one, and put a 0 on the front
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000,01000 samples|#"
-msgstr "01000,01000,01000サンプル|#"
+msgstr "010億010000万010000サンプル|#"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
 #. * seconds and frames at 24 frames per second (commonly used for films)
@@ -16040,7 +16040,7 @@ msgstr "フィルムフレーム (24fps)"
 #. * translate 'frames' and leave the rest alone
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000 frames|24"
-msgstr "01000,01000フレーム|24"
+msgstr "0100万010000フレーム|24"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
 #. * seconds and frames at NTSC TV drop-frame rate (used for American /
@@ -16086,7 +16086,7 @@ msgstr "NTSC フレーム"
 #. * rate!
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000 frames|29.97002997"
-msgstr "01000,01000フレーム|29.97002997"
+msgstr "0100万010000フレーム|29.97002997"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
 #. * seconds and frames at PAL TV frame rate (used for European TV)
@@ -16114,7 +16114,7 @@ msgstr "PAL フレーム (25fps)"
 #. * translate 'frames' and leave the rest alone.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000 frames|25"
-msgstr "01000,01000フレーム|25"
+msgstr "0100万010000フレーム|25"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
 #. * seconds and frames at CD Audio frame rate (75 frames per second)
@@ -16142,7 +16142,7 @@ msgstr "CDDA フレーム (75fps)"
 #. * translate 'frames' and leave the rest alone
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000,01000 frames|75"
-msgstr "01000,01000フレーム|75"
+msgstr "0100万010000フレーム|75"
 
 #. i18n-hint: Format string for displaying frequency in hertz. Change
 #. * the decimal point for your locale. Don't change the numbers.
@@ -16150,10 +16150,6 @@ msgstr "01000,01000フレーム|75"
 msgid "0100000.0100 Hz"
 msgstr "0100000.0100Hz"
 
-#  i18n-hint: This is the abbreviation for "Hertz", or
-#  cycles per second.
-#  i18n-hint: This is the abbreviation for "Hertz", or
-#  cycles per second.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "kHz"
 msgstr "kHz"
