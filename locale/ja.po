@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-11-06 22:48+0900\n"
+"PO-Revision-Date: 2018-11-06 22:58+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -15844,11 +15844,11 @@ msgstr ""
 
 #: src/widgets/Meter.cpp
 msgid "Meter refresh rate per second [1-100]: "
-msgstr "メーターの 1 秒あたりのリフレッシュレート [1-100]: "
+msgstr "メーターの 1 秒あたりのリフレッシュレート [1～100]: "
 
 #: src/widgets/Meter.cpp
 msgid "Meter refresh rate per second [1-100]"
-msgstr "メーターの 1 秒あたりのリフレッシュレート [1-100]"
+msgstr "メーターの 1 秒あたりのリフレッシュレート [1～100]"
 
 #: src/widgets/Meter.cpp
 msgid "Meter Style"
@@ -17313,7 +17313,7 @@ msgstr "ノイズのミックス量 (%)"
 
 #: plug-ins/rissetdrum.ny
 msgid "Amplitude (0 - 1)"
-msgstr "振幅 (0-1)"
+msgstr "振幅 (0～1)"
 
 # jp: 独自アクセスキー
 #: plug-ins/sample-data-export.ny
