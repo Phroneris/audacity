@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
-"POT-Creation-Date: 2018-10-26 01:23+0900\n"
-"PO-Revision-Date: 2018-11-06 22:58+0900\n"
+"POT-Creation-Date: 2018-11-24 10:45+0000\n"
+"PO-Revision-Date: 2018-11-25 02:19+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3565,3399,463,2398,1048,-1,-1,-1,-1,3669\n"
+"X-Poedit-Bookmarks: 3569,3399,463,2396,1042,-1,-1,-1,-1,3669\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: lib-src/FileDialog/gtk/FileDialogPrivate.cpp
@@ -2871,7 +2871,7 @@ msgstr "トラックのミックスとレンダリング"
 
 #. i18n-hint: title of the Gain slider, used to adjust the volume
 #. i18n-hint: Title of the Gain slider, used to adjust the volume
-#: src/MixerBoard.cpp src/Project.cpp src/TrackPanel.cpp
+#: src/MixerBoard.cpp src/TrackPanel.cpp src/menus/TrackMenus.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackSliderHandles.cpp
 msgid "Gain"
 msgstr "ゲイン"
@@ -2888,7 +2888,7 @@ msgid "Musical Instrument"
 msgstr "楽器"
 
 #. i18n-hint: Title of the Pan slider, used to move the sound left or right
-#: src/MixerBoard.cpp src/Project.cpp src/TrackPanel.cpp
+#: src/MixerBoard.cpp src/TrackPanel.cpp src/menus/TrackMenus.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackSliderHandles.cpp
 msgid "Pan"
 msgstr "パン"
@@ -3645,15 +3645,6 @@ msgstr "新しいプロジェクトが作られました"
 
 #: src/Project.cpp
 #, c-format
-msgid "Deleted %.2f seconds at t=%.2f"
-msgstr "%2$.2f 秒地点で %1$.2f 秒削除しました"
-
-#: src/Project.cpp
-msgid "Delete"
-msgstr "削除"
-
-#: src/Project.cpp
-#, c-format
 msgid "Disk space remaining for recording: %s"
 msgstr "録音できる空き容量: %s"
 
@@ -3719,23 +3710,6 @@ msgstr "録音された音声"
 #: src/Project.cpp src/toolbars/ControlToolBar.cpp
 msgid "Record"
 msgstr "録音"
-
-#: src/Project.cpp
-msgid "Adjusted gain"
-msgstr "ゲイン調整"
-
-#: src/Project.cpp
-msgid "Adjusted Pan"
-msgstr "パン調整"
-
-#: src/Project.cpp
-#, c-format
-msgid "Removed track '%s.'"
-msgstr "削除されたトラック「%s」"
-
-#: src/Project.cpp
-msgid "Track Remove"
-msgstr "トラックの削除"
 
 #: src/Project.cpp
 msgid "Less than 1 minute"
@@ -5515,6 +5489,14 @@ msgstr "スケール:"
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "VZoom:"
 msgstr "垂直拡大:"
+
+#: src/commands/SetTrackInfoCommand.cpp
+msgid "VZoom Top:"
+msgstr "垂直拡大上限:"
+
+#: src/commands/SetTrackInfoCommand.cpp
+msgid "VZoom Bottom:"
+msgstr "垂直拡大下限:"
 
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "Use Spectral Prefs"
@@ -10938,6 +10920,15 @@ msgid "Cut to the clipboard"
 msgstr "クリップボードに切り取りました"
 
 #: src/menus/EditMenus.cpp
+#, c-format
+msgid "Deleted %.2f seconds at t=%.2f"
+msgstr "%2$.2f 秒地点で %1$.2f 秒削除しました"
+
+#: src/menus/EditMenus.cpp
+msgid "Delete"
+msgstr "削除"
+
+#: src/menus/EditMenus.cpp
 msgid "Pasting one type of track into another is not allowed."
 msgstr "異なる種類のトラックにはコピーできません。"
 
@@ -12335,11 +12326,28 @@ msgid "Synchronizing MIDI and Audio Tracks"
 msgstr "MIDI を音声と同期中"
 
 #: src/menus/TrackMenus.cpp
+msgid "Adjusted gain"
+msgstr "ゲイン調整"
+
+#: src/menus/TrackMenus.cpp
+msgid "Adjusted Pan"
+msgstr "パン調整"
+
+#: src/menus/TrackMenus.cpp
 msgid "Removed audio track(s)"
 msgstr "音声トラックを削除しました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Remove Track"
+msgstr "トラックの削除"
+
+#: src/menus/TrackMenus.cpp
+#, c-format
+msgid "Removed track '%s.'"
+msgstr "削除されたトラック「%s」"
+
+#: src/menus/TrackMenus.cpp
+msgid "Track Remove"
 msgstr "トラックの削除"
 
 #. i18n-hint: Past tense of 'to move', as in 'moved audio track up'.
@@ -12943,6 +12951,10 @@ msgstr "選択範囲を拡大(&Z)"
 #: src/menus/ViewMenus.cpp
 msgid "Zoom &Toggle"
 msgstr "拡大切り替え(&T)"
+
+#: src/menus/ViewMenus.cpp
+msgid "Advanced &Vertical Zooming"
+msgstr "高度な垂直拡大(&V)"
 
 #: src/menus/ViewMenus.cpp
 msgid "T&rack Size"
@@ -13982,6 +13994,10 @@ msgstr "ステップ (長) (&N):"
 #: src/prefs/PlaybackPrefs.cpp
 msgid "&Vari-Speed Play"
 msgstr "変速再生(&V)"
+
+#: src/prefs/PlaybackPrefs.cpp
+msgid "&Micro-fades"
+msgstr "微小フェード(&M)"
 
 #: src/prefs/PlaybackPrefs.cpp
 msgid "Always scrub un&pinned"
@@ -16662,11 +16678,11 @@ msgstr "~aパーセント値に 1000% を超える数値は指定できません
 msgid ""
 "~adB values cannot be more than +100 dB.~%~%~\n"
 "                                 Hint: 6 dB doubles the amplitude~%~\n"
-"                                 t-6 dB halves the amplitude."
+"                                 \t-6 dB halves the amplitude."
 msgstr ""
 "~adB 値に +100dB を超える数値は指定できません。~%~%~\n"
 "                                 ヒント: 6dB で振幅が 2 倍に、~%~\n"
-"                                 ~t-6dB で振幅が半分になります。"
+"                                 \t-6dB で振幅が半分になります。"
 
 # jp: 独自アクセスキー
 #: plug-ins/beat.ny
@@ -18227,9 +18243,6 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 
 #~ msgid "to Top"
 #~ msgstr "最上段へ"
-
-#~ msgid "to Bottom"
-#~ msgstr "最下段へ"
 
 #~ msgid "Down"
 #~ msgstr "下へ"
