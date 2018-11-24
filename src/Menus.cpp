@@ -81,6 +81,7 @@ void MenuManager::UpdatePrefs()
    mStopIfWasPaused = true;  // not configurable for now, but could be later.
 }
 
+/// Namespace for structures that go into building a menu
 namespace MenuTable {
 
 BaseItem::~BaseItem() {}
@@ -127,7 +128,7 @@ CommandItem::CommandItem(const wxString &name_,
 CommandItem::~CommandItem() {}
 
 CommandGroupItem::CommandGroupItem(const wxString &name_,
-         const IdentInterfaceSymbol items_[],
+         const ComponentInterfaceSymbol items_[],
          size_t nItems_,
          CommandHandlerFinder finder_,
          CommandFunctorPointer callback_,
@@ -220,9 +221,9 @@ void VisitItem( AudacityProject &project, MenuTable::BaseItem *pItem )
    else
    if (const auto pSpecial =
        dynamic_cast<SpecialItem*>( pItem )) {
-      const auto pMenu = manager.CurrentMenu();
-      wxASSERT( pMenu );
-      pSpecial->fn( project, *pMenu );
+      const auto pCurrentMenu = manager.CurrentMenu();
+      wxASSERT( pCurrentMenu );
+      pSpecial->fn( project, *pCurrentMenu );
    }
    else
       wxASSERT( false );

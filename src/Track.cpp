@@ -91,9 +91,22 @@ void Track::Init(const Track &orig)
    mChannel = orig.mChannel;
 }
 
+void Track::SetName( const wxString &n )
+{
+   if ( mName != n ) {
+      mName = n;
+      Notify();
+   }
+}
+
 void Track::SetSelected(bool s)
 {
-   mSelected = s;
+   if (mSelected != s) {
+      mSelected = s;
+      auto pList = mList.lock();
+      if (pList)
+         pList->SelectionEvent( Pointer( this ) );
+   }
 }
 
 void Track::Merge(const Track &orig)
@@ -312,13 +325,19 @@ bool Track::IsSyncLockSelected() const
    auto pList = mList.lock();
    if (!pList)
       return false;
-   auto trackRange = TrackList::SyncLockGroup(this);
+
+   auto shTrack = this->SubstituteOriginalTrack();
+   if (!shTrack)
+      return false;
+   
+   const auto pTrack = shTrack.get();
+   auto trackRange = TrackList::SyncLockGroup( pTrack );
 
    if (trackRange.size() <= 1) {
       // Not in a sync-locked group.
       // Return true iff selected and of a sync-lockable type.
-      return (IsSyncLockableNonLabelTrack(this) ||
-              track_cast<const LabelTrack*>(this)) && GetSelected();
+      return (IsSyncLockableNonLabelTrack( pTrack ) ||
+              track_cast<const LabelTrack*>( pTrack )) && GetSelected();
    }
 
    // Return true iff any track in the group is selected.
@@ -326,6 +345,13 @@ bool Track::IsSyncLockSelected() const
 #endif
 
    return false;
+}
+
+void Track::Notify( int code )
+{
+   auto pList = mList.lock();
+   if (pList)
+      pList->DataEvent( Pointer(this), code );
 }
 
 void Track::SyncLockAdjust(double oldT1, double newT1)
@@ -365,6 +391,22 @@ void PlayableTrack::Merge( const Track &orig )
    mMute = pOrig->mMute;
    mSolo = pOrig->mSolo;
    AudioTrack::Merge( *pOrig );
+}
+
+void PlayableTrack::SetMute( bool m )
+{
+   if ( mMute != m ) {
+      mMute = m;
+      Notify();
+   }
+}
+
+void PlayableTrack::SetSolo( bool s  )
+{
+   if ( mSolo != s ) {
+      mSolo = s;
+      Notify();
+   }
 }
 
 // Serialize, not with tags of its own, but as attributes within a tag.
@@ -513,9 +555,12 @@ std::pair<Track *, Track *> TrackList::FindSyncLockGroup(Track *pMember) const
 // is managing.  Any other classes that may be interested in get these updates
 // should use TrackList::Connect() or TrackList::Bind().
 //
-wxDEFINE_EVENT(EVT_TRACKLIST_PERMUTED, wxCommandEvent);
-wxDEFINE_EVENT(EVT_TRACKLIST_RESIZING, wxCommandEvent);
-wxDEFINE_EVENT(EVT_TRACKLIST_DELETION, wxCommandEvent);
+wxDEFINE_EVENT(EVT_TRACKLIST_TRACK_DATA_CHANGE, TrackListEvent);
+wxDEFINE_EVENT(EVT_TRACKLIST_SELECTION_CHANGE, TrackListEvent);
+wxDEFINE_EVENT(EVT_TRACKLIST_PERMUTED, TrackListEvent);
+wxDEFINE_EVENT(EVT_TRACKLIST_RESIZING, TrackListEvent);
+wxDEFINE_EVENT(EVT_TRACKLIST_ADDITION, TrackListEvent);
+wxDEFINE_EVENT(EVT_TRACKLIST_DELETION, TrackListEvent);
 
 // same value as in the default constructed TrackId:
 long TrackList::sCounter = -1;
@@ -592,26 +637,42 @@ void TrackList::RecalcPositions(TrackNodePointer node)
    UpdatePendingTracks();
 }
 
+void TrackList::SelectionEvent( const std::shared_ptr<Track> &pTrack )
+{
+   // wxWidgets will own the event object
+   QueueEvent(
+      safenew TrackListEvent{ EVT_TRACKLIST_SELECTION_CHANGE, pTrack } );
+}
+
+void TrackList::DataEvent( const std::shared_ptr<Track> &pTrack, int code )
+{
+   // wxWidgets will own the event object
+   QueueEvent(
+      safenew TrackListEvent{ EVT_TRACKLIST_TRACK_DATA_CHANGE, pTrack, code } );
+}
+
 void TrackList::PermutationEvent()
 {
-   auto e = std::make_unique<wxCommandEvent>(EVT_TRACKLIST_PERMUTED);
    // wxWidgets will own the event object
-   QueueEvent(e.release());
+   QueueEvent( safenew TrackListEvent{ EVT_TRACKLIST_PERMUTED } );
 }
 
 void TrackList::DeletionEvent()
 {
-   auto e = std::make_unique<wxCommandEvent>(EVT_TRACKLIST_DELETION);
    // wxWidgets will own the event object
-   QueueEvent(e.release());
+   QueueEvent( safenew TrackListEvent{ EVT_TRACKLIST_DELETION } );
+}
+
+void TrackList::AdditionEvent(TrackNodePointer node)
+{
+   // wxWidgets will own the event object
+   QueueEvent( safenew TrackListEvent{ EVT_TRACKLIST_ADDITION, *node.first } );
 }
 
 void TrackList::ResizingEvent(TrackNodePointer node)
 {
-   auto e = std::make_unique<TrackListEvent>(EVT_TRACKLIST_RESIZING);
-   e->mpTrack = *node.first;
    // wxWidgets will own the event object
-   QueueEvent(e.release());
+   QueueEvent( safenew TrackListEvent{ EVT_TRACKLIST_RESIZING, *node.first } );
 }
 
 auto TrackList::EmptyRange() const
@@ -678,7 +739,7 @@ Track *TrackList::Add(std::unique_ptr<TrackKind> &&t)
    pTrack->SetOwner(mSelf, n);
    pTrack->SetId( TrackId{ ++sCounter } );
    RecalcPositions(n);
-   ResizingEvent(n);
+   AdditionEvent(n);
    return back().get();
 }
 
@@ -700,7 +761,7 @@ Track *TrackList::AddToHead(std::unique_ptr<TrackKind> &&t)
    pTrack->SetOwner(mSelf, n);
    pTrack->SetId( TrackId{ ++sCounter } );
    RecalcPositions(n);
-   ResizingEvent(n);
+   AdditionEvent(n);
    return front().get();
 }
 
@@ -717,7 +778,7 @@ Track *TrackList::Add(std::shared_ptr<TrackKind> &&t)
    t->SetOwner(mSelf, n);
    t->SetId( TrackId{ ++sCounter } );
    RecalcPositions(n);
-   ResizingEvent(n);
+   AdditionEvent(n);
    return back().get();
 }
 
@@ -794,7 +855,7 @@ auto TrackList::Replace(Track * t, ListOfTracks::value_type &&with) ->
       RecalcPositions(node);
 
       DeletionEvent();
-      ResizingEvent(node);
+      AdditionEvent(node);
    }
    return holder;
 }
@@ -1318,6 +1379,26 @@ std::shared_ptr<const Track> Track::SubstitutePendingChangedTrack() const
          [=](const ListOfTracks::value_type &ptr){ return ptr->GetId() == id; } );
       if (it != end)
          return *it;
+   }
+   return Pointer( this );
+}
+
+std::shared_ptr<const Track> Track::SubstituteOriginalTrack() const
+{
+   auto pList = mList.lock();
+   if (pList) {
+      const auto id = GetId();
+      const auto pred = [=]( const ListOfTracks::value_type &ptr ) {
+         return ptr->GetId() == id; };
+      const auto end = pList->mPendingUpdates.end();
+      const auto it = std::find_if( pList->mPendingUpdates.begin(), end, pred );
+      if (it != end) {
+         const auto &list2 = (const ListOfTracks &) *pList;
+         const auto end2 = list2.end();
+         const auto it2 = std::find_if( list2.begin(), end2, pred );
+         if ( it2 != end2 )
+            return *it2;
+      }
    }
    return Pointer( this );
 }

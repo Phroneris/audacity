@@ -1867,9 +1867,6 @@
     <ClInclude Include="..\..\..\include\audacity\EffectInterface.h">
       <Filter>includes\audacity</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\audacity\IdentInterface.h">
-      <Filter>includes\audacity</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\include\audacity\ImporterInterface.h">
       <Filter>includes\audacity</Filter>
     </ClInclude>
@@ -1977,9 +1974,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\src\tracks\ui\Scrubbing.h">
       <Filter>src\tracks\ui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\src\TrackPanelCellIterator.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\src\commands\CommandFunctors.h">
       <Filter>src\commands</Filter>
@@ -2215,6 +2209,9 @@
     <ClInclude Include="..\..\..\src\AdornedRulerPanel.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\audacity\ComponentInterface.h">
+      <Filter>includes\audacity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\audacity.ico">
@@ -2355,6 +2352,9 @@
       <Filter>nyquist</Filter>
     </CustomBuild>
     <CustomBuild Include="..\..\..\nyquist\test.lsp">
+      <Filter>nyquist</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\..\nyquist\aud-do-support.lsp">
       <Filter>nyquist</Filter>
     </CustomBuild>
   </ItemGroup>

@@ -782,11 +782,12 @@ namespace {
 ///   @param  dc the device context
 ///   @param  r  the LabelTrack rectangle.
 void LabelTrack::Draw
-(TrackPanelDrawingContext &context, const wxRect & r,
- const SelectedRegion &selectedRegion,
- const ZoomInfo &zoomInfo) const
+( TrackPanelDrawingContext &context, const wxRect & r ) const
 {
    auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &zoomInfo = *artist->pZoomInfo;
+
    auto pHit = findHit();
 
    if(msFont.Ok())
@@ -795,9 +796,9 @@ void LabelTrack::Draw
    if (mFontHeight == -1)
       calculateFontHeight(dc);
 
-   TrackArtist::DrawBackgroundWithSelection(&dc, r, this,
-         AColor::labelSelectedBrush, AColor::labelUnselectedBrush,
-         selectedRegion, zoomInfo);
+   TrackArt::DrawBackgroundWithSelection( context, r, this,
+      AColor::labelSelectedBrush, AColor::labelUnselectedBrush,
+      ( GetSelected() || IsSyncLockSelected() ) );
 
    wxCoord textWidth, textHeight;
 
@@ -2273,7 +2274,7 @@ void LabelTrack::Unselect()
    mSelIndex = -1;
 }
 
-bool LabelTrack::IsSelected() const
+bool LabelTrack::HasSelection() const
 {
    return (mSelIndex >= 0 && mSelIndex < (int)mLabels.size());
 }
@@ -3071,6 +3072,8 @@ void LabelTrack::DoEditLabels
                    lt, index,
                    viewInfo, rate,
                    format, freqFormat);
+
+   dlg.Raise();   // Required on Linux: bug 2011
 
    if (dlg.ShowModal() == wxID_OK) {
       project.PushState(_("Edited labels"), _("Label"));

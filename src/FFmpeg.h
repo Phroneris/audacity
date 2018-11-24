@@ -952,6 +952,9 @@ private:
 // utilites for RAII:
 
 // Deleter adaptor for functions like av_free that take a pointer
+
+/// \brief AV_Deleter is part of FFmpeg support.  It's used with the RAII
+/// idiom.
 template<typename T, typename R, R(*Fn)(T*)> struct AV_Deleter {
    inline R operator() (T* p) const
    {
@@ -996,6 +999,9 @@ using AVCodecContextHolder = std::unique_ptr<
 using AVDictionaryCleanup = std::unique_ptr<
    AVDictionary*, AV_Deleter<AVDictionary*, void, av_dict_free>
 >;
+
+/// \brief FFmpeg structure to hold a file pointer and provide a return 
+/// value when closing the file.
 struct UFileHolder : public std::unique_ptr<
    AVIOContext, ::AV_Deleter<AVIOContext, int, ufile_close>
 >

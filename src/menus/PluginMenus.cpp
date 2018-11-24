@@ -326,9 +326,9 @@ MenuTable::BaseItemPtrs PopulateEffectsMenu(
 #ifdef EXPERIMENTAL_DA
          // Move Nyquist prompt into nyquist group.
          && (plug->GetSymbol() !=
-               IdentInterfaceSymbol("Nyquist Effects Prompt"))
-         && (plug->GetSymbol() != IdentInterfaceSymbol("Nyquist Tools Prompt"))
-         && (plug->GetSymbol() != IdentInterfaceSymbol("Nyquist Prompt"))
+               ComponentInterfaceSymbol("Nyquist Effects Prompt"))
+         && (plug->GetSymbol() != ComponentInterfaceSymbol("Nyquist Tools Prompt"))
+         && (plug->GetSymbol() != ComponentInterfaceSymbol("Nyquist Prompt"))
 #endif
          )
          defplugs.push_back(plug);
@@ -355,8 +355,7 @@ MenuTable::BaseItemPtrs PopulateEffectsMenu(
       comp1 = comp2 = CompareEffectsByName;
 
    std::sort( defplugs.begin(), defplugs.end(), comp1 );
-   if ( comp1 != comp2 )
-      std::stable_sort( optplugs.begin(), optplugs.end(), comp2 );
+   std::sort( optplugs.begin(), optplugs.end(), comp2 );
 
    AddEffectMenuItems( result, defplugs, batchflags, realflags, true );
 

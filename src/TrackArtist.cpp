@@ -21,107 +21,6 @@
  Roger Dannenberg</b> \n
 Oct 2010 \n
 
-This is a brief guide to Audacity redisplay -- it may not be complete. It
-is my attempt to understand the complicated graphics strategy.
-
-One basic idea is that redrawing waveforms is rather slow, so Audacity
-saves waveform images in bitmaps to make redrawing faster. In particular,
-during audio playback (and recording), the vertical time indicator is
-drawn over the waveform about 20 times per second. To avoid unnecessary
-computation, the indicator is erased by copying a column of pixels from
-a bitmap image of the waveform. Notice that this implies a two-stage
-process: first, waveforms are drawn to the bitmp; then, the bitmap
-(or pieces of it) are copied to the screen, perhaps along with other
-graphics.
-
-The bitmap is for the entire track panel, i.e. multiple tracks, and
-includes things like the Gain and Pan slders to the left of the
-waveform images.
-
-The screen update uses a mixture of direct drawing and indirect paint
-events. The "normal" way to update a graphical display is to call
-the Refresh() method when something invalidates the screen. Later, the
-system calls OnPaint(), which the application overrides to (re)draw the
-screen. In wxWidgets, you can also draw directly to the screen without
-calling Refresh() and without waiting for OnPaint() to be called.
-
-I would expect there to be a 2-level invalidation scheme: Some changes
-invalidate the bitmap, forcing a bitmap redraw *and* a screen redraw.
-Other changes merely update the screen using pre-existing bitmaps. In
-Audacity, the "2-level" invalidation works like this: Anything
-that invalidates the bitmap calls TrackPanel::Refresh(), which
-has an eraseBackground parameter. This flag says to redraw the
-bitmap when OnPaint() is called. If eraseBackground is false, the
-existing bitmap can be used for waveform images. Audacity also
-draws directly to the screen to update the time indicator during
-playback. To move the indicator, one column of pixels is drawn to
-the screen to remove the indicator. Then the indicator is drawn at
-a NEW time location.
-
-The track panel consists of many components. The tree of calls that
-update the bitmap looks like this:
-
-\code
-TrackPanel::DrawTracks(), calls
-       TrackArtist::DrawTracks();
-       TrackPanel::DrawEverythingElse();
-               for each track,
-                       TrackPanel::DrawOutside();
-                               TrackPanel::DrawOutsideOfTrack();
-                               TrackPanel::DrawBordersAroundTrack();
-                               TrackPanel::DrawShadow();
-                               TrackInfo::DrawBordersWithin();
-                               various TrackInfo sliders and buttons
-                       TrackArtist::DrawVRuler();
-               TrackPanel::DrawZooming();
-                       draws horizontal dashed lines during zoom-drag
-               TrackPanel::HighlightFocusedTrack();
-                       draws yellow highlight on selected track
-               draw snap guidelines if any
-\endcode
-
-After drawing the bitmap and blitting the bitmap to the screen,
-the following calls are (sometimes) made. To keep track of what has
-been drawn on screen over the bitmap images,
-\li \c mLastCursor is the position of the vertical line representing sel0,
-        the selected time position
-\li \c mLastIndicator is the position of the moving vertical line during
-        playback
-
-\code
-TrackPanel::DoDrawIndicator();
-        copy pixel column from bitmap to screen to erase indicator line
-        TrackPanel::DoDrawCursor(); [if mLastCursor == mLastIndicator]
-        TrackPanel::DisplaySelection();
-        AdornedRulerPanel::DrawIndicator(); [not part of TrackPanel graphics]
-        draw indicator on each track
-TrackPanel::DoDrawCursor();
-        draw cursor on each track  [at selectedRegion.t0()]
-        AdornedRulerPanel::DrawCursor(); [not part of TrackPanel graphics]
-        TrackPanel::DisplaySelection();
-\endcode
-
-To move the indicator, TrackPanel::OnTimer() calls the following, using
-a drawing context (DC) for the screen. (Refresh is not called to create
-an OnPaint event. Instead, drawing is direct to the screen.)
-\code
-TrackPanel::DrawIndicator();
-        TrackPanel::DoDrawIndicator();
-\endcode
-
-Notice that TrackPanel::DrawZooming(), TrackPanel::HighlightFocusedTrack(),
-and snap guidelines could be drawn directly to the screen rather than to
-the bitmap, generally eliminating redraw work.
-
-One problem is slider udpates. Sliders are in the left area of the track
-panel. They are not wxWindows like wxSliders, but instead are just drawn
-on the TrackPanel. When slider state changes, *all* tracks do a full
-refresh, including recomputing the backing store. It would make more sense
-to just invalidate the region containing the slider. However, doing that
-would require either incrementally updating the bitmap (not currently done),
-or maintaining the sliders and other track info on the screen and not in
-the bitmap.
-
 In my opinion, the bitmap should contain only the waveform, note, and
 label images along with gray selection highlights. The track info
 (sliders, buttons, title, etc.), track selection highlight, cursor, and
@@ -179,6 +78,7 @@ audio tracks.
 #include "prefs/TracksPrefs.h"
 #include "prefs/WaveformSettings.h"
 #include "Spectrum.h"
+#include "TrackPanel.h"
 #include "ViewInfo.h"
 #include "widgets/Ruler.h"
 #include "Theme.h"
@@ -253,7 +153,7 @@ const int notePos[12] = { 1, 6, 11, 16, 21, 27,
 // IPITCH_TO_Y above, which computes coordinates relative to GetBottom()
 // Note the -NOTE_MARGIN, which leaves a little margin to draw notes that
 // are out of bounds. I'm not sure why the -2 is necessary.
-int TrackArtist::GetBottom(NoteTrack *t, const wxRect &rect)
+int TrackArt::GetBottom(NoteTrack *t, const wxRect &rect)
 {
    int bottomNote = t->GetBottomNote();
    int bottom = rect.y + rect.height - 2 - t->GetNoteMargin() +
@@ -264,13 +164,9 @@ int TrackArtist::GetBottom(NoteTrack *t, const wxRect &rect)
 */
 #endif // USE_MIDI
 
-TrackArtist::TrackArtist()
+TrackArtist::TrackArtist( TrackPanel *parent_ )
+   : parent( parent_ )
 {
-   mMarginLeft   = 0;
-   mMarginTop    = 0;
-   mMarginRight  = 0;
-   mMarginBottom = 0;
-
    mdBrange = ENV_DB_RANGE;
    mShowClipping = false;
    mSampleDisplay = 1;// Stem plots by default.
@@ -278,10 +174,17 @@ TrackArtist::TrackArtist()
 
    SetColours(0);
    vruler = std::make_unique<Ruler>();
+
+   UpdatePrefs();
 }
 
 TrackArtist::~TrackArtist()
 {
+}
+
+TrackArtist * TrackArtist::Get( TrackPanelDrawingContext &context )
+{
+   return static_cast< TrackArtist* >( context.pUserData );
 }
 
 void TrackArtist::SetColours( int iColorIndex)
@@ -331,52 +234,19 @@ void TrackArtist::SetColours( int iColorIndex)
    }
 }
 
-void TrackArtist::SetMargins(int left, int top, int right, int bottom)
-{
-   mMarginLeft   = left;
-   mMarginTop    = top;
-   mMarginRight  = right;
-   mMarginBottom = bottom;
-}
-
-void TrackArtist::DrawTracks(TrackPanelDrawingContext &context,
+void TrackArt::DrawTracks(TrackPanelDrawingContext &context,
                              const TrackList * tracks,
                              const wxRegion & reg,
-                             const wxRect & rect,
-                             const wxRect & clip,
-                             const SelectedRegion &selectedRegion,
-                             const ZoomInfo &zoomInfo,
-                             bool drawEnvelope,
-                             bool bigPoints,
-                             bool drawSliders)
+                             const wxRect & clip)
 {
-   // Copy the horizontal extent of rect; will later change only the vertical.
-   wxRect teamRect = rect;
+   // Fix the horizontal extent; will later change only the vertical extent.
+   const auto artist = TrackArtist::Get( context );
+   const auto leftOffset = artist->leftOffset;
+   wxRect teamRect{
+      clip.x + leftOffset, 0, clip.width - (leftOffset + kRightMargin), 0
+   };
 
-   bool hasSolo = false;
-   for (const Track *t : *tracks) {
-      t = t->SubstitutePendingChangedTrack().get();
-      auto pt = dynamic_cast<const PlayableTrack *>(t);
-      if (pt && pt->GetSolo()) {
-         hasSolo = true;
-         break;
-      }
-   }
-
-#if defined(DEBUG_CLIENT_AREA)
-   // Change the +0 to +1 or +2 to see the bounding box
-   mMarginLeft = 1+0; mMarginTop = 5+0; mMarginRight = 6+0; mMarginBottom = 2+0;
-
-   // This just shows what the passed in rectangles enclose
-   dc.SetPen(wxColour(*wxGREEN));
-   dc.SetBrush(*wxTRANSPARENT_BRUSH);
-   dc.DrawRectangle(rect);
-   dc.SetPen(wxColour(*wxBLUE));
-   dc.SetBrush(*wxTRANSPARENT_BRUSH);
-   dc.DrawRectangle(clip);
-#endif
-
-   gPrefs->Read(wxT("/GUI/ShowTrackNameInWaveform"), &mbShowTrackNameInWaveform, false);
+   const auto &zoomInfo = *artist->pZoomInfo;
 
    for(auto leader : tracks->Leaders()) {
       auto group = TrackList::Channels( leader );
@@ -394,15 +264,6 @@ void TrackArtist::DrawTracks(TrackPanelDrawingContext &context,
          break;
 
       for (auto t : group) {
-#if defined(DEBUG_CLIENT_AREA)
-         // Filled rectangle to show the interior of the client area
-         wxRect zr = trackRect;
-         zr.x+=1; zr.y+=5; zr.width-=7; zr.height-=7;
-         dc.SetPen(*wxCYAN_PEN);
-         dc.SetBrush(*wxRED_BRUSH);
-         dc.DrawRectangle(zr);
-#endif
-
          // For various reasons, the code will break if we display one
          // of a stereo pair of tracks but not the other - for example,
          // if you try to edit the envelope of one track when its linked
@@ -414,36 +275,31 @@ void TrackArtist::DrawTracks(TrackPanelDrawingContext &context,
          if (teamRect.Intersects(clip) && reg.Contains(teamRect)) {
             t = t->SubstitutePendingChangedTrack().get();
             wxRect trackRect {
-               rect.x + mMarginLeft,
-               t->GetY() - zoomInfo.vpos + mMarginTop,
-               rect.width - (mMarginLeft + mMarginRight),
-               t->GetHeight() - (mMarginTop + mMarginBottom)
+               teamRect.x,
+               t->GetY() - zoomInfo.vpos + kTopMargin,
+               teamRect.width,
+               t->GetHeight() - (kTopMargin + kBottomMargin)
             };
-            DrawTrack(context, t, trackRect,
-                      selectedRegion, zoomInfo,
-                      drawEnvelope, bigPoints, drawSliders, hasSolo);
+            DrawTrack( context, t, trackRect );
          }
       }
    }
 }
 
-void TrackArtist::DrawTrack(TrackPanelDrawingContext &context,
+void TrackArt::DrawTrack(TrackPanelDrawingContext &context,
                             const Track * t,
-                            const wxRect & rect,
-                            const SelectedRegion &selectedRegion,
-                            const ZoomInfo &zoomInfo,
-                            bool drawEnvelope,
-                            bool bigPoints,
-                            bool drawSliders,
-                            bool hasSolo)
+                            const wxRect & rect)
 {
    auto &dc = context.dc;
+
    t->TypeSwitch(
       [&](const WaveTrack *wt) {
          for (const auto &clip : wt->GetClips()) {
             clip->ClearDisplayRect();
          }
 
+         const auto artist = TrackArtist::Get( context );
+         const auto hasSolo = artist->hasSolo;
          bool muted = (hasSolo || wt->GetMute()) &&
             !wt->GetSolo();
 
@@ -454,11 +310,10 @@ void TrackArtist::DrawTrack(TrackPanelDrawingContext &context,
 
          switch (wt->GetDisplay()) {
          case WaveTrack::Waveform:
-            DrawWaveform(context, wt, rect, selectedRegion, zoomInfo,
-                         drawEnvelope,  bigPoints, drawSliders, muted);
+            DrawWaveform(context, wt, rect, muted);
             break;
          case WaveTrack::Spectrum:
-            DrawSpectrum(wt, dc, rect, selectedRegion, zoomInfo);
+            DrawSpectrum( context, wt, rect );
             break;
          default:
             wxASSERT(false);
@@ -468,7 +323,9 @@ void TrackArtist::DrawTrack(TrackPanelDrawingContext &context,
          dc.GetGraphicsContext()->SetAntialiasMode(aamode);
    #endif
 
-         if (mbShowTrackNameInWaveform &&
+         const auto bShowTrackNameInWaveform =
+            artist->mbShowTrackNameInWaveform;
+         if (bShowTrackNameInWaveform &&
              wt->IsLeader() &&
              // Exclude empty name.
              !wt->GetName().IsEmpty()) {
@@ -488,29 +345,46 @@ void TrackArtist::DrawTrack(TrackPanelDrawingContext &context,
       [&](const NoteTrack *nt) {
          bool muted = false;
 #ifdef EXPERIMENTAL_MIDI_OUT
+         const auto artist = TrackArtist::Get( context );
+         const auto hasSolo = artist->hasSolo;
          muted = (hasSolo || nt->GetMute()) && !nt->GetSolo();
 #endif
-         DrawNoteTrack(nt, dc, rect, selectedRegion, zoomInfo, muted);
+         DrawNoteTrack( context, nt, rect, muted );
       },
    #endif // USE_MIDI
       [&](const LabelTrack *lt) {
-         DrawLabelTrack(context, lt, rect, selectedRegion, zoomInfo);
+         lt->Draw( context, rect );
       },
       [&](const TimeTrack *tt) {
-         DrawTimeTrack(context, tt, rect, zoomInfo);
+         DrawTimeTrack( context, tt, rect );
       }
    );
 }
 
-void TrackArtist::DrawVRuler
-(TrackPanelDrawingContext &context, const Track *t, wxRect & rect)
+void TrackArt::DrawVRuler
+( TrackPanelDrawingContext &context, const Track *t, const wxRect & rect_,
+  bool bSelected )
 {
+   auto rect = rect_;
+   --rect.width;
+
    auto dc = &context.dc;
    bool highlight = false;
 #ifdef EXPERIMENTAL_TRACK_PANEL_HIGHLIGHTING
    highlight = rect.Contains(context.lastState.GetPosition());
 #endif
 
+
+   // Paint the background
+   AColor::MediumTrackInfo(dc, bSelected);
+   dc->DrawRectangle( rect );
+
+   // Stroke the left border
+   dc->SetPen(*wxBLACK_PEN);
+   {
+      const auto left = rect.GetLeft();
+      AColor::Line( *dc, left, rect.GetTop(), left, rect.GetBottom() );
+   }
 
    // Label and Time tracks do not have a vruler
    // But give it a beveled area
@@ -537,8 +411,10 @@ void TrackArtist::DrawVRuler
             rr.width -= adj;
          }
 
-         UpdateVRuler(t, rr);
+         const auto artist = TrackArtist::Get( context );
+         artist->UpdateVRuler(t, rr);
 
+         const auto &vruler = artist->vruler;
          vruler->SetTickColour( theTheme.Colour( clrTrackPanelText ));
          vruler->Draw(*dc);
       },
@@ -560,8 +436,10 @@ void TrackArtist::DrawVRuler
             rr.width -= adj;
          }
 
-         UpdateVRuler(t, rr);
+         const auto artist = TrackArtist::Get( context );
+         artist->UpdateVRuler(t, rr);
 
+         const auto &vruler = artist->vruler;
          vruler->SetTickColour( theTheme.Colour( clrTrackPanelText ));
          vruler->Draw(*dc);
       }
@@ -570,7 +448,8 @@ void TrackArtist::DrawVRuler
       ,
       [&](const NoteTrack *track) {
       // The note track draws a vertical keyboard to label pitches
-         UpdateVRuler(t, rect);
+         const auto artist = TrackArtist::Get( context );
+         artist->UpdateVRuler(t, rect);
 
          dc->SetPen(highlight ? AColor::uglyPen : *wxTRANSPARENT_PEN);
          dc->SetBrush(*wxWHITE_BRUSH);
@@ -664,7 +543,7 @@ void TrackArtist::DrawVRuler
    );
 }
 
-void TrackArtist::UpdateVRuler(const Track *t, wxRect & rect)
+void TrackArtist::UpdateVRuler(const Track *t, const wxRect & rect)
 {
    auto update = t->TypeSwitch<bool>(
       [] (const LabelTrack *) {
@@ -1018,8 +897,11 @@ float ValueOfPixel(int yy, int height, bool offset,
    return v;
 }
 
-void TrackArtist::DrawNegativeOffsetTrackArrows(wxDC &dc, const wxRect &rect)
+void TrackArt::DrawNegativeOffsetTrackArrows(
+   TrackPanelDrawingContext &context, const wxRect &rect )
 {
+   auto &dc = context.dc;
+
    // Draws two black arrows on the left side of the track to
    // indicate the user that the track has been time-shifted
    // to the left beyond t=0.0.
@@ -1045,16 +927,19 @@ void TrackArtist::DrawNegativeOffsetTrackArrows(wxDC &dc, const wxRect &rect)
                 rect.x + 6, rect.y + rect.height - 12);
 }
 
-void TrackArtist::DrawWaveformBackground(wxDC &dc, int leftOffset, const wxRect &rect,
+void TrackArt::DrawWaveformBackground(TrackPanelDrawingContext &context,
+                                         int leftOffset, const wxRect &rect,
                                          const double env[],
                                          float zoomMin, float zoomMax,
                                          int zeroLevelYCoordinate,
                                          bool dB, float dBRange,
                                          double t0, double t1,
-                                         const ZoomInfo &zoomInfo,
-                                         bool drawEnvelope, bool bIsSyncLockSelected,
+                                         bool bIsSyncLockSelected,
                                          bool highlightEnvelope)
 {
+   auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &zoomInfo = *artist->pZoomInfo;
 
    // Visually (one vertical slice of the waveform background, on its side;
    // the "*" is the actual waveform background we're drawing
@@ -1074,6 +959,10 @@ void TrackArtist::DrawWaveformBackground(wxDC &dc, int leftOffset, const wxRect 
    bool sel, lsel = false;
    int xx, lx = 0;
    int l, w;
+
+   const auto &blankBrush = artist->blankBrush;
+   const auto &selectedBrush = artist->selectedBrush;
+   const auto &unselectedBrush = artist->unselectedBrush;
 
    dc.SetPen(*wxTRANSPARENT_PEN);
    dc.SetBrush(blankBrush);
@@ -1100,6 +989,7 @@ void TrackArtist::DrawWaveformBackground(wxDC &dc, int leftOffset, const wxRect 
       mintop +=1;
       minbot +=1;
 
+      const auto drawEnvelope = artist->drawEnvelope;
       if (!drawEnvelope || maxbot > mintop) {
          maxbot = halfHeight;
          mintop = halfHeight;
@@ -1160,7 +1050,8 @@ void TrackArtist::DrawWaveformBackground(wxDC &dc, int leftOffset, const wxRect 
    if (bIsSyncLockSelected && t0 < t1) {
       const int begin = std::max(0, std::min(rect.width, (int)(zoomInfo.TimeToPosition(t0, -leftOffset))));
       const int end = std::max(0, std::min(rect.width, (int)(zoomInfo.TimeToPosition(t1, -leftOffset))));
-      DrawSyncLockTiles(&dc, wxRect(rect.x + begin, rect.y, end - 1 - begin, rect.height));
+      DrawSyncLockTiles( context,
+         { rect.x + begin, rect.y, end - 1 - begin, rect.height } );
    }
 
    //OK, the display bounds are between min and max, which
@@ -1174,12 +1065,15 @@ void TrackArtist::DrawWaveformBackground(wxDC &dc, int leftOffset, const wxRect 
 }
 
 
-void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[],
+void TrackArt::DrawMinMaxRMS(
+   TrackPanelDrawingContext &context, const wxRect & rect, const double env[],
    float zoomMin, float zoomMax,
    bool dB, float dBRange,
    const float *min, const float *max, const float *rms, const int *bl,
    bool /* showProgress */, bool muted)
 {
+   auto &dc = context.dc;
+
    // Display a line representing the
    // min and max of the samples in this region
    int lasth1 = std::numeric_limits<int>::max();
@@ -1191,7 +1085,9 @@ void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[
    ArrayOf<int> clipped;
    int clipcnt = 0;
 
-   if (mShowClipping) {
+   const auto artist = TrackArtist::Get( context );
+   const auto bShowClipping = artist->mShowClipping;
+   if (bShowClipping) {
       clipped.reinit( size_t(rect.width) );
    }
 
@@ -1201,12 +1097,15 @@ void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[
    bool drawStripes = true;
    bool drawWaveform = true;
 
+   const auto &muteSamplePen = artist->muteSamplePen;
+   const auto &samplePen = artist->samplePen;
+
    dc.SetPen(muted ? muteSamplePen : samplePen);
    for (int x0 = 0; x0 < rect.width; ++x0) {
       int xx = rect.x + x0;
       double v;
       v = min[x0] * env[x0];
-      if (clipped && mShowClipping && (v <= -MAX_AUDIO))
+      if (clipped && bShowClipping && (v <= -MAX_AUDIO))
       {
          if (clipcnt == 0 || clipped[clipcnt - 1] != xx) {
             clipped[clipcnt++] = xx;
@@ -1216,7 +1115,7 @@ void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[
                        rect.height, dB, true, dBRange, true);
 
       v = max[x0] * env[x0];
-      if (clipped && mShowClipping && (v >= MAX_AUDIO))
+      if (clipped && bShowClipping && (v >= MAX_AUDIO))
       {
          if (clipcnt == 0 || clipped[clipcnt - 1] != xx) {
             clipped[clipcnt++] = xx;
@@ -1289,6 +1188,9 @@ void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[
    }
 
    // Stroke rms over the min-max
+   const auto &muteRmsPen = artist->muteRmsPen;
+   const auto &rmsPen = artist->rmsPen;
+
    dc.SetPen(muted ? muteRmsPen : rmsPen);
    for (int x0 = 0; x0 < rect.width; ++x0) {
       int xx = rect.x + x0;
@@ -1301,6 +1203,9 @@ void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[
 
    // Draw the clipping lines
    if (clipcnt) {
+      const auto &muteClippedPen = artist->muteClippedPen;
+      const auto &clippedPen = artist->clippedPen;
+
       dc.SetPen(muted ? muteClippedPen : clippedPen);
       while (--clipcnt >= 0) {
          int xx = clipped[clipcnt];
@@ -1309,14 +1214,18 @@ void TrackArtist::DrawMinMaxRMS(wxDC &dc, const wxRect & rect, const double env[
    }
 }
 
-void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &rect,
+void TrackArt::DrawIndividualSamples(TrackPanelDrawingContext &context,
+                                        int leftOffset, const wxRect &rect,
                                         float zoomMin, float zoomMax,
                                         bool dB, float dBRange,
                                         const WaveClip *clip,
-                                        const ZoomInfo &zoomInfo,
-                                        bool bigPoints, bool showPoints, bool muted,
+                                        bool showPoints, bool muted,
                                         bool highlight)
 {
+   auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &zoomInfo = *artist->pZoomInfo;
+
    const double toffset = clip->GetOffset();
    double rate = clip->GetRate();
    const double t0 = std::max(0.0, zoomInfo.PositionToTime(0, -leftOffset) - toffset);
@@ -1345,9 +1254,12 @@ void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &
    ArrayOf<int> clipped;
    int clipcnt = 0;
 
-   if (mShowClipping)
+   const auto bShowClipping = artist->mShowClipping;
+   if (bShowClipping)
       clipped.reinit( size_t(slen) );
 
+   const auto &muteSamplePen = artist->muteSamplePen;
+   const auto &samplePen = artist->samplePen;
    auto &pen = highlight ? AColor::uglyPen : muted ? muteSamplePen : samplePen;
    dc.SetPen( pen );
 
@@ -1363,7 +1275,7 @@ void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &
          clip->GetEnvelope()->GetValue( time, 1.0 / clip->GetRate() );
       const double tt = buffer[s] * value;
 
-      if (clipped && mShowClipping && ((tt <= -MAX_AUDIO) || (tt >= MAX_AUDIO)))
+      if (clipped && bShowClipping && ((tt <= -MAX_AUDIO) || (tt >= MAX_AUDIO)))
          clipped[clipcnt++] = xx;
       ypos[s] =
          std::max(-1,
@@ -1375,11 +1287,14 @@ void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &
 
    if (showPoints) {
       // Draw points where spacing is enough
+      const auto bigPoints = artist->bigPoints;
       const int tickSize = bigPoints ? 4 : 3;// Bigger ellipses when draggable.
       wxRect pr;
       pr.width = tickSize;
       pr.height = tickSize;
       //different colour when draggable.
+      const auto &dragsampleBrush = artist->dragsampleBrush;
+      const auto &sampleBrush = artist->sampleBrush;
       auto &brush = highlight
          ? AColor::uglyBrush
          : bigPoints ? dragsampleBrush : sampleBrush;
@@ -1393,7 +1308,8 @@ void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &
       }
    }
 
-   if (showPoints && (mSampleDisplay == (int) WaveTrack::StemPlot)) {
+   const auto sampleDisplay = artist->mSampleDisplay;
+   if (showPoints && (sampleDisplay == (int) WaveTrack::StemPlot)) {
       // Draw vertical lines
       int yZero = GetWaveYPos(0.0, zoomMin, zoomMax, rect.height, dB, true, dBRange, false);
       yZero = rect.y + std::max(-1, std::min(rect.height, yZero));
@@ -1414,6 +1330,8 @@ void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &
 
    // Draw clipping
    if (clipcnt) {
+      const auto &muteClippedPen = artist->muteClippedPen;
+      const auto &clippedPen = artist->clippedPen;
       dc.SetPen(muted ? muteClippedPen : clippedPen);
       while (--clipcnt >= 0) {
          auto s = clipped[clipcnt];
@@ -1422,10 +1340,13 @@ void TrackArtist::DrawIndividualSamples(wxDC &dc, int leftOffset, const wxRect &
    }
 }
 
-void TrackArtist::DrawEnvelope(wxDC &dc, const wxRect &rect, const double env[],
+void TrackArt::DrawEnvelope(TrackPanelDrawingContext &context,
+                               const wxRect &rect, const double env[],
                                float zoomMin, float zoomMax,
                                bool dB, float dBRange, bool highlight)
 {
+   auto &dc = context.dc;
+
    int h = rect.height;
 
    auto &pen = highlight ? AColor::uglyPen : AColor::envelopePen;
@@ -1451,13 +1372,17 @@ void TrackArtist::DrawEnvelope(wxDC &dc, const wxRect &rect, const double env[],
          cenvBot = value + 4;
       }
 
-      DrawEnvLine(dc, rect, x0, envTop, cenvTop, true);
-      DrawEnvLine(dc, rect, x0, envBot, cenvBot, false);
+      DrawEnvLine( context, rect, x0, envTop, cenvTop, true );
+      DrawEnvLine( context, rect, x0, envBot, cenvBot, false );
    }
 }
 
-void TrackArtist::DrawEnvLine(wxDC &dc, const wxRect &rect, int x0, int y0, int cy, bool top)
+void TrackArt::DrawEnvLine(
+   TrackPanelDrawingContext &context,
+   const wxRect &rect, int x0, int y0, int cy, bool top )
 {
+   auto &dc = context.dc;
+
    int xx = rect.x + x0;
    int yy = rect.y + cy;
 
@@ -1483,17 +1408,13 @@ void TrackArtist::DrawEnvLine(wxDC &dc, const wxRect &rect, int x0, int y0, int 
 
 #include "tracks/ui/TimeShiftHandle.h"
 #include "tracks/playabletrack/wavetrack/ui/CutlineHandle.h"
-void TrackArtist::DrawWaveform(TrackPanelDrawingContext &context,
+void TrackArt::DrawWaveform(TrackPanelDrawingContext &context,
                                const WaveTrack *track,
                                const wxRect & rect,
-                               const SelectedRegion &selectedRegion,
-                               const ZoomInfo &zoomInfo,
-                               bool drawEnvelope,
-                               bool bigPoints,
-                               bool drawSliders,
                                bool muted)
 {
    auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
 
    bool highlight = false;
    bool gripHit = false;
@@ -1505,16 +1426,19 @@ void TrackArtist::DrawWaveform(TrackPanelDrawingContext &context,
 
    const bool dB = !track->GetWaveformSettings().isLinear();
 
-   DrawBackgroundWithSelection(&dc, rect, track, blankSelectedBrush, blankBrush,
-         selectedRegion, zoomInfo);
+   const auto &blankSelectedBrush = artist->blankSelectedBrush;
+   const auto &blankBrush = artist->blankBrush;
+   DrawBackgroundWithSelection(
+      context, rect, track, blankSelectedBrush, blankBrush );
 
    for (const auto &clip: track->GetClips())
-      DrawClipWaveform(context, track, clip.get(), rect, selectedRegion, zoomInfo,
-                       drawEnvelope, bigPoints,
+      DrawClipWaveform(context, track, clip.get(), rect,
                        dB, muted);
 
    // Update cache for locations, e.g. cutlines and merge points
    track->UpdateLocationsCache();
+
+   const auto &zoomInfo = *artist->pZoomInfo;
 
 #ifdef EXPERIMENTAL_TRACK_PANEL_HIGHLIGHTING
    auto target2 = dynamic_cast<CutlineHandle*>(context.target.get());
@@ -1547,9 +1471,10 @@ void TrackArtist::DrawWaveform(TrackPanelDrawingContext &context,
       }
    }
 
+   const auto drawSliders = artist->drawSliders;
    if (drawSliders) {
-      DrawTimeSlider(dc, rect, true, highlight && gripHit);  // directed right
-      DrawTimeSlider(dc, rect, false, highlight && gripHit); // directed left
+      DrawTimeSlider( context, rect, true, highlight && gripHit );  // directed right
+      DrawTimeSlider( context, rect, false, highlight && gripHit ); // directed left
    }
 }
 
@@ -1770,18 +1695,18 @@ void FindWavePortions
 
 #include "tracks/playabletrack/wavetrack/ui/SampleHandle.h"
 #include "tracks/ui/EnvelopeHandle.h"
-void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
+void TrackArt::DrawClipWaveform(TrackPanelDrawingContext &context,
                                    const WaveTrack *track,
                                    const WaveClip *clip,
                                    const wxRect & rect,
-                                   const SelectedRegion &selectedRegion,
-                                   const ZoomInfo &zoomInfo,
-                                   bool drawEnvelope,
-                                   bool bigPoints,
                                    bool dB,
                                    bool muted)
 {
    auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &selectedRegion = *artist->pSelectedRegion;
+   const auto &zoomInfo = *artist->pZoomInfo;
+
 #ifdef PROFILE_WAVEFORM
    Profiler profiler;
 #endif
@@ -1792,7 +1717,8 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
    highlightEnvelope = target && target->GetEnvelope() == clip->GetEnvelope();
 #endif
 
-   const ClipParameters params(false, track, clip, rect, selectedRegion, zoomInfo);
+   const ClipParameters params{
+      false, track, clip, rect, selectedRegion, zoomInfo };
    const wxRect &hiddenMid = params.hiddenMid;
    // The "hiddenMid" rect contains the part of the display actually
    // containing the waveform, as it appears without the fisheye.  If it's empty, we're done.
@@ -1815,7 +1741,7 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
 
    dc.SetPen(*wxTRANSPARENT_PEN);
    int iColorIndex = clip->GetColourIndex();
-   SetColours( iColorIndex );
+   artist->SetColours( iColorIndex );
 
    // If we get to this point, the clip is actually visible on the
    // screen, so remember the display rectangle.
@@ -1848,12 +1774,12 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
       }
       else
          tt0 = tt1 = 0.0;
-      DrawWaveformBackground(dc, leftOffset, mid,
+      DrawWaveformBackground(context, leftOffset, mid,
          env,
          zoomMin, zoomMax,
          track->ZeroLevelYCoordinate(mid),
          dB, dBRange,
-         tt0, tt1, zoomInfo, drawEnvelope,
+         tt0, tt1,
          !track->GetSelected(), highlightEnvelope);
    }
 
@@ -1976,11 +1902,11 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
                  0, // 1.0 / rate,
 
                  env2, rectPortion.width, leftOffset, zoomInfo );
-            DrawMinMaxRMS(dc, rectPortion, env2,
+            DrawMinMaxRMS( context, rectPortion, env2,
                zoomMin, zoomMax,
                dB, dBRange,
                useMin, useMax, useRms, useBl,
-               isLoadingOD, muted);
+               isLoadingOD, muted );
          }
          else {
             bool highlight = false;
@@ -1988,26 +1914,29 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
             auto target = dynamic_cast<SampleHandle*>(context.target.get());
             highlight = target && target->GetTrack().get() == track;
 #endif
-            DrawIndividualSamples(dc, leftOffset, rectPortion, zoomMin, zoomMax,
+            DrawIndividualSamples(
+               context, leftOffset, rectPortion, zoomMin, zoomMax,
                dB, dBRange,
-               clip, zoomInfo,
-               bigPoints, showPoints, muted, highlight);
+               clip,
+               showPoints, muted, highlight );
          }
       }
 
       leftOffset += rectPortion.width + skippedRight;
    }
 
+   const auto drawEnvelope = artist->drawEnvelope;
    if (drawEnvelope) {
-      DrawEnvelope(dc, mid, env, zoomMin, zoomMax, dB, dBRange, highlightEnvelope);
+      DrawEnvelope(
+         context, mid, env, zoomMin, zoomMax, dB, dBRange, highlightEnvelope );
       clip->GetEnvelope()->DrawPoints
-         (context, rect, zoomInfo, dB, dBRange, zoomMin, zoomMax, true);
+         ( context, rect, dB, dBRange, zoomMin, zoomMax, true );
    }
 
    // Draw arrows on the left side if the track extends to the left of the
    // beginning of time.  :)
    if (h == 0.0 && tOffset < 0.0) {
-      DrawNegativeOffsetTrackArrows(dc, rect);
+      DrawNegativeOffsetTrackArrows( context, rect );
    }
 
    // Draw clip edges
@@ -2025,10 +1954,12 @@ void TrackArtist::DrawClipWaveform(TrackPanelDrawingContext &context,
 }
 
 
-void TrackArtist::DrawTimeSlider(wxDC & dc,
-                                 const wxRect & rect,
-                                 bool rightwards, bool highlight)
+void TrackArt::DrawTimeSlider( TrackPanelDrawingContext &context,
+                                  const wxRect & rect,
+                                  bool rightwards, bool highlight )
 {
+   auto &dc = context.dc;
+
    const int border = 3; // 3 pixels all round.
    const int width = 6; // width of the drag box.
    const int taper = 6; // how much the box tapers by.
@@ -2081,19 +2012,19 @@ void TrackArtist::DrawTimeSlider(wxDC & dc,
    }
 }
 
-void TrackArtist::DrawSpectrum(const WaveTrack *track,
-                               wxDC & dc,
-                               const wxRect & rect,
-                               const SelectedRegion &selectedRegion,
-                               const ZoomInfo &zoomInfo)
+void TrackArt::DrawSpectrum( TrackPanelDrawingContext &context,
+                                const WaveTrack *track,
+                                const wxRect & rect )
 {
-   DrawBackgroundWithSelection(&dc, rect, track, blankSelectedBrush, blankBrush,
-         selectedRegion, zoomInfo);
+   const auto artist = TrackArtist::Get( context );
+   const auto &blankSelectedBrush = artist->blankSelectedBrush;
+   const auto &blankBrush = artist->blankBrush;
+   DrawBackgroundWithSelection(
+      context, rect, track, blankSelectedBrush, blankBrush );
 
    WaveTrackCache cache(Track::Pointer<const WaveTrack>(track));
-   for (const auto &clip: track->GetClips()) {
-      DrawClipSpectrum(cache, clip.get(), dc, rect, selectedRegion, zoomInfo);
-   }
+   for (const auto &clip: track->GetClips())
+      DrawClipSpectrum( context, cache, clip.get(), rect );
 }
 
 static inline float findValue
@@ -2177,13 +2108,16 @@ AColor::ColorGradientChoice ChooseColorSet( float bin0, float bin1, float selBin
 }
 
 
-void TrackArtist::DrawClipSpectrum(WaveTrackCache &waveTrackCache,
+void TrackArt::DrawClipSpectrum(TrackPanelDrawingContext &context,
+                                   WaveTrackCache &waveTrackCache,
                                    const WaveClip *clip,
-                                   wxDC & dc,
-                                   const wxRect & rect,
-                                   const SelectedRegion &selectedRegion,
-                                   const ZoomInfo &zoomInfo)
+                                   const wxRect & rect)
 {
+   auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &selectedRegion = *artist->pSelectedRegion;
+   const auto &zoomInfo = *artist->pZoomInfo;
+
 #ifdef PROFILE_WAVEFORM
    Profiler profiler;
 #endif
@@ -2194,7 +2128,8 @@ void TrackArtist::DrawClipSpectrum(WaveTrackCache &waveTrackCache,
 
    enum { DASH_LENGTH = 10 /* pixels */ };
 
-   const ClipParameters params(true, track, clip, rect, selectedRegion, zoomInfo);
+   const ClipParameters params{
+      true, track, clip, rect, selectedRegion, zoomInfo };
    const wxRect &hiddenMid = params.hiddenMid;
    // The "hiddenMid" rect contains the part of the display actually
    // containing the waveform, as it appears without the fisheye.  If it's empty, we're done.
@@ -2795,13 +2730,17 @@ int PitchToY(double p, int bottom)
    sel is equal to rect, and the entire region is drawn with unselected
    background colors.
  */
-void TrackArtist::DrawNoteBackground(const NoteTrack *track, wxDC &dc,
+void TrackArt::DrawNoteBackground(TrackPanelDrawingContext &context,
+                                     const NoteTrack *track,
                                      const wxRect &rect, const wxRect &sel,
-                                     const ZoomInfo &zoomInfo,
                                      const wxBrush &wb, const wxPen &wp,
                                      const wxBrush &bb, const wxPen &bp,
                                      const wxPen &mp)
 {
+   auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &zoomInfo = *artist->pZoomInfo;
+
    dc.SetBrush(wb);
    dc.SetPen(wp);
 #ifndef EXPERIMENTAL_NOTETRACK_OVERLAY
@@ -2891,13 +2830,16 @@ graphics. Since there may be notes outside of the display region,
 reserve a half-note-height margin at the top and bottom of the
 window and draw out-of-bounds notes here instead.
 */
-void TrackArtist::DrawNoteTrack(const NoteTrack *track,
-                                wxDC & dc,
+void TrackArt::DrawNoteTrack(TrackPanelDrawingContext &context,
+                                const NoteTrack *track,
                                 const wxRect & rect,
-                                const SelectedRegion &selectedRegion,
-                                const ZoomInfo &zoomInfo,
                                 bool muted)
 {
+   auto &dc = context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &selectedRegion = *artist->pSelectedRegion;
+   const auto &zoomInfo = *artist->pZoomInfo;
+
    SonifyBeginNoteBackground();
    double sel0 = selectedRegion.t0();
    double sel1 = selectedRegion.t1();
@@ -2922,9 +2864,8 @@ void TrackArtist::DrawNoteTrack(const NoteTrack *track,
    track->PrepareIPitchToY(rect);
 
 #ifdef EXPERIMENTAL_NOTETRACK_OVERLAY
-   DrawBackgroundWithSelection(&dc, rect, track,
-         AColor::labelSelectedBrush, AColor::labelUnselectedBrush,
-         selectedRegion, zoomInfo);
+   DrawBackgroundWithSelection(context, rect, track,
+         AColor::labelSelectedBrush, AColor::labelUnselectedBrush);
 #endif
 
    // Background comes in 4 colors, that are now themed.
@@ -2940,7 +2881,9 @@ void TrackArtist::DrawNoteTrack(const NoteTrack *track,
    wxPen barLinePen;
    barLinePen.SetColour(theTheme.Colour( clrMidiLines));
 
-   DrawNoteBackground(track, dc, rect, rect, zoomInfo, blankBrush, blankPen,
+   const auto &blankBrush = artist->blankBrush;
+   const auto &blankPen = artist->blankPen;
+   DrawNoteBackground(context, track, rect, rect, blankBrush, blankPen,
                       blackStripeBrush, blackStripePen, barLinePen);
 
    dc.SetClippingRegion(rect);
@@ -2968,7 +2911,7 @@ void TrackArtist::DrawNoteTrack(const NoteTrack *track,
    wxPen selectedBarLinePen;
    selectedBarLinePen.SetColour(theTheme.Colour( clrMidiLines));
 
-   DrawNoteBackground(track, dc, rect, selBG, zoomInfo,
+   DrawNoteBackground(context, track, rect, selBG,
                       selectedWhiteKeyBrush, selectedWhiteKeyPen,
                       selectedBlackKeyBrush, selectedBlackKeyPen,
                       selectedBarLinePen);
@@ -3243,7 +3186,7 @@ void TrackArtist::DrawNoteTrack(const NoteTrack *track,
                 rect.x + rect.width, rect.y + rect.height - marg - 1); // top of line
 
    if (h == 0.0 && track->GetOffset() < 0.0) {
-      DrawNegativeOffsetTrackArrows(dc, rect);
+      DrawNegativeOffsetTrackArrows( context, rect );
    }
 
    dc.DestroyClippingRegion();
@@ -3252,38 +3195,24 @@ void TrackArtist::DrawNoteTrack(const NoteTrack *track,
 #endif // USE_MIDI
 
 
-void TrackArtist::DrawLabelTrack(TrackPanelDrawingContext &context,
-                                 const LabelTrack *track,
-                                 const wxRect & rect,
-                                 const SelectedRegion &selectedRegion,
-                                 const ZoomInfo &zoomInfo)
-{
-   double sel0 = selectedRegion.t0();
-   double sel1 = selectedRegion.t1();
-
-   if (!track->GetSelected() && !track->IsSyncLockSelected())
-      sel0 = sel1 = 0.0;
-
-   track->Draw(context, rect, SelectedRegion(sel0, sel1), zoomInfo);
-}
-
-void TrackArtist::DrawTimeTrack(TrackPanelDrawingContext &context,
+void TrackArt::DrawTimeTrack(TrackPanelDrawingContext &context,
                                 const TimeTrack *track,
-                                const wxRect & rect,
-                                const ZoomInfo &zoomInfo)
+                                const wxRect & rect)
 {
-   track->Draw(context, rect, zoomInfo);
+   track->Draw( context, rect );
    wxRect envRect = rect;
    envRect.height -= 2;
    double lower = track->GetRangeLower(), upper = track->GetRangeUpper();
+   const auto artist = TrackArtist::Get( context );
+   const auto dbRange = artist->mdBrange;
    if(track->GetDisplayLog()) {
       // MB: silly way to undo the work of GetWaveYPos while still getting a logarithmic scale
-      lower = LINEAR_TO_DB(std::max(1.0e-7, lower)) / mdBrange + 1.0;
-      upper = LINEAR_TO_DB(std::max(1.0e-7, upper)) / mdBrange + 1.0;
+      lower = LINEAR_TO_DB(std::max(1.0e-7, lower)) / dbRange + 1.0;
+      upper = LINEAR_TO_DB(std::max(1.0e-7, upper)) / dbRange + 1.0;
    }
    track->GetEnvelope()->DrawPoints
-      (context, envRect, zoomInfo,
-       track->GetDisplayLog(), mdBrange, lower, upper, false);
+      ( context, envRect,
+        track->GetDisplayLog(), dbRange, lower, upper, false );
 }
 
 void TrackArtist::UpdatePrefs()
@@ -3291,6 +3220,10 @@ void TrackArtist::UpdatePrefs()
    mdBrange = gPrefs->Read(ENV_DB_KEY, mdBrange);
    mShowClipping = gPrefs->Read(wxT("/GUI/ShowClipping"), mShowClipping);
    mSampleDisplay = TracksPrefs::SampleViewChoice();
+
+   mbShowTrackNameInWaveform =
+      gPrefs->ReadBool(wxT("/GUI/ShowTrackNameInWaveform"), false);
+   
    SetColours(0);
 }
 
@@ -3307,8 +3240,11 @@ void TrackArtist::UpdatePrefs()
 // 5x5 box.
 //
 // There may be a better way to do this, or a more appealing pattern.
-void TrackArtist::DrawSyncLockTiles(wxDC *dc, wxRect rect)
+void TrackArt::DrawSyncLockTiles(
+   TrackPanelDrawingContext &context, const wxRect &rect )
 {
+   const auto dc = &context.dc;
+
    wxBitmap syncLockBitmap(theTheme.Image(bmpSyncLockSelTile));
 
    // Grid spacing is a bit smaller than actual image size
@@ -3414,13 +3350,19 @@ void TrackArtist::DrawSyncLockTiles(wxDC *dc, wxRect rect)
    }
 }
 
-void TrackArtist::DrawBackgroundWithSelection(wxDC *dc, const wxRect &rect,
-   const Track *track, wxBrush &selBrush, wxBrush &unselBrush,
-   const SelectedRegion &selectedRegion, const ZoomInfo &zoomInfo)
+void TrackArt::DrawBackgroundWithSelection(
+   TrackPanelDrawingContext &context, const wxRect &rect,
+   const Track *track, const wxBrush &selBrush, const wxBrush &unselBrush,
+   bool useSelection)
 {
+   const auto dc = &context.dc;
+   const auto artist = TrackArtist::Get( context );
+   const auto &selectedRegion = *artist->pSelectedRegion;
+   const auto &zoomInfo = *artist->pZoomInfo;
+
    //MM: Draw background. We should optimize that a bit more.
-   const double sel0 = selectedRegion.t0();
-   const double sel1 = selectedRegion.t1();
+   const double sel0 = useSelection ? selectedRegion.t0() : 0.0;
+   const double sel1 = useSelection ? selectedRegion.t1() : 0.0;
 
    dc->SetPen(*wxTRANSPARENT_PEN);
    if (track->GetSelected() || track->IsSyncLockSelected())
@@ -3456,7 +3398,7 @@ void TrackArtist::DrawBackgroundWithSelection(wxDC *dc, const wxRect &rect,
             // Per condition above, track must be sync-lock selected
             dc->SetBrush(unselBrush);
             dc->DrawRectangle(within);
-            DrawSyncLockTiles(dc, within);
+            DrawSyncLockTiles( context, within );
          }
 
          after.x = 1 + within.GetRight();

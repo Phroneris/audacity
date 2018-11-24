@@ -42,6 +42,7 @@ effects from this one class.
 #include <wx/valgen.h>
 #include <wx/wfstream.h>
 #include <wx/numformatter.h>
+#include <wx/stdpaths.h>
 
 #include "../../AudacityApp.h"
 #include "../../FileException.h"
@@ -198,7 +199,7 @@ NyquistEffect::~NyquistEffect()
 {
 }
 
-// IdentInterface implementation
+// ComponentInterface implementation
 
 wxString NyquistEffect::GetPath()
 {
@@ -210,7 +211,7 @@ wxString NyquistEffect::GetPath()
    return mFileName.GetFullPath();
 }
 
-IdentInterfaceSymbol NyquistEffect::GetSymbol()
+ComponentInterfaceSymbol NyquistEffect::GetSymbol()
 {
    if (mIsPrompt)
       return (mPromptType == EffectTypeTool) ?
@@ -220,7 +221,7 @@ IdentInterfaceSymbol NyquistEffect::GetSymbol()
    return mName;
 }
 
-IdentInterfaceSymbol NyquistEffect::GetVendor()
+ComponentInterfaceSymbol NyquistEffect::GetVendor()
 {
    if (mIsPrompt)
    {
@@ -276,7 +277,7 @@ EffectType NyquistEffect::GetClassification()
    return mType;
 }
 
-IdentInterfaceSymbol NyquistEffect::GetFamilyId()
+ComponentInterfaceSymbol NyquistEffect::GetFamilyId()
 {
    return NYQUISTEFFECTS_FAMILY;
 }
@@ -673,6 +674,9 @@ bool NyquistEffect::Process()
       mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'DATA)\n"), EscapeString(FileNames::DataDir()));
       mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'HELP)\n"), EscapeString(FileNames::HtmlHelpDir().RemoveLast()));
       mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'TEMP)\n"), EscapeString(FileNames::TempDir()));
+      mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'SYS-TEMP)\n"), EscapeString(wxStandardPaths::Get().GetTempDir()));
+      mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'DOCUMENTS)\n"), EscapeString(wxStandardPaths::Get().GetDocumentsDir()));
+      mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'HOME)\n"), EscapeString(wxGetHomeDir()));
 
       wxArrayString paths = NyquistEffect::GetNyquistSearchPath();
       wxString list;
@@ -684,7 +688,8 @@ bool NyquistEffect::Process()
 
       mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* (list %s) 'PLUGIN)\n"), list);
       mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* (list %s) 'PLUG-IN)\n"), list);
-
+      mProps += wxString::Format(wxT("(putprop '*SYSTEM-DIR* \"%s\" 'USER-PLUG-IN)\n"),
+                                 EscapeString(FileNames::PlugInDir()));
 
       // Date and time:
       wxDateTime now = wxDateTime::Now();
@@ -1541,9 +1546,9 @@ wxString NyquistEffect::EscapeString(const wxString & inStr)
    return str;
 }
 
-std::vector<IdentInterfaceSymbol> NyquistEffect::ParseChoice(const wxString & text)
+std::vector<ComponentInterfaceSymbol> NyquistEffect::ParseChoice(const wxString & text)
 {
-   std::vector<IdentInterfaceSymbol> results;
+   std::vector<ComponentInterfaceSymbol> results;
    if (text[0] == wxT('(')) {
       // New style:  expecting a Lisp-like list of strings
       Tokenizer tzer;
@@ -2105,7 +2110,7 @@ bool NyquistEffect::ParseProgram(wxInputStream & stream)
       return false;
    }
 
-   wxTextInputStream pgm(stream, wxT(" \t"), wxConvUTF8);
+   wxTextInputStream pgm(stream, wxT(" \t"), wxConvAuto());
 
    mCmd = wxT("");
    mIsSal = false;
@@ -2129,7 +2134,7 @@ bool NyquistEffect::ParseProgram(wxInputStream & stream)
    while (!stream.Eof() && stream.IsOk())
    {
       bool dollar = false;
-      wxString line = pgm.ReadLine().Trim(false);
+      wxString line = pgm.ReadLine();
       if (line.Length() > 1 &&
           // New in 2.3.0:  allow magic comment lines to start with $
           // The trick is that xgettext will not consider such lines comments
@@ -2144,7 +2149,7 @@ bool NyquistEffect::ParseProgram(wxInputStream & stream)
             // Allow run-ons only for new $ format header lines
             done = Parse(tzer, line, !dollar || stream.Eof(), nLines == 1);
          while(!done &&
-            (line = pgm.ReadLine().Trim(false), ++nLines, true));
+            (line = pgm.ReadLine(), ++nLines, true));
 
          // Don't pass these lines to the interpreter, so it doesn't get confused
          // by $, but pass blanks,

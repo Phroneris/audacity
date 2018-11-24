@@ -168,7 +168,7 @@ wxString Effect::GetPath()
    return BUILTIN_EFFECT_PREFIX + GetSymbol().Internal();
 }
 
-IdentInterfaceSymbol Effect::GetSymbol()
+ComponentInterfaceSymbol Effect::GetSymbol()
 {
    if (mClient)
    {
@@ -178,7 +178,7 @@ IdentInterfaceSymbol Effect::GetSymbol()
    return {};
 }
 
-IdentInterfaceSymbol Effect::GetVendor()
+ComponentInterfaceSymbol Effect::GetVendor()
 {
    if (mClient)
    {
@@ -208,7 +208,7 @@ wxString Effect::GetDescription()
    return wxEmptyString;
 }
 
-IdentInterfaceSymbol Effect::GetFamilyId()
+ComponentInterfaceSymbol Effect::GetFamilyId()
 {
    if (mClient)
    {
@@ -3655,6 +3655,7 @@ void EffectUIHost::OnSaveAs(wxCommandEvent & WXUNUSED(evt))
 
    dlg.SetSize(dlg.GetSizer()->GetMinSize());
    dlg.Center();
+   dlg.Fit();
 
    while (true)
    {

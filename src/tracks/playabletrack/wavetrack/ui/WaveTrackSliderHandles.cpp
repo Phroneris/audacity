@@ -12,7 +12,6 @@ Paul Licameli split from TrackPanel.cpp
 #include "WaveTrackSliderHandles.h"
 
 #include "../../../../HitTestResult.h"
-#include "../../../../MixerBoard.h"
 #include "../../../../Project.h"
 #include "../../../../RefreshCode.h"
 #include "../../../../TrackPanel.h"
@@ -44,16 +43,13 @@ float GainSliderHandle::GetValue()
 UIHandle::Result GainSliderHandle::SetValue
 (AudacityProject *pProject, float newValue)
 {
+   (void)pProject;//Compiler food
    auto pTrack = GetWaveTrack();
 
    if (pTrack) {
       for (auto channel :
            TrackList::Channels(pTrack.get()))
          channel->SetGain(newValue);
-
-      MixerBoard *const pMixerBoard = pProject->GetMixerBoard();
-      if (pMixerBoard)
-         pMixerBoard->UpdateGain(pTrack.get());
    }
 
    return RefreshCode::RefreshNone;
@@ -123,6 +119,7 @@ float PanSliderHandle::GetValue()
 
 UIHandle::Result PanSliderHandle::SetValue(AudacityProject *pProject, float newValue)
 {
+   (void)pProject;//Compiler food
    using namespace RefreshCode;
    Result result = RefreshNone;
    auto pTrack = GetWaveTrack();
@@ -131,10 +128,6 @@ UIHandle::Result PanSliderHandle::SetValue(AudacityProject *pProject, float newV
       for (auto channel :
            TrackList::Channels(pTrack.get()))
          channel->SetPan(newValue);
-
-      MixerBoard *const pMixerBoard = pProject->GetMixerBoard();
-      if (pMixerBoard)
-         pMixerBoard->UpdatePan(pTrack.get());
    }
 
    return result;

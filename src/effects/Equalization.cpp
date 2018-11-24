@@ -90,6 +90,7 @@
 #include "../FFT.h"
 #include "../Prefs.h"
 #include "../Project.h"
+#include "../TrackArtist.h"
 #include "../WaveTrack.h"
 #include "../widgets/Ruler.h"
 #include "../xml/XMLFileReader.h"
@@ -144,7 +145,7 @@ enum kInterpolations
 #define EQCURVES_REVISION  0
 #define UPDATE_ALL 0 // 0 = merge NEW presets only, 1 = Update all factory presets.
 
-static const IdentInterfaceSymbol kInterpStrings[nInterpolations] =
+static const ComponentInterfaceSymbol kInterpStrings[nInterpolations] =
 {
    // These are acceptable dual purpose internal/visible names
 
@@ -280,9 +281,9 @@ EffectEqualization::~EffectEqualization()
 {
 }
 
-// IdentInterface implementation
+// ComponentInterface implementation
 
-IdentInterfaceSymbol EffectEqualization::GetSymbol()
+ComponentInterfaceSymbol EffectEqualization::GetSymbol()
 {
    return EQUALIZATION_PLUGIN_SYMBOL;
 }
@@ -2113,7 +2114,7 @@ void EffectEqualization::UpdateCurves()
    bool selectedCurveExists = false;
    for (size_t i = 0, cnt = mCurves.size(); i < cnt; i++)
    {
-      if (mCurveName == mCurve)
+      if (mCurveName == mCurves[ i ].Name)
          selectedCurveExists = true;
       mCurve->Append(mCurves[ i ].Name);
    }
@@ -3049,9 +3050,16 @@ void EqualizationPanel::OnPaint(wxPaintEvent &  WXUNUSED(event))
    memDC.SetPen(*wxBLACK_PEN);
    if( mEffect->mDraw->GetValue() )
    {
-      TrackPanelDrawingContext context{ memDC, {}, {} };
+      ZoomInfo zoomInfo( 0.0, mEnvRect.width-1 );
+
+      // Back pointer to TrackPanel won't be needed in the one drawing
+      // function we use here
+      TrackArtist artist( nullptr );
+
+      artist.pZoomInfo = &zoomInfo;
+      TrackPanelDrawingContext context{ memDC, {}, {}, &artist  };
       mEffect->mEnvelope->DrawPoints(
-         context, mEnvRect, ZoomInfo(0.0, mEnvRect.width-1), false, 0.0,
+         context, mEnvRect, false, 0.0,
       mEffect->mdBMin, mEffect->mdBMax, false);
    }
 

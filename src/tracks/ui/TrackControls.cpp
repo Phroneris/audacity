@@ -15,7 +15,6 @@ Paul Licameli split from TrackPanel.cpp
 #include "../../HitTestResult.h"
 #include "../../RefreshCode.h"
 #include "../../Menus.h"
-#include "../../MixerBoard.h"
 #include "../../Project.h"
 #include "../../TrackPanel.h" // for TrackInfo
 #include "../../TrackPanelMouseEvent.h"
@@ -162,7 +161,7 @@ END_POPUP_MENU()
 
 
 
-#define SET_TRACK_NAME_PLUGIN_SYMBOL IdentInterfaceSymbol{ XO("Set Track Name") }
+#define SET_TRACK_NAME_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Set Track Name") }
 
 // An example of using an AudacityCommand simply to create a dialog.
 // We can add additional functions later, if we want to make it
@@ -171,8 +170,8 @@ END_POPUP_MENU()
 class SetTrackNameCommand : public AudacityCommand
 {
 public:
-   // CommandDefinitionInterface overrides
-   IdentInterfaceSymbol GetSymbol() override
+   // ComponentInterface overrides
+   ComponentInterfaceSymbol GetSymbol() override
    {return SET_TRACK_NAME_PLUGIN_SYMBOL;};
    //wxString GetDescription() override {return _("Sets the track name.");};
    //bool DefineParams( ShuttleParams & S ) override;
@@ -213,11 +212,6 @@ void TrackMenuTable::OnSetName(wxCommandEvent &)
          wxString newName = Command.mName;
          for (auto channel : TrackList::Channels(pTrack))
             channel->SetName(newName);
-
-         MixerBoard *const pMixerBoard = proj->GetMixerBoard();
-         auto pt = dynamic_cast<PlayableTrack*>(pTrack);
-         if (pt && pMixerBoard)
-            pMixerBoard->UpdateName(pt);
 
          proj->PushState(wxString::Format(_("Renamed '%s' to '%s'"),
             oldName,

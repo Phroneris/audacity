@@ -86,9 +86,9 @@ enum class TrackKind
    All
 };
 
-// Compile-time function on enum values.
-// It knows all inheritance relations among Track subclasses
-// even where the track types are only forward declared.
+/// Compile-time function on enum values.
+/// It knows all inheritance relations among Track subclasses
+/// even where the track types are only forward declared.
 constexpr bool CompatibleTrackKinds( TrackKind desired, TrackKind actual )
 {
    return
@@ -110,8 +110,8 @@ constexpr bool CompatibleTrackKinds( TrackKind desired, TrackKind actual )
    ;
 }
 
-// This bit of metaprogramming lets track_cast work even when the track
-// subclasses are visible only as incomplete types
+/// \brief Metaprogramming in TrackTyper lets track_cast work even when the track
+/// subclasses are visible only as incomplete types
 namespace TrackTyper {
    template<typename, TrackKind> struct Pair;
    using List = std::tuple<
@@ -160,12 +160,13 @@ template<typename T>
 
 class ViewInfo;
 
-// This is an in-session identifier of track objects across undo states
-// It does not persist between sessions
-// Default constructed value is not equal to the id of any track that has ever
-// been added to a TrackList, or (directly or transitively) copied from such
-// (A pending additional track that is not yet applied is not considered added)
-// TrackIds are assigned uniquely across projects
+/// This is an in-session identifier of track objects across undo states
+///
+/// It does not persist between sessions
+/// Default constructed value is not equal to the id of any track that has ever
+/// been added to a TrackList, or (directly or transitively) copied from such
+/// (A pending additional track that is not yet applied is not considered added)
+/// TrackIds are assigned uniquely across projects
 class TrackId
 {
 public:
@@ -205,8 +206,10 @@ class AUDACITY_DLL_API Track /* not final */
    wxString       mName;
    wxString       mDefaultName;
 
+ private:
    bool           mSelected;
 
+ protected:
    bool           mLinked;
    bool           mMinimized;
 
@@ -254,6 +257,10 @@ class AUDACITY_DLL_API Track /* not final */
    // Find anything registered with TrackList::RegisterPendingChangedTrack and
    // not yet cleared or applied; if no such exists, return this track
    std::shared_ptr<const Track> SubstitutePendingChangedTrack() const;
+
+   // If this track is a pending changed track, return the corresponding
+   // original; else return this track
+   std::shared_ptr<const Track> SubstituteOriginalTrack() const;
 
    // Cause certain overriding tool modes (Zoom; future ones?) to behave
    // uniformly in all tracks, disregarding track contents.
@@ -367,7 +374,7 @@ private:
    virtual void Merge(const Track &orig);
 
    wxString GetName() const { return mName; }
-   void SetName( const wxString &n ) { mName = n; }
+   void SetName( const wxString &n );
    wxString GetDefaultName() const { return mDefaultName; }
    void SetDefaultName( const wxString &n ) { mDefaultName = n; }
 
@@ -714,6 +721,11 @@ public:
    // Checks if sync-lock is on and any track in its sync-lock group is selected.
    bool IsSyncLockSelected() const;
 
+   // Send an event to listeners when state of the track changes
+   // To do: define values for the argument to distinguish different parts
+   // of the state, perhaps with wxNewId
+   void Notify( int code = -1 );
+
    // An always-true predicate useful for defining iterators
    bool Any() const;
 
@@ -763,8 +775,8 @@ public:
 
    bool GetMute    () const { return mMute;     }
    bool GetSolo    () const { return mSolo;     }
-   void SetMute    (bool m) { mMute     = m; }
-   void SetSolo    (bool s) { mSolo     = s; }
+   void SetMute    (bool m);
+   void SetSolo    (bool s);
 
    void Init( const PlayableTrack &init );
    void Merge( const Track &init ) override;
@@ -812,6 +824,8 @@ template<typename T>
    else
       return nullptr;
 }
+
+template < typename TrackType > struct TrackIterRange;
 
 // new track iterators can eliminate the need to cast the result
 template <
@@ -967,6 +981,10 @@ private:
       return !this->mPred || this->mPred( pTrack );
    }
 
+   // This friendship is needed in TrackIterRange::StartingWith and
+   // TrackIterRange::EndingAfter()
+   friend TrackIterRange< TrackType >;
+
    // The class invariant is that mIter == mEnd, or else, mIter != mEnd and
    // **mIter is of the appropriate subclass and mPred(&**mIter) is true.
    TrackNodePointer mBegin, mIter, mEnd;
@@ -1004,6 +1022,7 @@ template <
    }
 
    // Specify the added conjunct as a pointer to member function
+   // Read + as "and"
    template< typename R, typename C >
       TrackIterRange operator + ( R ( C ::* pmf ) () const ) const
    {
@@ -1022,6 +1041,7 @@ template <
    }
 
    // Specify the negated conjunct as a pointer to member function
+   // Read - as "and not"
    template< typename R, typename C >
       TrackIterRange operator - ( R ( C ::* pmf ) () const ) const
    {
@@ -1039,17 +1059,29 @@ template <
 
    TrackIterRange StartingWith( const Track *pTrack ) const
    {
+      auto newBegin = this->find( pTrack );
+      // More careful construction is needed so that the independent
+      // increment and decrement of each iterator in the NEW pair
+      // has the expected behavior at boundaries of the range
       return {
-         this->find( pTrack ),
-         this->second
+         { newBegin.mIter, newBegin.mIter,    this->second.mEnd,
+           this->first.GetPredicate() },
+         { newBegin.mIter, this->second.mEnd, this->second.mEnd,
+           this->second.GetPredicate() }
       };
    }
 
    TrackIterRange EndingAfter( const Track *pTrack ) const
    {
+      const auto newEnd = this->reversal().find( pTrack ).base();
+      // More careful construction is needed so that the independent
+      // increment and decrement of each iterator in the NEW pair
+      // has the expected behavior at boundaries of the range
       return {
-         this->first,
-         this->reversal().find( pTrack ).base()
+         { this->first.mBegin, this->first.mIter, newEnd.mIter,
+           this->first.GetPredicate() },
+         { this->first.mBegin, newEnd.mIter,      newEnd.mIter,
+           this->second.GetPredicate() }
       };
    }
 
@@ -1088,29 +1120,48 @@ template <
 
 struct TrackListEvent : public wxCommandEvent
 {
-   TrackListEvent(wxEventType commandType = wxEVT_NULL, int winid = 0)
-   : wxCommandEvent{ commandType, winid } {}
+   explicit
+   TrackListEvent(
+      wxEventType commandType,
+      const std::weak_ptr<Track> &pTrack = {}, int code = -1)
+   : wxCommandEvent{ commandType }
+   , mpTrack{ pTrack }
+   , mCode{ code }
+   {}
 
    TrackListEvent( const TrackListEvent& ) = default;
 
    wxEvent *Clone() const override { return new TrackListEvent(*this); }
 
    std::weak_ptr<Track> mpTrack;
+   int mCode;
 };
+
+// Posted when the set of selected tracks changes.
+wxDECLARE_EXPORTED_EVENT(AUDACITY_DLL_API,
+                         EVT_TRACKLIST_SELECTION_CHANGE, TrackListEvent);
+
+// Posted when certain fields of a track change.
+wxDECLARE_EXPORTED_EVENT(AUDACITY_DLL_API,
+                         EVT_TRACKLIST_TRACK_DATA_CHANGE, TrackListEvent);
 
 // Posted when tracks are reordered but otherwise unchanged.
 wxDECLARE_EXPORTED_EVENT(AUDACITY_DLL_API,
-                         EVT_TRACKLIST_PERMUTED, wxCommandEvent);
+                         EVT_TRACKLIST_PERMUTED, TrackListEvent);
 
-// Posted when some track was added or changed its height.
-// Cast to TrackListEvent and examine mpTrack to retrieve it.
+// Posted when some track changed its height.
 wxDECLARE_EXPORTED_EVENT(AUDACITY_DLL_API,
-                         EVT_TRACKLIST_RESIZING, wxCommandEvent);
+                         EVT_TRACKLIST_RESIZING, TrackListEvent);
+
+// Posted when a track has been added to a tracklist.
+// Also posted when one track replaces another
+wxDECLARE_EXPORTED_EVENT(AUDACITY_DLL_API,
+                         EVT_TRACKLIST_ADDITION, TrackListEvent);
 
 // Posted when a track has been deleted from a tracklist.
 // Also posted when one track replaces another
 wxDECLARE_EXPORTED_EVENT(AUDACITY_DLL_API,
-                         EVT_TRACKLIST_DELETION, wxCommandEvent);
+                         EVT_TRACKLIST_DELETION, TrackListEvent);
 
 class TrackList final : public wxEvtHandler, public ListOfTracks
 {
@@ -1495,8 +1546,11 @@ private:
    }
 
    void RecalcPositions(TrackNodePointer node);
+   void SelectionEvent( const std::shared_ptr<Track> &pTrack );
    void PermutationEvent();
+   void DataEvent( const std::shared_ptr<Track> &pTrack, int code );
    void DeletionEvent();
+   void AdditionEvent(TrackNodePointer node);
    void ResizingEvent(TrackNodePointer node);
 
    void SwapNodes(TrackNodePointer s1, TrackNodePointer s2);

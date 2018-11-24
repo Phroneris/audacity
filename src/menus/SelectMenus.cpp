@@ -3,7 +3,6 @@
 #include "../Experimental.h"
 #include "../FreqWindow.h"
 #include "../Menus.h" // for PrefsListener
-#include "../MixerBoard.h"
 #include "../Prefs.h"
 #include "../Project.h"
 #include "../TimeDialog.h"
@@ -23,7 +22,6 @@ void DoSelectTimeAndTracks
    auto tracks = project.GetTracks();
    auto trackPanel = project.GetTrackPanel();
    auto &selectedRegion = project.GetViewInfo().selectedRegion;
-   auto mixerBoard = project.GetMixerBoard();
 
    if( bAllTime )
       selectedRegion.setTimes(
@@ -35,8 +33,6 @@ void DoSelectTimeAndTracks
 
       project.ModifyState(false);
       trackPanel->Refresh(false);
-      if (mixerBoard)
-         mixerBoard->Refresh(false);
    }
 }
 
@@ -172,7 +168,7 @@ enum TimeUnit {
 
 struct SeekInfo
 {
-   wxLongLong mLastSelectionAdjustment { ::wxGetLocalTimeMillis() };
+   wxLongLong mLastSelectionAdjustment { ::wxGetUTCTimeMillis() };
    double mSeekShort{ 0.0 };
    double mSeekLong{ 0.0 };
 };
@@ -187,7 +183,7 @@ void SeekWhenAudioActive(double seekStep, wxLongLong &lastSelectionAdjustment)
       return;
    }
 #endif
-   lastSelectionAdjustment = ::wxGetLocalTimeMillis();
+   lastSelectionAdjustment = ::wxGetUTCTimeMillis();
 
    gAudioIO->SeekStream(seekStep);
 }
@@ -359,7 +355,7 @@ void SeekLeftOrRight
 
    // If the last adjustment was very recent, we are
    // holding the key down and should move faster.
-   const wxLongLong curtime = ::wxGetLocalTimeMillis();
+   const wxLongLong curtime = ::wxGetUTCTimeMillis();
    enum { MIN_INTERVAL = 50 };
    const bool fast =
       (curtime - info.mLastSelectionAdjustment < MIN_INTERVAL);
@@ -383,7 +379,7 @@ void DoCursorMove(
    }
    else
    {
-      lastSelectionAdjustment = ::wxGetLocalTimeMillis();
+      lastSelectionAdjustment = ::wxGetUTCTimeMillis();
       MoveWhenAudioInactive(project, seekStep, TIME_UNIT_SECONDS);
    }
 
@@ -401,7 +397,7 @@ void DoBoundaryMove(AudacityProject &project, int step, SeekInfo &info)
 
    // If the last adjustment was very recent, we are
    // holding the key down and should move faster.
-   wxLongLong curtime = ::wxGetLocalTimeMillis();
+   wxLongLong curtime = ::wxGetUTCTimeMillis();
    int pixels = step;
    if( curtime - info.mLastSelectionAdjustment < 50 )
    {
@@ -467,11 +463,10 @@ void DoListSelection
    auto &selectionState = project.GetSelectionState();
    auto &viewInfo = project.GetViewInfo();
    auto isSyncLocked = project.IsSyncLocked();
-   auto mixerBoard = project.GetMixerBoard();
 
    selectionState.HandleListSelection
       ( *tracks, viewInfo, *t,
-        shift, ctrl, isSyncLocked, mixerBoard );
+        shift, ctrl, isSyncLocked );
 
    if (! ctrl )
       trackPanel->SetFocusedTrack(t);
@@ -535,7 +530,6 @@ void OnSelectSyncLockSel(const CommandContext &context)
    auto &project = context.project;
    auto tracks = project.GetTracks();
    auto trackPanel = project.GetTrackPanel();
-   auto mixerBoard = project.GetMixerBoard();
 
    bool selected = false;
    for (auto t : tracks->Any()
@@ -548,8 +542,6 @@ void OnSelectSyncLockSel(const CommandContext &context)
       project.ModifyState(false);
 
    trackPanel->Refresh(false);
-   if (mixerBoard)
-      mixerBoard->Refresh(false);
 }
 
 //this pops up a dialog which allows the left selection to be set.
@@ -1031,13 +1023,13 @@ void OnCursorShortJumpRight(const CommandContext &context)
 void OnCursorLongJumpLeft(const CommandContext &context)
 {
    DoCursorMove( context.project,
-      -mSeekInfo.mSeekShort, mSeekInfo.mLastSelectionAdjustment );
+      -mSeekInfo.mSeekLong, mSeekInfo.mLastSelectionAdjustment );
 }
 
 void OnCursorLongJumpRight(const CommandContext &context)
 {
    DoCursorMove( context.project,
-      mSeekInfo.mSeekShort, mSeekInfo.mLastSelectionAdjustment );
+      mSeekInfo.mSeekLong, mSeekInfo.mLastSelectionAdjustment );
 }
 
 void OnSeekLeftShort(const CommandContext &context)
@@ -1076,7 +1068,11 @@ void OnSelectAllTime(const CommandContext &context)
 void UpdatePrefs() override
 {
    gPrefs->Read(wxT("/AudioIO/SeekShortPeriod"), &mSeekInfo.mSeekShort, 1.0);
-   gPrefs->Read(wxT("/AudioIO/SeekLongPeriod"), &mSeekInfo.mSeekShort, 15.0);
+   gPrefs->Read(wxT("/AudioIO/SeekLongPeriod"), &mSeekInfo.mSeekLong, 15.0);
+}
+Handler()
+{
+   UpdatePrefs();
 }
 
 }; // struct Handler
