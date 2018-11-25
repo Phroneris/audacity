@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-11-24 10:45+0000\n"
-"PO-Revision-Date: 2018-11-26 05:35+0900\n"
+"PO-Revision-Date: 2018-11-26 06:00+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1153,17 +1153,20 @@ msgstr "名前"
 msgid "After recovery, save the project to save the changes to disk."
 msgstr "回復後は、変更点を保存するためにプロジェクトの保存を行ってください。"
 
+# ja: 独自アクセスキー。面積がきついのでスペース除去
 #: src/AutoRecovery.cpp
 msgid "Quit Audacity"
-msgstr "Audacity を終了"
+msgstr "Audacityを終了(&Q)"
 
+# ja: 独自アクセスキー。面積がきついので意訳
 #: src/AutoRecovery.cpp
 msgid "Discard Projects"
-msgstr "プロジェクトを破棄"
+msgstr "すべて破棄(&D)"
 
+# ja: 独自アクセスキー。面積がきついので意訳
 #: src/AutoRecovery.cpp
 msgid "Recover Projects"
-msgstr "プロジェクトを回復"
+msgstr "すべて回復(&R)"
 
 #: src/AutoRecovery.cpp
 msgid ""
@@ -1916,7 +1919,7 @@ msgstr "ブロック %s は新しいエイリアス名に変更されました\n
 #. "Found problems with <sequence> when checking project file."
 #: src/DirManager.cpp
 msgid "Project check read faulty Sequence tags."
-msgstr "プロジェクトチェックが不正なシーケンスタグを読み込みました。"
+msgstr "プロジェクトチェックによって、不正なシーケンスタグが読み込まれました。"
 
 #: src/DirManager.cpp
 msgid "Close project immediately with no changes"
@@ -1954,8 +1957,8 @@ msgid ""
 "project immediately\" on further error alerts."
 msgstr ""
 "フォルダ「%s」のプロジェクトチェックにおいて、\n"
-"%lld 個の音声ファイルの欠損が見つかりました\n"
-"(「エイリアスファイル」)。Audacity はこれらのファイルを\n"
+"%lld 個の音声ファイル (「エイリアスファイル」) の\n"
+"欠損が見つかりました。Audacity はこれらのファイルを\n"
 "自動的に復旧することはできません。\n"
 "\n"
 "下記の 1 番目か 2 番目の方法で、欠損ファイル\n"
@@ -1983,7 +1986,7 @@ msgstr "警告 - エイリアスファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check replaced missing aliased file(s) with silence."
-msgstr "   プロジェクトチェックは欠落したエイリアスファイルを無音で置換しました。"
+msgstr "   プロジェクトチェックの結果、欠落したエイリアスファイルは無音で置換されました。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -2016,7 +2019,7 @@ msgstr "警告 - エイリアス要約ファイルが見つかりません"
 
 #: src/DirManager.cpp
 msgid "   Project check regenerated missing alias summary file(s)."
-msgstr "   プロジェクトチェックは欠落したエイリアス要約ファイルを再生成しました。"
+msgstr "   プロジェクトチェックの結果、欠落したエイリアス要約ファイルは再生成されました。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -2035,9 +2038,10 @@ msgid ""
 "may not show silence."
 msgstr ""
 "フォルダ「%s」のプロジェクトチェックにおいて、\n"
-"バグかシステムクラッシュあるいは偶発的な削除によって\n"
 "音声データのブロックファイル (.au) %lld 個が行方不明\n"
-"であることが検出されました。Audacity はこれらの失われた\n"
+"であることが検出されました。その原因がバグなのか、\n"
+"システムクラッシュなのか、あるいは偶発的な削除なのかは\n"
+"わかりませんが、いずれにせよ Audacity はこれらの失われた\n"
 "データを自動的に回復することはできません。\n"
 "\n"
 "下記の 1 番目か 2 番目の方法を選ぶと、\n"
@@ -2057,11 +2061,11 @@ msgstr "警告 - 音声データブロックファイルが見つかりません
 
 #: src/DirManager.cpp
 msgid "   Project check replaced missing audio data block file(s) with silence."
-msgstr "   プロジェクトチェックは欠落した音声データブロックファイルを無音によって置換しました。"
+msgstr "   プロジェクトチェックの結果、欠落した音声データブロックファイルは無音によって置換されました。"
 
 #: src/DirManager.cpp
 msgid "   Project check ignored orphan block file(s). They will be deleted when project is saved."
-msgstr "   プロジェクトチェックは無効なブロックファイルを無視しました。これらはプロジェクトの保存時に削除されます。"
+msgstr "   プロジェクトチェックの結果、無効なブロックファイルは無視されました。これらはプロジェクトの保存時に削除されます。"
 
 #: src/DirManager.cpp
 #, c-format
@@ -2094,7 +2098,7 @@ msgstr "プロジェクトデータの中で使われていないディレクト
 
 #: src/DirManager.cpp
 msgid "Project check found file inconsistencies inspecting the loaded project data."
-msgstr "プロジェクトチェックは読み込まれたプロジェクトデータに不整合性を見つけました。"
+msgstr "プロジェクトチェックの結果、読み込まれたプロジェクトデータに不整合が見つかりました。"
 
 #: src/DirManager.cpp
 msgid ""
@@ -2102,9 +2106,9 @@ msgid ""
 "\n"
 "Select 'Show Log...' in the Help menu to see details."
 msgstr ""
-"プロジェクトチェックは自動復旧中にファイルの不整合性を見つけました。\n"
+"プロジェクトチェックの結果、自動復旧中にファイルの不整合が見つかりました。\n"
 "\n"
-"ヘルプメニューの「ログの表示...」により詳細表示できます。"
+"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください。"
 
 #: src/DirManager.cpp
 msgid "Warning: Problems in Automatic Recovery"
