@@ -16851,48 +16851,39 @@ msgstr "余韻の分だけ音声時間を伸ばす"
 
 # jp: 独自アクセスキー
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Regular Interval Labels"
 msgstr "等間隔ラベル(&L)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Adding equally-spaced labels to the label track..."
 msgstr "ラベルトラックに等間隔なラベルを追加中..."
 
 #. i18n-hint: Refers to the controls 'Number of labels' and 'Label interval'.
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Create labels based on"
 msgstr "ラベル生成基準"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Number & Interval"
 msgstr "数と間隔"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Number of Labels"
 msgstr "数のみ"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Label Interval"
 msgstr "間隔のみ"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Number of labels"
 msgstr "ラベルの数"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Label interval (seconds)"
 msgstr "ラベルの間隔 (秒)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Length of label region (seconds)"
 msgstr "ラベル領域の長さ (秒)"
 
@@ -16901,67 +16892,54 @@ msgid "Adjust label interval to fit length"
 msgstr ""
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Label text"
 msgstr "ラベル文字"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Minimum number of digits in label"
 msgstr "ラベル番号の最小桁数"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "None - Text Only"
 msgstr "なし - 文字のみ"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "1 (Before Label)"
 msgstr "1 (文字の前)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "2 (Before Label)"
 msgstr "2 (文字の前)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "3 (Before Label)"
 msgstr "3 (文字の前)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "1 (After Label)"
 msgstr "1 (文字の後)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "2 (After Label)"
 msgstr "2 (文字の後)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "3 (After Label)"
 msgstr "3 (文字の後)"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Begin numbering from"
 msgstr "開始番号"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Message on completion"
 msgstr "完了時のメッセージ"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Details"
 msgstr "詳細"
 
 #: plug-ins/equalabel.ny
-#, fuzzy
 msgid "Warnings only"
 msgstr "警告のみ"
 
