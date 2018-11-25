@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-11-24 10:45+0000\n"
-"PO-Revision-Date: 2018-11-25 02:19+0900\n"
+"PO-Revision-Date: 2018-11-26 04:15+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17432,13 +17432,13 @@ msgstr "~aデータを書き出しました:~%~a"
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Sample Rate: ~a Hz.  Sample values on ~a scale.~%~a~%~a"
-msgstr "サンプリング周波数: ~a Hz.  サンプル値スケール: ~a.~%~a~%~a"
+msgstr "サンプリング周波数: ~a Hz。サンプル値スケール: ~a。~%~a~%~a"
 
-# jp: 標準ヘッダー（HTML）
+# jp: HTMLの完了ダイアログ
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a   ~a~%~aSample Rate: ~a Hz.~%Length processed: ~a samples ~a seconds.~a"
-msgstr "~a   ~a~%~aサンプリング周波数: ~a Hz.~%処理長さ: ~a サンプル, ~a 秒.~a"
+msgstr "~a   ~a~%~aサンプリング周波数: ~a Hz。~%処理長さ: ~a サンプル、~a 秒。~a"
 
 # jp: 標準ヘッダー
 #: plug-ins/sample-data-export.ny
@@ -17447,8 +17447,8 @@ msgid ""
 "~a   ~a~%~aSample Rate: ~a Hz. Sample values on ~a scale.~%~\n"
 "                     Length processed: ~a samples ~a seconds.~a"
 msgstr ""
-"~a   ~a~%~aサンプリング周波数: ~a Hz. サンプル値スケール: ~a.~%~\n"
-"処理長さ: ~a サンプル, ~a 秒.~a"
+"~a   ~a~%~aサンプリング周波数: ~a Hz。サンプル値スケール: ~a。~%~\n"
+"処理長さ: ~a サンプル、~a 秒。~a"
 
 # jp: 完全ヘッダー
 #: plug-ins/sample-data-export.ny
@@ -17458,22 +17458,23 @@ msgid ""
 "                  samples, ~a seconds.~%Peak amplitude: ~a (linear) ~a dB.  Unweighted RMS: ~a dB.~%~\n"
 "                  DC offset: ~a~a"
 msgstr ""
-"~a~%サンプリング周波数: ~a Hz. サンプル値スケール: ~a. ~a.~%~a処理長さ: ~a ~\n"
-"                  サンプル, ~a 秒.~%ピーク振幅: ~a (リニア), ~a dB.  重みなし RMS: ~a dB.~%~\n"
-"                  DC オフセット: ~a~a"
+"~a~%サンプリング周波数: ~a Hz。サンプル値スケール: ~a。~a。~%~\n"
+"~a処理長さ: ~a サンプル、~a 秒。~%ピーク振幅: ~a (リニア)、~a dB。重みなしRMS: ~a dB。~%~\n"
+"DCオフセット: ~a~a"
 
 # ja: 完全ヘッダーの最後（モノラル）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a linear, ~a dB."
-msgstr "~a (リニア), ~a dB."
+msgstr "~a (リニア)、~a dB。"
 
 # ja: 完全ヘッダーの最後（ステレオ）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left: ~a lin, ~a dB | Right: ~a lin, ~a dB."
-msgstr "左: ~a (リニア), ~a dB | 右: ~a (リニア), ~a dB."
+msgstr "左: ~a (リニア)、~a dB | 右: ~a (リニア)、~a dB。"
 
+# ja: 以下HTML
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a samples."
@@ -17571,11 +17572,11 @@ msgstr "リニア"
 
 #: plug-ins/sample-data-export.ny
 msgid "2 channels (stereo)"
-msgstr "2 チャンネル (ステレオ)"
+msgstr "2チャンネル (ステレオ)"
 
 #: plug-ins/sample-data-export.ny
 msgid "1 channel (mono)"
-msgstr "1 チャンネル (モノラル)"
+msgstr "1チャンネル (モノラル)"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
