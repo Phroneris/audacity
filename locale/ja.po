@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Audacity\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2018-11-24 10:45+0000\n"
-"PO-Revision-Date: 2018-11-26 06:00+0900\n"
+"PO-Revision-Date: 2018-11-26 07:06+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1153,17 +1153,17 @@ msgstr "名前"
 msgid "After recovery, save the project to save the changes to disk."
 msgstr "回復後は、変更点を保存するためにプロジェクトの保存を行ってください。"
 
-# ja: 独自アクセスキー。面積がきついのでスペース除去
+# jp: 独自アクセスキー。面積がきついのでスペース除去
 #: src/AutoRecovery.cpp
 msgid "Quit Audacity"
 msgstr "Audacityを終了(&Q)"
 
-# ja: 独自アクセスキー。面積がきついので意訳
+# jp: 独自アクセスキー。面積がきついので意訳
 #: src/AutoRecovery.cpp
 msgid "Discard Projects"
 msgstr "すべて破棄(&D)"
 
-# ja: 独自アクセスキー。面積がきついので意訳
+# jp: 独自アクセスキー。面積がきついので意訳
 #: src/AutoRecovery.cpp
 msgid "Recover Projects"
 msgstr "すべて回復(&R)"
@@ -2306,7 +2306,7 @@ msgstr "標準自己相関"
 msgid "Cuberoot Autocorrelation"
 msgstr "立方根自己相関"
 
-# ja: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally
+# jp: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally
 # efficient multipitch analysis model」という論文が元祖らしいということやEACという頭文字があてられ得るということなどまではわかり、被引用文献に1つ日本語のものがあったのでそれが参考になるかもと思ったが、無料で見れる範囲ではEACについて特に触れられていなかったし、詳細な中身を確認するために大学図書館にまで出向くガッツも無いので諦める。っていうか立方根自己相関とやらすら見つけられなかったんだが…。
 #: src/FreqWindow.cpp
 msgid "Enhanced Autocorrelation"
@@ -12683,17 +12683,17 @@ msgstr "フォーカスしたトラックを最上段へ移動(&O)"
 msgid "Move Focused Track to &Bottom"
 msgstr "フォーカスしたトラックを最下段へ移動(&B)"
 
-# ja: 読み上げ用
+# jp: 読み上げ用
 #: src/menus/TransportMenus.cpp
 msgid "no label track"
 msgstr "ラベルトラックがありません"
 
-# ja: 読み上げ用
+# jp: 読み上げ用
 #: src/menus/TransportMenus.cpp
 msgid "no label track at or below focused track"
 msgstr "フォーカスしたトラックやその下のトラックに、ラベルトラックがありません"
 
-# ja: 読み上げ用
+# jp: 読み上げ用
 #: src/menus/TransportMenus.cpp
 msgid "no labels in label track"
 msgstr "ラベルトラックにラベルがありません"
@@ -17444,19 +17444,19 @@ msgstr ""
 "~a処理長さ: ~a サンプル、~a 秒。~%ピーク振幅: ~a (リニア)、~a dB。重みなしRMS: ~a dB。~%~\n"
 "DCオフセット: ~a~a"
 
-# ja: 完全ヘッダーの最後（モノラル）
+# jp: 完全ヘッダーの最後（モノラル）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a linear, ~a dB."
 msgstr "~a (リニア)、~a dB。"
 
-# ja: 完全ヘッダーの最後（ステレオ）
+# jp: 完全ヘッダーの最後（ステレオ）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left: ~a lin, ~a dB | Right: ~a lin, ~a dB."
 msgstr "左: ~a (リニア)、~a dB | 右: ~a (リニア)、~a dB。"
 
-# ja: 以下HTML
+# jp: 以下HTML
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a samples."
