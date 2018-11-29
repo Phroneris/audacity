@@ -6009,7 +6009,7 @@ msgstr ""
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
 msgid "Contrast Analyzer, for measuring RMS volume differences between two selections of audio."
-msgstr "2 つの選択音声同士の RMS ボリュームの差を計測する、コントラスト解析機能です。"
+msgstr "2 つの選択音声同士の RMS 音量の差を計測する、コントラスト解析機能です。"
 
 #: src/effects/Contrast.cpp src/effects/ToneGen.cpp
 #: src/toolbars/SelectionBar.cpp
@@ -6018,7 +6018,7 @@ msgstr "終了"
 
 #: src/effects/Contrast.cpp
 msgid "Volume    "
-msgstr "ボリューム    "
+msgstr "音量    "
 
 #: src/effects/Contrast.cpp
 msgid "&Foreground:"
@@ -14882,34 +14882,34 @@ msgstr "録音レベル"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Recording Volume"
-msgstr "録音ボリューム"
+msgstr "録音音量"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Playback Volume"
-msgstr "再生ボリューム"
+msgstr "再生音量"
 
 #: src/toolbars/MixerToolBar.cpp
 #, c-format
 msgid "Recording Volume: %.2f"
-msgstr "録音ボリューム: %.2f"
+msgstr "録音音量: %.2f"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Recording Volume (Unavailable; use system mixer.)"
-msgstr "録音ボリューム (使用不能。システムミキサーをお使いください)"
+msgstr "録音音量 (使用不能。システムミキサーをお使いください)"
 
 #: src/toolbars/MixerToolBar.cpp
 #, c-format
 msgid "Playback Volume: %s (emulated)"
-msgstr "再生ボリューム: %s (エミュレート)"
+msgstr "再生音量: %s (エミュレート)"
 
 #: src/toolbars/MixerToolBar.cpp
 #, c-format
 msgid "Playback Volume: %s"
-msgstr "再生ボリューム: %s"
+msgstr "再生音量: %s"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Playback Volume (Unavailable; use system mixer.)"
-msgstr "再生ボリューム (使用不能。システムミキサーをお使いください)"
+msgstr "再生音量 (使用不能。システムミキサーをお使いください)"
 
 #: src/toolbars/ScrubbingToolBar.cpp
 msgid "Seek"
