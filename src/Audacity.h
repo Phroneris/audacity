@@ -60,9 +60,9 @@
 
 
 // Increment as appropriate every time we release a NEW version.
-#define AUDACITY_VERSION   2
-#define AUDACITY_RELEASE   3
-#define AUDACITY_REVISION  1
+#define AUDACITY_VERSION   3
+#define AUDACITY_RELEASE   0
+#define AUDACITY_REVISION  0
 #define AUDACITY_MODLEVEL  0
 
 #if defined(IS_BETA)
@@ -109,9 +109,6 @@
 
 class wxWindow;
 
-void QuitAudacity(bool bForce);
-void QuitAudacity();
-
 // Please try to support unlimited path length instead of using PLATFORM_MAX_PATH!
 // Define one constant for maximum path value, so we don't have to do
 // platform-specific conditionals everywhere we want to check it.
@@ -150,24 +147,21 @@ void QuitAudacity();
 #define PLATFORM_MAX_PATH MAX_PATH
 #endif
 
-/* Magic for dynamic library import and export. This is unfortunately
- * compiler-specific because there isn't a standard way to do it. Currently it
- * works with the Visual Studio compiler for windows, and for GCC 4+. Anything
- * else gets all symbols made public, which gets messy */
-/* The Visual Studio implementation */
-#ifdef _MSC_VER
+/* The dynamic library import and export for Microsoft Windows.
+ * Supported by Visual Studio and for GCC 4+ */
+#if defined _WIN32 || (defined __CYGWIN__ && defined __GNUC__)
    #ifndef AUDACITY_DLL_API
       #ifdef BUILDING_AUDACITY
-         #define AUDACITY_DLL_API _declspec(dllexport)
+         #define AUDACITY_DLL_API __declspec(dllexport)
       #else
          #ifdef _DLL
-            #define AUDACITY_DLL_API _declspec(dllimport)
+            #define AUDACITY_DLL_API __declspec(dllimport)
          #else
             #define AUDACITY_DLL_API
          #endif
       #endif
    #endif
-#endif //_MSC_VER
+#endif //_WIN32 || (__CYGWIN__ && __GNUC__)
 
 // Put extra symbol information in the release build, for the purpose of gathering
 // profiling information (as from Windows Process Monitor), when there otherwise
@@ -193,26 +187,9 @@ void QuitAudacity();
    #endif
 #endif
 
-/* The GCC-win32 implementation */
-// bizzarely, GCC-for-win32 supports Visual Studio style symbol visibility, so
-// we use that if building on Cygwin
-#if defined __CYGWIN__ && defined __GNUC__
-   #ifndef AUDACITY_DLL_API
-      #ifdef BUILDING_AUDACITY
-         #define AUDACITY_DLL_API _declspec(dllexport)
-      #else
-         #ifdef _DLL
-            #define AUDACITY_DLL_API _declspec(dllimport)
-         #else
-            #define AUDACITY_DLL_API
-         #endif
-      #endif
-   #endif
-#endif
-
 // These macros are used widely, so declared here.
 #define QUANTIZED_TIME(time, rate) (floor(((double)(time) * (rate)) + 0.5) / (rate))
-// dB - linear amplitude convesions
+// dB - linear amplitude conversions
 #define DB_TO_LINEAR(x) (pow(10.0, (x) / 20.0))
 #define LINEAR_TO_DB(x) (20.0 * log10(x))
 
@@ -239,5 +216,11 @@ void QuitAudacity();
    #define RTL_WORKAROUND( pWnd ) 
 #endif
 
+// Define/undefine _DEBUG based on the (CMake provided) NDEBUG symbol
+#if defined(NDEBUG)
+   #undef _DEBUG
+#else
+   #define _DEBUG 1
+#endif
 
 #endif // __AUDACITY_H__

@@ -24,18 +24,14 @@
 
 //#include "../commands/AudacityCommand.h"
 
-
-#define SELECT_TIME_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Select Time") }
-#define SELECT_FREQUENCIES_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Select Frequencies") }
-#define SELECT_TRACKS_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Select Tracks") }
-#define SELECT_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Select") }
-
 class SelectTimeCommand : public AudacityCommand
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    // ComponentInterface overrides
-   ComponentInterfaceSymbol GetSymbol() override {return SELECT_TIME_PLUGIN_SYMBOL;};
-   wxString GetDescription() override {return _("Selects a time range.");};
+   ComponentInterfaceSymbol GetSymbol() override {return Symbol;};
+   TranslatableString GetDescription() override {return XO("Selects a time range.");};
    bool DefineParams( ShuttleParams & S ) override;
    void PopulateOrExchange(ShuttleGui & S) override;
    bool Apply(const CommandContext & context) override;
@@ -57,9 +53,11 @@ public:
 class SelectFrequenciesCommand : public AudacityCommand
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    // ComponentInterface overrides
-   ComponentInterfaceSymbol GetSymbol() override {return SELECT_FREQUENCIES_PLUGIN_SYMBOL;};
-   wxString GetDescription() override {return _("Selects a frequency range.");};
+   ComponentInterfaceSymbol GetSymbol() override {return Symbol;};
+   TranslatableString GetDescription() override {return XO("Selects a frequency range.");};
    bool DefineParams( ShuttleParams & S ) override;
    void PopulateOrExchange(ShuttleGui & S) override;
    bool Apply(const CommandContext & context) override;
@@ -78,9 +76,11 @@ public:
 class SelectTracksCommand : public AudacityCommand
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    // ComponentInterface overrides
-   ComponentInterfaceSymbol GetSymbol() override {return SELECT_TRACKS_PLUGIN_SYMBOL;};
-   wxString GetDescription() override {return _("Selects a range of tracks.");};
+   ComponentInterfaceSymbol GetSymbol() override {return Symbol;};
+   TranslatableString GetDescription() override {return XO("Selects a range of tracks.");};
    bool DefineParams( ShuttleParams & S ) override;
    void PopulateOrExchange(ShuttleGui & S) override;
    bool Apply(const CommandContext & context) override;
@@ -100,9 +100,11 @@ public:
 class SelectCommand : public AudacityCommand
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    // ComponentInterface overrides
-   ComponentInterfaceSymbol GetSymbol() override {return SELECT_PLUGIN_SYMBOL;};
-   wxString GetDescription() override {return _("Selects Audio.");};
+   ComponentInterfaceSymbol GetSymbol() override {return Symbol;};
+   TranslatableString GetDescription() override {return XO("Selects Audio.");};
    bool DefineParams( ShuttleParams & S ) override { 
       return 
          mSelTime.DefineParams(S) &&  

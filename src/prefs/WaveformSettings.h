@@ -11,9 +11,12 @@ Paul Licameli
 #ifndef __AUDACITY_WAVEFORM_SETTINGS__
 #define __AUDACITY_WAVEFORM_SETTINGS__
 
-class wxArrayString;
+#include "../Internat.h" // for TranslatableStrings
+#include "../Prefs.h"
 
-class WaveformSettings
+class EnumValueSymbols;
+
+class WaveformSettings : public PrefsListener
 {
 public:
 
@@ -45,6 +48,8 @@ public:
    void SavePrefs();
    void Update();
 
+   void UpdatePrefs() override;
+
    void ConvertToEnumeratedDBRange();
    void ConvertToActualDBRange();
    void NextLowerDBRange();
@@ -58,7 +63,7 @@ public:
       stNumScaleTypes,
    };
 
-   static const wxArrayString &GetScaleNames();
+   static const EnumValueSymbols &GetScaleNames();
 
    ScaleType scaleType;
    int dBRange;

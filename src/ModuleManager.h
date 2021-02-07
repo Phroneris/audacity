@@ -12,16 +12,17 @@
 #ifndef __AUDACITY_MODULEMANAGER_H__
 #define __AUDACITY_MODULEMANAGER_H__
 
-#include <wx/dynlib.h>
-
 #include "MemoryX.h"
 #include <map>
 #include <vector>
 
-#include "audacity/ModuleInterface.h"
-#include "PluginManager.h"
+#include "audacity/Types.h"
 
+class wxArrayString;
+class wxDynamicLibrary;
 class CommandHandler;
+class ComponentInterface;
+class ModuleInterface;
 
 wxWindow *  MakeHijackPanel();
 
@@ -39,8 +40,7 @@ typedef enum
    AppInitialized,
    AppQuiting,
    ProjectInitialized,
-   ProjectClosing,
-   MenusRebuilt
+   ProjectClosing
 } ModuleDispatchTypes;
 
 typedef int (*fnModuleDispatch)(ModuleDispatchTypes type);
@@ -48,16 +48,17 @@ typedef int (*fnModuleDispatch)(ModuleDispatchTypes type);
 class Module
 {
 public:
-   Module(const wxString & name);
+   Module(const FilePath & name);
    virtual ~Module();
 
    bool Load();
    void Unload();
+   bool HasDispatch() { return mDispatch != NULL; };
    int Dispatch(ModuleDispatchTypes type);
    void * GetSymbol(const wxString &name);
 
 private:
-   wxString mName;
+   FilePath mName;
    std::unique_ptr<wxDynamicLibrary> mLib;
    fnModuleDispatch mDispatch;
 };
@@ -70,18 +71,13 @@ using ModuleInterfaceHandle = std::unique_ptr<
    ModuleInterface, ModuleInterfaceDeleter
 >;
 
-typedef std::map<wxString, ModuleMain *> ModuleMainMap;
 typedef std::map<wxString, ModuleInterfaceHandle> ModuleMap;
 typedef std::map<ModuleInterface *, std::unique_ptr<wxDynamicLibrary>> LibraryMap;
+using PluginIDs = wxArrayString;
 
-class ModuleManager final : public ModuleManagerInterface
+class ModuleManager final
 {
 public:
-   // -------------------------------------------------------------------------
-   // ModuleManagerInterface implementation
-   // -------------------------------------------------------------------------
-
-   void RegisterModule(ModuleInterface *module) override;
 
    // -------------------------------------------------------------------------
    // ModuleManager implementation
@@ -93,21 +89,19 @@ public:
    int Dispatch(ModuleDispatchTypes type);
 
    // PluginManager use
+   // Can be called before Initialize()
    bool DiscoverProviders();
 
-   // Seems we don't currently use FindAllPlugins
-   void FindAllPlugins(PluginIDList & providers, wxArrayString & paths);
+   PluginPaths FindPluginsForProvider(const PluginID & provider, const PluginPath & path);
+   bool RegisterEffectPlugin(const PluginID & provider, const PluginPath & path,
+                       TranslatableString &errMsg);
 
-   wxArrayString FindPluginsForProvider(const PluginID & provider, const wxString & path);
-   bool RegisterEffectPlugin(const PluginID & provider, const wxString & path,
-                       wxString &errMsg);
-
-   ComponentInterface *CreateProviderInstance(const PluginID & provider, const wxString & path);
-   ComponentInterface *CreateInstance(const PluginID & provider, const wxString & path);
+   ModuleInterface *CreateProviderInstance(const PluginID & provider, const PluginPath & path);
+   ComponentInterface *CreateInstance(const PluginID & provider, const PluginPath & path);
    void DeleteInstance(const PluginID & provider, ComponentInterface *instance);
 
-   bool IsProviderValid(const PluginID & provider, const wxString & path);
-   bool IsPluginValid(const PluginID & provider, const wxString & path, bool bFast);
+   bool IsProviderValid(const PluginID & provider, const PluginPath & path);
+   bool IsPluginValid(const PluginID & provider, const PluginPath & path, bool bFast);
 
 private:
    // I'm a singleton class
@@ -115,17 +109,24 @@ private:
    ~ModuleManager();
 
    void InitializeBuiltins();
-   ModuleInterface *LoadModule(const wxString & path);
+   ModuleInterface *LoadModule(const PluginPath & path);
 
 private:
    friend ModuleInterfaceDeleter;
    friend std::default_delete<ModuleManager>;
    static std::unique_ptr<ModuleManager> mInstance;
 
-   ModuleMainMap mModuleMains;
+   // Module objects, also called Providers, can each report availability of any
+   // number of Plug-Ins identified by "paths", and are also factories of
+   // ComponentInterface objects for each path:
    ModuleMap mDynModules;
+
+   // Dynamically loaded libraries, each one a factory that makes one of the
+   // (non-built-in) providers:
    LibraryMap mLibs;
 
+   // Other libraries that receive notifications of events described by
+   // ModuleDispatchTypes:
    std::vector<std::unique_ptr<Module>> mModules;
 };
 

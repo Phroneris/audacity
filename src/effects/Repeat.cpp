@@ -21,24 +21,32 @@
 
 
 #include "../Audacity.h"
+#include "Repeat.h"
 
 
 #include <math.h>
 
 #include <wx/intl.h>
+#include <wx/stattext.h>
 
 #include "../LabelTrack.h"
+#include "../Shuttle.h"
 #include "../ShuttleGui.h"
 #include "../WaveTrack.h"
 #include "../widgets/NumericTextCtrl.h"
 #include "../widgets/valnum.h"
 
-#include "Repeat.h"
+#include "LoadEffects.h"
 
 // Define keys, defaults, minimums, and maximums for the effect parameters
 //
 //     Name    Type  Key             Def  Min   Max      Scale
 Param( Count,  int,  wxT("Count"),    1,  1,    INT_MAX, 1  );
+
+const ComponentInterfaceSymbol EffectRepeat::Symbol
+{ XO("Repeat") };
+
+namespace{ BuiltinEffectsModule::Registration< EffectRepeat > reg; }
 
 BEGIN_EVENT_TABLE(EffectRepeat, wxEvtHandler)
    EVT_TEXT(wxID_ANY, EffectRepeat::OnRepeatTextChange)
@@ -59,12 +67,12 @@ EffectRepeat::~EffectRepeat()
 
 ComponentInterfaceSymbol EffectRepeat::GetSymbol()
 {
-   return REPEAT_PLUGIN_SYMBOL;
+   return Symbol;
 }
 
-wxString EffectRepeat::GetDescription()
+TranslatableString EffectRepeat::GetDescription()
 {
-   return _("Repeats the selection the specified number of times");
+   return XO("Repeats the selection the specified number of times");
 }
 
 wxString EffectRepeat::ManualPage()
@@ -171,17 +179,19 @@ void EffectRepeat::PopulateOrExchange(ShuttleGui & S)
 {
    S.StartHorizontalLay(wxCENTER, false);
    {
-      IntegerValidator<int> vldRepeatCount(&repeatCount);
-      vldRepeatCount.SetRange(MIN_Count, 2147483647 / mProjectRate);
-      mRepeatCount = S.AddTextBox(_("Number of repeats to add:"), wxT(""), 12);
-      mRepeatCount->SetValidator(vldRepeatCount);
+      mRepeatCount = S.Validator<IntegerValidator<int>>(
+            &repeatCount, NumValidatorStyle::DEFAULT,
+            MIN_Count, 2147483647 / mProjectRate
+         )
+         .AddTextBox(XXO("&Number of repeats to add:"), wxT(""), 12);
    }
    S.EndHorizontalLay();
 
    S.StartMultiColumn(1, wxCENTER);
    {
-      mCurrentTime = S.AddVariableText(_("Current selection length: dd:hh:mm:ss"));
-      mTotalTime = S.AddVariableText(_("New selection length: dd:hh:mm:ss"));
+      mCurrentTime = S.AddVariableText(
+         XO("Current selection length: dd:hh:mm:ss"));
+      mTotalTime = S.AddVariableText(XO("New selection length: dd:hh:mm:ss"));
    }
    S.EndMultiColumn();
 }

@@ -15,23 +15,16 @@
 #ifndef __AUDACITY_TIME_TEXT_CTRL__
 #define __AUDACITY_TIME_TEXT_CTRL__
 
+#include "../Audacity.h"
+
 #include "../MemoryX.h"
 #include "../../include/audacity/ComponentInterface.h"
 #include <vector>
+#include <wx/setup.h> // for wxUSE_* macros
 #include <wx/defs.h>
-#include <wx/event.h>
-#include <wx/panel.h>
-#include <wx/stattext.h>
-#include <wx/string.h>
-#include <wx/textctrl.h>
+#include <wx/control.h> // to inherit
 
-#include "../Audacity.h"
 #include "../Internat.h"
-
-#if wxUSE_ACCESSIBILITY
-#include <wx/access.h>
-#include "WindowAccessible.h"
-#endif
 
 // One event type for each type of control.  Event is raised when a control
 // changes its format.  Owners of controls of the same type can listen and
@@ -41,7 +34,7 @@ DECLARE_EXPORTED_EVENT_TYPE(AUDACITY_DLL_API, EVT_FREQUENCYTEXTCTRL_UPDATED, -1)
 DECLARE_EXPORTED_EVENT_TYPE(AUDACITY_DLL_API, EVT_BANDWIDTHTEXTCTRL_UPDATED,
                             -1);
 
-/** \brief struct to hold a formatting control string and it's user facing name
+/** \brief struct to hold a formatting control string and its user facing name
  * Used in an array to hold the built-in time formats that are always available
  * to the user */
 struct BuiltinFormatString;
@@ -50,28 +43,46 @@ class NumericField;
 
 class DigitInfo;
 
-using NumericFormatId = ComponentInterfaceSymbol;
-
 class NumericConverter /* not final */
 {
 public:
 
    enum Type {
       TIME,
+      ATIME, // for Audio time control.
       FREQUENCY,
       BANDWIDTH,
    };
 
-   static NumericFormatId DefaultSelectionFormat();
-   static NumericFormatId TimeAndSampleFormat();
-   static NumericFormatId SecondsFormat();
-   static NumericFormatId HundredthsFormat();
-   static NumericFormatId HertzFormat();
+   struct FormatStrings {
+      TranslatableString formatStr;
+      // How to name the fraction of the unit; not necessary for time formats
+      // or when the format string has no decimal point
+      TranslatableString fraction;
+
+      FormatStrings(
+         const TranslatableString &format = {},
+         const TranslatableString &fraction = {})
+         : formatStr{ format }, fraction{ fraction }
+      {}
+
+      friend bool operator == ( const FormatStrings &x, const FormatStrings &y )
+         { return x.formatStr == y.formatStr && x.fraction == y.fraction; }
+      friend bool operator != ( const FormatStrings &x, const FormatStrings &y )
+         { return !(x == y); }
+   };
+
+   static NumericFormatSymbol DefaultSelectionFormat();
+   static NumericFormatSymbol TimeAndSampleFormat();
+   static NumericFormatSymbol SecondsFormat();
+   static NumericFormatSymbol HoursMinsSecondsFormat();
+   static NumericFormatSymbol HundredthsFormat();
+   static NumericFormatSymbol HertzFormat();
    
-   static NumericFormatId LookupFormat( Type type, const wxString& id);
+   static NumericFormatSymbol LookupFormat( Type type, const wxString& id);
 
    NumericConverter(Type type,
-                    const NumericFormatId & formatName = {},
+                    const NumericFormatSymbol & formatName = {},
                     double value = 0.0f,
                     double sampleRate = 1.0f /* to prevent div by 0 */);
 
@@ -88,12 +99,17 @@ public:
    virtual void ControlsToValue();
 
 private:
-   void ParseFormatString(const wxString & untranslatedFormat);
+   void ParseFormatString(const TranslatableString & untranslatedFormat);
 
 public:
    void PrintDebugInfo();
-   void SetFormatName(const NumericFormatId & formatName);
-   void SetFormatString(const wxString & formatString);
+
+   // returns true iff the format name really changed:
+   bool SetFormatName(const NumericFormatSymbol & formatName);
+
+   // returns true iff the format string really changed:
+   bool SetFormatString(const FormatStrings & formatString);
+
    void SetSampleRate(double sampleRate);
    void SetValue(double newValue);
    void SetMinValue(double minValue);
@@ -108,9 +124,9 @@ public:
    int GetFormatIndex();
 
    int GetNumBuiltins();
-   NumericFormatId GetBuiltinName(const int index);
-   wxString GetBuiltinFormat(const int index);
-   wxString GetBuiltinFormat(const NumericFormatId & name);
+   NumericFormatSymbol GetBuiltinName(const int index);
+   FormatStrings GetBuiltinFormat(const int index);
+   FormatStrings GetBuiltinFormat(const NumericFormatSymbol & name);
 
    // Adjust the value by the number "steps" in the active format.
    // Increment if "dir" is 1, decrement if "dir" is -1.
@@ -128,7 +144,7 @@ protected:
    double         mMaxValue;
    double         mInvalidValue;
 
-   wxString       mFormatString;
+   FormatStrings mFormatString;
 
    std::vector<NumericField> mFields;
    wxString       mPrefix;
@@ -162,7 +178,7 @@ class NumericTextCtrl final : public wxControl, public NumericConverter
       bool menuEnabled { true };
       bool hasInvalidValue { false };
       double invalidValue { -1.0 };
-      wxString format {};
+      FormatStrings format {};
       bool hasValue { false };
       double value{ -1.0 };
 
@@ -174,7 +190,7 @@ class NumericTextCtrl final : public wxControl, public NumericConverter
       Options &InvalidValue (bool has, double v = -1.0)
          { hasInvalidValue = has, invalidValue = v; return *this; }
       // use a custom format not in the tables:
-      Options &Format (const wxString &f)
+      Options &Format (const FormatStrings &f)
          { format = f; return *this; }
       Options &Value (bool has, double v)
          { hasValue = has, value = v; return *this; }
@@ -182,7 +198,7 @@ class NumericTextCtrl final : public wxControl, public NumericConverter
 
    NumericTextCtrl(wxWindow *parent, wxWindowID winid,
                    NumericConverter::Type type,
-                   const NumericFormatId &formatName = {},
+                   const NumericFormatSymbol &formatName = {},
                    double value = 0.0,
                    double sampleRate = 44100,
                    const Options &options = {},
@@ -191,16 +207,27 @@ class NumericTextCtrl final : public wxControl, public NumericConverter
 
    virtual ~NumericTextCtrl();
 
+   // Hide the inherited function that takes wxString
+   void SetName( const TranslatableString &name );
+
+   wxSize ComputeSizing(bool update = true, wxCoord digitW = 0, wxCoord digitH = 0);
    bool Layout() override;
    void Fit() override;
 
    void SetSampleRate(double sampleRate);
    void SetValue(double newValue);
-   void SetFormatString(const wxString & formatString);
-   void SetFormatName(const NumericFormatId & formatName);
+
+   // returns true iff the format string really changed:
+   bool SetFormatString(const FormatStrings & formatString);
+
+   // returns true iff the format name really changed:
+   bool SetFormatName(const NumericFormatSymbol & formatName);
 
    void SetFieldFocus(int /* digit */);
 
+   wxSize GetDimensions() { return wxSize(mWidth + mButtonWidth, mHeight); }
+   wxSize GetDigitSize() { return wxSize(mDigitBoxW, mDigitBoxH); }
+   void SetDigitSize(int width, int height);
    void SetReadOnly(bool readOnly = true);
    void EnableMenu(bool enable = true);
 
@@ -269,86 +296,5 @@ private:
 
    DECLARE_EVENT_TABLE()
 };
-
-#if wxUSE_ACCESSIBILITY
-
-class NumericTextCtrlAx final : public WindowAccessible
-{
-public:
-   NumericTextCtrlAx(NumericTextCtrl * ctrl);
-
-   virtual ~ NumericTextCtrlAx();
-
-   // Performs the default action. childId is 0 (the action for this object)
-   // or > 0 (the action for a child).
-   // Return wxACC_NOT_SUPPORTED if there is no default action for this
-   // window (e.g. an edit control).
-   wxAccStatus DoDefaultAction(int childId) override;
-
-   // Retrieves the address of an IDispatch interface for the specified child.
-   // All objects must support this property.
-   wxAccStatus GetChild(int childId, wxAccessible **child) override;
-
-   // Gets the number of children.
-   wxAccStatus GetChildCount(int *childCount) override;
-
-   // Gets the default action for this object (0) or > 0 (the action for a child).
-   // Return wxACC_OK even if there is no action. actionName is the action, or the empty
-   // string if there is no action.
-   // The retrieved string describes the action that is performed on an object,
-   // not what the object does as a result. For example, a toolbar button that prints
-   // a document has a default action of "Press" rather than "Prints the current document."
-   wxAccStatus GetDefaultAction(int childId, wxString *actionName) override;
-
-   // Returns the description for this object or a child.
-   wxAccStatus GetDescription(int childId, wxString *description) override;
-
-   // Gets the window with the keyboard focus.
-   // If childId is 0 and child is NULL, no object in
-   // this subhierarchy has the focus.
-   // If this object has the focus, child should be 'this'.
-   wxAccStatus GetFocus(int *childId, wxAccessible **child) override;
-
-   // Returns help text for this object or a child, similar to tooltip text.
-   wxAccStatus GetHelpText(int childId, wxString *helpText) override;
-
-   // Returns the keyboard shortcut for this object or child.
-   // Return e.g. ALT+K
-   wxAccStatus GetKeyboardShortcut(int childId, wxString *shortcut) override;
-
-   // Returns the rectangle for this object (id = 0) or a child element (id > 0).
-   // rect is in screen coordinates.
-   wxAccStatus GetLocation(wxRect & rect, int elementId) override;
-
-   // Gets the name of the specified object.
-   wxAccStatus GetName(int childId, wxString *name) override;
-
-   // Returns a role constant.
-   wxAccStatus GetRole(int childId, wxAccRole *role) override;
-
-   // Gets a variant representing the selected children
-   // of this object.
-   // Acceptable values:
-   // - a null variant (IsNull() returns TRUE)
-   // - a list variant (GetType() == wxT("list"))
-   // - an integer representing the selected child element,
-   //   or 0 if this object is selected (GetType() == wxT("long"))
-   // - a "void*" pointer to a wxAccessible child object
-   wxAccStatus GetSelections(wxVariant *selections) override;
-
-   // Returns a state constant.
-   wxAccStatus GetState(int childId, long *state) override;
-
-   // Returns a localized string representing the value for the object
-   // or child.
-   wxAccStatus GetValue(int childId, wxString *strValue) override;
-
-private:
-   NumericTextCtrl *mCtrl;
-   int mLastField;
-   int mLastDigit;
-};
-
-#endif // wxUSE_ACCESSIBILITY
 
 #endif // __AUDACITY_TIME_TEXT_CTRL__

@@ -12,13 +12,12 @@ Paul Licameli
 #define __AUDACITY_BUTTON_HANDLE__
 
 #include "../../UIHandle.h"
-#include "../../MemoryX.h"
 
 class wxMouseEvent;
 class wxMouseState;
-#include <wx/gdicmn.h>
 
 class Track;
+class TranslatableString;
 
 
 /// \brief A UIHandle for a TrackPanel button, such as the Mute and Solo 
@@ -47,9 +46,10 @@ protected:
       (const wxMouseEvent &event, AudacityProject *pProject, wxWindow *pParent) = 0;
 
    // Define a message for the status bar and tooltip.
-   virtual wxString Tip(const wxMouseState &state) const = 0;
+   virtual TranslatableString Tip(
+      const wxMouseState &state, AudacityProject &project) const = 0;
 
-   void Enter(bool forward) final override;
+   void Enter(bool forward, AudacityProject *) final override;
 
    Result Click
       (const TrackPanelMouseEvent &event, AudacityProject *pProject)
@@ -60,7 +60,7 @@ protected:
       final override;
 
    HitTestPreview Preview
-      (const TrackPanelMouseState &state, const AudacityProject *pProject)
+      (const TrackPanelMouseState &state, AudacityProject *pProject)
       final override;
 
    Result Release

@@ -13,22 +13,20 @@
 #ifndef __AUDACITY_EFFECT_INVERT__
 #define __AUDACITY_EFFECT_INVERT__
 
-#include <wx/string.h>
-
 #include "Effect.h"
-
-#define INVERT_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Invert") }
 
 class EffectInvert final : public Effect
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    EffectInvert();
    virtual ~EffectInvert();
 
    // ComponentInterface implementation
 
    ComponentInterfaceSymbol GetSymbol() override;
-   wxString GetDescription() override;
+   TranslatableString GetDescription() override;
 
    // EffectDefinitionInterface implementation
 

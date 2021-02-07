@@ -16,22 +16,20 @@ class wxString;
 
 class LabelTrack;
 
-#include <wx/string.h>
-
 #include "Effect.h"
-
-#define FINDCLIPPING_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Find Clipping") }
 
 class EffectFindClipping final : public Effect
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    EffectFindClipping();
    virtual ~EffectFindClipping();
 
    // ComponentInterface implementation
 
    ComponentInterfaceSymbol GetSymbol() override;
-   wxString GetDescription() override;
+   TranslatableString GetDescription() override;
    wxString ManualPage() override;
 
    // EffectDefinitionInterface implementation

@@ -8,8 +8,24 @@
 
 #include "Audacity.h"
 #include "SelectionState.h"
+
 #include "ViewInfo.h"
 #include "Track.h"
+#include "Project.h"
+
+static const AudacityProject::AttachedObjects::RegisteredFactory key{
+  [](AudacityProject &){ return std::make_shared< SelectionState >(); }
+};
+
+SelectionState &SelectionState::Get( AudacityProject &project )
+{
+   return project.AttachedObjects::Get< SelectionState >( key );
+}
+
+const SelectionState &SelectionState::Get( const AudacityProject &project )
+{
+   return Get( const_cast< AudacityProject & >( project ) );
+}
 
 // Set selection length to the length of a track -- but if sync-lock is turned
 // on, use the largest possible selection in the sync-lock group.
@@ -42,7 +58,7 @@ void SelectionState::SelectTrack(
       channel->SetSelected(selected);
 
    if (updateLastPicked)
-      mLastPickedTrack = Track::Pointer( &track );
+      mLastPickedTrack = track.SharedPointer();
 
 //The older code below avoids an anchor on an unselected track.
 
@@ -92,11 +108,11 @@ void SelectionState::ChangeSelectionOnShiftClick
 
       // If our track is at or after the first, extend from the first.
       if( pFirst && track.GetIndex() >= pFirst->GetIndex() )
-         pExtendFrom = Track::Pointer( pFirst );
+         pExtendFrom = pFirst->SharedPointer();
 
       // Our track was earlier than the first.  Extend from the last.
       if( !pExtendFrom )
-         pExtendFrom = Track::Pointer( *trackRange.rbegin() );
+         pExtendFrom = Track::SharedPointer( *trackRange.rbegin() );
    }
 
    SelectNone( tracks );

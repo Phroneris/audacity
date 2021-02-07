@@ -11,27 +11,18 @@
 #ifndef __AUDACITY_EFFECT_COMPRESSOR__
 #define __AUDACITY_EFFECT_COMPRESSOR__
 
-#include <wx/bitmap.h>
-#include <wx/checkbox.h>
-#include <wx/event.h>
-#include <wx/gdicmn.h>
-#include <wx/slider.h>
-#include <wx/string.h>
-#include <wx/stattext.h>
-#include <wx/window.h>
-#include "../widgets/wxPanelWrapper.h"
-
 #include "TwoPassSimpleMono.h"
-#include "../SampleFormat.h"
 
+class wxCheckBox;
+class wxSlider;
+class wxStaticText;
 class EffectCompressorPanel;
 class ShuttleGui;
-
-#define COMPRESSOR_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Compressor") }
 
 class EffectCompressor final : public EffectTwoPassSimpleMono
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
 
    EffectCompressor();
    virtual ~EffectCompressor();
@@ -39,7 +30,7 @@ public:
    // ComponentInterface implementation
 
    ComponentInterfaceSymbol GetSymbol() override;
-   wxString GetDescription() override;
+   TranslatableString GetDescription() override;
    wxString ManualPage() override;
 
    // EffectDefinitionInterface implementation

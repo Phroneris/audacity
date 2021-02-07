@@ -31,12 +31,10 @@ flicker-free use.
 
 #include "../Audacity.h"
 
-#include "wx/defs.h"
-#include "wx/dc.h"
-#include "wx/event.h"
-#include "wx/gdicmn.h"
-#include "wx/window.h"
-#include <wx/statbmp.h>
+#include <wx/defs.h>
+#include <wx/statbmp.h> // to inherit
+
+class TranslatableString;
 
 ////////////////////////////////////////////////////////////
 /// Grabber Class
@@ -120,6 +118,9 @@ class Grabber final : public wxWindow
    void PushButton(bool state);
    void SetAsSpacer( bool bIsSpacer );
 
+   // overload and hide the inherited function that takes naked wxString:
+   void SetToolTip(const TranslatableString &toolTip);
+
  protected:
 
    void OnLeftDown(wxMouseEvent & event);
@@ -144,7 +145,7 @@ class Grabber final : public wxWindow
 };
 
 // Piggy back in same source file as Grabber.
-// Audcaity Flicker-free StaticBitmap.
+// Audacity Flicker-free StaticBitmap.
 class AStaticBitmap : public wxStaticBitmap {
   public:
     AStaticBitmap(wxWindow *parent,

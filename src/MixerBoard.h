@@ -8,23 +8,25 @@
 
 **********************************************************************/
 
+#include "Audacity.h" // for USE_* macros
 #include "Experimental.h"
 
 #ifndef __AUDACITY_MIXER_BOARD__
 #define __AUDACITY_MIXER_BOARD__
 
-#include <wx/frame.h>
-#include <wx/bmpbuttn.h>
-#include <wx/hashmap.h>
-#include <wx/image.h>
-#include <wx/scrolwin.h>
-#include <wx/statbmp.h>
-#include <wx/stattext.h>
+#include <wx/frame.h> // to inherit
+#include <wx/scrolwin.h> // to inherit
 
-#include "widgets/AButton.h"
-#include "widgets/ASlider.h"
-#include "widgets/wxPanelWrapper.h"
+#include "widgets/ASlider.h" // to inherit
+#include "commands/CommandManagerWindowClasses.h"
 
+#include "Prefs.h"
+
+class wxArrayString;
+class wxBitmapButton;
+class wxImage;
+class wxMemoryDC;
+class AButton;
 struct TrackListEvent;
 
 // containment hierarchy:
@@ -38,7 +40,7 @@ class MixerTrackSlider final : public ASlider
 public:
    MixerTrackSlider(wxWindow * parent,
                      wxWindowID id,
-                     const wxString &name,
+                     const TranslatableString &name,
                      const wxPoint & pos,
                      const wxSize & size,
                      const ASlider::Options &options = ASlider::Options{});
@@ -188,7 +190,7 @@ public:
 class MixerBoardFrame;
 class TrackList;
 
-class MixerBoard final : public wxWindow
+class MixerBoard final : public wxWindow, private PrefsListener
 {
    friend class MixerBoardFrame;
 
@@ -198,10 +200,10 @@ public:
                const wxPoint& pos = wxDefaultPosition,
                const wxSize& size = wxDefaultSize);
 
-   void UpdatePrefs();
+   void UpdatePrefs() override;
 
    // Add clusters for any tracks we're not yet showing.
-   // Update pointers for tracks we're aleady showing.
+   // Update pointers for tracks we're already showing.
    void UpdateTrackClusters();
 
    int GetTrackClustersWidth();
@@ -222,7 +224,7 @@ private:
    void ResetMeters(const bool bResetClipping);   
    void RemoveTrackCluster(size_t nIndex);
    void MakeButtonBitmap( wxMemoryDC & dc, wxBitmap & bitmap,
-      wxRect & bev, const wxString & str, bool up );
+      wxRect & bev, const TranslatableString & str, bool up );
    void CreateMuteSoloImages();
    int FindMixerTrackCluster(const PlayableTrack* pTrack,
                               MixerTrackCluster** hMixerTrackCluster) const;
@@ -260,7 +262,9 @@ public:
 };
 
 
-class MixerBoardFrame final : public wxFrame
+class MixerBoardFrame final
+   : public wxFrame
+   , public TopLevelKeystrokeHandlingWindow
 {
 public:
    MixerBoardFrame(AudacityProject* parent);

@@ -12,18 +12,14 @@
 #ifndef __AUDACITY_PREFS_DIALOG__
 #define __AUDACITY_PREFS_DIALOG__
 
+#include <functional>
 #include <vector>
-#include <wx/button.h>
-#include <wx/event.h>
-#include <wx/dialog.h>
-#include <wx/string.h>
-#include <wx/treebook.h>
-#include <wx/window.h>
-#include "../widgets/wxPanelWrapper.h"
-#include "../Internat.h"
+#include "../widgets/wxPanelWrapper.h" // to inherit
+#include "PrefsPanel.h"
 
-class PrefsPanel;
-class PrefsPanelFactory;
+class AudacityProject;
+class wxTreebook;
+class wxTreeEvent;
 class ShuttleGui;
 
 #ifdef __GNUC__
@@ -32,27 +28,16 @@ class ShuttleGui;
 #define CONST const
 #endif
 
+class AudacityProject;
+
 class PrefsDialog /* not final */ : public wxDialogWrapper
 {
  public:
-    // An array of PrefsNode specifies the tree of pages in pre-order traversal.
-    struct PrefsNode {
-       PrefsPanelFactory * CONST pFactory;
-       CONST int nChildren;
-       bool expanded;
-
-       PrefsNode(PrefsPanelFactory *pFactory_,
-          int nChildren_ = 0,
-          bool expanded_ = true)
-          : pFactory(pFactory_), nChildren(nChildren_), expanded(expanded_)
-       {}
-    };
-   typedef std::vector<PrefsNode> Factories;
-   static Factories &DefaultFactories();
-
    PrefsDialog(wxWindow * parent,
-      const wxString &titlePrefix = _("Preferences: "),
-      Factories &factories = DefaultFactories());
+      AudacityProject *pProject, // may be null
+      const TranslatableString &titlePrefix = XO("Preferences:"),
+      PrefsPanel::Factories &factories =
+         PrefsPanel::DefaultFactories());
    virtual ~PrefsDialog();
 
    // Defined this so a protected virtual can be invoked after the constructor
@@ -84,8 +69,8 @@ private:
    PrefsPanel * GetCurrentPanel();
    wxTreebook *mCategories{};
    PrefsPanel *mUniquePage{};
-   Factories &mFactories;
-   const wxString mTitlePrefix;
+   PrefsPanel::Factories &mFactories;
+   const TranslatableString mTitlePrefix;
 
    DECLARE_EVENT_TABLE()
 };
@@ -95,10 +80,16 @@ private:
 class GlobalPrefsDialog final : public PrefsDialog
 {
 public:
-   GlobalPrefsDialog(wxWindow * parent, Factories &factories = DefaultFactories());
+   GlobalPrefsDialog(
+      wxWindow * parent, AudacityProject *pProject,
+      PrefsPanel::Factories &factories =
+         PrefsPanel::DefaultFactories());
    virtual ~GlobalPrefsDialog();
    long GetPreferredPage() override;
    void SavePreferredPage() override;
 };
+
+class AudacityProject;
+void DoReloadPreferences( AudacityProject &project );
 
 #endif

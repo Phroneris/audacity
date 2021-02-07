@@ -12,6 +12,7 @@
 #define __AUDACITY_SAMPLE_FORMAT__
 
 #include "Audacity.h"
+
 #include "MemoryX.h"
 #include <wx/defs.h>
 
@@ -43,7 +44,7 @@ typedef enum {
 #define SAMPLE_SIZE_DISK(SampleFormat) (((SampleFormat) == int24Sample) ? \
    size_t{ 3 } : SAMPLE_SIZE(SampleFormat) )
 
-const wxChar *GetSampleFormatStr(sampleFormat format);
+TranslatableString GetSampleFormatStr(sampleFormat format);
 
 //
 // Allocating/Freeing Samples
@@ -123,7 +124,7 @@ private:
 // Copying, Converting and Clearing Samples
 //
 
-void      CopySamples(samplePtr src, sampleFormat srcFormat,
+void      CopySamples(constSamplePtr src, sampleFormat srcFormat,
                       samplePtr dst, sampleFormat dstFormat,
                       unsigned int len, bool highQuality=true,
                       unsigned int srcStride=1,
@@ -149,7 +150,7 @@ void      ReverseSamples(samplePtr buffer, sampleFormat format,
 void      InitDitherers();
 
 // These are so commonly done for processing samples in floating point form in memory,
-// let's have abbeviations.
+// let's have abbreviations.
 using Floats = ArrayOf<float>;
 using FloatBuffers = ArraysOf<float>;
 using Doubles = ArrayOf<double>;

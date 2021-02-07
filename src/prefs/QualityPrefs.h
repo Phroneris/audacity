@@ -15,21 +15,23 @@
 #include <vector>
 #include <wx/defs.h>
 
-#include <wx/arrstr.h>
-#include <wx/choice.h>
-#include <wx/textctrl.h>
-
 #include "PrefsPanel.h"
 
+class wxChoice;
+class wxTextCtrl;
 class ShuttleGui;
 enum sampleFormat : unsigned;
 enum DitherType : unsigned;
+
+#define QUALITY_PREFS_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Quality") }
 
 class QualityPrefs final : public PrefsPanel
 {
  public:
    QualityPrefs(wxWindow * parent, wxWindowID winid);
    virtual ~QualityPrefs();
+   ComponentInterfaceSymbol GetSymbol() override;
+   TranslatableString GetDescription() override;
 
    bool Commit() override;
    wxString HelpPageName() override;
@@ -37,15 +39,12 @@ class QualityPrefs final : public PrefsPanel
 
    static sampleFormat SampleFormatChoice();
 
-   static DitherType FastDitherChoice();
-   static DitherType BestDitherChoice();
-
  private:
    void Populate();
    void GetNamesAndLabels();
    void OnSampleRateChoice(wxCommandEvent & e);
 
-   wxArrayString mSampleRateNames;
+   TranslatableStrings mSampleRateNames;
    std::vector<int> mSampleRateLabels;
 
    wxChoice *mSampleRates;
@@ -55,10 +54,4 @@ class QualityPrefs final : public PrefsPanel
    DECLARE_EVENT_TABLE()
 };
 
-/// A PrefsPanelFactory that creates one QualityPrefs panel.
-class QualityPrefsFactory final : public PrefsPanelFactory
-{
-public:
-   PrefsPanel *operator () (wxWindow *parent, wxWindowID winid) override;
-};
 #endif

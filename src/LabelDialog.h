@@ -13,15 +13,16 @@
 
 #include <vector>
 #include <wx/defs.h>
-#include <wx/event.h>
-#include <wx/grid.h>
-#include <wx/string.h>
 
-#include "Internat.h"
-#include "widgets/Grid.h"
-#include "widgets/wxPanelWrapper.h"
+#include "widgets/wxPanelWrapper.h" // to inherit
+#include "audacity/ComponentInterface.h" // member variable
 
-class TrackFactory;
+class wxArrayString;
+class wxGridEvent;
+class AudacityProject;
+class ChoiceEditor;
+class Grid;
+class NumericEditor;
 class TrackList;
 class RowData;
 class EmptyLabelRenderer;
@@ -36,7 +37,7 @@ class LabelDialog final : public wxDialogWrapper
  public:
 
    LabelDialog(wxWindow *parent,
-               TrackFactory &factory,
+               AudacityProject &project,
                TrackList *tracks,
 
                // if NULL edit all tracks, else this one only:
@@ -48,8 +49,8 @@ class LabelDialog final : public wxDialogWrapper
 
                ViewInfo &viewinfo,
                double rate,
-               const NumericFormatId & format,
-               const NumericFormatId &freqFormat);
+               const NumericFormatSymbol & format,
+               const NumericFormatSymbol &freqFormat);
    ~LabelDialog();
 
     bool Show(bool show = true) override;
@@ -92,6 +93,8 @@ class LabelDialog final : public wxDialogWrapper
 
  private:
 
+   AudacityProject &mProject;
+
    Grid *mGrid;
    ChoiceEditor *mChoiceEditor;
    NumericEditor *mTimeEditor;
@@ -99,14 +102,13 @@ class LabelDialog final : public wxDialogWrapper
 
    RowDataArray mData;
 
-   TrackFactory &mFactory;
    TrackList *mTracks;
    LabelTrack *mSelectedTrack {};
    int mIndex { -1 };
    ViewInfo *mViewInfo;
    wxArrayString mTrackNames;
    double mRate;
-   NumericFormatId mFormat, mFreqFormat;
+   NumericFormatSymbol mFormat, mFreqFormat;
 
    int mInitialRow;
 

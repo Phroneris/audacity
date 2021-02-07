@@ -11,13 +11,17 @@
 #ifndef __AUDACITY_FILE_FORMATS__
 #define __AUDACITY_FILE_FORMATS__
 
-#include <wx/list.h>
-#include <wx/arrstr.h>
-#include <wx/string.h>
+#include "Audacity.h" // for __UNIX__
 
-#include "Audacity.h"
+#include "audacity/Types.h"
+
+//#include <mutex>
+#include "MemoryX.h"
 
 #include "sndfile.h"
+
+class ChoiceSetting;
+class wxString;
 
 //
 // enumerating headers
@@ -71,7 +75,7 @@ wxString sf_header_shortname(int format);
 /** @brief Get the most common file extension for the given format
  *
  * AND the given format with SF_FORMAT_TYPEMASK to get just the container
- * format, then retreive the most common extension using SFC_GET_FORMAT_INFO.
+ * format, then retrieve the most common extension using SFC_GET_FORMAT_INFO.
  * @param format the libsndfile format to get the name for (only the container
  * part is used) */
 wxString sf_header_extension(int format);
@@ -96,33 +100,25 @@ SF_FORMAT_INFO *sf_simple_format(int i);
 
 bool sf_subtype_more_than_16_bits(unsigned int format);
 bool sf_subtype_is_integer(unsigned int format);
+int sf_subtype_bytes_per_sample(unsigned int format);
 
-wxArrayString sf_get_all_extensions();
+//! Choose the narrowest value in the sampleFormat enumeration for a given libsndfile format
+sampleFormat sf_subtype_to_effective_format(unsigned int format);
+
+extern FileExtensions sf_get_all_extensions();
 
 wxString sf_normalize_name(const char *name);
 
-//
-// Mac OS 4-char type
-//
-
-#ifdef __WXMAC__
-# ifdef __UNIX__
-#  include <CoreServices/CoreServices.h>
-# else
-#  include <Types.h>
-# endif
-
-OSType sf_header_mactype(int format);
-#endif
 
 // This function wrapper uses a mutex to serialize calls to the SndFile library.
-#include "MemoryX.h"
-#include "ondemand/ODTaskThread.h"
-extern ODLock libSndFileMutex;
+// PRL: Keeping this in a comment, but with Unitary, the only remaining uses
+// of libsndfile should be in import/export and so are on the main thread only
+//extern std::mutex libSndFileMutex;
+
 template<typename R, typename F, typename... Args>
 inline R SFCall(F fun, Args&&... args)
 {
-   ODLocker locker{ &libSndFileMutex };
+   //std::lock_guard<std::mutex> guard{ libSndFileMutex };
    return fun(std::forward<Args>(args)...);
 }
 
@@ -143,5 +139,8 @@ struct SFFile : public std::unique_ptr<SNDFILE, ::SFFileCloser>
       return result;
    }
 };
+
+extern ChoiceSetting FileFormatsCopyOrEditSetting;
+extern ChoiceSetting FileFormatsSaveWithDependenciesSetting;
 
 #endif

@@ -9,6 +9,11 @@
 **********************************************************************/
 
 #include <wx/defs.h>
-#include <wx/filename.h>
 
+class wxFileName;
+
+//! Update Audacity 1.0 file in-place to XML format
+/*! @return true if successful, else no effect on the file
+ @excsafety{Strong}
+ */
 bool ConvertLegacyProjectFile(const wxFileName &filename);

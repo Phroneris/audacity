@@ -13,17 +13,21 @@
 
 *//****************************************************************/
 
-#include "../Audacity.h"
+#include "../Audacity.h" // for USE_* macros
+#include "Equalization48x.h"
+
 #include "../Experimental.h"
+
 #ifdef EXPERIMENTAL_EQ_SSE_THREADED
-#include "../MemoryX.h"
 #include "../Project.h"
 #include "Equalization.h"
+#include "../WaveClip.h"
 #include "../WaveTrack.h"
 #include "../float_cast.h"
 #include <vector>
 
-#include <wx/dcmemory.h>
+#include <wx/setup.h> // for wxUSE_* macros
+
 #include <wx/event.h>
 #include <wx/string.h>
 
@@ -34,8 +38,6 @@
 
 #include <math.h>
 
-#include "Equalization48x.h"
-#include "../RealFFTf.h"
 #include "../RealFFTf48x.h"
 
 #ifndef USE_SSE2
@@ -204,7 +206,7 @@ bool EffectEqualization48x::AllocateBuffersWorkers(int nThreads)
    // this will remove the disparity in data at the intersections of the runs
 
    // The nice magic allocation
-   // megabyte - 3 windows - 4 overlaping buffers - filter 
+   // megabyte - 3 windows - 4 overlapping buffers - filter 
    // 2^20 = 1,048,576 - 3 * 2^14 (16,384) - ((4 * 20) - 3) * 12,384 - 4000 
    // 1,048,576 - 49,152 - 953,568 - 4000 = 41,856 (leftover)
 
@@ -298,7 +300,7 @@ bool EffectEqualization48x::Process(EffectEqualization* effectEqualization)
    auto cleanup = finally( [&] { FreeBuffersWorkers(); } );
    int count = 0;
    for( auto track :
-        mEffectEqualization->mOutputTracks->Selected< WaveTrack >() {
+        mEffectEqualization->mOutputTracks->Selected< WaveTrack >() ) {
       double trackStart = track->GetStartTime();
       double trackEnd = track->GetEndTime();
       double t0 = mEffectEqualization->mT0 < trackStart? trackStart: mEffectEqualization->mT0;
@@ -331,24 +333,26 @@ bool EffectEqualization48x::TrackCompare()
    auto cleanup = finally( [&] { FreeBuffersWorkers(); } );
    // Reset map
    // PRL:  These two maps aren't really used
-   std::vector<Track*> SecondIMap;
+   std::vector<const Track*> SecondIMap;
    std::vector<Track*> SecondOMap;
    SecondIMap.clear();
    SecondOMap.clear();
    
-   TrackList      SecondOutputTracks;
+   auto pSecondOutputTracks = TrackList::Create( nullptr );
+   auto &SecondOutputTracks = *pSecondOutputTracks;
 
-   for (auto aTrack : mEffectEqualization->mTracks->Any< WaveTrack >()) {
+   for (auto aTrack :
+      mEffectEqualization->inputTracks()->Any< const WaveTrack >()) {
 
       // Include selected tracks, plus sync-lock selected tracks for Track::All.
       if (aTrack->GetSelected() ||
          (// mEffectEqualization->mOutputTracksType == TrackKind::All &&
           aTrack->IsSyncLockSelected()))
       {
-         auto o = aTrack->Duplicate();
+         auto o = mEffectEqualization->mFactory->DuplicateWaveTrack( *aTrack );
          SecondIMap.push_back(aTrack);
          SecondIMap.push_back(o.get());
-         SecondOutputTracks.Add(std::move(o));
+         SecondOutputTracks.Add( o );
       }
    }
 
@@ -357,7 +361,7 @@ bool EffectEqualization48x::TrackCompare()
       int count = 0;
       for( auto track :
            ( i ? mEffectEqualization->mOutputTracks.get()
-               : &SecondOutputTracks ) -> Selected< WaveTrack >() {
+               : &SecondOutputTracks ) -> Selected< WaveTrack >() ) {
          double trackStart = track->GetStartTime();
          double trackEnd = track->GetEndTime();
          double t0 = mEffectEqualization->mT0 < trackStart? trackStart: mEffectEqualization->mT0;
@@ -378,7 +382,7 @@ bool EffectEqualization48x::TrackCompare()
    auto iter2 = (SecondOutputTracks.Selected< const WaveTrack >()).first;
    auto track2 = *iter2;
    for ( auto track :
-         mEffectEqualization->mOutputTracks->Selected< const WaveTrack >() {
+         mEffectEqualization->mOutputTracks->Selected< WaveTrack >() ) {
       double trackStart = track->GetStartTime();
       double trackEnd = track->GetEndTime();
       double t0 = mEffectEqualization->mT0 < trackStart? trackStart: mEffectEqualization->mT0;
@@ -396,7 +400,8 @@ bool EffectEqualization48x::TrackCompare()
    return bBreakLoop; // return !bBreakLoop ?
 }
 
-bool EffectEqualization48x::DeltaTrack(WaveTrack * t, WaveTrack * t2, sampleCount start, sampleCount len)
+bool EffectEqualization48x::DeltaTrack(
+   WaveTrack * t, const WaveTrack * t2, sampleCount start, sampleCount len)
 {
 
    auto trackBlockSize = t->GetMaxBlockSize();
@@ -404,8 +409,8 @@ bool EffectEqualization48x::DeltaTrack(WaveTrack * t, WaveTrack * t2, sampleCoun
    Floats buffer1{ trackBlockSize };
    Floats buffer2{ trackBlockSize };
 
-   AudacityProject *p = GetActiveProject();
-   auto output=p->GetTrackFactory()->NewWaveTrack(floatSample, t->GetRate());
+   auto output = t->EmptyCopy();
+   t->ConvertToSampleFormat( floatSample );
    auto originalLen = len;
    auto currentSample = start;
 
@@ -424,6 +429,8 @@ bool EffectEqualization48x::DeltaTrack(WaveTrack * t, WaveTrack * t2, sampleCoun
    ProcessTail(t, output.get(), start, len);
    return true;
 }
+
+#include <wx/stopwatch.h>
 
 bool EffectEqualization48x::Benchmark(EffectEqualization* effectEqualization)
 {
@@ -462,7 +469,7 @@ bool EffectEqualization48x::Benchmark(EffectEqualization* effectEqualization)
          timer.Start();
          int count = 0;
          for (auto track :
-              mEffectEqualization->mOutputTracks->Selected< WaveTrack >() {
+              mEffectEqualization->mOutputTracks->Selected< WaveTrack >() ) {
             double trackStart = track->GetStartTime();
             double trackEnd = track->GetEndTime();
             double t0 = mEffectEqualization->mT0 < trackStart? trackStart: mEffectEqualization->mT0;
@@ -491,8 +498,15 @@ bool EffectEqualization48x::Benchmark(EffectEqualization* effectEqualization)
    wxTimeSpan tsDefaultThreaded(0, 0, 0, times[3]);
    wxTimeSpan tsDefault(0, 0, 0, times[4]);
 
-   Effect::MessageBox(wxString::Format(_("Benchmark times:\nOriginal: %s\nDefault Segmented: %s\nDefault Threaded: %s\nSSE: %s\nSSE Threaded: %s\n"),tsDefault.Format(wxT("%M:%S.%l")),
-      tsDefaultEnhanced.Format(wxT("%M:%S.%l")), tsDefaultThreaded.Format(wxT("%M:%S.%l")),tsSSE.Format(wxT("%M:%S.%l")),tsSSEThreaded.Format(wxT("%M:%S.%l"))));
+   mEffectEqualization->MessageBox(
+      XO(
+"Benchmark times:\nOriginal: %s\nDefault Segmented: %s\nDefault Threaded: %s\nSSE: %s\nSSE Threaded: %s\n")
+         .Format(
+            tsDefault.Format(wxT("%M:%S.%l")),
+            tsDefaultEnhanced.Format(wxT("%M:%S.%l")),
+            tsDefaultThreaded.Format(wxT("%M:%S.%l")),
+            tsSSE.Format(wxT("%M:%S.%l")),
+            tsSSEThreaded.Format(wxT("%M:%S.%l")) ) );
    return bBreakLoop; // return !bBreakLoop ?
 }
 
@@ -506,7 +520,7 @@ bool EffectEqualization48x::ProcessTail(WaveTrack * t, WaveTrack * output, sampl
    double startT = t->LongSamplesToTime(start);
 
    //output has one waveclip for the total length, even though 
-   //t might have whitespace seperating multiple clips
+   //t might have whitespace separating multiple clips
    //we want to maintain the original clip structure, so
    //only paste the intersections of the NEW clip.
 
@@ -618,8 +632,8 @@ bool EffectEqualization48x::ProcessOne1x(int count, WaveTrack * t,
 
    auto trackBlockSize = t->GetMaxBlockSize();
 
-   AudacityProject *p = GetActiveProject();
-   auto output = p->GetTrackFactory()->NewWaveTrack(floatSample, t->GetRate());
+   auto output = t->EmptyCopy();
+   t->ConvertToSampleFormat( floatSample );
 
    mEffectEqualization->TrackProgress(count, 0.0);
    int subBufferSize=mBufferCount==8?(mSubBufferSize>>1):mSubBufferSize; // half the buffers if avx is active
@@ -630,7 +644,9 @@ bool EffectEqualization48x::ProcessOne1x(int count, WaveTrack * t,
    if(bigRuns == 0)
       singleProcessLength = len.as_size_t();
    else 
-      singleProcessLength=(mFilterSize>>1)*bigRuns + len%(bigRuns*(subBufferSize-mBlockSize));
+      singleProcessLength =
+         ((mFilterSize>>1)*bigRuns + len%(bigRuns*(subBufferSize-mBlockSize)))
+            .as_size_t();
    auto currentSample=start;
    bool bBreakLoop = false;
    for(int bigRun=0;bigRun<bigRuns;bigRun++)
@@ -803,14 +819,16 @@ bool EffectEqualization48x::ProcessOne4x(int count, WaveTrack * t,
 
    auto trackBlockSize = t->GetMaxBlockSize();
 
-   AudacityProject *p = GetActiveProject();
-   auto output = p->GetTrackFactory()->NewWaveTrack(floatSample, t->GetRate());
+   auto output = t->EmptyCopy();
+   t->ConvertToSampleFormat( floatSample );
 
    mEffectEqualization->TrackProgress(count, 0.0);
    auto bigRuns = len/(subBufferSize-mBlockSize);
    int trackBlocksPerBig=subBufferSize/trackBlockSize;
    int trackLeftovers=subBufferSize-trackBlocksPerBig*trackBlockSize;
-   size_t singleProcessLength=(mFilterSize>>1)*bigRuns + len%(bigRuns*(subBufferSize-mBlockSize));
+   size_t singleProcessLength =
+      ((mFilterSize>>1)*bigRuns + len%(bigRuns*(subBufferSize-mBlockSize)))
+         .as_size_t();
    auto currentSample=start;
 
    bool bBreakLoop = false;
@@ -845,12 +863,14 @@ bool EffectEqualization48x::ProcessOne4x(int count, WaveTrack * t,
    return bBreakLoop;
 }
 
+#include <wx/thread.h>
+
 void *EQWorker::Entry()
 {
    while(!mExitLoop) {
       int i = 0;
       {
-         wxMutexLocker locker( mMutex );
+         wxMutexLocker locker( *mMutex );
          for(; i < mBufferInfoCount; i++) {
             if(mBufferInfoList[i].mBufferStatus==BufferReady) { // we found an unlocked ready buffer
                mBufferInfoList[i].mBufferStatus=BufferBusy; // we own it now
@@ -889,15 +909,17 @@ bool EffectEqualization48x::ProcessOne1x4xThreaded(int count, WaveTrack * t,
    for(int i=0;i<mThreadCount;i++)
       mEQWorkers[i].mProcessingType=processingType;
 
-   AudacityProject *p = GetActiveProject();
-   auto output = p->GetTrackFactory()->NewWaveTrack(floatSample, t->GetRate());
+   auto output = t->EmptyCopy();
+   t->ConvertToSampleFormat( floatSample );
 
    auto trackBlockSize = t->GetMaxBlockSize();
    mEffectEqualization->TrackProgress(count, 0.0);
    auto bigRuns = len/(subBufferSize-mBlockSize);
    int trackBlocksPerBig=subBufferSize/trackBlockSize;
    int trackLeftovers=subBufferSize-trackBlocksPerBig*trackBlockSize;
-   size_t singleProcessLength=(mFilterSize>>1)*bigRuns + len%(bigRuns*(subBufferSize-mBlockSize));
+   size_t singleProcessLength =
+      ((mFilterSize>>1)*bigRuns + len%(bigRuns*(subBufferSize-mBlockSize)))
+         .as_size_t();
    auto currentSample=start;
 
    int bigBlocksRead=mWorkerDataCount, bigBlocksWritten=0;
@@ -942,7 +964,7 @@ bool EffectEqualization48x::ProcessOne1x4xThreaded(int count, WaveTrack * t,
             currentSample-=mBlockSize+(mFilterSize>>1);
             mBufferInfo[currentIndex].mBufferStatus=BufferReady; // free for grabbin
             bigBlocksRead++;
-         } else mBufferInfo[currentIndex].mBufferStatus=BufferEmpty; // this is completely unecessary
+         } else mBufferInfo[currentIndex].mBufferStatus=BufferEmpty; // this is completely unnecessary
          currentIndex=(currentIndex+1)%mWorkerDataCount;
       } 
    }
@@ -1133,8 +1155,8 @@ bool EffectEqualization48x::ProcessOne8x(int count, WaveTrack * t,
 
    auto trackBlockSize = t->GetMaxBlockSize();
 
-   AudacityProject *p = GetActiveProject();
-   auto output = p->GetTrackFactory()->NewWaveTrack(floatSample, t->GetRate());
+   auto output = t->EmptyCopy();
+   t->ConvertToSampleFormat( floatSample );
 
    mEffectEqualization->TrackProgress(count, 0.0);
    int bigRuns=len/(mSubBufferSize-mBlockSize);
@@ -1185,8 +1207,8 @@ bool EffectEqualization48x::ProcessOne8xThreaded(int count, WaveTrack * t,
    if(mThreadCount<=0 || blockCount<256) // dont do it without cores or big data
       return ProcessOne4x(count, t, start, len);
 
-   AudacityProject *p = GetActiveProject();
-   auto output = p->GetTrackFactory()->NewWaveTrack(floatSample, t->GetRate());
+   auto output = t->EmptyCopy();
+   t->ConvertToSampleFormat( floatSample );
 
    auto trackBlockSize = t->GetMaxBlockSize();
    mEffectEqualization->TrackProgress(count, 0.0);
@@ -1238,7 +1260,7 @@ bool EffectEqualization48x::ProcessOne8xThreaded(int count, WaveTrack * t,
             currentSample-=mBlockSize+(mFilterSize>>1);
             mBufferInfo[currentIndex].mBufferStatus=BufferReady; // free for grabbin
             bigBlocksRead++;
-         } else mBufferInfo[currentIndex].mBufferStatus=BufferEmpty; // this is completely unecessary
+         } else mBufferInfo[currentIndex].mBufferStatus=BufferEmpty; // this is completely unnecessary
          currentIndex=(currentIndex+1)%mWorkerDataCount;
       } 
    }

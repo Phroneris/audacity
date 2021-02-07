@@ -14,9 +14,15 @@ Functions that find and load all LV2 plugins on the system.
 
 *//*******************************************************************/
 
-#include "../../Audacity.h"
+#include "../../Audacity.h" // for USE_* macros
 
 #if defined(USE_LV2)
+
+#if defined(__GNUC__)
+#pragma GCC diagnostic ignored "-Wparentheses"
+#endif
+
+#include "LoadLV2.h"
 
 #include <cstdio>
 #include <cstdlib>
@@ -25,23 +31,18 @@ Functions that find and load all LV2 plugins on the system.
 
 #include <wx/dynlib.h>
 #include <wx/filename.h>
-#include <wx/hashmap.h>
-#include <wx/list.h>
 #include <wx/log.h>
 #include <wx/string.h>
 
 #include "../../Internat.h"
-#include "../EffectManager.h"
 
 #include "LV2Effect.h"
-#include "lv2/lv2plug.in/ns/ext/event/event.h"
-#include "lv2/lv2plug.in/ns/ext/instance-access/instance-access.h"
-#include "lv2/lv2plug.in/ns/ext/port-groups/port-groups.h"
-#include "lv2/lv2plug.in/ns/ext/port-props/port-props.h"
-#include "lv2/lv2plug.in/ns/ext/uri-map/uri-map.h"
-#include "lv2/lv2plug.in/ns/ext/presets/presets.h"
-
-#include "LoadLV2.h"
+#include "lv2/event/event.h"
+#include "lv2/instance-access/instance-access.h"
+#include "lv2/port-groups/port-groups.h"
+#include "lv2/port-props/port-props.h"
+#include "lv2/uri-map/uri-map.h"
+#include "lv2/presets/presets.h"
 
 #include <unordered_map>
 
@@ -58,7 +59,7 @@ DECLARE_MODULE_ENTRY(AudacityModule)
 {
    // Create and register the importer
    // Trust the module manager not to leak this
-   return safenew LV2EffectsModule(moduleManager, path);
+   return safenew LV2EffectsModule(path);
 }
 
 // ============================================================================
@@ -75,10 +76,8 @@ using UriHash = std::unordered_map<wxString, LilvNode*>;
 
 LilvWorld *gWorld = NULL;
 
-LV2EffectsModule::LV2EffectsModule(ModuleManagerInterface *moduleManager,
-                                   const wxString *path)
+LV2EffectsModule::LV2EffectsModule(const wxString *path)
 {
-   mModMan = moduleManager;
    if (path)
    {
       mPath = *path;
@@ -93,7 +92,7 @@ LV2EffectsModule::~LV2EffectsModule()
 // ComponentInterface implementation
 // ============================================================================
 
-wxString LV2EffectsModule::GetPath()
+PluginPath LV2EffectsModule::GetPath()
 {
    return mPath;
 }
@@ -103,7 +102,7 @@ ComponentInterfaceSymbol LV2EffectsModule::GetSymbol()
    return XO("LV2 Effects");
 }
 
-ComponentInterfaceSymbol LV2EffectsModule::GetVendor()
+VendorSymbol LV2EffectsModule::GetVendor()
 {
    return XO("The Audacity Team");
 }
@@ -114,9 +113,9 @@ wxString LV2EffectsModule::GetVersion()
    return LV2EFFECTS_VERSION;
 }
 
-wxString LV2EffectsModule::GetDescription()
+TranslatableString LV2EffectsModule::GetDescription()
 {
-   return _("Provides LV2 Effects support to Audacity");
+   return XO("Provides LV2 Effects support to Audacity");
 }
 
 // ============================================================================
@@ -133,9 +132,14 @@ bool LV2EffectsModule::Initialize()
    }
 
    // Create LilvNodes for each of the URIs we need
-   #undef URI
-   #define URI(n, u) LV2Effect::n = lilv_new_uri(gWorld, u);
-   URILIST
+   #undef NODE
+   #define NODE(n, u) LV2Effect::node_##n = lilv_new_uri(gWorld, u);
+   NODELIST
+
+   // Generate URIDs
+   #undef URID
+   #define URID(n, u) LV2Effect::urid_##n = LV2Effect::Lookup_URI(LV2Effect::gURIDMap, u);
+      URIDLIST
 
    wxString newVar;
 
@@ -169,19 +173,23 @@ bool LV2EffectsModule::Initialize()
    libdir.AppendDir(wxT("lv2"));
 
    newVar += wxT(":$HOME/.lv2");
-   newVar += wxT(":/usr/local/lib/lv2");
-   newVar += wxT(":/usr/lib/lv2");
+#if defined(__LP64__)
    newVar += wxT(":/usr/local/lib64/lv2");
    newVar += wxT(":/usr/lib64/lv2");
+#endif
+   newVar += wxT(":/usr/local/lib/lv2");
+   newVar += wxT(":/usr/lib/lv2");
    newVar += wxT(":") + libdir.GetPath();
 
+   // Tell SUIL where to find his GUI support modules
+   wxSetEnv(wxT("SUIL_MODULE_DIR"), wxT(PKGLIBDIR));
 #endif
 
    // Start with the LV2_PATH environment variable (if any)
    wxString pathVar;
    wxGetEnv(wxT("LV2_PATH"), &pathVar);
 
-   if (pathVar.IsEmpty())
+   if (pathVar.empty())
    {
       pathVar = newVar.Mid(1);
    }
@@ -191,7 +199,6 @@ bool LV2EffectsModule::Initialize()
    }
 
    wxSetEnv(wxT("LV2_PATH"), pathVar);
-
    lilv_world_load_all(gWorld);
 
    return true;
@@ -200,9 +207,10 @@ bool LV2EffectsModule::Initialize()
 void LV2EffectsModule::Terminate()
 {
    // Free the LilvNodes for each of the URIs we need
-   #undef URI
-   #define URI(n, u) lilv_node_free(LV2Effect::n);
-   URILIST
+   #undef NODE
+   #define NODE(n, u) \
+      lilv_node_free(LV2Effect::node_##n);
+   NODELIST
 
    lilv_world_free(gWorld);
    gWorld = NULL;
@@ -210,40 +218,69 @@ void LV2EffectsModule::Terminate()
    return;
 }
 
+EffectFamilySymbol LV2EffectsModule::GetOptionalFamilySymbol()
+{
+#if USE_LV2
+   return LV2EFFECTS_FAMILY;
+#else
+   return {};
+#endif
+}
+
+const FileExtensions &LV2EffectsModule::GetFileExtensions()
+{
+   static FileExtensions empty;
+   return empty;
+}
+
 bool LV2EffectsModule::AutoRegisterPlugins(PluginManagerInterface & WXUNUSED(pm))
 {
    return false;
 }
 
-wxArrayString LV2EffectsModule::FindPluginPaths(PluginManagerInterface & WXUNUSED(pm))
+PluginPaths LV2EffectsModule::FindPluginPaths(PluginManagerInterface & WXUNUSED(pm))
 {
    // Retrieve data about all LV2 plugins
    const LilvPlugins *plugs = lilv_world_get_all_plugins(gWorld);
 
    // Iterate over all plugins retrieve their URI
-   wxArrayString plugins;
+   PluginPaths plugins;
    LILV_FOREACH(plugins, i, plugs)
    {
       const LilvPlugin *plug = lilv_plugins_get(plugs, i);
+      const LilvNode *cls = lilv_plugin_class_get_uri(lilv_plugin_get_class(plug));
+      const LilvNode *name = lilv_plugin_get_name(plug);
 
-      // Bypass Instrument (MIDI) plugins for now
-      const LilvPluginClass *cls = lilv_plugin_get_class(plug);
-      if (lilv_node_equals(lilv_plugin_class_get_uri(cls), LV2Effect::gInstrument))
+      // Bypass unsupported plugin types
+      if (lilv_node_equals(cls, LV2Effect::node_InstrumentPlugin) ||
+          lilv_node_equals(cls, LV2Effect::node_MIDIPlugin) ||
+          lilv_node_equals(cls, LV2Effect::node_MathConstants) ||
+          lilv_node_equals(cls, LV2Effect::node_MathFunctions))
       {
+         wxLogInfo(wxT("LV2 plugin '%s' has unsupported type '%s'"), lilv_node_as_string(lilv_plugin_get_uri(plug)), lilv_node_as_string(cls));
+         printf("LV2 plugin '%s' has unsupported type '%s'\n", lilv_node_as_string(lilv_plugin_get_uri(plug)), lilv_node_as_string(cls));
          continue;
       }
 
-      plugins.Add(LilvString(lilv_plugin_get_uri(plug)));
+      // If it doesn't have a name or has no ports, then it's not valid
+      if (!name || !lilv_plugin_get_port_by_index(plug, 0))
+      {
+         wxLogInfo(wxT("LV2 plugin '%s' is invalid"), lilv_node_as_string(lilv_plugin_get_uri(plug)));
+         printf("LV2 plugin '%s' is invalid\n", lilv_node_as_string(lilv_plugin_get_uri(plug)));
+         continue;
+      }
+
+      plugins.push_back(LilvString(lilv_plugin_get_uri(plug)));
    }
 
    return plugins;
 }
 
 unsigned LV2EffectsModule::DiscoverPluginsAtPath(
-   const wxString & path, wxString &errMsg,
+   const PluginPath & path, TranslatableString &errMsg,
    const RegistrationCallback &callback)
 {
-   errMsg.clear();
+   errMsg = {};
    const LilvPlugin *plug = GetPlugin(path);
    if (plug)
    {
@@ -256,18 +293,18 @@ unsigned LV2EffectsModule::DiscoverPluginsAtPath(
       }
    }
 
-   errMsg = _("Could not load the library");
+   errMsg = XO("Could not load the library");
    return 0;
 }
 
-bool LV2EffectsModule::IsPluginValid(const wxString & path, bool bFast)
+bool LV2EffectsModule::IsPluginValid(const PluginPath & path, bool bFast)
 {
    if( bFast )
       return true;
    return GetPlugin(path) != NULL;
 }
 
-ComponentInterface *LV2EffectsModule::CreateInstance(const wxString & path)
+ComponentInterface *LV2EffectsModule::CreateInstance(const PluginPath & path)
 {
    // Acquires a resource for the application.
    const LilvPlugin *plug = GetPlugin(path);
@@ -291,7 +328,7 @@ void LV2EffectsModule::DeleteInstance(ComponentInterface *instance)
 // LV2EffectsModule implementation
 // ============================================================================
 
-const LilvPlugin *LV2EffectsModule::GetPlugin(const wxString & path)
+const LilvPlugin *LV2EffectsModule::GetPlugin(const PluginPath & path)
 {
    LilvNode *uri = lilv_new_uri(gWorld, path.ToUTF8());
    if (!uri)

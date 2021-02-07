@@ -40,19 +40,19 @@
 */
 
 #include "Audacity.h"
+#include "FFT.h"
+
 #include "Internat.h"
 
-#include "FFT.h"
-#include "MemoryX.h"
 #include "SampleFormat.h"
 
+#include <wx/wxcrtvararg.h>
 #include <wx/intl.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
 #include "RealFFTf.h"
-#include "Experimental.h"
 
 static ArraysOf<int> gFFTBitTable;
 static const size_t MaxFastBits = 16;
@@ -332,30 +332,39 @@ int NumWindowFuncs()
    return eWinFuncCount;
 }
 
-const wxChar *WindowFuncName(int whichFunction)
+const TranslatableString WindowFuncName(int whichFunction)
 {
    switch (whichFunction) {
    default:
    case eWinFuncRectangular:
-      return _("Rectangular");
+      return XO("Rectangular");
    case eWinFuncBartlett:
-      return wxT("Bartlett");
+      /* i18n-hint a proper name */
+      return XO("Bartlett");
    case eWinFuncHamming:
-      return wxT("Hamming");
-   case eWinFuncHanning:
-      return wxT("Hanning");
+      /* i18n-hint a proper name */
+      return XO("Hamming");
+   case eWinFuncHann:
+      /* i18n-hint a proper name */
+      return XO("Hann");
    case eWinFuncBlackman:
-      return wxT("Blackman");
+      /* i18n-hint a proper name */
+      return XO("Blackman");
    case eWinFuncBlackmanHarris:
-      return wxT("Blackman-Harris");
+      /* i18n-hint two proper names */
+      return XO("Blackman-Harris");
    case eWinFuncWelch:
-      return wxT("Welch");
+      /* i18n-hint a proper name */
+      return XO("Welch");
    case eWinFuncGaussian25:
-      return wxT("Gaussian(a=2.5)");
+      /* i18n-hint a mathematical function named for C. F. Gauss */
+      return XO("Gaussian(a=2.5)");
    case eWinFuncGaussian35:
-      return wxT("Gaussian(a=3.5)");
+      /* i18n-hint a mathematical function named for C. F. Gauss */
+      return XO("Gaussian(a=3.5)");
    case eWinFuncGaussian45:
-      return wxT("Gaussian(a=4.5)");
+      /* i18n-hint a mathematical function named for C. F. Gauss */
+      return XO("Gaussian(a=4.5)");
    }
 }
 
@@ -402,9 +411,9 @@ void NewWindowFunc(int whichFunction, size_t NumSamplesIn, bool extraSample, flo
          in[ii] *= coeff0 + coeff1 * cos(ii * multiplier);
    }
       break;
-   case eWinFuncHanning:
+   case eWinFuncHann:
    {
-      // Hanning
+      // Hann
       const double multiplier = 2 * M_PI / NumSamples;
       static const double coeff0 = 0.5, coeff1 = -0.5;
       for (int ii = 0; ii < NumSamples; ++ii)
@@ -510,7 +519,7 @@ void WindowFunc(int whichFunction, size_t NumSamples, float *in)
    switch (whichFunction)
    {
    case eWinFuncHamming:
-   case eWinFuncHanning:
+   case eWinFuncHann:
    case eWinFuncBlackman:
    case eWinFuncBlackmanHarris:
       extraSample = true;
@@ -599,9 +608,9 @@ void DerivativeOfWindowFunc(int whichFunction, size_t NumSamples, bool extraSamp
          in[NumSamples] *= - coeff0 - coeff1 * sin(NumSamples * multiplier);
    }
       break;
-   case eWinFuncHanning:
+   case eWinFuncHann:
    {
-      // Hanning
+      // Hann
       const double multiplier = 2 * M_PI / NumSamples;
       const double coeff1 = -0.5 * multiplier;
       for (int ii = 0; ii < (int)NumSamples; ++ii)

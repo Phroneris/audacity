@@ -12,26 +12,25 @@
 #define __AUDACITY_ADORNED_RULER_PANEL__
 
 #include "CellularPanel.h"
-#include "widgets/Ruler.h"
+#include "widgets/Ruler.h" // member variable
+#include "Prefs.h"
+#include "ViewInfo.h" // for PlayRegion
 
-#include "MemoryX.h"
-#include <wx/bitmap.h>
-#include <wx/dc.h>
-#include <wx/dcmemory.h>
-#include <wx/event.h>
-#include <wx/font.h>
-#include <wx/window.h>
-#include "Experimental.h"
-
-class ViewInfo;
 class AudacityProject;
+struct SelectedRegionEvent;
 class SnapManager;
 class TrackList;
 
 // This is an Audacity Specific ruler panel.
-class AUDACITY_DLL_API AdornedRulerPanel final : public CellularPanel
+class AUDACITY_DLL_API AdornedRulerPanel final
+: public CellularPanel
+, private PrefsListener
 {
 public:
+   static AdornedRulerPanel &Get( AudacityProject &project );
+   static const AdornedRulerPanel &Get( const AudacityProject &project );
+   static void Destroy( AudacityProject &project );
+
    AdornedRulerPanel(AudacityProject *project,
                      wxWindow* parent,
                      wxWindowID id,
@@ -41,8 +40,16 @@ public:
 
    ~AdornedRulerPanel();
 
+   void Refresh
+      (bool eraseBackground = true, const wxRect *rect = (const wxRect *) NULL)
+      override;
+
+   bool AcceptsFocus() const override { return s_AcceptsFocus; }
+   bool AcceptsFocusFromKeyboard() const override { return true; }
+   void SetFocusFromKbd() override;
+
 public:
-   int GetRulerHeight() { return GetRulerHeight(mShowScrubbing); }
+   int GetRulerHeight() { return GetRulerHeight( ShowingScrubRuler() ); }
    static int GetRulerHeight(bool showScrubBar);
    wxRect GetInnerRect() const { return mInner; }
 
@@ -52,32 +59,36 @@ public:
 
    void SetPlayRegion(double playRegionStart, double playRegionEnd);
    void ClearPlayRegion();
-   void GetPlayRegion(double* playRegionStart, double* playRegionEnd);
+   void LockPlayRegion();
+   void UnlockPlayRegion();
+   void TogglePinnedHead();
 
    void GetMaxSize(wxCoord *width, wxCoord *height);
 
    void InvalidateRuler();
 
-   void UpdatePrefs();
+   void UpdatePrefs() override;
    void ReCreateButtons();
-
-   void RegenerateTooltips();
 
    void UpdateQuickPlayPos(wxCoord &mousePosX, bool shiftDown);
 
-   bool ShowingScrubRuler() const { return mShowScrubbing; }
-   void OnToggleScrubRuler(/*wxCommandEvent& */);
-   void OnToggleScrubRulerFromMenu(wxCommandEvent& );
-   void SetPanelSize();
+   bool ShowingScrubRuler() const;
+   //void OnToggleScrubRulerFromMenu(wxCommandEvent& );
+   bool SetPanelSize();
    
    void DrawBothOverlays();
 
 
 private:
-   void OnRecordStartStop(wxCommandEvent & evt);
+   void DoIdle();
+   void OnIdle( wxIdleEvent &evt );
+   void OnAudioStartStop(wxCommandEvent & evt);
    void OnPaint(wxPaintEvent &evt);
    void OnSize(wxSizeEvent &evt);
-   void UpdateRects();
+   void OnThemeChange(wxCommandEvent& evt);
+   void OnSelectionChange(SelectedRegionEvent& evt);
+   void DoSelectionChange( const SelectedRegion &selectedRegion );
+   bool UpdateRects();
    void HandleQPClick(wxMouseEvent &event, wxCoord mousePosX);
    void HandleQPDrag(wxMouseEvent &event, wxCoord mousePosX);
    void HandleQPRelease(wxMouseEvent &event);
@@ -89,8 +100,18 @@ private:
    void DoDrawSelection(wxDC * dc);
 
 public:
+   std::pair< wxPoint, wxBitmap >
+      GetIndicatorBitmap(wxCoord xx, bool playing) const;
    void DoDrawIndicator(wxDC * dc, wxCoord xx, bool playing, int width, bool scrub, bool seek);
    void UpdateButtonStates();
+
+private:
+   static bool s_AcceptsFocus;
+   struct Resetter { void operator () (bool *p) const { if(p) *p = false; } };
+   using TempAllowFocus = std::unique_ptr<bool, Resetter>;
+
+public:
+   static TempAllowFocus TemporarilyAllowFocus();
 
 private:
    void DoDrawPlayRegion(wxDC * dc);
@@ -122,11 +143,7 @@ private:
 
    bool mIsSnapped;
 
-   bool   mPlayRegionLock;
-   double mPlayRegionStart;
-   double mPlayRegionEnd;
-   double mOldPlayRegionStart;
-   double mOldPlayRegionEnd;
+   PlayRegion mOldPlayRegion;
 
    bool mIsRecording;
 
@@ -139,10 +156,11 @@ private:
    void HandleSnapping();
    void OnToggleQuickPlay(wxCommandEvent &evt);
    void OnSyncSelToQuickPlay(wxCommandEvent &evt);
-   void OnTimelineToolTips(wxCommandEvent &evt);
+   //void OnTimelineToolTips(wxCommandEvent &evt);
    void OnAutoScroll(wxCommandEvent &evt);
    void OnLockPlayRegion(wxCommandEvent &evt);
 
+   void OnPinnedButton(wxCommandEvent & event);
    void OnTogglePinnedState(wxCommandEvent & event);
 
    bool mPlayRegionDragsSelection;
@@ -161,8 +179,6 @@ private:
    double mLeftDownClickUnsnapped;  // click position in seconds, before snap
    double mLeftDownClick;  // click position in seconds
    bool mIsDragging;
-
-   bool mShowScrubbing { false };
 
    DECLARE_EVENT_TABLE()
 
@@ -185,15 +201,13 @@ private:
       (TrackPanelCell *pClickedTrack, TrackPanelCell *pLatestCell,
        unsigned refreshResult) override;
 
-   void UpdateStatusMessage( const wxString & ) override;
-
-   bool TakesFocus() const override;
+   void UpdateStatusMessage( const TranslatableString & ) override;
 
    void CreateOverlays();
 
    // Cooperating objects
    class QuickPlayIndicatorOverlay;
-   std::unique_ptr<QuickPlayIndicatorOverlay> mOverlay;
+   std::shared_ptr<QuickPlayIndicatorOverlay> mOverlay;
 
    class QuickPlayRulerOverlay;
    
@@ -213,6 +227,11 @@ private:
    // classes implementing subdivision for CellularPanel
    struct Subgroup;
    struct MainGroup;
+
+   SelectedRegion mLastDrawnSelectedRegion;
+   double mLastDrawnH{};
+   double mLastDrawnZoom{};
+   bool mDirtySelectedRegion{};
 };
 
 #endif //define __AUDACITY_ADORNED_RULER_PANEL__

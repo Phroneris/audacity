@@ -5,9 +5,10 @@ User support is provided on Audacity Forum:
 https://forum.audacityteam.org/ .
 
 We welcome feedback on Audacity, suggestions for new or improved features, 
-and bug reports. Please visit https://forum.audacityteam.org/viewforum.php?f=25 .
+and bug reports. Please visit 
+https://forum.audacityteam.org/viewforum.php?f=25 .
 
-Audacity is copyright (c) 1999-2018 by Audacity Team. This copyright 
+Audacity is copyright (c) 1999-2019 by Audacity Team. This copyright 
 notice applies to all documents in the Audacity source code archive, 
 except as otherwise noted (mostly in the lib-src subdirectories). 
 "Audacity" is a registered trademark of Dominic Mazzoni. 
@@ -28,12 +29,12 @@ pull request on https://github.com/audacity/audacity/pulls . It's usually
 best to discuss functional code changes with us first on audacity-devel: 
 https://lists.sourceforge.net/lists/listinfo/audacity-devel . 
 
-Version 2.3.0
+Version 2.4.2
 
 Contents of this README:
 
 1.  Licensing
-2.  Changes since version 2.2.2
+2.  Changes since version 2.4.1
 3.  Known Issues at Release
 4.  Source Code, Libraries and Additional Copyright Information
 
@@ -61,57 +62,43 @@ to https://www.gnu.org/licenses/old-licenses/gpl-2.0.html or write to
   Boston, MA 02111-1307 USA
 
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
-2. Changes since version 2.2.2: 
+2. Changes since version 2.4.1: 
+
 
 Improvements
 
- * New feature - "Punch and Roll Recording".
- * Pinned-play-head can now be repositioned by dragging
- * Play-at-Speed now can be adjusted whilst playing.
- * Toolbars controlling volume and speed can now be resized for greater precision
- * Macros (formerly 'Chains') substantially extended
-   * New Macro palette
-   * Macros can be bound to keyboard keys
- * New commands
-   * New 'Tools' menu
-   * New 'Scriptables' commands 
- * Nyquist gains AUD-DO command
- * Nyquist effects are now translatable and translated
- * More dialogs have help buttons now
- * Increased legibility of trackname display
- * Half-wave option for collapsed tracks
- * Sliding Stretch
- * Dialog (option) for entering labels
+ * Audacity is now built with (our version of) the wx3.1.3 library.
+   Previously we used wx3.1.1.
+ * We added a command 'Reset Configuration' to reset to default 
+   settings.
+ * MP3 Audio is now exported without padding.
 
-See also: https://wiki.audacityteam.org/wiki/New_features_in_Audacity_2.3.0
-
+See also: https://wiki.audacityteam.org/wiki/New_features_in_Audacity_2.4.2
 
 
 Bug Fixes
 
- Over 90 bugs in 2.2.2 fixed, including:
+ Over 30 bugs in 2.4.1 fixed, including:
 
- * Windows: Queen Mary 1.7.1 Vamp plug-ins crash Audacity on opening Plug-in Manager - bug #1244
- * Inconsistent behavior when recording with a selection defined - bug #1839
- * Ctrl + M does not open label for editing - bug #1852
- * Vertical Zoom in by clicking in the vertical Scale, or context menu, in waveform views is inconsistent - bug #1810
- * Deletion of all tracks cannot be undone - bug #1845
- * Timer Record with a selection present can get a truncated recording with data loss - bug #1851
- * Duplicate shortcuts can be created - bug #1786
- * Labels longer than 260 characters are now supported - bug #1905
- * Using Spectrogram Settings in TCP or using Preferences causes Audacity to reset Project Rate to default rate in Quality Preferences - bug #1977
- * Cut Preview should play all selected/sync-locked tracks, respecting Mute/Solo during preview - bug #231
+ * 2442 - Windows: Crash when importing (or editing) to a disk 
+   with insufficient disk space available
+ * 2471 - Mix Stereo down to Mono fails if space at start of track.
+ * 2439 - Mix and Render to New Track selects left channel of new
+   stereo track
 
-See also: https://wiki.audacityteam.org/wiki/Release_Notes_2.3.0
+
+See also: https://wiki.audacityteam.org/wiki/Release_Notes_2.4.2
+
 
 -------------------------------------------------------------------------------
 
-3. Known Issues in 2.3.0:
 
-For known issues in 2.3.0 please see:
-  https://wiki.audacityteam.org/wiki/Release_Notes_2.3.0/Issues 
+3. Some Known Issues in 2.4.2:
+
+For best workarounds and other known issues in 2.4.2, please see:
+  https://wiki.audacityteam.org/wiki/Release_Notes_2.4.2/Issues 
 
 
 -------------------------------------------------------------------------------
@@ -147,6 +134,9 @@ GPL-compatible license.  Specifically:
   libmad: GPL
     Decodes MP3 files.  Optional separate download.
 
+  libmp3lame: LGPL
+    Encodes MP3 files.
+
   libnyquist: BSD-like license.
     Functional language for manipulating audio; available
     within Audacity for effects processing.
@@ -180,6 +170,10 @@ GPL-compatible license.  Specifically:
 
   SoundTouch: LGPL
     Changes tempo without changing pitch and vice versa.
+    Included in audacity
+
+  SQLite: Public Domain
+    Small and fast SQL database engine.
     Included in audacity
 
   Twolame: LGPL

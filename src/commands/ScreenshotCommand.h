@@ -14,9 +14,9 @@
 #define __SCREENSHOT_COMMAND__
 
 #include "Command.h"
-#include "../commands/AudacityCommand.h"
 
-#include <wx/colour.h>
+#include <wx/colour.h> // member variable
+
 class wxWindow;
 class wxTopLevelWindow;
 class wxCommandEvent;
@@ -27,8 +27,6 @@ class TrackPanel;
 class AdornedRulerPanel;
 class AudacityProject;
 class CommandContext;
-
-#define SCREENSHOT_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Screenshot") }
 
 class ScreenshotCommand : public AudacityCommand
 {
@@ -53,6 +51,7 @@ public:
       kpreferences,
       kselectionbar,
       kspectralselection,
+      ktimer,
       ktools,
       ktransport,
       kmixer,
@@ -78,10 +77,12 @@ public:
       nCaptureWhats
    };
 
-   ScreenshotCommand(){ mbBringToTop=true;mIgnore=NULL;};
+   static const ComponentInterfaceSymbol Symbol;
+
+   ScreenshotCommand();
    // ComponentInterface overrides
-   ComponentInterfaceSymbol GetSymbol() override {return SCREENSHOT_PLUGIN_SYMBOL;};
-   wxString GetDescription() override {return _("Takes screenshots.");};
+   ComponentInterfaceSymbol GetSymbol() override {return Symbol;};
+   TranslatableString GetDescription() override {return XO("Takes screenshots.");};
    bool DefineParams( ShuttleParams & S ) override;
    void PopulateOrExchange(ShuttleGui & S) override;
 
@@ -95,7 +96,7 @@ private:
    bool mbBringToTop;
    bool bHasBackground;
    bool bHasBringToTop;
-   friend class ScreenFrame;
+   friend class ScreenshotBigDialog;
 
 public:
    bool Apply(const CommandContext & context) override;
@@ -120,7 +121,7 @@ private:
 
    bool CaptureToolbar(const CommandContext & Context, ToolManager *man, int type, const wxString &name);
    bool CaptureDock(const CommandContext & Context, wxWindow *win, const wxString &fileName);
-   void CaptureCommands(const CommandContext & Context, wxArrayString &Commands  );
+   void CaptureCommands(const CommandContext & Context, const wxArrayStringEx &Commands  );
    void CaptureEffects(const CommandContext & Context, AudacityProject * pProject, const wxString &fileName );
    void CaptureScriptables(const CommandContext & Context, AudacityProject * pProject, const wxString &fileName );
    void CapturePreferences(const CommandContext & Context, AudacityProject * pProject, const wxString &fileName );
@@ -141,7 +142,7 @@ private:
 public:
    static ScreenshotCommand * mpShooter;
    static void (*mIdleHandler)(wxIdleEvent& event);
-   static void SetIdleHandler( void (*pHandler)(wxIdleEvent& event) ){mIdleHandler=pHandler;};
+   static void SetIdleHandler( AudacityProject &project );
    static bool MayCapture( wxDialog * pDlg );
 
    void CaptureWindowOnIdle( const CommandContext & context, wxWindow * pWin );

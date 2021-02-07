@@ -9,12 +9,17 @@
 
 **********************************************************************/
 
-#include "audacity/ModuleInterface.h"
-#include "audacity/EffectInterface.h"
-#include "audacity/PluginInterface.h"
+#ifndef __AUDACITY_LOAD_COMMANDS__
+#define __AUDACITY_LOAD_COMMANDS__
 
-#include "AudacityCommand.h"
+#include "audacity/ModuleInterface.h"
+
+#include <functional>
+#include <memory>
+#include <unordered_map>
 #include "../MemoryX.h"
+
+class AudacityCommand;
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -25,45 +30,63 @@
 class BuiltinCommandsModule final : public ModuleInterface
 {
 public:
-   BuiltinCommandsModule(ModuleManagerInterface *moduleManager, const wxString *path);
+   BuiltinCommandsModule(const wxString *path);
    virtual ~BuiltinCommandsModule();
+
+   using Factory = std::function< std::unique_ptr<AudacityCommand> () >;
+
+   // Typically you make a static object of this type in the .cpp file that
+   // also implements the Command subclass.
+   template< typename Subclass >
+   struct Registration final { Registration() {
+      DoRegistration(
+         Subclass::Symbol, []{ return std::make_unique< Subclass >(); } );
+   } };
 
    // ComponentInterface implementation
 
-   wxString GetPath() override;
+   PluginPath GetPath() override;
    ComponentInterfaceSymbol GetSymbol() override;
-   ComponentInterfaceSymbol GetVendor() override;
+   VendorSymbol GetVendor() override;
    wxString GetVersion() override;
-   wxString GetDescription() override;
+   TranslatableString GetDescription() override;
 
    // ModuleInterface implementation
 
    bool Initialize() override;
    void Terminate() override;
+   EffectFamilySymbol GetOptionalFamilySymbol() override;
 
-   wxArrayString FileExtensions() override { return {}; }
-   wxString InstallPath() override { return {}; }
+   const FileExtensions &GetFileExtensions() override;
+   FilePath InstallPath() override { return {}; }
 
    bool AutoRegisterPlugins(PluginManagerInterface & pm) override;
-   wxArrayString FindPluginPaths(PluginManagerInterface & pm) override;
+   PluginPaths FindPluginPaths(PluginManagerInterface & pm) override;
    unsigned DiscoverPluginsAtPath(
-      const wxString & path, wxString &errMsg,
+      const PluginPath & path, TranslatableString &errMsg,
       const RegistrationCallback &callback)
          override;
 
-   bool IsPluginValid(const wxString & path, bool bFast) override;
+   bool IsPluginValid(const PluginPath & path, bool bFast) override;
 
-   ComponentInterface *CreateInstance(const wxString & path) override;
+   ComponentInterface *CreateInstance(const PluginPath & path) override;
    void DeleteInstance(ComponentInterface *instance) override;
 
 private:
    // BuiltinEffectModule implementation
 
-   std::unique_ptr<AudacityCommand> Instantiate(const wxString & path);
+   std::unique_ptr<AudacityCommand> Instantiate(const PluginPath & path);
 
 private:
-   ModuleManagerInterface *mModMan;
+   struct Entry;
+
+   static void DoRegistration(
+      const ComponentInterfaceSymbol &name, const Factory &factory );
+
    wxString mPath;
 
-   wxArrayString mNames;
+   using CommandHash = std::unordered_map< wxString, const Entry* > ;
+   CommandHash mCommands;
 };
+
+#endif

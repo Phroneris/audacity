@@ -21,22 +21,24 @@
 #include <wx/choice.h>
 #include <wx/dc.h>
 #include <wx/dialog.h>
-#include <wx/filedlg.h>
 #include <wx/grid.h>
 #include <wx/intl.h>
+#include <wx/scrolbar.h>
 #include <wx/settings.h>
 #include <wx/sizer.h>
 #include <wx/stattext.h>
 #include <wx/textdlg.h>
 
 #include "ShuttleGui.h"
-#include "Internat.h"
 #include "LabelTrack.h"
 #include "Prefs.h"
 #include "Project.h"
+#include "ProjectWindow.h"
 #include "ViewInfo.h"
-#include "widgets/NumericTextCtrl.h"
+#include "tracks/labeltrack/ui/LabelTrackView.h"
+#include "widgets/AudacityMessageBox.h"
 #include "widgets/ErrorDialog.h"
+#include "widgets/Grid.h"
 #include "widgets/HelpSystem.h"
 
 #include "FileNames.h"
@@ -92,22 +94,22 @@ BEGIN_EVENT_TABLE(LabelDialog, wxDialogWrapper)
 END_EVENT_TABLE()
 
 LabelDialog::LabelDialog(wxWindow *parent,
-                         TrackFactory &factory,
+                         AudacityProject &project,
                          TrackList *tracks,
                          LabelTrack *selectedTrack,
                          int index,
                          ViewInfo &viewinfo,
                          double rate,
-                         const NumericFormatId & format,
-                         const NumericFormatId &freqFormat)
+                         const NumericFormatSymbol & format,
+                         const NumericFormatSymbol &freqFormat)
 : wxDialogWrapper(parent,
            wxID_ANY,
-           _("Edit Labels"),
+           XO("Edit Labels"),
            wxDefaultPosition,
            wxSize(800, 600),
-           wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER),
-  mFactory(factory),
-  mTracks(tracks)
+           wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
+  , mProject{ project }
+  , mTracks(tracks)
   , mSelectedTrack(selectedTrack)
   , mIndex(index)
   , mViewInfo(&viewinfo),
@@ -115,7 +117,7 @@ LabelDialog::LabelDialog(wxWindow *parent,
   mFormat(format)
   , mFreqFormat(freqFormat)
 {
-   SetName(GetTitle());
+   SetName();
    Populate();
 }
 
@@ -126,21 +128,26 @@ LabelDialog::~LabelDialog()
 void LabelDialog::PopulateLabels()
 {
    // Build the initial (empty) grid
-   mGrid->CreateGrid(0, Col_Max);
+   mGrid->CreateGrid(0, Col_Max, wxGrid::wxGridSelectRows);
    mGrid->SetDefaultCellAlignment(wxALIGN_LEFT, wxALIGN_CENTER);
+   mGrid->SetRowLabelSize(0);
 
-   /* i18n-hint: (noun).  A track contains waves, audio etc.*/
-   mGrid->SetColLabelValue(0,_("Track"));
-   /* i18n-hint: (noun)*/
-   mGrid->SetColLabelValue(1,_("Label"));
-   /* i18n-hint: (noun) of a label*/
-   mGrid->SetColLabelValue(2,_("Start Time"));
-   /* i18n-hint: (noun) of a label*/
-   mGrid->SetColLabelValue(3,_("End Time"));
-   /* i18n-hint: (noun) of a label*/
-   mGrid->SetColLabelValue(4,_("Low Frequency"));
-   /* i18n-hint: (noun) of a label*/
-   mGrid->SetColLabelValue(5,_("High Frequency"));
+   size_t ii = 0;
+   for ( const auto &label : {
+      /* i18n-hint: (noun).  A track contains waves, audio etc.*/
+      XO("Track"),
+      /* i18n-hint: (noun)*/
+      XO("Label"),
+      /* i18n-hint: (noun) of a label*/
+      XO("Start Time"),
+      /* i18n-hint: (noun) of a label*/
+      XO("End Time"),
+      /* i18n-hint: (noun) of a label*/
+      XO("Low Frequency"),
+      /* i18n-hint: (noun) of a label*/
+      XO("High Frequency"),
+   })
+      mGrid->SetColLabelValue( ii++, label.Translation() );
 
    // Create and remember editors.  No need to DELETE these as the wxGrid will
    // do it for us.  (The DecRef() that is needed after GetDefaultEditorForType
@@ -155,7 +162,7 @@ void LabelDialog::PopulateLabels()
    wxGridCellAttr *attr;
    mGrid->SetColAttr(Col_Track, (attr = safenew wxGridCellAttr));
    attr->SetEditor(mChoiceEditor);
-   mTrackNames.Add(_("New..."));
+   mTrackNames.push_back(_("New..."));
 
    // Initialize and set the time column attributes
    mGrid->SetColAttr(Col_Stime, (attr = safenew wxGridCellAttr));
@@ -247,23 +254,23 @@ void LabelDialog::Populate()
 
 void LabelDialog::PopulateOrExchange( ShuttleGui & S )
 {
-   S.AddFixedText(_("Press F2 or double click to edit cell contents."));
+   S.AddFixedText(XO("Press F2 or double click to edit cell contents."));
    S.StartHorizontalLay(wxEXPAND,1);
    {
       S.StartVerticalLay(wxEXPAND,1);
       {
-         mGrid = safenew Grid(this, wxID_ANY);
+         mGrid = safenew Grid(S.GetParent(), wxID_ANY);
          S.Prop(1).AddWindow( mGrid );
       }
       S.EndVerticalLay();
       S.StartVerticalLay(0);
       {
-         //S.Id(ID_INSERTA).AddButton(_("&Insert"), wxALIGN_LEFT);
-         S.Id(ID_INSERTB).AddButton(_("&Insert"), wxALIGN_LEFT);
-         //S.Id(EditButtonID).AddButton(_("&Edit"), wxALIGN_LEFT);
-         S.Id(ID_REMOVE).AddButton(_("De&lete"), wxALIGN_LEFT);
-         S.Id(ID_IMPORT).AddButton(_("I&mport..."), wxALIGN_LEFT);
-         S.Id(ID_EXPORT).AddButton(_("&Export..."), wxALIGN_LEFT);
+         //S.Id(ID_INSERTA).AddButton(XO("&Insert"), wxALIGN_LEFT);
+         S.Id(ID_INSERTB).AddButton(XXO("&Insert"), wxALIGN_LEFT);
+         //S.Id(EditButtonID).AddButton(XO("&Edit"), wxALIGN_LEFT);
+         S.Id(ID_REMOVE).AddButton(XXO("De&lete"), wxALIGN_LEFT);
+         S.Id(ID_IMPORT).AddButton(XXO("I&mport..."), wxALIGN_LEFT);
+         S.Id(ID_EXPORT).AddButton(XXO("&Export..."), wxALIGN_LEFT);
       }
       S.EndVerticalLay();
    }
@@ -350,7 +357,11 @@ bool LabelDialog::Show(bool show)
 {
    bool ret = wxDialogWrapper::Show(show);
 
-   mGrid->SetFocus();   // Required for Linux and Mac.
+#if defined(__WXMAC__) || defined(__WXGTK__)
+   if (show) {
+      mGrid->SetFocus();   // Required for Linux and Mac.
+   }
+#endif
 
    // Set initial row
    // (This will not work until the grid is actually displayed)
@@ -384,15 +395,15 @@ bool LabelDialog::TransferDataFromWindow()
    }
 
    // Create any added tracks
-   while (tndx < (int)mTrackNames.GetCount() - 1) {
+   while (tndx < (int)mTrackNames.size() - 1) {
 
       // Extract the name
       wxString name = mTrackNames[tndx + 1].AfterFirst(wxT('-')).Mid(1);
 
       // Create the NEW track and add to track list
-      auto newTrack = mFactory.NewLabelTrack();
+      auto newTrack = std::make_shared<LabelTrack>();
       newTrack->SetName(name);
-      mTracks->Add(std::move(newTrack));
+      mTracks->Add( newTrack );
       tndx++;
    }
 
@@ -414,8 +425,8 @@ bool LabelDialog::TransferDataFromWindow()
          return false;
 
       // Add the label to it
-      lt->AddLabel(rd.selectedRegion, rd.title, -2);
-      lt->Unselect();
+      lt->AddLabel(rd.selectedRegion, rd.title);
+      LabelTrackView::Get( *lt ).SetSelectedIndex( -1 );
    }
 
    return true;
@@ -434,9 +445,9 @@ bool LabelDialog::Validate()
 wxString LabelDialog::TrackName(int & index, const wxString &dflt)
 {
    // Generate a NEW track name if the passed index is out of range
-   if (index < 1 || index >= (int)mTrackNames.GetCount()) {
-      index = mTrackNames.GetCount();
-      mTrackNames.Add(wxString::Format(wxT("%d - %s"), index, dflt));
+   if (index < 1 || index >= (int)mTrackNames.size()) {
+      index = mTrackNames.size();
+      mTrackNames.push_back(wxString::Format(wxT("%d - %s"), index, dflt));
    }
 
    // Return the track name
@@ -553,10 +564,12 @@ void LabelDialog::OnInsert(wxCommandEvent &event)
    if (cnt > 0) {
       row = mGrid->GetGridCursorRow();
       if (row > 0 && row >= cnt) {
-         index = mTrackNames.Index(mGrid->GetCellValue(row - 1, Col_Track));
+         index = make_iterator_range( mTrackNames )
+            .index( mGrid->GetCellValue(row - 1, Col_Track) );
       }
       else {
-         index = mTrackNames.Index(mGrid->GetCellValue(row, Col_Track));
+         index = make_iterator_range( mTrackNames )
+            .index( mGrid->GetCellValue(row, Col_Track) );
       }
    }
 
@@ -619,28 +632,28 @@ void LabelDialog::OnImport(wxCommandEvent & WXUNUSED(event))
    // Ask user for a filename
    wxString fileName =
        FileNames::SelectFile(FileNames::Operation::Open,
-                    _("Select a text file containing labels"),
-                    wxEmptyString,     // Path
-                    wxT(""),       // Name
-                    wxT(".txt"),   // Extension
-                    _("Text files (*.txt)|*.txt|All files|*"),
-                    wxRESIZE_BORDER, // Flags
-                    this);    // Parent
+         XO("Select a text file containing labels"),
+         wxEmptyString,     // Path
+         wxT(""),       // Name
+         wxT("txt"),   // Extension
+         { FileNames::TextFiles, FileNames::AllFiles },
+         wxRESIZE_BORDER, // Flags
+         this);    // Parent
 
    // They gave us one...
-   if (fileName != wxT("")) {
+   if (!fileName.empty()) {
       wxTextFile f;
 
       // Get at the data
       f.Open(fileName);
       if (!f.IsOpened()) {
          AudacityMessageBox(
-            wxString::Format( _("Could not open file: %s"), fileName ));
+            XO("Could not open file: %s").Format( fileName ) );
       }
       else {
          // Create a temporary label track and load the labels
          // into it
-         auto lt = mFactory.NewLabelTrack();
+         auto lt = std::make_shared<LabelTrack>();
          lt->Import(f);
 
          // Add the labels to our collection
@@ -660,23 +673,23 @@ void LabelDialog::OnExport(wxCommandEvent & WXUNUSED(event))
 
    // Silly user (could just disable the button, but that's a hassle ;-))
    if (cnt == 0) {
-      AudacityMessageBox(_("No labels to export."));
+      AudacityMessageBox( XO("No labels to export.") );
       return;
    }
 
    // Extract the actual name.
-   wxString fName = mTrackNames[mTrackNames.GetCount() - 1].AfterFirst(wxT('-')).Mid(1);
+   wxString fName = mTrackNames[mTrackNames.size() - 1].AfterFirst(wxT('-')).Mid(1);
 
    fName = FileNames::SelectFile(FileNames::Operation::Export,
-      _("Export Labels As:"),
+      XO("Export Labels As:"),
       wxEmptyString,
       fName,
       wxT("txt"),
-      wxT("*.txt"),
+      { FileNames::TextFiles },
       wxFD_SAVE | wxFD_OVERWRITE_PROMPT | wxRESIZE_BORDER,
       this);
 
-   if (fName == wxT(""))
+   if (fName.empty())
       return;
 
    // Move existing files out of the way.  Otherwise wxTextFile will
@@ -704,18 +717,18 @@ void LabelDialog::OnExport(wxCommandEvent & WXUNUSED(event))
    f.Open();
    if (!f.IsOpened()) {
       AudacityMessageBox(
-         wxString::Format( _("Couldn't write to file: %s"), fName ) );
+         XO("Couldn't write to file: %s").Format( fName ) );
       return;
    }
 
    // Transfer our collection to a temporary label track
-   auto lt = mFactory.NewLabelTrack();
+   auto lt = std::make_shared<LabelTrack>();
    int i;
 
    for (i = 0; i < cnt; i++) {
       RowData &rd = mData[i];
 
-      lt->AddLabel(rd.selectedRegion, rd.title,-2);
+      lt->AddLabel(rd.selectedRegion, rd.title);
    }
 
    // Export them and clean
@@ -739,7 +752,7 @@ void LabelDialog::OnSelectCell(wxGridEvent &event)
       RowData &rd = mData[event.GetRow()];
       mViewInfo->selectedRegion = rd.selectedRegion;
 
-      GetActiveProject()->RedrawProject();
+      ProjectWindow::Get( mProject ).RedrawProject();
    }
 
    event.Skip();
@@ -801,15 +814,15 @@ void LabelDialog::OnChangeTrack(wxGridEvent & WXUNUSED(event), int row, RowData 
    wxString val = mGrid->GetCellValue(row, Col_Track);
 
    // User selected the "New..." choice so ask for a NEW name
-   if (mTrackNames.Index(val) == 0) {
+   if ( make_iterator_range( mTrackNames ).index( val ) == 0 ) {
       AudacityTextEntryDialog d(this,
-                          _("New Label Track"),
-                          _("Enter track name"),
-                          /* i18n-hint: (noun) it's the name of a kind of track.*/
-                          _("Label Track"));
+         XO("New Label Track"),
+         XO("Enter track name"),
+         /* i18n-hint: (noun) it's the name of a kind of track.*/
+         XO("Label Track").Translation());
 
       // User canceled so repopulating the grid will set the track
-      // name to the orignal value
+      // name to the original value
       if (d.ShowModal() == wxID_CANCEL) {
          TransferDataToWindow();
          return;
@@ -821,7 +834,7 @@ void LabelDialog::OnChangeTrack(wxGridEvent & WXUNUSED(event), int row, RowData 
    }
    else {
       // Remember the tracks index
-      rd->index = mTrackNames.Index(val);
+      rd->index = make_iterator_range( mTrackNames ).index( val );
    }
 
    // Repopulate the grid
