@@ -8,13 +8,12 @@
 #define safenew new
 #endif
 
-
 #include <functional>
 
 #if !(_MSC_VER >= 1800 || __cplusplus >= 201402L)
 /* replicate the very useful C++14 make_unique for those build environments
 that don't implement it yet.
-typical useage:
+typical usage:
 auto p = std::make_unique<Myclass>(ctorArg1, ctorArg2, ... ctorArgN);
 p->DoSomething();
 auto q = std::make_unique<Myclass[]>(count);
@@ -185,62 +184,66 @@ public:
 };
 
 /**
-  \class Maybe
+  \class Optional
   \brief Like a smart pointer, allows for object to not exist (nullptr)
+  \brief emulating some of std::optional of C++17
 
-  template class Maybe<X>
+  template class Optional<X>
   Can be used for monomorphic objects that are stack-allocable, but only conditionally constructed.
   You might also use it as a member.
-  Initialize with create(), then use like a smart pointer,
-  with *, ->, get(), reset(), or in if()
-
-  Like std::optional of C++17 but with other member naming conventions
+  Initialize with emplace(), then use like a smart pointer,
+  with *, ->, reset(), or in if()
  */
 
 // Placement-NEW is used below, and that does not cooperate with the DEBUG_NEW for Visual Studio
 #ifdef _DEBUG
 #ifdef _MSC_VER
 #undef new
-#endif
-#endif
 
+// wx/any.h also uses Placement-NEW so include it before redefining "new" at comment:
+//    "Restore definition of debug new"
+#include <wx/any.h>
+#endif
+#endif
 
 template<typename X>
-class Maybe {
+class Optional {
 public:
 
+   using value_type = X;
+
    // Construct as NULL
-   Maybe() {}
+   Optional() {}
 
    // Supply the copy and move, so you might use this as a class member too
-   Maybe(const Maybe &that)
+   Optional(const Optional &that)
    {
-      if (that.get())
-         create(*that);
+      if (that)
+         emplace(*that);
    }
 
-   Maybe& operator= (const Maybe &that)
+   Optional& operator= (const Optional &that)
    {
       if (this != &that) {
-         if (that.get())
-            create(*that);
+         if (that)
+            emplace(*that);
          else
             reset();
       }
       return *this;
    }
 
-   Maybe(Maybe &&that)
+   Optional(Optional &&that)
    {
-      if (that.get())
-         create(::std::move(*that));
+      if (that)
+         emplace(::std::move(*that));
    }
 
-   Maybe& operator= (Maybe &&that)
+   Optional& operator= (Optional &&that)
    {
       if (this != &that) {
-         if (that.get())
-            create(::std::move(*that));
+         if (that)
+            emplace(::std::move(*that));
          else
             reset();
       }
@@ -253,16 +256,17 @@ public:
    /// NULL state -- giving exception safety but only weakly
    /// (previous value was lost if present)
    template<typename... Args>
-   void create(Args&&... args)
+   X& emplace(Args&&... args)
    {
       // Lose any old value
       reset();
-      // Create NEW value
+      // emplace NEW value
       pp = safenew(address()) X(std::forward<Args>(args)...);
+      return **this;
    }
 
    // Destroy any object that was built in it
-   ~Maybe()
+   ~Optional()
    {
       reset();
    }
@@ -280,11 +284,6 @@ public:
       return pp;
    }
 
-   X* get() const
-   {
-      return pp;
-   }
-
    void reset()
    {
       if (pp)
@@ -293,6 +292,11 @@ public:
 
    // So you can say if(ptr)
    explicit operator bool() const
+   {
+      return pp != nullptr;
+   }
+
+   bool has_value() const
    {
       return pp != nullptr;
    }
@@ -322,7 +326,7 @@ private:
 #ifdef _DEBUG
 #ifdef _MSC_VER
 #undef THIS_FILE
-static char*THIS_FILE = __FILE__;
+static const char THIS_FILE[] = __FILE__;
 #define new new(_NORMAL_BLOCK, THIS_FILE, __LINE__)
 #endif
 #endif
@@ -429,6 +433,19 @@ ValueRestorer< T > valueRestorer( T& var )
 template< typename T >
 ValueRestorer< T > valueRestorer( T& var, const T& newValue )
 { return ValueRestorer< T >{ var, newValue }; }
+
+/**
+  \brief A convenience for defining iterators that return rvalue types, so that
+  they cooperate correctly with stl algorithms and std::reverse_iterator
+ */
+template< typename Value, typename Category = std::forward_iterator_tag >
+using ValueIterator = std::iterator<
+   Category, const Value, ptrdiff_t,
+   // void pointer type so that operator -> is disabled
+   void,
+   // make "reference type" really the same as the value type
+   const Value
+>;
 
 /**
   \brief A convenience for use with range-for
@@ -624,20 +641,77 @@ make_iterator_range( const Container &container )
    return { container.begin(), container.end() };
 }
 
-#if !wxCHECK_VERSION(3, 1, 0)
-// For using std::unordered_map on wxString
-namespace std
+// A utility function building a container of results
+template< typename Container, typename Iterator, typename Function >
+Container transform_range( Iterator first, Iterator last, Function &&fn )
 {
-   template<typename T> struct hash;
-   template<> struct hash< wxString > {
-      size_t operator () (const wxString &str) const // noexcept
-      {
-         auto stdstr = str.ToStdWstring(); // no allocations, a cheap fetch
-         using Hasher = hash< decltype(stdstr) >;
-         return Hasher{}( stdstr );
-      }
-   };
+   Container result;
+   std::transform( first, last, std::back_inserter( result ), fn );
+   return result;
 }
-#endif
+// A utility function, often constructing a vector from another vector
+template< typename OutContainer, typename InContainer, typename Function >
+OutContainer transform_container( InContainer &inContainer, Function &&fn )
+{
+   return transform_range<OutContainer>(
+      inContainer.begin(), inContainer.end(), fn );
+}
+
+// Extend wxArrayString with move operations and construction and insertion from
+// std::initializer_list
+class wxArrayStringEx : public wxArrayString
+{
+public:
+   using wxArrayString::wxArrayString;
+   wxArrayStringEx() = default;
+
+   template< typename Iterator >
+   wxArrayStringEx( Iterator start, Iterator finish )
+   {
+      this->reserve( std::distance( start, finish ) );
+      while( start != finish )
+         this->push_back( *start++ );
+   }
+
+   template< typename T >
+   wxArrayStringEx( std::initializer_list< T > items )
+   {
+      this->reserve( this->size() + items.size() );
+      for ( const auto &item : items )
+         this->push_back( item );
+   }
+
+   // The move operations can take arguments of the base class wxArrayString
+   wxArrayStringEx( wxArrayString &&other )
+   {
+      swap( other );
+   }
+
+   wxArrayStringEx &operator= ( wxArrayString &&other )
+   {
+      if ( this != &other ) {
+         clear();
+         swap( other );
+      }
+      return *this;
+   }
+
+   using wxArrayString::insert;
+
+   template< typename T >
+   iterator insert( const_iterator pos, std::initializer_list< T > items )
+   {
+      const auto index = pos - ((const wxArrayString*)this)->begin();
+      this->wxArrayString::Insert( {}, index, items.size() );
+      auto result = this->begin() + index, iter = result;
+      for ( auto pItem = items.begin(), pEnd = items.end();
+         pItem != pEnd;
+         ++pItem, ++iter
+      ) {
+         *iter = *pItem;
+      }
+      return result;
+   }
+};
 
 #endif // __AUDACITY_MEMORY_X_H__

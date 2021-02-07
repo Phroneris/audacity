@@ -15,8 +15,9 @@
 #include "Audacity.h"
 
 #include <vector>
-#include <wx/textctrl.h>
-#include "widgets/wxPanelWrapper.h"
+#include <wx/textctrl.h> // to inherit
+#include "commands/CommandManagerWindowClasses.h"
+#include "widgets/wxPanelWrapper.h" // to inherit
 
 class AudacityProject;
 class LabelTrack;
@@ -52,7 +53,7 @@ class HighlightTextCtrl final : public wxTextCtrl
 public:
    HighlightTextCtrl(LyricsPanel* parent,
                      wxWindowID id,
-                     const wxString& value = wxT(""),
+                     const wxString& value = {},
                      const wxPoint& pos = wxDefaultPosition,
                      const wxSize& size = wxDefaultSize);
    virtual ~HighlightTextCtrl() {};
@@ -71,7 +72,9 @@ private:
 \brief LyricsPanel is a panel that paints the bouncing
 ball and the lyrics text.
 *******************************************************************/
-class LyricsPanel final : public wxPanelWrapper
+class LyricsPanel final
+   : public wxPanelWrapper
+   , public NonKeystrokeInterceptingWindow
 {
    DECLARE_DYNAMIC_CLASS(LyricsPanel)
 

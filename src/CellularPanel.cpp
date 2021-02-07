@@ -29,11 +29,51 @@
 
 #include "Audacity.h"
 #include "CellularPanel.h"
-#include "Project.h"
+
+#include <wx/eventfilter.h>
+#include <wx/setup.h> // for wxUSE_* macros
+#include "KeyboardCapture.h"
 #include "UIHandle.h"
 #include "TrackPanelMouseEvent.h"
 #include "HitTestResult.h"
 #include "RefreshCode.h"
+#include "TrackPanelCell.h"
+
+// A singleton class that intercepts escape key presses when some cellular
+// panel is dragging
+struct CellularPanel::Filter : wxEventFilter
+{
+   Filter()
+   {
+      wxEvtHandler::AddFilter( this );
+   }
+
+   ~Filter()
+   {
+      wxEvtHandler::RemoveFilter( this );
+   }
+
+   static void Create()
+   {
+      static Filter instance;
+   }
+
+   int FilterEvent( wxEvent &event ) override
+   {
+      if ( spActivePanel &&
+         event.GetEventType() == wxEVT_KEY_DOWN &&
+         static_cast< wxKeyEvent& >( event ).GetKeyCode() == WXK_ESCAPE ) {
+         spActivePanel->HandleEscapeKey( true );
+         return Event_Processed;
+      }
+      else
+         return Event_Skip;
+   }
+
+   static wxWeakRef< CellularPanel > spActivePanel;
+};
+
+wxWeakRef< CellularPanel > CellularPanel::Filter::spActivePanel = nullptr;
 
 struct CellularPanel::State
 {
@@ -43,7 +83,7 @@ struct CellularPanel::State
    std::vector<UIHandlePtr> mTargets;
    size_t mTarget {};
    unsigned mMouseOverUpdateFlags{};
-   
+
    int mMouseMostRecentX;
    int mMouseMostRecentY;
    
@@ -74,6 +114,10 @@ CellularPanel::CellularPanel(
 , mViewInfo( viewInfo )
 , mState{ std::make_unique<State>() }
 {
+   // Create the global event filter instance for CellularPanels only when the
+   // first CellularPanel is created, not sooner, so that the filter will be
+   // invoked before that for the application.
+   Filter::Create();
 }
 
 CellularPanel::~CellularPanel() = default;
@@ -106,12 +150,9 @@ void CellularPanel::Uncapture(bool escaping, wxMouseState *pState)
    if (HasCapture())
       ReleaseMouse();
    HandleMotion( *pState );
-
-   if (escaping || !TakesFocus()) {
-      auto lender = GetProject()->mFocusLender.get();
-      if (lender)
-         lender->SetFocus();
-   }
+ 
+   if ( escaping || !AcceptsFocus() )
+      Filter::spActivePanel = nullptr;
 }
 
 bool CellularPanel::CancelDragging( bool escaping )
@@ -142,7 +183,7 @@ bool CellularPanel::HandleEscapeKey(bool down)
 
    {
       auto target = Target();
-      if (target && target->HasEscape() && target->Escape()) {
+      if (target && target->HasEscape() && target->Escape(GetProject())) {
          HandleCursorForPresentMouseState(false);
          return true;
       }
@@ -230,10 +271,9 @@ void CellularPanel::HandleMotion
    auto oldCell = state.mLastCell.lock();
    auto oldHandle = Target();
 
-   wxString status{}, tooltip{};
+   TranslatableString status, tooltip;
    wxCursor *pCursor{};
    unsigned refreshCode = 0;
-
    if ( ! doHit ) {
       // Dragging or not
       handle = Target();
@@ -285,12 +325,18 @@ void CellularPanel::HandleMotion
 
       state.mLastCell = newCell;
 
+/* 
+      // These lines caused P2 Bug 2617, repeated refreshing using all CPU.
+      // Disabling them might be causing something to not refresh,
+      // but so far I have not found a downside to disabling them.  JKC
+
       if (!oldCell && oldHandle != handle)
          // Did not move cell to cell, but did change the target
          refreshCode = updateFlags;
+*/
 
       if (handle && handle != oldHandle)
-         handle->Enter(true);
+         handle->Enter(true, GetProject());
 
       if (oldHandle == handle)
          oldHandle.reset();
@@ -332,10 +378,11 @@ void CellularPanel::HandleMotion
       UpdateStatusMessage(status);
 
 #if wxUSE_TOOLTIPS
-      if (tooltip != GetToolTipText()) {
+      if (tooltip.Translation() != GetToolTipText()) {
          // Unset first, by analogy with AButton
          UnsetToolTip();
-         SetToolTip(tooltip);
+         if (handle != oldHandle)
+            SetToolTip(tooltip);
       }
 #endif
 
@@ -344,7 +391,7 @@ void CellularPanel::HandleMotion
    }
    else if ( oldCell || oldHandle )
       // Leaving a cell or hit test target with no replacement
-      UpdateStatusMessage( wxString{} );
+      UpdateStatusMessage( {} );
 
    if (newCell)
       ProcessUIHandleResult(newCell.get(), newCell.get(), refreshCode);
@@ -395,7 +442,7 @@ bool CellularPanel::ChangeTarget(bool forward, bool cycle)
          return true;
       else if (cycle && (size == 1 || IsMouseCaptured())) {
          // Rotate through the states of this target only.
-         target->Enter(forward);
+         target->Enter(forward, GetProject());
          return true;
       }
    }
@@ -412,7 +459,7 @@ bool CellularPanel::ChangeTarget(bool forward, bool cycle)
          state.mTarget += size - 1;
       state.mTarget %= size;
       if (Target())
-         Target()->Enter(forward);
+         Target()->Enter(forward, GetProject());
       return true;
    }
 
@@ -491,7 +538,7 @@ void CellularPanel::OnCaptureKey(wxCommandEvent & event)
    const auto t = GetFocusedCell();
    if (t) {
       const unsigned refreshResult =
-         t->CaptureKey(*kevent, *mViewInfo, this);
+         t->CaptureKey(*kevent, *mViewInfo, this, GetProject());
       ProcessUIHandleResult(t, t, refreshResult);
       event.Skip(kevent->GetSkipped());
    }
@@ -516,6 +563,7 @@ void CellularPanel::OnKeyDown(wxKeyEvent & event)
    switch (event.GetKeyCode())
    {
    case WXK_ESCAPE:
+      // This switch case is now redundant with the global filter
       if(HandleEscapeKey(true))
          // Don't skip the event, eat it so that
          // AudacityApp does not also stop any playback.
@@ -548,7 +596,7 @@ void CellularPanel::OnKeyDown(wxKeyEvent & event)
 
    if (t) {
       const unsigned refreshResult =
-         t->KeyDown(event, *mViewInfo, this);
+         t->KeyDown(event, *mViewInfo, this, GetProject());
       ProcessUIHandleResult(t, t, refreshResult);
    }
    else
@@ -571,7 +619,7 @@ void CellularPanel::OnChar(wxKeyEvent & event)
    const auto t = GetFocusedCell();
    if (t) {
       const unsigned refreshResult =
-         t->Char(event, *mViewInfo, this);
+         t->Char(event, *mViewInfo, this, GetProject());
       ProcessUIHandleResult(t, t, refreshResult);
    }
    else
@@ -603,7 +651,7 @@ void CellularPanel::OnKeyUp(wxKeyEvent & event)
    const auto t = GetFocusedCell();
    if (t) {
       const unsigned refreshResult =
-         t->KeyUp(event, *mViewInfo, this);
+         t->KeyUp(event, *mViewInfo, this, GetProject());
       ProcessUIHandleResult(t, t, refreshResult);
       return;
    }
@@ -774,7 +822,6 @@ catch( ... )
 void CellularPanel::HandleClick( const TrackPanelMouseEvent &tpmEvent )
 {
    auto pCell = tpmEvent.pCell;
-
    // Do hit test once more, in case the button really pressed was not the
    // one "anticipated."
    {
@@ -799,8 +846,15 @@ void CellularPanel::HandleClick( const TrackPanelMouseEvent &tpmEvent )
       if (refreshResult & RefreshCode::Cancelled)
          state.mUIHandle.reset(), handle.reset(), ClearTargets();
       else {
-         if( !HasFocus() )
-            SetFocus();
+         Filter::spActivePanel = this;
+
+#if wxUSE_TOOLTIPS
+         // Remove any outstanding tooltip
+         UnsetToolTip();
+#endif
+
+         if( !HasFocus() && AcceptsFocus() )
+            SetFocusIgnoringChildren();
 
          state.mpClickedCell = pCell;
 
@@ -833,7 +887,7 @@ void CellularPanel::DoContextMenu( TrackPanelCell *pCell )
 
    auto rect = FindRect( *delegate );
    const UIHandle::Result refreshResult =
-      delegate->DoContextMenu(rect, this, NULL);
+      delegate->DoContextMenu(rect, this, nullptr, GetProject());
 
    // To do: use safer shared_ptr to pCell
    ProcessUIHandleResult(pCell, pCell, refreshResult);
@@ -841,21 +895,15 @@ void CellularPanel::DoContextMenu( TrackPanelCell *pCell )
 
 void CellularPanel::OnSetFocus(wxFocusEvent &event)
 {
-   auto &ptr = GetProject()->mFocusLender;
-   if ( !ptr )
-      ptr = event.GetWindow();
-   
    SetFocusedCell();
+   Refresh( false);
 }
 
 void CellularPanel::OnKillFocus(wxFocusEvent & WXUNUSED(event))
 {
-   // Forget any borrowing of focus
-   GetProject()->mFocusLender = NULL;
-
-   if (AudacityProject::HasKeyboardCapture(this))
+   if (KeyboardCapture::IsHandler(this))
    {
-      AudacityProject::ReleaseKeyboard(this);
+      KeyboardCapture::Release(this);
    }
    Refresh( false);
 }
@@ -931,14 +979,17 @@ namespace {
       const TrackPanelGroup::Refinement &children,
       const TrackPanelGroup::Refinement::const_iterator iter)
    {
-      const auto lowerBound = (divideX ? rect.GetLeft() : rect.GetTop());
-      const auto upperBound = (divideX ? rect.GetRight() : rect.GetBottom());
       const auto next = iter + 1;
       const auto end = children.end();
-      const auto nextCoord = ((next == end) ? upperBound : next->first - 1);
+      wxCoord nextCoord;
+      if (next == end)
+         nextCoord = std::max( iter->first,
+            divideX ? rect.GetRight() : rect.GetBottom() );
+      else
+         nextCoord = next->first - 1;
 
-      auto lesser = std::max(lowerBound, std::min(upperBound, iter->first));
-      auto greater = std::max(lesser, std::min(upperBound, nextCoord));
+      auto lesser = iter->first;
+      auto greater = nextCoord;
 
       auto result = rect;
       if (divideX)
@@ -1028,6 +1079,21 @@ wxRect CellularPanel::FindRect( const TrackPanelCell &cell )
    return result;
 }
 
+wxRect CellularPanel::FindRect(
+   const std::function< bool( TrackPanelNode& ) > &pred)
+{
+   wxRect result;
+
+   struct Stop{};
+   try { VisitPreorder( [&]( const wxRect &rect, TrackPanelNode &visited ) {
+      if ( pred( visited ) )
+         result = rect, throw Stop{};
+   } ); }
+   catch ( const Stop& ) {}
+
+   return result;
+}
+
 UIHandlePtr CellularPanel::Target()
 {
    auto &state = *mState;
@@ -1058,4 +1124,34 @@ std::shared_ptr<TrackPanelCell> CellularPanel::LastCell() const
 {
    auto &state = *mState;
    return state.mLastCell.lock();
+}
+
+void CellularPanel::Draw( TrackPanelDrawingContext &context, unsigned nPasses )
+{
+   const auto panelRect = GetClientRect();
+   auto lastCell = LastCell();
+   for ( unsigned iPass = 0; iPass < nPasses; ++iPass ) {
+
+      VisitPostorder( [&]( const wxRect &rect, TrackPanelNode &node ) {
+
+         // Draw the node
+         const auto newRect = node.DrawingArea(
+            context, rect, panelRect, iPass );
+         if ( newRect.Intersects( panelRect ) )
+            node.Draw( context, newRect, iPass );
+
+         // Draw the current handle if it is associated with the node
+         if ( &node == lastCell.get() ) {
+            auto target = Target();
+            if ( target ) {
+               const auto targetRect =
+                  target->DrawingArea( context, rect, panelRect, iPass );
+               if ( targetRect.Intersects( panelRect ) )
+                  target->Draw( context, targetRect, iPass );
+            }
+         }
+
+      } ); // nodes
+
+   } // passes
 }

@@ -21,6 +21,7 @@ around to NEW positions.
 *//**********************************************************************/
 
 #include "../Audacity.h"
+#include "Grabber.h"
 
 #include <wx/defs.h>
 #include <wx/dcclient.h>
@@ -28,12 +29,10 @@ around to NEW positions.
 #include <wx/intl.h>
 #include <wx/window.h>
 
-#include "Grabber.h"
-#include "../Experimental.h"
-
 #include "../AColor.h"
 #include "../AllThemeResources.h"
 #include "../Internat.h"
+#include "../Theme.h"
 
 ////////////////////////////////////////////////////////////
 /// Methods for Grabber
@@ -69,7 +68,6 @@ Grabber::Grabber(wxWindow * parent, wxWindowID id)
    It's used to drag a track around (when in multi-tool mode) rather
    than requiring that you use the drag tool.  It's shown as a series
    of horizontal bumps */
-
    SetLabel(_("Grabber"));
    SetName(_("Grabber"));
 }
@@ -108,6 +106,10 @@ void Grabber::SetAsSpacer( bool bIsSpacer ) {
    mAsSpacer = bIsSpacer;
 };
 
+void Grabber::SetToolTip(const TranslatableString &toolTip)
+{
+   wxWindow::SetToolTip( toolTip.Stripped().Translation() );
+}
 
 //
 // Draw the grabber
@@ -217,7 +219,7 @@ void Grabber::OnEnter(wxMouseEvent & WXUNUSED(event))
    // to make it pop up when we want it.
    const auto text = GetToolTipText();
    UnsetToolTip();
-   SetToolTip(text);
+   wxWindow::SetToolTip(text);
 
    if( mAsSpacer )
       return;
@@ -268,7 +270,7 @@ void Grabber::OnKeyDown(wxKeyEvent &event)
 }
 
 // Piggy back in same source file as Grabber.
-// Audcaity Flicker-free StaticBitmap.
+// Audacity Flicker-free StaticBitmap.
 BEGIN_EVENT_TABLE(AStaticBitmap,wxStaticBitmap)
     EVT_ERASE_BACKGROUND(AStaticBitmap::OnErase)
 END_EVENT_TABLE()

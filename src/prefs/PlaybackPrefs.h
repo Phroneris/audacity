@@ -14,17 +14,20 @@
 
 #include <wx/defs.h>
 
-#include <wx/window.h>
-
 #include "PrefsPanel.h"
 
 class ShuttleGui;
+
+#define PLAYBACK_PREFS_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Playback") }
 
 class PlaybackPrefs final : public PrefsPanel
 {
  public:
    PlaybackPrefs(wxWindow * parent, wxWindowID winid);
    virtual ~PlaybackPrefs();
+   ComponentInterfaceSymbol GetSymbol() override;
+   TranslatableString GetDescription() override;
+
    bool Commit() override;
    wxString HelpPageName() override;
    void PopulateOrExchange(ShuttleGui & S) override;
@@ -33,14 +36,6 @@ class PlaybackPrefs final : public PrefsPanel
 
  private:
    void Populate();
-};
-
-
-/// A PrefsPanelFactory that creates one PlaybackPrefs panel.
-class PlaybackPrefsFactory final : public PrefsPanelFactory
-{
-public:
-   PrefsPanel *operator () (wxWindow *parent, wxWindowID winid) override;
 };
 
 #endif

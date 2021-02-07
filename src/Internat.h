@@ -12,16 +12,15 @@
 #ifndef __AUDACITY_INTERNAT__
 #define __AUDACITY_INTERNAT__
 
-#include <wx/arrstr.h>
-#include <wx/string.h>
-#include <wx/longlong.h>
-
-#include <algorithm>
-
-#ifndef IN_RC
 #include "Audacity.h"
 
-class wxString;
+#include <wx/longlong.h>
+
+#ifndef IN_RC
+#include "audacity/Types.h"
+
+class wxArrayString;
+class wxArrayStringEx;
 
 extern AUDACITY_DLL_API const wxString& GetCustomTranslation(const wxString& str1 );
 extern AUDACITY_DLL_API const wxString& GetCustomSubstitution(const wxString& str1 );
@@ -29,19 +28,39 @@ extern AUDACITY_DLL_API const wxString& GetCustomSubstitution(const wxString& st
 // Marks string for substitution only.
 #define _TS( s ) GetCustomSubstitution( s )
 
-// Marks strings for extraction only...must use wxGetTranslation() to translate.
-#define XO(s)  wxT(s)
+// Marks strings for extraction only... use .Translate() to translate.
+// '&', preceding menu accelerators, should NOT occur in the argument.
+#define XO(s)  (TranslatableString{ wxT(s), {} })
+
+// Alternative taking a second context argument.  A context is a string literal,
+// which is not translated, but serves to disambiguate uses of the first string
+// that might need differing translations, such as "Light" meaning not-heavy in
+// one place but not-dark elsewhere.
+#define XC(s, c)  (TranslatableString{ wxT(s), {} }.Context(c))
+
+// Marks strings for extraction only, where '&', preceding menu accelerators, MAY
+// occur.
+// For now, expands exactly as macro XO does, but in future there will be a
+// type distinction - for example XXO should be used for menu item names that
+// might use the & character for shortcuts.
+#define XXO(s)  XO(s)
+
+// Corresponds to XC as XXO does to XO
+#define XXC(s, c) XC(s, c)
 
 #ifdef _
    #undef _
 #endif
 
-#if defined( __WXDEBUG__ )
+#if defined( _DEBUG )
    // Force a crash if you misuse _ in a static initializer, so that translation
    // is looked up too early and not found.
 
-   #ifdef _MSC_VER
+   #ifdef __WXMSW__
 
+   // Eventually pulls in <windows.h> which indirectly defines DebugBreak(). Can't
+   // include <windows.h> directly since it then causes "MemoryX.h" to spew errors.
+   #include <wx/app.h>
    #define _(s) ((wxTranslations::Get() || (DebugBreak(), true)), \
                 GetCustomTranslation((s)))
 
@@ -58,28 +77,30 @@ extern AUDACITY_DLL_API const wxString& GetCustomSubstitution(const wxString& st
    #define _(s) GetCustomTranslation((s))
 #endif
 
-#ifdef wxPLURAL
-   #undef wxPLURAL
+#ifdef XP
+   #undef XP
 #endif
 
 
-// The two string arugments will go to the .pot file, as
+// The two string arguments will go to the .pot file, as
 // msgid sing
 // msgid_plural plural
 //
 // (You must use plain string literals.  Do not use _() or wxT() or L prefix,
 //  which (intentionally) will fail to compile.  The macro inserts wxT).
 //
-// Note too:  it seems an i18n-hint comment is not extracted if it precedes
-// wxPLURAL directly.  A workaround:  after the comment, insert a line
-// _("dummyStringXXXX");
-// where for XXXX subsitute something making this dummy string unique in the
-// program.  Then check in your generated audacity.pot that the dummy is
-// immediately before the singular/plural entry.
+// Note too:  The i18n-hint comment must be on the line preceding the first
+// string.  That might be inside the parentheses of the macro call.
 //
-// Your i18n-comment should therefore say something like,
-// "In the string after this one, ..."
-#define wxPLURAL(sing, plur, n)  wxGetTranslation( wxT(sing), wxT(plur), n)
+// The macro call is then followed by a sequence of format arguments in
+// parentheses.  The third argument of the macro call is the zero-based index
+// of the format argument that selects singular or plural
+#define XP(sing, plur, n) \
+   TranslatableString{ wxT(sing), {} }.Plural<(n)>( wxT(plur) )
+
+// Like XP but with an additional context argument, as for XC
+#define XPC(sing, plur, n, c) \
+   TranslatableString{ wxT(sing), {} }.Context(c).Plural<(n)>( wxT(plur) )
 
 #endif
 
@@ -118,14 +139,8 @@ public:
 
    /** \brief Convert a number to a string while formatting it in bytes, KB,
     * MB, GB */
-   static wxString FormatSize(wxLongLong size);
-   static wxString FormatSize(double size);
-
-   /** \brief Protect against Unicode to multi-byte conversion failures
-    * on Windows */
-#if defined(__WXMSW__)
-   static char *VerifyFilename(const wxString &s, bool input = true);
-#endif
+   static TranslatableString FormatSize(wxLongLong size);
+   static TranslatableString FormatSize(double size);
 
    /** \brief Check a proposed file name string for illegal characters and
     * remove them
@@ -134,90 +149,27 @@ public:
     */
    static bool SanitiseFilename(wxString &name, const wxString &sub);
 
-   /** \brief Remove accelerator charactors from strings
-    *
-    * Utility function - takes a translatable string to be used as a menu item,
-    * for example _("&Splash...\tAlt+S"), and strips all of the menu
-    * accelerator stuff from it, to make "Splash".  That way the same
-    * translatable string can be used both when accelerators are needed and
-    * when they aren't, saving translators effort. */
-   static wxString StripAccelerators(const wxString& str);
-
    static const wxArrayString &GetExcludedCharacters()
    { return exclude; }
 
 private:
    static wxChar mDecimalSeparator;
 
-   // stuff for file name sanitisation
    static wxArrayString exclude;
-
-   static wxCharBuffer mFilename;
 };
-
-#define _NoAcc(X) Internat::StripAccelerators(_(X))
-
-// Use this macro to wrap all filenames and pathnames that get
-// passed directly to a system call, like opening a file, creating
-// a directory, checking to see that a file exists, etc...
-#if defined(__WXMSW__)
-// Note, on Windows we don't define an OSFILENAME() to prevent accidental use.
-// See VerifyFilename() for an explanation.
-#define OSINPUT(X) Internat::VerifyFilename(X, true)
-#define OSOUTPUT(X) Internat::VerifyFilename(X, false)
-#elif defined(__WXMAC__)
-#define OSFILENAME(X) ((char *) (const char *)(X).fn_str())
-#define OSINPUT(X) OSFILENAME(X)
-#define OSOUTPUT(X) OSFILENAME(X)
-#else
-#define OSFILENAME(X) ((char *) (const char *)(X).mb_str())
-#define OSINPUT(X) OSFILENAME(X)
-#define OSOUTPUT(X) OSFILENAME(X)
-#endif
 
 // Convert C strings to wxString
 #define UTF8CTOWX(X) wxString((X), wxConvUTF8)
 #define LAT1CTOWX(X) wxString((X), wxConvISO8859_1)
 
 class ComponentInterfaceSymbol;
-wxArrayString LocalizedStrings(
-   const ComponentInterfaceSymbol strings[], size_t nStrings);
+TranslatableStrings Msgids(
+   const EnumValueSymbol strings[], size_t nStrings);
+TranslatableStrings Msgids( const std::vector<EnumValueSymbol> &strings );
 
-// This object pairs an internal string, maybe empty, with a translated string.
-// Any internal string may be written to configuration or other files and,
-// for compatibility, should not vary between Audacity versions.
-// The translated string may be shown to users and may vary with locale, and
-// Audacity version if it is decided to use a different user-visible message.
-// Sometimes the translated string is derived from a msgid identical
-// to the internal string.  The translated string is not meant to persist.
-class TranslatedInternalString
-{
-public:
-
-   TranslatedInternalString() = default;
-
-   // One-argument constructor from a msgid
-   explicit TranslatedInternalString( const wxString &internal )
-   : mInternal{ internal }, mTranslated{ GetCustomTranslation( internal ) }
-   {}
-
-   // Two-argument version, when translated does not derive from internal
-   TranslatedInternalString( const wxString &internal,
-                             const wxString &translated )
-   : mInternal{ internal }, mTranslated{ translated }
-   {}
-
-   const wxString &Internal() const { return mInternal; }
-   const wxString Translated() const 
-   {  
-      wxString Temp = mTranslated;
-      Temp.Replace( "&","" );
-      return Temp;
-   }
-
-private:
-   wxString mInternal;
-   wxString mTranslated;
-};
+// Whether disambiguationg contexts are supported
+// If not, then the program builds and runs, but strings in the catalog with
+// contexts will fail to translate
+#define HAS_I18N_CONTEXTS wxCHECK_VERSION(3, 1, 1)
 
 #endif

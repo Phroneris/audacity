@@ -22,7 +22,8 @@
 **********************************************************************/
 
 #include "../../Audacity.h"
-#include "VSTControl.h"
+#include "VSTControlOSX.h"
+
 #include "../../MemoryX.h"
 
 @interface VSTView : NSView
@@ -44,7 +45,7 @@
 @end
 
 VSTControlImpl::VSTControlImpl(wxWindowMac *peer, NSView *view)
-:  wxWidgetCocoaImpl(peer, view, false, false)
+:  wxWidgetCocoaImpl(peer, view)
 {
 }
 

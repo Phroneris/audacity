@@ -1,29 +1,20 @@
-/**********************************************************************
+/*!********************************************************************
 
   Audacity: A Digital Audio Editor
 
-  AudacityException
+  @file AudacityException.cpp
+  @brief Implements AudacityException and related
 
   Paul Licameli
 
-********************************************************************//**
-
-\class AudacityException
-\brief root of a hierarchy of classes that are thrown and caught
- by Audacity.
-
-\class MessageBoxException
-\brief an AudacityException that pops up a single message box even if
-there were multiple exceptions of the same kind before it actually 
-got to show.
-
-*//********************************************************************/
+***********************************************************************/
 
 #include "Audacity.h"
 #include "AudacityException.h"
 
 #include <wx/atomic.h>
 
+#include "widgets/AudacityMessageBox.h"
 #include "widgets/ErrorDialog.h"
 
 AudacityException::~AudacityException()
@@ -32,7 +23,7 @@ AudacityException::~AudacityException()
 
 wxAtomicInt sOutstandingMessages {};
 
-MessageBoxException::MessageBoxException( const wxString &caption_ )
+MessageBoxException::MessageBoxException( const TranslatableString &caption_ )
    : caption{ caption_ }
 {
    if (!caption.empty())
@@ -50,22 +41,8 @@ MessageBoxException::MessageBoxException( const MessageBoxException& that )
 {
    caption = that.caption;
    moved = that.moved;
+   helpUrl = that.helpUrl;
    that.moved = true;
-}
-
-MessageBoxException &MessageBoxException::operator = ( MessageBoxException &&that )
-{
-   caption = that.caption;
-   if ( this != &that ) {
-      AudacityException::operator=( std::move(that) );
-      if (!moved)
-         wxAtomicDec( sOutstandingMessages );
-
-      moved = that.moved;
-      that.moved = true;
-   }
-
-   return *this;
 }
 
 MessageBoxException::~MessageBoxException()
@@ -80,7 +57,7 @@ SimpleMessageBoxException::~SimpleMessageBoxException()
 {
 }
 
-wxString SimpleMessageBoxException::ErrorMessage() const
+TranslatableString SimpleMessageBoxException::ErrorMessage() const
 {
    return message;
 }
@@ -94,12 +71,26 @@ void MessageBoxException::DelayedHandlerAction()
       // displays its message.  We assume that multiple messages have a
       // common cause such as exhaustion of disk space so that the others
       // give the user no useful added information.
-      if ( wxAtomicDec( sOutstandingMessages ) == 0 )
-         ::AudacityMessageBox(
-            ErrorMessage(),
-            caption.IsEmpty() ? AudacityMessageBoxCaptionStr() : caption,
-            wxICON_ERROR
-         );
+      
+      if ( wxAtomicDec( sOutstandingMessages ) == 0 ) {
+         if (ErrorHelpUrl().IsEmpty())
+         {
+            ::AudacityMessageBox(
+               ErrorMessage(),
+               (caption.empty() ? AudacityMessageBoxCaptionStr() : caption),
+               wxICON_ERROR 
+            );
+         }
+         else
+         {
+            ShowErrorDialog(
+               nullptr,
+               (caption.empty() ? AudacityMessageBoxCaptionStr() : caption),
+               ErrorMessage(),
+               ErrorHelpUrl());
+         }
+      }
+
       moved = true;
    }
 }

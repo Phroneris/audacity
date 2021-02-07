@@ -20,6 +20,11 @@ and on Mac OS X for the filesystem.
 
 *//*******************************************************************/
 
+#include "Internat.h"
+
+#include "Experimental.h"
+#include "MemoryX.h"
+
 #include <wx/log.h>
 #include <wx/intl.h>
 #include <wx/filename.h>
@@ -27,10 +32,6 @@ and on Mac OS X for the filesystem.
 #include <locale.h>
 #include <math.h> // for pow()
 
-#include "Experimental.h"
-#include "FileNames.h"
-#include "widgets/ErrorDialog.h"
-#include "Internat.h"
 #include "../include/audacity/ComponentInterface.h"
 
 // in order for the static member variables to exist, they must appear here
@@ -38,8 +39,8 @@ and on Mac OS X for the filesystem.
 // Otherwise, you get link errors.
 
 wxChar Internat::mDecimalSeparator = wxT('.'); // default
+// exclude is used by SanitiseFilename.
 wxArrayString Internat::exclude;
-wxCharBuffer Internat::mFilename;
 
 // DA: Use tweaked translation mechanism to replace 'Audacity' by 'DarkAudacity'.
 #ifdef EXPERIMENTAL_DA
@@ -102,15 +103,24 @@ void Internat::Init()
    // or to directories
    auto forbid = wxFileName::GetForbiddenChars(format);
 
-   for(auto cc: forbid)
-      exclude.Add(wxString{ cc });
+   for (auto cc: forbid) {
+#if defined(__WXGTK__)
+      if (cc == wxT('*') || cc == wxT('?')) {
+         continue;
+      }
+#endif
+      exclude.push_back(wxString{ cc });
+   }
 
    // The path separators may not be forbidden, so add them
-   auto separators = wxFileName::GetPathSeparators(format);
+   //auto separators = wxFileName::GetPathSeparators(format);
+
+   // Bug 1441 exclude all separators from filenames on all platforms.
+   auto separators = wxString("\\/");
 
    for(auto cc: separators) {
       if (forbid.Find(cc) == wxNOT_FOUND)
-         exclude.Add(wxString{ cc });
+         exclude.push_back(wxString{ cc });
    }
 }
 
@@ -163,7 +173,7 @@ wxString Internat::ToDisplayString(double numberToConvert,
       if (result.Find(decSep) != -1)
       {
          // Strip trailing zeros, but leave one, and decimal separator.
-         int pos = result.Length() - 1;
+         int pos = result.length() - 1;
          while ((pos > 1) &&
                   (result.GetChar(pos) == wxT('0')) &&
                   (result.GetChar(pos - 1) != decSep))
@@ -188,7 +198,7 @@ wxString Internat::ToDisplayString(double numberToConvert,
    return result;
 }
 
-wxString Internat::FormatSize(wxLongLong size)
+TranslatableString Internat::FormatSize(wxLongLong size)
 {
    /* wxLongLong contains no built-in conversion to double */
    double dSize = size.GetHi() * pow(2.0, 32);  // 2 ^ 32
@@ -197,72 +207,32 @@ wxString Internat::FormatSize(wxLongLong size)
    return FormatSize(dSize);
 }
 
-wxString Internat::FormatSize(double size)
+TranslatableString Internat::FormatSize(double size)
 {
-   wxString sizeStr;
+   TranslatableString sizeStr;
 
    if (size == -1)
-      sizeStr = _("Unable to determine");
+      sizeStr = XO("Unable to determine");
    else {
       /* make it look nice, by formatting into k, MB, etc */
       if (size < 1024.0)
-         sizeStr = ToDisplayString(size) + wxT(" ") + _("bytes");
+         sizeStr = XO("%s bytes").Format( ToDisplayString(size) );
       else if (size < 1024.0 * 1024.0) {
          /* i18n-hint: Abbreviation for Kilo bytes */
-         sizeStr = ToDisplayString(size / 1024.0, 1) + wxT(" ") + _("KB");
+         sizeStr = XO("%s KB").Format( ToDisplayString(size / 1024.0, 1) );
       }
       else if (size < 1024.0 * 1024.0 * 1024.0) {
          /* i18n-hint: Abbreviation for Mega bytes */
-         sizeStr = ToDisplayString(size / (1024.0 * 1024.0), 1) + wxT(" ") + _("MB");
+         sizeStr = XO("%s MB").Format( ToDisplayString(size / (1024.0 * 1024.0), 1) );
       }
       else {
          /* i18n-hint: Abbreviation for Giga bytes */
-         sizeStr = ToDisplayString(size / (1024.0 * 1024.0 * 1024.0), 1) + wxT(" ") + _("GB");
+         sizeStr = XO("%s GB").Format( ToDisplayString(size / (1024.0 * 1024.0 * 1024.0), 1) );
       }
    }
 
    return sizeStr;
 }
-
-#if defined(__WXMSW__)
-//
-// On Windows, wxString::mb_str() can return a NULL pointer if the
-// conversion to multi-byte fails.  So, based on direction intent,
-// returns a pointer to an empty string or prompts for a NEW name.
-//
-char *Internat::VerifyFilename(const wxString &s, bool input)
-{
-   static wxCharBuffer buf;
-   wxString name = s;
-
-   if (input) {
-      if ((char *) (const char *)name.mb_str() == NULL) {
-         name = wxEmptyString;
-      }
-   }
-   else {
-      wxFileName ff(name);
-      wxString ext;
-      while ((char *) (const char *)name.mb_str() == NULL) {
-         AudacityMessageBox(_("The specified filename could not be converted due to Unicode character use."));
-
-         ext = ff.GetExt();
-         name = FileNames::SelectFile(FileNames::Operation::_None,
-                             _("Specify New Filename:"),
-                             wxEmptyString,
-                             name,
-                             ext,
-                             wxT("*.") + ext,
-                             wxFD_SAVE | wxRESIZE_BORDER,
-                             wxGetTopLevelParent(NULL));
-      }
-   }
-
-   mFilename = name.mb_str();
-
-   return (char *) (const char *) mFilename;
-}
-#endif
 
 bool Internat::SanitiseFilename(wxString &name, const wxString &sub)
 {
@@ -280,31 +250,160 @@ bool Internat::SanitiseFilename(wxString &name, const wxString &sub)
    // Special Mac stuff
    // '/' is permitted in file names as seen in dialogs, even though it is
    // the path separator.  The "real" filename as seen in the terminal has ':'.
-   // Do NOT return true if this is the only subsitution.
+   // Do NOT return true if this is the only substitution.
    name.Replace(wxT("/"), wxT(":"));
 #endif
 
    return result;
 }
 
-wxString Internat::StripAccelerators(const wxString &s)
+TranslatableStrings Msgids(
+   const EnumValueSymbol strings[], size_t nStrings)
 {
-   wxString result;
-   result.Alloc(s.Length());
-   for(size_t i = 0; i < s.Length(); i++) {
-      if (s[i] == '\t')
-         break;
-      if (s[i] != '&' && s[i] != '.')
-         result += s[i];
-   }
-   return result;
+   return transform_range<TranslatableStrings>(
+      strings, strings + nStrings,
+      std::mem_fn( &EnumValueSymbol::Msgid )
+   );
 }
 
-wxArrayString LocalizedStrings(
-   const ComponentInterfaceSymbol strings[], size_t nStrings)
+TranslatableStrings Msgids( const std::vector<EnumValueSymbol> &strings )
 {
-   wxArrayString results;
-   std::transform( strings, strings + nStrings, std::back_inserter(results),
-                   std::mem_fn( &ComponentInterfaceSymbol::Translation ) );
-   return results;
+   return Msgids( strings.data(), strings.size() );
 }
+
+// Find a better place for this?
+#include "audacity/Types.h"
+Identifier::Identifier(
+                       std::initializer_list<Identifier> components, wxChar separator )
+{
+   if( components.size() < 2 )
+   {
+      wxASSERT( false );
+      return;
+   }
+   auto iter = components.begin(), end = components.end();
+   value = (*iter++).value;
+   while (iter != end)
+      value += separator + (*iter++).value;
+}
+
+std::vector< Identifier > Identifier::split( wxChar separator ) const
+{
+   auto strings = ::wxSplit( value, separator );
+   return { strings.begin(), strings.end() };
+}
+
+const wxChar *const TranslatableString::NullContextName = wxT("*");
+
+const TranslatableString::Formatter
+TranslatableString::NullContextFormatter {
+   [](const wxString & str, TranslatableString::Request request) -> wxString {
+      switch ( request ) {
+         case Request::Context:
+            return NullContextName;
+         case Request::Format:
+         case Request::DebugFormat:
+         default:
+            return str;
+      }
+   }
+};
+
+bool TranslatableString::IsVerbatim() const
+{
+   return DoGetContext( mFormatter ) == NullContextName;
+}
+
+TranslatableString &TranslatableString::Strip( unsigned codes ) &
+{
+   auto prevFormatter = mFormatter;
+   mFormatter = [prevFormatter, codes]
+   ( const wxString & str, TranslatableString::Request request ) -> wxString {
+      switch ( request ) {
+         case Request::Context:
+            return TranslatableString::DoGetContext( prevFormatter );
+         case Request::Format:
+         case Request::DebugFormat:
+         default: {
+            bool debug = request == Request::DebugFormat;
+            auto result =
+               TranslatableString::DoSubstitute( prevFormatter, str, debug );
+            if ( codes & MenuCodes )
+               result = wxStripMenuCodes( result );
+            if ( codes & Ellipses ) {
+               if (result.EndsWith(wxT("...")))
+                  result = result.Left( result.length() - 3 );
+               // Also check for the single-character Unicode ellipsis
+               else if (result.EndsWith(wxT("\u2026")))
+                  result = result.Left( result.length() - 1 );
+            }
+            return result;
+         }
+      }
+   };
+   
+   return *this;
+}
+
+wxString TranslatableString::DoGetContext( const Formatter &formatter )
+{
+   return formatter ? formatter( {}, Request::Context ) : wxString{};
+}
+
+wxString TranslatableString::DoSubstitute(
+   const Formatter &formatter, const wxString &format, bool debug )
+{
+   return formatter
+      ? formatter( format, debug ? Request::DebugFormat : Request::Format )
+      : // come here for most translatable strings, which have no formatting
+         ( debug ? format : wxGetTranslation( format ) );
+}
+
+wxString TranslatableString::DoChooseFormat(
+   const Formatter &formatter,
+   const wxString &singular, const wxString &plural, unsigned nn, bool debug )
+{
+   // come here for translatable strings that choose among forms by number;
+   // if not debugging, then two keys are passed to an overload of
+   // wxGetTranslation, and also a number.
+   // Some languages might choose among more or fewer than two forms
+   // (e.g. Arabic has duals and Russian has complicated declension rules)
+   wxString context;
+   return ( debug || NullContextName == (context = DoGetContext(formatter)) )
+      ? ( nn == 1 ? singular : plural )
+      : wxGetTranslation(
+            singular, plural, nn
+#if HAS_I18N_CONTEXTS
+            , wxString{} // domain
+            , context
+#endif
+         );
+}
+
+TranslatableString &TranslatableString::Join(
+   const TranslatableString arg, const wxString &separator ) &
+{
+   auto prevFormatter = mFormatter;
+   mFormatter =
+   [prevFormatter,
+    arg /* = std::move( arg ) */,
+    separator](const wxString &str, Request request)
+      -> wxString {
+      switch ( request ) {
+         case Request::Context:
+            return TranslatableString::DoGetContext( prevFormatter );
+         case Request::Format:
+         case Request::DebugFormat:
+         default: {
+            bool debug = request == Request::DebugFormat;
+            return
+               TranslatableString::DoSubstitute( prevFormatter, str, debug )
+                  + separator
+                  + arg.DoFormat( debug );
+         }
+      }
+   };
+   return *this;
+}
+
+const TranslatableString TranslatableString::Inaudible{ wxT("\a") };

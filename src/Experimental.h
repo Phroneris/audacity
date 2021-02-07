@@ -30,6 +30,11 @@
 #ifndef __EXPERIMENTAL__
 #define __EXPERIMENTAL__
 
+#ifndef __AUDACITY_H__
+// Audacity.h is needed for the USE_* macros
+#error Must include Audacity.h before Experimental.h
+#endif
+
 // ACH 08 Jan 2014
 // EQ accelerated code
 //#define EXPERIMENTAL_EQ_SSE_THREADED
@@ -88,11 +93,6 @@
 // This shows the zoom toggle button on the edit toolbar.
 #define EXPERIMENTAL_ZOOM_TOGGLE_BUTTON
 
-//Next line enables Mic monitoring at times when it was previously off.
-//More work is needed as after recording or playing it results in an
-//unwanted record-cursor on the wave track.
-//#define EXPERIMENTAL_EXTRA_MONITORING
-
 //#define EXPERIMENTAL_ROLL_UP_DIALOG
 //#define EXPERIMENTAL_RIGHT_ALIGNED_TEXTBOXES
 //#define EXPERIMENTAL_VOICE_DETECTION
@@ -103,7 +103,7 @@
 // but then the student didn't contribute after that.  It needs a bit of work to finish it off.
 // As a minimum, if this is turned on for a release,
 // it should have an easy mechanism to disable it at run-time, such as a menu item or a pref,
-// preferrably disabled until other work is done.  Martyn 22/12/2008.
+// preferably disabled until other work is done.  Martyn 22/12/2008.
 // 
 
 // JKC Apr 2015, Menu item to manage effects.
@@ -123,38 +123,29 @@
 // Allow keyboard seeking before initial playback position
 //#define EXPERIMENTAL_SEEK_BEHIND_CURSOR
 
-// Michael Chinen, 08.Oct 2009
-// Use on-demand importing for FLAC. Has issues with opening projects that
-// have not been fully imported in builds without FLAC support, so disabled for
-// 2.0 release
-//#define EXPERIMENTAL_OD_FLAC
-// similarly for FFmpeg:
-// Won't build on Fedora 17 or Windows VC++, per http://bugzilla.audacityteam.org/show_bug.cgi?id=539.
-//#define EXPERIMENTAL_OD_FFMPEG 1
-
 // Paul Licameli (PRL) 5 Oct 2014
 #define EXPERIMENTAL_SPECTRAL_EDITING
 
 // Paul Licameli (PRL) 29 Nov 2014
 // #define EXPERIMENTAL_IMPROVED_SEEKING
 
-#ifdef USE_MIDI
+//#define EXPERIMENTAL_MIDI_IN
+
 // RBD, 1 Sep 2008
 // Enables MIDI Output of NoteTrack (MIDI) data during playback
 // USE_MIDI must be defined in order for EXPERIMENTAL_MIDI_OUT to work
+#ifdef USE_MIDI
 #define EXPERIMENTAL_MIDI_OUT
+#endif
 // JKC, 17 Aug 2017
 // Enables the MIDI note stretching feature, which currently
 // a) Is broken on Linux (Bug 1646)
 // b) Crashes with Sync-Lock (Bug 1719)
 // c) Needs UI design review.
 //#define EXPERIMENTAL_MIDI_STRETCHING
-#endif
 
 // USE_MIDI must be defined in order for EXPERIMENTAL_SCOREALIGN to work
-#ifdef USE_MIDI
 //#define EXPERIMENTAL_SCOREALIGN
-#endif
 
 //If you want any of these files, ask JKC.  They are not
 //yet checked in to Audacity SVN as of 12-Feb-2010
@@ -218,12 +209,14 @@
 #define EXPERIMENTAL_TWO_TONE_TIME_RULER
 
 #ifndef IN_RC
-// Define to include crash reporting
-#include <wx/defs.h>
-#define EXPERIMENTAL_CRASH_REPORT
-#if !defined(wxUSE_DEBUGREPORT) || !wxUSE_DEBUGREPORT
-#undef EXPERIMENTAL_CRASH_REPORT
-#endif
+   // Define to include crash reporting
+   #define EXPERIMENTAL_CRASH_REPORT
+   #ifdef EXPERIMENTAL_CRASH_REPORT
+      #include <wx/setup.h> // for wxUSE* macros
+      #if !defined(wxUSE_DEBUGREPORT) || !wxUSE_DEBUGREPORT
+         #undef EXPERIMENTAL_CRASH_REPORT
+      #endif
+   #endif
 #endif
 
 // Paul Licameli (PRL) 31 May 2015
@@ -233,7 +226,7 @@
 
 // PRL 11 Jul 2017
 // Highlight more things in TrackPanel when the mouse moves over them,
-// using delibrately ugly pens and brushes until there is better cooperation
+// using deliberately ugly pens and brushes until there is better cooperation
 // with themes
 //#define EXPERIMENTAL_TRACK_PANEL_HIGHLIGHTING
 
@@ -251,7 +244,7 @@
 // PRL 31 July 2018
 #define EXPERIMENTAL_DRAGGABLE_PLAY_HEAD
 
-// mmm-1 22 Aug 2018
-//#define EXPERIMENTAL_R128_NORM
+// Jonatã Bolzan Loss 31 Dec 2019
+#define EXPERIMENTAL_TIMER_TOOLBAR
 
 #endif

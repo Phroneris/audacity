@@ -9,18 +9,20 @@
 *******************************************************************//**
 
 \class FileHistory
-\brief Similar to FileHistory, but customized to our needs.
+\brief Similar to wxFileHistory, but customized to our needs.
 
 *//*******************************************************************/
 
 #include "../Audacity.h"
+#include "FileHistory.h"
 
 #include <wx/defs.h>
-#include <wx/fileconf.h>
 #include <wx/menu.h>
 
-#include "FileHistory.h"
 #include "../Internat.h"
+#include "../Prefs.h"
+
+#include <mutex>
 
 FileHistory::FileHistory(size_t maxfiles, wxWindowID base)
 {
@@ -32,12 +34,25 @@ FileHistory::~FileHistory()
 {
 }
 
+FileHistory &FileHistory::Global()
+{
+   // TODO - read the number of files to store in history from preferences
+   static FileHistory history{
+      ID_RECENT_LAST - ID_RECENT_FIRST + 1, ID_RECENT_CLEAR };
+   static std::once_flag flag;
+   std::call_once( flag, [&]{
+      history.Load(*gPrefs, wxT("RecentFiles"));
+   });
+
+   return history;
+}
+
 // File history management
-void FileHistory::AddFileToHistory(const wxString & file, bool update)
+void FileHistory::AddFileToHistory(const FilePath & file, bool update)
 {
    // Needed to transition from wxFileHistory to FileHistory since there
    // can be empty history "slots".
-   if (file.IsEmpty()) {
+   if (file.empty()) {
       return;
    }
 
@@ -48,55 +63,35 @@ void FileHistory::AddFileToHistory(const wxString & file, bool update)
 #endif
 
    if (i != wxNOT_FOUND) {
-      mHistory.RemoveAt(i);
+      mHistory.erase( mHistory.begin() + i );
    }
 
-   if (mMaxFiles == mHistory.GetCount()) {
-      mHistory.RemoveAt(mHistory.GetCount() - 1);
+   if (mMaxFiles > 0 && mMaxFiles == mHistory.size()) {
+      mHistory.erase( mHistory.end() - 1 );
    }
 
-   mHistory.Insert(file, 0);
+   mHistory.insert(mHistory.begin(), file);
 
-   if (update) {
-      AddFilesToMenu();
-   }
+   if (update)
+      NotifyMenus();
 }
 
-void FileHistory::RemoveFileFromHistory(size_t i, bool update)
+void FileHistory::Remove( size_t i )
 {
-   wxASSERT(i < mHistory.GetCount());
+   wxASSERT(i < mHistory.size());
 
-   if (i < mHistory.GetCount()) {
-      mHistory.RemoveAt(i);
+   if (i < mHistory.size()) {
+      mHistory.erase( mHistory.begin() + i );
 
-      if (update) {
-         AddFilesToMenu();
-      }
+      NotifyMenus();
    }
 }
 
 void FileHistory::Clear()
 {
-   mHistory.Clear();
+   mHistory.clear();
 
-   AddFilesToMenu();
-}
-
-const wxString &FileHistory::GetHistoryFile(size_t i) const
-{
-   wxASSERT(i < mHistory.GetCount());
-
-   if (i < mHistory.GetCount()) {
-      return mHistory[i];
-   }
-
-   static const wxString empty;
-   return empty;
-}
-
-size_t FileHistory::GetCount()
-{
-   return mHistory.GetCount();
+   NotifyMenus();
 }
 
 void FileHistory::UseMenu(wxMenu *menu)
@@ -112,11 +107,13 @@ void FileHistory::UseMenu(wxMenu *menu)
    else {
       wxASSERT(false);
    }
+
+   NotifyMenu( menu );
 }
 
 void FileHistory::Load(wxConfigBase & config, const wxString & group)
 {
-   mHistory.Clear();
+   mHistory.clear();
 
    config.SetPath(group);
 
@@ -130,7 +127,7 @@ void FileHistory::Load(wxConfigBase & config, const wxString & group)
 
    config.SetPath(wxT(".."));
 
-   AddFilesToMenu();
+   NotifyMenus();
 }
 
 void FileHistory::Save(wxConfigBase & config, const wxString & group)
@@ -140,39 +137,41 @@ void FileHistory::Save(wxConfigBase & config, const wxString & group)
    config.SetPath(group);
 
    // Stored in reverse order
-   int n = mHistory.GetCount() - 1;
-   for (size_t i = 1; i <= mHistory.GetCount(); i++) {
+   int n = mHistory.size() - 1;
+   for (size_t i = 1; i <= mHistory.size(); i++) {
       config.Write(wxString::Format(wxT("file%02d"), (int)i), mHistory[n--]);
    }
 
    config.SetPath(wxT(""));
+
+   config.Flush();
 }
 
-void FileHistory::AddFilesToMenu()
+void FileHistory::NotifyMenus()
 {
    Compress();
    for (auto pMenu : mMenus)
       if (pMenu)
-         AddFilesToMenu(pMenu);
+         NotifyMenu(pMenu);
 }
 
-void FileHistory::AddFilesToMenu(wxMenu *menu)
+void FileHistory::NotifyMenu(wxMenu *menu)
 {
    wxMenuItemList items = menu->GetMenuItems();
    for (auto end = items.end(), iter = items.begin(); iter != end;)
       menu->Destroy(*iter++);
 
-   for (size_t i = 0; i < mHistory.GetCount(); i++) {
+   for (size_t i = 0; i < mHistory.size(); i++) {
       wxString item =  mHistory[i];
       item.Replace( "&", "&&" );
       menu->Append(mIDBase + 1 + i,item);
    }
 
-   if (mHistory.GetCount() > 0) {
+   if (mHistory.size() > 0) {
       menu->AppendSeparator();
    }
    menu->Append(mIDBase, _("&Clear"));
-   menu->Enable(mIDBase, mHistory.GetCount() > 0);
+   menu->Enable(mIDBase, mHistory.size() > 0);
 }
 
 void FileHistory::Compress()

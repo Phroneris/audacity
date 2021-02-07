@@ -27,9 +27,15 @@ with changes in the SelectionBar.
 
 
 #include "../Audacity.h"
+#include "SelectionBar.h"
+
+#include "SelectionBarListener.h"
+#include "ToolManager.h"
 
 // For compilers that support precompilation, includes "wx/wx.h".
 #include <wx/wxprec.h>
+
+#include <wx/setup.h> // for wxUSE_* macros
 
 #ifndef WX_PRECOMP
 #include <wx/button.h>
@@ -45,16 +51,15 @@ with changes in the SelectionBar.
 #include <wx/statline.h>
 
 
-#include "SelectionBarListener.h"
-#include "SelectionBar.h"
-
-#include "../widgets/AButton.h"
-#include "../AudioIO.h"
+#include "../AudioIOBase.h"
 #include "../AColor.h"
+#include "../KeyboardCapture.h"
 #include "../Prefs.h"
 #include "../Project.h"
+#include "../ProjectAudioIO.h"
+#include "../ProjectSettings.h"
 #include "../Snap.h"
-#include "../widgets/NumericTextCtrl.h"
+#include "../ViewInfo.h"
 #include "../AllThemeResources.h"
 
 #if wxUSE_ACCESSIBILITY
@@ -93,6 +98,7 @@ BEGIN_EVENT_TABLE(SelectionBar, ToolBar)
    EVT_TEXT(EndTimeID, SelectionBar::OnChangedTime)
    EVT_CHOICE(SnapToID, SelectionBar::OnSnapTo)
    EVT_CHOICE(ChoiceID, SelectionBar::OnChoice )
+   EVT_IDLE( SelectionBar::OnIdle )
    EVT_COMBOBOX(RateID, SelectionBar::OnRate)
    EVT_TEXT(RateID, SelectionBar::OnRate)
 
@@ -100,8 +106,8 @@ BEGIN_EVENT_TABLE(SelectionBar, ToolBar)
    EVT_COMMAND(wxID_ANY, EVT_CAPTURE_KEY, SelectionBar::OnCaptureKey)
 END_EVENT_TABLE()
 
-SelectionBar::SelectionBar()
-: ToolBar(SelectionBarID, _("Selection"), wxT("Selection")),
+SelectionBar::SelectionBar( AudacityProject &project )
+: ToolBar(project, SelectionBarID, XO("Selection"), wxT("Selection")),
   mListener(NULL), mRate(0.0),
   mStart(0.0), mEnd(0.0), mLength(0.0), mCenter(0.0), mAudio(0.0),
   mDrive1( StartTimeID), mDrive2( EndTimeID ),
@@ -118,7 +124,7 @@ SelectionBar::SelectionBar()
    // Audacity to fail.
    // We expect mRate to be set from the project later.
    mRate = (double) gPrefs->Read(wxT("/SamplingRate/DefaultProjectSampleRate"),
-      AudioIO::GetOptimalSupportedSampleRate());
+      AudioIOBase::GetOptimalSupportedSampleRate());
 
    // Selection mode of 0 means showing 'start' and 'end' only.
    mSelectionMode = gPrefs->ReadLong(wxT("/SelectionToolbarMode"),  0);
@@ -128,27 +134,43 @@ SelectionBar::~SelectionBar()
 {
 }
 
+SelectionBar &SelectionBar::Get( AudacityProject &project )
+{
+   auto &toolManager = ToolManager::Get( project );
+   return *static_cast<SelectionBar*>( toolManager.GetToolBar(SelectionBarID) );
+}
+
+const SelectionBar &SelectionBar::Get( const AudacityProject &project )
+{
+   return Get( const_cast<AudacityProject&>( project )) ;
+}
+
 void SelectionBar::Create(wxWindow * parent)
 {
    ToolBar::Create(parent);
+   UpdatePrefs();
 }
 
 
-auStaticText * SelectionBar::AddTitle( const wxString & Title, wxSizer * pSizer ){
-   auStaticText * pTitle = safenew auStaticText(this, Title );
+auStaticText * SelectionBar::AddTitle(
+   const TranslatableString & Title, wxSizer * pSizer ){
+   const auto translated = Title.Translation();
+   auStaticText * pTitle = safenew auStaticText(this, translated );
    pTitle->SetBackgroundColour( theTheme.Colour( clrMedium ));
    pTitle->SetForegroundColour( theTheme.Colour( clrTrackPanelText ) );
-   pSizer->Add( pTitle,0, wxALIGN_CENTER_VERTICAL | wxRIGHT,  (Title.Length() == 1 ) ? 0:5);
+   pSizer->Add( pTitle, 0, wxEXPAND | wxALIGN_CENTER_VERTICAL | wxRIGHT, 5 );
+
    return pTitle;
 }
 
 
-NumericTextCtrl * SelectionBar::AddTime( const wxString Name, int id, wxSizer * pSizer ){
+NumericTextCtrl * SelectionBar::AddTime(
+   const TranslatableString &Name, int id, wxSizer * pSizer ){
    auto formatName = mListener ? mListener->AS_GetSelectionFormat()
-      : NumericFormatId{};
+      : NumericFormatSymbol{};
    auto pCtrl = safenew NumericTextCtrl(
       this, id, NumericConverter::TIME, formatName, 0.0, mRate);
-   pCtrl->SetName(Name);
+   pCtrl->SetName( Name );
    pSizer->Add(pCtrl, 0, wxALIGN_TOP | wxRIGHT, 5);
    return pCtrl;
 }
@@ -166,38 +188,24 @@ void SelectionBar::Populate()
 
    mStartTime = mEndTime = mLengthTime = mCenterTime = mAudioTime = nullptr;
 
-   // This will be inherited by all children:
-   SetFont(wxFont(
-#ifdef __WXMAC__
-                  12
-#else
-                  9
-#endif
-                  ,
-                  wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
-
-   wxFlexGridSizer *mainSizer;
-
-   /* we don't actually need a control yet, but we want to use its methods
-    * to do some look-ups, so we'll have to create one. We can't make the
-    * look-ups static because they depend on translations which are done at
-    * runtime */
-
    // Outer sizer has space top and left.
    // Inner sizers have space on right only.
    // This choice makes for a nice border and internal spacing and places clear responsibility
    // on each sizer as to what spacings it creates.
-   Add((mainSizer = safenew wxFlexGridSizer(SIZER_COLS, 1, 1)), 0, wxALIGN_TOP | wxLEFT | wxTOP, 5);
+   wxFlexGridSizer *mainSizer = safenew wxFlexGridSizer(SIZER_COLS, 1, 1);
+   Add(mainSizer, 0, wxALIGN_CENTER_VERTICAL | wxLEFT, 5);
 
    // Top row (mostly labels)
    wxColour clrText =  theTheme.Colour( clrTrackPanelText );
    wxColour clrText2 = *wxBLUE;
-   AddTitle( _("Project Rate (Hz)"), mainSizer );
+   auStaticText *rateLabel = AddTitle( XO("Project Rate (Hz)"), mainSizer );
    AddVLine( mainSizer );
-   AddTitle( _("Snap-To"), mainSizer );
+   auStaticText *snapLabel = AddTitle( XO("Snap-To"), mainSizer );
    AddVLine( mainSizer );
-   AddTitle( _("Audio Position"), mainSizer );
+#ifdef TIME_IN_SELECT_TOOLBAR
+   AddTitle( XO("Audio Position"), mainSizer );
    AddVLine( mainSizer );
+#endif
 
    {
       const wxString choices[4] = {
@@ -214,20 +222,13 @@ void SelectionBar::Populate()
       // so that name can be set on a standard control
       mChoice->SetAccessible(safenew WindowAccessible(mChoice));
 #endif
-#ifdef __WXGTK__
-      // Combo boxes are taller on Linux, and if we don't do the following, the selection toolbar will
-      // be three units high.
-      wxSize sz = mChoice->GetBestSize();
-      sz.SetHeight( sz.y-4);
-      mChoice->SetMinSize( sz );
-#endif
-      mainSizer->Add(mChoice, 0, wxALIGN_TOP | wxEXPAND | wxRIGHT, 6);
+      mainSizer->Add(mChoice, 0, wxEXPAND | wxALIGN_TOP | wxRIGHT, 6);
    }
 
-   // Botton row, (mostly time controls)
+   // Bottom row, (mostly time controls)
    mRateBox = safenew wxComboBox(this, RateID,
                              wxT(""),
-                             wxDefaultPosition, wxSize(80, -1));
+                             wxDefaultPosition, wxDefaultSize);
 #if wxUSE_ACCESSIBILITY
    // so that name can be set on a standard control
    mRateBox->SetAccessible(safenew WindowAccessible(mRateBox));
@@ -250,7 +251,7 @@ void SelectionBar::Populate()
    // the control that gets the focus events.  So we have to find the
    // textctrl.
    wxWindowList kids = mRateBox->GetChildren();
-   for (unsigned int i = 0; i < kids.GetCount(); i++) {
+   for (unsigned int i = 0; i < kids.size(); i++) {
       wxClassInfo *ci = kids[i]->GetClassInfo();
       if (ci->IsKindOf(CLASSINFO(wxTextCtrl))) {
          mRateText = kids[i];
@@ -266,31 +267,16 @@ void SelectionBar::Populate()
                       &SelectionBar::OnFocus,
                       this);
 
-#ifdef __WXGTK__
-   // Combo boxes are taller on Linux, and if we don't do the following, the selection toolbar will
-   // be three units high.
-   wxSize sz = mRateBox->GetBestSize();
-   sz.SetHeight( sz.y-4);
-   mRateBox->SetMinSize( sz );
-#endif
+   mainSizer->Add(mRateBox, 0, wxEXPAND | wxALIGN_TOP | wxRIGHT, 5);
 
-   mainSizer->Add(mRateBox, 0, wxALIGN_TOP | wxRIGHT, 5);
    AddVLine( mainSizer );
 
    mSnapTo = safenew wxChoice(this, SnapToID,
-                          wxDefaultPosition, wxDefaultSize,
-                          SnapManager::GetSnapLabels());
+      wxDefaultPosition, wxDefaultSize,
+      transform_container< wxArrayStringEx >(
+         SnapManager::GetSnapLabels(),
+         std::mem_fn( &TranslatableString::Translation ) ) );
 
-#ifdef __WXGTK__
-   // Combo boxes are taller on Linux, and if we don't do the following, the selection toolbar will
-   // be three units high.
-   sz = mSnapTo->GetBestSize();
-   sz.SetHeight( sz.y-4);
-   mSnapTo->SetMinSize( sz );
-#endif
-
-   mainSizer->Add(mSnapTo,
-                  0, wxALIGN_TOP | wxRIGHT, 5);
 #if wxUSE_ACCESSIBILITY
    // so that name can be set on a standard control
    mSnapTo->SetAccessible(safenew WindowAccessible(mSnapTo));
@@ -306,28 +292,52 @@ void SelectionBar::Populate()
                     &SelectionBar::OnFocus,
                     this);
 
+   mainSizer->Add(mSnapTo, 0, wxEXPAND | wxALIGN_TOP | wxRIGHT, 5);
+
    AddVLine( mainSizer );
 
-   mAudioTime = AddTime(_("Audio Position"), AudioTimeID, mainSizer );
+#ifdef TIME_IN_SELECT_TOOLBAR
+   mAudioTime = AddTime( XO("Audio Position"), AudioTimeID, mainSizer );
    // This vertical line is NOT just for decoration!
    // It works around a wxWidgets-on-Windows RadioButton bug, where tabbing
    // into the radiobutton group jumps to selecting the first item in the 
    // group even if some other item had been selected.
-   // It is an important bug to work around for sceen reader users, who use TAB 
+   // It is an important bug to work around for screen reader users, who use TAB 
    // a lot in navigation.
    // More about the bug here:
    // https://forums.wxwidgets.org/viewtopic.php?t=41120
    AddVLine( mainSizer );
+#endif
 
    {
       auto hSizer = std::make_unique<wxBoxSizer>(wxHORIZONTAL);
 
-      mStartTime  = AddTime(_("Start"), StartTimeID, hSizer.get() );
-      mLengthTime = AddTime(_("Length"), LengthTimeID, hSizer.get() );
-      mCenterTime = AddTime(_("Center"), CenterTimeID, hSizer.get() );
-      mEndTime    = AddTime(_("End"), EndTimeID, hSizer.get() );
+      mStartTime  = AddTime( XO("Start"), StartTimeID, hSizer.get() );
+      mLengthTime = AddTime( XO("Length"), LengthTimeID, hSizer.get() );
+      mCenterTime = AddTime( XO("Center"), CenterTimeID, hSizer.get() );
+      mEndTime    = AddTime( XO("End"), EndTimeID, hSizer.get() );
       mainSizer->Add(hSizer.release(), 0, wxALIGN_TOP | wxRIGHT, 0);
    }
+
+#if defined(__WXGTK3__)
+   // Nothing special
+#elif defined(__WXGTK__)
+   // Ensure the font fits inside (hopefully)
+   wxFont font = mChoice->GetFont();
+   font.Scale((double) toolbarSingle / mChoice->GetSize().GetHeight());
+
+   rateLabel->SetFont(font);
+   snapLabel->SetFont(font);
+   mChoice->SetFont(font);
+   mRateBox->SetFont(font);
+   mRateText->SetFont(font);
+   mSnapTo->SetFont(font);
+#endif
+
+   // Make sure they are fully expanded to the longest item
+   mChoice->SetMinSize(wxSize(mChoice->GetBestSize().x, toolbarSingle));
+   mRateBox->SetMinSize(wxSize(mRateBox->GetBestSize().x, toolbarSingle));
+   mSnapTo->SetMinSize(wxSize(mSnapTo->GetBestSize().x, toolbarSingle));
 
    mChoice->MoveBeforeInTabOrder( mStartTime );
    // This shows/hides controls.
@@ -336,8 +346,6 @@ void SelectionBar::Populate()
    mainSizer->Layout();
    RegenerateTooltips();
    Layout();
-
-   SetMinSize( GetSizer()->GetMinSize() );
 }
 
 void SelectionBar::UpdatePrefs()
@@ -347,14 +355,14 @@ void SelectionBar::UpdatePrefs()
    // If necessary we can drive the SelectionBar mRate via the Project
    // calling our SetRate().
    // As of 13-Sep-2018, changes to the sample rate pref will only affect 
-   // creation of new projects, not the smaple rate in existing ones.
+   // creation of new projects, not the sample rate in existing ones.
 
    wxCommandEvent e;
    e.SetInt(mStartTime->GetFormatIndex());
    OnUpdate(e);
 
    // Set label to pull in language change
-   SetLabel(_("Selection"));
+   SetLabel(XO("Selection"));
 
    RegenerateTooltips();
    // Give base class a chance
@@ -375,7 +383,7 @@ void SelectionBar::RegenerateTooltips()
    auto formatName =
       mListener
          ? mListener->AS_GetSelectionFormat()
-         : NumericFormatId{};
+         : NumericFormatSymbol{};
    mSnapTo->SetToolTip(
       wxString::Format(
          _("Snap Clicks/Selections to %s"), formatName.Translation() ));
@@ -501,20 +509,22 @@ void SelectionBar::OnUpdate(wxCommandEvent &evt)
    evt.Skip(false);
 
    // Save format name before recreating the controls so they resize properly
+   if (mStartTime)
    {
       auto format = mStartTime->GetBuiltinName(index);
-      mListener->AS_SetSelectionFormat(format);
+      if (mListener)
+         mListener->AS_SetSelectionFormat(format);
    }
 
-   RegenerateTooltips();
-
-   // ToolBar::ReCreateButtons() will get rid of our sizers and controls
+   // ReCreateButtons() will get rid of our sizers and controls
    // so reset pointers first.
    for( i=0;i<5;i++)
       *Ctrls[i]=NULL;
 
+   mChoice = NULL;
    mRateBox = NULL;
    mRateText = NULL;
+   mSnapTo = NULL;
 
    ToolBar::ReCreateButtons();
 
@@ -522,10 +532,15 @@ void SelectionBar::OnUpdate(wxCommandEvent &evt)
 
    auto format = mStartTime->GetBuiltinFormat(index);
    for( i=0;i<5;i++)
-      (*Ctrls[i])->SetFormatString( format );
+      if( *Ctrls[i] )
+         (*Ctrls[i])->SetFormatString( format );
 
    if( iFocus >=0 )
-      (*Ctrls[iFocus])->SetFocus();
+      if( *Ctrls[iFocus] )
+         (*Ctrls[iFocus])->SetFocus();
+
+   RegenerateTooltips();
+
    Updated();
 }
 
@@ -537,18 +552,30 @@ void SelectionBar::SetDrivers( int driver1, int driver2 )
    mDrive2 = driver2;
 
    NumericTextCtrl ** Ctrls[4] = { &mStartTime, &mCenterTime, &mLengthTime, &mEndTime};
-   wxString Text[4] = { _("Start"), _("Center"), _("Length"),  _("End")  };
+   static TranslatableString Text[4] = {
+      /* i18n-hint noun */
+      XO("Start"),
+      XO("Center"),
+      XO("Length"),
+      /* i18n-hint noun */
+      XO("End")
+   };
 
    for(int i=0;i<4;i++){
       int id = i + StartTimeID;
       int fixed = (( id == mDrive2 )?mDrive1:mDrive2)-StartTimeID;
 
-      wxString Temp = Text[i];
-      // i18n-hint: %s is replaced e.g by 'Length', to indicate that it will be calculated from other parameters.
-      wxString Format = ( (id!=mDrive1) && (id!=mDrive2 ) ) ? _("%s - driven") : "%s";
-      wxString Title= wxString::Format( Format, Temp );
-      // i18n-hint: %s1 is replaced e.g by 'Length', %s2 e.g by 'Center'.
-      wxString VoiceOverText = wxString::Format(_("Selection %s. %s won't change."), Temp, Text[fixed]);
+      const auto &Temp = Text[i];
+      auto Title = ( (id!=mDrive1) && (id!=mDrive2 ) )
+         /* i18n-hint: %s is replaced e.g by one of 'Length', 'Center',
+            'Start', or 'End' (translated), to indicate that it will be
+            calculated from other parameters. */
+         ? XO("%s - driven").Format( Temp )
+         : Temp ;
+      auto VoiceOverText =
+         /* i18n-hint: each string is replaced by one of 'Length', 'Center',
+            'Start', or 'End' (translated) */
+         XO("Selection %s. %s won't change.").Format( Temp, Text[fixed] );
       if( *Ctrls[i] ){
          (*Ctrls[i])->SetName( Temp );
       }
@@ -560,6 +587,27 @@ void SelectionBar::OnChoice(wxCommandEvent & WXUNUSED(event))
    int mode = mChoice->GetSelection();
    SetSelectionMode( mode );
    SelectionModeUpdated();
+}
+
+void SelectionBar::OnIdle( wxIdleEvent &evt )
+{
+   evt.Skip();
+   auto &project = mProject;
+   const auto &selectedRegion = ViewInfo::Get( project ).selectedRegion;
+
+   double audioTime;
+
+   auto &projectAudioIO = ProjectAudioIO::Get( project );
+   if ( projectAudioIO.IsAudioActive() ){
+      auto gAudioIO = AudioIOBase::Get();
+      audioTime = gAudioIO->GetStreamTime();
+   }
+   else {
+      const auto &playRegion = ViewInfo::Get( project ).playRegion;
+      audioTime = playRegion.GetStart();
+   }
+
+   SetTimes(selectedRegion.t0(), selectedRegion.t1(), audioTime);
 }
 
 void SelectionBar::SelectionModeUpdated()
@@ -617,8 +665,10 @@ void SelectionBar::ShowHideControls(int mode)
 
    NumericTextCtrl ** Ctrls[4]  = { &mStartTime,  &mCenterTime,  &mLengthTime,  &mEndTime};
    for(int i=0;i<4;i++){
-      if( *Ctrls[i]) 
+      if( *Ctrls[i]){ 
          (*Ctrls[i])->Show( (mask & (1<<i))!=0 );
+         (*Ctrls[i])->Refresh();
+      }
    }
 }
 
@@ -635,13 +685,18 @@ void SelectionBar::ValuesToControls()
 // A time has been set.  Update the control values.
 void SelectionBar::SetTimes(double start, double end, double audio)
 {
-   mStart = start;
-   mEnd = end;
-   mLength = end-start;
-   mCenter = (end+start)/2.0;
-   mAudio = audio;
+   if ( start != mStart || end != mEnd || audio != mAudio
+      || mLastSelectionMode != mSelectionMode
+   ) {
+      mStart = start;
+      mEnd = end;
+      mLength = end-start;
+      mCenter = (end+start)/2.0;
+      mAudio = audio;
+      mLastSelectionMode = mSelectionMode;
 
-   ValuesToControls();
+      ValuesToControls();
+   }
 }
 
 void SelectionBar::SetSnapTo(int snap)
@@ -649,13 +704,17 @@ void SelectionBar::SetSnapTo(int snap)
    mSnapTo->SetSelection(snap);
 }
 
-void SelectionBar::SetSelectionFormat(const NumericFormatId & format)
+void SelectionBar::SetSelectionFormat(const NumericFormatSymbol & format)
 {
-   mStartTime->SetFormatString(mStartTime->GetBuiltinFormat(format));
+   bool changed =
+      mStartTime->SetFormatString(mStartTime->GetBuiltinFormat(format));
 
-   wxCommandEvent e;
-   e.SetInt(mStartTime->GetFormatIndex());
-   OnUpdate(e);
+   // Test first whether changed, to avoid infinite recursion from OnUpdate
+   if ( changed ) {
+      wxCommandEvent e;
+      e.SetInt(mStartTime->GetFormatIndex());
+      OnUpdate(e);
+   }
 }
 
 void SelectionBar::SetRate(double rate)
@@ -692,23 +751,16 @@ void SelectionBar::UpdateRates()
 {
    wxString oldValue = mRateBox->GetValue();
    mRateBox->Clear();
-   for (int i = 0; i < AudioIO::NumStandardRates; i++) {
-      mRateBox->Append(wxString::Format(wxT("%d"), AudioIO::StandardRates[i]));
+   for (int i = 0; i < AudioIOBase::NumStandardRates; i++) {
+      mRateBox->Append(
+         wxString::Format(wxT("%d"), AudioIOBase::StandardRates[i]));
    }
    mRateBox->SetValue(oldValue);
 }
 
 void SelectionBar::OnFocus(wxFocusEvent &event)
 {
-   if (event.GetEventType() == wxEVT_KILL_FOCUS) {
-      AudacityProject::ReleaseKeyboard(this);
-   }
-   else {
-      AudacityProject::CaptureKeyboard(this);
-   }
-
-   Refresh(false);
-   event.Skip();
+   KeyboardCapture::OnFocus( *this, event );
 }
 
 void SelectionBar::OnCaptureKey(wxCommandEvent &event)
@@ -747,3 +799,17 @@ void SelectionBar::OnSnapTo(wxCommandEvent & WXUNUSED(event))
 {
    mListener->AS_SetSnapTo(mSnapTo->GetSelection());
 }
+
+static RegisteredToolbarFactory factory{ SelectionBarID,
+   []( AudacityProject &project ){
+      return ToolBar::Holder{ safenew SelectionBar{ project } }; }
+};
+
+namespace {
+AttachedToolBarMenuItem sAttachment{
+   /* i18n-hint: Clicking this menu item shows the toolbar
+      for selecting a time range of audio */
+   SelectionBarID, wxT("ShowSelectionTB"), XXO("&Selection Toolbar")
+};
+}
+

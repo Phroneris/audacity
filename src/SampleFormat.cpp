@@ -22,7 +22,7 @@
   This means that reading in a wav file and writing it out again
   ('round tripping'), via floats, is lossless; -32768 equates to -1.0f
   and 32767 equates to +1.0f - (a little bit).
-  It also means (unfortunatly) that writing out +1.0f leads to
+  It also means (unfortunately) that writing out +1.0f leads to
   clipping by 1 LSB.  This creates some distortion, but I (MJS) have
   not been able to measure it, it's so small.  Zero is preserved.
 
@@ -34,17 +34,17 @@
 
 *//*******************************************************************/
 
+#include "SampleFormat.h"
+
 #include <wx/intl.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "SampleFormat.h"
 #include "Prefs.h"
 #include "Dither.h"
 #include "Internat.h"
-#include "prefs/QualityPrefs.h"
 
 static DitherType gLowQualityDither = DitherType::none;
 static DitherType gHighQualityDither = DitherType::none;
@@ -53,24 +53,24 @@ static Dither gDitherAlgorithm;
 void InitDitherers()
 {
    // Read dither preferences
-   gLowQualityDither = QualityPrefs::FastDitherChoice();
-   gHighQualityDither = QualityPrefs::BestDitherChoice();
+   gLowQualityDither = Dither::FastDitherChoice();
+   gHighQualityDither = Dither::BestDitherChoice();
 }
 
-const wxChar *GetSampleFormatStr(sampleFormat format)
+TranslatableString GetSampleFormatStr(sampleFormat format)
 {
    switch(format) {
    case int16Sample:
       /* i18n-hint: Audio data bit depth (precision): 16-bit integers */
-      return _("16-bit PCM");
+      return XO("16-bit PCM");
    case int24Sample:
       /* i18n-hint: Audio data bit depth (precision): 24-bit integers */
-      return _("24-bit PCM");
+      return XO("24-bit PCM");
    case floatSample:
       /* i18n-hint: Audio data bit depth (precision): 32-bit floating point */
-      return _("32-bit float");
+      return XO("32-bit float");
    }
-   return wxT("Unknown format"); // compiler food
+   return XO("Unknown format"); // compiler food
 }
 
 // TODO: Risky?  Assumes 0.0f is represented by 0x00000000;
@@ -99,7 +99,7 @@ void ReverseSamples(samplePtr dst, sampleFormat format,
    }
 }
 
-void CopySamples(samplePtr src, sampleFormat srcFormat,
+void CopySamples(constSamplePtr src, sampleFormat srcFormat,
                  samplePtr dst, sampleFormat dstFormat,
                  unsigned int len,
                  bool highQuality, /* = true */

@@ -11,18 +11,17 @@ effect that uses SBSMS to do its processing (TimeScale)
 
 **********************************************************************/
 
-#include "../Audacity.h"
+#include "../Audacity.h" // for USE_* macros
 
 #if USE_SBSMS
+#include "SBSMSEffect.h"
 
 #include <math.h>
 
-#include "SBSMSEffect.h"
 #include "../LabelTrack.h"
+#include "../WaveClip.h"
 #include "../WaveTrack.h"
-#include "../Project.h"
 #include "TimeWarper.h"
-#include "../FileException.h"
 
 enum {
   SBSMSOutBlockSize = 512
@@ -59,8 +58,8 @@ public:
    // Not required by callbacks, but makes for easier cleanup
    std::unique_ptr<Resampler> resampler;
    std::unique_ptr<SBSMSQuality> quality;
-   std::unique_ptr<WaveTrack> outputLeftTrack;
-   std::unique_ptr<WaveTrack> outputRightTrack;
+   std::shared_ptr<WaveTrack> outputLeftTrack;
+   std::shared_ptr<WaveTrack> outputRightTrack;
 
    std::exception_ptr mpException {};
 };
@@ -70,7 +69,7 @@ public:
    SBSMSEffectInterface(Resampler *resampler,
                         Slide *rateSlide, Slide *pitchSlide,
                         bool bReferenceInput,
-                        long samples, long preSamples,
+                        const SampleCountType samples, long preSamples,
                         SBSMSQuality *quality)
       : SBSMSInterfaceSliding(rateSlide,pitchSlide,bReferenceInput,samples,preSamples,quality)
    {
@@ -238,9 +237,9 @@ bool EffectSBSMS::Process()
          if (!leftTrack->GetSelected())
             return fallthrough();
 
-         //Get start and end times from track
-         mCurT0 = leftTrack->GetStartTime();
-         mCurT1 = leftTrack->GetEndTime();
+         //Get start and end times from selection
+         mCurT0 = mT0;
+         mCurT1 = mT1;
 
          //Set the current bounds to whichever left marker is
          //greater and whichever right marker is less
@@ -253,8 +252,10 @@ bool EffectSBSMS::Process()
             auto end = leftTrack->TimeToLongSamples(mCurT1);
 
             // TODO: more-than-two-channels
-            WaveTrack *rightTrack =
-               * ++ TrackList::Channels(leftTrack).begin();
+            auto channels = TrackList::Channels(leftTrack);
+            WaveTrack *rightTrack = (channels.size() > 1)
+               ? * ++ channels.first
+               : nullptr;
             if (rightTrack) {
                double t;
 
@@ -272,10 +273,6 @@ bool EffectSBSMS::Process()
 
                mCurTrackNum++; // Increment for rightTrack, too.
             }
-            const auto trackStart =
-               leftTrack->TimeToLongSamples(leftTrack->GetStartTime());
-            const auto trackEnd =
-               leftTrack->TimeToLongSamples(leftTrack->GetEndTime());
 
             // SBSMS has a fixed sample rate - we just convert to its sample rate and then convert back
             float srTrack = leftTrack->GetRate();
@@ -327,30 +324,13 @@ bool EffectSBSMS::Process()
               rb.sbsms = std::make_unique<SBSMS>(rightTrack ? 2 : 1, rb.quality.get(), true);
               rb.SBSMSBlockSize = rb.sbsms->getInputFrameSize();
               rb.SBSMSBuf.reinit(static_cast<size_t>(rb.SBSMSBlockSize), true);
-
-              // Note: width of getMaxPresamples() is only long.  Widen it
-              decltype(start) processPresamples = rb.quality->getMaxPresamples();
-              processPresamples =
-                 std::min(processPresamples,
-                          decltype(processPresamples)
-                             (( start - trackStart ).as_float() *
-                                 (srProcess/srTrack)));
-              auto trackPresamples = start - trackStart;
-              trackPresamples =
-                  std::min(trackPresamples,
-                           decltype(trackPresamples)
-                              (processPresamples.as_float() *
-                                  (srTrack/srProcess)));
-              rb.offset = start - trackPresamples;
-              rb.end = trackEnd;
+              rb.offset = start;
+              rb.end = end;
               rb.iface = std::make_unique<SBSMSEffectInterface>
                   (rb.resampler.get(), &rateSlide, &pitchSlide,
                    bPitchReferenceInput,
-                   // UNSAFE_SAMPLE_COUNT_TRUNCATION
-                   // The argument type is only long!
-                   static_cast<long> ( samplesToProcess.as_long_long() ),
-                   // This argument type is also only long!
-                   static_cast<long> ( processPresamples.as_long_long() ),
+                   static_cast<_sbsms_::SampleCountType>( samplesToProcess.as_long_long() ),
+                   0,
                    rb.quality.get());
             }
             
@@ -374,11 +354,10 @@ bool EffectSBSMS::Process()
 
             auto warper = createTimeWarper(mCurT0,mCurT1,maxDuration,rateStart,rateEnd,rateSlideType);
 
-            rb.outputLeftTrack = mFactory->NewWaveTrack(leftTrack->GetSampleFormat(),
-                                                        leftTrack->GetRate());
+            rb.outputLeftTrack = leftTrack->EmptyCopy();
             if(rightTrack)
-               rb.outputRightTrack = mFactory->NewWaveTrack(rightTrack->GetSampleFormat(),
-                                                            rightTrack->GetRate());
+               rb.outputRightTrack = rightTrack->EmptyCopy();
+   
             long pos = 0;
             long outputCount = -1;
 
@@ -427,12 +406,9 @@ bool EffectSBSMS::Process()
             if(rightTrack)
                rb.outputRightTrack->Flush();
 
-            leftTrack->ClearAndPaste(mCurT0, mCurT1, rb.outputLeftTrack.get(),
-                                     true, false, warper.get());
-
+            Finalize(leftTrack, rb.outputLeftTrack.get(), warper.get());
             if(rightTrack)
-               rightTrack->ClearAndPaste(mCurT0, mCurT1, rb.outputRightTrack.get(),
-                                         true, false, warper.get());
+               Finalize(rightTrack, rb.outputRightTrack.get(), warper.get());
          }
          mCurTrackNum++;
       },
@@ -446,13 +422,50 @@ bool EffectSBSMS::Process()
 
    if (bGoodResult) {
       ReplaceProcessedTracks(bGoodResult);
-
-      // Update selection
-      mT0 = mCurT0;
-      mT1 = mCurT0 + maxDuration;
    }
 
    return bGoodResult;
+}
+
+void EffectSBSMS::Finalize(WaveTrack* orig, WaveTrack* out, const TimeWarper *warper)
+{
+   // Silenced samples will be inserted in gaps between clips, so capture where these
+   // gaps are for later deletion
+   std::vector<std::pair<double, double>> gaps;
+   double last = 0.0;
+   auto clips = orig->SortedClipArray();
+   auto front = clips.front();
+   auto back = clips.back();
+   for (auto &clip : clips) {
+      auto st = clip->GetStartTime();
+      auto et = clip->GetEndTime();
+
+      if (st >= mCurT0 || et < mCurT1) {
+         if (mCurT0 < st && clip == front) {
+            gaps.push_back(std::make_pair(mCurT0, st));
+         }
+         if (mCurT1 > et && clip == back) {
+            gaps.push_back(std::make_pair(et, mCurT1));
+         }
+         if (last >= mCurT0) {
+            gaps.push_back(std::make_pair(last, st));
+         }
+      }
+      last = et;
+   }
+
+   // Take the output track and insert it in place of the original sample data
+   orig->ClearAndPaste(mCurT0, mCurT1, out, true, true, warper);
+
+   // Finally, recreate the gaps
+   for (auto gap : gaps) {
+      auto st = orig->LongSamplesToTime(orig->TimeToLongSamples(gap.first));
+      auto et = orig->LongSamplesToTime(orig->TimeToLongSamples(gap.second));
+      if (st >= mCurT0 && et <= mCurT1 && st != et)
+      {
+         orig->SplitDelete(warper->Warp(st), warper->Warp(et));
+      }
+   }
 }
 
 #endif

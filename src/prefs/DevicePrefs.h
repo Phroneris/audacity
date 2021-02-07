@@ -14,19 +14,21 @@
 
 #include <wx/defs.h>
 
-#include <wx/choice.h>
-#include <wx/string.h>
-#include <wx/window.h>
-
 #include "PrefsPanel.h"
 
+class wxChoice;
 class ShuttleGui;
+
+#define DEVICE_PREFS_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Device") }
 
 class DevicePrefs final : public PrefsPanel
 {
  public:
    DevicePrefs(wxWindow * parent, wxWindowID winid);
    virtual ~DevicePrefs();
+   ComponentInterfaceSymbol GetSymbol() override;
+   TranslatableString GetDescription() override;
+
    bool Commit() override;
    wxString HelpPageName() override;
    void PopulateOrExchange(ShuttleGui & S) override;
@@ -38,8 +40,8 @@ class DevicePrefs final : public PrefsPanel
    void OnHost(wxCommandEvent & e);
    void OnDevice(wxCommandEvent & e);
 
-   wxArrayString mHostNames;
-   wxArrayString mHostLabels;
+   TranslatableStrings mHostNames;
+   wxArrayStringEx mHostLabels;
 
    wxString mPlayDevice;
    wxString mRecordDevice;
@@ -52,13 +54,6 @@ class DevicePrefs final : public PrefsPanel
    wxChoice *mChannels;
 
    DECLARE_EVENT_TABLE()
-};
-
-/// A PrefsPanelFactory that creates one DevicePrefs panel.
-class DevicePrefsFactory final : public PrefsPanelFactory
-{
-public:
-   PrefsPanel *operator () (wxWindow *parent, wxWindowID winid) override;
 };
 
 #endif

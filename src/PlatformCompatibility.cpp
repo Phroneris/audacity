@@ -16,24 +16,24 @@
 *//*******************************************************************/
 
 
+#include "PlatformCompatibility.h"
+
 #include <wx/filefn.h>
 #include <wx/filename.h>
 #include <wx/stdpaths.h>
 #include <wx/app.h>
 
-#include "PlatformCompatibility.h"
-
-wxString PlatformCompatibility::GetLongFileName(const wxString& shortFileName)
+FilePath PlatformCompatibility::GetLongFileName(const FilePath &shortFileName)
 {
    wxFileName fn(shortFileName);
 
    return fn.GetLongPath();
 }
 
-const wxString &PlatformCompatibility::GetExecutablePath()
+const FilePath &PlatformCompatibility::GetExecutablePath()
 {
    static bool found = false;
-   static wxString path;
+   static FilePath path;
 
    if (!found) {
       path = wxStandardPaths::Get().GetExecutablePath();
@@ -44,22 +44,3 @@ const wxString &PlatformCompatibility::GetExecutablePath()
    return path;
 }
 
-wxString PlatformCompatibility::ConvertSlashInFileName(const wxString& filePath)
-{
-#ifdef __WXMAC__
-   wxString path = filePath;
-   wxString filename;
-   wxString newPath = filePath;
-   // int pathLen = 1;
-   while (!wxDirExists(wxPathOnly(newPath)) && ! path.IsEmpty()) {
-      path = newPath.BeforeLast('/');
-      filename = newPath.AfterLast('/');
-      newPath = path;
-      newPath += ':';
-      newPath += filename;
-   }
-   return newPath;
-#else
-   return filePath;
-#endif
-}

@@ -18,6 +18,7 @@
 
 #include "../Audacity.h"
 #include "AutoDuck.h"
+#include "LoadEffects.h"
 
 #include <math.h>
 #include <float.h>
@@ -28,14 +29,14 @@
 
 #include "../AColor.h"
 #include "../AllThemeResources.h"
-#include "../Internat.h"
 #include "../Prefs.h"
+#include "../Shuttle.h"
 #include "../ShuttleGui.h"
 #include "../Theme.h"
 #include "../widgets/valnum.h"
 
 #include "../WaveTrack.h"
-#include "../widgets/ErrorDialog.h"
+#include "../widgets/AudacityMessageBox.h"
 
 // Define keys, defaults, minimums, and maximums for the effect parameters
 //
@@ -75,6 +76,11 @@ struct AutoDuckRegion
  * Effect implementation
  */
 
+const ComponentInterfaceSymbol EffectAutoDuck::Symbol
+{ XO("Auto Duck") };
+
+namespace{ BuiltinEffectsModule::Registration< EffectAutoDuck > reg; }
+
 BEGIN_EVENT_TABLE(EffectAutoDuck, wxEvtHandler)
    EVT_TEXT(wxID_ANY, EffectAutoDuck::OnValueChanged)
 END_EVENT_TABLE()
@@ -104,12 +110,12 @@ EffectAutoDuck::~EffectAutoDuck()
 
 ComponentInterfaceSymbol EffectAutoDuck::GetSymbol()
 {
-   return AUTODUCK_PLUGIN_SYMBOL;
+   return Symbol;
 }
 
-wxString EffectAutoDuck::GetDescription()
+TranslatableString EffectAutoDuck::GetDescription()
 {
-   return _("Reduces (ducks) the volume of one or more tracks whenever the volume of a specified \"control\" track reaches a particular level");
+   return XO("Reduces (ducks) the volume of one or more tracks whenever the volume of a specified \"control\" track reaches a particular level");
 }
 
 wxString EffectAutoDuck::ManualPage()
@@ -229,11 +235,11 @@ bool EffectAutoDuck::Init()
             },
             [&](const Track *) {
                Effect::MessageBox(
-                  _("You selected a track which does not contain audio. AutoDuck can only process audio tracks."),
                   /* i18n-hint: Auto duck is the name of an effect that 'ducks' (reduces the volume)
                    * of the audio automatically when there is sound on another track.  Not as
                    * in 'Donald-Duck'!*/
-                  wxICON_ERROR);
+                  XO("You selected a track which does not contain audio. AutoDuck can only process audio tracks."),
+                  wxICON_ERROR );
                return false;
             }
          );
@@ -245,8 +251,11 @@ bool EffectAutoDuck::Init()
    if (!controlTrackCandidate)
    {
       Effect::MessageBox(
-         _("Auto Duck needs a control track which must be placed below the selected track(s)."),
-         wxICON_ERROR);
+         /* i18n-hint: Auto duck is the name of an effect that 'ducks' (reduces the volume)
+          * of the audio automatically when there is sound on another track.  Not as
+          * in 'Donald-Duck'!*/
+         XO("Auto Duck needs a control track which must be placed below the selected track(s)."),
+         wxICON_ERROR );
       return false;
    }
 
@@ -429,51 +438,65 @@ void EffectAutoDuck::PopulateOrExchange(ShuttleGui & S)
 
       S.StartMultiColumn(6, wxCENTER);
       {
-         FloatingPointValidator<double> vldDuckAmountDb(1, &mDuckAmountDb, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldDuckAmountDb.SetRange(MIN_DuckAmountDb, MAX_DuckAmountDb);
-         mDuckAmountDbBox = S.AddTextBox(_("Duck amount:"), wxT(""), 10);
-         mDuckAmountDbBox->SetValidator(vldDuckAmountDb);
-         S.AddUnits(_("dB"));
+         mDuckAmountDbBox = S.Validator<FloatingPointValidator<double>>(
+               1, &mDuckAmountDb, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_DuckAmountDb, MAX_DuckAmountDb
+            )
+            .NameSuffix(XO("db"))
+            .AddTextBox(XXO("Duck &amount:"), wxT(""), 10);
+         S.AddUnits(XO("dB"));
 
-         FloatingPointValidator<double> vldMaximumPause(2, &mMaximumPause, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldMaximumPause.SetRange(MIN_MaximumPause, MAX_MaximumPause);
-         mMaximumPauseBox = S.AddTextBox(_("Maximum pause:"), wxT(""), 10);
-         mMaximumPauseBox->SetValidator(vldMaximumPause);
-         S.AddUnits(_("seconds"));
+         mMaximumPauseBox = S.Validator<FloatingPointValidator<double>>(
+               2, &mMaximumPause, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_MaximumPause, MAX_MaximumPause
+            )
+            .NameSuffix(XO("seconds"))
+            .AddTextBox(XXO("Ma&ximum pause:"), wxT(""), 10);
+         S.AddUnits(XO("seconds"));
 
-         FloatingPointValidator<double> vldOuterFadeDownLen(2, &mOuterFadeDownLen, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldOuterFadeDownLen.SetRange(MIN_OuterFadeDownLen, MAX_OuterFadeDownLen);
-         mOuterFadeDownLenBox = S.AddTextBox(_("Outer fade down length:"), wxT(""), 10);
-         mOuterFadeDownLenBox->SetValidator(vldOuterFadeDownLen);
-         S.AddUnits(_("seconds"));
+         mOuterFadeDownLenBox = S.Validator<FloatingPointValidator<double>>(
+               2, &mOuterFadeDownLen, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_OuterFadeDownLen, MAX_OuterFadeDownLen
+            )
+            .NameSuffix(XO("seconds"))
+            .AddTextBox(XXO("Outer fade &down length:"), wxT(""), 10);
+         S.AddUnits(XO("seconds"));
 
-         FloatingPointValidator<double> vldOuterFadeUpLen(2, &mOuterFadeUpLen, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldOuterFadeUpLen.SetRange(MIN_OuterFadeUpLen, MAX_OuterFadeUpLen);
-         mOuterFadeUpLenBox = S.AddTextBox(_("Outer fade up length:"), wxT(""), 10);
-         mOuterFadeUpLenBox->SetValidator(vldOuterFadeUpLen);
-         S.AddUnits(_("seconds"));
+         mOuterFadeUpLenBox = S.Validator<FloatingPointValidator<double>>(
+               2, &mOuterFadeUpLen, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_OuterFadeUpLen, MAX_OuterFadeUpLen
+            )
+            .NameSuffix(XO("seconds"))
+            .AddTextBox(XXO("Outer fade &up length:"), wxT(""), 10);
+         S.AddUnits(XO("seconds"));
 
-         FloatingPointValidator<double> vldInnerFadeDownLen(2, &mInnerFadeDownLen, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldInnerFadeDownLen.SetRange(MIN_InnerFadeDownLen, MAX_InnerFadeDownLen);
-         mInnerFadeDownLenBox = S.AddTextBox(_("Inner fade down length:"), wxT(""), 10);
-         mInnerFadeDownLenBox->SetValidator(vldInnerFadeDownLen);
-         S.AddUnits(_("seconds"));
+         mInnerFadeDownLenBox = S.Validator<FloatingPointValidator<double>>(
+               2, &mInnerFadeDownLen, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_InnerFadeDownLen, MAX_InnerFadeDownLen
+            )
+            .NameSuffix(XO("seconds"))
+            .AddTextBox(XXO("Inner fade d&own length:"), wxT(""), 10);
+         S.AddUnits(XO("seconds"));
 
-         FloatingPointValidator<double> vldInnerFadeUpLen(2, &mInnerFadeUpLen, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldInnerFadeUpLen.SetRange(MIN_InnerFadeUpLen, MAX_InnerFadeUpLen);
-         mInnerFadeUpLenBox = S.AddTextBox(_("Inner fade up length:"), wxT(""), 10);
-         mInnerFadeUpLenBox->SetValidator(vldInnerFadeUpLen);
-         S.AddUnits(_("seconds"));
+         mInnerFadeUpLenBox = S.Validator<FloatingPointValidator<double>>(
+               2, &mInnerFadeUpLen, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_InnerFadeUpLen, MAX_InnerFadeUpLen
+            )
+            .NameSuffix(XO("seconds"))
+            .AddTextBox(XXO("Inner &fade up length:"), wxT(""), 10);
+         S.AddUnits(XO("seconds"));
       }
       S.EndMultiColumn();
 
       S.StartMultiColumn(3, wxCENTER);
       {
-         FloatingPointValidator<double> vldThresholdDb(2, &mThresholdDb, NumValidatorStyle::NO_TRAILING_ZEROES);
-         vldThresholdDb.SetRange(MIN_ThresholdDb, MAX_ThresholdDb);
-         mThresholdDbBox = S.AddTextBox(_("Threshold:"), wxT(""), 10);
-         mThresholdDbBox->SetValidator(vldThresholdDb);
-         S.AddUnits(_("dB"));
+         mThresholdDbBox = S.Validator<FloatingPointValidator<double>>(
+               2, &mThresholdDb, NumValidatorStyle::NO_TRAILING_ZEROES,
+               MIN_ThresholdDb, MAX_ThresholdDb
+            )
+            .NameSuffix(XO("db"))
+            .AddTextBox(XXO("&Threshold:"), wxT(""), 10);
+         S.AddUnits(XO("dB"));
       }
       S.EndMultiColumn();
 
@@ -715,7 +738,7 @@ void EffectAutoDuckPanel::OnPaint(wxPaintEvent & WXUNUSED(evt))
       points[5].x = clientWidth - 10;
       points[5].y = DUCK_AMOUNT_START;
 
-      dc.DrawLines(6, points);
+      AColor::Lines(dc, 6, points);
 
       dc.SetPen(wxPen(*wxBLACK, 1, wxPENSTYLE_DOT));
 

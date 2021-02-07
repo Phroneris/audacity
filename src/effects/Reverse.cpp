@@ -16,17 +16,24 @@
 
 #include "../Audacity.h"
 #include "Reverse.h"
+#include "LoadEffects.h"
 
 #include <math.h>
 
 #include <wx/intl.h>
 
 #include "../LabelTrack.h"
+#include "../WaveClip.h"
 #include "../WaveTrack.h"
 
 //
 // EffectReverse
 //
+
+const ComponentInterfaceSymbol EffectReverse::Symbol
+{ XO("Reverse") };
+
+namespace{ BuiltinEffectsModule::Registration< EffectReverse > reg; }
 
 EffectReverse::EffectReverse()
 {
@@ -40,12 +47,12 @@ EffectReverse::~EffectReverse()
 
 ComponentInterfaceSymbol EffectReverse::GetSymbol()
 {
-   return REVERSE_PLUGIN_SYMBOL;
+   return Symbol;
 }
 
-wxString EffectReverse::GetDescription()
+TranslatableString EffectReverse::GetDescription()
 {
-   return _("Reverses the selected audio");
+   return XO("Reverses the selected audio");
 }
 
 // EffectDefinitionInterface implementation
@@ -194,12 +201,13 @@ bool EffectReverse::ProcessOneWave(int count, WaveTrack * track, sampleCount sta
    // PRL:  I don't think that matters, the sequence of storage of clips in the track
    // is not elsewhere assumed to be by time
    {
-      for (auto it = revClips.rbegin(), revEnd = revClips.rend(); it != revEnd; ++it)
-         track->AddClip(std::move(*it));
+      for (auto it = revClips.rbegin(), revEnd = revClips.rend(); rValue && it != revEnd; ++it)
+         rValue = track->AddClip(*it);
    }
 
    for (auto &clip : otherClips)
-      track->AddClip(std::move(clip));
+      if (!(rValue = track->AddClip(clip)))
+          break;
 
    return rValue;
 }

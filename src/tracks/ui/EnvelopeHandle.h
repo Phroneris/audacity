@@ -12,13 +12,11 @@ Paul Licameli split from TrackPanel.cpp
 #define __AUDACITY_ENVELOPE_HANDLE__
 
 #include "../../UIHandle.h"
-#include "../../MemoryX.h"
 
 #include <vector>
 
 class wxMouseEvent;
 class wxMouseState;
-#include <wx/gdicmn.h>
 
 class Envelope;
 class EnvelopeEditor;
@@ -57,7 +55,7 @@ public:
 
    Envelope *GetEnvelope() const { return mEnvelope; }
 
-   void Enter(bool forward) override;
+   void Enter(bool forward, AudacityProject *) override;
 
    Result Click
       (const TrackPanelMouseEvent &event, AudacityProject *pProject) override;
@@ -66,7 +64,7 @@ public:
       (const TrackPanelMouseEvent &event, AudacityProject *pProject) override;
 
    HitTestPreview Preview
-      (const TrackPanelMouseState &state, const AudacityProject *pProject)
+      (const TrackPanelMouseState &state, AudacityProject *pProject)
       override;
 
    Result Release

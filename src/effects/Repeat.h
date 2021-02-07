@@ -11,27 +11,25 @@
 #ifndef __AUDACITY_EFFECT_REPEAT__
 #define __AUDACITY_EFFECT_REPEAT__
 
-#include <wx/event.h>
-#include <wx/string.h>
-#include <wx/stattext.h>
-#include <wx/textctrl.h>
-
 #include "Effect.h"
 
+class wxTextCtrl;
 class ShuttleGui;
 
-#define REPEAT_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Repeat") }
+class wxStaticText;
 
 class EffectRepeat final : public Effect
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    EffectRepeat();
    virtual ~EffectRepeat();
 
    // ComponentInterface implementation
 
    ComponentInterfaceSymbol GetSymbol() override;
-   wxString GetDescription() override;
+   TranslatableString GetDescription() override;
    wxString ManualPage() override;
 
    // EffectDefinitionInterface implementation

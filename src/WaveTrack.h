@@ -12,25 +12,33 @@
 #define __AUDACITY_WAVETRACK__
 
 #include "Track.h"
-#include "SampleFormat.h"
-#include "WaveClip.h"
-#include "Experimental.h"
-#include "widgets/ProgressDialog.h"
 
 #include <vector>
-#include <wx/gdicmn.h>
+#include <functional>
 #include <wx/longlong.h>
-#include <wx/thread.h>
 
 #include "WaveTrackLocation.h"
+
+class ProgressDialog;
+
+class SampleBlockFactory;
+using SampleBlockFactoryPtr = std::shared_ptr<SampleBlockFactory>;
 
 class SpectrogramSettings;
 class WaveformSettings;
 class TimeWarper;
 
-class CutlineHandle;
-class SampleHandle;
-class EnvelopeHandle;
+class Sequence;
+class WaveClip;
+
+// Array of pointers that assume ownership
+using WaveClipHolder = std::shared_ptr< WaveClip >;
+using WaveClipHolders = std::vector < WaveClipHolder >;
+using WaveClipConstHolders = std::vector < std::shared_ptr< const WaveClip > >;
+
+// Temporary arrays of mere pointers
+using WaveClipPointers = std::vector < WaveClip* >;
+using WaveClipConstPointers = std::vector < const WaveClip* >;
 
 //
 // Tolerance for merging wave tracks (in seconds)
@@ -58,43 +66,33 @@ using Regions = std::vector < Region >;
 class Envelope;
 
 class AUDACITY_DLL_API WaveTrack final : public PlayableTrack {
-
- private:
+public:
 
    //
    // Constructor / Destructor / Duplicator
    //
-   // Private since only factories are allowed to construct WaveTracks
-   //
 
-   WaveTrack(const std::shared_ptr<DirManager> &projDirManager,
-             sampleFormat format = (sampleFormat)0,
-             double rate = 0);
+   WaveTrack(
+      const SampleBlockFactoryPtr &pFactory, sampleFormat format, double rate);
    WaveTrack(const WaveTrack &orig);
 
-   void Init(const WaveTrack &orig);
-
-public:
    // overwrite data excluding the sample sequence but including display
    // settings
    void Reinit(const WaveTrack &orig);
 
 private:
-   Track::Holder Duplicate() const override;
+   void Init(const WaveTrack &orig);
 
-   friend class TrackFactory;
+   Track::Holder Clone() const override;
+
+   friend class WaveTrackFactory;
 
  public:
 
    typedef WaveTrackLocation Location;
-   using Holder = std::unique_ptr<WaveTrack>;
+   using Holder = std::shared_ptr<WaveTrack>;
 
    virtual ~WaveTrack();
-
-   std::vector<UIHandlePtr> DetailedHitTest
-      (const TrackPanelMouseState &state,
-       const AudacityProject *pProject, int currentTool, bool bMultiTool)
-      override;
 
    double GetOffset() const override;
    void SetOffset(double o) override;
@@ -142,13 +140,14 @@ private:
    float GetOldChannelGain(int channel) const;
    void SetOldChannelGain(int channel, float gain);
 
-   void DoSetMinimized(bool isMinimized) override;
-
    int GetWaveColorIndex() const { return mWaveColorIndex; };
    void SetWaveColorIndex(int colorIndex);
 
+   sampleCount GetNumSamples() const;
+
    sampleFormat GetSampleFormat() const { return mFormat; }
-   void ConvertToSampleFormat(sampleFormat format);
+   void ConvertToSampleFormat(sampleFormat format,
+      const std::function<void(size_t)> & progressReport = {});
 
    const SpectrogramSettings &GetSpectrogramSettings() const;
    SpectrogramSettings &GetSpectrogramSettings();
@@ -157,7 +156,6 @@ private:
 
    const WaveformSettings &GetWaveformSettings() const;
    WaveformSettings &GetWaveformSettings();
-   WaveformSettings &GetIndependentWaveformSettings();
    void SetWaveformSettings(std::unique_ptr<WaveformSettings> &&pSettings);
    void UseSpectralPrefs( bool bUse=true );
    //
@@ -165,6 +163,14 @@ private:
    //
 
    Track::Holder Cut(double t0, double t1) override;
+
+   // Make another track copying format, rate, color, etc. but containing no
+   // clips
+   // It is important to pass the correct factory (that for the project
+   // which will own the copy) in the unusual case that a track is copied from
+   // another project or the clipboard.  For copies within one project, the
+   // default will do.
+   Holder EmptyCopy(const SampleBlockFactoryPtr &pFactory = {} ) const;
 
    // If forClipboard is true,
    // and there is no clip at the end time of the selection, then the result
@@ -219,36 +225,21 @@ private:
     * If there is an existing WaveClip in the WaveTrack then the data is
     * appended to that clip. If there are no WaveClips in the track, then a NEW
     * one is created.
+    *
+    * @return true if at least one complete block was created
     */
-   void Append(samplePtr buffer, sampleFormat format,
-               size_t len, unsigned int stride=1,
-               XMLWriter* blockFileLog=NULL);
+   bool Append(constSamplePtr buffer, sampleFormat format,
+               size_t len, unsigned int stride=1);
    /// Flush must be called after last Append
    void Flush();
-
-   void AppendAlias(const wxString &fName, sampleCount start,
-                    size_t len, int channel,bool useOD);
-
-   ///for use with On-Demand decoding of compressed files.
-   ///decodeType should be an enum from ODDecodeTask that specifies what
-   ///Type of encoded file this is, such as eODFLAC
-   //vvv Why not use the ODTypeEnum typedef to enforce that for the parameter?
-   void AppendCoded(const wxString &fName, sampleCount start,
-                            size_t len, int channel, int decodeType);
-
-   ///gets an int with OD flags so that we can determine which ODTasks should be run on this track after save/open, etc.
-   unsigned int GetODFlags() const;
 
    ///Invalidates all clips' wavecaches.  Careful, This may not be threadsafe.
    void ClearWaveCaches();
 
-   ///Adds an invalid region to the wavecache so it redraws that portion only.
-   void  AddInvalidRegion(sampleCount startSample, sampleCount endSample);
-
    ///
    /// MM: Now that each wave track can contain multiple clips, we don't
-   /// have a continous space of samples anymore, but we simulate it,
-   /// because there are alot of places (e.g. effects) using this interface.
+   /// have a continuous space of samples anymore, but we simulate it,
+   /// because there are a lot of places (e.g. effects) using this interface.
    /// This interface makes much sense for modifying samples, but note that
    /// it is not time-accurate, because the "offset" is a double value and
    /// therefore can lie inbetween samples. But as long as you use the
@@ -256,9 +247,14 @@ private:
    /// guaranteed that the same samples are affected.
    ///
    bool Get(samplePtr buffer, sampleFormat format,
-                   sampleCount start, size_t len,
-                   fillFormat fill = fillZero, bool mayThrow = true, sampleCount * pNumCopied = nullptr) const;
-   void Set(samplePtr buffer, sampleFormat format,
+      sampleCount start, size_t len,
+      fillFormat fill = fillZero,
+      bool mayThrow = true,
+      // Report how many samples were copied from within clips, rather than
+      // filled according to fillFormat; but these were not necessarily one
+      // contiguous range.
+      sampleCount * pNumWithinClips = nullptr) const;
+   void Set(constSamplePtr buffer, sampleFormat format,
                    sampleCount start, size_t len);
 
    // Fetch envelope values corresponding to uniformly separated sample times
@@ -275,12 +271,11 @@ private:
    //
    // MM: We now have more than one sequence and envelope per track, so
    // instead of GetSequence() and GetEnvelope() we have the following
-   // function which give the sequence and envelope which is under the
-   // given X coordinate of the mouse pointer.
+   // function which give the sequence and envelope which contains the given
+   // time.
    //
-   WaveClip* GetClipAtX(int xcoord);
-   Sequence* GetSequenceAtX(int xcoord);
-   Envelope* GetEnvelopeAtX(int xcoord);
+   Sequence* GetSequenceAtTime(double time);
+   Envelope* GetEnvelopeAtTime(double time);
 
    WaveClip* GetClipAtSample(sampleCount sample);
    WaveClip* GetClipAtTime(double time);
@@ -315,31 +310,7 @@ private:
    // doing a copy and paste between projects.
    //
 
-   bool Lock() const;
-   bool Unlock() const;
-
-   struct WaveTrackLockDeleter {
-      inline void operator () (const WaveTrack *pTrack) { pTrack->Unlock(); }
-   };
-   using LockerBase = std::unique_ptr<
-      const WaveTrack, WaveTrackLockDeleter
-   >;
-
-   // RAII object for locking.
-   struct Locker : private LockerBase
-   {
-      friend LockerBase;
-      Locker (const WaveTrack *pTrack)
-         : LockerBase{ pTrack }
-      { pTrack->Lock(); }
-      Locker(Locker &&that) : LockerBase{std::move(that)} {}
-      Locker &operator= (Locker &&that) {
-         (LockerBase&)(*this) = std::move(that);
-         return *this;
-      }
-   };
-
-   bool CloseLock(); //similar to Lock but should be called when the project closes.
+   bool CloseLock(); //should be called when the project closes.
    // not balanced by unlocking calls.
 
    /** @brief Convert correctly between an (absolute) time in seconds and a number of samples.
@@ -356,7 +327,7 @@ private:
     * @return The number of samples from the start of the track which lie before the given time.
     */
    sampleCount TimeToLongSamples(double t0) const;
-   /** @brief Convert correctly between an number of samples and an (absolute) time in seconds.
+   /** @brief Convert correctly between a number of samples and an (absolute) time in seconds.
     *
     * @param pos The time number of samples from the start of the track to convert.
     * @return The time in seconds.
@@ -364,15 +335,15 @@ private:
    double LongSamplesToTime(sampleCount pos) const;
 
    // Get access to the (visible) clips in the tracks, in unspecified order
-   // (not necessarioy sequenced in time).
+   // (not necessarily sequenced in time).
    WaveClipHolders &GetClips() { return mClips; }
    const WaveClipConstHolders &GetClips() const
       { return reinterpret_cast< const WaveClipConstHolders& >( mClips ); }
 
-   // Get access to all clips (in some unspecified sequence),
+   // Get mutative access to all clips (in some unspecified sequence),
    // including those hidden in cutlines.
    class AllClipsIterator
-      : public std::iterator< std::forward_iterator_tag, WaveClip* >
+      : public ValueIterator< WaveClip * >
    {
    public:
       // Constructs an "end" iterator
@@ -392,42 +363,20 @@ private:
             return mStack.back().first->get();
       }
 
-      AllClipsIterator &operator ++ ()
-      {
-         // The unspecified sequence is a post-order, but there is no
-         // promise whether sister nodes are ordered in time.
-         if ( !mStack.empty() ) {
-            auto &pair =  mStack.back();
-            if ( ++pair.first == pair.second ) {
-               mStack.pop_back();
-            }
-            else
-               push( (*pair.first)->GetCutLines() );
-         }
-
-         return *this;
-      }
+      AllClipsIterator &operator ++ ();
 
       // Define == well enough to serve for loop termination test
-      friend bool operator ==
-         (const AllClipsIterator &a, const AllClipsIterator &b)
+      friend bool operator == (
+         const AllClipsIterator &a, const AllClipsIterator &b)
       { return a.mStack.empty() == b.mStack.empty(); }
 
-      friend bool operator !=
-         (const AllClipsIterator &a, const AllClipsIterator &b)
+      friend bool operator != (
+         const AllClipsIterator &a, const AllClipsIterator &b)
       { return !( a == b ); }
 
    private:
 
-      void push( WaveClipHolders &clips )
-      {
-         auto pClips = &clips;
-         while (!pClips->empty()) {
-            auto first = pClips->begin();
-            mStack.push_back( Pair( first, pClips->end() ) );
-            pClips = &(*first)->GetCutLines();
-         }
-      }
+      void push( WaveClipHolders &clips );
 
       using Iterator = WaveClipHolders::iterator;
       using Pair = std::pair< Iterator, Iterator >;
@@ -436,11 +385,49 @@ private:
       Stack mStack;
    };
 
+   // Get const access to all clips (in some unspecified sequence),
+   // including those hidden in cutlines.
+   class AllClipsConstIterator
+      : public ValueIterator< const WaveClip * >
+   {
+   public:
+      // Constructs an "end" iterator
+      AllClipsConstIterator () {}
+
+      // Construct a "begin" iterator
+      explicit AllClipsConstIterator( const WaveTrack &track )
+         : mIter{ const_cast< WaveTrack& >( track ) }
+      {}
+
+      const WaveClip *operator * () const
+      { return *mIter; }
+
+      AllClipsConstIterator &operator ++ ()
+      { ++mIter; return *this; }
+
+      // Define == well enough to serve for loop termination test
+      friend bool operator == (
+         const AllClipsConstIterator &a, const AllClipsConstIterator &b)
+      { return a.mIter == b.mIter; }
+
+      friend bool operator != (
+         const AllClipsConstIterator &a, const AllClipsConstIterator &b)
+      { return !( a == b ); }
+
+   private:
+      AllClipsIterator mIter;
+   };
+
    IteratorRange< AllClipsIterator > GetAllClips()
    {
       return { AllClipsIterator{ *this }, AllClipsIterator{ } };
    }
-
+   
+   IteratorRange< AllClipsConstIterator > GetAllClips() const
+   {
+      return { AllClipsConstIterator{ *this }, AllClipsConstIterator{ } };
+   }
+   
    // Create NEW clip and add it to this track. Returns a pointer
    // to the newly created clip.
    WaveClip* CreateClip();
@@ -476,23 +463,28 @@ private:
    WaveClipPointers SortedClipArray();
    WaveClipConstPointers SortedClipArray() const;
 
-   // Before calling 'Offset' on a clip, use this function to see if the
-   // offsetting is allowed with respect to the other clips in this track.
-   // This function can optionally return the amount that is allowed for offsetting
-   // in this direction maximally.
-   bool CanOffsetClip(WaveClip* clip, double amount, double *allowedAmount=NULL);
+   //! Decide whether the clips could be offset (and inserted) together without overlapping other clips
+   /*!
+   @return true if possible to offset by `(allowedAmount ? *allowedAmount : amount)`
+    */
+   bool CanOffsetClips(
+      const std::vector<WaveClip*> &clips, //!< not necessarily in this track
+      double amount, //!< signed
+      double *allowedAmount = nullptr /*!<
+         [out] if null, test exact amount only; else, largest (in magnitude) possible offset with same sign */
+   );
 
    // Before moving a clip into a track (or inserting a clip), use this
    // function to see if the times are valid (i.e. don't overlap with
    // existing clips).
-   bool CanInsertClip(WaveClip* clip, double &slideBy, double &tolerance);
+   bool CanInsertClip(WaveClip* clip, double &slideBy, double &tolerance) const;
 
    // Remove the clip from the track and return a SMART pointer to it.
    // You assume responsibility for its memory!
    std::shared_ptr<WaveClip> RemoveAndReturnClip(WaveClip* clip);
 
-   // Append a clip to the track
-   void AddClip(std::shared_ptr<WaveClip> &&clip); // Call using std::move
+   //! Append a clip to the track; which must have the same block factory as this track; return success
+   bool AddClip(const std::shared_ptr<WaveClip> &clip);
 
    // Merge two clips, that is append data from clip2 to clip1,
    // then remove clip2 from track.
@@ -518,84 +510,11 @@ private:
    // Resample track (i.e. all clips in the track)
    void Resample(int rate, ProgressDialog *progress = NULL);
 
-   //
-   // AutoSave related
-   //
-   // Retrieve the unique autosave ID
-   int GetAutoSaveIdent();
-   // Set the unique autosave ID
-   void SetAutoSaveIdent(int id);
-
-   //
-   // The following code will eventually become part of a GUIWaveTrack
-   // and will be taken out of the WaveTrack class:
-   //
-
-
-   typedef int WaveTrackDisplay;
-   enum WaveTrackDisplayValues : int {
-
-      // DO NOT REORDER OLD VALUES!  Replace obsoletes with placeholders.
-
-      Waveform = 0,
-      MinDisplay = Waveform,
-
-      obsoleteWaveformDBDisplay,
-
-      Spectrum,
-
-      obsolete1, // was SpectrumLogDisplay
-      obsolete2, // was SpectralSelectionDisplay
-      obsolete3, // was SpectralSelectionLogDisplay
-      obsolete4, // was PitchDisplay
-
-      // Add values here, and update MaxDisplay.
-
-      MaxDisplay = Spectrum,
-
-      NoDisplay,            // Preview track has no display
-   };
-
-   // Only two types of sample display for now, but
-   // others (eg sinc interpolation) may be added later.
-   enum SampleDisplay {
-      LinearInterpolate = 0,
-      StemPlot
-   };
-
-   // Various preset zooming levels.
-   enum ZoomPresets {
-      kZoomToFit = 0,
-      kZoomToSelection,
-      kZoomDefault,
-      kZoomMinutes,
-      kZoomSeconds,
-      kZoom5ths,
-      kZoom10ths,
-      kZoom20ths,
-      kZoom50ths,
-      kZoom100ths,
-      kZoom500ths,
-      kZoomMilliSeconds,
-      kZoomSamples,
-      kZoom4To1,
-      kMaxZoom,
-   };
-
-   // Handle remapping of enum values from 2.1.0 and earlier
-   static WaveTrackDisplay ConvertLegacyDisplayValue(int oldValue);
-
-   // Handle restriction of range of values of the enum from future versions
-   static WaveTrackDisplay ValidateWaveTrackDisplay(WaveTrackDisplay display);
-
    int GetLastScaleType() const { return mLastScaleType; }
    void SetLastScaleType() const;
 
    int GetLastdBRange() const { return mLastdBRange; }
    void SetLastdBRange() const;
-
-   WaveTrackDisplay GetDisplay() const { return mDisplay; }
-   void SetDisplay(WaveTrackDisplay display) { mDisplay = display; }
 
    void GetDisplayBounds(float *min, float *max) const;
    void SetDisplayBounds(float min, float max) const;
@@ -606,6 +525,22 @@ private:
    // the wave should be drawn, if display minimum and maximum map to the
    // bottom and top.  Maybe that is out of bounds.
    int ZeroLevelYCoordinate(wxRect rect) const;
+
+   class IntervalData final : public Track::IntervalData {
+   public:
+      explicit IntervalData( const std::shared_ptr<WaveClip> &pClip )
+      : pClip{ pClip }
+      {}
+      std::shared_ptr<const WaveClip> GetClip() const { return pClip; }
+      std::shared_ptr<WaveClip> &GetClip() { return pClip; }
+   private:
+      std::shared_ptr<WaveClip> pClip;
+   };
+
+   Track::Holder PasteInto( AudacityProject & ) const override;
+
+   ConstIntervals GetIntervals() const override;
+   Intervals GetIntervals() override;
 
  protected:
    //
@@ -631,7 +566,6 @@ private:
    mutable float         mSpectrumMin;
    mutable float         mSpectrumMax;
 
-   WaveTrackDisplay mDisplay;
    mutable int   mLastScaleType; // last scale type choice
    mutable int           mLastdBRange;
    mutable std::vector <Location> mDisplayLocationsCache;
@@ -648,21 +582,14 @@ private:
    // Private variables
    //
 
+   SampleBlockFactoryPtr mpFactory;
+
    wxCriticalSection mFlushCriticalSection;
    wxCriticalSection mAppendCriticalSection;
    double mLegacyProjectFileOffset;
-   int mAutoSaveIdent;
 
    std::unique_ptr<SpectrogramSettings> mpSpectrumSettings;
    std::unique_ptr<WaveformSettings> mpWaveformSettings;
-
-   std::weak_ptr<CutlineHandle> mCutlineHandle;
-   std::weak_ptr<SampleHandle> mSampleHandle;
-   std::weak_ptr<EnvelopeHandle> mEnvelopeHandle;
-
-protected:
-   std::shared_ptr<TrackControls> GetControls() override;
-   std::shared_ptr<TrackVRulerControls> GetVRulerControls() override;
 };
 
 // This is meant to be a short-lived object, during whose lifetime,
@@ -722,6 +649,56 @@ private:
    Buffer mBuffers[2];
    GrowableSampleBuffer mOverlapBuffer;
    int mNValidBuffers;
+};
+
+#include <unordered_set>
+class SampleBlock;
+using SampleBlockID = long long;
+using SampleBlockIDSet = std::unordered_set<SampleBlockID>;
+class TrackList;
+using BlockVisitor = std::function< void(SampleBlock&) >;
+using BlockInspector = std::function< void(const SampleBlock&) >;
+
+// Function to visit all sample blocks from a list of tracks.
+// If a set is supplied, then only visit once each unique block ID not already
+// in that set, and accumulate those into the set as a side-effect.
+// The visitor function may be null.
+void VisitBlocks(TrackList &tracks, BlockVisitor visitor,
+   SampleBlockIDSet *pIDs = nullptr);
+
+// Non-mutating version of the above
+void InspectBlocks(const TrackList &tracks, BlockInspector inspector,
+   SampleBlockIDSet *pIDs = nullptr);
+
+class AUDACITY_DLL_API WaveTrackFactory final
+   : public ClientData::Base
+{
+ public:
+   static WaveTrackFactory &Get( AudacityProject &project );
+   static const WaveTrackFactory &Get( const AudacityProject &project );
+   static WaveTrackFactory &Reset( AudacityProject &project );
+   static void Destroy( AudacityProject &project );
+
+   WaveTrackFactory( const ProjectSettings &settings,
+      const SampleBlockFactoryPtr &pFactory)
+      : mSettings{ settings }
+      , mpFactory(pFactory)
+   {
+   }
+   WaveTrackFactory( const WaveTrackFactory & ) PROHIBITED;
+   WaveTrackFactory &operator=( const WaveTrackFactory & ) PROHIBITED;
+
+   const SampleBlockFactoryPtr &GetSampleBlockFactory() const
+   { return mpFactory; }
+
+ private:
+   const ProjectSettings &mSettings;
+   SampleBlockFactoryPtr mpFactory;
+ public:
+   std::shared_ptr<WaveTrack> DuplicateWaveTrack(const WaveTrack &orig);
+   std::shared_ptr<WaveTrack> NewWaveTrack(
+      sampleFormat format = (sampleFormat)0,
+      double rate = 0);
 };
 
 #endif // __AUDACITY_WAVETRACK__

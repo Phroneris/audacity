@@ -22,7 +22,7 @@ have a window permanently associated with it.
 \class SliderDialog
 \brief Pop up dialog used with an LWSlider.
 
-\class TipPanel
+\class TipWindow
 \brief A wxPopupWindow used to give the numerical value of an LWSlider
 or ASlider.
 
@@ -30,13 +30,16 @@ or ASlider.
 
 
 #include "../Audacity.h"
+#include "ASlider.h"
+
+#include "../Experimental.h"
 
 #include <math.h>
 
+#include <wx/setup.h> // for wxUSE_* macros
 #include <wx/defs.h>
 #include <wx/dcbuffer.h>
-#include <wx/dcclient.h>
-#include <wx/dcmemory.h>
+#include <wx/frame.h>
 #include <wx/graphics.h>
 #include <wx/image.h>
 #include <wx/panel.h>
@@ -53,18 +56,87 @@ or ASlider.
 #include <wx/popupwin.h>
 #include <wx/window.h>
 
-#include "../Experimental.h"
-#include "ASlider.h"
-#include "Ruler.h"
-
 #include "../AColor.h"
 #include "../ImageManipulation.h"
 #include "../Project.h"
+#include "../ProjectStatus.h"
+#include "../ProjectWindowBase.h"
 #include "../ShuttleGui.h"
-
 #include "../Theme.h"
+
 #include "../AllThemeResources.h"
 
+#if wxUSE_ACCESSIBILITY
+#include "WindowAccessible.h"
+
+class ASliderAx final : public WindowAccessible
+{
+public:
+   ASliderAx(wxWindow * window);
+
+   virtual ~ ASliderAx();
+
+   // Retrieves the address of an IDispatch interface for the specified child.
+   // All objects must support this property.
+   wxAccStatus GetChild(int childId, wxAccessible** child) override;
+
+   // Gets the number of children.
+   wxAccStatus GetChildCount(int* childCount) override;
+
+   // Gets the default action for this object (0) or > 0 (the action for a child).
+   // Return wxACC_OK even if there is no action. actionName is the action, or the empty
+   // string if there is no action.
+   // The retrieved string describes the action that is performed on an object,
+   // not what the object does as a result. For example, a toolbar button that prints
+   // a document has a default action of "Press" rather than "Prints the current document."
+   wxAccStatus GetDefaultAction(int childId, wxString *actionName) override;
+
+   // Returns the description for this object or a child.
+   wxAccStatus GetDescription(int childId, wxString *description) override;
+
+   // Gets the window with the keyboard focus.
+   // If childId is 0 and child is NULL, no object in
+   // this subhierarchy has the focus.
+   // If this object has the focus, child should be 'this'.
+   wxAccStatus GetFocus(int *childId, wxAccessible **child) override;
+
+   // Returns help text for this object or a child, similar to tooltip text.
+   wxAccStatus GetHelpText(int childId, wxString *helpText) override;
+
+   // Returns the keyboard shortcut for this object or child.
+   // Return e.g. ALT+K
+   wxAccStatus GetKeyboardShortcut(int childId, wxString *shortcut) override;
+
+   // Returns the rectangle for this object (id = 0) or a child element (id > 0).
+   // rect is in screen coordinates.
+   wxAccStatus GetLocation(wxRect& rect, int elementId) override;
+
+   // Gets the name of the specified object.
+   wxAccStatus GetName(int childId, wxString *name) override;
+
+   // Returns a role constant.
+   wxAccStatus GetRole(int childId, wxAccRole *role) override;
+
+   // Gets a variant representing the selected children
+   // of this object.
+   // Acceptable values:
+   // - a null variant (IsNull() returns TRUE)
+   // - a list variant (GetType() == wxT("list"))
+   // - an integer representing the selected child element,
+   //   or 0 if this object is selected (GetType() == wxT("long"))
+   // - a "void*" pointer to a wxAccessible child object
+   wxAccStatus GetSelections(wxVariant *selections) override;
+
+   // Returns a state constant.
+   wxAccStatus GetState(int childId, long* state) override;
+
+   // Returns a localized string representing the value for the object
+   // or child.
+   wxAccStatus GetValue(int childId, wxString* strValue) override;
+
+};
+
+#endif // wxUSE_ACCESSIBILITY
 #if defined __WXMSW__
 const int sliderFontSize = 10;
 #else
@@ -76,81 +148,94 @@ const int sliderFontSize = 12;
 #endif
 
 //
-// TipPanel
+// TipWindow
 //
 
-class TipPanel final : public wxFrame
+class TipWindow final : public wxFrame
 {
  public:
-   TipPanel(wxWindow *parent, const wxArrayString & labels);
-   virtual ~TipPanel() {}
+   TipWindow(wxWindow *parent, const TranslatableStrings & labels);
+   virtual ~TipWindow() {}
 
    wxSize GetSize() const;
    void SetPos(const wxPoint & pos);
-   void SetLabel(const wxString & label);
+   void SetLabel(const TranslatableString & label);
 
 private:
    void OnPaint(wxPaintEvent & event);
-#if defined(__WXGTK__)
-   void OnCreate(wxWindowCreateEvent & event);
-#endif
 
 private:
-   wxString mLabel;
+   TranslatableString mLabel;
    int mWidth;
    int mHeight;
+   wxFont mFont;
 
    DECLARE_EVENT_TABLE()
 };
 
-BEGIN_EVENT_TABLE(TipPanel, wxFrame)
-   EVT_PAINT(TipPanel::OnPaint)
-#if defined(__WXGTK__)
-   EVT_WINDOW_CREATE(TipPanel::OnCreate)
-#endif
+BEGIN_EVENT_TABLE(TipWindow, wxFrame)
+   EVT_PAINT(TipWindow::OnPaint)
 END_EVENT_TABLE()
 
-TipPanel::TipPanel(wxWindow *parent, const wxArrayString & labels)
-:  wxFrame(parent, wxID_ANY, wxString{}, wxDefaultPosition, wxDefaultSize,
-           wxFRAME_SHAPED | wxFRAME_FLOAT_ON_PARENT)
+TipWindow::TipWindow(wxWindow *parent, const TranslatableStrings & labels)
+:  wxFrame(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize,
+           wxFRAME_SHAPED | wxNO_BORDER | wxFRAME_NO_TASKBAR | wxFRAME_FLOAT_ON_PARENT )
 {
    SetBackgroundStyle(wxBG_STYLE_PAINT);
+   SetBackgroundColour(wxTransparentColour);
 
-   wxFont labelFont(sliderFontSize, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+   mFont.SetPointSize(sliderFontSize);
+   mFont.SetFamily(wxFONTFAMILY_SWISS);
+   mFont.SetStyle(wxFONTSTYLE_NORMAL);
+   mFont.SetWeight(wxFONTWEIGHT_NORMAL);
+
    mWidth = mHeight = 0;
    for ( const auto &label : labels ) {
       int width, height;
-      GetTextExtent(label, &width, &height, NULL, NULL, &labelFont);
+      GetTextExtent(label.Translation(), &width, &height, NULL, NULL, &mFont);
       mWidth =  std::max( mWidth,  width );
       mHeight = std::max( mHeight, height );
    }
 
+   // Pad to allow for curved corners
    mWidth += 8;
    mHeight += 8;
 
-#if defined(__WXMSW__) || defined(__WXMAC__)
+#if defined(__WXMAC__)
+   // Use a bitmap region to set the shape since just adding an unfilled path
+   // will make the window transparent
+   wxBitmap shape(mWidth, mHeight);
+   wxMemoryDC dc(shape);
+
+   dc.SetPen(*wxBLACK_PEN);
+   dc.SetBrush(*wxBLACK_BRUSH);
+   dc.DrawRoundedRectangle(0, 0, mWidth, mHeight, 5);
+   dc.SelectObject(wxNullBitmap);
+
+   SetShape(wxRegion(shape, *wxWHITE));
+#else
    wxGraphicsPath path = wxGraphicsRenderer::GetDefaultRenderer()->CreatePath();
    path.AddRoundedRectangle(0, 0, mWidth, mHeight, 5);
    SetShape(path);
 #endif
 }
 
-wxSize TipPanel::GetSize() const
+wxSize TipWindow::GetSize() const
 {
    return wxSize(mWidth, mHeight);
 }
 
-void TipPanel::SetPos(const wxPoint & pos)
+void TipWindow::SetPos(const wxPoint & pos)
 {
    SetSize(pos.x, pos.y, mWidth, mHeight);
 }
 
-void TipPanel::SetLabel(const wxString & label)
+void TipWindow::SetLabel(const TranslatableString & label)
 {
    mLabel = label;
 }
 
-void TipPanel::OnPaint(wxPaintEvent & WXUNUSED(event))
+void TipWindow::OnPaint(wxPaintEvent & WXUNUSED(event))
 {
    wxAutoBufferedPaintDC dc(this);
 
@@ -158,22 +243,14 @@ void TipPanel::OnPaint(wxPaintEvent & WXUNUSED(event))
    dc.SetBrush(AColor::tooltipBrush);
    dc.DrawRoundedRectangle(0, 0, mWidth, mHeight, 5);
 
-   dc.SetFont(wxFont(sliderFontSize, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL));
+   dc.SetFont(mFont);
    dc.SetTextForeground(AColor::tooltipPen.GetColour());
 
    int textWidth, textHeight;
-   dc.GetTextExtent(mLabel, &textWidth, &textHeight);
-   dc.DrawText(mLabel, (mWidth - textWidth) / 2, (mHeight - textHeight) / 2);
+   const auto visibleLabel = mLabel.Translation();
+   dc.GetTextExtent(visibleLabel, &textWidth, &textHeight);
+   dc.DrawText(visibleLabel, (mWidth - textWidth) / 2, (mHeight - textHeight) / 2);
 }
-
-#if defined(__WXGTK__)
-void TipPanel::OnCreate(wxWindowCreateEvent & WXUNUSED(event))
-{
-   wxGraphicsPath path = wxGraphicsRenderer::GetDefaultRenderer()->CreatePath();
-   path.AddRoundedRectangle(0, 0, mWidth, mHeight, 5);
-   SetShape(path);
-}
-#endif
 
 //
 // SliderDialog
@@ -185,7 +262,7 @@ BEGIN_EVENT_TABLE(SliderDialog, wxDialogWrapper)
 END_EVENT_TABLE();
 
 SliderDialog::SliderDialog(wxWindow * parent, wxWindowID id,
-                           const wxString & title,
+                           const TranslatableString & title,
                            wxPoint position,
                            wxSize size,
                            int style,
@@ -196,25 +273,24 @@ SliderDialog::SliderDialog(wxWindow * parent, wxWindowID id,
    wxDialogWrapper(parent,id,title,position),
    mStyle(style)
 {
-   SetName(GetTitle());
+   SetName();
    mpOrigin = pSource;
    ShuttleGui S(this, eIsCreating);
 
    S.StartVerticalLay();
    {
-      mTextCtrl = S.AddTextBox( {},
-                               wxEmptyString,
-                               15);
-      mTextCtrl->SetValidator(wxTextValidator(wxFILTER_NUMERIC));
+      mTextCtrl = S.Validator<wxTextValidator>(wxFILTER_NUMERIC)
+         .AddTextBox( {}, wxEmptyString, 15);
 
-      mSlider = safenew ASlider(this,
+      mSlider = safenew ASlider(S.GetParent(),
                             wxID_ANY,
                             title,
                             wxDefaultPosition,
                             size,
                             ASlider::Options{}
-                               .Style( style ).Line( line ).Page( page ) );
-      S.AddWindow(mSlider, wxEXPAND);
+                               .Style( style ).Line( line ).Page( page ).Popup( false) );
+      S.Position(wxEXPAND)
+         .AddWindow(mSlider);
    }
    S.EndVerticalLay();
 
@@ -244,16 +320,25 @@ bool SliderDialog::TransferDataToWindow()
 
 bool SliderDialog::TransferDataFromWindow()
 {
-   double value;
+   // Bug #2458
+   //
+   // If the user clears the text control, the ToDouble below will NOT set "value"
+   // since it checks the length of the incoming string and bypasses setting it if
+   // it's empty. So initialize "value" for good measure and check the return value
+   // of ToDouble for success before using "value".
+   double value = 0.0;
 
-   mTextCtrl->GetValue().ToDouble(&value);
-   if (mStyle == DB_SLIDER)
-      value = DB_TO_LINEAR(value);
-   mSlider->Set(value);
-   if (mpOrigin) {
-      mpOrigin->Set(value);
-      mpOrigin->SendUpdate(value);
+   if (mTextCtrl->GetValue().ToDouble(&value))
+   {
+      if (mStyle == DB_SLIDER)
+         value = DB_TO_LINEAR(value);
+      mSlider->Set(value);
+      if (mpOrigin) {
+         mpOrigin->Set(value);
+         mpOrigin->SendUpdate(value);
+      }
    }
+
    return true;
 }
 
@@ -359,7 +444,7 @@ static const wxPoint2DDouble disabledRightEnd[] =
 
 // Construct customizable slider
 LWSlider::LWSlider(wxWindow * parent,
-                     const wxString &name,
+                     const TranslatableString &name,
                      const wxPoint &pos,
                      const wxSize &size,
                      float minValue,
@@ -377,7 +462,7 @@ LWSlider::LWSlider(wxWindow * parent,
 
 // Construct predefined slider
 LWSlider::LWSlider(wxWindow *parent,
-                   const wxString &name,
+                   const TranslatableString &name,
                    const wxPoint &pos,
                    const wxSize &size,
                    int style,
@@ -437,7 +522,7 @@ LWSlider::LWSlider(wxWindow *parent,
 }
 
 void LWSlider::Init(wxWindow * parent,
-                    const wxString &name,
+                    const TranslatableString &name,
                     const wxPoint &pos,
                     const wxSize &size,
                     float minValue,
@@ -581,7 +666,7 @@ void LWSlider::OnPaint(wxDC &dc, bool highlight)
    // Draw the background.
    // If we are lightweight, this has already been done for us.
    if( mHW ){
-      dc.SetBackground( wxBrush(mParent->GetBackgroundColour()) );
+      dc.SetBackground( *wxTRANSPARENT_BRUSH );
       dc.Clear();
    }
 
@@ -629,29 +714,16 @@ void LWSlider::DrawToBitmap(wxDC & paintDC)
    mBitmap = std::make_unique<wxBitmap>();
    mBitmap->Create(mWidth, mHeight, paintDC);
 
+#if defined(__WXMAC__)
+   mBitmap->UseAlpha();
+#endif
+
    // Set up the memory DC
    // We draw to it, not the paintDC.
    wxMemoryDC dc;
    dc.SelectObject(*mBitmap);
 
-
-   // The backgroundColour is the expected background colour.
-   // This bitmap is masked, so the colour affects anti-aliassing
-   // at the edges.  
-   wxColour backgroundColour = theTheme.Colour(clrTrackInfo);
-   if( mHW )
-      backgroundColour = mParent->GetBackgroundColour();
-
-   // Bug 1981 workaround.
-   // On Mac the colour may end up being the system background colour.
-   // For some reason (not yet known) the mask does not work in that case.
-   // So perturb the colour very slightly to work around that.
-   // (we can actually perterb it a lot before the anti-aliassing starts 
-   // to look bad)
-   backgroundColour = wxColour( backgroundColour.Red(), 
-      backgroundColour.Green(), 
-      backgroundColour.Blue() ^1 );
-   dc.SetBackground(wxBrush(backgroundColour));
+   dc.SetBackground(wxBrush(mParent->GetBackgroundColour()));
    dc.Clear();
 
    // Draw the line along which the thumb moves.
@@ -675,22 +747,17 @@ void LWSlider::DrawToBitmap(wxDC & paintDC)
 
       // sliderFontSize is for the tooltip.
       // we need something smaller here...
-      int fontSize = 7;
-      wxFont labelFont(fontSize, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
+      wxFont labelFont(7, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL);
       dc.SetFont(labelFont);
 
-      // Colors
+      // Color
       dc.SetTextForeground( theTheme.Colour( clrTrackPanelText ));
-      dc.SetTextBackground( backgroundColour );
-      // Used to use wxSOLID here, but wxTRANSPARENT is better for mac, and 
-      // works fine on windows.
-      dc.SetBackgroundMode( wxTRANSPARENT );
 
       /* i18n-hint: One-letter abbreviation for Left, in the Pan slider */
       dc.DrawText(_("L"), mLeftX, 0);
 
       /* i18n-hint: One-letter abbreviation for Right, in the Pan slider */
-      dc.DrawText(_("R"), mRightX-6,0);
+      dc.DrawText(_("R"), mRightX - dc.GetTextExtent(_("R")).GetWidth(), 0);
    }
    else
    {
@@ -778,10 +845,13 @@ void LWSlider::DrawToBitmap(wxDC & paintDC)
    // safenew, because SetMask takes ownership
    // We always mask.  If we are HeavyWeight, the ASlider draws the
    // background.
-   mBitmap->SetMask(safenew wxMask(*mBitmap, backgroundColour));
+   if( !mHW )
+   {
+      mBitmap->SetMask(safenew wxMask(*mBitmap, dc.GetBackground().GetColour()));
+   }
 }
 
-void LWSlider::SetToolTipTemplate(const wxString & tip)
+void LWSlider::SetToolTipTemplate(const TranslatableString & tip)
 {
    mTipTemplate = tip;
 }
@@ -817,7 +887,7 @@ void LWSlider::ShowTip(bool show)
 
 void LWSlider::CreatePopWin()
 {
-   mTipPanel = std::make_unique<TipPanel>(mParent, GetWidestTips());
+   mTipPanel = std::make_unique<TipWindow>(mParent, GetWidestTips());
 }
 
 void LWSlider::SetPopWinPosition()
@@ -853,73 +923,76 @@ void LWSlider::FormatPopWin()
    mTipPanel->Refresh();
 }
 
-wxString LWSlider::GetTip(float value) const
+TranslatableString LWSlider::GetTip(float value) const
 {
-   wxString label;
+   TranslatableString label;
 
-   if (mTipTemplate.IsEmpty())
+   if (mTipTemplate.empty())
    {
-      wxString val;
+      TranslatableString val;
 
       switch(mStyle)
       {
       case FRAC_SLIDER:
-         val.Printf( wxT("%.2f"), value );
+         val = Verbatim("%.2f").Format( value );
          break;
 
       case DB_SLIDER:
-         val.Printf( wxT("%+.1f dB"), value );
+         /* i18n-hint dB abbreviates decibels */
+         val = XO("%+.1f dB").Format( value );
          break;
 
       case PAN_SLIDER:
          if (value == 0.0)
          {
-            val = _("Center");
+            val = XO("Center");
          }
          else
          {
             const auto v = 100.0f * fabsf(value);
             if (value < 0.0)
                /* i18n-hint: Stereo pan setting */
-               val = wxString::Format( _("%.0f%% Left"), v );
+               val = XO("%.0f%% Left").Format( v );
             else
                /* i18n-hint: Stereo pan setting */
-               val = wxString::Format( _("%.0f%% Right"), v );
+               val = XO("%.0f%% Right").Format( v );
          }
          break;
 
       case SPEED_SLIDER:
          /* i18n-hint: "x" suggests a multiplicative factor */
-         val.Printf( wxT("%.2fx"), value );
+         val = XO("%.2fx").Format( value );
          break;
 
 #ifdef EXPERIMENTAL_MIDI_OUT
       case VEL_SLIDER:
          if (value > 0.0f)
             // Signed
-            val.Printf( wxT("%+d"), (int) value );
+            val = Verbatim("%+d").Format( (int) value );
          else
             // Zero, or signed negative
-            val.Printf( wxT("%d"), (int) value );
+            val = Verbatim("%d").Format( (int) value );
          break;
 #endif
       }
 
-      label.Printf(_("%s: %s"), mName, val);
+      /* i18n-hint: An item name followed by a value, with appropriate separating punctuation */
+      label = XO("%s: %s").Format( mName, val );
    }
    else
    {
-      label.Printf(mTipTemplate, value);
+      label = mTipTemplate;
+      label.Format( value );
    }
 
    return label;
 }
 
-wxArrayString LWSlider::GetWidestTips() const
+TranslatableStrings LWSlider::GetWidestTips() const
 {
-   wxArrayString results;
+   TranslatableStrings results;
 
-   if (mTipTemplate.IsEmpty())
+   if (mTipTemplate.empty())
    {
       wxString val;
 
@@ -927,17 +1000,19 @@ wxArrayString LWSlider::GetWidestTips() const
       {
       case FRAC_SLIDER:
          results.push_back( GetTip( -1.99f ) );
+         results.push_back( GetTip( +1.99f ) );
          break;
 
       case DB_SLIDER:
          results.push_back( GetTip( -99.9f ) );
+         results.push_back( GetTip( +99.9f ) );
          break;
 
       case PAN_SLIDER:
          // Don't assume we know which of "Left", "Right", or "Center"
          // is the longest string, when localized
          results.push_back( GetTip(  0.f ) );
-         results.push_back( GetTip(  1.f ) );
+         results.push_back( GetTip( +1.f ) );
          results.push_back( GetTip( -1.f ) );
          break;
 
@@ -979,7 +1054,9 @@ bool LWSlider::DoShowDialog(wxPoint pos)
                      wxID_ANY,
                      mName,
                      pos,
-                     wxSize( mWidth, mHeight ),
+                     // Bug 2087.  wxMin takes care of case where
+                     // slider is vertical (tall and narrow)
+                     wxSize( mWidth, wxMin( mWidth, mHeight) ),
                      mStyle,
                      Get(),
                      mScrollLine,
@@ -1010,8 +1087,10 @@ void LWSlider::OnMouseEvent(wxMouseEvent & event)
    if (event.Entering())
    {
       // Display the tooltip in the status bar
-      wxString tip = GetTip(mCurrentValue);
-      GetActiveProject()->TP_DisplayStatusMessage(tip);
+      auto tip = GetTip(mCurrentValue);
+      auto pProject = FindProjectFromWindow( mParent );
+      if (pProject)
+         ProjectStatus::Get( *pProject ).Set( tip );
       Refresh();
    }
    else if (event.Leaving())
@@ -1020,7 +1099,9 @@ void LWSlider::OnMouseEvent(wxMouseEvent & event)
       {
          ShowTip(false);
       }
-      GetActiveProject()->TP_DisplayStatusMessage(wxT(""));
+      auto pProject = FindProjectFromWindow( mParent );
+      if (pProject)
+         ProjectStatus::Get( *pProject ).Set({});
       Refresh();
    }
 
@@ -1162,7 +1243,7 @@ void LWSlider::OnMouseEvent(wxMouseEvent & event)
       SendUpdate( mCurrentValue );
 }
 
-void LWSlider::OnKeyEvent(wxKeyEvent & event)
+void LWSlider::OnKeyDown(wxKeyEvent & event)
 {
    if (mEnabled)
    {
@@ -1430,8 +1511,8 @@ void LWSlider::SetEnabled(bool enabled)
 // ASlider
 //
 
-BEGIN_EVENT_TABLE(ASlider, wxWindow)
-   EVT_CHAR(ASlider::OnKeyEvent)
+BEGIN_EVENT_TABLE(ASlider, wxPanel)
+   EVT_KEY_DOWN(ASlider::OnKeyDown)
    EVT_MOUSE_EVENTS(ASlider::OnMouseEvent)
    EVT_MOUSE_CAPTURE_LOST(ASlider::OnCaptureLost)
    EVT_PAINT(ASlider::OnPaint)
@@ -1445,7 +1526,7 @@ END_EVENT_TABLE()
 
 ASlider::ASlider( wxWindow * parent,
                   wxWindowID id,
-                  const wxString &name,
+                  const TranslatableString &name,
                   const wxPoint & pos,
                   const wxSize & size,
                   const Options &options)
@@ -1464,7 +1545,7 @@ ASlider::ASlider( wxWindow * parent,
                              options.orientation);
    mLWSlider->mStepValue = options.stepValue;
    mLWSlider->SetId( id );
-   SetName( name );
+   SetName( name.Translation() );
 
    mSliderIsFocused = false;
    mStyle = options.style;
@@ -1513,7 +1594,7 @@ void ASlider::OnErase(wxEraseEvent & WXUNUSED(event))
 
 void ASlider::OnPaint(wxPaintEvent & WXUNUSED(event))
 {
-   wxPaintDC dc(this);
+   wxBufferedPaintDC dc(this);
 
    bool highlighted =
       GetClientRect().Contains(
@@ -1551,9 +1632,9 @@ void ASlider::OnCaptureLost(wxMouseCaptureLostEvent & WXUNUSED(event))
    mLWSlider->OnMouseEvent(e);
 }
 
-void ASlider::OnKeyEvent(wxKeyEvent &event)
+void ASlider::OnKeyDown(wxKeyEvent &event)
 {
-   mLWSlider->OnKeyEvent(event);
+   mLWSlider->OnKeyDown(event);
 }
 
 void ASlider::OnSetFocus(wxFocusEvent & WXUNUSED(event))
@@ -1583,7 +1664,7 @@ void ASlider::SetScroll(float line, float page)
    mLWSlider->SetScroll(line, page);
 }
 
-void ASlider::SetToolTipTemplate(const wxString & tip)
+void ASlider::SetToolTipTemplate(const TranslatableString & tip)
 {
    mLWSlider->SetToolTipTemplate(tip);
 }
@@ -1694,7 +1775,7 @@ wxAccStatus ASliderAx::GetChildCount(int* childCount)
 // a document has a default action of "Press" rather than "Prints the current document."
 wxAccStatus ASliderAx::GetDefaultAction( int WXUNUSED(childId), wxString *actionName )
 {
-   actionName->Clear();
+   actionName->clear();
 
    return wxACC_OK;
 }
@@ -1702,7 +1783,7 @@ wxAccStatus ASliderAx::GetDefaultAction( int WXUNUSED(childId), wxString *action
 // Returns the description for this object or a child.
 wxAccStatus ASliderAx::GetDescription( int WXUNUSED(childId), wxString *description )
 {
-   description->Clear();
+   description->clear();
 
    return wxACC_OK;
 }
@@ -1722,7 +1803,7 @@ wxAccStatus ASliderAx::GetFocus(int* childId, wxAccessible** child)
 // Returns help text for this object or a child, similar to tooltip text.
 wxAccStatus ASliderAx::GetHelpText( int WXUNUSED(childId), wxString *helpText )
 {
-   helpText->Clear();
+   helpText->clear();
 
    return wxACC_OK;
 }
@@ -1731,7 +1812,7 @@ wxAccStatus ASliderAx::GetHelpText( int WXUNUSED(childId), wxString *helpText )
 // Return e.g. ALT+K
 wxAccStatus ASliderAx::GetKeyboardShortcut( int WXUNUSED(childId), wxString *shortcut )
 {
-   shortcut->Clear();
+   shortcut->clear();
 
    return wxACC_OK;
 }

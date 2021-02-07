@@ -17,11 +17,6 @@
 #ifndef __AUDACITY_EFFECT_TRUNC_SILENCE__
 #define __AUDACITY_EFFECT_TRUNC_SILENCE__
 
-#include <wx/arrstr.h>
-#include <wx/event.h>
-#include <wx/list.h>
-#include <wx/string.h>
-
 #include "Effect.h"
 
 class ShuttleGui;
@@ -29,20 +24,20 @@ class wxChoice;
 class wxTextCtrl;
 class wxCheckBox;
 
-#define TRUNCATESILENCE_PLUGIN_SYMBOL ComponentInterfaceSymbol{ XO("Truncate Silence") }
-
 class RegionList;
 
 class EffectTruncSilence final : public Effect
 {
 public:
+   static const ComponentInterfaceSymbol Symbol;
+
    EffectTruncSilence();
    virtual ~EffectTruncSilence();
 
    // ComponentInterface implementation
 
    ComponentInterfaceSymbol GetSymbol() override;
-   wxString GetDescription() override;
+   TranslatableString GetDescription() override;
    wxString ManualPage() override;
 
    // EffectDefinitionInterface implementation
