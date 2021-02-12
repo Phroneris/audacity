@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:36+0900\n"
+"PO-Revision-Date: 2021-02-12 21:37+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2309,15 +2309,14 @@ msgid "FFmpeg support not compiled in"
 msgstr "FFmpeg サポートはコンパイルされていません"
 
 #: src/FFmpeg.cpp
-#, fuzzy
 msgid ""
 "FFmpeg was configured in Preferences and successfully loaded before, \n"
 "but this time Audacity failed to load it at startup. \n"
 "\n"
 "You may want to go back to Preferences > Libraries and re-configure it."
 msgstr ""
-"FFmpeg は設定されており以前は正常に読み込まれていましたが、                      \n"
-"今回の Audacity 起動時に読み込み失敗しました。                       \n"
+"FFmpeg が既に設定されており、以前は正常に読み込まれていましたが、\n"
+"今回の Audacity 起動時においては読み込みに失敗しました。\n"
 "\n"
 "[環境設定] > [ライブラリ] で再設定してください。"
 
@@ -2336,7 +2335,7 @@ msgstr "FFmpeg の場所を指定"
 #: src/FFmpeg.cpp
 #, c-format
 msgid "Audacity needs the file '%s' to import and export audio via FFmpeg."
-msgstr "ファイル「%s」が FFmpeg を通じて取り込み/書き出しを行うために必要です。"
+msgstr "FFmpeg を通じた音声の取り込みと書き出しには、ファイル「%s」が必要です。"
 
 #: src/FFmpeg.cpp
 #, c-format
@@ -2378,7 +2377,6 @@ msgid "FFmpeg not found"
 msgstr "FFmpeg が見つかりません"
 
 #: src/FFmpeg.cpp
-#, fuzzy
 msgid ""
 "Audacity attempted to use FFmpeg to import an audio file,\n"
 "but the libraries were not found.\n"
@@ -2386,10 +2384,10 @@ msgid ""
 "To use FFmpeg import, go to Edit > Preferences > Libraries\n"
 "to download or locate the FFmpeg libraries."
 msgstr ""
-"Audacity は FFmpeg により音声を取り込もうとしましたが、\n"
+"FFmpeg により音声を取り込もうとしましたが、\n"
 "必要なライブラリが見つかりませんでした。\n"
 "\n"
-"FFmpeg による取り込みを使用するには、[環境設定] > [ライブラリ] にて\n"
+"FFmpeg による取り込みを使用するには、[編集] > [環境設定] > [ライブラリ] にて\n"
 "FFmpeg ライブラリをダウンロードまたは指定してください。"
 
 #: src/FFmpeg.cpp
@@ -2403,11 +2401,11 @@ msgstr "互換性のある FFmpeg ライブラリが見つかりません。"
 #. i18n-hint: do not translate avformat.  Preserve the computer gibberish.
 #: src/FFmpeg.h
 msgid "Only avformat.dll"
-msgstr ""
+msgstr "avformat.dll のみ"
 
 #: src/FFmpeg.h
 msgid "Only libavformat.so"
-msgstr ""
+msgstr "libavformat.so のみ"
 
 #: src/FileException.cpp
 #, fuzzy, c-format
