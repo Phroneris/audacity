@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:20+0900\n"
+"PO-Revision-Date: 2021-02-12 23:21+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -18756,7 +18756,7 @@ msgid "~aPercentage values cannot be more than 1000 %."
 msgstr "~aパーセント値に 1000% を超える数値は指定できません。"
 
 #: plug-ins/adjustable-fade.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid ""
 "~adB values cannot be more than +100 dB.~%~%~\n"
 "                                 Hint: 6 dB doubles the amplitude~%~\n"
@@ -18764,7 +18764,7 @@ msgid ""
 msgstr ""
 "~adB 値に +100dB を超える数値は指定できません。~%~%~\n"
 "                                 ヒント: 6dB で振幅が 2 倍に、~%~\n"
-"                                 \t-6dB で振幅が半分になります。"
+"                                 -6dB で振幅が半分になります。"
 
 # jp: 独自アクセスキー
 #: plug-ins/beat.ny
@@ -18790,7 +18790,7 @@ msgstr "クリッピングの修復中..."
 
 #: plug-ins/clipfix.ny
 msgid "Benjamin Schwartz and Steve Daulton"
-msgstr "Benjamin Schwartz, Steve Daulton"
+msgstr "Benjamin Schwartz、Steve Daulton"
 
 #: plug-ins/clipfix.ny
 msgid "Licensing confirmed under terms of the GNU General Public License version 2"
@@ -18931,55 +18931,50 @@ msgstr "繰り返し回数"
 msgid "Allow duration to change"
 msgstr "余韻の分だけ音声時間を伸ばす"
 
-#: plug-ins/eq-xml-to-txt-converter.ny
-msgid "EQ XML to TXT Converter"
-msgstr ""
-
-#: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy
-msgid "Select target EQ effect"
-msgstr "前回のエフェクトを再適用"
-
 # jp: 独自アクセスキー
 #: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy
-msgid "Equalization XML file"
-msgstr "イコライザー (EQ) (&Q)"
+msgid "EQ XML to TXT Converter"
+msgstr "EQ データ変換 (XML→TXT) (&X)"
 
 #: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy
+msgid "Select target EQ effect"
+msgstr "テキストの取り込み先 EQ エフェクト"
+
+#: plug-ins/eq-xml-to-txt-converter.ny
+msgid "Equalization XML file"
+msgstr "EQ データ XML ファイル"
+
+#: plug-ins/eq-xml-to-txt-converter.ny
 msgid "XML file"
-msgstr "MP3 ファイル"
+msgstr "XML ファイル"
 
 #: plug-ins/eq-xml-to-txt-converter.ny
 msgid "If output text file exists"
-msgstr ""
+msgstr "出力テキストファイルが存在する場合"
 
 #: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy
 msgid "Append number"
-msgstr "追加録音"
+msgstr "自動ナンバリング"
 
 #: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy
 msgid "Overwrite"
-msgstr "削除の確認"
+msgstr "上書き"
 
 #: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error.~%Unable to open file~%~s"
-msgstr "エラー。~%ファイルを開けません"
+msgstr "エラー。~%ファイルを開けません~%~s"
 
 #. i18n-hint: Do not translate "~a".txt
 #: plug-ins/eq-xml-to-txt-converter.ny
 #, lisp-format
 msgid "Error.~%File overwrite disallowed:~%\"~a.txt\""
-msgstr ""
+msgstr "エラー。~%ファイル「~a.txt」の上書きが拒否されました。"
 
 #: plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error.~%File cannot be written:~%\"~a.txt\""
-msgstr "エラー。~%「~a」に書き込めませんでした。"
+msgstr "エラー。~%ファイル「~a.txt」に書き込めませんでした。"
 
 # jp: 独自アクセスキー
 #: plug-ins/equalabel.ny
@@ -19076,28 +19071,33 @@ msgstr "詳細"
 msgid "Warnings only"
 msgstr "警告のみ"
 
+# jp: 文字化けする
 #: plug-ins/equalabel.ny
 #, fuzzy, lisp-format
 msgid "Warning: Overlapping region labels.~%"
 msgstr "警告: ラベル領域が重なっています。~%"
 
+# jp: 文字化けする
 #. i18n-hint:  Type of label
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "region labels"
 msgstr "本のラベル領域"
 
+# jp: 文字化けする
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "point labels"
 msgstr "個のラベル"
 
+# jp: 文字化けする
 #. i18n-hint:  Number of labels produced at specified intervals.
 #: plug-ins/equalabel.ny
 #, fuzzy, lisp-format
 msgid "~a~a ~a at intervals of ~a seconds.~%"
 msgstr "~a~a ~aを ~a 秒間隔で生成。~%"
 
+# jp: 文字化けする
 #: plug-ins/equalabel.ny
 #, fuzzy, lisp-format
 msgid "~aRegion length = ~a seconds."
@@ -19160,114 +19160,101 @@ msgstr ""
 "トラックのサンプリング周波数は ~a Hz です。~%~\n"
 "周波数指定を ~a Hz より低くする必要があります。"
 
+# jp: 独自アクセスキー
 #. i18n-hint: Name of effect that labels sounds
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Label Sounds"
-msgstr "ラベルで結合"
+msgstr "音声から自動ラベル付け(&L)"
 
 #: plug-ins/label-sounds.ny plug-ins/noisegate.ny
-#, fuzzy
 msgid "Released under terms of the GNU General Public License version 2 or later."
-msgstr "GNU General Public License version 2 の下に公開"
+msgstr "GNU General Public License version 2 (またはそれ以降) の下に公開"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Threshold level (dB)"
-msgstr "閾値 %d dB"
+msgstr "閾値のレベル (dB)"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Threshold measurement"
-msgstr "閾値 (%)"
+msgstr "閾値の取得方法"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Peak level"
-msgstr "ウェットレベル"
+msgstr "ピークレベル"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Average level"
-msgstr "平均"
+msgstr "平均レベル"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "RMS level"
-msgstr "ウェットレベル"
+msgstr "RMS レベル"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Minimum silence duration"
-msgstr "最小の無音持続時間:"
+msgstr "無音部の最短持続時間"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Minimum label interval"
-msgstr "間隔のみ"
+msgstr "最短ラベル間隔"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Label type"
-msgstr "ラベル文字"
+msgstr "ラベル配置形式"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Point before sound"
-msgstr "ジョイントステレオ"
+msgstr "有音部の開始地点"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Point after sound"
-msgstr "ジョイントステレオ"
+msgstr "有音部の終了地点"
 
 #: plug-ins/label-sounds.ny
 msgid "Region around sounds"
-msgstr ""
+msgstr "有音部の継続領域"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Region between sounds"
-msgstr "~aラベル領域長さ = ~a 秒。"
+msgstr "有音部同士の間の領域"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy
 msgid "Maximum leading silence"
-msgstr "無音の検出中..."
+msgstr "開始側に確保する最長無音部"
 
 #: plug-ins/label-sounds.ny
 msgid "Maximum trailing silence"
-msgstr ""
+msgstr "終了側に確保する最長無音部"
 
 #: plug-ins/label-sounds.ny
 msgid "Sound ##1"
-msgstr ""
+msgstr "音##1"
 
 #. i18n-hint: hours minutes and seconds. Do not translate "~a".
 #: plug-ins/label-sounds.ny
 #, lisp-format
 msgid "~ah ~am ~as"
-msgstr ""
+msgstr "~a 時間 ~a 分 ~a 秒"
 
 #: plug-ins/label-sounds.ny
 msgid "Too many silences detected.nOnly the first 10000 labels added."
-msgstr ""
+msgstr "検出される無音部が多すぎます。最初の 10000 件にのみラベルが付加されます。"
 
 #. i18n-hint: '~a' will be replaced by a time duration
 #: plug-ins/label-sounds.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Error.~%Selection must be less than ~a."
-msgstr "選択範囲は %d サンプル以上でなくてはなりません。"
+msgstr "エラー。~%選択範囲は ~a未満でなければなりません。"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "No sounds found.~%Try lowering the 'Threshold' or reduce 'Minimum sound duration'."
-msgstr "音声は検出されませんでした。~%無音レベルや無音間隔を小さくしてみてください。"
+msgstr "有音部が検出されませんでした。~%「閾値」や「最短ラベル間隔」を小さくしてみてください。"
 
 #: plug-ins/label-sounds.ny
 #, lisp-format
 msgid "Labelling regions between sounds requires~%at least two sounds.~%Only one sound detected."
-msgstr ""
+msgstr "有音部同士の間にラベル領域を作成するには、~%有音部が 2 箇所以上必要です。~%1 箇所の有音部しか検出されませんでした。"
 
 # jp: 独自アクセスキー
 #: plug-ins/limiter.ny
@@ -19336,64 +19323,54 @@ msgstr "ローパスフィルター(&L)"
 msgid "Performing Low-Pass Filter..."
 msgstr "ローパスフィルターを実行中..."
 
+# jp: 独自アクセスキー
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Noise Gate"
-msgstr "ノイズの種類:"
+msgstr "ノイズゲート(&N)"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Select Function"
-msgstr "選択範囲"
+msgstr "機能選択"
 
 #: plug-ins/noisegate.ny
 msgid "Gate"
 msgstr "ゲート"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Analyze Noise Level"
-msgstr "解析時間:"
+msgstr "ノイズレベルの解析"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Stereo Linking"
-msgstr "シーク"
+msgstr "ステレオリンク"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Link Stereo Tracks"
-msgstr "ステレオトラックの作成(&K)"
+msgstr "ステレオトラックをリンクする"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Don't Link Stereo"
-msgstr "ジョイントステレオ"
+msgstr "ステレオトラックをリンクしない"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Gate threshold (dB)"
-msgstr "閾値 %d dB"
+msgstr "ゲート閾値 (dB)"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Gate frequencies above (kHz)"
-msgstr "~a中央周波数は 0Hz より大きくなければなりません。"
+msgstr "この周波数帯より上だけ処理 (kHz)"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Level reduction (dB)"
-msgstr "ノイズ低減 (dB) (&N):"
+msgstr "レベル低減値 (dB)"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Attack (ms)"
-msgstr "アタック/ディケイ時間"
+msgstr "アタック (ms)"
 
 #: plug-ins/noisegate.ny
-#, fuzzy
 msgid "Decay (ms)"
-msgstr "アタック/ディケイ時間"
+msgstr "ディケイ (ms)"
 
 #: plug-ins/noisegate.ny
 #, lisp-format
@@ -19403,6 +19380,10 @@ msgid ""
 "is too high for selected track.\n"
 "Set the control below ~a kHz."
 msgstr ""
+"エラー。\n"
+"「この周波数帯より上だけ処理: ~s kHz」\n"
+"の値が、選択トラックに用いるには高すぎます。\n"
+"~a kHz より低い値に設定してください。"
 
 #: plug-ins/noisegate.ny
 #, lisp-format
@@ -19411,6 +19392,9 @@ msgid ""
 "Selection too long.\n"
 "Maximum length is ~a."
 msgstr ""
+"エラー。\n"
+"選択範囲が長すぎます。\n"
+"利用できるのは最長で ~aまでです。"
 
 #: plug-ins/noisegate.ny
 #, lisp-format
@@ -19419,6 +19403,9 @@ msgid ""
 "Insufficient audio selected.\n"
 "Make the selection longer than ~a ms."
 msgstr ""
+"エラー。\n"
+"選択範囲が不足しています。\n"
+"~a ミリ秒以上選択してください。"
 
 #: plug-ins/noisegate.ny
 #, lisp-format
@@ -19426,12 +19413,14 @@ msgid ""
 "Peak based on first ~a seconds ~a dB~%\n"
 "Suggested Threshold Setting ~a dB."
 msgstr ""
+"最初の ~a 秒間におけるピーク: ~a dB~%\n"
+"推奨閾値設定: ~a dB"
 
 #. i18n-hint: hours and minutes. Do not translate "~a".
 #: plug-ins/noisegate.ny
 #, lisp-format
 msgid "~ah ~am"
-msgstr ""
+msgstr "~a 時間 ~a 分"
 
 # jp: 独自アクセスキー
 #: plug-ins/notch.ny
@@ -19461,107 +19450,94 @@ msgstr ""
 "トラックのサンプリング周波数は ~a Hz です。~%~\n"
 "周波数指定を ~a Hz より低くする必要があります。"
 
+# jp: 独自アクセスキー
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Nyquist Plug-in Installer"
-msgstr "Nyquist プラグイン"
+msgstr "Nyquist プラグインのインストール(&N)"
 
 #. i18n-hint: "Browse..." is text on a button that launches a file browser.
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Select file(s) to install"
-msgstr "取り込むストリームを選択"
+msgstr "インストールするファイルを選択 (複数可)"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Plug-in"
 msgstr "プラグイン"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Lisp file"
-msgstr "MP3 ファイル"
+msgstr "Lisp ファイル"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "HTML file"
-msgstr "MP3 ファイル"
+msgstr "HTML ファイル"
 
 #: plug-ins/nyquist-plug-in-installer.ny plug-ins/sample-data-export.ny
 #: plug-ins/sample-data-import.ny
-#, fuzzy
 msgid "Text file"
-msgstr "ファイルの命名:"
+msgstr "テキストファイル"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "All supported"
-msgstr "すべてのファイル|*.*|すべてのサポートされるファイル|"
+msgstr "すべてのサポートされるファイル"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Allow overwriting"
-msgstr "クリッピングを許容する"
+msgstr "上書きの許可"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Disallow"
-msgstr "許可されませんでした"
+msgstr "許可しない"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Allow"
-msgstr ""
+msgstr "許可する"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Error.n"
-msgstr "エラー"
+msgstr "エラー。"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 #, lisp-format
 msgid "Success.~%Files written to:~%~s~%"
-msgstr ""
+msgstr "完了。~%ファイルが書き込まれました:~%~s~%"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Warning.nFailed to copy some files:n"
-msgstr ""
+msgstr "警告。コピーに失敗したファイルがあります:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Plug-ins installed.n(Use the Plug-in Manager to enable effects):"
-msgstr ""
+msgstr "インストールされたプラグイン (別途「プラグインの追加/削除」から有効化してください):"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Plug-ins updated:"
-msgstr "プラグインのサポート"
+msgstr "更新されたプラグイン:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Files copied to plug-ins folder:"
-msgstr "ファイルを選択"
+msgstr "プラグインフォルダーにコピーされたファイル:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Not found or cannot be read:"
-msgstr "エラー。~%「~a」に書き込めませんでした。"
+msgstr "見つからなかったか読み込めなかったファイル:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy
 msgid "Unsupported file type:"
-msgstr "未使用フィルター:"
+msgstr "サポートされていないファイル形式:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Files already installed ('Allow Overwriting' disabled):"
-msgstr ""
+msgstr "既にインストールされていたファイル (「上書きの許可」が無効化されています):"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Cannot be written to plug-ins folder:"
-msgstr ""
+msgstr "プラグインフォルダーに書き込めなかったファイル:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 #, lisp-format
 msgid "Error.~%No file selected."
-msgstr ""
+msgstr "エラー。~%ファイルが選択されていません。"
 
 # jp: 独自アクセスキー
 #: plug-ins/pluck.ny
@@ -19772,14 +19748,12 @@ msgid "Export data to"
 msgstr "データ保存先"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "CSV files"
-msgstr "FLAC ファイル"
+msgstr "CSV ファイル"
 
 #: plug-ins/sample-data-export.ny
-#, fuzzy
 msgid "HTML files"
-msgstr "MP3 ファイル"
+msgstr "HTML ファイル"
 
 #: plug-ins/sample-data-export.ny
 msgid "Index (text files only)"
@@ -20112,15 +20086,15 @@ msgstr ""
 msgid "Error.~%Unable to open file"
 msgstr "エラー。~%ファイルを開けません"
 
+# jp: 独自アクセスキー
 #: plug-ins/spectral-delete.ny
-#, fuzzy
 msgid "Spectral Delete"
-msgstr "スペクトル選択"
+msgstr "スペクトル編集: 削除(&D)"
 
 #: plug-ins/spectral-delete.ny
 #, lisp-format
 msgid "Error.~%Track sample rate below 100 Hz is not supported."
-msgstr ""
+msgstr "エラー。~%トラックにおける 100 Hz 未満のサンプリング周波数はサポート対象外です。"
 
 # jp: 独自アクセスキー
 #: plug-ins/tremolo.ny
@@ -20161,9 +20135,8 @@ msgid "Robert Haenggi"
 msgstr "Robert Haenggi"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Remove Vocals: to mono"
-msgstr "ボーカル音を除去"
+msgstr "ボーカル音を除去: モノラルへ"
 
 #: plug-ins/vocalrediso.ny
 msgid "Remove Vocals"
@@ -20178,9 +20151,8 @@ msgid "Isolate Vocals and Invert"
 msgstr "ボーカル音を分離＆位相反転"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid "Remove Center: to mono"
-msgstr "中央の音を除去"
+msgstr "中央の音を除去: モノラルへ"
 
 #: plug-ins/vocalrediso.ny
 msgid "Remove Center"
@@ -20211,7 +20183,7 @@ msgid "High Cut for Vocals (Hz)"
 msgstr "ボーカル音のハイカット (Hz)"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid ""
 "Average x: ~a, y: ~a\n"
 "                    Covariance x y: ~a\n"
@@ -20223,13 +20195,13 @@ msgid ""
 "                    y equals ~a plus ~a times x~%"
 msgstr ""
 "平均 x: ~a, y: ~a\n"
-"共分散 x y: ~a\n"
-"平均分散 x: ~a, y: ~a\n"
-"標準偏差 x: ~a, y: ~a\n"
-"相関係数: ~a\n"
-"決定係数: ~a \n"
-"残差分散: ~a\n"
-"y ＝ ~a ＋ ~a × x~%"
+"                    共分散 x y: ~a\n"
+"                    平均分散 x: ~a, y: ~a\n"
+"                    標準偏差 x: ~a, y: ~a\n"
+"                    相関係数: ~a\n"
+"                    決定係数: ~a \n"
+"                    残差分散: ~a\n"
+"                    y ＝ ~a ＋ ~a × x~%"
 
 #: plug-ins/vocalrediso.ny
 #, lisp-format
@@ -20237,62 +20209,56 @@ msgid "Pan position: ~a~%The left and right channels are correlated by about ~a 
 msgstr "パン位置: ~a~%左右のチャンネルの関連度はおよそ ~a % です。この意味は以下の通りです:~%~a~%"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid ""
 " - The two channels are identical, i.e. dual mono.\n"
 "                The center can't be removed.\n"
 "                Any remaining difference may be caused by lossy encoding."
 msgstr ""
 " - 2 つのチャンネルが完全に同一。言わば両モノラル。\n"
-"   中央の音を除去することはできない。\n"
-"      差が残るとしたら、それはエンコード時の劣化のせい。"
+"                中央の音を除去することはできない。\n"
+"                差が残るとしたら、それはエンコード時の劣化のせい。"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid ""
 " - The two Channels are strongly related, i.e. nearly mono or extremely panned.\n"
 "                Most likely, the center extraction will be poor."
 msgstr ""
 " - 2 つのチャンネルの関連が強い。ほぼモノラルか、あるいは極端なパン振り。\n"
-"   中央音の抽出は、十中八九貧弱なものになるはず。"
+"                中央音の抽出は、十中八九貧弱なものになるはず。"
 
 #: plug-ins/vocalrediso.ny
 msgid " - A fairly good value, at least stereo in average and not too wide spread."
 msgstr " - 非常に良好な数値。少なくとも平均的なステレオ音声であり、極端な広がりはない。"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid ""
 " - An ideal value for Stereo.\n"
 "                However, the center extraction depends also on the used reverb."
 msgstr ""
 " - ステレオとして理想的な数値。\n"
-"  といっても、中央音の抽出は使われているリバーブにも依存する。"
+"                といっても、中央音の抽出は使われているリバーブにも依存する。"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid ""
 " - The two channels are almost not related.\n"
 "                Either you have only noise or the piece is mastered in a unbalanced manner.\n"
 "                The center extraction can still be good though."
 msgstr ""
 " - 2 つのチャンネルは相互にほぼ関連していない。\n"
-"   ノイズ音源なのか、あるいは常識外れのマスタリングが施された音源なのか。\n"
-"   といっても、それなりに中央音を抽出できる可能性がある。"
+"                ノイズ音源なのか、あるいは常識外れのマスタリングが施された音源なのか。\n"
+"                といっても、それなりに中央音を抽出できる可能性がある。"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid ""
 " - Although the Track is stereo, the field is obviously extra wide.\n"
 "                This can cause strange effects.\n"
 "                Especially when played by only one speaker."
 msgstr ""
 " - ステレオトラックでこそあるが、場の広がりが明らかに並外れている。\n"
-"   このような音源は、特に 1 つだけのスピーカーで再生した場合などに\n"
-"   おかしな効果になることがある。"
+"                このような音源は、特に 1 つだけのスピーカーで再生した場合などに\n"
+"                おかしな効果になることがある。"
 
 #: plug-ins/vocalrediso.ny
-#, fuzzy
 msgid ""
 " - The two channels are nearly identical.\n"
 "                  Obviously, a pseudo stereo effect has been used\n"
@@ -20300,9 +20266,9 @@ msgid ""
 "                  Don't expect good results from a center removal."
 msgstr ""
 " - 2 つのチャンネルがほとんど同一。\n"
-"   明らかに疑似ステレオエフェクトが使われている\n"
-"   (スピーカー同士の物理的距離を超越した信号の広がりを狙うもの)。\n"
-" まともな中央音除去効果を期待しない方が良い。"
+"                  明らかに疑似ステレオエフェクトが使われている\n"
+"                  (スピーカー同士の物理的距離を超越した信号の広がりを狙うもの)。\n"
+"                  まともな中央音除去効果を期待しない方が良い。"
 
 #: plug-ins/vocalrediso.ny
 msgid "This plug-in works only with stereo tracks."
