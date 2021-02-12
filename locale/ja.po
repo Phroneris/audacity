@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:18+0900\n"
+"PO-Revision-Date: 2021-02-12 23:20+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -18488,9 +18488,9 @@ msgid "File Dialog"
 msgstr "ファイルダイアログ"
 
 #: src/xml/XMLFileReader.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Error: %s at line %lu"
-msgstr "エラー: %hs (%lu 行目)"
+msgstr "エラー: %s (%lu 行目)"
 
 #: src/xml/XMLFileReader.cpp
 #, c-format
@@ -18498,9 +18498,8 @@ msgid "Could not load file: \"%s\""
 msgstr "ファイルが開けません:「%s」"
 
 #: src/xml/XMLFileReader.cpp
-#, fuzzy
 msgid "Could not parse XML"
-msgstr "ファイルが開けませんでした"
+msgstr "XML を解釈できませんでした"
 
 # jp: 独自アクセスキー
 #: plug-ins/SpectralEditMulti.ny
