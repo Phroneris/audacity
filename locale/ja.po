@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:18+0900\n"
+"PO-Revision-Date: 2021-02-12 22:19+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -4771,9 +4771,8 @@ msgid "Set De&fault"
 msgstr "デフォルトに設定(&F)"
 
 #: src/Tags.cpp
-#, fuzzy
 msgid "Don't show this when exporting audio"
-msgstr "このメッセージを次回からは表示しない"
+msgstr "音声の書き出し時にこのメッセージを表示しない"
 
 #: src/Tags.cpp
 msgid "Edit Genres"
