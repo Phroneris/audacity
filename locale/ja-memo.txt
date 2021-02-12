@@ -27,11 +27,6 @@
 スクリプト用機能のスクリーンショットの"Bring To Top:"がよくわからない。
 ってかマクロで設定変えても強制的にONになる。
 
-#: src/import/Import.cpp src/menus/ClipMenus.cpp
-#, c-format
-msgid "%s, %s"
-て何。
-
 ノイズ生成の種類選択で、ホワイトノイズの"White"が他と共用されてるせいで「白」になっちゃう。
 Notepad++直書きで無理やり分離したエントリーを作っても、原文が重複してるのでエラーになる。
 
@@ -39,6 +34,14 @@ Notepad++直書きで無理やり分離したエントリーを作っても、�
 msgid "Silence"
 が「編集」メニューにおいて、無音化を元に戻すという意味で「無音(S) を元に戻す」と表示されるので変。
 無音化のアクセスキーはOだし…。
+
+
+
+■ これ何？
+
+#: src/import/Import.cpp src/menus/ClipMenus.cpp
+#, c-format
+msgid "%s, %s"
 
 
 
