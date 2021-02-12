@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:59+0900\n"
+"PO-Revision-Date: 2021-02-12 22:00+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -3509,14 +3509,14 @@ msgstr ""
 "登録失敗:\n"
 "%s"
 
+# ja: 本当は「この」「これらの」を使い分けたい
 #. i18n-hint A plug-in is an optional added program for a sound
 #. effect, or generator, or analyzer
 #: src/PluginManager.cpp
-#, fuzzy
 msgctxt "plug-ins"
 msgid "Enable this plug-in?\n"
 msgid_plural "Enable these plug-ins?\n"
-msgstr[0] "このプラグインを有効化しますか？"
+msgstr[0] "プラグインを有効化しますか？\n"
 
 #: src/PluginManager.cpp
 msgid "Enable new plug-ins"

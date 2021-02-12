@@ -35,6 +35,12 @@ src/FileException.cpp の
 
 操作履歴機能に関連して存在するらしい "Compact" 機能が、実際のUI上に見当たらない。
 
+#: src/PluginManager.cpp
+msgctxt "plug-ins"
+msgid "Enable this plug-in?\n"
+msgid_plural "Enable these plug-ins?\n"
+は「この」と「これらの」を使い分けたいが、日本語で個別に複数形を有効化する方法がわからない。
+
 スクリプト用機能のスクリーンショットの"Bring To Top:"がよくわからない。
 ってかマクロで設定変えても強制的にONになる。
 
