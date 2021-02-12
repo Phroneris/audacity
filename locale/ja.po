@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:49+0900\n"
+"PO-Revision-Date: 2021-02-12 21:59+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -3172,47 +3172,52 @@ msgid "&Mixer Board..."
 msgstr "ミキサボード(&M)..."
 
 #: src/ModuleManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to load the \"%s\" module.\n"
 "\n"
 "Error: %s"
-msgstr "プリセットファイルをロードできません。"
+msgstr ""
+"モジュール「%s」をロードできません。\n"
+"\n"
+"エラー: %s"
 
 #: src/ModuleManager.cpp
 msgid "Module Unsuitable"
 msgstr "モジュールが不適合です"
 
 #: src/ModuleManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The module \"%s\" does not provide a version string.\n"
 "\n"
 "It will not be loaded."
 msgstr ""
-"モジュール %s はバージョン番号がありません。\n"
-"ロードできません。"
+"モジュール「%s」はバージョン番号文字列を提供していません。\n"
+"\n"
+"このモジュールのロードは行われません。"
 
 #: src/ModuleManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The module \"%s\" is matched with Audacity version \"%s\".\n"
 "\n"
 "It will not be loaded."
 msgstr ""
-"モジュール %s は、Audacity のバージョン %s と合致します。\n"
+"モジュール「%s」は、Audacity のバージョン「%s」と合致します。\n"
 "\n"
-"ロードされません。"
+"このモジュールのロードは行われません。"
 
 #: src/ModuleManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The module \"%s\" failed to initialize.\n"
 "\n"
 "It will not be loaded."
 msgstr ""
-"モジュール %s はバージョン番号がありません。\n"
-"ロードできません。"
+"モジュール「%s」は初期化に失敗しました。\n"
+"\n"
+"このモジュールのロードは行われません。"
 
 #: src/ModuleManager.cpp
 #, c-format
@@ -3248,14 +3253,15 @@ msgid "Try and load this module?"
 msgstr "このモジュールをロードして試してみますか？"
 
 #: src/ModuleManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The module \"%s\" does not provide any of the required functions.\n"
 "\n"
 "It will not be loaded."
 msgstr ""
-"モジュール %s はバージョン番号がありません。\n"
-"ロードできません。"
+"モジュール「%s」は、必要な関数を一切提供していません。\n"
+"\n"
+"このモジュールのロードは行われません。"
 
 #. i18n-hint: This is for screen reader software and indicates that
 #. this is a Note track.
