@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-13 03:46+0900\n"
+"PO-Revision-Date: 2021-02-13 04:24+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -608,6 +608,7 @@ msgstr "%s の名称は Dominic Mazzoni の登録商標です。"
 msgid "Build Information"
 msgstr "コンパイル情報"
 
+# jp: 「無効」と見分けやすくするためにあえて文字数を増やす
 #: src/AboutDialog.cpp src/PluginManager.cpp src/prefs/ModulePrefs.cpp
 msgid "Enabled"
 msgstr "有効です"
@@ -720,7 +721,7 @@ msgstr "リリースビルド (デバッグレベル %d)"
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, 64 bits"
-msgstr "%s、64 bit"
+msgstr "%s、64bit"
 
 #: src/AboutDialog.cpp
 msgid "Build type:"
@@ -2083,7 +2084,7 @@ msgid ""
 msgstr ""
 "ディスク容量がありません。\n"
 "%s\n"
-"量解放のコツについて知るには、下のヘルプボタンをクリックしてください。"
+"量解放のコツについて知るには、ヘルプボタンをクリックしてください。"
 
 #: src/DBConnection.cpp
 #, fuzzy, c-format
@@ -2431,7 +2432,7 @@ msgid ""
 msgstr ""
 "ファイルに書き込むことができませんでした。\n"
 "%s が書き込み可能でないか、あるいはディスク容量がない恐れがあります。\n"
-"容量解放のコツについて知るには、下のヘルプボタンをクリックしてください。"
+"容量解放のコツについて知るには、ヘルプボタンをクリックしてください。"
 
 #: src/FileException.h
 msgid "File Error"
@@ -3936,7 +3937,7 @@ msgid ""
 msgstr ""
 "ファイル「%s」に書き込むことができませんでした。\n"
 "書き込み可能でないか、あるいはディスク容量がない恐れがあります。\n"
-"容量解放のコツについて知るには、下のヘルプボタンをクリックしてください。"
+"容量解放のコツについて知るには、ヘルプボタンをクリックしてください。"
 
 #: src/ProjectFileIO.cpp
 msgid "Compacting project"
@@ -5369,7 +5370,7 @@ msgstr "トラックの削除"
 #: src/TrackUtilities.cpp
 #, c-format
 msgid "Removed track '%s.'"
-msgstr "削除されたトラック「%s」"
+msgstr "トラック「%s」を削除しました"
 
 #: src/TrackUtilities.cpp
 msgid "Track Remove"
@@ -7120,85 +7121,104 @@ msgstr "Rectifier Distortion"
 msgid "Hard Limiter 1413"
 msgstr "Hard Limiter 1413"
 
-# jp: ここから下はディストーションの種類ではなくファクトリープリセット
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Hard clip -12dB, 80% make-up gain"
 msgstr "Hard clip -12dB, 80% make-up gain"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Soft clip -12dB, 80% make-up gain"
 msgstr "Soft clip -12dB, 80% make-up gain"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Fuzz Box"
 msgstr "Fuzz Box"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp src/effects/Equalization.cpp
 msgid "Walkie-talkie"
 msgstr "Walkie-talkie"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Blues drive sustain"
 msgstr "Blues drive sustain"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Light Crunch Overdrive"
 msgstr "Light Crunch Overdrive"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Heavy Overdrive"
 msgstr "Heavy Overdrive"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "3rd Harmonic (Perfect Fifth)"
 msgstr "3rd Harmonic (Perfect Fifth)"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Valve Overdrive"
 msgstr "Valve Overdrive"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "2nd Harmonic (Octave)"
 msgstr "2nd Harmonic (Octave)"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Gated Expansion Distortion"
 msgstr "Gated Expansion Distortion"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Light, -70dB noise floor"
 msgstr "Leveller, Light, -70dB noise floor"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Moderate, -70dB noise floor"
 msgstr "Leveller, Moderate, -70dB noise floor"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heavy, -70dB noise floor"
 msgstr "Leveller, Heavy, -70dB noise floor"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heavier, -70dB noise floor"
 msgstr "Leveller, Heavier, -70dB noise floor"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heaviest, -70dB noise floor"
 msgstr "Leveller, Heaviest, -70dB noise floor"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Half-wave Rectifier"
 msgstr "Half-wave Rectifier"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Full-wave Rectifier"
 msgstr "Full-wave Rectifier"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Full-wave Rectifier (DC blocked)"
 msgstr "Full-wave Rectifier (DC blocked)"
 
+# jp: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Percussion Limiter"
 msgstr "Percussion Limiter"
@@ -7800,39 +7820,47 @@ msgstr "グラフィック EQ(&G)"
 msgid "Adjusts the volume levels of particular frequencies"
 msgstr "特定の周波数の音量を調節します"
 
-# jp: 以下、ファクトリープリセット
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "100Hz Rumble"
 msgstr "100Hz Rumble"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "AM Radio"
 msgstr "AM Radio"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Bass Boost"
 msgstr "Bass Boost"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Bass Cut"
 msgstr "Bass Cut"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Low rolloff for speech"
 msgstr "Low rolloff for speech"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "RIAA"
 msgstr "RIAA"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Telephone"
 msgstr "Telephone"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Treble Boost"
 msgstr "Treble Boost"
 
+# jp: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Treble Cut"
 msgstr "Treble Cut"
@@ -8612,7 +8640,7 @@ msgstr "ノイズ除去 (dB) (&D):"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "&Sensitivity (dB):"
-msgstr "感度 (dB) (&S)"
+msgstr "感度 (dB) (&S):"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Fr&equency smoothing (Hz):"
@@ -9063,7 +9091,7 @@ msgstr "サブタイプ(&S):"
 
 #: src/effects/ScienFilter.cpp
 msgid "Cutoff (Hz)"
-msgstr "カットオフ帯域幅 (Hz):"
+msgstr "カットオフ帯域幅 (Hz)"
 
 #: src/effects/ScienFilter.cpp
 msgid "C&utoff:"

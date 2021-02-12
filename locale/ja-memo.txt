@@ -26,6 +26,7 @@
 伸ばさない：
 アクセシビリティ
 コミュニティ
+コンパイラ
 ディレクトリ
 ベロシティ
 ライブラリ
@@ -73,6 +74,10 @@ msgid_plural "Enable these plug-ins?\n"
 ノイズ生成の種類選択で、ホワイトノイズの"White"が他と共用されてるせいで「白」になっちゃう。
 Notepad++直書きで無理やり分離したエントリーを作っても、原文が重複してるのでエラーになる。
 →分離して追加された…が、翻訳しても本体に反映されない。
+
+エフェクトの "Filter Curve" が無い。
+
+解析の "Measure RMS" が無い。
 
 #: src/effects/Silence.h src/menus/EditMenus.cpp
 msgid "Silence"
