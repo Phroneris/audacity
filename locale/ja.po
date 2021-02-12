@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:04+0900\n"
+"PO-Revision-Date: 2021-02-12 21:24+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1544,31 +1544,28 @@ msgstr "コマンドを選択"
 
 # jp: デフォルトマクロ名だがファイル名でもある
 #: src/BatchCommands.cpp
+#, fuzzy
 msgid "MP3 Conversion"
-msgstr "MP3 Conversion"
+msgstr "MP3 変換"
 
 # jp: デフォルトマクロ名だがファイル名でもある
 #: src/BatchCommands.cpp
+#, fuzzy
 msgid "Fade Ends"
-msgstr "Fade Ends"
+msgstr "両端フェード"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Import Macro"
-msgstr "Raw データの取り込み"
+msgstr "マクロの取り込み"
 
 #: src/BatchCommands.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Macro %s already exists. Would you like to replace it?"
-msgstr ""
-"「%s」は存在しません。\n"
-"\n"
-"作成しますか？"
+msgstr "マクロ「%s」は既に存在します。上書きしますか？"
 
 #: src/BatchCommands.cpp
-#, fuzzy
 msgid "Export Macro"
-msgstr "MIDI の出力"
+msgstr "マクロの書き出し"
 
 #: src/BatchCommands.cpp
 msgid "Effect"
@@ -1581,7 +1578,7 @@ msgstr "メニューコマンド (パラメータ有り)"
 #: src/BatchCommands.cpp src/FileNames.cpp
 #, c-format
 msgid "(%s)"
-msgstr ""
+msgstr "(%s)"
 
 #: src/BatchCommands.cpp
 msgid "Menu Command (No Parameters)"
