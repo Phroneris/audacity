@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:33+0900\n"
+"PO-Revision-Date: 2021-02-12 21:36+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2257,56 +2257,52 @@ msgstr "ノイズシェーピング"
 
 #: src/FFT.cpp
 msgid "Rectangular"
-msgstr "矩形"
+msgstr "矩形窓"
 
 #. i18n-hint a proper name
 #: src/FFT.cpp
 msgid "Bartlett"
-msgstr ""
+msgstr "バートレット窓"
 
 #. i18n-hint a proper name
 #: src/FFT.cpp
-#, fuzzy
 msgid "Hamming"
-msgstr "Hamming, none"
+msgstr "ハミング窓"
 
 #. i18n-hint a proper name
 #: src/FFT.cpp
 msgid "Hann"
-msgstr ""
+msgstr "ハン窓"
 
 #. i18n-hint a proper name
 #: src/FFT.cpp
-#, fuzzy
 msgid "Blackman"
-msgstr "Blackman, Hann"
+msgstr "ブラックマン窓"
 
 #. i18n-hint two proper names
 #: src/FFT.cpp
-#, fuzzy
 msgid "Blackman-Harris"
-msgstr "Blackman, Hann"
+msgstr "ブラックマン-ハリス窓"
 
 #. i18n-hint a proper name
 #: src/FFT.cpp
-#, fuzzy
 msgid "Welch"
-msgstr "ようこそ！"
+msgstr "ウェルチ窓"
 
 #. i18n-hint a mathematical function named for C. F. Gauss
 #: src/FFT.cpp
 msgid "Gaussian(a=2.5)"
-msgstr ""
+msgstr "ガウス窓 (a=2.5)"
 
 #. i18n-hint a mathematical function named for C. F. Gauss
 #: src/FFT.cpp
 msgid "Gaussian(a=3.5)"
-msgstr ""
+msgstr "ガウス窓 (a=3.5)"
 
 #. i18n-hint a mathematical function named for C. F. Gauss
 #: src/FFT.cpp
 msgid "Gaussian(a=4.5)"
-msgstr ""
+msgstr "ガウス窓 (a=4.5)"
 
 #: src/FFmpeg.cpp
 msgid "FFmpeg support not compiled in"
