@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 20:55+0900\n"
+"PO-Revision-Date: 2021-02-12 20:58+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1123,9 +1123,8 @@ msgid "Message"
 msgstr "メッセージ"
 
 #: src/AudacityFileConfig.cpp
-#, fuzzy
 msgid "Audacity Configuration Error"
-msgstr "DarkAudacity カスタム"
+msgstr "Audacity 設定エラー"
 
 #: src/AudacityFileConfig.cpp
 #, c-format
@@ -1140,6 +1139,18 @@ msgid ""
 "\n"
 "If you choose to \"Quit Audacity\", your project may be left in an unsaved state which will be recovered the next time you open it."
 msgstr ""
+"以下の設定ファイルにアクセスできません:\n"
+"\n"
+"\t%s\n"
+"\n"
+"このエラーには様々な原因が考えられますが、最もよくあるのはディスクの空き容量不足の場合か、\n"
+"ファイルへの書き込み権限がない場合です。\n"
+"より詳細な情報を得るには、下のヘルプボタンをクリックしてください。\n"
+"\n"
+"そのような問題を解決できた場合、[再試行] をクリックして続行を試みることができます。\n"
+"\n"
+"あるいは、[Audacity を終了] をクリックした場合、現在のプロジェクトは未保存状態に保たれ、\n"
+"次に開いた時に回復の対象となります。"
 
 #  i18n-hint: The name of the Help menu
 #: src/AudacityFileConfig.cpp src/ShuttleGui.cpp src/commands/HelpCommand.cpp
@@ -1148,15 +1159,13 @@ msgstr ""
 msgid "Help"
 msgstr "ヘルプ"
 
-# jp: 独自アクセスキー。面積がきついのでスペース除去
 #: src/AudacityFileConfig.cpp src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid "&Quit Audacity"
-msgstr "Audacityを終了(&Q)"
+msgstr "Audacity を終了(&Q)"
 
 #: src/AudacityFileConfig.cpp
 msgid "&Retry"
-msgstr ""
+msgstr "再試行(&R)"
 
 #: src/AudacityLogger.cpp
 msgid "Audacity Log"
