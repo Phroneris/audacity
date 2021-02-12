@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:12+0900\n"
+"PO-Revision-Date: 2021-02-12 22:15+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -4290,9 +4290,8 @@ msgid "Created new project"
 msgstr "新しいプロジェクトが作られました"
 
 #: src/ProjectHistory.cpp
-#, fuzzy
 msgid "Automatic database backup failed."
-msgstr "自動保存を使用:"
+msgstr "データベースの自動バックアップに失敗しました。"
 
 #: src/ProjectManager.cpp
 #, c-format
