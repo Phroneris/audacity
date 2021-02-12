@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:00+0900\n"
+"PO-Revision-Date: 2021-02-12 21:02+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1285,12 +1285,12 @@ msgstr "録音レベル自動調整機能は停止しました。%.2f が適切�
 
 #: src/AudioIOBase.cpp
 msgid "Stream is active ... unable to gather information.\n"
-msgstr ""
+msgstr "ストリームがアクティブです。情報を収集できません。\n"
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Default recording device number: %d\n"
-msgstr "録音デバイスの選択"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
@@ -1298,44 +1298,43 @@ msgid "Default playback device number: %d\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "No devices found\n"
-msgstr "デバイスが見つかりません"
+msgstr "デバイスが見つかりません\n"
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Device info unavailable for: %d\n"
-msgstr "入力デバイスの情報がありません。"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Device ID: %d\n"
-msgstr "デバイス:"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Device name: %s\n"
-msgstr "デバイス"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Host name: %s\n"
-msgstr "名前: %s"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Recording channels: %d\n"
-msgstr "録音チャンネル"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Playback channels: %d\n"
-msgstr "再生音量: %s"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Low Recording Latency: %g\n"
-msgstr "録音終了:"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
@@ -1343,9 +1342,9 @@ msgid "Low Playback Latency: %g\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "High Recording Latency: %g\n"
-msgstr "録音終了:"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
@@ -1354,14 +1353,13 @@ msgstr ""
 
 #. i18n-hint: Supported, meaning made available by the system
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Supported Rates:\n"
-msgstr "サンプリング周波数"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Selected recording device: %d - %s\n"
-msgstr "録音デバイスの選択"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
@@ -1369,9 +1367,9 @@ msgid "No recording device found for '%s'.\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Selected playback device: %d - %s\n"
-msgstr "再生デバイスの選択"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
@@ -1388,49 +1386,41 @@ msgid "Received %d while opening devices\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Unable to open Portmixer\n"
-msgstr "ジャンルファイルを開けません。"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 msgid "Available mixers:\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%d - %s\n"
-msgstr "%s - %s"
+msgstr ""
 
-# jp: 独自アクセスキー
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Available recording sources:\n"
-msgstr "録音エラーをシミュレーション(&C)"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Available playback volumes:\n"
-msgstr "再生音量"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Recording volume is emulated\n"
-msgstr "録音音量"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Recording volume is native\n"
-msgstr "録音音量"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Playback volume is emulated\n"
-msgstr "再生音量: %s (エミュレート)"
+msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy
 msgid "Playback volume is native\n"
-msgstr "再生音量: %s (エミュレート)"
+msgstr ""
 
 #. i18n-hint: Supported, meaning made available by the system
 #: src/AudioIOBase.cpp
@@ -1450,9 +1440,9 @@ msgid "Opened: %d\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Selected MIDI recording device: %d - %s\n"
-msgstr "録音デバイスの選択"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
@@ -1460,9 +1450,9 @@ msgid "No MIDI recording device found for '%s'.\n"
 msgstr ""
 
 #: src/AudioIOBase.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Selected MIDI playback device: %d - %s\n"
-msgstr "再生デバイスの選択"
+msgstr ""
 
 #: src/AudioIOBase.cpp
 #, c-format
