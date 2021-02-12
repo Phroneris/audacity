@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:08+0900\n"
+"PO-Revision-Date: 2021-02-12 23:09+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -16613,14 +16613,14 @@ msgstr "最初まで選択"
 #. i18n-hint: These are strings for the status bar, and indicate whether Audacity
 #. is playing or recording or stopped, and whether it is paused.
 #: src/toolbars/ControlToolBar.cpp src/tracks/ui/Scrubbing.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s Paused."
-msgstr "一時停止"
+msgstr "%s 一時停止中。"
 
 #: src/toolbars/ControlToolBar.cpp
 #, c-format
 msgid "%s."
-msgstr ""
+msgstr "%s。"
 
 #. i18n-hint: Clicking this menu item shows the toolbar
 #. with the big buttons on it (play record etc)
@@ -16656,19 +16656,19 @@ msgstr "2(ステレオ) 録音チャンネル"
 
 #: src/toolbars/DeviceToolBar.cpp
 msgid "Select Recording Device"
-msgstr "録音デバイスの選択"
+msgstr "録音デバイスを選択してください"
 
 #: src/toolbars/DeviceToolBar.cpp
 msgid "Select Playback Device"
-msgstr "再生デバイスの選択"
+msgstr "再生デバイスを選択してください"
 
 #: src/toolbars/DeviceToolBar.cpp
 msgid "Select Audio Host"
-msgstr "音声ホストの選択"
+msgstr "音声ホストを選択してください"
 
 #: src/toolbars/DeviceToolBar.cpp
 msgid "Select Recording Channels"
-msgstr "録音チャンネルの選択"
+msgstr "録音チャンネルを選択してください"
 
 #: src/toolbars/DeviceToolBar.cpp
 msgid "Device information is not available."
@@ -16795,14 +16795,14 @@ msgid "Recording Volume (Unavailable; use system mixer.)"
 msgstr "録音音量 (使用不能。システムミキサーをお使いください)"
 
 #: src/toolbars/MixerToolBar.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Playback Volume: %.2f (emulated)"
-msgstr "再生音量: %s (エミュレート)"
+msgstr "再生音量: %.2f (エミュレート)"
 
 #: src/toolbars/MixerToolBar.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Playback Volume: %.2f"
-msgstr "再生音量: %s"
+msgstr "再生音量: %.2f"
 
 #: src/toolbars/MixerToolBar.cpp
 msgid "Playback Volume (Unavailable; use system mixer.)"
@@ -16824,7 +16824,7 @@ msgstr "スクラブルーラー"
 
 #: src/toolbars/ScrubbingToolBar.cpp src/tracks/ui/Scrubbing.cpp
 msgid "Scrubbing"
-msgstr "スクラブ中"
+msgstr "スクラブ"
 
 #. i18n-hint: These commands assist the user in finding a sound by ear. ...
 #. "Scrubbing" is variable-speed playback, ...
@@ -16967,22 +16967,20 @@ msgid "Spe&ctral Selection Toolbar"
 msgstr "スペクトル選択ツールバー(&C)"
 
 #: src/toolbars/TimeToolBar.cpp
-#, fuzzy
 msgid "Time"
-msgstr "時間:"
+msgstr "時間"
 
 #. i18n-hint: Clicking this menu item shows the toolbar
 #. for viewing actual time of the cursor
 #: src/toolbars/TimeToolBar.cpp
-#, fuzzy
 msgid "&Time Toolbar"
-msgstr "デバイスツールバー(&D)"
+msgstr "時間ツールバー(&T)"
 
 #. i18n-hint: %s will be replaced by the name of the kind of toolbar.
 #: src/toolbars/ToolBar.cpp
 #, c-format
 msgid "Audacity %s Toolbar"
-msgstr "Audacity %s ツールバー"
+msgstr "Audacity %sツールバー"
 
 #: src/toolbars/ToolBar.cpp
 msgid "Click and drag to resize toolbar"
@@ -17014,7 +17012,6 @@ msgid "Draw Tool"
 msgstr "描画ツール"
 
 #: src/toolbars/ToolsToolBar.cpp
-#, fuzzy
 msgid "Multi-Tool"
 msgstr "マルチツール"
 
