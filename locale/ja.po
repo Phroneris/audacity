@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:37+0900\n"
+"PO-Revision-Date: 2021-02-12 21:39+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2423,14 +2423,15 @@ msgid "Audacity successfully wrote a file in %s but failed to rename it as %s."
 msgstr "ファイルを %s に書き込むことはできましたが、%s にリネームすることはできませんでした。"
 
 #: src/FileException.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Audacity failed to write to a file.\n"
 "Perhaps %s is not writable or the disk is full.\n"
 "For tips on freeing up space, click the help button."
 msgstr ""
-"ファイルを保存できませんでした。\n"
-"%s は書き込みできないか、ディスクが一杯です。"
+"ファイルに書き込むことができませんでした。\n"
+"%s が書き込み可能でないか、あるいはディスク容量がない恐れがあります。\n"
+"容量解放のコツについて知るには、下のヘルプボタンをクリックしてください。"
 
 #: src/FileException.h
 msgid "File Error"

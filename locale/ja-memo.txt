@@ -28,6 +28,11 @@ src/AudioIOBase.cpp
 src/DBConnection.cpp
 の各種メッセージがどうすれば出せるのかよくわからず、確認できない。
 
+src/FileException.cpp の
+"Audacity failed to open a file in %s."
+"Audacity failed to read from a file in %s."
+の "in %s" がよくわからない。
+
 スクリプト用機能のスクリーンショットの"Bring To Top:"がよくわからない。
 ってかマクロで設定変えても強制的にONになる。
 
