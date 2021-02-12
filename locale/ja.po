@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:01+0900\n"
+"PO-Revision-Date: 2021-02-12 23:05+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -12610,14 +12610,12 @@ msgid "Cursor to Next Clip Boundary"
 msgstr "カーソルを次のクリップ境界へ"
 
 #: src/menus/ClipMenus.cpp
-#, fuzzy
 msgid "Time Shift &Left"
-msgstr "移動ツール"
+msgstr "左にずらす(&L)"
 
 #: src/menus/ClipMenus.cpp
-#, fuzzy
 msgid "Time Shift &Right"
-msgstr "移動ツール"
+msgstr "右にずらす(&R)"
 
 #: src/menus/EditMenus.cpp
 msgid "Pasted text from the clipboard"
@@ -12683,13 +12681,11 @@ msgid "Silenced selected tracks for %.2f seconds at %.2f"
 msgstr "選択トラックを %2$.2f 秒地点で %1$.2f 秒間無音化しました"
 
 # jp: 独自アクセスキー
-# jp: 「編集」メニューにおいては、無音化を元に戻すという意味で「無音(S) を元に戻す」と表示されるので変。無音化のアクセスキーはOだし…
 #. i18n-hint: verb
 #: src/menus/EditMenus.cpp
-#, fuzzy
 msgctxt "command"
 msgid "Silence"
-msgstr "無音(&S)"
+msgstr "無音化"
 
 #: src/menus/EditMenus.cpp
 #, c-format
@@ -12780,12 +12776,12 @@ msgstr "分割して削除(&E)"
 #. i18n-hint: (verb)
 #: src/menus/EditMenus.cpp
 msgid "Silence Audi&o"
-msgstr "無音化(&O)"
+msgstr "音声の無音化(&O)"
 
 #. i18n-hint: (verb)
 #: src/menus/EditMenus.cpp
 msgid "Tri&m Audio"
-msgstr "トリミング(&M)"
+msgstr "音声のトリミング(&M)"
 
 #. i18n-hint: (verb) It's an item on a menu.
 #: src/menus/EditMenus.cpp
@@ -12878,12 +12874,12 @@ msgid "&Full Screen (on/off)"
 msgstr "フルスクリーン表示 (オン/オフ) (&F)"
 
 #: src/menus/FileMenus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Cannot create directory '%s'. \n"
 "File already exists that is not a directory"
 msgstr ""
-"「cleaned」ディレクトリを作成できません。\n"
+"「%s」ディレクトリを作成できません。\n"
 "ディレクトリではなく、ファイルが既に存在しています"
 
 #: src/menus/FileMenus.cpp
@@ -12912,14 +12908,12 @@ msgid "Export MIDI As:"
 msgstr "MIDI の出力:"
 
 #: src/menus/FileMenus.cpp
-#, fuzzy
 msgid "MIDI file"
-msgstr "MIDI ファイルを選択"
+msgstr "MIDI ファイル"
 
 #: src/menus/FileMenus.cpp
-#, fuzzy
 msgid "Allegro file"
-msgstr "すべてのファイル|*"
+msgstr "Allegro ファイル"
 
 #: src/menus/FileMenus.cpp
 msgid ""
@@ -12948,17 +12942,15 @@ msgstr "MIDI ファイルを選択"
 
 #: src/menus/FileMenus.cpp
 msgid "MIDI and Allegro files"
-msgstr ""
+msgstr "MIDI および Allegro ファイル"
 
 #: src/menus/FileMenus.cpp
-#, fuzzy
 msgid "MIDI files"
-msgstr "MP3 ファイル"
+msgstr "MIDI ファイル"
 
 #: src/menus/FileMenus.cpp
-#, fuzzy
 msgid "Allegro files"
-msgstr "すべてのファイル|*"
+msgstr "Allegro ファイル"
 
 #: src/menus/FileMenus.cpp
 msgid "Select any uncompressed audio file"
@@ -12988,9 +12980,8 @@ msgid "Save Project &As..."
 msgstr "名前を付けて保存(&A)..."
 
 #: src/menus/FileMenus.cpp
-#, fuzzy
 msgid "&Backup Project..."
-msgstr "プロジェクトを開く..."
+msgstr "プロジェクトのバックアップ(&B)..."
 
 #: src/menus/FileMenus.cpp
 msgid "&Export"
@@ -13060,21 +13051,21 @@ msgstr "終了(&X)"
 
 #: src/menus/FileMenus.cpp
 msgid "Hidden File Menu"
-msgstr ""
+msgstr "非表示のファイルメニュー"
 
 #: src/menus/FileMenus.cpp
 msgid "Export as FLAC"
 msgstr "FLAC として書き出し"
 
 #: src/menus/HelpMenus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Save %s"
-msgstr "%s を保存しました"
+msgstr "%s を保存"
 
 #: src/menus/HelpMenus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to save %s"
-msgstr "「%s」を削除できません。"
+msgstr "「%s」を保存できません"
 
 #: src/menus/HelpMenus.cpp
 msgid "Do you have these problems?"
@@ -13114,16 +13105,15 @@ msgstr "解決済み"
 
 #: src/menus/HelpMenus.cpp
 msgid "Audio Device Info"
-msgstr "音声デイバイス情報"
+msgstr "音声デバイス情報"
 
 #: src/menus/HelpMenus.cpp
 msgid "MIDI Device Info"
 msgstr "MIDI デバイス情報"
 
 #: src/menus/HelpMenus.cpp
-#, fuzzy
 msgid "Menu Tree"
-msgstr "メニュー"
+msgstr "メニューツリー"
 
 #: src/menus/HelpMenus.cpp
 msgid "&Quick Fix..."
@@ -13165,10 +13155,10 @@ msgstr "ログの表示(&L)..."
 msgid "&Generate Support Data..."
 msgstr "サポートデータの生成(&G)..."
 
+# jp: 独自アクセスキー
 #: src/menus/HelpMenus.cpp
-#, fuzzy
 msgid "Menu Tree..."
-msgstr "バスとトレブル..."
+msgstr "メニューツリー(&E)..."
 
 #: src/menus/HelpMenus.cpp
 msgid "&Check for Updates..."
@@ -13383,7 +13373,7 @@ msgstr "アクティブウィンドウ間でフォーカスを進める"
 
 #: src/menus/NavigationMenus.cpp
 msgid "Foc&us"
-msgstr ""
+msgstr "フォーカス(&U)"
 
 #: src/menus/NavigationMenus.cpp
 msgid "Move &Backward from Toolbars to Tracks"
@@ -13430,23 +13420,22 @@ msgid "Uncategorized"
 msgstr "未分類"
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy
 msgid "..."
-msgstr ".."
+msgstr "..."
 
 #: src/menus/PluginMenus.cpp
 msgid "Unknown"
-msgstr "Unknown"
+msgstr ""
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "&Repeat %s"
-msgstr "%s を再適用"
+msgstr "%s を再適用(&R)"
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Plug-in %d to %d"
-msgstr "プラグイン %d を %d へ"
+msgstr "プラグイン %d～%d"
 
 #: src/menus/PluginMenus.cpp
 msgid "&Generate"
@@ -13458,9 +13447,8 @@ msgid "Add / Remove Plug-ins..."
 msgstr "プラグインの追加/削除(&P)..."
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy
 msgid "Repeat Last Generator"
-msgstr "前回のエフェクトを再適用"
+msgstr "前回のジェネレーターを再適用"
 
 #: src/menus/PluginMenus.cpp
 msgid "Effe&ct"
@@ -13475,18 +13463,16 @@ msgid "&Analyze"
 msgstr "解析(&A)"
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy
 msgid "Repeat Last Analyzer"
-msgstr "前回のエフェクトを再適用"
+msgstr "前回の解析を再適用"
 
 #: src/menus/PluginMenus.cpp src/toolbars/ToolsToolBar.cpp
 msgid "T&ools"
 msgstr "道具箱(&O)"
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy
 msgid "Repeat Last Tool"
-msgstr "前回のエフェクトを再適用"
+msgstr "前回の「道具箱」を再適用"
 
 #: src/menus/PluginMenus.cpp
 msgid "&Macros..."
@@ -13502,9 +13488,8 @@ msgid "Palette..."
 msgstr "パレット(&P)..."
 
 #: src/menus/PluginMenus.cpp
-#, fuzzy
 msgid "Reset &Configuration"
-msgstr "ルール削除の確認"
+msgstr "環境設定のリセット(&C)"
 
 #: src/menus/PluginMenus.cpp
 msgid "&Screenshot..."
@@ -14098,7 +14083,7 @@ msgstr "新規タイムトラックを作りました"
 #: src/menus/TrackMenus.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
 msgid "New sample rate (Hz):"
-msgstr "新規サンプリング周波数 (Hz):"
+msgstr "新しいサンプリング周波数 (Hz):"
 
 #: src/menus/TrackMenus.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveTrackControls.cpp
@@ -14125,7 +14110,7 @@ msgstr "音声トラックと MIDI トラックを少なくとも 1 個以上選
 #: src/menus/TrackMenus.cpp
 #, c-format
 msgid "Alignment completed: MIDI from %.2f to %.2f secs, Audio from %.2f to %.2f secs."
-msgstr "アラインメント完了: MIDI %.2f から %.2f 秒、音声 %.2f から %.2f 秒。"
+msgstr "整列完了: MIDI %.2f から %.2f 秒、音声 %.2f から %.2f 秒。"
 
 #: src/menus/TrackMenus.cpp
 msgid "Sync MIDI with Audio"
@@ -14134,11 +14119,11 @@ msgstr "MIDI を音声に同期"
 #: src/menus/TrackMenus.cpp
 #, c-format
 msgid "Alignment error: input too short: MIDI from %.2f to %.2f secs, Audio from %.2f to %.2f secs."
-msgstr "アラインメントエラー: 入力が短すぎます: MIDI %.2f から %.2f 秒、音声 %.2f から %.2f 秒。"
+msgstr "整列エラー: 入力が短すぎます: MIDI %.2f から %.2f 秒、音声 %.2f から %.2f 秒。"
 
 #: src/menus/TrackMenus.cpp
 msgid "Internal error reported by alignment process."
-msgstr "アラインメント処理中に内部エラーが発生しました。"
+msgstr "整列処理中に内部エラーが発生しました。"
 
 #: src/menus/TrackMenus.cpp
 msgid "Tracks sorted by time"
@@ -14217,14 +14202,12 @@ msgid "&Unmute All Tracks"
 msgstr "全トラックをミュート解除(&U)"
 
 #: src/menus/TrackMenus.cpp
-#, fuzzy
 msgid "Mut&e Tracks"
-msgstr "全トラックをミュート(&M)"
+msgstr "トラックをミュート(&E)"
 
 #: src/menus/TrackMenus.cpp
-#, fuzzy
 msgid "U&nmute Tracks"
-msgstr "全トラックをミュート解除(&U)"
+msgstr "トラックをミュート解除(&N)"
 
 #: src/menus/TrackMenus.cpp
 msgid "&Pan"
@@ -14375,9 +14358,9 @@ msgid "no label track at or below focused track"
 msgstr "フォーカスしたトラックやその下のトラックに、ラベルトラックがありません"
 
 #: src/menus/TransportMenus.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s %d of %d"
-msgstr "クリップ%3$d個中%2$d個目の%1$s、%4$s"
+msgstr "%1$s、%3$d個中%2$d個目"
 
 # jp: 読み上げ用
 #: src/menus/TransportMenus.cpp
@@ -14409,9 +14392,8 @@ msgid "Please select in a mono track."
 msgstr "モノラルトラックを選択してください。"
 
 #: src/menus/TransportMenus.cpp
-#, fuzzy
 msgid "Please select in a stereo track or two mono tracks."
-msgstr "ステレオトラックを選択してください。"
+msgstr "1 本のステレオトラックか、2 本のモノラルトラックを選択してください。"
 
 #: src/menus/TransportMenus.cpp
 #, c-format
@@ -14439,7 +14421,7 @@ msgstr "再生/停止(&A)"
 
 #: src/menus/TransportMenus.cpp
 msgid "Play/Stop and &Set Cursor"
-msgstr "再生/停止とカーソルのセット(&S)"
+msgstr "再生/停止してカーソルを再配置(&S)"
 
 #: src/menus/TransportMenus.cpp
 msgid "&Loop Play"
@@ -14488,7 +14470,7 @@ msgstr "ロック解除(&U)"
 
 #: src/menus/TransportMenus.cpp
 msgid "R&escan Audio Devices"
-msgstr "音声デイバイス情報の再スキャン(&E)"
+msgstr "音声デバイス情報の再スキャン(&E)"
 
 #: src/menus/TransportMenus.cpp
 msgid "Transport &Options"
@@ -14598,14 +14580,12 @@ msgid "&Decrease Playback Speed"
 msgstr "再生速度を下げる(&D)"
 
 #: src/menus/TransportMenus.cpp
-#, fuzzy
 msgid "Move to Pre&vious Label"
-msgstr "前のラベルに移動(&P)"
+msgstr "前のラベルに移動(&V)"
 
 #: src/menus/TransportMenus.cpp
-#, fuzzy
 msgid "Move to Ne&xt Label"
-msgstr "次のラベルに移動(&N)"
+msgstr "次のラベルに移動(&X)"
 
 #: src/menus/ViewMenus.cpp
 msgid "&View"

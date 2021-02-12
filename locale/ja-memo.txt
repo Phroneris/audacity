@@ -68,6 +68,9 @@ msgid "Some Command"
 #, c-format
 msgid "%s, %s"
 
+#: src/menus/PluginMenus.cpp
+msgid "Unknown"
+
 
 
 ■ Nyquistの問題
