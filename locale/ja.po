@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:10+0900\n"
+"PO-Revision-Date: 2021-02-12 22:12+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -4028,14 +4028,14 @@ msgid "Backing up project"
 msgstr "プロジェクトをバックアップ中"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid ""
 "This project was not saved properly the last time Audacity ran.\n"
 "\n"
 "It has been recovered to the last snapshot."
 msgstr ""
-"Audacity の最終実行時に適切に保存されなかったプロジェクトがあります。\n"
-"以下のプロジェクトは自動回復できる可能性があります:"
+"このプロジェクトは Audacity の最終実行時に適切に保存されませんでした。\n"
+"\n"
+"プロジェクトは直近のスナップショットまで復元されました。"
 
 #: src/ProjectFileManager.cpp
 msgid ""
@@ -4044,15 +4044,18 @@ msgid ""
 "It has been recovered to the last snapshot, but you must save it\n"
 "to preserve its contents."
 msgstr ""
+"このプロジェクトは Audacity の最終実行時に適切に保存されませんでした。\n"
+"\n"
+"プロジェクトは直近のスナップショットまで復元されましたが、\n"
+"内容を確保するためにご自身で必ず保存してください。"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Project Recovered"
-msgstr "プロジェクトは回復されました"
+msgstr "プロジェクトを復元しました"
 
 #: src/ProjectFileManager.cpp src/prefs/DirectoriesPrefs.cpp
 msgid "Projects cannot be saved to FAT drives."
-msgstr ""
+msgstr "プロジェクトを FAT ドライブに保存することはできません。"
 
 #: src/ProjectFileManager.cpp
 msgid ""
@@ -4079,9 +4082,8 @@ msgid "Warning - Empty Project"
 msgstr "警告 - 空のプロジェクト"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Insufficient Disk Space"
-msgstr "ディスク領域"
+msgstr "ディスク領域の不足"
 
 #: src/ProjectFileManager.cpp
 msgid ""
@@ -4089,10 +4091,13 @@ msgid ""
 "\n"
 "Please select a different disk with more free space."
 msgstr ""
+"プロジェクトのサイズが、保存先ディスクの空き容量を上回りました。\n"
+"\n"
+"より空き容量に余裕のある、他のディスクを選択してください。"
 
 #: src/ProjectFileManager.cpp
 msgid "The project exceeds the maximum size of 4GB when writing to a FAT32 formatted filesystem."
-msgstr ""
+msgstr "プロジェクトのサイズが、FAT32 フォーマットのファイルシステムにおける上限である 4GB を上回りました。"
 
 #: src/ProjectFileManager.cpp src/commands/ScreenshotCommand.cpp
 #, c-format
@@ -4123,7 +4128,7 @@ msgstr ""
 #. i18n-hint: In each case, %s is the name
 #. of the file being overwritten.
 #: src/ProjectFileManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "   Do you want to overwrite the project:\n"
 "\"%s\"?\n"
@@ -4132,12 +4137,12 @@ msgid ""
 "\"%s\"\n"
 "   will be irreversibly overwritten."
 msgstr ""
-"以下のプロジェクトを上書きしてよろしいですか？\n"
+"   以下のプロジェクトを上書きしてよろしいですか？\n"
 "「%s」\n"
 "\n"
-"[はい] を選ぶと、プロジェクト\n"
+"   [はい] を選ぶと、プロジェクト\n"
 "「%s」\n"
-"は上書きされ、元に戻せません。"
+"   は上書きされ、元に戻せません。"
 
 #. i18n-hint: Heading: A warning that a project is about to be overwritten.
 #: src/ProjectFileManager.cpp
@@ -4145,7 +4150,6 @@ msgid "Overwrite Project Warning"
 msgstr "プロジェクト上書きの警告"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid ""
 "The project was not saved because the selected project is open in another window.\n"
 "Please try again and select an original name."
@@ -4154,9 +4158,9 @@ msgstr ""
 "別のファイル名でやり直してください。"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%sSave Copy of Project \"%s\" As..."
-msgstr "%sプロジェクトの無劣化コピーを「%s」として保存..."
+msgstr "%sプロジェクト「%s」のコピーに名前を付けて保存..."
 
 #: src/ProjectFileManager.cpp
 msgid ""
@@ -4188,6 +4192,8 @@ msgid ""
 "Project resides on FAT formatted drive.\n"
 "Copy it to another drive to open it."
 msgstr ""
+"プロジェクトが FAT フォーマットのドライブに置かれています。\n"
+"プロジェクトを開くには、他のドライブにコピーしてください。"
 
 #: src/ProjectFileManager.cpp
 msgid ""
@@ -4244,22 +4250,20 @@ msgid "Import"
 msgstr "取り込み"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Failed to import project"
-msgstr "コーデックが見つかりませんでした"
+msgstr "プロジェクトの取り込みに失敗しました"
 
 #: src/ProjectFileManager.cpp
 msgid "Error Importing"
-msgstr "ファイルの取り込み時にエラーが発生しました"
+msgstr "取り込みエラー"
 
 #: src/ProjectFileManager.cpp
 msgid "Cannot import AUP3 format.  Use File > Open instead"
-msgstr ""
+msgstr "AUP3 フォーマットを取り込めません。  代わりに [ファイル] > [開く] をご利用ください。"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Compact Project"
-msgstr "プロジェクト設定"
+msgstr ""
 
 #: src/ProjectFileManager.cpp
 #, c-format
@@ -4274,9 +4278,8 @@ msgid ""
 msgstr ""
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Compacted project file"
-msgstr "プロジェクトファイルを開けません"
+msgstr ""
 
 #: src/ProjectFileManager.cpp
 msgid "Compact"
