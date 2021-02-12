@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:25+0900\n"
+"PO-Revision-Date: 2021-02-12 22:27+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -5502,7 +5502,7 @@ msgstr "%s: %s"
 
 #: src/commands/AudacityCommand.h
 msgid "FAIL"
-msgstr ""
+msgstr "失敗"
 
 #: src/commands/BatchEvalCommand.cpp
 msgid "Batch Command"
@@ -5544,7 +5544,7 @@ msgstr ""
 
 #: src/commands/CommandManager.cpp
 msgid "Shortcuts have been removed"
-msgstr ""
+msgstr "ショートカットが削除されました"
 
 #: src/commands/CommandTargets.cpp
 msgid "Long Message"
@@ -5706,7 +5706,6 @@ msgid "Gets track values as JSON."
 msgstr "トラックの値を JSON として取得します。"
 
 #: src/commands/HelpCommand.cpp
-#, fuzzy
 msgid "Comment"
 msgstr "コメント"
 
@@ -5716,7 +5715,7 @@ msgstr "コマンド:"
 
 #: src/commands/HelpCommand.cpp
 msgid "_"
-msgstr ""
+msgstr "_"
 
 #: src/commands/HelpCommand.h
 msgid "Gives help on a command."
@@ -5724,7 +5723,7 @@ msgstr "コマンドのヘルプを取得します。"
 
 #: src/commands/HelpCommand.h
 msgid "For comments in a macro."
-msgstr ""
+msgstr "マクロ内にコメントを書くことができます。"
 
 #: src/commands/ImportExportCommands.cpp
 msgid "Import2"
@@ -5790,19 +5789,16 @@ msgid "Save Project2"
 msgstr "プロジェクトを保存2"
 
 #: src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "Save Copy"
-msgstr "ラベルでコピー"
+msgstr "コピーを保存"
 
 #: src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "Save Log"
-msgstr "保存しました"
+msgstr "ログを保存"
 
 #: src/commands/OpenSaveCommands.cpp
-#, fuzzy
 msgid "Clear Log"
-msgstr "クリア"
+msgstr "ログをクリア"
 
 #: src/commands/OpenSaveCommands.h
 msgid "Opens a project."
@@ -5813,17 +5809,16 @@ msgid "Saves a project."
 msgstr "プロジェクトを保存します。"
 
 #: src/commands/OpenSaveCommands.h
-#, fuzzy
 msgid "Saves a copy of current project."
-msgstr "プロジェクトを保存します。"
+msgstr "現在のプロジェクトのコピーを保存します。"
 
 #: src/commands/OpenSaveCommands.h
 msgid "Saves the log contents."
-msgstr ""
+msgstr "ログの内容を保存します。"
 
 #: src/commands/OpenSaveCommands.h
 msgid "Clears the log contents."
-msgstr ""
+msgstr "ログの内容を消します。"
 
 #: src/commands/PreferenceCommands.cpp
 msgid "Get Preference"
@@ -5845,9 +5840,8 @@ msgid "Value:"
 msgstr "値:"
 
 #: src/commands/PreferenceCommands.cpp
-#, fuzzy
 msgid "Reload"
-msgstr "更新:"
+msgstr "再読み込み"
 
 #: src/commands/PreferenceCommands.h
 msgid "Gets the value of a single preference."
@@ -5932,7 +5926,6 @@ msgstr "青"
 
 #. i18n-hint:  This really means the color, not as in "white noise"
 #: src/commands/ScreenshotCommand.cpp
-#, fuzzy
 msgctxt "color"
 msgid "White"
 msgstr "白"
@@ -6081,9 +6074,8 @@ msgid "At:"
 msgstr "開始点:"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetTrackInfoCommand.cpp
-#, fuzzy
 msgid "Color:"
-msgstr "新規色:"
+msgstr "色:"
 
 #: src/commands/SetClipCommand.cpp src/commands/SetLabelCommand.cpp
 msgid "Start:"
