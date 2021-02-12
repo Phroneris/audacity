@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:39+0900\n"
+"PO-Revision-Date: 2021-02-12 21:40+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2466,46 +2466,41 @@ msgstr "確認する(&K)"
 #: src/FileNames.cpp plug-ins/eq-xml-to-txt-converter.ny
 #: plug-ins/nyquist-plug-in-installer.ny plug-ins/sample-data-export.ny
 #: plug-ins/sample-data-import.ny
-#, fuzzy
 msgid "All files"
-msgstr "すべてのファイル|*"
+msgstr "すべてのファイル"
 
 #. i18n-hint an Audacity project is the state of the program, stored as
 #. files that can be reopened to resume the session later
 #: src/FileNames.cpp
-#, fuzzy
 msgid "AUP3 project files"
-msgstr "プロジェクトデータファイルの保存中"
+msgstr "AUP3 プロジェクトファイル"
 
 #: src/FileNames.cpp
 msgid "Dynamically Linked Libraries"
-msgstr ""
+msgstr "動的リンクライブラリ"
 
 #: src/FileNames.cpp
-#, fuzzy
 msgid "Dynamic Libraries"
-msgstr "ライブラリ"
+msgstr "動的ライブラリ"
 
 #: src/FileNames.cpp
-#, fuzzy
 msgid "Text files"
-msgstr "ファイルの命名:"
+msgstr "テキストファイル"
 
 #: src/FileNames.cpp
-#, fuzzy
 msgid "XML files"
-msgstr "MP3 ファイル"
+msgstr "XML ファイル"
 
 #: src/FileNames.cpp
 msgid ", "
-msgstr ""
+msgstr "、"
 
 #. i18n-hint a type or types such as "txt" or "txt, xml" will be
 #. substituted for %s
 #: src/FileNames.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s files"
-msgstr "MP3 ファイル"
+msgstr "%s ファイル"
 
 #: src/FileNames.cpp
 msgid "The specified filename could not be converted due to Unicode character use."
