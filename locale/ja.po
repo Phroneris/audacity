@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:45+0900\n"
+"PO-Revision-Date: 2021-02-12 21:47+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2828,21 +2828,18 @@ msgid "Action"
 msgstr "アクション"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "Used Space"
-msgstr "ディスク領域"
+msgstr "使用領域"
 
 #: src/HistoryWindow.cpp
 msgid "&Total space used"
-msgstr "総使用容量(&T)"
+msgstr "総使用領域(&T)"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "&Undo levels available"
 msgstr "元に戻せるレベル(&U)"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "&Levels to discard"
 msgstr "破棄するレベル(&L)"
 
@@ -2852,19 +2849,16 @@ msgid "&Discard"
 msgstr "破棄(&D)"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "Clip&board space used"
-msgstr "使用クリップボード容量"
+msgstr "使用クリップボード領域(&B)"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "D&iscard"
-msgstr "破棄"
+msgstr "破棄(&I)"
 
 #: src/HistoryWindow.cpp
-#, fuzzy
 msgid "&Compact"
-msgstr "コマンド(&C)"
+msgstr ""
 
 #: src/HistoryWindow.cpp src/ProjectFileManager.cpp
 #, c-format

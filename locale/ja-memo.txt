@@ -33,6 +33,8 @@ src/FileException.cpp の
 "Audacity failed to read from a file in %s."
 の "in %s" がよくわからない。
 
+操作履歴機能に関連して存在するらしい "Compact" 機能が、実際のUI上に見当たらない。
+
 スクリプト用機能のスクリーンショットの"Bring To Top:"がよくわからない。
 ってかマクロで設定変えても強制的にONになる。
 
