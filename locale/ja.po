@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 20:48+0900\n"
+"PO-Revision-Date: 2021-02-12 20:52+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -822,9 +822,8 @@ msgid "Quick-Play enabled"
 msgstr "簡易再生が有効です"
 
 #: src/AdornedRulerPanel.cpp
-#, fuzzy
 msgid "Timeline Options"
-msgstr "プラグインオプション"
+msgstr "タイムラインのオプション"
 
 # jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
@@ -846,10 +845,10 @@ msgstr "再生中も表示を更新(&P)"
 msgid "Lock Play Region"
 msgstr "再生領域をロック(&L)"
 
+# jp: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
-#, fuzzy
 msgid "Pinned Play Head"
-msgstr "再生/録音の位置をピン留め (オン/オフ) (&H)"
+msgstr "再生/録音の位置をピン留め(&H)"
 
 #: src/AdornedRulerPanel.cpp
 msgid ""
