@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:24+0900\n"
+"PO-Revision-Date: 2021-02-12 23:44+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -737,7 +737,7 @@ msgstr "インストールプレフィックス:"
 
 #: src/AboutDialog.cpp
 msgid "Settings folder:"
-msgstr "設定フォルダ:"
+msgstr "設定フォルダー:"
 
 #: src/AboutDialog.cpp
 msgid "GPL License"
@@ -979,7 +979,7 @@ msgid ""
 "Audacity was not able to lock the temporary files directory.\n"
 "This folder may be in use by another copy of Audacity.\n"
 msgstr ""
-"Audacity は一時ファイルのあるフォルダをロックできませんでした。\n"
+"Audacity は一時ファイルのあるフォルダーをロックできませんでした。\n"
 "このフォルダは別に起動している Audacity が使用中のようです。\n"
 
 #: src/AudacityApp.cpp
@@ -988,7 +988,7 @@ msgstr "それでも Audacity を開始しますか？"
 
 #: src/AudacityApp.cpp
 msgid "Error Locking Temporary Folder"
-msgstr "一時フォルダのロックに失敗"
+msgstr "一時フォルダーのロックに失敗"
 
 #: src/AudacityApp.cpp
 msgid "The system has detected that another copy of Audacity is running.\n"
@@ -1524,7 +1524,7 @@ msgstr "コマンド(&C)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Edit Parameters"
-msgstr "パラメータを編集(&E)"
+msgstr "パラメーターを編集(&E)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Use Preset"
@@ -1532,7 +1532,7 @@ msgstr "プリセットを使用(&U)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Parameters"
-msgstr "パラメータ(&P)"
+msgstr "パラメーター(&P)"
 
 #: src/BatchCommandDialog.cpp
 msgid "&Details"
@@ -1573,7 +1573,7 @@ msgstr "エフェクト"
 
 #: src/BatchCommands.cpp
 msgid "Menu Command (With Parameters)"
-msgstr "メニューコマンド (パラメータ有り)"
+msgstr "メニューコマンド (パラメーター有り)"
 
 #: src/BatchCommands.cpp src/FileNames.cpp
 #, c-format
@@ -1582,7 +1582,7 @@ msgstr "(%s)"
 
 #: src/BatchCommands.cpp
 msgid "Menu Command (No Parameters)"
-msgstr "メニューコマンド (パラメータ無し)"
+msgstr "メニューコマンド (パラメーター無し)"
 
 #. i18n-hint: %s will be replaced by the name of an action, such as "Remove Tracks".
 #: src/BatchCommands.cpp src/CommonCommandFlags.cpp
@@ -1622,7 +1622,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"%s はパラメータを付けて適用してください。\n"
+"%s はパラメーターを付けて適用してください。\n"
 "\n"
 "%s"
 
@@ -1740,7 +1740,7 @@ msgstr "コマンド  "
 
 #: src/BatchProcessDialog.cpp src/effects/Contrast.cpp
 msgid "Parameters"
-msgstr "パラメータ"
+msgstr "パラメーター"
 
 #: src/BatchProcessDialog.cpp src/LabelDialog.cpp
 msgid "&Insert"
@@ -3169,7 +3169,7 @@ msgstr "Audacity ミキサーボード %s"
 
 #: src/MixerBoard.cpp
 msgid "&Mixer Board..."
-msgstr "ミキサボード(&M)..."
+msgstr "ミキサーボード(&M)..."
 
 #: src/ModuleManager.cpp
 #, c-format
@@ -3654,7 +3654,7 @@ msgid ""
 "project in its current state, unless you \"Close \n"
 "project immediately\" on further error alerts."
 msgstr ""
-"フォルダ「%s」のプロジェクトチェックにおいて、\n"
+"フォルダー「%s」のプロジェクトチェックにおいて、\n"
 "%lld 個の音声ファイル (「エイリアスファイル」) の\n"
 "欠損が見つかりました。Audacity はこれらのファイルを\n"
 "自動的に復旧することはできません。\n"
@@ -3690,7 +3690,7 @@ msgid ""
 "Audacity can fully regenerate these files \n"
 "from the current audio in the project."
 msgstr ""
-"フォルダ「%s」のプロジェクトチェックにおいて、\n"
+"フォルダー「%s」のプロジェクトチェックにおいて、\n"
 "%lld 個の欠落エイリアス (.auf) ブロックファイルが検出されました。\n"
 "Audacity は、プロジェクト中の元の音声から\n"
 "これらのファイルを復元することができます。"
@@ -3727,7 +3727,7 @@ msgid ""
 "Note that for the second option, the waveform \n"
 "may not show silence."
 msgstr ""
-"フォルダ「%s」のプロジェクトチェックにおいて、\n"
+"フォルダー「%s」のプロジェクトチェックにおいて、\n"
 "音声データのブロックファイル (.au) %lld 個が行方不明\n"
 "であることが検出されました。その原因がバグなのか、\n"
 "システムクラッシュなのか、あるいは偶発的な削除なのかは\n"
@@ -3757,7 +3757,7 @@ msgid ""
 "unused by this project, but might belong to other projects. \n"
 "They are doing no harm and are small."
 msgstr ""
-"フォルダ「%s」のプロジェクトチェックにおいて、\n"
+"フォルダー「%s」のプロジェクトチェックにおいて、\n"
 "%d 個の無用なブロックファイルが見つかりました。これらのファイルは\n"
 "使われておらず、何らかのバグかクラッシュ時に残されたものと思われます。\n"
 "これらはサイズも小さく無害です。"
@@ -5511,12 +5511,12 @@ msgstr "自動実行コマンド"
 #: src/commands/Command.cpp
 #, c-format
 msgid "%s is not a parameter accepted by %s"
-msgstr "%s は、%s に指定できるパラメータではありません"
+msgstr "%s は、%s に指定できるパラメーターではありません"
 
 #: src/commands/Command.cpp
 #, c-format
 msgid "Invalid value for parameter '%s': should be %s"
-msgstr "パラメータ「%s」の値が不正です。%s である必要があります"
+msgstr "パラメーター「%s」の値が不正です。%s である必要があります"
 
 #: src/commands/CommandManager.cpp src/prefs/MousePrefs.cpp
 #: src/widgets/KeyView.cpp
@@ -7209,11 +7209,11 @@ msgstr "閾値"
 
 #: src/effects/Distortion.cpp
 msgid "Parameter 1"
-msgstr "パラメータ 1"
+msgstr "パラメーター 1"
 
 #: src/effects/Distortion.cpp
 msgid "Parameter 2"
-msgstr "パラメータ 2"
+msgstr "パラメーター 2"
 
 #: src/effects/Distortion.cpp
 msgid "Number of repeats"
@@ -7235,7 +7235,7 @@ msgstr "ディストーションの種類:"
 
 #: src/effects/Distortion.cpp
 msgid "DC blocking filter"
-msgstr "DC ブロックフィルタ"
+msgstr "DC ブロックフィルター"
 
 #: src/effects/Distortion.cpp
 msgid "Threshold controls"
@@ -7243,7 +7243,7 @@ msgstr "閾値制御"
 
 #: src/effects/Distortion.cpp
 msgid "Parameter controls"
-msgstr "パラメータ制御"
+msgstr "パラメーター制御"
 
 #: src/effects/Distortion.cpp
 msgid "Clipping level"
@@ -9038,7 +9038,7 @@ msgstr "アナログフィルターをエミュレートする IIR フィルタ�
 
 #: src/effects/ScienFilter.cpp
 msgid "To apply a filter, all selected tracks must have the same sample rate."
-msgstr "フィルタを適用するには、すべての選択トラックが同一のサンプリング周波数でなければなりません。"
+msgstr "フィルターを適用するには、すべての選択トラックが同一のサンプリング周波数でなければなりません。"
 
 #: src/effects/ScienFilter.cpp
 msgid "&Filter Type:"
@@ -9486,7 +9486,7 @@ msgstr "プリセットファイルを読み込めません。"
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
 msgid "This parameter file was saved from %s. Continue?"
-msgstr "このパラメータファイルは %s から保存されました。続けますか？"
+msgstr "このパラメーターファイルは %s から保存されました。続けますか？"
 
 #. i18n-hint: Abbreviates Virtual Studio Technology, an audio software protocol
 #. developed by Steinberg GmbH
@@ -10212,11 +10212,11 @@ msgstr "書き出し"
 
 #: src/export/ExportCL.cpp
 msgid "Exporting the selected audio using command-line encoder"
-msgstr "選択した音声をコマンドラインエンコーダを使って書き出し"
+msgstr "選択した音声をコマンドラインエンコーダーを使って書き出し"
 
 #: src/export/ExportCL.cpp
 msgid "Exporting the audio using command-line encoder"
-msgstr "音声をコマンドラインエンコーダを使って書き出し"
+msgstr "音声をコマンドラインエンコーダーを使って書き出し"
 
 #: src/export/ExportCL.cpp
 msgid "Command Output"
@@ -10676,7 +10676,7 @@ msgstr "コーデック:"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Not all formats and codecs are compatible. Nor are all option combinations compatible with all codecs."
-msgstr "コーデックはすべてのフォーマットと互換であるとは限りませんし、いくつかのパラメータ値の組み合せがコーデックにおいて互換でない場合もあります。"
+msgstr "コーデックはすべてのフォーマットと互換であるとは限りませんし、いくつかのパラメーター値の組み合せがコーデックにおいて互換でない場合もあります。"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Show All Formats"
@@ -11066,7 +11066,7 @@ msgid ""
 "FLAC encoder failed to initialize\n"
 "Status: %d"
 msgstr ""
-"FLAC エンコーダが初期化に失敗しました\n"
+"FLAC エンコーダーが初期化に失敗しました\n"
 "ステータス: %d"
 
 #: src/export/ExportFLAC.cpp
@@ -11340,7 +11340,7 @@ msgstr "音声を %d Kbps で書き出し"
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "Error %ld returned from MP3 encoder"
-msgstr "MP3 エンコーダにおいて、エラー %ld が返されました"
+msgstr "MP3 エンコーダーにおいて、エラー %ld が返されました"
 
 #: src/export/ExportMP3.cpp
 #, c-format
@@ -11390,7 +11390,7 @@ msgstr "書き出し:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Folder:"
-msgstr "フォルダ:"
+msgstr "フォルダー:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Create"
@@ -11573,7 +11573,7 @@ msgstr "WAV (Microsoft)"
 
 #: src/export/ExportPCM.cpp
 msgid "Header:"
-msgstr "ヘッダ:"
+msgstr "ヘッダー:"
 
 #: src/export/ExportPCM.cpp src/import/ImportRaw.cpp
 msgid "Encoding:"
@@ -11940,7 +11940,7 @@ msgstr "プロジェクトの「selHigh」属性が不正です。"
 #: src/import/ImportAUP.cpp
 #, c-format
 msgid "Couldn't find the project data folder: \"%s\""
-msgstr "プロジェクトデータフォルダが見つかりません:「%s」"
+msgstr "プロジェクトデータフォルダーが見つかりません:「%s」"
 
 #: src/import/ImportAUP.cpp
 msgid "MIDI tracks found in project file, but this build of Audacity does not include MIDI support, bypassing track."
@@ -17673,11 +17673,11 @@ msgstr "変速再生中"
 
 #: src/tracks/ui/Scrubbing.cpp
 msgid "Move mouse pointer to Seek"
-msgstr "マウスポインタを動かしてシーク"
+msgstr "マウスポインターを動かしてシーク"
 
 #: src/tracks/ui/Scrubbing.cpp
 msgid "Move mouse pointer to Scrub"
-msgstr "マウスポインタを動かしてスクラブ"
+msgstr "マウスポインターを動かしてスクラブ"
 
 #: src/tracks/ui/Scrubbing.cpp
 msgid "Scru&bbing"
@@ -18553,7 +18553,7 @@ msgid ""
 "                      Try increasing the low frequency bound~%~\n"
 "                      or reduce the filter 'Width'."
 msgstr ""
-"~aノッチフィルターのパラメータを適用できませんでした。~%~\n"
+"~aノッチフィルターのパラメーターを適用できませんでした。~%~\n"
 "低域周波数を高くするか、フィルタリングする帯域幅を~%~\n"
 "狭くしてみてください。"
 
@@ -18686,7 +18686,7 @@ msgstr "終了 (または開始)"
 
 #: plug-ins/adjustable-fade.ny
 msgid "Handy Presets (override controls)"
-msgstr "お手軽プリセット (パラメータを上書きします)"
+msgstr "お手軽プリセット (パラメーターを上書きします)"
 
 #: plug-ins/adjustable-fade.ny
 msgid "None Selected"
