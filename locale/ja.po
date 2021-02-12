@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:58+0900\n"
+"PO-Revision-Date: 2021-02-12 23:01+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -11633,9 +11633,8 @@ msgstr ""
 "Libsndfile メッセージ: %s"
 
 #: src/import/Import.cpp
-#, fuzzy
 msgid "All supported files"
-msgstr "すべてのファイル|*.*|すべてのサポートされるファイル|"
+msgstr "すべてのサポートされるファイル"
 
 #: src/import/Import.cpp
 #, c-format
@@ -11650,15 +11649,14 @@ msgstr ""
 "[ファイル] > [取り込み] > [MIDI の取り込み] をクリックすることで編集はできます。"
 
 #: src/import/Import.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\"%s\" \n"
 "is a not an audio file. \n"
 "Audacity cannot open this type of file."
 msgstr ""
-"「%s」は MIDI ファイルであり、音声ファイルではありません。\n"
-"Audacity はこの種のファイルを再生用に開くことはできませんが、\n"
-"[ファイル] > [取り込み] > [MIDI の取り込み] をクリックすることで編集はできます。"
+"「%s」は音声ファイルではありません。\n"
+"Audacity はこの種のファイルを開くことはできません。"
 
 #: src/import/Import.cpp
 msgid "Select stream(s) to import"
@@ -11709,15 +11707,15 @@ msgstr ""
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\"%s\" is an Advanced Audio Coding file.\n"
 "Without the optional FFmpeg library, Audacity cannot open this type of file.\n"
 "Otherwise, you need to convert it to a supported audio format, such as WAV or AIFF."
 msgstr ""
 "「%s」は Advanced Audio Coding ファイルです。\n"
-"Audacity はこの形式のファイルを開くことはできません。\n"
-"サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
+"Audacity だけではこの形式のファイルを開けないので、別途 FFmpeg ライブラリを導入するか、\n"
+"サポートしている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -11773,7 +11771,7 @@ msgid ""
 msgstr ""
 "「%s」は Musepack 音声ファイルです。\n"
 "Audacity はこの形式のファイルを開くことはできません。\n"
-"これが mp3 かもしれないと思われる場合、最後が「.mp3」で終わるよう\n"
+"これが MP3 かもしれないと思われる場合、最後が「.mp3」で終わるよう\n"
 "ファイル名を書き換えてから再度取り込んでみてください。\n"
 "うまくいかなければ、サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
 
@@ -11826,26 +11824,29 @@ msgstr ""
 "サポートしている音声ファイル形式、たとえば WAV や AIFF などを抽出する必要があります。"
 
 #: src/import/Import.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "File \"%s\" not found."
-msgstr "モジュール「%s」が見つかりました。"
+msgstr "ファイル「%s」が見つかりません。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Audacity did not recognize the type of the file '%s'.\n"
 "\n"
 "%sFor uncompressed files, also try File > Import > Raw Data."
 msgstr ""
 "Audacity はこのファイル「%s」の種類を認識できませんでした。\n"
-"このファイルが非圧縮ファイルの場合、[ファイル] > [取り込み] > [ロー (Raw) データの取り込み] をお試しください。"
+"\n"
+"%s非圧縮ファイルの場合、[ファイル] > [取り込み] > [ロー (Raw) データの取り込み] もお試しください。"
 
 #: src/import/Import.cpp
 msgid ""
 "Try installing FFmpeg.\n"
 "\n"
 msgstr ""
+"FFmpeg のインストールをお試しください。\n"
+"\n"
 
 #: src/import/Import.cpp src/menus/ClipMenus.cpp
 #, c-format
@@ -11868,22 +11869,22 @@ msgstr ""
 
 #: src/import/ImportAUP.cpp
 msgid "AUP project files (*.aup)"
-msgstr ""
+msgstr "AUP プロジェクトファイル (*.aup)"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Couldn't import the project:\n"
 "\n"
 "%s"
 msgstr ""
-"エフェクト\"%s\" を \n"
-"%s でアップデートできません"
+"プロジェクトを取り込めませんでした:\n"
+"\n"
+"%s"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy
 msgid "Import Project"
-msgstr "プリセットの取り込み"
+msgstr "プロジェクトの取り込み"
 
 #: src/import/ImportAUP.cpp
 msgid ""
@@ -11893,44 +11894,48 @@ msgid ""
 "Use a version of Audacity prior to v3.0.0 to upgrade the project and then\n"
 "you may import it with this version of Audacity."
 msgstr ""
+"このプロジェクトは Audacity バージョン 1.0 以下で保存されています。\n"
+"ファイル形式の違いにより、現在の Audacity ではプロジェクトを取り込めません。\n"
+"\n"
+"v3.0.0 より古い Audacity を利用してプロジェクトをアップグレードしてからであれば、\n"
+"現在の Audacity でも取り込むことができる可能性があります。"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy
 msgid "Internal error in importer...tag not recognized"
-msgstr "アラインメント処理中に内部エラーが発生しました。"
+msgstr "取り込み機能の内部エラー... タグが認識できません"
 
 #: src/import/ImportAUP.cpp
 #, c-format
 msgid "Invalid project '%s' attribute."
-msgstr ""
+msgstr "プロジェクトの「%s」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'vpos' attribute."
-msgstr ""
+msgstr "プロジェクトの「vpos」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'h' attribute."
-msgstr ""
+msgstr "プロジェクトの「h」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'zoom' attribute."
-msgstr ""
+msgstr "プロジェクトの「zoom」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'sel0' attribute."
-msgstr ""
+msgstr "プロジェクトの「sel0」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'sel1' attribute."
-msgstr ""
+msgstr "プロジェクトの「sel1」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'selLow' attribute."
-msgstr ""
+msgstr "プロジェクトの「selLow」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid project 'selHigh' attribute."
-msgstr ""
+msgstr "プロジェクトの「selHigh」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 #, c-format
@@ -11940,33 +11945,36 @@ msgstr "プロジェクトデータフォルダが見つかりません:「%s」
 #: src/import/ImportAUP.cpp
 msgid "MIDI tracks found in project file, but this build of Audacity does not include MIDI support, bypassing track."
 msgstr ""
+"プロジェクトファイルに MIDI トラックが見つかりましたが、\n"
+"Audacity のこのビルドには MIDI サポートが含まれていません。\n"
+"トラックをバイパスします。"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy
 msgid "Project Import"
-msgstr "プロジェクトの最初"
+msgstr "プロジェクトの取り込み"
 
 #: src/import/ImportAUP.cpp
 msgid "The active project already has a time track and one was encountered in the project being imported, bypassing imported time track."
 msgstr ""
+"取り込もうとしているプロジェクトに時間トラックが存在しますが、\n"
+"アクティブなプロジェクトにも既に存在しています。\n"
+"時間トラックをバイパスします。"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy
 msgid "Invalid sequence 'maxsamples' attribute."
-msgstr "無効なサンプリング周波数です"
+msgstr "シーケンスの「maxsamples」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Invalid sequence 'sampleformat' attribute."
-msgstr ""
+msgstr "シーケンスの「sampleformat」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy
 msgid "Invalid sequence 'numsamples' attribute."
-msgstr "無効なサンプリング周波数です"
+msgstr "シーケンスの「numsamples」属性が不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Unable to parse the waveblock 'start' attribute"
-msgstr ""
+msgstr "waveblock の「start」属性を解釈できません"
 
 #: src/import/ImportAUP.cpp
 #, c-format
@@ -11975,14 +11983,17 @@ msgid ""
 "\n"
 "Inserting silence instead."
 msgstr ""
+"プロジェクトファイル「%s」が見つかりません\n"
+"\n"
+"代わりに無音が挿入されます。"
 
 #: src/import/ImportAUP.cpp
 msgid "Missing or invalid simpleblockfile 'len' attribute."
-msgstr ""
+msgstr "simpleblockfile の「len」属性が見つからないか、不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Missing or invalid silentblockfile 'len' attribute."
-msgstr ""
+msgstr "silentblockfile の「len」属性が見つからないか、不正です。"
 
 #: src/import/ImportAUP.cpp
 #, c-format
@@ -11991,14 +12002,17 @@ msgid ""
 "\n"
 "Inserting silence instead."
 msgstr ""
+"エイリアスファイル「%s」が見つかりません\n"
+"\n"
+"代わりに無音が挿入されます。"
 
 #: src/import/ImportAUP.cpp
 msgid "Missing or invalid pcmaliasblockfile 'aliasstart' attribute."
-msgstr ""
+msgstr "pcmaliasblockfile の「aliasstart」属性が見つからないか、不正です。"
 
 #: src/import/ImportAUP.cpp
 msgid "Missing or invalid pcmaliasblockfile 'aliaslen' attribute."
-msgstr ""
+msgstr "pcmaliasblockfile の「aliaslen」属性が見つからないか、不正です。"
 
 #: src/import/ImportAUP.cpp
 #, c-format
@@ -12007,21 +12021,24 @@ msgid ""
 "\n"
 "Inserting silence."
 msgstr ""
+"「%s」の処理中にエラーが発生しました\n"
+"\n"
+"無音が挿入されます。"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to open %s"
-msgstr "%s を削除できませんでした"
+msgstr "%s を開くことに失敗しました"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to seek to position %lld in %s"
-msgstr "プリセットファイルを読み込めません。"
+msgstr "「%2$s」内の位置 %1$lld へのシークに失敗しました"
 
 #: src/import/ImportAUP.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to read %lld samples from %s"
-msgstr "プリセットファイルを読み込めません。"
+msgstr "「%2$s」から %1$lld 個のサンプルが読み取れませんでした"
 
 #: src/import/ImportFFmpeg.cpp
 msgid "FFmpeg-compatible files"
@@ -12054,9 +12071,9 @@ msgid "Unable to set stream state to paused."
 msgstr "ストリーム状態を pause に設定できません。"
 
 #: src/import/ImportGStreamer.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Index[%02d], Type[%s], Channels[%d], Rate[%d]"
-msgstr "インデックス[%02x] コーデック[%s]、言語[%s]、ビットレート[%s]、チャンネル[%d]、継続時間[%d]"
+msgstr "インデックス[%02d]、種類[%s]、チャンネル[%d]、サンプリング周波数[%d]"
 
 #: src/import/ImportGStreamer.cpp
 msgid "File doesn't contain any audio streams."
@@ -12142,15 +12159,19 @@ msgid ""
 "This is likely caused by a malformed MP3.\n"
 "\n"
 msgstr ""
+"取り込み失敗\n"
+"\n"
+"たいていは MP3 ファイルの異常が原因です。\n"
+"\n"
 
 #: src/import/ImportOGG.cpp
 msgid "Ogg Vorbis files"
 msgstr "Ogg Vorbis ファイル"
 
 #: src/import/ImportOGG.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Index[%02x] Version[%d], Channels[%d], Rate[%ld]"
-msgstr "インデックス[%02x] コーデック[%s]、言語[%s]、ビットレート[%s]、チャンネル[%d]、継続時間[%d]"
+msgstr "インデックス[%02x] バージョン[%d]、チャンネル[%d]、サンプリング周波数[%ld]"
 
 #: src/import/ImportOGG.cpp
 msgid "Media read error"
@@ -12178,189 +12199,180 @@ msgstr "WAV、AIFF、その他の非圧縮形式"
 
 #: src/import/ImportPCM.cpp
 msgid "AU (Sun/NeXT)"
-msgstr ""
+msgstr "AU (Sun/NeXT)"
 
 #: src/import/ImportPCM.cpp
 msgid "AVR (Audio Visual Research)"
-msgstr ""
+msgstr "AVR (Audio Visual Research)"
 
 #: src/import/ImportPCM.cpp
 msgid "CAF (Apple Core Audio File)"
-msgstr ""
+msgstr "CAF (Apple コア音声ファイル)"
 
 #. i18n-hint: "codec" is short for a "coder-decoder" algorithm
 #: src/import/ImportPCM.cpp
 msgid "FLAC (FLAC Lossless Audio Codec)"
-msgstr ""
+msgstr "FLAC (FLAC 可逆圧縮音声コーデック)"
 
 #: src/import/ImportPCM.cpp
 msgid "HTK (HMM Tool Kit)"
-msgstr ""
+msgstr "HTK (HMM ツールキット)"
 
 #: src/import/ImportPCM.cpp
 msgid "IFF (Amiga IFF/SVX8/SV16)"
-msgstr ""
+msgstr "IFF (Amiga IFF/SVX8/SV16)"
 
 #: src/import/ImportPCM.cpp
 msgid "MAT4 (GNU Octave 2.0 / Matlab 4.2)"
-msgstr ""
+msgstr "MAT4 (GNU Octave 2.0 / Matlab 4.2)"
 
 #: src/import/ImportPCM.cpp
 msgid "MAT5 (GNU Octave 2.1 / Matlab 5.0)"
-msgstr ""
+msgstr "MAT5 (GNU Octave 2.1 / Matlab 5.0)"
 
 #: src/import/ImportPCM.cpp
 msgid "MPC (Akai MPC 2k)"
-msgstr ""
+msgstr "MPC (Akai MPC 2k)"
 
 #: src/import/ImportPCM.cpp
 msgid "OGG (OGG Container format)"
-msgstr ""
+msgstr "OGG (OGG コンテナフォーマット)"
 
 #: src/import/ImportPCM.cpp
 msgid "PAF (Ensoniq PARIS)"
-msgstr ""
+msgstr "PAF (Ensoniq PARIS)"
 
 #: src/import/ImportPCM.cpp
 msgid "PVF (Portable Voice Format)"
-msgstr ""
+msgstr "PVF (Portable Voice Format)"
 
 #: src/import/ImportPCM.cpp
 msgid "RAW (header-less)"
-msgstr ""
+msgstr "RAW (ヘッダーなし)"
 
 #: src/import/ImportPCM.cpp
 msgid "RF64 (RIFF 64)"
-msgstr ""
+msgstr "RF64 (RIFF 64)"
 
 #: src/import/ImportPCM.cpp
 msgid "SD2 (Sound Designer II)"
-msgstr ""
+msgstr "SD2 (Sound Designer II)"
 
 #: src/import/ImportPCM.cpp
 msgid "SDS (Midi Sample Dump Standard)"
-msgstr ""
+msgstr "SDS (MIDI サンプルダンプスタンダード)"
 
 #: src/import/ImportPCM.cpp
 msgid "SF (Berkeley/IRCAM/CARL)"
-msgstr ""
+msgstr "SF (Berkeley/IRCAM/CARL)"
 
 #: src/import/ImportPCM.cpp
 msgid "VOC (Creative Labs)"
-msgstr ""
+msgstr "VOC (Creative Labs)"
 
 #: src/import/ImportPCM.cpp
 msgid "W64 (SoundFoundry WAVE 64)"
-msgstr ""
+msgstr "W64 (SoundFoundry WAVE 64)"
 
 #: src/import/ImportPCM.cpp
 msgid "WAV (NIST Sphere)"
-msgstr ""
+msgstr "WAV (NIST SPHERE)"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "WAVEX (Microsoft)"
-msgstr "WAV (Microsoft) 32bit 浮動小数点 PCM"
+msgstr "WAVEX (Microsoft)"
 
 #: src/import/ImportPCM.cpp
 msgid "WVE (Psion Series 3)"
-msgstr ""
+msgstr "WVE (Psion シリーズ 3)"
 
 #: src/import/ImportPCM.cpp
 msgid "XI (FastTracker 2)"
-msgstr ""
+msgstr "XI (FastTracker 2)"
 
 #: src/import/ImportPCM.cpp
 msgid "Signed 8 bit PCM"
-msgstr ""
+msgstr "符号付き 8bit PCM"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "Signed 16 bit PCM"
-msgstr "16bit PCM"
+msgstr "符号付き 16bit PCM"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "Signed 24 bit PCM"
-msgstr "24bit PCM"
+msgstr "符号付き 24bit PCM"
 
 #: src/import/ImportPCM.cpp
 msgid "Signed 32 bit PCM"
-msgstr ""
+msgstr "符号付き 32bit PCM"
 
 #: src/import/ImportPCM.cpp
 msgid "Unsigned 8 bit PCM"
-msgstr ""
+msgstr "符号無し 8bit PCM"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "32 bit float"
-msgstr "32bit 浮動小数点"
+msgstr "32bit 浮動小数点数"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "64 bit float"
-msgstr "32bit 浮動小数点"
+msgstr "64bit 浮動小数点数"
 
 #: src/import/ImportPCM.cpp
 msgid "U-Law"
-msgstr ""
+msgstr "μ-Law"
 
 #: src/import/ImportPCM.cpp
 msgid "A-Law"
-msgstr ""
+msgstr "A-Law"
 
 #: src/import/ImportPCM.cpp
 msgid "IMA ADPCM"
-msgstr ""
+msgstr "IMA ADPCM"
 
 #: src/import/ImportPCM.cpp
 msgid "Microsoft ADPCM"
-msgstr ""
+msgstr "Microsoft ADPCM"
 
 #: src/import/ImportPCM.cpp
 msgid "GSM 6.10"
-msgstr ""
+msgstr "GSM 6.10"
 
 #: src/import/ImportPCM.cpp
 msgid "32kbs G721 ADPCM"
-msgstr ""
+msgstr "32kbs G721 ADPCM"
 
 #: src/import/ImportPCM.cpp
 msgid "24kbs G723 ADPCM"
-msgstr ""
+msgstr "24kbs G723 ADPCM"
 
 #: src/import/ImportPCM.cpp
 msgid "12 bit DWVW"
-msgstr ""
+msgstr "12bit DWVW"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "16 bit DWVW"
-msgstr "16 bit"
+msgstr "16bit DWVW"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "24 bit DWVW"
-msgstr "24 bit"
+msgstr "24bit DWVW"
 
 #: src/import/ImportPCM.cpp
 msgid "VOX ADPCM"
-msgstr ""
+msgstr "VOX ADPCM"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "16 bit DPCM"
-msgstr "16bit PCM"
+msgstr "16bit DPCM"
 
 #: src/import/ImportPCM.cpp
-#, fuzzy
 msgid "8 bit DPCM"
-msgstr "16bit PCM"
+msgstr "8bit DPCM"
 
 #: src/import/ImportPCM.cpp
 msgid "Vorbis"
-msgstr ""
+msgstr "Vorbis"
 
 #: src/import/ImportPlugin.cpp src/import/ImportRaw.cpp
 #, c-format
@@ -12460,7 +12472,7 @@ msgstr "バイト"
 
 #: src/import/ImportRaw.cpp
 msgid "Amount to import:"
-msgstr "インポートするために:"
+msgstr "取り込む量:"
 
 #. i18n-hint: (noun)
 #: src/import/ImportRaw.cpp
@@ -12473,7 +12485,7 @@ msgstr "取り込み(&I)"
 
 #: src/import/RawAudioGuess.cpp
 msgid "Bad data size. Could not import audio"
-msgstr ""
+msgstr "不正なデータサイズです。音声を取り込めませんでした"
 
 #. i18n-hint: given the name of a track, specify its left channel
 #: src/menus/ClipMenus.cpp
