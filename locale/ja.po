@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:21+0900\n"
+"PO-Revision-Date: 2021-02-12 23:24+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -202,7 +202,7 @@ msgstr "見つかりません"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "Code has been modified. Are you sure?"
-msgstr "コードは変更されました。ご確認ください。"
+msgstr "コードは変更されています。よろしいですか？"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "Untitled"
