@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 20:58+0900\n"
+"PO-Revision-Date: 2021-02-12 21:00+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1207,13 +1207,13 @@ msgid ""
 "You will not be able to play or record audio.\n"
 "\n"
 msgstr ""
-"再生もしくは録音することができないでしょう。\n"
+"音声の再生・録音はできません。\n"
 "\n"
 
 #: src/AudioIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Error: %s"
-msgstr "エラー: "
+msgstr "エラー: %s"
 
 #: src/AudioIO.cpp
 msgid "Error Initializing Audio"
@@ -1221,7 +1221,7 @@ msgstr "音声の初期化時にエラーが発生しました"
 
 #: src/AudioIO.cpp
 msgid "There was an error initializing the midi i/o layer.\n"
-msgstr "MIDI I/O レイヤ初期化でエラーが発生しました\n"
+msgstr "MIDI I/O レイヤーの初期化にエラーが発生しました。\n"
 
 #: src/AudioIO.cpp
 msgid ""
@@ -1236,9 +1236,8 @@ msgid "Error Initializing Midi"
 msgstr "MIDI の初期化時にエラーが発生しました"
 
 #: src/AudioIO.cpp
-#, fuzzy
 msgid "Audacity Audio"
-msgstr "Audacity ログ"
+msgstr "Audacity 音声"
 
 #: src/AudioIO.cpp src/ProjectAudioManager.cpp
 #, c-format
