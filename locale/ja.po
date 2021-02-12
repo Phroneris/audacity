@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:31+0900\n"
+"PO-Revision-Date: 2021-02-12 21:33+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2171,7 +2171,7 @@ msgstr "コピーしない"
 
 #: src/Dependencies.cpp
 msgid "Copy All Files (Safer)"
-msgstr "すべてのファイルをコピー (より安全)"
+msgstr "すべてのファイルをコピー (比較的安全)"
 
 #: src/Dependencies.cpp
 msgid "Whenever a project depends on other files:"
@@ -2219,7 +2219,6 @@ msgid "If you proceed, your project will not be saved to disk. Is this what you 
 msgstr "続行すると、プロジェクトはディスクに保存されません。続行しますか？"
 
 #: src/Dependencies.cpp
-#, fuzzy
 msgid ""
 "Your project is self-contained; it does not depend on any external audio files. \n"
 "\n"
@@ -2227,9 +2226,11 @@ msgid ""
 "is needed to keep their external dependencies in the right place.\n"
 "New projects will be self-contained and are less risky."
 msgstr ""
-"このプロジェクトは現時点では自己完結的であり、外部音声ファイルとの依存関係はありません。\n"
+"このプロジェクトは自己完結しています。外部音声ファイルとの依存関係はありません。\n"
 "\n"
-"もし外部と依存関係があるファイルを取り込んだ場合、このプロジェクトはもはや自己完結ではなくなります。したがってコピーせずに保存するとデータを失う可能性があります。"
+"一部の古い Audacity プロジェクトファイルには自己完結をしていない形式のものがあり、\n"
+"そのようなファイルにおいては、依存する外部ファイルを正しい位置に置くような管理が必要となります。\n"
+"新規プロジェクトは必ず自己完結形式で作成されるので、危険性が低くなります。"
 
 #: src/Dependencies.cpp
 msgid "Dependency Check"
