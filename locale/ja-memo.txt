@@ -71,6 +71,18 @@ msgid "%s, %s"
 #: src/menus/PluginMenus.cpp
 msgid "Unknown"
 
+#: src/prefs/ImportExportPrefs.h
+msgid "IMPORT EXPORT"
+msgstr ""
+
+#: src/prefs/KeyConfigPrefs.cpp
+msgid ""
+"\n"
+"\n"
+"\t and\n"
+"\n"
+"\t"
+
 
 
 ■ Nyquistの問題

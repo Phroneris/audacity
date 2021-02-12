@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:05+0900\n"
+"PO-Revision-Date: 2021-02-12 23:08+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -14709,9 +14709,8 @@ msgid "Batch"
 msgstr "自動実行"
 
 #: src/prefs/BatchPrefs.cpp
-#, fuzzy
 msgid "Preferences for Batch"
-msgstr "環境設定: "
+msgstr "自動実行の環境設定"
 
 #: src/prefs/BatchPrefs.cpp src/prefs/TracksBehaviorsPrefs.cpp
 msgid "Behaviors"
@@ -14726,13 +14725,11 @@ msgid "Devices"
 msgstr "デバイス"
 
 #: src/prefs/DevicePrefs.cpp
-#, fuzzy
 msgid "Preferences for Device"
-msgstr "環境設定: "
+msgstr "デバイスの環境設定"
 
 #. i18n-hint Software interface to audio devices
 #: src/prefs/DevicePrefs.cpp
-#, fuzzy
 msgctxt "device"
 msgid "Interface"
 msgstr "インターフェース"
@@ -14802,58 +14799,52 @@ msgid "Directories"
 msgstr "ディレクトリ"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Preferences for Directories"
-msgstr "環境設定: "
+msgstr "ディレクトリの環境設定"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Default directories"
-msgstr "ディレクトリ"
+msgstr "デフォルトのディレクトリ"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid ""
 "Leave a field empty to go to the last directory used for that operation.\n"
 "Fill in a field to always go to that directory for that operation."
 msgstr ""
+"その処理で最後に使用したディレクトリを利用する場合、空欄にしておいてください。\n"
+"ディレクトリを指定すると、当該処理では毎回同じディレクトリを利用するようになります。"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "O&pen:"
-msgstr ""
+msgstr "開く(&P):"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "&Browse..."
-msgstr "参照..."
+msgstr "参照(&B)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "S&ave:"
-msgstr ""
+msgstr "保存(&A):"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "B&rowse..."
-msgstr "参照..."
+msgstr "参照(&R)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "&Import:"
-msgstr "取り込み(&I)"
+msgstr "取り込み(&I):"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Br&owse..."
-msgstr "参照..."
+msgstr "参照(&O)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "&Export:"
-msgstr "書き出し(&E)"
+msgstr "書き出し(&E):"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Bro&wse..."
-msgstr "参照..."
+msgstr "参照(&W)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Temporary files directory"
@@ -14864,24 +14855,20 @@ msgid "&Location:"
 msgstr "場所(&L):"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Temporary files directory cannot be on a FAT drive."
-msgstr "一時ファイルのディレクトリ"
+msgstr "一時ファイルのディレクトリに FAT ドライブのものは指定できません。"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Brow&se..."
-msgstr "参照..."
+msgstr "参照(&S)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "&Free Space:"
-msgstr "空き容量:"
+msgstr "空き領域(&F):"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Free Space"
-msgstr "空き容量:"
+msgstr "空き領域"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Choose a location to place the temporary directory"
@@ -14892,9 +14879,8 @@ msgid "unavailable - above location doesn't exist"
 msgstr "利用不可 - この場所は存在しません"
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "Choose a location"
-msgstr "ファイル保存の場所を選んでください"
+msgstr "場所を選んでください"
 
 #: src/prefs/DirectoriesPrefs.cpp
 #, c-format
@@ -14924,9 +14910,8 @@ msgid "Temp Directory Update"
 msgstr "一時ディレクトリの更新"
 
 #: src/prefs/EffectsPrefs.cpp
-#, fuzzy
 msgid "Preferences for Effects"
-msgstr "環境設定: "
+msgstr "エフェクトの環境設定"
 
 #: src/prefs/EffectsPrefs.cpp
 msgid "Sorted by Effect Name"
@@ -14952,15 +14937,14 @@ msgstr "種類でグループ化"
 #. (Application programming interface)
 #.
 #: src/prefs/EffectsPrefs.cpp
-#, fuzzy
 msgid "&LADSPA"
-msgstr "LADSPA"
+msgstr "LADSPA(&L)"
 
 #. i18n-hint: abbreviates
 #. "Linux Audio Developer's Simple Plugin API (LADSPA) version 2"
 #: src/prefs/EffectsPrefs.cpp
 msgid "LV&2"
-msgstr ""
+msgstr "LV2(&2)"
 
 #. i18n-hint: "Nyquist" is an embedded interpreted programming language in
 #. Audacity, named in honor of the Swedish-American Harry Nyquist (or Nyqvist).
@@ -14973,15 +14957,14 @@ msgstr "Nyquist エフェクト(&Y)"
 #. i18n-hint: Vamp is the proper name of a software protocol for sound analysis.
 #. It is not an abbreviation for anything.  See http://vamp-plugins.org
 #: src/prefs/EffectsPrefs.cpp
-#, fuzzy
 msgid "&Vamp"
-msgstr "Vamp"
+msgstr "Vamp(&V)"
 
 #. i18n-hint: Abbreviates Virtual Studio Technology, an audio software protocol
 #. developed by Steinberg GmbH
 #: src/prefs/EffectsPrefs.cpp
 msgid "V&ST"
-msgstr ""
+msgstr "VST(&S)"
 
 #: src/prefs/EffectsPrefs.cpp
 msgid "Enable Effects"
@@ -15026,9 +15009,8 @@ msgid "Extended Import"
 msgstr "拡張取り込み"
 
 #: src/prefs/ExtImportPrefs.cpp
-#, fuzzy
 msgid "Preferences for ExtImport"
-msgstr "環境設定: "
+msgstr "拡張取り込みの環境設定"
 
 #: src/prefs/ExtImportPrefs.cpp
 msgid "A&ttempt to use filter in OpenFile dialog first"
@@ -15095,21 +15077,18 @@ msgid "Rule deletion confirmation"
 msgstr "ルール削除の確認"
 
 #: src/prefs/ExtImportPrefs.h
-#, fuzzy
 msgid "Ext Import"
 msgstr "拡張取り込み"
 
 #. i18n-hint: refers to Audacity's user interface settings
 #: src/prefs/GUIPrefs.cpp
-#, fuzzy
 msgctxt "GUI"
 msgid "Interface"
 msgstr "インターフェース"
 
 #: src/prefs/GUIPrefs.cpp
-#, fuzzy
 msgid "Preferences for GUI"
-msgstr "環境設定: "
+msgstr "GUI の環境設定"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "-36 dB (shallow range for high-amplitude editing)"
@@ -15203,9 +15182,8 @@ msgstr "右横書き言語 (右から読む言語) でも左横書きレイア�
 
 # jp: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp
-#, fuzzy
 msgid "Show Timeline Tooltips"
-msgstr "タイムラインツールヒントを有効化(&T)"
+msgstr "タイムラインツールヒントを表示"
 
 #: src/prefs/GUIPrefs.cpp src/toolbars/ScrubbingToolBar.cpp
 msgid "Show Scrub Ruler"
@@ -15222,7 +15200,7 @@ msgstr "マスターゲインコントロール"
 
 #: src/prefs/GUIPrefs.h
 msgid "GUI"
-msgstr ""
+msgstr "GUI"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "Import / Export"
@@ -15230,26 +15208,24 @@ msgstr "取り込み/書き出し"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "Preferences for ImportExport"
-msgstr ""
+msgstr "取り込みと書き出しの環境設定"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "&Mix down to Stereo or Mono"
 msgstr "ステレオかモノラルにミックスダウン(&M)"
 
 #: src/prefs/ImportExportPrefs.cpp
-#, fuzzy
 msgid "&Use Advanced Mixing Options"
-msgstr "高度なミキシングオプション"
+msgstr "高度なミキシングオプションを使用(&U)"
 
 #: src/prefs/ImportExportPrefs.cpp
-#, fuzzy
 msgid "S&tandard"
-msgstr "標準"
+msgstr "標準(&T)"
 
+# jp: わかんね
 #: src/prefs/ImportExportPrefs.cpp
-#, fuzzy
 msgid "E&xtended (with frequency ranges)"
-msgstr "周波数で範囲選択します。"
+msgstr "拡張 (with frequency ranges) (&X)"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "&Seconds"
@@ -15269,14 +15245,12 @@ msgstr "書き出しの前にメタデータエディタを表示(&H)"
 
 #. i18n-hint 'blank space' is space on the tracks with no audio in it
 #: src/prefs/ImportExportPrefs.cpp
-#, fuzzy
 msgid "&Ignore blank space at the beginning"
-msgstr "最初と最後の無音部分を無視"
+msgstr "最初の無音部分を無視(&I)"
 
 #: src/prefs/ImportExportPrefs.cpp
-#, fuzzy
 msgid "Exported Label Style:"
-msgstr "ラベルの書き出し:"
+msgstr "ラベルの書き出し形式:"
 
 #: src/prefs/ImportExportPrefs.cpp
 msgid "Exported Allegro (.gro) files save time as:"
@@ -15292,9 +15266,8 @@ msgid "Keyboard"
 msgstr "キーボード"
 
 #: src/prefs/KeyConfigPrefs.cpp
-#, fuzzy
 msgid "Preferences for KeyConfig"
-msgstr "環境設定: "
+msgstr "キーコンフィグの環境設定"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Keyboard preferences currently unavailable."
@@ -15369,20 +15342,23 @@ msgstr "取り込み(&I)..."
 msgid "&Defaults"
 msgstr "既定値(&D)"
 
+# jp: "The following commands ～" で使われる。二重引用符は二重カギ括弧では見づらい場合があるので、スミ付き括弧に。丸括弧も三点リーダーに。
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
 msgid ""
 "\n"
 "   *   \"%s\"  (because the shortcut '%s' is used by \"%s\")\n"
 msgstr ""
+"\n"
+"   ・ 【%s】 … ショートカット「%s」は【%s】に使われます\n"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Select an XML file containing Audacity keyboard shortcuts..."
-msgstr "Audacty のキーボードショートカットが定義されている XML ファイルを選択してください..."
+msgstr "Audacty のキーボードショートカットが定義されている XML ファイルを選択..."
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Error Importing Keyboard Shortcuts"
-msgstr "キーボードショートカットの読み込み時にエラーが発生しました"
+msgstr "キーボードショートカットの取り込み時にエラーが発生しました"
 
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
@@ -15390,6 +15366,8 @@ msgid ""
 "The file with the shortcuts contains illegal shortcut duplicates for \"%s\" and \"%s\".\n"
 "Nothing is imported."
 msgstr ""
+"ファイル内のショートカット「%s」と「%s」が重複しており、不正です。\n"
+"一切のショートカット取り込みを中止しました。"
 
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
@@ -15401,6 +15379,10 @@ msgid ""
 "\n"
 "The following commands are not mentioned in the imported file, but have their shortcuts removed because of the conflict with other new shortcuts:\n"
 msgstr ""
+"\n"
+"以下のコマンドのショートカットを削除しました。\n"
+"取り込まれたファイル内に該当コマンドの記述はありませんが、\n"
+"他の新しいショートカットと競合してしまうためです。\n"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Loading Keyboard Shortcuts"
@@ -15432,7 +15414,7 @@ msgid ""
 msgstr ""
 
 #: src/prefs/KeyConfigPrefs.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "The keyboard shortcut '%s' is already assigned to:\n"
 "\n"
@@ -15445,28 +15427,25 @@ msgid ""
 "\n"
 "instead. Otherwise, click Cancel."
 msgstr ""
-"%s は既に以下の操作へ割り当てられています:\n"
+"そのショートカット「%s」は、既に以下の操作へ割り当てられています:\n"
 "\n"
-"\t「%s」\n"
+"\t%s\n"
 "\n"
 "割り当てを以下に替えますか？\n"
 "\n"
-"\t「%s」"
+"\t%s"
 
 #: src/prefs/KeyConfigPrefs.h
-#, fuzzy
 msgid "Key Config"
-msgstr "キーの組み合わせ"
+msgstr "キーコンフィグ"
 
 #: src/prefs/LibraryPrefs.cpp
-#, fuzzy
 msgid "Preferences for Library"
-msgstr "環境設定: "
+msgstr "ライブラリの環境設定"
 
 #: src/prefs/LibraryPrefs.cpp
-#, fuzzy
 msgid "LAME MP3 Export Library"
-msgstr "MP3 書き出しライブラリ"
+msgstr "LAME MP3 書き出しライブラリ"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "MP3 Library Version:"
@@ -15497,7 +15476,6 @@ msgid "No compatible FFmpeg library was found"
 msgstr "互換性のある FFmpeg ライブラリが見つかりません"
 
 #: src/prefs/LibraryPrefs.cpp
-#, fuzzy
 msgid "FFmpeg support is not compiled in"
 msgstr "FFmpeg サポートはコンパイルされていません"
 
@@ -15523,10 +15501,9 @@ msgstr ""
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 #: src/prefs/LibraryPrefs.h
-#, fuzzy
 msgid "Library"
 msgstr "ライブラリ"
 
@@ -15536,13 +15513,11 @@ msgid "MIDI Devices"
 msgstr "MIDI デバイス"
 
 #: src/prefs/MidiIOPrefs.cpp
-#, fuzzy
 msgid "Preferences for MidiIO"
-msgstr "環境設定: "
+msgstr "MIDI 入出力の環境設定"
 
 #. i18n-hint Software interface to MIDI
 #: src/prefs/MidiIOPrefs.cpp
-#, fuzzy
 msgctxt "MIDI"
 msgid "Interface"
 msgstr "インターフェース"
@@ -15565,7 +15540,7 @@ msgstr "MIDI シンセサイザーのレイテンシーは整数でなければ�
 
 #: src/prefs/MidiIOPrefs.h
 msgid "Midi IO"
-msgstr ""
+msgstr "MIDI 入出力"
 
 #. i18n-hint: Modules are optional extensions to Audacity that add NEW features.
 #: src/prefs/ModulePrefs.cpp
@@ -15573,33 +15548,29 @@ msgid "Modules"
 msgstr "モジュール"
 
 #: src/prefs/ModulePrefs.cpp
-#, fuzzy
 msgid "Preferences for Module"
-msgstr "環境設定: "
+msgstr "モジュールの環境設定"
 
 #: src/prefs/ModulePrefs.cpp
 msgid ""
 "These are experimental modules. Enable them only if you've read the Audacity Manual\n"
 "and know what you are doing."
-msgstr "これらは試用モジュールです。マニュアルを熟読しよく理解した上で有効化してください。"
+msgstr "これらは試用モジュールです。マニュアルを熟読し、よく理解した上で有効化してください。"
 
 #. i18n-hint preserve the leading spaces
 #: src/prefs/ModulePrefs.cpp
-#, fuzzy
 msgid "  'Ask' means Audacity will ask if you want to load the module each time it starts."
-msgstr "「確認」は Audacity 起動時にモジュールをロードするか毎回尋ねるという意味です。"
+msgstr "  「確認」は、Audacity 起動時にモジュールをロードするか毎回尋ねるという意味です。"
 
 #. i18n-hint preserve the leading spaces
 #: src/prefs/ModulePrefs.cpp
-#, fuzzy
 msgid "  'Failed' means Audacity thinks the module is broken and won't run it."
-msgstr "「失敗」はモジュールが壊れており実行不可能な状態です。"
+msgstr "  「失敗」は、モジュールが壊れたと判断されており実行不能な状態です。"
 
 #. i18n-hint preserve the leading spaces
 #: src/prefs/ModulePrefs.cpp
-#, fuzzy
 msgid "  'New' means no choice has been made yet."
-msgstr "「新規」は何も選択されていないことを示します。"
+msgstr "  「新規」は何も選択されていないことを示します。"
 
 #: src/prefs/ModulePrefs.cpp
 msgid "Changes to these settings only take effect when Audacity starts up."
@@ -15618,7 +15589,6 @@ msgid "No modules were found"
 msgstr "モジュールがありません"
 
 #: src/prefs/ModulePrefs.h
-#, fuzzy
 msgid "Module"
 msgstr "モジュール"
 
@@ -15631,9 +15601,8 @@ msgid "Mouse"
 msgstr "マウス"
 
 #: src/prefs/MousePrefs.cpp
-#, fuzzy
 msgid "Preferences for Mouse"
-msgstr "環境設定: "
+msgstr "マウスの環境設定"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Mouse Bindings (default values, not configurable)"
@@ -15672,7 +15641,7 @@ msgstr "選択範囲を設定"
 #: src/tracks/playabletrack/wavetrack/ui/SpectrumVZoomHandle.cpp
 #: src/tracks/playabletrack/wavetrack/ui/WaveformVZoomHandle.cpp
 msgid "Shift-Left-Click"
-msgstr "Shift+右クリック"
+msgstr "Shift+左クリック"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Extend Selection Range"
@@ -15712,7 +15681,7 @@ msgstr "右クリック"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Zoom out one step"
-msgstr "１段階縮小"
+msgstr "1 段階縮小"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Right-Drag"
@@ -15837,9 +15806,8 @@ msgid "Vertical Scale Waveform (dB) range"
 msgstr "波形 (dB) 垂直表示範囲"
 
 #: src/prefs/PlaybackPrefs.cpp
-#, fuzzy
 msgid "Preferences for Playback"
-msgstr "環境設定: "
+msgstr "再生の環境設定"
 
 #: src/prefs/PlaybackPrefs.cpp
 msgid "Effects Preview"
@@ -15895,9 +15863,8 @@ msgid "Category"
 msgstr "カテゴリ"
 
 #: src/prefs/PrefsDialog.cpp src/prefs/PrefsDialog.h
-#, fuzzy
 msgid "Preferences:"
-msgstr "環境設定: "
+msgstr "環境設定:"
 
 #  i18n-hint: Audio data bit depth (precison): 16-bit integers
 #: src/prefs/QualityPrefs.cpp
@@ -15910,14 +15877,13 @@ msgid "24-bit"
 msgstr "24bit"
 
 #: src/prefs/QualityPrefs.cpp
-#, fuzzy
 msgid "Preferences for Quality"
-msgstr "環境設定: "
+msgstr "品質の環境設定"
 
 #: src/prefs/QualityPrefs.cpp
 #, c-format
 msgid "%i Hz"
-msgstr ""
+msgstr "%i Hz"
 
 #: src/prefs/QualityPrefs.cpp
 msgid "Other..."
@@ -15962,9 +15928,8 @@ msgid "Dit&her:"
 msgstr "ディザリング(&H):"
 
 #: src/prefs/RecordingPrefs.cpp
-#, fuzzy
 msgid "Preferences for Recording"
-msgstr "環境設定: "
+msgstr "録音の環境設定"
 
 #: src/prefs/RecordingPrefs.cpp
 msgid "Play &other tracks while recording (overdub)"
@@ -16141,9 +16106,8 @@ msgid "Spectrograms"
 msgstr "スペクトログラム"
 
 #: src/prefs/SpectrumPrefs.cpp
-#, fuzzy
 msgid "Preferences for Spectrum"
-msgstr "環境設定: "
+msgstr "スペクトログラムの環境設定"
 
 #. i18n-hint: use is a verb
 #: src/prefs/SpectrumPrefs.cpp src/prefs/WaveformPrefs.cpp
@@ -16151,9 +16115,8 @@ msgid "&Use Preferences"
 msgstr "環境設定の値を使用(&U)"
 
 #: src/prefs/SpectrumPrefs.cpp src/prefs/WaveformPrefs.cpp
-#, fuzzy
 msgid "S&cale:"
-msgstr "スケール(&C)"
+msgstr "スケール(&C):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Mi&n Frequency (Hz):"
@@ -16188,9 +16151,8 @@ msgid "Algorithm"
 msgstr "アルゴリズム"
 
 #: src/prefs/SpectrumPrefs.cpp
-#, fuzzy
 msgid "A&lgorithm:"
-msgstr "アルゴリズム(&L)"
+msgstr "アルゴリズム(&L):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Window &size:"
@@ -16217,9 +16179,8 @@ msgid "Window &type:"
 msgstr "窓関数の種類(&T):"
 
 #: src/prefs/SpectrumPrefs.cpp
-#, fuzzy
 msgid "&Zero padding factor:"
-msgstr "ゼロ埋め倍数(&Z)"
+msgstr "ゼロ埋め倍数(&Z):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Ena&ble Spectral Selection"
@@ -16299,9 +16260,8 @@ msgid "Theme"
 msgstr "テーマ"
 
 #: src/prefs/ThemePrefs.cpp
-#, fuzzy
 msgid "Preferences for Theme"
-msgstr "環境設定: "
+msgstr "テーマの環境設定"
 
 #: src/prefs/ThemePrefs.cpp
 msgid "Info"
@@ -16369,9 +16329,8 @@ msgid "Tracks Behaviors"
 msgstr "トラック挙動"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
-#, fuzzy
 msgid "Preferences for TracksBehaviors"
-msgstr "トラック挙動"
+msgstr "トラック挙動の環境設定"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
 msgid "Simple"
@@ -16382,9 +16341,8 @@ msgid "Multi-track"
 msgstr "マルチトラック"
 
 #: src/prefs/TracksBehaviorsPrefs.cpp
-#, fuzzy
 msgid "&Select all audio, if selection required"
-msgstr "選択が必要な時には自動で選択(&U)"
+msgstr "選択が必要な時には自動で選択(&S)"
 
 #. i18n-hint: Cut-lines are lines that can expand to show the cut audio.
 #: src/prefs/TracksBehaviorsPrefs.cpp
@@ -16424,9 +16382,8 @@ msgid "Solo &Button:"
 msgstr "ソロボタン(&B):"
 
 #: src/prefs/TracksPrefs.cpp
-#, fuzzy
 msgid "Logarithmic (dB)"
-msgstr "対数"
+msgstr "対数 (dB)"
 
 #: src/prefs/TracksPrefs.cpp src/prefs/WaveformPrefs.h
 msgid "Waveform"
@@ -16506,16 +16463,14 @@ msgid "Max Zoom"
 msgstr "最大"
 
 #: src/prefs/TracksPrefs.cpp
-#, fuzzy
 msgid "Preferences for Tracks"
-msgstr "環境設定: "
+msgstr "トラックの環境設定"
 
 #: src/prefs/TracksPrefs.cpp
 msgid "Auto-&fit track height"
 msgstr "トラックの高さを自動フィット(&F)"
 
 #: src/prefs/TracksPrefs.cpp
-#, fuzzy
 msgid "Sho&w track name as overlay"
 msgstr "波形表示にトラック名も表示(&W)"
 
@@ -16540,9 +16495,8 @@ msgid "Default &view mode:"
 msgstr "デフォルト表示モード(&V):"
 
 #: src/prefs/TracksPrefs.cpp
-#, fuzzy
 msgid "Default Waveform scale:"
-msgstr "サンプル形式 (デフォルト) (&F):"
+msgstr "デフォルト波形スケール:"
 
 #: src/prefs/TracksPrefs.cpp
 msgid "Display &samples:"
@@ -16574,9 +16528,8 @@ msgid "Warnings"
 msgstr "警告"
 
 #: src/prefs/WarningsPrefs.cpp
-#, fuzzy
 msgid "Preferences for Warnings"
-msgstr "環境設定: "
+msgstr "警告の環境設定"
 
 #: src/prefs/WarningsPrefs.cpp
 msgid "Show Warnings/Prompts for"
@@ -16603,9 +16556,8 @@ msgid "Mixing down on export (&Custom FFmpeg or external program)"
 msgstr "書き出し時にミックスダウンする場合 (カスタム FFmpeg や外部プログラム) (&C)"
 
 #: src/prefs/WarningsPrefs.cpp
-#, fuzzy
 msgid "Missing file &name extension during export"
-msgstr "書き出し時にモノラルにミックスダウンする場合(&M)"
+msgstr "書き出し時にファイル名の拡張子がない場合(&N)"
 
 #. i18n-hint: A waveform is a visual representation of vibration
 #: src/prefs/WaveformPrefs.cpp
@@ -16613,14 +16565,12 @@ msgid "Waveforms"
 msgstr "波形"
 
 #: src/prefs/WaveformPrefs.cpp
-#, fuzzy
 msgid "Preferences for Waveforms"
-msgstr "環境設定: "
+msgstr "波形の環境設定"
 
 #: src/prefs/WaveformPrefs.cpp
-#, fuzzy
 msgid "Waveform dB &range:"
-msgstr "波形 dB 表示範囲(&R)"
+msgstr "波形 dB 表示範囲(&R):"
 
 #. i18n-hint: These are strings for the status bar, and indicate whether Audacity
 #. is playing or recording or stopped, and whether it is paused.
