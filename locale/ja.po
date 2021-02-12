@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:48+0900\n"
+"PO-Revision-Date: 2021-02-12 21:49+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -3026,14 +3026,12 @@ msgid "Confirm"
 msgstr "確認"
 
 #: src/Languages.cpp
-#, fuzzy
 msgid "Simplified"
-msgstr "! 単純化した見えかた"
+msgstr ""
 
 #: src/Languages.cpp
-#, fuzzy
 msgid "System"
-msgstr "システム年月日(&D)"
+msgstr "システムの言語"
 
 #: src/Legacy.cpp
 msgid "Error Converting Legacy Project File"
