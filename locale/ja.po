@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:27+0900\n"
+"PO-Revision-Date: 2021-02-12 22:45+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -6261,23 +6261,20 @@ msgid "Increases or decreases the volume of the audio you have selected"
 msgstr "選択した音声の音量を増加または減少させます"
 
 #: src/effects/Amplify.cpp
-#, fuzzy
 msgid "&Amplification (dB):"
-msgstr "増幅 (dB):"
+msgstr "増幅 (dB) (&A):"
 
 #: src/effects/Amplify.cpp
 msgid "Amplification dB"
 msgstr "増幅 dB"
 
 #: src/effects/Amplify.cpp
-#, fuzzy
 msgid "&New Peak Amplitude (dB):"
-msgstr "新規最大振幅 (dB):"
+msgstr "新規最大振幅 (dB) (&N):"
 
 #: src/effects/Amplify.cpp
-#, fuzzy
 msgid "Allo&w clipping"
-msgstr "クリッピングを許容する"
+msgstr "クリッピングを許容する(&W)"
 
 # jp: 独自アクセスキー
 #: src/effects/AutoDuck.cpp
@@ -6305,12 +6302,11 @@ msgstr "自動ダッキングは、選択したトラックの下にコントロ
 
 #: src/effects/AutoDuck.cpp src/effects/TruncSilence.cpp
 msgid "db"
-msgstr ""
+msgstr "dB"
 
 #: src/effects/AutoDuck.cpp
-#, fuzzy
 msgid "Duck &amount:"
-msgstr "ダッキング量:"
+msgstr "ダッキング量(&A):"
 
 #. i18n-hint: Name of time display format that shows time in seconds
 #: src/effects/AutoDuck.cpp src/effects/TruncSilence.cpp
@@ -6320,35 +6316,29 @@ msgid "seconds"
 msgstr "秒"
 
 #: src/effects/AutoDuck.cpp
-#, fuzzy
 msgid "Ma&ximum pause:"
-msgstr "最大休止長さ:"
+msgstr "最大休止長さ(&X):"
 
 #: src/effects/AutoDuck.cpp
-#, fuzzy
 msgid "Outer fade &down length:"
-msgstr "外側のフェードダウンする長さ:"
+msgstr "外側のフェードダウンする長さ(&D):"
 
 #: src/effects/AutoDuck.cpp
-#, fuzzy
 msgid "Outer fade &up length:"
-msgstr "外側のフェードアップする長さ:"
+msgstr "外側のフェードアップする長さ(&U):"
 
 #: src/effects/AutoDuck.cpp
-#, fuzzy
 msgid "Inner fade d&own length:"
-msgstr "内側のフェードダウンする長さ:"
+msgstr "内側のフェードダウンする長さ(&O):"
 
 #: src/effects/AutoDuck.cpp
-#, fuzzy
 msgid "Inner &fade up length:"
-msgstr "内側のフェードアップする長さ:"
+msgstr "内側のフェードアップする長さ(&F):"
 
 #: src/effects/AutoDuck.cpp src/effects/Compressor.cpp
 #: src/effects/TruncSilence.cpp
-#, fuzzy
 msgid "&Threshold:"
-msgstr "閾値:"
+msgstr "閾値(&T):"
 
 #: src/effects/AutoDuck.cpp
 msgid "Preview not available"
@@ -6430,17 +6420,15 @@ msgstr "ピッチ"
 
 #. i18n-hint: changing musical pitch "from" one value "to" another
 #: src/effects/ChangePitch.cpp
-#, fuzzy
 msgctxt "change pitch"
 msgid "from"
 msgstr "変更前"
 
 #. i18n-hint: changing musical pitch "from" one value "to" another
 #: src/effects/ChangePitch.cpp
-#, fuzzy
 msgctxt "change pitch"
 msgid "&from"
-msgstr "変更前"
+msgstr "変更前(&F)"
 
 #: src/effects/ChangePitch.cpp
 msgid "from Octave"
@@ -6448,30 +6436,27 @@ msgstr "変更前オクターブ"
 
 #. i18n-hint: changing musical pitch "from" one value "to" another
 #: src/effects/ChangePitch.cpp
-#, fuzzy
 msgctxt "change pitch"
 msgid "to"
 msgstr "→ 変更後"
 
 #. i18n-hint: changing musical pitch "from" one value "to" another
 #: src/effects/ChangePitch.cpp
-#, fuzzy
 msgctxt "change pitch"
 msgid "&to"
-msgstr "→ 変更後"
+msgstr "→ 変更後(&T)"
 
 #: src/effects/ChangePitch.cpp
 msgid "to Octave"
-msgstr "変更前オクターブ"
+msgstr "変更後オクターブ"
 
 #: src/effects/ChangePitch.cpp
 msgid "Semitones (half-steps)"
 msgstr "音程差 (半音)"
 
 #: src/effects/ChangePitch.cpp
-#, fuzzy
 msgid "&Semitones (half-steps):"
-msgstr "音程差 (半音):"
+msgstr "音程差 (半音) (&S):"
 
 #: src/effects/ChangePitch.cpp
 msgid "Frequency"
@@ -6483,22 +6468,20 @@ msgstr "変更前 (Hz)"
 
 #: src/effects/ChangePitch.cpp
 msgid "f&rom"
-msgstr ""
+msgstr "変更前(&R)"
 
 #: src/effects/ChangePitch.cpp
 msgid "to (Hz)"
 msgstr "変更後 (Hz)"
 
 #: src/effects/ChangePitch.cpp src/effects/Loudness.cpp
-#, fuzzy
 msgid "t&o"
-msgstr "→ 変更後"
+msgstr "→ 変更後(&O)"
 
 #: src/effects/ChangePitch.cpp src/effects/ChangeSpeed.cpp
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgid "Percent C&hange:"
-msgstr "変更率 (%):"
+msgstr "変更率 (%) (&H):"
 
 #: src/effects/ChangePitch.cpp src/effects/ChangeSpeed.cpp
 #: src/effects/ChangeTempo.cpp
@@ -6506,23 +6489,20 @@ msgid "Percent Change"
 msgstr "変更率 (%)"
 
 #: src/effects/ChangePitch.cpp src/effects/ChangeTempo.cpp
-#, fuzzy
 msgid "&Use high quality stretching (slow)"
-msgstr "高品質な伸縮を使用 (低速)"
+msgstr "高品質な伸縮を使用 (低速) (&U)"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "33⅓"
-msgstr ""
+msgstr "33 + 1/3"
 
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgid "45"
-msgstr "145"
+msgstr "45"
 
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgid "78"
-msgstr "8"
+msgstr "78"
 
 #. i18n-hint: n/a is an English abbreviation meaning "not applicable".
 #. i18n-hint: Can mean "not available," "not applicable," "no answer"
@@ -6547,9 +6527,8 @@ msgid "Change Speed, affecting both Tempo and Pitch"
 msgstr "速度の変更 (テンポとピッチの双方に影響します)"
 
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgid "&Speed Multiplier:"
-msgstr "速度倍増:"
+msgstr "速度倍増(&S):"
 
 #. i18n-hint: "rpm" is an English abbreviation meaning "revolutions per minute".
 #. "vinyl" refers to old-fashioned phonograph records
@@ -6566,10 +6545,9 @@ msgstr "変更前回転数"
 
 #. i18n-hint: changing speed of audio "from" one value "to" another
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgctxt "change speed"
 msgid "&from"
-msgstr "変更前"
+msgstr "変更前(&F)"
 
 #. i18n-hint: changing speed of audio "from" one value "to" another
 #. "rpm" means "revolutions per minute" as on a vinyl record turntable
@@ -6580,19 +6558,17 @@ msgstr "変更後回転数"
 
 #. i18n-hint: changing speed of audio "from" one value "to" another
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgctxt "change speed"
 msgid "&to"
-msgstr "→ 変更後"
+msgstr "→ 変更後(&T)"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "Selection Length"
 msgstr "選択する長さ"
 
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgid "C&urrent Length:"
-msgstr "現在の長さ:"
+msgstr "現在の長さ(&U):"
 
 #: src/effects/ChangeSpeed.cpp
 msgid "Current length of selection."
@@ -6600,19 +6576,16 @@ msgstr "現在の選択されている長さです。"
 
 #. i18n-hint: changing speed of audio "from" one value "to" another
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgctxt "change speed"
 msgid "from"
 msgstr "変更前"
 
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgid "&New Length:"
-msgstr "新しい長さ:"
+msgstr "新しい長さ(&N):"
 
 #. i18n-hint: changing speed of audio "from" one value "to" another
 #: src/effects/ChangeSpeed.cpp
-#, fuzzy
 msgctxt "change speed"
 msgid "to"
 msgstr "→ 変更後"
@@ -6646,10 +6619,9 @@ msgstr "1 分間の拍数 (BPM)、変更前"
 
 #. i18n-hint: changing tempo "from" one value "to" another
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgctxt "change tempo"
 msgid "&from"
-msgstr "変更前"
+msgstr "変更前(&F)"
 
 #. i18n-hint: changing tempo "from" one value "to" another
 #: src/effects/ChangeTempo.cpp
@@ -6658,10 +6630,9 @@ msgstr "1 分間の拍数 (BPM)、変更後"
 
 #. i18n-hint: changing tempo "from" one value "to" another
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgctxt "change tempo"
 msgid "&to"
-msgstr "→ 変更後"
+msgstr "→ 変更後(&T)"
 
 #: src/effects/ChangeTempo.cpp
 msgid "Length (seconds)"
@@ -6669,17 +6640,15 @@ msgstr "長さ (秒)"
 
 #. i18n-hint: changing tempo "from" one value "to" another
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgctxt "change tempo"
 msgid "from"
 msgstr "変更前"
 
 #. i18n-hint: changing tempo "from" one value "to" another
 #: src/effects/ChangeTempo.cpp
-#, fuzzy
 msgctxt "change tempo"
 msgid "t&o"
-msgstr "→ 変更後"
+msgstr "→ 変更後(&O)"
 
 #: src/effects/ChangeTempo.cpp
 #, c-format
@@ -6706,18 +6675,16 @@ msgid "Selection must be larger than %d samples."
 msgstr "選択範囲は %d サンプル以上でなくてはなりません。"
 
 #: src/effects/ClickRemoval.cpp
-#, fuzzy
 msgid "&Threshold (lower is more sensitive):"
-msgstr "閾値の選択 (低くすると感度が高くなります):"
+msgstr "閾値の選択 (低くするほど高感度) (&T):"
 
 #: src/effects/ClickRemoval.cpp src/effects/Compressor.cpp
 msgid "Threshold"
 msgstr "閾値"
 
 #: src/effects/ClickRemoval.cpp
-#, fuzzy
 msgid "Max &Spike Width (higher is more sensitive):"
-msgstr "最大スパイク幅 (大きくすると、より感度が高くなります)"
+msgstr "最大スパイク幅 (大きくするほど高感度) (&S)"
 
 #: src/effects/ClickRemoval.cpp
 msgid "Max Spike Width"
@@ -6774,18 +6741,16 @@ msgid "Ratio %.1f to 1"
 msgstr "レシオ %.1f～1"
 
 #: src/effects/Compressor.cpp
-#, fuzzy
 msgid "&Noise Floor:"
-msgstr "ノイズフロア:"
+msgstr "ノイズフロア(&N):"
 
 #: src/effects/Compressor.cpp src/effects/Distortion.cpp
 msgid "Noise Floor"
 msgstr "ノイズフロア"
 
 #: src/effects/Compressor.cpp
-#, fuzzy
 msgid "&Ratio:"
-msgstr "レシオ:"
+msgstr "レシオ(&R):"
 
 #: src/effects/Compressor.cpp
 msgid "Ratio"
@@ -6795,9 +6760,8 @@ msgstr "レシオ"
 #. * an 'attack' phase where the sound builds up and a 'decay' where the
 #. * sound dies away.  So this means 'onset duration'.
 #: src/effects/Compressor.cpp
-#, fuzzy
 msgid "&Attack Time:"
-msgstr "アタックタイム:"
+msgstr "アタックタイム(&A):"
 
 #. i18n-hint: Particularly in percussion, sounds can be regarded as having
 #. * an 'attack' phase where the sound builds up and a 'decay' where the
@@ -6810,9 +6774,8 @@ msgstr "アタックタイム"
 #. * an 'attack' phase where the sound builds up and a 'decay' or 'release' where the
 #. * sound dies away.
 #: src/effects/Compressor.cpp
-#, fuzzy
 msgid "R&elease Time:"
-msgstr "リリースタイム:"
+msgstr "リリースタイム(&E):"
 
 #. i18n-hint: Particularly in percussion, sounds can be regarded as having
 #. * an 'attack' phase where the sound builds up and a 'decay' or 'release' where the
@@ -6823,16 +6786,14 @@ msgstr "リリースタイム"
 
 #. i18n-hint: Make-up, i.e. correct for any reduction, rather than fabricate it.
 #: src/effects/Compressor.cpp
-#, fuzzy
 msgid "Ma&ke-up gain for 0 dB after compressing"
-msgstr "圧縮の後 0dB になるようにメイクアップ"
+msgstr "圧縮の後 0dB になるようにメイクアップ(&K)"
 
 #. i18n-hint: "Compress" here means reduce variations of sound volume,
 #. NOT related to file-size compression; Peaks means extremes in volume
 #: src/effects/Compressor.cpp
-#, fuzzy
 msgid "C&ompress based on Peaks"
-msgstr "ピークに基づく圧縮"
+msgstr "ピークに基づく圧縮(&O)"
 
 #: src/effects/Compressor.cpp
 #, c-format
@@ -7159,7 +7120,7 @@ msgstr "Rectifier Distortion"
 msgid "Hard Limiter 1413"
 msgstr "Hard Limiter 1413"
 
-# jp: ここから下はプリセット名には無い
+# jp: ここから下はディストーションの種類ではなくファクトリープリセット
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Hard clip -12dB, 80% make-up gain"
@@ -7341,33 +7302,28 @@ msgid "Residual level"
 msgstr "残りレベル"
 
 #: src/effects/Distortion.cpp
-#, fuzzy
 msgid "(Not Used):"
-msgstr " (不使用):"
+msgstr "(不使用):"
 
 #. i18n-hint: Control range.
 #: src/effects/Distortion.cpp
-#, fuzzy
 msgid "(-100 to 0 dB):"
-msgstr " (-100～0 dB):"
+msgstr "(-100～0 dB):"
 
 #. i18n-hint: Control range.
 #: src/effects/Distortion.cpp
-#, fuzzy
 msgid "(-80 to -20 dB):"
-msgstr " (-80～-20 dB):"
+msgstr "(-80～-20 dB):"
 
 #. i18n-hint: Control range.
 #: src/effects/Distortion.cpp
-#, fuzzy
 msgid "(0 to 100):"
-msgstr " (0～100):"
+msgstr "(0～100):"
 
 #. i18n-hint: Control range.
 #: src/effects/Distortion.cpp
-#, fuzzy
 msgid "(0 to 5):"
-msgstr " (0～5):"
+msgstr "(0～5):"
 
 # jp: 独自アクセスキー
 #: src/effects/DtmfGen.cpp
@@ -7383,16 +7339,16 @@ msgid ""
 "DTMF sequence empty.\n"
 "Check ALL settings for this effect."
 msgstr ""
+"DTMF シーケンスが空です。\n"
+"エフェクトのすべての設定を必ず確認してください。"
 
 #: src/effects/DtmfGen.cpp
-#, fuzzy
 msgid "DTMF &sequence:"
-msgstr "DTMF シーケンス:"
+msgstr "DTMF シーケンス(&S):"
 
 #: src/effects/DtmfGen.cpp src/effects/Noise.cpp src/effects/ToneGen.cpp
-#, fuzzy
 msgid "&Amplitude (0-1):"
-msgstr "振幅 (0～1):"
+msgstr "振幅 (0～1) (&A):"
 
 #: src/effects/DtmfGen.cpp src/effects/Noise.cpp src/effects/Silence.cpp
 #: src/effects/ToneGen.cpp src/effects/TruncSilence.cpp
@@ -7401,18 +7357,17 @@ msgid "&Duration:"
 msgstr "継続時間(&D):"
 
 #: src/effects/DtmfGen.cpp
-#, fuzzy
 msgid "&Tone/silence ratio:"
-msgstr "トーンと無音の比:"
+msgstr "トーンと無音の比(&T):"
 
 #: src/effects/DtmfGen.cpp
 msgid "Duty cycle:"
 msgstr "デューティ比:"
 
 #: src/effects/DtmfGen.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%.1f %%"
-msgstr "%.1f 秒"
+msgstr "%.1f %%"
 
 #: src/effects/DtmfGen.cpp
 msgid "Tone duration:"
@@ -7430,9 +7385,9 @@ msgstr "無音持続時間:"
 
 #. i18n-hint milliseconds
 #: src/effects/DtmfGen.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%0.f ms"
-msgstr "%.0f ms"
+msgstr "%0.f ms"
 
 # jp: 独自アクセスキー
 #: src/effects/Echo.cpp
@@ -7450,14 +7405,12 @@ msgid "Requested value exceeds memory capacity."
 msgstr "指定された値はメモリの許容範囲外です。"
 
 #: src/effects/Echo.cpp
-#, fuzzy
 msgid "&Delay time (seconds):"
-msgstr "ディレイ時間 (秒):"
+msgstr "ディレイ時間 (秒) (&D):"
 
 #: src/effects/Echo.cpp
-#, fuzzy
 msgid "D&ecay factor:"
-msgstr "減衰倍数:"
+msgstr "減衰倍数(&E):"
 
 # jp: 独自アクセスキー
 #: src/effects/Effect.cpp
@@ -7465,14 +7418,12 @@ msgid "Built-in"
 msgstr "内蔵エフェクト(&B)"
 
 #: src/effects/Effect.cpp
-#, fuzzy
 msgid "Presets"
 msgstr "プリセット"
 
 #: src/effects/Effect.cpp
-#, fuzzy
 msgid "Export Effect Parameters"
-msgstr "パラメータを編集(&E)"
+msgstr "エフェクトパラメーターの書き出し"
 
 #: src/effects/Effect.cpp src/effects/VST/VSTEffect.cpp
 #: src/xml/XMLFileReader.cpp
@@ -7490,21 +7441,20 @@ msgid "Error writing to file: \"%s\""
 msgstr "ファイルの書き込みエラー:「%s」"
 
 #: src/effects/Effect.cpp
-#, fuzzy
 msgid "Import Effect Parameters"
-msgstr "パラメータを編集(&E)"
+msgstr "エフェクトパラメーターの取り込み"
 
 #. i18n-hint %s will be replaced by a file name
 #: src/effects/Effect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s: is not a valid presets file.\n"
-msgstr "「%s」は適正なファイルパスではありません。"
+msgstr "「%s」は適正なプリセットファイルではありません。\n"
 
 #. i18n-hint %s will be replaced by a file name
 #: src/effects/Effect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s: is for a different Effect, Generator or Analyzer.\n"
-msgstr "プラグインマネージャ: エフェクト、ジェネレーターおよび解析"
+msgstr "「%s」は他のエフェクト、ジェネレーター、解析機能のファイルです。\n"
 
 #: src/effects/Effect.cpp
 msgid "Preparing preview"
@@ -7548,7 +7498,7 @@ msgstr "ユーザープリセット(&U)"
 # jp: 独自アクセスキー
 #: src/effects/EffectManager.cpp src/effects/EffectUI.cpp
 msgid "Factory Presets"
-msgstr "出荷時プリセット(&F)"
+msgstr "ファクトリープリセット(&F)"
 
 #: src/effects/EffectManager.cpp
 msgid "Current Settings"
@@ -7556,10 +7506,10 @@ msgstr "現在の設定"
 
 #: src/effects/EffectManager.cpp
 msgid "Factory Defaults"
-msgstr "出荷時設定"
+msgstr "ファクトリーデフォルト設定"
 
 #: src/effects/EffectManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Attempting to initialize the following effect failed:\n"
 "\n"
@@ -7571,14 +7521,14 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください"
+"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください。"
 
 #: src/effects/EffectManager.cpp
 msgid "Effect failed to initialize"
 msgstr "エフェクトの初期化に失敗しました"
 
 #: src/effects/EffectManager.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Attempting to initialize the following command failed:\n"
 "\n"
@@ -7590,7 +7540,7 @@ msgstr ""
 "\n"
 "%s\n"
 "\n"
-"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください"
+"詳細情報は、[ヘルプ] > [診断] > [ログの表示] をご覧ください。"
 
 #: src/effects/EffectManager.cpp
 msgid "Command failed to initialize"
@@ -7837,71 +7787,67 @@ msgid "Equalization"
 msgstr "イコライザー (EQ) (&Q)"
 
 #: src/effects/Equalization.cpp plug-ins/eq-xml-to-txt-converter.ny
-#, fuzzy
 msgid "Filter Curve EQ"
-msgstr "曲線を選択"
+msgstr "EQ フィルター曲線"
 
+# jp: 独自アクセスキー
 #: src/effects/Equalization.cpp plug-ins/eq-xml-to-txt-converter.ny
 msgid "Graphic EQ"
-msgstr "グラフィック EQ"
+msgstr "グラフィック EQ(&G)"
 
 # jp: 説明
 #: src/effects/Equalization.cpp
 msgid "Adjusts the volume levels of particular frequencies"
 msgstr "特定の周波数の音量を調節します"
 
+# jp: 以下、ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "100Hz Rumble"
-msgstr ""
+msgstr "100Hz Rumble"
 
 #: src/effects/Equalization.cpp
 msgid "AM Radio"
-msgstr ""
+msgstr "AM Radio"
 
 #: src/effects/Equalization.cpp
 msgid "Bass Boost"
-msgstr "低域の強調"
+msgstr "Bass Boost"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid "Bass Cut"
-msgstr "低域の強調"
+msgstr "Bass Cut"
 
 #: src/effects/Equalization.cpp
 msgid "Low rolloff for speech"
-msgstr ""
+msgstr "Low rolloff for speech"
 
 #: src/effects/Equalization.cpp
 msgid "RIAA"
-msgstr ""
+msgstr "RIAA"
 
 #: src/effects/Equalization.cpp
 msgid "Telephone"
-msgstr ""
+msgstr "Telephone"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid "Treble Boost"
-msgstr "高域"
+msgstr "Treble Boost"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid "Treble Cut"
-msgstr "高域"
+msgstr "Treble Cut"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid ""
 "To use this filter curve in a macro, please choose a new name for it.\n"
 "Choose the 'Save/Manage Curves...' button and rename the 'unnamed' curve, then use that one."
 msgstr ""
-"EQ 曲線をマクロの中で使うには、新しい名前を選択してください。\n"
+"このフィルター曲線をマクロの中で使うには、新しい名前を選択してください。\n"
 "「曲線の保存/管理...」を選択し、「無題」曲線をリネームしてからご使用ください。"
 
 #: src/effects/Equalization.cpp
-#, fuzzy
 msgid "Filter Curve EQ needs a different name"
-msgstr "EQ 曲線には別の名前が必要です"
+msgstr "EQ フィルター曲線には別の名前が必要です"
 
 #: src/effects/Equalization.cpp
 msgid "To apply Equalization, all selected tracks must have the same sample rate."
@@ -7948,13 +7894,13 @@ msgstr "%g kHz"
 
 #. i18n-hint k is SI abbreviation for x1,000.  Usually unchanged in translation.
 #: src/effects/Equalization.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%gk"
-msgstr "%g kHz"
+msgstr "%gk"
 
 #: src/effects/Equalization.cpp
 msgid "&EQ Type:"
-msgstr "EQ タイプ(&E):"
+msgstr "EQ の種類(&E):"
 
 #: src/effects/Equalization.cpp
 msgid "Draw Curves"
@@ -7970,7 +7916,7 @@ msgstr "グラフィック(&G)"
 
 #: src/effects/Equalization.cpp
 msgid "Interpolation type"
-msgstr "補完タイプ"
+msgstr "補間タイプ"
 
 #: src/effects/Equalization.cpp
 msgid "Linear Frequency Scale"
@@ -8258,14 +8204,12 @@ msgid "Clipping"
 msgstr "クリッピング"
 
 #: src/effects/FindClipping.cpp
-#, fuzzy
 msgid "&Start threshold (samples):"
-msgstr "開始閾値 (サンプル数)"
+msgstr "開始閾値 (サンプル数) (&S):"
 
 #: src/effects/FindClipping.cpp
-#, fuzzy
 msgid "St&op threshold (samples):"
-msgstr "停止閾値 (サンプル数)"
+msgstr "停止閾値 (サンプル数) (&O):"
 
 #: src/effects/Generator.cpp
 msgid "There is not enough room available to generate the audio"
@@ -8293,27 +8237,25 @@ msgid "Unknown built-in effect name"
 msgstr "不明な内蔵エフェクト名"
 
 #: src/effects/Loudness.cpp
-#, fuzzy
 msgid "perceived loudness"
-msgstr "ラウドネスをノーマライズ"
+msgstr "知覚的ラウドネス"
 
 #: src/effects/Loudness.cpp src/widgets/Meter.cpp
 msgid "RMS"
 msgstr "RMS"
 
+# jp: 独自アクセスキー
 #: src/effects/Loudness.cpp
 msgid "Loudness Normalization"
-msgstr ""
+msgstr "ラウドネスノーマライズ(&Z)"
 
 #: src/effects/Loudness.cpp
-#, fuzzy
 msgid "Sets the loudness of one or more tracks"
-msgstr "1 つ以上のトラックに対して最大振幅値を設定します"
+msgstr "1 つ以上のトラックに対してラウドネスを設定します"
 
 #: src/effects/Loudness.cpp
-#, fuzzy
 msgid "Normalizing Loudness...\n"
-msgstr "ラウドネスをノーマライズ"
+msgstr "ラウドネスをノーマライズ中...\n"
 
 #: src/effects/Loudness.cpp src/effects/Normalize.cpp
 #, c-format
@@ -8325,11 +8267,9 @@ msgstr "解析中: %s"
 msgid "Processing: %s"
 msgstr "処理中: %s"
 
-# jp: 独自アクセスキー
 #: src/effects/Loudness.cpp
-#, fuzzy
 msgid "&Normalize"
-msgstr "ノーマライズ(&Z)"
+msgstr "ノーマライズ対象(&N)"
 
 #. i18n-hint: LUFS is a particular method for measuring loudnesss
 #: src/effects/Loudness.cpp
@@ -8342,16 +8282,15 @@ msgstr "LUFS"
 
 #: src/effects/Loudness.cpp
 msgid "RMS dB"
-msgstr ""
+msgstr "RMS dB"
 
 #: src/effects/Loudness.cpp
-#, fuzzy
 msgid "Normalize &stereo channels independently"
-msgstr "ステレオチャンネルごとの正規化"
+msgstr "ステレオチャンネルごとにノーマライズ(&S)"
 
 #: src/effects/Loudness.cpp
 msgid "&Treat mono as dual-mono (recommended)"
-msgstr ""
+msgstr "モノラル音声をデュアルモノラルとして扱う (推奨) (&T)"
 
 #: src/effects/Loudness.cpp src/effects/Normalize.cpp
 msgid "(Maximum 0dB)"
@@ -8359,22 +8298,19 @@ msgstr "(最大 0dB)"
 
 #. i18n-hint: not a color, but "white noise" having a uniform spectrum
 #: src/effects/Noise.cpp
-#, fuzzy
 msgctxt "noise"
 msgid "White"
-msgstr "白"
+msgstr "ホワイトノイズ"
 
 #. i18n-hint: not a color, but "pink noise" having a spectrum with more power
 #. in low frequencies
 #: src/effects/Noise.cpp
-#, fuzzy
 msgctxt "noise"
 msgid "Pink"
 msgstr "ピンクノイズ"
 
 #. i18n-hint: a kind of noise spectrum also known as "red" or "brown"
 #: src/effects/Noise.cpp
-#, fuzzy
 msgctxt "noise"
 msgid "Brownian"
 msgstr "ブラウニアンノイズ"
@@ -8386,49 +8322,58 @@ msgstr "ノイズ(&N)"
 
 #: src/effects/Noise.cpp
 msgid "Generates one of three different types of noise"
-msgstr "ノイズの発生 (3 種類)"
+msgstr "3 種類の異なるノイズを生成します"
 
 #: src/effects/Noise.cpp
-#, fuzzy
 msgid "&Noise type:"
-msgstr "ノイズの種類:"
+msgstr "ノイズの種類(&N):"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Median"
-msgstr "メディアン"
+msgstr "Median"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Second greatest"
-msgstr "2 番目"
+msgstr "Second greatest"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Old"
 msgstr "Old"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "none, Hann (2.0.6 behavior)"
 msgstr "none, Hann (2.0.6 behavior)"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hann, none"
 msgstr "Hann, none"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hann, Hann (default)"
 msgstr "Hann, Hann (default)"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Blackman, Hann"
 msgstr "Blackman, Hann"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hamming, none"
 msgstr "Hamming, none"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hamming, Hann"
 msgstr "Hamming, Hann"
 
+# jp: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hamming, Reciprocal Hamming"
 msgstr "Hamming, Reciprocal Hamming"
@@ -8573,14 +8518,12 @@ msgid "Advanced Settings"
 msgstr "高度な設定"
 
 #: src/effects/NoiseReduction.cpp
-#, fuzzy
 msgid "&Window types:"
-msgstr "ウィンドウタイプ(&W)"
+msgstr "窓関数の種類(&W):"
 
 #: src/effects/NoiseReduction.cpp
-#, fuzzy
 msgid "Window si&ze:"
-msgstr "ウィンドウサイズ(&Z)"
+msgstr "窓関数のサイズ(&Z):"
 
 #: src/effects/NoiseReduction.cpp src/export/ExportFFmpegDialogs.cpp
 msgid "8"
@@ -8616,7 +8559,7 @@ msgstr "1024"
 
 #: src/effects/NoiseReduction.cpp
 msgid "2048 (default)"
-msgstr "2048(デフォルト)"
+msgstr "2048 (デフォルト)"
 
 #: src/effects/NoiseReduction.cpp src/prefs/SpectrumPrefs.cpp
 msgid "4096"
@@ -8631,9 +8574,8 @@ msgid "16384"
 msgstr "16384"
 
 #: src/effects/NoiseReduction.cpp
-#, fuzzy
 msgid "S&teps per window:"
-msgstr "ウィンドウあたりのステップ(&T)"
+msgstr "窓あたりのステップ数(&T):"
 
 #: src/effects/NoiseReduction.cpp src/export/ExportFFmpegDialogs.cpp
 #: src/export/ExportFLAC.cpp
@@ -8642,12 +8584,11 @@ msgstr "2"
 
 #: src/effects/NoiseReduction.cpp
 msgid "4 (default)"
-msgstr "4(デフォルト)"
+msgstr "4 (デフォルト)"
 
 #: src/effects/NoiseReduction.cpp
-#, fuzzy
 msgid "Discrimination &method:"
-msgstr "判定法(&M)"
+msgstr "判定法(&M):"
 
 #: src/effects/NoiseRemoval.cpp
 msgid "Noise Removal"
@@ -8740,23 +8681,20 @@ msgid "Processing second track of stereo pair: %s"
 msgstr "ステレオ対の 2 番目のトラックを処理中: %s"
 
 #: src/effects/Normalize.cpp
-#, fuzzy
 msgid "&Remove DC offset (center on 0.0 vertically)"
-msgstr "DC オフセットの削除 (センターを 0.0 にします)"
+msgstr "DC オフセットの削除 (センターを 0.0 にします) (&R)"
 
 #: src/effects/Normalize.cpp
-#, fuzzy
 msgid "&Normalize peak amplitude to   "
-msgstr "最大振幅をノーマライズ"
+msgstr "最大振幅をノーマライズ(&N):   "
 
 #: src/effects/Normalize.cpp
 msgid "Peak amplitude dB"
 msgstr "最大振幅 dB"
 
 #: src/effects/Normalize.cpp
-#, fuzzy
 msgid "N&ormalize stereo channels independently"
-msgstr "ステレオチャンネルごとの正規化"
+msgstr "ステレオチャンネルごとにノーマライズ(&O)"
 
 # jp: 独自アクセスキー
 # jp: 連続的伸縮は「伸縮」なのに対しこちらは「ストレッチ」なので、特別に同じグループになるようまとめる
@@ -8774,14 +8712,12 @@ msgstr "Paul ストレッチは、極端な時間伸縮か「停滞」的エフ�
 #. * will give an (approximately) 10 second sound
 #.
 #: src/effects/Paulstretch.cpp
-#, fuzzy
 msgid "&Stretch Factor:"
-msgstr "伸縮倍数:"
+msgstr "伸縮倍数(&S):"
 
 #: src/effects/Paulstretch.cpp
-#, fuzzy
 msgid "&Time Resolution (seconds):"
-msgstr "時間分解能 (秒):"
+msgstr "時間分解能 (秒) (&T):"
 
 #. i18n-hint: 'Time Resolution' is the name of a control in the Paulstretch effect.
 #: src/effects/Paulstretch.cpp
@@ -8909,7 +8845,7 @@ msgstr ""
 "修復エフェクトは、損傷した音声データのとても短い領域 (128 サンプルまで)\n"
 "に対して使用することが意図されています。\n"
 "\n"
-"ズームして、1 秒よりずっと短い修復したい部分を選んでください。"
+"ズームして、修復対象領域を 1 秒よりもずっと短く選択してください。"
 
 #: src/effects/Repair.cpp
 msgid ""
@@ -8936,9 +8872,8 @@ msgid "Repeats the selection the specified number of times"
 msgstr "指定された回数だけその領域を繰り返します"
 
 #: src/effects/Repeat.cpp
-#, fuzzy
 msgid "&Number of repeats to add:"
-msgstr "繰り返し回数の追加:"
+msgstr "繰り返し回数の追加(&N):"
 
 #: src/effects/Repeat.cpp
 msgid "Current selection length: dd:hh:mm:ss"
@@ -8960,7 +8895,7 @@ msgstr "新しい選択範囲: %s"
 
 #: src/effects/Repeat.cpp
 msgid "Warning: No repeats."
-msgstr "警告: リピートがありません。"
+msgstr "警告: 繰り返しがありません。"
 
 #: src/effects/Reverb.cpp
 msgid "Vocal I"
@@ -9050,9 +8985,9 @@ msgstr "ウェットのみ(&N)"
 
 # jp: 独自アクセスキー
 #: src/effects/Reverb.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Reverb: %s"
-msgstr "リバーブ(&R)"
+msgstr "リバーブ: %s"
 
 # jp: 独自アクセスキー
 #: src/effects/Reverse.cpp
@@ -9063,9 +8998,10 @@ msgstr "前後を反転(&V)"
 msgid "Reverses the selected audio"
 msgstr "選択した音声の反転"
 
+# jp: "in fact this symbol does not get used"
 #: src/effects/SBSMSEffect.h
 msgid "SBSMS Time / Pitch Stretch"
-msgstr ""
+msgstr "SBSMS Time / Pitch Stretch"
 
 #. i18n-hint: Butterworth is the name of the person after whom the filter type is named.
 #: src/effects/ScienFilter.cpp
@@ -9090,14 +9026,15 @@ msgstr "ローパスフィルター"
 msgid "Highpass"
 msgstr "ハイパスフィルター"
 
+# jp: 独自アクセスキー
 #: src/effects/ScienFilter.cpp
 msgid "Classic Filters"
-msgstr "クラッシックフィルター"
+msgstr "クラシックフィルター(&F)"
 
 #. i18n-hint: "infinite impulse response"
 #: src/effects/ScienFilter.cpp
 msgid "Performs IIR filtering that emulates analog filters"
-msgstr "アナログフィルタをエミュレートする IIR フィルタを実行します"
+msgstr "アナログフィルターをエミュレートする IIR フィルタを実行します"
 
 #: src/effects/ScienFilter.cpp
 msgid "To apply a filter, all selected tracks must have the same sample rate."
@@ -9161,6 +9098,7 @@ msgid "Window Size"
 msgstr "ウィンドウサイズ"
 
 #: src/effects/ScoreAlignDialog.cpp
+#, fuzzy
 msgid "Force Final Alignment"
 msgstr "強制最終アラインメント"
 
@@ -9234,10 +9172,8 @@ msgid "%.3f"
 msgstr "%.3f"
 
 # jp: 独自アクセスキー
-# jp: 「編集」メニューにおいては、無音化を元に戻すという意味で「無音(S) を元に戻す」と表示されるので変。無音化のアクセスキーはOだし…
 #. i18n-hint: noun
 #: src/effects/Silence.cpp
-#, fuzzy
 msgctxt "generator"
 msgid "Silence"
 msgstr "無音(&S)"
@@ -9252,22 +9188,19 @@ msgstr "ステレオからモノラルへ"
 
 #: src/effects/StereoToMono.cpp
 msgid "Converts stereo tracks to mono"
-msgstr "ステレオからモノラルへ"
+msgstr "ステレオトラックをモノラルに変換します"
 
 #: src/effects/StereoToMono.cpp
-#, fuzzy
 msgid "Resampling left channel"
-msgstr "再サンプリングに失敗しました。"
+msgstr "左チャンネルを再サンプリングしています"
 
 #: src/effects/StereoToMono.cpp
-#, fuzzy
 msgid "Resampling right channel"
-msgstr "右チャンネル"
+msgstr "右チャンネルを再サンプリングしています"
 
 #: src/effects/StereoToMono.cpp
-#, fuzzy
 msgid "Mixing down to mono"
-msgstr "書き出し時にモノラルにミックスダウンする場合(&M)"
+msgstr "モノラルにミックスダウンしています"
 
 # jp: 独自アクセスキー
 # jp: Paul ストレッチは「ストレッチ」なのに対しこちらは「伸縮」なので、特別に同じグループになるようまとめる
@@ -9292,9 +9225,8 @@ msgid "Initial Pitch Shift"
 msgstr "ピッチシフト初期値"
 
 #: src/effects/TimeScale.cpp
-#, fuzzy
 msgid "(&semitones) [-12 to 12]:"
-msgstr "(半音) [-12～12]:"
+msgstr "(半音) [-12～12] (&S):"
 
 #: src/effects/TimeScale.cpp
 msgid "(%) [-50 to 100]:"
@@ -9305,9 +9237,8 @@ msgid "Final Pitch Shift"
 msgstr "ピッチシフト終了値"
 
 #: src/effects/TimeScale.cpp
-#, fuzzy
 msgid "(s&emitones) [-12 to 12]:"
-msgstr "(半音) [-12～12]:"
+msgstr "(半音) [-12～12] (&E):"
 
 #: src/effects/ToneGen.cpp src/prefs/SpectrogramSettings.cpp
 msgid "Logarithmic"
@@ -9348,14 +9279,12 @@ msgid "Generates a constant frequency tone of one of four types"
 msgstr "4 種類の中から 1 つ選んで、一定周波数の音を生成します"
 
 #: src/effects/ToneGen.cpp
-#, fuzzy
 msgid "&Waveform:"
-msgstr "波形:"
+msgstr "波形(&W):"
 
 #: src/effects/ToneGen.cpp
-#, fuzzy
 msgid "&Frequency (Hz):"
-msgstr "周波数 (Hz):"
+msgstr "周波数 (Hz) (&F):"
 
 #: src/effects/ToneGen.cpp
 msgid "Frequency Hertz Start"
@@ -9374,9 +9303,8 @@ msgid "Amplitude End"
 msgstr "振幅 最終値"
 
 #: src/effects/ToneGen.cpp
-#, fuzzy
 msgid "I&nterpolation:"
-msgstr "補完:"
+msgstr "補間(&N):"
 
 #: src/effects/TruncSilence.cpp
 msgid "Truncate Detected Silence"
@@ -9406,23 +9334,20 @@ msgid "Detect Silence"
 msgstr "無音検出"
 
 #: src/effects/TruncSilence.cpp
-#, fuzzy
 msgid "Tr&uncate to:"
-msgstr "切り詰め:"
+msgstr "切り詰め(&U):"
 
 #: src/effects/TruncSilence.cpp src/import/ImportRaw.cpp
 msgid "%"
 msgstr "%"
 
 #: src/effects/TruncSilence.cpp
-#, fuzzy
 msgid "C&ompress to:"
-msgstr "圧縮:"
+msgstr "圧縮(&O):"
 
 #: src/effects/TruncSilence.cpp
-#, fuzzy
 msgid "Trunc&ate tracks independently"
-msgstr "トラックごとに切り詰め"
+msgstr "トラックごとに切り詰め(&A)"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "VST Effects"

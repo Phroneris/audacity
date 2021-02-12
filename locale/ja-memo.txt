@@ -54,10 +54,15 @@ Notepad++直書きで無理やり分離したエントリーを作っても、�
 msgid "Silence"
 が「編集」メニューにおいて、無音化を元に戻すという意味で「無音(S) を元に戻す」と表示されるので変。
 無音化のアクセスキーはOだし…。
+→分離して追加された…が、今度は「Silence を元に戻す」になっちゃった。
+  しかも、ジェネレーターのSilenceの翻訳が効かない。
 
 
 
 ■ これ何？
+
+#: src/effects/EffectUI.cpp
+msgid "Some Command"
 
 #: src/import/Import.cpp src/menus/ClipMenus.cpp
 #, c-format
