@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:00+0900\n"
+"PO-Revision-Date: 2021-02-12 22:03+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -3531,14 +3531,15 @@ msgid "Print"
 msgstr "印刷"
 
 #: src/Project.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "There is very little free disk space left on %s\n"
 "Please select a bigger temporary directory location in\n"
 "Directories Preferences."
 msgstr ""
-"ディスクの空き容量がわずかしか残っていません。\n"
-"環境設定で他の一時ディレクトリを選択してください。"
+"%s ドライブのディスク空き容量が非常にわずかです。\n"
+"環境設定から、もっと余裕のある一時ディレクトリを\n"
+"選択してください。"
 
 #: src/ProjectAudioManager.cpp
 #, c-format
