@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:19+0900\n"
+"PO-Revision-Date: 2021-02-12 22:23+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -4811,15 +4811,16 @@ msgid "Error Saving Tags File"
 msgstr "タグファイル保存エラー"
 
 #: src/TempDirectory.cpp
-#, fuzzy
 msgid "Unsuitable"
-msgstr "モジュールが不適合です"
+msgstr "不適合"
 
 #: src/TempDirectory.cpp
 msgid ""
 "The temporary files directory is on a FAT formatted drive.\n"
 "Resetting to default location."
 msgstr ""
+"一時ファイルディレクトリに FAT フォーマットのドライブが指定されています。\n"
+"デフォルト値にリセットします。"
 
 #: src/TempDirectory.cpp
 #, c-format
@@ -4828,6 +4829,9 @@ msgid ""
 "\n"
 "For tips on suitable drives, click the help button."
 msgstr ""
+"%s\n"
+"\n"
+"適切なドライブ選択について知るには、ヘルプボタンをクリックしてください。"
 
 #: src/Theme.cpp
 #, c-format
