@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:24+0900\n"
+"PO-Revision-Date: 2021-02-12 21:27+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1713,9 +1713,8 @@ msgid "&Rename..."
 msgstr "リネーム(&R)..."
 
 #: src/BatchProcessDialog.cpp
-#, fuzzy
 msgid "Re&store"
-msgstr "選択範囲を復帰(&N)"
+msgstr "復旧(&S)"
 
 #: src/BatchProcessDialog.cpp src/LabelDialog.cpp src/effects/Equalization.cpp
 msgid "I&mport..."
