@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:02+0900\n"
+"PO-Revision-Date: 2021-02-12 21:04+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1464,19 +1464,18 @@ msgid "Automatic Crash Recovery"
 msgstr "クラッシュからの自動回復"
 
 #: src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid ""
 "The following projects were not saved properly the last time Audacity was run and can be automatically recovered.\n"
 "\n"
 "After recovery, save the projects to ensure changes are written to disk."
 msgstr ""
-"Audacity の最終実行時に適切に保存されなかったプロジェクトがあります。\n"
-"以下のプロジェクトは自動回復できる可能性があります:"
+"以下のプロジェクトは、Audacity の最終実行時に適切に保存されませんでしたが、自動回復が可能です。\n"
+"\n"
+"回復後には、データをディスクへ確実に書き込むために、プロジェクトを保存してください。"
 
 #: src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid "Recoverable &projects"
-msgstr "回復可能なプロジェクト"
+msgstr "回復可能なプロジェクト(&P)"
 
 #. i18n-hint: (verb).  It instruct the user to select items.
 #: src/AutoRecoveryDialog.cpp src/TrackInfo.cpp src/commands/SelectCommand.cpp
@@ -1490,34 +1489,30 @@ msgid "Name"
 msgstr "名前"
 
 #: src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid "&Discard Selected"
-msgstr " 選択"
+msgstr "選んだものを破棄(&D)"
 
 #: src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid "&Recover Selected"
-msgstr "選択なし"
+msgstr "選んだものを回復(&R)"
 
 #: src/AutoRecoveryDialog.cpp
 msgid "&Skip"
-msgstr ""
+msgstr "スキップ(&S)"
 
 #: src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid "No projects selected"
-msgstr "マクロが選択されていません"
+msgstr "プロジェクトが選択されていません"
 
 #: src/AutoRecoveryDialog.cpp
-#, fuzzy
 msgid ""
 "Are you sure you want to discard the selected projects?\n"
 "\n"
 "Choosing \"Yes\" permanently deletes the selected projects immediately."
 msgstr ""
-"すべての回復可能なプロジェクトを破棄してもよろしいですか？\n"
+"選択したプロジェクトを破棄してもよろしいですか？\n"
 "\n"
-"[はい] を選ぶとすべてのプロジェクトが即座に破棄されます。"
+"[はい] を選ぶと、すべてのプロジェクトは即座に、永久に削除されます。"
 
 #: src/BatchCommandDialog.cpp
 msgid "Select Command"
