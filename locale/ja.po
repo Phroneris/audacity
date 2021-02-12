@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:56+0900\n"
+"PO-Revision-Date: 2021-02-12 22:58+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -10166,11 +10166,13 @@ msgid "Mixer Panel"
 msgstr "ミキサーパネル"
 
 #: src/export/Export.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to export.\n"
 "Error %s"
-msgstr "書き出しできません"
+msgstr ""
+"書き出しできません。\n"
+"エラー %s"
 
 #: src/export/ExportCL.cpp
 msgid "Show output"
@@ -10188,9 +10190,8 @@ msgstr "データは標準入力にパイプされます。「%f」は書き出�
 
 #. i18n-hint files that can be run as programs
 #: src/export/ExportCL.cpp
-#, fuzzy
 msgid "Executables"
-msgstr "スクリプト用機能"
+msgstr "実行ファイル"
 
 #: src/export/ExportCL.cpp
 msgid "Find path to command"
@@ -10226,25 +10227,22 @@ msgid "&OK"
 msgstr "OK(&O)"
 
 #: src/export/ExportCL.cpp
-#, fuzzy
 msgid "You've specified a file name without an extension. Are you sure?"
-msgstr ""
-"識別できない拡張子のファイル名を選びました。\n"
-"続行しますか？"
+msgstr "拡張子のないファイル名を指定しました。よろしいですか？"
 
 #: src/export/ExportCL.cpp
 msgid "Program name appears to be missing."
-msgstr ""
+msgstr "プログラム名がないようです。"
 
 #: src/export/ExportCL.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "\"%s\" couldn't be found."
-msgstr "モジュール「%s」が見つかりました。"
+msgstr "「%s」が見つかりませんでした。"
 
 #: src/export/ExportCL.cpp
 #, c-format
 msgid "Unable to locate \"%s\" in your path."
-msgstr ""
+msgstr "「%s」をパスに配置できません"
 
 #: src/export/ExportFFmpeg.cpp
 msgid ""
@@ -10294,20 +10292,23 @@ msgstr ""
 
 #: src/export/ExportFFmpeg.cpp
 msgid "The codec reported a generic error (EPERM)"
-msgstr ""
+msgstr "コーデックが一般エラーを報知しました (EPERM)"
 
 #: src/export/ExportFFmpeg.cpp
 msgid "The codec reported an invalid parameter (EINVAL)"
-msgstr ""
+msgstr "コーデックが不正なパラメーターを報知しました (EINVAL)"
 
 #. i18n-hint: "codec" is short for a "coder-decoder" algorithm
 #: src/export/ExportFFmpeg.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Can't open audio codec \"%s\" (0x%x)\n"
 "\n"
 "%s"
-msgstr "FFmpeg : エラー - 音声コーデック 0x%x をオープンできません。"
+msgstr ""
+"音声コーデック「%s」を開けません (0x%x)\n"
+"\n"
+"%s"
 
 #: src/export/ExportFFmpeg.cpp
 msgid "FFmpeg : ERROR - Can't allocate buffer to read into from audio FIFO."
@@ -10409,9 +10410,8 @@ msgid "Bit Rate:"
 msgstr "ビットレート:"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Quality (kbps):"
-msgstr "品質:"
+msgstr "品質 (kbps):"
 
 #  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #. i18n-hint kbps abbreviates "thousands of bits per second"
@@ -10421,9 +10421,8 @@ msgid "%.2f kbps"
 msgstr "%.2f kbps"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "0"
-msgstr "60"
+msgstr "0"
 
 #: src/export/ExportFFmpegDialogs.cpp src/export/ExportFLAC.cpp
 msgid "1"
@@ -10450,105 +10449,92 @@ msgid "7"
 msgstr "7"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "9"
-msgstr "96"
+msgstr "9"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "10"
-msgstr "120"
+msgstr "10"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "On"
-msgstr "開く"
+msgstr "オン"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Constrained"
-msgstr "固定"
+msgstr "制限つき"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "VOIP"
-msgstr ""
+msgstr "VOIP"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Audio"
-msgstr "音声の取り込み(&A)..."
+msgstr "音声"
 
-# jp: 独自アクセスキー
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Low Delay"
-msgstr "ディレイ(&Y)"
+msgstr "低遅延"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "2.5 ms"
-msgstr ""
+msgstr "2.5 ms"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "5 ms"
-msgstr ""
+msgstr "5 ms"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "10 ms"
-msgstr ""
+msgstr "10 ms"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "20 ms"
-msgstr ""
+msgstr "20 ms"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "40 ms"
-msgstr ""
+msgstr "40 ms"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "60 ms"
-msgstr ""
+msgstr "60 ms"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Narrowband"
-msgstr ""
+msgstr "狭帯域"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Mediumband"
-msgstr "中程度"
+msgstr "中帯域"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Wideband"
-msgstr ""
+msgstr "広帯域"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Super Wideband"
-msgstr ""
+msgstr "超広帯域"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Fullband"
-msgstr "マルチバンド"
+msgstr "全帯域"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Compression"
-msgstr "圧縮:"
+msgstr "圧縮"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Frame Duration:"
-msgstr "継続時間:"
+msgstr "フレーム長さ:"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Vbr Mode:"
-msgstr "モード:"
+msgstr "VBR モード:"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Application:"
-msgstr "アプリケーション"
+msgstr "アプリケーション:"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Cutoff:"
@@ -10559,14 +10545,12 @@ msgid "Open custom FFmpeg format options"
 msgstr "カスタム FFmpeg フォーマットオプションを開く"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Current Format:"
-msgstr "現在のプロジェクト"
+msgstr "現在のフォーマット:"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Current Codec:"
-msgstr "現在のプロジェクト"
+msgstr "現在のコーデック:"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Error Saving FFmpeg Presets"
@@ -10630,9 +10614,8 @@ msgid "AMR (narrow band) Files (FFmpeg)"
 msgstr "AMR (狭帯域) ファイル (FFmpeg)"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "Opus (OggOpus) Files (FFmpeg)"
-msgstr "M4A (AAC) ファイル (FFmpeg)"
+msgstr "Opus (OggOpus) ファイル (FFmpeg)"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "WMA (version 2) Files (FFmpeg)"
@@ -11009,7 +10992,6 @@ msgid "Delete preset '%s'?"
 msgstr "プリセット「%s」を削除しますか？"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "You can't save a preset without a name"
 msgstr "無題のプリセットを保存することはできません"
 
@@ -11018,9 +11000,8 @@ msgid "Select xml file with presets to import"
 msgstr "取り込むプリセットを記録した XML ファイルを選択"
 
 #: src/export/ExportFFmpegDialogs.cpp
-#, fuzzy
 msgid "No presets to export"
-msgstr "書き出すトラックラベルはありません。"
+msgstr "書き出すプリセットがありません"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Select xml file to export presets into"
@@ -11030,12 +11011,12 @@ msgstr "プリセットを書き出す XML ファイルを選択"
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
 msgid "Format %s is not compatible with codec %s."
-msgstr ""
+msgstr "フォーマット %s は、コーデック %s と互換性がありません。"
 
 #. i18n-hint: "codec" is short for a "coder-decoder" algorithm
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Incompatible format and codec"
-msgstr ""
+msgstr "フォーマットとコーデックの非互換"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Failed to guess format"
@@ -11119,52 +11100,45 @@ msgid "Exporting the audio at %ld kbps"
 msgstr "音声を %ld kbps で書き出し"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "220-260 kbps (Best Quality)"
-msgstr "%s kbps (最高品質)"
+msgstr "220-260 kbps (高品質)"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "200-250 kbps"
-msgstr "過激、220～260 kbps"
+msgstr "200-250 kbps"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "170-210 kbps"
-msgstr "標準、170～210 kbps"
+msgstr "170-210 kbps"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "155-195 kbps"
-msgstr "中庸、145～185 kbps"
+msgstr "155-195 kbps"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "145-185 kbps"
-msgstr "中庸、145～185 kbps"
+msgstr "145-185 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "110-150 kbps"
-msgstr ""
+msgstr "110-150 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "95-135 kbps"
-msgstr ""
+msgstr "95-135 kbps"
 
 #  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "80-120 kbps"
-msgstr "%.2f kbps"
+msgstr "80-120 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "65-105 kbps"
-msgstr ""
+msgstr "65-105 kbps"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "45-85 kbps (Smaller files)"
-msgstr "%s kbps (軽量)"
+msgstr "45-85 kbps (軽量)"
 
 #: src/export/ExportMP3.cpp
 msgid "Fast"
@@ -11190,12 +11164,12 @@ msgstr "標準、170～210 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "Medium, 145-185 kbps"
-msgstr "中庸、145～185 kbps"
+msgstr "控えめ、145～185 kbps"
 
 #. i18n-hint: Slightly humorous - as in use an insane precision with MP3.
 #: src/export/ExportMP3.cpp
 msgid "Insane"
-msgstr "非常識"
+msgstr "狂気"
 
 #: src/export/ExportMP3.cpp
 msgid "Extreme"
@@ -11203,7 +11177,7 @@ msgstr "極端"
 
 #: src/export/ExportMP3.cpp
 msgid "Medium"
-msgstr "中程度"
+msgstr "控えめ"
 
 #: src/export/ExportMP3.cpp
 msgid "Variable"
@@ -11281,38 +11255,37 @@ msgid "Where is %s?"
 msgstr "%s はどこにありますか？"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "You are linking to lame_enc.dll v%d.%d. This version is not compatible with Audacity %d.%d.%d.\n"
 "Please download the latest version of 'LAME for Audacity'."
 msgstr ""
 "lame_enc.dll v%d.%d とリンクしようとしています。このバージョンは Audacity %d.%d.%d との互換性がありません。\n"
-"LAME MP3 ライブラリの最新版をダウンロードしてください。"
+"「LAME for Audacity」の最新版をダウンロードしてください。"
 
 #: src/export/ExportMP3.cpp
 msgid "Only lame_enc.dll"
-msgstr ""
+msgstr "lame_enc.dll のみ"
 
 #: src/export/ExportMP3.cpp
 msgid "Only libmp3lame64bit.dylib"
-msgstr ""
+msgstr "libmp3lame64bit.dylib のみ"
 
 #: src/export/ExportMP3.cpp
 msgid "Only libmp3lame.dylib"
-msgstr ""
+msgstr "libmp3lame.dylib のみ"
 
 #: src/export/ExportMP3.cpp
 msgid "Only libmp3lame.so.0"
-msgstr ""
+msgstr "libmp3lame.so.0 のみ"
 
 #: src/export/ExportMP3.cpp
 msgid "Primary shared object files"
-msgstr ""
+msgstr "メイン共有オブジェクトファイル"
 
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "Extended libraries"
-msgstr "コアライブラリ"
+msgstr "拡張ライブラリ"
 
 #: src/export/ExportMP3.cpp
 msgid "MP3 Files"
@@ -11391,11 +11364,9 @@ msgstr ""
 msgid "MP3 export library not found"
 msgstr "MP3 書き出しライブラリが見つかりません"
 
-# jp: 独自アクセスキー
 #: src/export/ExportMP3.cpp
-#, fuzzy
 msgid "(Built-in)"
-msgstr "内蔵エフェクト(&B)"
+msgstr "(内蔵)"
 
 #: src/export/ExportMultiple.cpp
 msgid "Export Multiple"
@@ -11519,13 +11490,12 @@ msgstr ""
 "作成しますか？"
 
 #: src/export/ExportMultiple.cpp
-#, fuzzy
 msgid "Continue to export remaining files?"
-msgstr "プリセットファイルをロードできません。"
+msgstr "残りのファイルの書き出しを続けますか？"
 
 #. i18n-hint: The second %s gives some letters that can't be used.
 #: src/export/ExportMultiple.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Label or track \"%s\" is not a legal file name.\n"
 "You cannot use any of these characters:\n"
@@ -11534,19 +11504,24 @@ msgid ""
 "\n"
 "Suggested replacement:"
 msgstr ""
-"ラベルまたはトラック「%s」は正当なファイル名ではありません。%s を使うことはできません。\n"
-"以下をお使いください..."
+"ラベルまたはトラック「%s」は適切なファイル名ではありません。\n"
+"以下の文字を使うことはできません。\n"
+"\n"
+"%s\n"
+"\n"
+"名前を変更してください:"
 
 #. i18n-hint: The second %s gives a letter that can't be used.
 #: src/export/ExportMultiple.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Label or track \"%s\" is not a legal file name. You cannot use \"%s\".\n"
 "\n"
 "Suggested replacement:"
 msgstr ""
-"ラベルまたはトラック「%s」は正当なファイル名ではありません。%s を使うことはできません。\n"
-"以下をお使いください..."
+"ラベルまたはトラック「%s」は適切なファイル名ではありません。「%s」を使うことはできません。\n"
+"\n"
+"名前を変更してください:"
 
 #: src/export/ExportMultiple.cpp
 msgid "Save As..."
@@ -11557,30 +11532,28 @@ msgid "Ogg Vorbis Files"
 msgstr "Ogg Vorbis ファイル"
 
 #: src/export/ExportOGG.cpp
-#, fuzzy
 msgid "Unable to export - rate or quality problem"
-msgstr "QuickTime 処理品質を設定できません"
+msgstr "書き出し不能 - ビットレートか品質に問題あり"
 
 #: src/export/ExportOGG.cpp
 msgid "Unable to export - problem with metadata"
-msgstr ""
+msgstr "書き出し不能 - メタデータに問題あり"
 
 #: src/export/ExportOGG.cpp
 msgid "Unable to export - problem initialising"
-msgstr ""
+msgstr "書き出し不能 - 初期化に問題あり"
 
 #: src/export/ExportOGG.cpp
 msgid "Unable to export - problem creating stream"
-msgstr ""
+msgstr "書き出し不能 - ストリーム作成に問題あり"
 
 #: src/export/ExportOGG.cpp
 msgid "Unable to export - problem with packets"
-msgstr ""
+msgstr "書き出し不能 - パケットに問題あり"
 
 #: src/export/ExportOGG.cpp
-#, fuzzy
 msgid "Unable to export - problem with file"
-msgstr "プリセットファイルをロードできません。"
+msgstr "書き出し不能 - ファイルに問題あり"
 
 #: src/export/ExportOGG.cpp
 msgid "Exporting the selected audio as Ogg Vorbis"
@@ -11592,12 +11565,11 @@ msgstr "音声を Ogg Vorbis ファイルに書き出し"
 
 #: src/export/ExportPCM.cpp src/import/ImportPCM.cpp
 msgid "AIFF (Apple/SGI)"
-msgstr ""
+msgstr "AIFF (Apple/SGI)"
 
 #: src/export/ExportPCM.cpp src/import/ImportPCM.cpp
-#, fuzzy
 msgid "WAV (Microsoft)"
-msgstr "WAV (Microsoft) 32bit 浮動小数点 PCM"
+msgstr "WAV (Microsoft)"
 
 #: src/export/ExportPCM.cpp
 msgid "Header:"
@@ -11616,25 +11588,28 @@ msgid ""
 "You have attempted to Export a WAV or AIFF file which would be greater than 4GB.\n"
 "Audacity cannot do this, the Export was abandoned."
 msgstr ""
+"4GB を超える WAV ファイルまたは AIFF ファイルを書き出そうとしています。\n"
+"Audacity ではそのような処理はいたしかねます。書き出しを打ち切りました。"
 
 #: src/export/ExportPCM.cpp
-#, fuzzy
 msgid "Error Exporting"
-msgstr "ファイルの取り込み時にエラーが発生しました"
+msgstr "書き出しエラー"
 
 #: src/export/ExportPCM.cpp
 msgid ""
 "Your exported WAV file has been truncated as Audacity cannot export WAV\n"
 "files bigger than 4GB."
 msgstr ""
+"Audacity では 4GB を超える WAV ファイルを書き出すことができないため、\n"
+"書き出した WAV ファイルは途切れました。"
 
 #: src/export/ExportPCM.cpp
 msgid "GSM 6.10 requires mono"
-msgstr ""
+msgstr "GSM 6.10 はモノラルのみです"
 
 #: src/export/ExportPCM.cpp
 msgid "WAVEX and GSM 6.10 formats are not compatible"
-msgstr ""
+msgstr "WAVEX と GSM 6.10 フォーマットは互換性がありません"
 
 #: src/export/ExportPCM.cpp
 msgid "Cannot export audio in this format."
