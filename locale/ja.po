@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:44+0900\n"
+"PO-Revision-Date: 2021-02-13 03:32+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2817,11 +2817,11 @@ msgstr "オンラインで確認"
 
 #: src/HistoryWindow.cpp
 msgid "History"
-msgstr "履歴"
+msgstr "操作履歴"
 
 #: src/HistoryWindow.cpp
 msgid "&Manage History"
-msgstr "履歴の管理(&M)"
+msgstr "操作履歴の管理(&M)"
 
 #: src/HistoryWindow.cpp src/effects/TruncSilence.cpp plug-ins/vocalrediso.ny
 msgid "Action"
@@ -2869,7 +2869,7 @@ msgstr ""
 #. that have been taken.
 #: src/HistoryWindow.cpp
 msgid "&History..."
-msgstr "履歴(&H)..."
+msgstr "操作履歴(&H)..."
 
 # jp: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
 #: src/InconsistencyException.cpp
@@ -5782,7 +5782,7 @@ msgstr "プロジェクトを開く2"
 
 #: src/commands/OpenSaveCommands.cpp
 msgid "Add to History"
-msgstr "履歴に追加"
+msgstr "操作履歴に追加"
 
 #: src/commands/OpenSaveCommands.cpp
 msgid "Save Project2"
