@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:09+0900\n"
+"PO-Revision-Date: 2021-02-12 22:10+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -3804,42 +3804,43 @@ msgid "<untitled>"
 msgstr "<無題>"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "[Project %02i] "
-msgstr "プロジェクト"
+msgstr "[プロジェクト %02i] "
 
 #: src/ProjectFileIO.cpp src/SqliteSampleBlock.cpp
-#, fuzzy
 msgid "Failed to open the project's database"
-msgstr "プリセットファイルを読み込めません。"
+msgstr "プロジェクトのデータベースを開くことに失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Failed to discard connection"
-msgstr "コーデックが見つかりませんでした"
+msgstr "接続の破棄に失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Failed to restore connection"
-msgstr "ストリーム記述を取得できません"
+msgstr "接続の修復に失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to execute a project file command:\n"
 "\n"
 "%s"
 msgstr ""
-"登録失敗:\n"
+"プロジェクトファイルコマンドの実行に失敗しました:\n"
+"\n"
 "%s"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Unable to prepare project file command:\n"
 "\n"
 "%s"
-msgstr "プリセットファイルを読み込めません。"
+msgstr ""
+"プロジェクトファイルコマンドを準備できません:\n"
+"\n"
+"%s"
 
 #: src/ProjectFileIO.cpp
 #, c-format
@@ -3849,11 +3850,14 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"プロジェクトファイルからのデータ取得に失敗しました。\n"
+"失敗したコマンドは次の通りです:\n"
+"\n"
+"%s"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "This is not an Audacity project file"
-msgstr "Audacity プロジェクトファイルを保存する"
+msgstr "これは Audacity プロジェクトファイルではありません"
 
 #: src/ProjectFileIO.cpp
 msgid ""
@@ -3861,43 +3865,42 @@ msgid ""
 "\n"
 "You will need to upgrade to process it"
 msgstr ""
+"このファイルは、より新しい Audacity で作成されています:\n"
+"\n"
+"このファイルを処理するには、Audacity をアップグレードしてください"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Unable to initialize the project file"
-msgstr "MP3 ストリームを初期化できません"
+msgstr "プロジェクトファイルを初期化できません"
 
 #: src/ProjectFileIO.cpp
 msgid "Cleanup of orphan blocks failed"
-msgstr ""
+msgstr "無用なブロックファイルのクリーンアップに失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Total orphan blocks deleted %d"
-msgstr "無用なブロックファイル:「%s」"
+msgstr ""
 
 #: src/ProjectFileIO.cpp
 msgid "Failed to rollback transaction during import"
-msgstr ""
+msgstr "取り込み時のロールバック処理に失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Unable to attach destination database"
-msgstr "ストリーム状態を pause に設定できません。"
+msgstr "コピー先データベースを捕捉できません"
 
 #: src/ProjectFileIO.cpp
 msgid "Unable to switch to fast journaling mode"
-msgstr ""
+msgstr "Fast Journaling モードへの切り替えができません"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Failed to copy tags"
-msgstr "%s を削除できませんでした"
+msgstr "タグのコピーに失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Failed to bind SQL parameter"
-msgstr "コーデックが見つかりませんでした"
+msgstr "SQL パラメーターのバインドに失敗しました"
 
 #: src/ProjectFileIO.cpp
 #, c-format
@@ -3907,40 +3910,43 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"プロジェクトファイルの更新に失敗しました。\n"
+"失敗したコマンドは次の通りです:\n"
+"\n"
+"%s"
 
 #: src/ProjectFileIO.cpp
 msgid "Destination project could not be detached"
-msgstr ""
+msgstr "コピー先プロジェクトを切り離せませんでした"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Copying Project"
-msgstr "Audacity プロジェクトを開く際にエラーが発生しました"
+msgstr "プロジェクトをコピー中"
 
 #: src/ProjectFileIO.cpp
 msgid "Error Writing to File"
 msgstr "ファイルへの書き込みでエラー発生"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Audacity failed to write file %s.\n"
 "Perhaps disk is full or not writable.\n"
 "For tips on freeing up space, click the help button."
 msgstr ""
-"ファイルを保存できませんでした。\n"
-"%s は書き込みできないか、ディスクが一杯です。"
+"ファイル「%s」に書き込むことができませんでした。\n"
+"書き込み可能でないか、あるいはディスク容量がない恐れがあります。\n"
+"容量解放のコツについて知るには、下のヘルプボタンをクリックしてください。"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Compacting project"
-msgstr "プロジェクトの保存時(&P)"
+msgstr ""
 
 #. i18n-hint: The %02i is the project number, the %s is the project name.
 #: src/ProjectFileIO.cpp
 #, c-format
 msgid "[Project %02i] Audacity \"%s\""
-msgstr ""
+msgstr "[プロジェクト %02i] Audacity \"%s\""
 
 #. i18n-hint: E.g this is recovered audio that had been lost.
 #: src/ProjectFileIO.cpp
@@ -3963,26 +3969,25 @@ msgstr "プロジェクトファイルを開けません"
 
 #: src/ProjectFileIO.cpp
 msgid "Failed to remove the autosave information from the project file."
-msgstr ""
+msgstr "プロジェクトファイルからの自動保存情報の削除に失敗しました。"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Unable to decode project document"
-msgstr "デコーダーをパイプラインに追加できません"
+msgstr "プロジェクトドキュメントをデコードできません"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Unable to parse project information."
-msgstr "プリセットファイルを読み込めません。"
+msgstr "プロジェクト情報を解釈できません。"
 
 #: src/ProjectFileIO.cpp
 msgid "The project's database failed to reopen, possibly because of limited space on the storage device."
 msgstr ""
+"プロジェクトのデータベースを再び開くことに失敗しました。\n"
+"恐らくは、ストレージデバイスの容量限界によるものと思われます。"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Saving project"
-msgstr "プロジェクトの保存時(&P)"
+msgstr "プロジェクトを保存中"
 
 #: src/ProjectFileIO.cpp src/ProjectFileManager.cpp
 msgid "Error Saving Project"
@@ -3990,7 +3995,7 @@ msgstr "プロジェクトファイルの保存時にエラーが発生しまし
 
 #: src/ProjectFileIO.cpp
 msgid "Syncing"
-msgstr ""
+msgstr "同期中"
 
 #: src/ProjectFileIO.cpp
 #, c-format
@@ -4000,6 +4005,10 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"プロジェクトを開くことに失敗しました。\n"
+"恐らくは、ストレージデバイスの容量限界によるものと思われます。\n"
+"\n"
+"%s"
 
 #: src/ProjectFileIO.cpp
 #, c-format
@@ -4009,11 +4018,14 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"自動保存情報を削除できません。\n"
+"恐らくは、ストレージデバイスの容量限界によるものと思われます。\n"
+"\n"
+"%s"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Backing up project"
-msgstr "空のプロジェクトファイルの保存時(&E)"
+msgstr "プロジェクトをバックアップ中"
 
 #: src/ProjectFileManager.cpp
 #, fuzzy
