@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 21:43+0900\n"
+"PO-Revision-Date: 2021-02-12 21:45+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2779,15 +2779,13 @@ msgstr "ヘルプ情報を得るには:"
 
 #. i18n-hint: Preserve '[[help:Quick_Help|' as it's the name of a link.
 #: src/HelpText.cpp
-#, fuzzy
 msgid "[[help:Quick_Help|Quick Help]] - if not installed locally, [[https://manual.audacityteam.org/quick_help.html|view online]]"
-msgstr " [[file:quick_help.html|簡易ヘルプ]] (ローカルディスク上か、[[https://manual.audacityteam.org/quick_help.html|インターネット版]])"
+msgstr "[[help:Quick_Help|簡易ヘルプ]] (ローカルディスク上か、[[https://manual.audacityteam.org/quick_help.html|インターネット版]])"
 
 #. i18n-hint: Preserve '[[help:Main_Page|' as it's the name of a link.
 #: src/HelpText.cpp
-#, fuzzy
 msgid " [[help:Main_Page|Manual]] - if not installed locally, [[https://manual.audacityteam.org/|view online]]"
-msgstr " [[file:index.html|マニュアル]] (ローカルディスク上か、[[https://manual.audacityteam.org/|インターネット版]])"
+msgstr " [[help:Main_Page|マニュアル]] (ローカルディスク上か、[[https://manual.audacityteam.org/|インターネット版]])"
 
 #: src/HelpText.cpp
 msgid " [[https://forum.audacityteam.org/|Forum]] - ask your question directly, online."
