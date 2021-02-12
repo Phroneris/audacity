@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 22:45+0900\n"
+"PO-Revision-Date: 2021-02-12 22:56+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -9382,6 +9382,11 @@ msgstr "バッファーサイズ"
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "The buffer size controls the number of samples sent to the effect on each iteration. Smaller values will cause slower processing and some effects require 8192 samples or less to work properly. However most effects can accept large buffers and using them will greatly reduce processing time."
 msgstr ""
+"バッファーサイズは、エフェクトに都度渡されるサンプル数を制御します。\n"
+"小さくすると処理が遅くなることがあり、一部のエフェクトでは適切な動作のために\n"
+"8192 サンプル以下とすべき場合もあります。\n"
+"しかし大抵のエフェクトはもっと大きな値に対応しており、\n"
+"そのように設定することで処理速度の短縮が期待できます。"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "&Buffer Size (8 to 1048576 samples):"
@@ -9395,6 +9400,10 @@ msgstr "レイテンシー補償"
 #: src/effects/VST/VSTEffect.cpp
 msgid "As part of their processing, some VST effects must delay returning audio to Audacity. When not compensating for this delay, you will notice that small silences have been inserted into the audio. Enabling this option will provide that compensation, but it may not work for all VST effects."
 msgstr ""
+"VST エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。\n"
+"この遅延を補償しないと、音声に微小な無音が挿入されたように聞こえてしまいます。\n"
+"このオプションを有効化することで、そのような遅延に対する補償が行われるようになります。\n"
+"ただし、すべての VST エフェクトに有効とは限りません。"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/audiounits/AudioUnitEffect.cpp
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/lv2/LV2Effect.cpp
@@ -9406,9 +9415,11 @@ msgid "Graphical Mode"
 msgstr "グラフィカルモード"
 
 #: src/effects/VST/VSTEffect.cpp
-#, fuzzy
 msgid "Most VST effects have a graphical interface for setting parameter values. A basic text-only method is also available.  Reopen the effect for this to take effect."
-msgstr "ほとんどの VST エフェクトには、パラメータ設定用のグラフィカルインターフェースがあります。"
+msgstr ""
+"ほとんどの VST エフェクトには、パラメーター設定用のグラフィカルインターフェースがあります。\n"
+"一方で、テキストだけの基本的なものも利用可能です。\n"
+"変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Enable &graphical interface"
@@ -9425,17 +9436,15 @@ msgstr "別名で VST プリセットを保存:"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Standard VST bank file"
-msgstr ""
+msgstr "標準 VST バンクファイル"
 
 #: src/effects/VST/VSTEffect.cpp
-#, fuzzy
 msgid "Standard VST program file"
-msgstr "VST プログラムの読み込み:"
+msgstr "標準 VST プログラムファイル"
 
 #: src/effects/VST/VSTEffect.cpp
-#, fuzzy
 msgid "Audacity VST preset file"
-msgstr "Audacity プロジェクトファイル"
+msgstr "Audacity VST プリセットファイル"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Unrecognized file extension."
@@ -9450,9 +9459,8 @@ msgid "Load VST Preset:"
 msgstr "VST プリセットの読み込み:"
 
 #: src/effects/VST/VSTEffect.cpp
-#, fuzzy
 msgid "VST preset files"
-msgstr "ファイルを選択"
+msgstr "VST プリセットファイル"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Error Loading VST Presets"
@@ -9540,6 +9548,10 @@ msgstr "Audio Unit エフェクトオプション"
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "As part of their processing, some Audio Unit effects must delay returning audio to Audacity. When not compensating for this delay, you will notice that small silences have been inserted into the audio. Enabling this option will provide that compensation, but it may not work for all Audio Unit effects."
 msgstr ""
+"Audio Unit エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。\n"
+"この遅延を補償しないと、音声に微小な無音が挿入されたように聞こえてしまいます。\n"
+"このオプションを有効化することで、そのような遅延に対する補償が行われるようになります。\n"
+"ただし、すべての Audio Unit エフェクトに有効とは限りません。"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "User Interface"
@@ -9548,6 +9560,10 @@ msgstr "ユーザーインターフェース"
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select \"Full\" to use the graphical interface if supplied by the Audio Unit. Select \"Generic\" to use the system supplied generic interface. Select \"Basic\" for a basic text-only interface. Reopen the effect for this to take effect."
 msgstr ""
+"Audio Unit が提供するグラフィカルインターフェースを利用するには、「Full」を選んでください。\n"
+"システムのインターフェースを利用するには、「Generic」を選んでください。\n"
+"テキスト型インターフェ－スにするには「Basic」を選んでください。\n"
+"変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select &interface"
@@ -9582,104 +9598,97 @@ msgid "Location"
 msgstr "場所"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't open \"%s\""
-msgstr "ファイルが開けませんでした:「%s」"
+msgstr "「%s」が開けませんでした"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Unable to read the preset from \"%s\""
-msgstr "プリセットファイルを読み込めません。"
+msgstr "「%s」からプリセットファイルを読み込めません"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to encode preset from \"%s\""
-msgstr ""
-"登録失敗:\n"
-"%s"
+msgstr "「%s」からのプリセットのエンコードに失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "Unable to store preset in config file"
-msgstr "プリセットファイルを読み込めません。"
+msgstr "プリセットを設定ファイルに記録できません"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not import \"%s\" preset\n"
 "\n"
 "%s"
 msgstr ""
-"エフェクト\"%s\" を \n"
-"%s でアップデートできません"
+"プリセット「%s」を取り込めませんでした。\n"
+"\n"
+"%s"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Export Audio Unit Preset As %s:"
-msgstr "Audio Unit プリセットの書き出し"
+msgstr "Audio Unit プリセットを %s として書き出し:"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "Standard Audio Unit preset file"
-msgstr "Audio Unit プリセットの書き出し"
+msgstr "標準 Audio Unit プリセットファイル"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Could not export \"%s\" preset\n"
 "\n"
 "%s"
 msgstr ""
-"エフェクト\"%s\" を \n"
-"%s でアップデートできません"
+"プリセット「%s」を書き出せませんでした。\n"
+"\n"
+"%s"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Export Audio Unit Presets"
 msgstr "Audio Unit プリセットの書き出し"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Import Audio Unit Preset As %s:"
-msgstr "Audio Unit プリセットの取り込み"
+msgstr "Audio Unit プリセットを %s として取り込み:"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "Failed to set preset name"
-msgstr "プリセットファイルを読み込めません。"
+msgstr "プリセット名の設定に失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "Failed to retrieve preset content"
-msgstr "ストリーム記述を取得できません"
+msgstr "プリセットの内容の取得に失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Failed to convert property list to XML data"
-msgstr ""
+msgstr "プロパティリストから XML データへの変換に失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy
 msgid "XML data is empty after conversion"
-msgstr "サンプリング周波数変換"
+msgstr "変換の結果、XML データが空になっています"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to write XML preset to \"%s\""
-msgstr ""
-"登録失敗:\n"
-"%s"
+msgstr "XML プリセットの「%s」への書き込みに失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Failed to convert preset to internal format"
-msgstr ""
+msgstr "プリセットから内部フォーマットへの変換に失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Failed to create property list for preset"
-msgstr ""
+msgstr "プリセットのためのプロパティリストの作成に失敗しました"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 #, c-format
 msgid "Failed to set class info for \"%s\" preset"
-msgstr ""
+msgstr "プリセット「%s」のためのクラス情報の設定に失敗しました"
 
 #. i18n-hint: the name of an Apple audio software protocol
 #. i18n-hint: Audio Unit is the name of an Apple audio software protocol
@@ -9709,15 +9718,19 @@ msgstr "LADSPA エフェクトオプション"
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "As part of their processing, some LADSPA effects must delay returning audio to Audacity. When not compensating for this delay, you will notice that small silences have been inserted into the audio. Enabling this option will provide that compensation, but it may not work for all LADSPA effects."
 msgstr ""
+"LADSPA エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。\n"
+"この遅延を補償しないと、音声に微小な無音が挿入されたように聞こえてしまいます。\n"
+"このオプションを有効化することで、そのような遅延に対する補償が行われるようになります。\n"
+"ただし、すべての LADSPA エフェクトに有効とは限りません。"
 
 #. i18n-hint: An item name introducing a value, which is not part of the string but
 #. appears in a following text box window; translate with appropriate punctuation
 #: src/effects/ladspa/LadspaEffect.cpp src/effects/nyquist/Nyquist.cpp
 #: src/effects/vamp/VampEffect.cpp
 #: src/tracks/playabletrack/wavetrack/ui/SpectrumView.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s:"
-msgstr "「%s」まであと:"
+msgstr "%s:"
 
 #: src/effects/ladspa/LadspaEffect.cpp
 msgid "Effect Output"
@@ -9735,32 +9748,38 @@ msgid "LV2 Effect Settings"
 msgstr "LV2 エフェクト設定"
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "&Buffer Size (8 to %d) samples:"
-msgstr "バッファーサイズ (8～1048576 サンプル) (&B):"
+msgstr "バッファーサイズ (8～%d サンプル) (&B):"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "As part of their processing, some LV2 effects must delay returning audio to Audacity. When not compensating for this delay, you will notice that small silences have been inserted into the audio. Enabling this setting will provide that compensation, but it may not work for all LV2 effects."
 msgstr ""
+"LV2 エフェクトによっては、処理の過程で Audacity へ返す音声がどうしても遅延することがあります。\n"
+"この遅延を補償しないと、音声に微小な無音が挿入されたように聞こえてしまいます。\n"
+"このオプションを有効化することで、そのような遅延に対する補償が行われるようになります。\n"
+"ただし、すべての LV2 エフェクトに有効とは限りません。"
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy
 msgid "LV2 effects can have a graphical interface for setting parameter values. A basic text-only method is also available.  Reopen the effect for this to take effect."
-msgstr "ほとんどの LV2 エフェクトはパラメータ値設定用のグラフィカルインタフェースを持っています。"
+msgstr ""
+"LV2 エフェクトには、パラメーター設定用のグラフィカルインターフェースがある場合があります。\n"
+"一方で、テキストだけの基本的なものも利用可能です。\n"
+"変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "Couldn't instantiate effect"
 msgstr "エフェクトのインスタンスを生成できませんでした"
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s requires unsupported feature %s\n"
-msgstr "%d 個の曲線が %s に書き出されました"
+msgstr "%s は、サポートされていない機能「%s」を要求しています\n"
 
 #: src/effects/lv2/LV2Effect.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s requires unsupported option %s\n"
-msgstr "%d 個の曲線が %s に書き出されました"
+msgstr "%s は、サポートされていないオプション「%s」を要求しています\n"
 
 #: src/effects/lv2/LV2Effect.cpp
 msgid "Generator"
@@ -9868,9 +9887,8 @@ msgid "plug-in"
 msgstr "プラグイン"
 
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Nyquist returned a list."
-msgstr "Nyquist は nil 音声を返しました。\n"
+msgstr "Nyquist はリストを返しました。"
 
 #: src/effects/nyquist/Nyquist.cpp
 #, c-format
@@ -9964,15 +9982,13 @@ msgstr "保存(&S)"
 
 #. i18n-hint: Nyquist is the name of a programming language
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Nyquist scripts"
-msgstr "Nyquist スクリプトの読み込み"
+msgstr "Nyquist スクリプト"
 
 #. i18n-hint: Lisp is the name of a programming language
 #: src/effects/nyquist/Nyquist.cpp
-#, fuzzy
 msgid "Lisp scripts"
-msgstr "スクリプトの停止"
+msgstr "Lisp スクリプト"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid ""
