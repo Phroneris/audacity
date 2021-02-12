@@ -61,6 +61,10 @@ msgid "Silence"
 "Recording" … 名詞例：環境設定の項目名、ステータスバーの "%s Paused." / 動詞例：ステータスバーの "%s."
 "Scurbbing" … 名詞例：スクラブツールバーのツールチップ / 動詞例：ステータスバーの "%s."
 
+#: src/widgets/NumericTextCtrl.cpp
+msgid "010,01000>0100 Hz"
+は4桁Hzまでしか扱えないので不足だと思う。
+
 
 
 ■ これ何？

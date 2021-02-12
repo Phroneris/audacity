@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 2.4.2\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-02-04 18:53+0000\n"
-"PO-Revision-Date: 2021-02-12 23:16+0900\n"
+"PO-Revision-Date: 2021-02-12 23:18+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17836,9 +17836,8 @@ msgid "Left=Zoom In, Right=Zoom Out, Middle=Normal"
 msgstr "左=拡大、右=縮小、中央=通常"
 
 #: src/widgets/AButton.cpp
-#, fuzzy
 msgid "(disabled)"
-msgstr " (無効)"
+msgstr "(無効)"
 
 #: src/widgets/AButton.cpp src/widgets/Meter.cpp
 msgid "Press"
@@ -17862,9 +17861,9 @@ msgstr "R"
 
 #. i18n-hint: "x" suggests a multiplicative factor
 #: src/widgets/ASlider.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%.2fx"
-msgstr "%.2f"
+msgstr "%.2f 倍"
 
 #: src/widgets/FileDialog/gtk/FileDialogPrivate.cpp
 #, c-format
@@ -18088,7 +18087,7 @@ msgstr "時:分:秒 + 1/100 秒"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060>0100 s"
-msgstr "0100時間060分060.0100秒"
+msgstr "0100時間060分060>0100秒"
 
 #. i18n-hint: Name of time display format that shows time in hours,
 #. * minutes, seconds and milliseconds (1/1000 second)
@@ -18105,7 +18104,7 @@ msgstr "時:分:秒 + ミリ秒"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060>01000 s"
-msgstr "0100時間060分060.01000秒"
+msgstr "0100時間060分060>01000秒"
 
 #. i18n-hint: Name of time display format that shows time in hours,
 #. * minutes, seconds and samples (at the current project sample rate)
@@ -18122,7 +18121,7 @@ msgstr "時:分:秒 + サンプル"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+># samples"
-msgstr "0100時間060分060秒.#サンプル"
+msgstr "0100時間060分060秒+>#サンプル"
 
 #. i18n-hint: Name of time display format that shows time in samples (at the
 #. * current project sample rate).  For example the number of a sample at 1
@@ -18155,7 +18154,7 @@ msgstr "時:分:秒 + フィルムフレーム (24fps)"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+>24 frames"
-msgstr "0100時間060分060秒.24フレーム"
+msgstr "0100時間060分060秒+>24フレーム"
 
 #. i18n-hint: Name of time display format that shows time in frames (lots of
 #. * frames) at 24 frames per second (commonly used for films)
@@ -18186,7 +18185,7 @@ msgstr "時:分:秒 + NTSC ドロップフレーム"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+>30 frames|N"
-msgstr "0100時間060分060秒.30フレーム|N"
+msgstr "0100時間060分060秒+>30フレーム|N"
 
 #. i18n-hint: Name of time display format that shows time in hours, minutes,
 #. * seconds and frames at NTSC TV non-drop-frame rate (used for American /
@@ -18204,7 +18203,7 @@ msgstr "時:分:秒 + NTSC ノンドロップフレーム"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+>030 frames| .999000999"
-msgstr "0100時間060分060秒.030フレーム| .999000999"
+msgstr "0100時間060分060秒+>030フレーム| .999000999"
 
 #. i18n-hint: Name of time display format that shows time in frames at NTSC
 #. * TV frame rate (used for American / Japanese TV
@@ -18235,7 +18234,7 @@ msgstr "時:分:秒 + PAL フレーム (25fps)"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+>25 frames"
-msgstr "0100時間060分060秒.25フレーム"
+msgstr "0100時間060分060秒+>25フレーム"
 
 #. i18n-hint: Name of time display format that shows time in frames at PAL
 #. * TV frame rate (used for European TV)
@@ -18265,7 +18264,7 @@ msgstr "時:分:秒 + CDDA フレーム (75fps)"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "0100 h 060 m 060 s+>75 frames"
-msgstr "0100時間060分060秒.75フレーム"
+msgstr "0100時間060分060秒+>75フレーム"
 
 #. i18n-hint: Name of time display format that shows time in frames at CD
 #. * Audio frame rate (75 frames per second)
@@ -18281,18 +18280,18 @@ msgstr "CDDA フレーム (75fps)"
 msgid "01000,01000 frames|75"
 msgstr "0100万010000フレーム|75"
 
+# jp: 元の「010,01000>0100 Hz」では万の位が扱えないので不足すぎると思うが、勝手に桁数を増やすわけにもいかないのでとりあえずこれで
 #. i18n-hint: Format string for displaying frequency in hertz. Change
 #. * the decimal point for your locale. Don't change the numbers.
 #. * The decimal separator is specified using '<' if your language uses a ',' or
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
-#, fuzzy
 msgid "010,01000>0100 Hz"
-msgstr "0100000.0100Hz"
+msgstr "010000>0100Hz"
 
 #: src/widgets/NumericTextCtrl.cpp
 msgid "centihertz"
-msgstr ""
+msgstr "センチヘルツ"
 
 #. i18n-hint: Name of display format that shows frequency in kilohertz
 #: src/widgets/NumericTextCtrl.cpp
@@ -18305,11 +18304,11 @@ msgstr "kHz"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "01000>01000 kHz|0.001"
-msgstr "01000.01000kHz|0.001"
+msgstr "01000>01000kHz|0.001"
 
 #: src/widgets/NumericTextCtrl.cpp
 msgid "hertz"
-msgstr ""
+msgstr "ヘルツ"
 
 #. i18n-hint: Name of display format that shows log of frequency
 #. * in octaves
@@ -18323,13 +18322,12 @@ msgstr "オクターブ"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "100>01000 octaves|1.442695041"
-msgstr "100.01000オクターブ|1.442695041"
+msgstr "100>01000オクターブ|1.442695041"
 
 #. i18n-hint: an octave is a doubling of frequency
 #: src/widgets/NumericTextCtrl.cpp
-#, fuzzy
 msgid "thousandths of octaves"
-msgstr "千分の"
+msgstr "千分の一オクターブ"
 
 #. i18n-hint: Name of display format that shows log of frequency
 #. * in semitones and cents
@@ -18344,13 +18342,12 @@ msgstr "半音 + セント"
 #. * to '>' if your language uses a '.'.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "1000 semitones >0100 cents|17.312340491"
-msgstr "1000半音.0100セント|17.312340491"
+msgstr "1000半音>0100セント|17.312340491"
 
 #. i18n-hint: a cent is a hundredth of a semitone (which is 1/12 octave)
 #: src/widgets/NumericTextCtrl.cpp
-#, fuzzy
 msgid "hundredths of cents"
-msgstr "百分の"
+msgstr "百分の一セント"
 
 #. i18n-hint: Name of display format that shows log of frequency
 #. * in decades
@@ -18362,13 +18359,12 @@ msgstr "ディケイド"
 #. * Change the decimal points for your locale. Don't change the numbers.
 #: src/widgets/NumericTextCtrl.cpp
 msgid "10>01000 decades|0.434294482"
-msgstr "10.01000ディケイド|0.434294482"
+msgstr "10>01000ディケイド|0.434294482"
 
 #. i18n-hint: a decade is a tenfold increase of frequency
 #: src/widgets/NumericTextCtrl.cpp
-#, fuzzy
 msgid "thousandths of decades"
-msgstr "千分の"
+msgstr "千分の一ディケイド"
 
 #: src/widgets/NumericTextCtrl.cpp
 msgid "(Use context menu to change format.)"
@@ -18376,12 +18372,12 @@ msgstr "(フォーマットを変更するにはコンテクストメニュー�
 
 #: src/widgets/NumericTextCtrl.cpp
 msgid "centiseconds"
-msgstr "1/100 秒"
+msgstr "センチ秒"
 
 #: src/widgets/PopupMenuTable.h
 #, c-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
 #: src/widgets/ProgressDialog.cpp
 msgid "Elapsed Time:"
@@ -18471,7 +18467,7 @@ msgid "Value must not be less than %s"
 msgstr "値は %s より小さくてはいけません"
 
 #: src/widgets/valnum.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Value must not be greater than %s"
 msgstr "値は %s より大きくてはいけません"
 
