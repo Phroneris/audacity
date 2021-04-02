@@ -136,14 +136,16 @@ class LWSlider
    void OnMouseEvent(wxMouseEvent & event);
    void OnKeyDown(wxKeyEvent & event);
    void Refresh();
+   void Redraw();
 
    bool ShowDialog();
    bool ShowDialog(wxPoint pos);
 
    void SetEnabled(bool enabled);
-   bool GetEnabled();
+   bool GetEnabled() const;
 
-   static void DeleteSharedTipPanel();
+   float GetMinValue() const;
+   float GetMaxValue() const;
 
    void SetParent(wxWindow *parent) { mParent = parent; }
    void SendUpdate(float newValue);
@@ -269,6 +271,8 @@ class ASlider /* not final */ : public wxPanel
 
    void SetFocusFromKbd() override;
 
+   bool SetBackgroundColour(const wxColour& colour) override;
+
    void GetScroll(float & line, float & page);
    void SetScroll(float line, float page);
 
@@ -353,6 +357,7 @@ class SliderDialog final : public wxDialogWrapper
    wxTextCtrl * mTextCtrl;
    int mStyle;
    LWSlider * mpOrigin;
+   float mValue;
 
  public:
    DECLARE_EVENT_TABLE()

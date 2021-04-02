@@ -19,13 +19,17 @@
 #include "Experimental.h"
 
 #include "MemoryX.h"
+#include "Prefs.h"
 #include <wx/log.h> // to inherit
 #include <wx/event.h> // to inherit wxEvtHandler
 
 class wxFrame;
 class wxTextCtrl;
 
-class AudacityLogger final : public wxEvtHandler, public wxLog {
+class AudacityLogger final : public wxEvtHandler,
+                             public wxLog,
+                             public PrefsListener
+{
  public:
  
    // Get the singleton instance or null
@@ -36,9 +40,7 @@ class AudacityLogger final : public wxEvtHandler, public wxLog {
    bool SaveLog(const wxString &fileName) const;
    bool ClearLog();
 
-#if defined(EXPERIMENTAL_CRASH_REPORT)
-   wxString GetLog();
-#endif
+   wxString GetLog(int count = 0);
 
  protected:
    void Flush()  override;
@@ -51,6 +53,9 @@ class AudacityLogger final : public wxEvtHandler, public wxLog {
    void OnClose(wxCommandEvent & e);
    void OnClear(wxCommandEvent & e);
    void OnSave(wxCommandEvent & e);
+
+   // PrefsListener implementation
+   void UpdatePrefs() override;
 
    Destroy_ptr<wxFrame> mFrame;
    wxTextCtrl *mText;

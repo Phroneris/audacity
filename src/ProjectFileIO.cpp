@@ -45,8 +45,32 @@ wxDEFINE_EVENT(EVT_PROJECT_TITLE_CHANGE, wxCommandEvent);
 wxDEFINE_EVENT( EVT_CHECKPOINT_FAILURE, wxCommandEvent);
 wxDEFINE_EVENT( EVT_RECONNECTION_FAILURE, wxCommandEvent);
 
-static const int ProjectFileID = ('A' << 24 | 'U' << 16 | 'D' << 8 | 'Y');
-static const int ProjectFileVersion = 1;
+// Used to convert 4 byte-sized values into an integer for use in SQLite
+// PRAGMA statements. These values will be store in the database header.
+//
+// Note that endianness is not an issue here since SQLite integers are
+// architecture independent.
+#define PACK(b1, b2, b3, b4) ((b1 << 24) | (b2 << 16) | (b3 << 8) | b4)
+
+// The ProjectFileID is stored in the SQLite database header to identify the file
+// as an Audacity project file. It can be used by applications that identify file
+// types, such as the Linux "file" command.
+static const int ProjectFileID = PACK('A', 'U', 'D', 'Y');
+
+// The "ProjectFileVersion" represents the version of Audacity at which a specific
+// database schema was used. It is assumed that any changes to the database schema
+// will require a new Audacity version so if schema changes are required set this
+// to the new release being produced.
+//
+// This version is checked before accessing any tables in the database since there's
+// no guarantee what tables exist. If it's found that the database is newer than the
+// currently running Audacity, an error dialog will be displayed informing the user
+// that they need a newer version of Audacity.
+//
+// Note that this is NOT the "schema_version" that SQLite maintains. The value
+// specified here is stored in the "user_version" field of the SQLite database
+// header.
+static const int ProjectFileVersion = PACK(3, 0, 0, 0);
 
 // Navigation:
 //
@@ -103,14 +127,6 @@ static const char *ProjectFileSchema =
    "  doc                  BLOB"
    ");"
    ""
-   // CREATE SQL tags
-   // tags is not used (yet)
-   "CREATE TABLE IF NOT EXISTS <schema>.tags"
-   "("
-   "  name                 TEXT,"
-   "  value                BLOB"
-   ");"
-   ""
    // CREATE SQL sampleblocks
    // 'samples' are fixed size blocks of int16, int32 or float32 numbers.
    // The blocks may be partially empty.
@@ -150,10 +166,13 @@ public:
    {
       // Enable URI filenames for all connections
       mRc = sqlite3_config(SQLITE_CONFIG_URI, 1);
-
       if (mRc == SQLITE_OK)
       {
-         mRc = sqlite3_initialize();
+         mRc = sqlite3_config(SQLITE_CONFIG_LOG, LogCallback, nullptr);
+         if (mRc == SQLITE_OK)
+         {
+            mRc = sqlite3_initialize();
+         }
       }
 
 #ifdef NO_SHM
@@ -177,6 +196,12 @@ public:
       // It returns a value, but there's nothing we can do with it
       (void) sqlite3_shutdown();
    }
+
+   static void LogCallback(void *WXUNUSED(arg), int code, const char *msg)
+   {
+      wxLogMessage("sqlite3 message: (%d) %s", code, msg);
+   }
+
    int mRc;
 };
 
@@ -288,6 +313,16 @@ DBConnection &ProjectFileIO::GetConnection()
    return *curConn;
 }
 
+wxString ProjectFileIO::GenerateDoc()
+{
+   auto &trackList = TrackList::Get( mProject );
+
+   XMLStringWriter doc;
+   WriteXMLHeader(doc);
+   WriteXML(doc, false, trackList.empty() ? nullptr : &trackList);
+   return doc;
+}
+
 sqlite3 *ProjectFileIO::DB()
 {
    return GetConnection().DB();
@@ -330,6 +365,9 @@ bool ProjectFileIO::OpenConnection(FilePath fileName /* = {}  */)
       mProject.shared_from_this(), mpErrors, [this]{ OnCheckpointFailure(); } );
    if (!curConn->Open(fileName))
    {
+      SetDBError(
+         XO("Failed to open database file:\n\n%s").Format(fileName)
+      );
       curConn.reset();
       return false;
    }
@@ -461,7 +499,8 @@ int ProjectFileIO::Exec(const char *query, const ExecCB &callback)
    {
       SetDBError(
          XO("Failed to execute a project file command:\n\n%s").Format(query),
-         Verbatim(errmsg)
+         Verbatim(errmsg),
+         rc
       );
    }
    if (errmsg)
@@ -558,6 +597,17 @@ bool ProjectFileIO::CheckVersion()
    wxString result;
    if (!GetValue("SELECT Count(*) FROM sqlite_master WHERE type='table';", result))
    {
+      // Bug 2718 workaround for a better error message:
+      // If at this point we get SQLITE_CANTOPEN, then the directory is read-only
+      if (GetLastErrorCode() == SQLITE_CANTOPEN)
+      {
+          SetError(
+              /* i18n-hint: An error message. */
+              XO("Project is in a read only directory\n(Unable to create the required temporary files)"),
+              GetLibraryError()
+          );
+      }
+
       return false;
    }
 
@@ -665,18 +715,47 @@ bool ProjectFileIO::DeleteBlocks(const BlockIDs &blockids, bool complement)
    rc = sqlite3_create_function(db, "inset", 1, SQLITE_UTF8 | SQLITE_DETERMINISTIC, const_cast<void*>(p), InSet, nullptr, nullptr);
    if (rc != SQLITE_OK)
    {
-      wxLogDebug(wxT("Unable to add 'inset' function"));
+      /* i18n-hint: An error message.  Don't translate inset or blockids.*/
+      SetDBError(XO("Unable to add 'inset' function (can't verify blockids)"));
+      wxLogWarning(GetLastError().Translation());
       return false;
    }
 
    // Delete all rows in the set, or not in it
+   // This is the first command that writes to the database, and so we
+   // do more informative error reporting than usual, if it fails.
    auto sql = wxString::Format(
       "DELETE FROM sampleblocks WHERE %sinset(blockid);",
       complement ? "NOT " : "" );
    rc = sqlite3_exec(db, sql, nullptr, nullptr, nullptr);
    if (rc != SQLITE_OK)
    {
-      wxLogWarning(XO("Cleanup of orphan blocks failed").Translation());
+      if( rc==SQLITE_READONLY)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Project is read only\n(Unable to work with the blockfiles)"));
+      else if( rc==SQLITE_LOCKED)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Project is locked\n(Unable to work with the blockfiles)"));
+      else if( rc==SQLITE_BUSY)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Project is busy\n(Unable to work with the blockfiles)"));
+      else if( rc==SQLITE_CORRUPT)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Project is corrupt\n(Unable to work with the blockfiles)"));
+      else if( rc==SQLITE_PERM)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Some permissions issue\n(Unable to work with the blockfiles)"));
+      else if( rc==SQLITE_IOERR)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("A disk I/O error\n(Unable to work with the blockfiles)"));
+      else if( rc==SQLITE_AUTH)
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Not authorized\n(Unable to work with the blockfiles)"));
+      else
+         /* i18n-hint: An error message.  Don't translate blockfiles.*/
+         SetDBError(XO("Unable to work with the blockfiles"));
+
+      wxLogWarning(GetLastError().Translation());
       return false;
    }
 
@@ -778,7 +857,7 @@ bool ProjectFileIO::CopyTo(const FilePath &destpath,
 
    // Attach the destination database 
    wxString sql;
-   sql.Printf("ATTACH DATABASE '%s' AS outbound;", destpath);
+   sql.Printf("ATTACH DATABASE '%s' AS outbound;", destpath.ToUTF8());
 
    rc = sqlite3_exec(db, sql, nullptr, nullptr, nullptr);
    if (rc != SQLITE_OK)
@@ -806,21 +885,6 @@ bool ProjectFileIO::CopyTo(const FilePath &destpath,
    if (!InstallSchema(db, "outbound"))
    {
       // Message already set
-      return false;
-   }
-
-   // Copy over tags (not really used yet)
-   rc = sqlite3_exec(db,
-                     "INSERT INTO outbound.tags SELECT * FROM main.tags;",
-                     nullptr,
-                     nullptr,
-                     nullptr);
-   if (rc != SQLITE_OK)
-   {
-      SetDBError(
-         XO("Failed to copy tags")
-      );
-
       return false;
    }
 
@@ -1068,7 +1132,7 @@ bool ProjectFileIO::RenameOrWarn(const FilePath &src, const FilePath &dst)
 
    if (!success)
    {
-      ShowErrorDialog(
+      ShowError(
          &window,
          XO("Error Writing to File"),
          XO("Audacity failed to write file %s.\n"
@@ -1465,17 +1529,21 @@ bool ProjectFileIO::HandleXMLTag(const wxChar *tag, const wxChar **attrs)
    int crev;
    wxSscanf(wxT(AUDACITY_FILE_FORMAT_VERSION), wxT("%i.%i.%i"), &cver, &crel, &crev);
 
-   if (cver < fver || crel < frel || crev < frev)
+   int fileVer = ((fver *100)+frel)*100+frev;
+   int codeVer = ((cver *100)+crel)*100+crev;
+
+   if (codeVer<fileVer)
    {
       /* i18n-hint: %s will be replaced by the version number.*/
       auto msg = XO("This file was saved using Audacity %s.\nYou are using Audacity %s. You may need to upgrade to a newer version to open this file.")
          .Format(audacityVersion, AUDACITY_VERSION_STRING);
 
-      AudacityMessageBox(
-         msg,
+      ShowError(
+         &window,
          XO("Can't open project file"),
-         wxOK | wxICON_EXCLAMATION | wxCENTRE,
-         &window);
+         msg, 
+         "FAQ:Errors_opening_an_Audacity_project"
+         );
 
       return false;
    }
@@ -1740,7 +1808,7 @@ bool ProjectFileIO::LoadProject(const FilePath &fileName, bool ignoreAutosave)
       XMLFileReader xmlFile;
 
       // Load 'er up
-      success = xmlFile.ParseString(this, project.ToUTF8());
+      success = xmlFile.ParseString(this, project);
       if (!success)
       {
          SetError(
@@ -1757,7 +1825,8 @@ bool ProjectFileIO::LoadProject(const FilePath &fileName, bool ignoreAutosave)
             ->GetActiveBlockIDs();
       if (blockids.size() > 0)
       {
-         if (!DeleteBlocks(blockids, true))
+         success = DeleteBlocks(blockids, true);
+         if (!success)
          {
             return false;
          }
@@ -1780,7 +1849,8 @@ bool ProjectFileIO::LoadProject(const FilePath &fileName, bool ignoreAutosave)
    // we use that knowledge to determine if this file is an unsaved/temporary
    // file or a permanent project file
    wxString result;
-   if (!GetValue("SELECT Count(*) FROM project;", result))
+   success = GetValue("SELECT Count(*) FROM project;", result);
+   if (!success)
    {
       return false;
    }
@@ -1856,7 +1926,7 @@ bool ProjectFileIO::SaveProject(
 
          if (!reopened) {
             wxTheApp->CallAfter([this]{
-               ShowErrorDialog(nullptr,
+               ShowError(nullptr,
                   XO("Warning"),
                   XO(
 "The project's database failed to reopen, "
@@ -1880,7 +1950,7 @@ bool ProjectFileIO::SaveProject(
       // after we switch to the new file.
       if (!CopyTo(fileName, XO("Saving project"), false))
       {
-         ShowErrorDialog(
+         ShowError(
             nullptr,
             XO("Error Saving Project"),
             FileException::WriteFailureMessage(fileName),
@@ -1931,7 +2001,7 @@ bool ProjectFileIO::SaveProject(
          if (!success)
          {
             // Additional help via a Help button links to the manual.
-            ShowErrorDialog(nullptr,
+            ShowError(nullptr,
                            XO("Error Saving Project"),
                            XO("The project failed to open, possibly due to limited space\n"
                               "on the storage device.\n\n%s").Format(GetLastError()),
@@ -1950,7 +2020,7 @@ bool ProjectFileIO::SaveProject(
       if (!AutoSaveDelete())
       {
          // Additional help via a Help button links to the manual.
-         ShowErrorDialog(nullptr,
+         ShowError(nullptr,
                         XO("Error Saving Project"),
                         XO("Unable to remove autosave information, possibly due to limited space\n"
                            "on the storage device.\n\n%s").Format(GetLastError()),
@@ -1989,7 +2059,7 @@ bool ProjectFileIO::SaveProject(
    else
    {
       if ( !UpdateSaved( nullptr ) ) {
-         ShowErrorDialog(
+         ShowError(
             nullptr,
             XO("Error Saving Project"),
             FileException::WriteFailureMessage(fileName),
@@ -2112,30 +2182,49 @@ wxLongLong ProjectFileIO::GetFreeDiskSpace() const
    return -1;
 }
 
-const TranslatableString &ProjectFileIO::GetLastError()
+/// Displays an error dialog with a button that offers help
+void ProjectFileIO::ShowError(wxWindow *parent,
+                              const TranslatableString &dlogTitle,
+                              const TranslatableString &message,
+                              const wxString &helpPage)
+{
+   ShowErrorDialog(parent, dlogTitle, message, helpPage, true, GetLastLog());
+}
+
+const TranslatableString &ProjectFileIO::GetLastError() const
 {
    return mpErrors->mLastError;
 }
 
-const TranslatableString &ProjectFileIO::GetLibraryError()
+const TranslatableString &ProjectFileIO::GetLibraryError() const
 {
    return mpErrors->mLibraryError;
 }
 
+int ProjectFileIO::GetLastErrorCode() const
+{
+    return mpErrors->mErrorCode;
+}
+
+const wxString &ProjectFileIO::GetLastLog() const
+{
+    return mpErrors->mLog;
+}
+
 void ProjectFileIO::SetError(
-   const TranslatableString &msg, const TranslatableString &libraryError )
+    const TranslatableString& msg, const TranslatableString& libraryError, int errorCode)
 {
    auto &currConn = CurrConn();
    if (currConn)
-      currConn->SetError(msg, libraryError);
+      currConn->SetError(msg, libraryError, errorCode);
 }
 
 void ProjectFileIO::SetDBError(
-   const TranslatableString &msg, const TranslatableString &libraryError)
+   const TranslatableString &msg, const TranslatableString &libraryError, int errorCode)
 {
    auto &currConn = CurrConn();
    if (currConn)
-      currConn->SetDBError(msg, libraryError);
+      currConn->SetDBError(msg, libraryError, errorCode);
 }
 
 void ProjectFileIO::SetBypass()
