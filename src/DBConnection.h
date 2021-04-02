@@ -31,6 +31,8 @@ struct DBConnectionErrors
 {
    TranslatableString mLastError;
    TranslatableString mLibraryError;
+   int mErrorCode { 0 };
+   wxString mLog;
 };
 
 class DBConnection
@@ -46,7 +48,7 @@ public:
       CheckpointFailureCallback callback);
    ~DBConnection();
 
-   bool Open(const char *fileName);
+   bool Open(const FilePath fileName);
    bool Close();
 
    //! throw and show appropriate message box
@@ -76,7 +78,6 @@ public:
       GetRootPage,
       GetDBPage
    };
-   sqlite3_stmt *GetStatement(enum StatementID id);
    sqlite3_stmt *Prepare(enum StatementID id, const char *sql);
 
    void SetBypass( bool bypass );
@@ -85,12 +86,14 @@ public:
    //! Just set stored errors
    void SetError(
       const TranslatableString &msg,
-      const TranslatableString &libraryError = {} );
+      const TranslatableString &libraryError = {}, 
+      int errorCode = {});
 
    //! Set stored errors and write to log; and default libraryError to what database library reports
    void SetDBError(
       const TranslatableString &msg,
-      const TranslatableString &libraryError = {} );
+      const TranslatableString& libraryError = {},
+      int errorCode = -1);
 
 private:
    bool ModeConfig(sqlite3 *db, const char *schema, const char *config);
@@ -109,7 +112,9 @@ private:
    std::atomic_bool mCheckpointPending{ false };
    std::atomic_bool mCheckpointActive{ false };
 
-   std::map<enum StatementID, sqlite3_stmt *> mStatements;
+   std::mutex mStatementMutex;
+   using StatementIndex = std::pair<enum StatementID, std::thread::id>;
+   std::map<StatementIndex, sqlite3_stmt *> mStatements;
 
    std::shared_ptr<DBConnectionErrors> mpErrors;
    CheckpointFailureCallback mCallback;

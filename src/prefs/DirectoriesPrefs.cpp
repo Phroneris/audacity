@@ -36,6 +36,7 @@
 #include "../ShuttleGui.h"
 #include "../TempDirectory.h"
 #include "../widgets/AudacityMessageBox.h"
+#include "../widgets/wxTextCtrlWrapper.h"
 
 using namespace FileNames;
 using namespace TempDirectory;
@@ -65,6 +66,16 @@ public:
          return false;
       }
 
+      return true;
+   }
+
+   virtual bool TransferToWindow() wxOVERRIDE
+   {
+      return true;
+   }
+
+   virtual bool TransferFromWindow() wxOVERRIDE
+   {
       return true;
    }
 
@@ -197,7 +208,8 @@ void DirectoriesPrefs::PopulateOrExchange(ShuttleGui &S)
                                       {PreferenceKey(Operation::Save, PathType::User),
                                        wxT("")},
                                       30);
-         mSaveText->SetValidator(FilesystemValidator(XO("Projects cannot be saved to FAT drives.")));
+         if( mSaveText )
+            mSaveText->SetValidator(FilesystemValidator(XO("Projects cannot be saved to FAT drives.")));
          S.Id(SaveButtonID).AddButton(XXO("B&rowse..."));
 
          S.Id(ImportTextID);
@@ -229,12 +241,14 @@ void DirectoriesPrefs::PopulateOrExchange(ShuttleGui &S)
                                   {PreferenceKey(Operation::Temp, PathType::_None),
                                    wxT("")},
                                   30);
-         mTempText->SetValidator(FilesystemValidator(XO("Temporary files directory cannot be on a FAT drive.")));
+         if( mTempText )
+            mTempText->SetValidator(FilesystemValidator(XO("Temporary files directory cannot be on a FAT drive.")));
          S.Id(TempButtonID).AddButton(XXO("Brow&se..."));
 
          S.AddPrompt(XXO("&Free Space:"));
-         mFreeSpace = S.Style(wxTE_READONLY).AddTextBox({}, wxT(""), 30);
+         mFreeSpace = S.AddTextBox({}, wxT(""), 30);
          mFreeSpace->SetName(XO("Free Space").Translation());
+         ((wxTextCtrlWrapper *) mFreeSpace)->SetReadOnly();
       }
       S.EndMultiColumn();
    }

@@ -35,6 +35,8 @@ bool EffectTwoPassSimpleMono::Process()
       const_cast<AudacityProject*>( FindProject() ) );
    for (auto track : mOutputTracks->Selected< WaveTrack >()) {
       mWorkTracks->Add(track->EmptyCopy())->ConvertToSampleFormat(floatSample);
+      if( mT0 > 0 )
+         mWorkTracks->back()->InsertSilence(0, mT0);
    }
 
    mTrackLists[0] = &mOutputTracks;

@@ -16,6 +16,7 @@ Paul Licameli -- split from ProjectFileIO.cpp
 #include <wx/progdlg.h>
 #include <wx/string.h>
 
+#include "AudacityLogger.h"
 #include "FileNames.h"
 #include "Internat.h"
 #include "Project.h"
@@ -63,31 +64,63 @@ bool DBConnection::ShouldBypass()
 }
 
 void DBConnection::SetError(
-   const TranslatableString &msg, const TranslatableString &libraryError)
+   const TranslatableString &msg, const TranslatableString &libraryError, int errorCode)
 {
+   wxLogMessage(wxT("Connection msg: %s"), msg.Debug());
+   printf("Connection msg: %s", msg.Debug().mb_str().data());
+
+   if (!libraryError.empty())
+   {
+      wxLogMessage(wxT("Connection error: %s"), libraryError.Debug());
+      printf("Connection error: %s", libraryError.Debug().mb_str().data());
+   }
+
    mpErrors->mLastError = msg;
    mpErrors->mLibraryError = libraryError;
+   mpErrors->mErrorCode = errorCode;
+
+   auto logger = AudacityLogger::Get();
+   if (logger)
+   {
+      mpErrors->mLog = logger->GetLog(10);
+   }
 }
 
 void DBConnection::SetDBError(
-   const TranslatableString &msg, const TranslatableString &libraryError)
+   const TranslatableString &msg, const TranslatableString &libraryError, int errorCode)
 {
+    mpErrors->mErrorCode = errorCode < 0 ?
+        sqlite3_errcode(DB()) : errorCode;
+
    mpErrors->mLastError = msg;
-   wxLogDebug(wxT("SQLite error: %s"), mpErrors->mLastError.Debug());
-   printf("   Lib error: %s", mpErrors->mLastError.Debug().mb_str().data());
+
+   wxLogMessage(
+       wxT("SQLite error (%d): %s"), 
+       mpErrors->mErrorCode, 
+       mpErrors->mLastError.Debug()
+   );
+
+   printf("SQLite error: %s", mpErrors->mLastError.Debug().mb_str().data());
 
    mpErrors->mLibraryError = libraryError.empty()
       ? Verbatim(sqlite3_errmsg(DB())) : libraryError;
-   wxLogDebug(wxT("   Lib error: %s"), mpErrors->mLibraryError.Debug());
+
+   wxLogMessage(wxT("   Lib error: %s"), mpErrors->mLibraryError.Debug());
    printf("   Lib error: %s", mpErrors->mLibraryError.Debug().mb_str().data());
+
+   auto logger = AudacityLogger::Get();
+   if (logger)
+   {
+      mpErrors->mLog = logger->GetLog(10);
+   }
 }
 
-bool DBConnection::Open(const char *fileName)
+bool DBConnection::Open(const FilePath fileName)
 {
    wxASSERT(mDB == nullptr);
    int rc;
 
-   rc = sqlite3_open(fileName, &mDB);
+   rc = sqlite3_open(fileName.ToUTF8(), &mDB);
    if (rc != SQLITE_OK)
    {
       sqlite3_close(mDB);
@@ -165,12 +198,15 @@ bool DBConnection::Close()
    mCheckpointThread.join();
 
    // We're done with the prepared statements
-   for (auto stmt : mStatements)
    {
-      // No need to check return code.
-      sqlite3_finalize(stmt.second);
+      std::lock_guard<std::mutex> guard(mStatementMutex);
+      for (auto stmt : mStatements)
+      {
+         // No need to check return code.
+         sqlite3_finalize(stmt.second);
+      }
+      mStatements.clear();
    }
-   mStatements.clear();
 
    // Close the DB
    rc = sqlite3_close(mDB);
@@ -248,10 +284,16 @@ const wxString DBConnection::GetLastMessage() const
 
 sqlite3_stmt *DBConnection::Prepare(enum StatementID id, const char *sql)
 {
+   std::lock_guard<std::mutex> guard(mStatementMutex);
+
    int rc;
+   // See bug 2673
+   // We must not use the same prepared statement from two different threads.
+   // Therefore, in the cache, use the thread id too.
+   StatementIndex ndx(id, std::this_thread::get_id());
 
    // Return an existing statement if it's already been prepared
-   auto iter = mStatements.find(id);
+   auto iter = mStatements.find(ndx);
    if (iter != mStatements.end())
    {
       return iter->second;
@@ -262,28 +304,29 @@ sqlite3_stmt *DBConnection::Prepare(enum StatementID id, const char *sql)
    rc = sqlite3_prepare_v3(mDB, sql, -1, SQLITE_PREPARE_PERSISTENT, &stmt, 0);
    if (rc != SQLITE_OK)
    {
-      wxLogDebug("prepare error %s", sqlite3_errmsg(mDB));
+      wxLogMessage("prepare error %s", sqlite3_errmsg(mDB));
       THROW_INCONSISTENCY_EXCEPTION;
    }
 
-   // And remember it
-   mStatements.insert({id, stmt});
+   // There are a small number (10 or so) of different id's corresponding 
+   // to different SQL statements, see enum StatementID
+   // We have relatively few threads running at any one time,
+   // e.g. main gui thread, a playback thread, a thread for compacting.
+   // However the cache might keep growing, as we start/stop audio,
+   // perhaps, if we chose to use a new thread each time.
+   // For 3.0.0 I think that's OK.  If it's a data leak it's a slow 
+   // enough one.  wxLogDebugs seem to show that the audio play thread
+   // is being reused, not recreated with a new ID, i.e. no leak at all.
+   // ANSWER-ME Just how serious is the data leak?  How best to fix?
 
+   // Remember the cached statement.
+   mStatements.insert({ndx, stmt});
+
+   //Thread Id not convertible to int.
+   //wxLogDebug( "Cached a statement for thread:%i thread:%i ", (int)ndx.first, (int)ndx.second);
+   wxLogDebug( "Cached a statement for %i", (int)id);
    return stmt;
 }
-
-sqlite3_stmt *DBConnection::GetStatement(enum StatementID id)
-{
-   // Look it up
-   auto iter = mStatements.find(id);
-
-   // It should always be there
-   wxASSERT(iter != mStatements.end());
-
-   // Return it
-   return iter->second;
-}
-
 
 void DBConnection::CheckpointThread()
 {

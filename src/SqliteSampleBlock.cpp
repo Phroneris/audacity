@@ -341,7 +341,7 @@ DBConnection *SqliteSampleBlock::Conn() const
    if (!pConnection) {
       throw SimpleMessageBoxException
       {
-         XO("Failed to open the project's database"),
+         XO("Connection to project file is null"),
          XO("Warning"),
          "Error:_Disk_full_or_not_writable"
       };
@@ -571,6 +571,13 @@ size_t SqliteSampleBlock::GetBlob(void *dest,
 
       // Just showing the user a simple message, not the library error too
       // which isn't internationalized
+      // Actually this can lead to 'Could not read from file' error message
+      // but it can also lead to no error message at all and a flat line, 
+      // depending on where GetBlob is called from.
+      // The latter can happen when repainting the screen.
+      // That possibly happens on a very slow machine.  Possibly that's the
+      // right trade off when a machine can't keep up?
+      // ANSWER-ME: Do we always report an error when we should here?
       Conn()->ThrowException( false );
    }
 

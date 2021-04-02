@@ -24,6 +24,7 @@
 
 #include <wx/app.h>
 #include <wx/defs.h>
+#include <locale>
 
 #include "../FileNames.h"
 #include "../Languages.h"
@@ -210,6 +211,11 @@ void GUIPrefs::PopulateOrExchange(ShuttleGui & S)
          {"/GUI/RtlWorkaround",
           true});
 #endif
+#ifdef EXPERIMENTAL_CEE_NUMBERS_OPTION
+      S.TieCheckBox(XXO("Never use comma as decimal point"),
+                    {wxT("/Locale/CeeNumberFormat"),
+                     false});
+#endif
    }
    S.EndStatic();
 
@@ -265,6 +271,7 @@ wxString GUIPrefs::InitLang( wxString langCode )
 }
 
 static std::unique_ptr<wxLocale> sLocale;
+static wxString sLocaleName;
 
 wxString GUIPrefs::SetLang( const wxString & lang )
 {
@@ -317,6 +324,13 @@ wxString GUIPrefs::SetLang( const wxString & lang )
 
    Internat::Init();
 
+#ifdef EXPERIMENTAL_CEE_NUMBERS_OPTION
+   bool forceCeeNumbers;
+   gPrefs->Read(wxT("/Locale/CeeNumberFormat"), &forceCeeNumbers, false);
+   if( forceCeeNumbers )
+      Internat::SetCeeNumberFormat();
+#endif
+
    // Unused strings that we want to be translated, even though
    // we're not using them yet...
    using future1 = decltype( XO("Master Gain Control") );
@@ -325,7 +339,14 @@ wxString GUIPrefs::SetLang( const wxString & lang )
       wxApp::s_macHelpMenuTitleName = _("&Help");
 #endif
 
+   sLocaleName = wxSetlocale(LC_ALL, NULL);
+
    return result;
+}
+
+wxString GUIPrefs::GetLocaleName()
+{
+   return sLocaleName;
 }
 
 wxString GUIPrefs::GetLang()

@@ -15,6 +15,7 @@
 #include <string.h>
 #include <errno.h>
 #include <math.h>
+#include <stdbool.h>
 
 #ifndef WIN32
 #include <unistd.h>
@@ -917,6 +918,7 @@ nyx_rval nyx_eval_expression(const char *expr_string)
    xmem();
 #endif
 
+   printf("nyx_eval_expression returns %d\n", nyx_get_type(nyx_result));
    return nyx_get_type(nyx_result);
 }
 
@@ -937,12 +939,20 @@ int nyx_get_audio_num_channels()
    return 1;
 }
 
+// see sndwritepa.c for similar computation. This is a bit simpler
+// because we are not writing interleaved samples.
+typedef struct {
+   int cnt;  // how many samples are in the current sample block
+   sample_block_values_type samps;  // the next sample
+   bool terminated;  // has the sound reached termination?
+} sound_state_node, *sound_state_type;
+
+
 int nyx_get_audio(nyx_audio_callback callback, void *userdata)
 {
-   float *buffer = NULL;
-   sound_type *snds = NULL;
-   int64_t *totals = NULL;
-   int64_t *lens = NULL;
+   sound_state_type states;  // tracks progress reading multiple channels
+   float *buffer = NULL;     // samples to push to callback
+   int64_t total = 0;        // total frames computed (samples per channel)
    sound_type snd;
    int result = 0;
    int num_channels;
@@ -954,6 +964,7 @@ int nyx_get_audio(nyx_audio_callback callback, void *userdata)
    // cached in registers to be lost.
    volatile int success = FALSE;
 
+   printf("nyx_get_audio type %d\n", nyx_get_type(nyx_result));
    if (nyx_get_type(nyx_result) != nyx_audio) {
       return FALSE;
    }
@@ -970,19 +981,14 @@ int nyx_get_audio(nyx_audio_callback callback, void *userdata)
       goto finish;
    }
 
-   snds = (sound_type *) malloc(num_channels * sizeof(sound_type));
-   if (snds == NULL) {
+   states = (sound_state_type) malloc(num_channels * sizeof(sound_state_node));
+   if (states == NULL) {
       goto finish;
    }
-
-   totals = (int64_t *) malloc(num_channels * sizeof(int64_t));
-   if (totals == NULL) {
-      goto finish;
-   }
-
-   lens = (int64_t *) malloc(num_channels * sizeof(int64_t));
-   if (lens == NULL) {
-      goto finish;
+   for (ch = 0; ch < num_channels; ch++) {
+       states[ch].cnt = 0;       // force initial fetch
+       states[ch].samps = NULL;  // unnecessary initialization
+       states[ch].terminated = false;
    }
 
    // Setup a new context
@@ -996,6 +1002,10 @@ int nyx_get_audio(nyx_audio_callback callback, void *userdata)
       goto finish;
    }
 
+   // if LEN is set, we will return LEN samples per channel. If LEN is
+   // unbound, we will compute samples until every channel has terminated
+   // that the samples per channel will match the last termination time,
+   // i.e. it could result in a partial block at the end.
    if (nyx_input_length == 0) {
       LVAL val = getvalue(xlenter("LEN"));
       if (val != s_unbound) {
@@ -1008,54 +1018,96 @@ int nyx_get_audio(nyx_audio_callback callback, void *userdata)
       }
    }
 
+   // at this point, input sounds which were referenced by symbol S
+   // (or nyx_get_audio_name()) could be referenced by nyx_result, but
+   // S is now bound to NIL. nyx_result is a protected (garbage
+   // collected) LVAL bound to a sound or array of sounds, so we must
+   // either unbind nyx_result or read it destructively. We need the
+   // GC to know about sounds as we read them, so we might as well
+   // read nyx_result destructively. However, reading destructively
+   // will fail if nyx_result is (VECTOR S S) or has two references to
+   // the same sound. Therefore, we will replace each channel of
+   // nyx_result (except the first) with a copy. This may make
+   // needless copies, but if so, the GC will free the originals.
+   // Note: sound copies are just "readers" of the same underlying
+   // list of samples (snd_list_nodes) and lazy sample computation
+   // structure, so here, a sound copy is just one extra object of
+   // type sound_node.
+   // To unify single and multi-channel sounds, we'll create an array
+   // of one element for single-channel sounds.
+
+   if (num_channels == 1) {
+      LVAL array = newvector(1);
+      setelement(array, 0, nyx_result);
+      nyx_result = array;
+   }
    for (ch = 0; ch < num_channels; ch++) {
-      if (num_channels == 1) {
-         snd = getsound(nyx_result);
+      if (ch > 0) {  // no need to copy first channel
+         setelement(nyx_result, ch, 
+                    cvsound(sound_copy(getsound(getelement(nyx_result, ch)))));
       }
-      else {
-         snd = getsound(getelement(nyx_result, ch));
-      }
-      snds[ch] = sound_copy(snd);
-      totals[ch] = 0;
-      lens[ch] = nyx_input_length;
    }
 
+   // This is the "pump" that pulls samples from Nyquist and pushes samples
+   // out by calling the callback function. Every block boundary is a potential
+   // sound termination point, so we pull, scale, and write sample up to the
+   // next block boundary in any channel.
+   // First, we look at all channels to determine how many samples we have to
+   // compute in togo (how many "to go"). Then, we push togo samples from each
+   // channel to the callback, keeping all the channels in lock step.
+
    while (result == 0) {
-      for (ch =0 ; ch < num_channels; ch++) {
+      bool terminated = true;
+      // how many samples to compute before calling callback:
+      int64_t togo = max_sample_block_len;
+      if (nyx_input_length > 0 && total + togo > nyx_input_length) {
+         togo = nyx_input_length - total;
+      }
+      for (ch = 0; ch < num_channels; ch++) {
+         sound_state_type state = &states[ch];
+         sound_type snd = getsound(getelement(nyx_result, ch));
          sample_block_type block;
          int cnt;
          int i;
-
-         snd = snds[ch];
-
-         cnt = 0;
-         block = sound_get_next(snd, &cnt);
-         if (block == zero_block || cnt == 0) {
-            success = TRUE;
-            result = -1;
-            break;
+          if (state->cnt == 0) {
+            state->samps = sound_get_next(snd, &state->cnt)->samples;
+            if (state->samps == zero_block->samples) {
+               state->terminated = true;
+               // Note: samps is a valid pointer to at least cnt zeros
+               // so we can process this channel as if it still has samples.
+            }
          }
+         terminated &= state->terminated; // only terminated if ALL terminate
+         if (state->cnt < togo) togo = state->cnt;
+         // now togo is the minimum of: how much room is left in buffer and 
+         //     how many samples are available in samps
+      }
+      if (terminated || togo == 0) {
+         success = TRUE;
+         result = -1;
+         break;  // no more samples in any channel
+      }
 
+      for (ch = 0; ch < num_channels; ch++) {
+         sound_state_type state = &states[ch];
+         sound_type snd = getsound(getelement(nyx_result, ch));
          // Copy and scale the samples
-         for (i = 0; i < cnt; i++) {
-            buffer[i] = block->samples[i] * snd->scale;
+         for (int i = 0; i < togo; i++) {
+            buffer[i] = *(state->samps++) * (float) snd->scale;
          }
-
-         result = callback((float *)buffer, ch,
-                           totals[ch], cnt, lens[ch] ? lens[ch] : cnt, userdata);
-
+         state->cnt -= togo;
+         // TODO: What happens here when we don't know the total length,
+         // i.e. nyx_input_length == 0? Should we pass total+togo instead?
+         result = callback(buffer, ch, total, togo, nyx_input_length, userdata);
          if (result != 0) {
             result = -1;
             break;
          }
-
-         totals[ch] += cnt;
       }
+      total += togo;
    }
 
-   for (ch = 0 ; ch < num_channels; ch++) {
-      sound_unref(snds[ch]);
-   }
+   nyx_result = NULL;  // unreference sound array so GC can free it
 
    // This will unwind the xlisp context and restore internals to a point just
    // before we issued our xlbegin() above.  This is important since the internal
@@ -1072,16 +1124,8 @@ int nyx_get_audio(nyx_audio_callback callback, void *userdata)
       free(buffer);
    }
 
-   if (lens) {
-      free(lens);
-   }
-
-   if (totals) {
-      free(totals);
-   }
-
-   if (snds) {
-      free(snds);
+   if (states) {
+      free(states);
    }
 
    gc();
