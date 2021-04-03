@@ -198,18 +198,6 @@ msgid ""
 msgid "\"%s\", \"%s\", \"%s\"\n"
 て何。
 →Transifexで聞いたら、もう使われなくなった要らない子なので無視で良いとJames氏が答えてくれた。
-  以下引用：
-  ==========
-  This string is used in a rare case where diagnostic information is provided to the user about possible problems with their file. It once was used, and is not currently used (at least it is not used on Windows). We probably should remove this file (dependencies.cpp).
-
-  This is how it used to be used:
-
-  The first %s is replaced by a path name of a file
-  The second %s is replaced by a size in bytes
-  The third %s is replaced by (your translation of) 'OK' or 'Missing'
-
-  It is very very unlikely you need to change this string. Perhaps if you were working in a right to left language you might. Leave it unchanged. You only need to make sure that "Missing" and "OK" are translated.
-  ==========
 
 src/AudioIOBase.cpp
 src/DBConnection.cpp
