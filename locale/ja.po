@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 00:26+0900\n"
+"PO-Revision-Date: 2021-04-04 03:57+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -978,7 +978,7 @@ msgid ""
 "data loss or cause your system to crash.\n"
 "\n"
 msgstr ""
-"Audacity を 2 つ同時に動作させると、データの喪失や、\n"
+"複数の Audacity を同時に動作させると、データの喪失や、\n"
 "システムのクラッシュの危険性があります。\n"
 "\n"
 
@@ -1596,7 +1596,7 @@ msgstr "メニューコマンド (パラメーター無し)"
 #: src/BatchCommands.cpp src/CommonCommandFlags.cpp
 #, c-format
 msgid "\"%s\" requires one or more tracks to be selected."
-msgstr "「%s」を使うには 1 つ以上のトラックの選択が必要です。"
+msgstr "「%s」を使うにはトラックを 1 本以上選択する必要があります。"
 
 #: src/BatchCommands.cpp
 #, c-format
@@ -3605,8 +3605,8 @@ msgid ""
 "each stereo track)"
 msgstr ""
 "このサンプリング周波数で録音するには、選択トラック数が少なすぎます。\n"
-"(ステレオトラック 1 つにつき、\n"
-"同一のサンプリング周波数を持つ 2 つのチャンネルが必要です)"
+"(ステレオトラック 1 本につき、\n"
+"同一のサンプリング周波数を持つ 2 本のチャンネルが必要です)"
 
 #: src/ProjectAudioManager.cpp src/menus/TransportMenus.cpp
 msgid "Too Few Compatible Tracks Selected"
@@ -4297,7 +4297,7 @@ msgstr "プロジェクトのコピーの保存エラー"
 
 #: src/ProjectFileManager.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
-msgstr "1 つ以上のファイルを選択してください"
+msgstr "1 個以上のファイルを選択してください"
 
 #: src/ProjectFileManager.cpp
 #, c-format
@@ -4804,7 +4804,7 @@ msgstr "最近傍"
 
 #: src/Snap.cpp
 msgid "Prior"
-msgstr "1 つ前"
+msgstr "直前"
 
 #: src/SoundActivatedRecord.cpp
 msgid "Sound Activated Record"
@@ -5685,7 +5685,7 @@ msgstr "閾値:"
 
 #: src/commands/CompareAudioCommand.h
 msgid "Compares a range on two tracks."
-msgstr "2 つのトラックのレンジを比較します。"
+msgstr "2 本のトラックのレンジを比較します。"
 
 # jp: デモはデモなのであえて翻訳しない
 #: src/commands/Demo.cpp
@@ -6409,7 +6409,7 @@ msgstr "自動ダッキング(&K)"
 # jp: 説明
 #: src/effects/AutoDuck.cpp
 msgid "Reduces (ducks) the volume of one or more tracks whenever the volume of a specified \"control\" track reaches a particular level"
-msgstr "指定された「コントロール」トラックが特定のレベルに達したら、1 つ以上のトラックのレベルを低減 (ダッキング) します"
+msgstr "指定された「コントロール」トラックが特定のレベルに達したら、1 本以上のトラックのレベルを低減 (ダッキング) します"
 
 #. i18n-hint: Auto duck is the name of an effect that 'ducks' (reduces the volume)
 #. * of the audio automatically when there is sound on another track.  Not as
@@ -6942,7 +6942,7 @@ msgstr "リリースタイム %.1f 秒"
 
 #: src/effects/Contrast.cpp
 msgid "You can only measure one track at a time."
-msgstr "一度に１つのトラックのみ測定できます。"
+msgstr "一度に 1 本のトラックのみ測定できます。"
 
 #: src/effects/Contrast.cpp
 msgid "Please select an audio track."
@@ -6967,7 +6967,7 @@ msgstr ""
 #. i18n-hint: RMS abbreviates root mean square, a certain averaging method
 #: src/effects/Contrast.cpp
 msgid "Contrast Analyzer, for measuring RMS volume differences between two selections of audio."
-msgstr "2 つの選択音声同士の RMS 音量の差を計測する、コントラスト解析機能です。"
+msgstr "2 件の選択音声同士の RMS 音量の差を計測する、コントラスト解析機能です。"
 
 #. i18n-hint noun
 #: src/effects/Contrast.cpp src/effects/ToneGen.cpp
@@ -8404,7 +8404,7 @@ msgstr "ラウドネスノーマライズ(&Z)"
 
 #: src/effects/Loudness.cpp
 msgid "Sets the loudness of one or more tracks"
-msgstr "1 つ以上のトラックに対してラウドネスを設定します"
+msgstr "1 本以上のトラックに対してラウドネスを設定します"
 
 #: src/effects/Loudness.cpp
 msgid "Normalizing Loudness...\n"
@@ -8790,7 +8790,7 @@ msgstr "ノーマライズ(&Z)"
 
 #: src/effects/Normalize.cpp
 msgid "Sets the peak amplitude of one or more tracks"
-msgstr "1 つ以上のトラックに対して最大振幅値を設定します"
+msgstr "1 本以上のトラックに対して最大振幅値を設定します"
 
 #: src/effects/Normalize.cpp
 msgid "Removing DC offset and Normalizing...\n"
@@ -8987,7 +8987,7 @@ msgstr "修復(&E)"
 
 #: src/effects/Repair.cpp
 msgid "Sets the peak amplitude of a one or more tracks"
-msgstr "1 つ以上のトラックに対してピーク振幅を設定します"
+msgstr "1 本以上のトラックに対してピーク振幅を設定します"
 
 #: src/effects/Repair.cpp
 msgid ""
@@ -9425,11 +9425,11 @@ msgstr "トーン(&T)"
 
 #: src/effects/ToneGen.cpp
 msgid "Generates an ascending or descending tone of one of four types"
-msgstr "4 種類の中から 1 つ選んで、上昇音や加工音を生成します"
+msgstr "4 種類の中からいずれかを選んで、上昇音や下降音を生成します"
 
 #: src/effects/ToneGen.cpp
 msgid "Generates a constant frequency tone of one of four types"
-msgstr "4 種類の中から 1 つ選んで、一定周波数の音を生成します"
+msgstr "4 種類の中からいずれかを選んで、一定周波数の音を生成します"
 
 #: src/effects/ToneGen.cpp
 msgid "&Waveform:"
@@ -9479,7 +9479,7 @@ msgstr "音量が設定値より低い場合に自動的に切り詰めます"
 
 #: src/effects/TruncSilence.cpp
 msgid "When truncating independently, there may only be one selected audio track in each Sync-Locked Track Group."
-msgstr "別々に切り詰める場合、トラックの同期ロックグループごとに 1 個のトラックしか選択することはできません。"
+msgstr "別々に切り詰める場合、トラックの同期ロックグループごとに 1 本のトラックしか選択することはできません。"
 
 # jp: [解析] > [無音の検出] との区別のために、「の」を削除
 #: src/effects/TruncSilence.cpp
@@ -10059,7 +10059,7 @@ msgstr "Nyquist は複数の音声チャンネルを返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned one audio channel as an array.\n"
-msgstr "Nyquist は 1 つの音声チャンネルを 1 つの配列として返しました。\n"
+msgstr "Nyquist は 1 本の音声チャンネルを配列として返しました。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist returned an empty array.\n"
@@ -10498,7 +10498,7 @@ msgstr "FFmpeg : エラー - 音声フレームをエンコードできません
 #: src/export/ExportFFmpeg.cpp
 #, c-format
 msgid "Attempted to export %d channels, but maximum number of channels for selected output format is %d"
-msgstr "%d チャンネルを書き出そうとしましたが、選択された出力フォーマットでは %d チャンネルが最大です"
+msgstr "%d 本のチャンネルを書き出そうとしましたが、選択された出力フォーマットでは %d 本が最大です"
 
 #: src/export/ExportFFmpeg.cpp
 #, c-format
@@ -10539,7 +10539,7 @@ msgstr ""
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "You may resample to one of the rates below."
-msgstr "以下のサンプリング周波数のうちの一つへ再サンプリングしましょう。"
+msgstr "以下のいずれかのサンプリング周波数へ再サンプリングしましょう。"
 
 #: src/export/ExportFFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Sample Rates"
@@ -13046,7 +13046,7 @@ msgstr "書き出すトラックラベルはありません。"
 
 #: src/menus/FileMenus.cpp
 msgid "Please select only one Note Track at a time."
-msgstr "一度に 1 つのノートトラックだけ選択してください。"
+msgstr "一度に 1 本のノートトラックだけ選択してください。"
 
 #: src/menus/FileMenus.cpp
 msgid "Please select a Note Track."
@@ -13893,7 +13893,7 @@ msgstr "スナップ: 最近傍(&N)"
 
 #: src/menus/SelectMenus.cpp
 msgid "Snap-To &Prior"
-msgstr "スナップ: 1 つ前(&P)"
+msgstr "スナップ: 直前(&P)"
 
 #: src/menus/SelectMenus.cpp
 msgid "Selection to &Start"
@@ -14054,17 +14054,17 @@ msgstr "レンダリング"
 #: src/menus/TrackMenus.cpp
 #, c-format
 msgid "Mixed and rendered %d tracks into one new stereo track"
-msgstr "%d 個のトラックを単一の新規ステレオトラックにミックスしてレンダリングしました"
+msgstr "%d 本のトラックを単一の新規ステレオトラックにミックスしてレンダリングしました"
 
 #: src/menus/TrackMenus.cpp
 #, c-format
 msgid "Mixed and rendered %d tracks into one new mono track"
-msgstr "%d 個のトラックを単一の新規モノラルトラックにミックスしてレンダリングしました"
+msgstr "%d 本のトラックを単一の新規モノラルトラックにミックスしてレンダリングしました"
 
 #. i18n-hint: One or more audio tracks have been panned
 #: src/menus/TrackMenus.cpp
 msgid "Panned audio track(s)"
-msgstr "1 個以上の音声トラックをパン振りしました"
+msgstr "1 本以上の音声トラックをパン振りしました"
 
 #: src/menus/TrackMenus.cpp
 msgid "Pan Track"
@@ -14219,7 +14219,9 @@ msgstr "新規ラベルトラックを作りました"
 
 #: src/menus/TrackMenus.cpp
 msgid "This version of Audacity only allows one time track for each project window."
-msgstr "このバージョンの Audacity では、時間トラックはプロジェクトウィンドウに 1 つのみ可能です。"
+msgstr ""
+"このバージョンの Audacity では、時間トラックは\n"
+"プロジェクトウィンドウごとに 1 本しか許容されません。"
 
 #: src/menus/TrackMenus.cpp
 msgid "Created new time track"
@@ -14238,7 +14240,7 @@ msgstr "入力された値は不適切です"
 #: src/menus/TrackMenus.cpp
 #, c-format
 msgid "Resampling track %d"
-msgstr "%d トラックを再サンプリング中"
+msgstr "%d 本目のトラックを再サンプリング中"
 
 #: src/menus/TrackMenus.cpp
 msgid "Resampled audio track(s)"
@@ -14250,7 +14252,7 @@ msgstr "トラックの再サンプリング"
 
 #: src/menus/TrackMenus.cpp
 msgid "Please select at least one audio track and one MIDI track."
-msgstr "音声トラックと MIDI トラックを少なくとも 1 個以上選択してください。"
+msgstr "音声トラックと MIDI トラックを少なくとも 1 本以上選択してください。"
 
 #: src/menus/TrackMenus.cpp
 #, c-format
@@ -17235,7 +17237,7 @@ msgstr "変速再生ツールバー(&Y)"
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Drag one or more label boundaries."
-msgstr "1 つ以上のラベル境界をドラッグしてください。"
+msgstr "1 個以上のラベル境界をドラッグします。"
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Drag label boundary."
@@ -18983,7 +18985,7 @@ msgstr "エラー。~%不正な選択です。~%選択範囲の開始点また�
 #: plug-ins/crossfadeclips.ny
 #, lisp-format
 msgid "Error.~%Crossfade Clips may only be applied to one track."
-msgstr "エラー。~%クリップのクロスフェードは 1 つのトラックにだけ適用できます。"
+msgstr "エラー。~%クリップのクロスフェードは 1 本のトラックにだけ適用できます。"
 
 # jp: 独自アクセスキー
 #: plug-ins/crossfadetracks.ny
@@ -19029,7 +19031,7 @@ msgstr "イン/アウトで交互"
 #: plug-ins/crossfadetracks.ny
 #, lisp-format
 msgid "Error.~%Select 2 (or more) tracks to crossfade."
-msgstr "エラー。~%クロスフェードするトラックを 2 つ以上選んでください。"
+msgstr "エラー。~%クロスフェードするトラックを 2 本以上選んでください。"
 
 # jp: 独自アクセスキー
 #: plug-ins/delay.ny
@@ -20132,11 +20134,11 @@ msgstr "リニア"
 
 #: plug-ins/sample-data-export.ny
 msgid "2 channels (stereo)"
-msgstr "2チャンネル (ステレオ)"
+msgstr "2 チャンネル (ステレオ)"
 
 #: plug-ins/sample-data-export.ny
 msgid "1 channel (mono)"
-msgstr "1チャンネル (モノラル)"
+msgstr "1 チャンネル (モノラル)"
 
 #: plug-ins/sample-data-export.ny
 #, lisp-format
@@ -20371,7 +20373,7 @@ msgid ""
 "                The center can't be removed.\n"
 "                Any remaining difference may be caused by lossy encoding."
 msgstr ""
-" - 2 つのチャンネルが完全に同一。言わば両モノラル。\n"
+" - 2 本のチャンネルが完全に同一。言わば両モノラル。\n"
 "                中央の音を除去することはできない。\n"
 "                差が残るとしたら、それはエンコード時の劣化のせい。"
 
@@ -20380,7 +20382,7 @@ msgid ""
 " - The two Channels are strongly related, i.e. nearly mono or extremely panned.\n"
 "                Most likely, the center extraction will be poor."
 msgstr ""
-" - 2 つのチャンネルの関連が強い。ほぼモノラルか、あるいは極端なパン振り。\n"
+" - 2 本のチャンネルの関連が強い。ほぼモノラルか、あるいは極端なパン振り。\n"
 "                中央音の抽出は、十中八九貧弱なものになるはず。"
 
 #: plug-ins/vocalrediso.ny
@@ -20401,7 +20403,7 @@ msgid ""
 "                Either you have only noise or the piece is mastered in a unbalanced manner.\n"
 "                The center extraction can still be good though."
 msgstr ""
-" - 2 つのチャンネルは相互にほぼ関連していない。\n"
+" - 2 本のチャンネルは相互にほぼ関連していない。\n"
 "                ノイズ音源なのか、あるいは常識外れのマスタリングが施された音源なのか。\n"
 "                といっても、それなりに中央音を抽出できる可能性がある。"
 
@@ -20412,7 +20414,7 @@ msgid ""
 "                Especially when played by only one speaker."
 msgstr ""
 " - ステレオトラックでこそあるが、場の広がりが明らかに並外れている。\n"
-"                このような音源は、特に 1 つだけのスピーカーで再生した場合などに\n"
+"                このような音源は、特に 1 個だけのスピーカーで再生した場合などに\n"
 "                おかしな効果になることがある。"
 
 #: plug-ins/vocalrediso.ny
@@ -20422,7 +20424,7 @@ msgid ""
 "                  to spread the signal over the physical distance between the speakers.\n"
 "                  Don't expect good results from a center removal."
 msgstr ""
-" - 2 つのチャンネルがほとんど同一。\n"
+" - 2 本のチャンネルがほとんど同一。\n"
 "                  明らかに疑似ステレオエフェクトが使われている\n"
 "                  (スピーカー同士の物理的距離を超越した信号の広がりを狙うもの)。\n"
 "                  まともな中央音除去効果を期待しない方が良い。"
