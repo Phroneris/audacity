@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-03 23:02+0900\n"
+"PO-Revision-Date: 2021-04-04 00:18+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -592,12 +592,13 @@ msgstr "スペシャルサンクス:"
 msgid "%s website: "
 msgstr "%s ウェブサイト: "
 
+# jp: 国際的な表記なので西暦の範囲は "-" のままにすべきかとも思ったが、（そもそも表示自体がもう無意味という話は別にして、）万国著作権条約が求める発行年は「最初の」ものだけなので後ろがどうなっていようと問題無いと判断した。
 #. i18n-hint Audacity's name substitutes for first and third %s,
 #. and a "copyright" symbol for the second
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s software is copyright %s 1999-2021 %s Team."
-msgstr "%s 著作権表示: %s 1999-2021 %s チーム"
+msgstr "%s 著作権表示: %s 1999～2021 %s チーム"
 
 #. i18n-hint Audacity's name substitutes for %s
 #: src/AboutDialog.cpp
@@ -11246,44 +11247,44 @@ msgstr "音声を %ld kbps で書き出し"
 
 #: src/export/ExportMP3.cpp
 msgid "220-260 kbps (Best Quality)"
-msgstr "220-260 kbps (高品質)"
+msgstr "220～260 kbps (高品質)"
 
 #: src/export/ExportMP3.cpp
 msgid "200-250 kbps"
-msgstr "200-250 kbps"
+msgstr "200～250 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "170-210 kbps"
-msgstr "170-210 kbps"
+msgstr "170～210 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "155-195 kbps"
-msgstr "155-195 kbps"
+msgstr "155～195 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "145-185 kbps"
-msgstr "145-185 kbps"
+msgstr "145～185 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "110-150 kbps"
-msgstr "110-150 kbps"
+msgstr "110～150 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "95-135 kbps"
-msgstr "95-135 kbps"
+msgstr "95～135 kbps"
 
 #  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #: src/export/ExportMP3.cpp
 msgid "80-120 kbps"
-msgstr "80-120 kbps"
+msgstr "80～120 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "65-105 kbps"
-msgstr "65-105 kbps"
+msgstr "65～105 kbps"
 
 #: src/export/ExportMP3.cpp
 msgid "45-85 kbps (Smaller files)"
-msgstr "45-85 kbps (軽量)"
+msgstr "45～85 kbps (軽量)"
 
 #: src/export/ExportMP3.cpp
 msgid "Fast"
