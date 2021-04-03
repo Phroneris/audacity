@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-03 19:50+0900\n"
+"PO-Revision-Date: 2021-04-03 21:01+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3932,3756,470,2707,1151,246,407,684,-1,-1\n"
+"X-Poedit-Bookmarks: 3932,3756,470,2707,1151,684,1395,406,-1,-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -1295,12 +1295,12 @@ msgstr "ストリームがアクティブです。情報を収集できません
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Default recording device number: %d\n"
-msgstr ""
+msgstr "デフォルトの録音デバイス番号: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Default playback device number: %d\n"
-msgstr ""
+msgstr "デフォルトの再生デバイス番号: %d\n"
 
 #: src/AudioIOBase.cpp
 msgid "No devices found\n"
@@ -1309,160 +1309,160 @@ msgstr "デバイスが見つかりません\n"
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Device info unavailable for: %d\n"
-msgstr ""
+msgstr "情報が取得できないデバイス: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Device ID: %d\n"
-msgstr ""
+msgstr "デバイス ID: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Device name: %s\n"
-msgstr ""
+msgstr "デバイス名: %s\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Host name: %s\n"
-msgstr ""
+msgstr "ホスト名: %s\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Recording channels: %d\n"
-msgstr ""
+msgstr "録音チャンネル数: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Playback channels: %d\n"
-msgstr ""
+msgstr "再生チャンネル数: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Low Recording Latency: %g\n"
-msgstr ""
+msgstr "低遅延録音の遅延: %g\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Low Playback Latency: %g\n"
-msgstr ""
+msgstr "低遅延再生の遅延: %g\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "High Recording Latency: %g\n"
-msgstr ""
+msgstr "高遅延録音の遅延: %g\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "High Playback Latency: %g\n"
-msgstr ""
+msgstr "高遅延再生の遅延: %g\n"
 
 #. i18n-hint: Supported, meaning made available by the system
 #: src/AudioIOBase.cpp
 msgid "Supported Rates:\n"
-msgstr ""
+msgstr "対応サンプリング周波数:\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Selected recording device: %d - %s\n"
-msgstr ""
+msgstr "選択している録音デバイス: %d - %s\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "No recording device found for '%s'.\n"
-msgstr ""
+msgstr "録音デバイス「%s」が見つかりませんでした。\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Selected playback device: %d - %s\n"
-msgstr ""
+msgstr "選択している再生デバイス: %d - %s\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "No playback device found for '%s'.\n"
-msgstr ""
+msgstr "再生デバイス「%s」が見つかりませんでした。\n"
 
 #: src/AudioIOBase.cpp
 msgid "Cannot check mutual sample rates without both devices.\n"
-msgstr ""
+msgstr "両デバイスのどちらかが欠けているため、共通のサンプリング周波数を確認できません。\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Received %d while opening devices\n"
-msgstr ""
+msgstr "デバイスを開く際にエラー %d を受け取りました\n"
 
 #: src/AudioIOBase.cpp
 msgid "Unable to open Portmixer\n"
-msgstr ""
+msgstr "Portmixer を開けません\n"
 
 #: src/AudioIOBase.cpp
 msgid "Available mixers:\n"
-msgstr ""
+msgstr "利用可能なミキサー:\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "%d - %s\n"
-msgstr ""
+msgstr "%d - %s\n"
 
 #: src/AudioIOBase.cpp
 msgid "Available recording sources:\n"
-msgstr ""
+msgstr "利用可能な録音ソース:\n"
 
 #: src/AudioIOBase.cpp
 msgid "Available playback volumes:\n"
-msgstr ""
+msgstr "利用可能な再生音量:\n"
 
 #: src/AudioIOBase.cpp
 msgid "Recording volume is emulated\n"
-msgstr ""
+msgstr "録音音量はエミュレートされています\n"
 
 #: src/AudioIOBase.cpp
 msgid "Recording volume is native\n"
-msgstr ""
+msgstr "録音音量はネイティブです\n"
 
 #: src/AudioIOBase.cpp
 msgid "Playback volume is emulated\n"
-msgstr ""
+msgstr "再生音量はエミュレートされています\n"
 
 #: src/AudioIOBase.cpp
 msgid "Playback volume is native\n"
-msgstr ""
+msgstr "再生音量はネイティブです\n"
 
 #. i18n-hint: Supported, meaning made available by the system
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Supports output: %d\n"
-msgstr ""
+msgstr "対応出力数: %d\n"
 
 #. i18n-hint: Supported, meaning made available by the system
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Supports input: %d\n"
-msgstr ""
+msgstr "対応入力数: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Opened: %d\n"
-msgstr ""
+msgstr "オープン状況: %d\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Selected MIDI recording device: %d - %s\n"
-msgstr ""
+msgstr "選択している MIDI 録音デバイス: %d - %s\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "No MIDI recording device found for '%s'.\n"
-msgstr ""
+msgstr "MIDI 録音デバイス「%s」が見つかりませんでした。\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "Selected MIDI playback device: %d - %s\n"
-msgstr ""
+msgstr "選択している MIDI 再生デバイス: %d - %s\n"
 
 #: src/AudioIOBase.cpp
 #, c-format
 msgid "No MIDI playback device found for '%s'.\n"
-msgstr ""
+msgstr "MIDI 再生デバイス「%s」が見つかりませんでした。\n"
 
 #: src/AutoRecoveryDialog.cpp
 msgid "Automatic Crash Recovery"
@@ -2070,26 +2070,25 @@ msgstr "Audacity サポートデータ"
 
 #: src/CrashReport.cpp src/DBConnection.cpp src/ProjectFileIO.cpp
 msgid "This may take several seconds"
-msgstr ""
+msgstr "処理完了までしばらくお待ちください"
 
 #: src/CrashReport.cpp
 msgid "Report generated to:"
 msgstr "次の場所にレポートが作成されます:"
 
 #: src/DBConnection.cpp
-#, fuzzy
 msgid "Checkpointing project"
-msgstr "現在のプロジェクト"
+msgstr "プロジェクトのチェックポイントを作成中"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Checkpointing %s"
-msgstr "%s を取り込み中"
+msgstr "「%s」のチェックポイントを作成中"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Could not write to %s.\n"
-msgstr "ファイルに書き込めません: %s"
+msgstr "パスに書き込めません: %s\n"
 
 #: src/DBConnection.cpp
 #, c-format
@@ -2103,28 +2102,32 @@ msgstr ""
 "量解放のコツについて知るには、ヘルプボタンをクリックしてください。"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to create savepoint:\n"
 "\n"
 "%s"
 msgstr ""
-"登録失敗:\n"
+"セーブポイントの作成に失敗しました:\n"
+"\n"
 "%s"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to release savepoint:\n"
 "\n"
 "%s"
 msgstr ""
-"登録失敗:\n"
+"セーブポイントの解放に失敗しました:\n"
+"\n"
 "%s"
 
 #: src/DBConnection.cpp
 msgid "Database error.  Sorry, but we don't have more details."
 msgstr ""
+"データベースエラー。\n"
+"申し訳ありませんが、これ以上のことは不明です。"
 
 #: src/Dependencies.cpp
 msgid "Removing Dependencies"

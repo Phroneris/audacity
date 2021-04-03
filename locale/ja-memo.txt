@@ -49,10 +49,6 @@
 
 ■ 問題
 
-src/AudioIOBase.cpp
-src/DBConnection.cpp
-の各種メッセージがどうすれば出せるのかよくわからず、確認できない。
-
 src/FileException.cpp の
 "Audacity failed to open a file in %s."
 "Audacity failed to read from a file in %s."
@@ -214,6 +210,12 @@ msgid "\"%s\", \"%s\", \"%s\"\n"
 
   It is very very unlikely you need to change this string. Perhaps if you were working in a right to left language you might. Leave it unchanged. You only need to make sure that "Missing" and "OK" are translated.
   ==========
+
+src/AudioIOBase.cpp
+src/DBConnection.cpp
+の各種メッセージがどうすれば出せるのかよくわからず、確認できない。
+→前者は、診断からデバイス情報をテキストに保存した時に出力される文字列だった。
+  後者は直接確認できていないが、コードから推測してどうにかした。
 
 
 
