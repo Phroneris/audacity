@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-03 19:37+0900\n"
+"PO-Revision-Date: 2021-04-03 19:50+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -15282,7 +15282,7 @@ msgstr "起動時に「ヘルプ情報のご案内」を表示(&H)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Show e&xtra menus"
-msgstr "[拡張] メニューを表示(&R)"
+msgstr "[拡張] メニューを表示(&X)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Show alternative &styling (Mac vs PC)"
@@ -15306,18 +15306,20 @@ msgstr "システムと Audacity のテーマをブレンドする(&L)"
 msgid "Use mostly Left-to-Right layouts in RTL languages"
 msgstr "右横書き言語 (右から読む言語) でも左横書きレイアウトを使用(&Y)"
 
+# jp: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp
 msgid "Never use comma as decimal point"
-msgstr ""
+msgstr "カンマを小数点に使用しない(&N)"
 
 # jp: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp
 msgid "Show Timeline Tooltips"
-msgstr "タイムラインツールヒントを表示"
+msgstr "タイムラインツールヒントを表示(&W)"
 
+# jp: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp src/toolbars/ScrubbingToolBar.cpp
 msgid "Show Scrub Ruler"
-msgstr "スクラブルーラーを表示"
+msgstr "スクラブルーラーを表示(&U)"
 
 #: src/prefs/GUIPrefs.cpp
 #, c-format
@@ -16075,14 +16077,16 @@ msgstr "他のトラックの再生にハードウェアを使用(&H)"
 msgid "&Software playthrough of input"
 msgstr "ソフトウェアによる再生(&S)"
 
+# jp: 独自アクセスキー
 #: src/prefs/RecordingPrefs.cpp
 msgid "Record on a new track"
-msgstr "新規トラックに録音"
+msgstr "新規トラックに録音(&R)"
 
+# jp: 独自アクセスキー
 #. i18n-hint: Dropout is a loss of a short sequence audio sample data from the recording
 #: src/prefs/RecordingPrefs.cpp
 msgid "Detect dropouts"
-msgstr "ドロップアウトを検出"
+msgstr "ドロップアウトを検出(&P)"
 
 #: src/prefs/RecordingPrefs.cpp
 msgid "Sound Activated Recording"
@@ -16626,9 +16630,10 @@ msgstr "ピン留め位置(&H)"
 msgid "Default &view mode:"
 msgstr "デフォルト表示モード(&V):"
 
+# jp: 独自アクセスキー
 #: src/prefs/TracksPrefs.cpp
 msgid "Default Waveform scale:"
-msgstr "デフォルト波形スケール:"
+msgstr "デフォルト波形スケール(&D):"
 
 #: src/prefs/TracksPrefs.cpp
 msgid "Display &samples:"
@@ -16647,13 +16652,15 @@ msgstr "音声トラック"
 msgid "Zoom Toggle"
 msgstr "拡大切り替え"
 
+# jp: 独自アクセスキー
 #: src/prefs/TracksPrefs.cpp
 msgid "Preset 1:"
-msgstr "プリセット 1:"
+msgstr "プリセット 1(&P):"
 
+# jp: 独自アクセスキー
 #: src/prefs/TracksPrefs.cpp
 msgid "Preset 2:"
-msgstr "プリセット 2:"
+msgstr "プリセット 2(&R):"
 
 #: src/prefs/WarningsPrefs.cpp src/prefs/WarningsPrefs.h
 msgid "Warnings"
