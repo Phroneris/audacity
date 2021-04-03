@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 00:22+0900\n"
+"PO-Revision-Date: 2021-04-04 00:26+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2841,11 +2841,11 @@ msgstr "[[https://manual.audacityteam.org/man/playing_and_recording.html#midi|MI
 
 #: src/HelpText.cpp
 msgid "The Manual does not appear to be installed. Please [[*URL*|view the Manual online]].<br><br>To always view the Manual online, change \"Location of Manual\" in Interface Preferences to \"From Internet\"."
-msgstr "マニュアルがインストールされていないようです。<br>[[*URL*|オンラインで]]ご覧ください。<br><br>マニュアルを常にオンラインで閲覧するには、<br>インターフェース設定の「マニュアルの場所」を<br>「インターネットから」に変更してください。"
+msgstr "マニュアルがインストールされていないようです。<br>[[*URL*|オンラインで]]ご覧ください。<br><br>マニュアルを常にオンラインで閲覧するには、<br>インターフェイス設定の「マニュアルの場所」を<br>「インターネットから」に変更してください。"
 
 #: src/HelpText.cpp
 msgid "The Manual does not appear to be installed. Please [[*URL*|view the Manual online]] or [[https://manual.audacityteam.org/man/unzipping_the_manual.html| download the Manual]].<br><br>To always view the Manual online, change \"Location of Manual\" in Interface Preferences to \"From Internet\"."
-msgstr "マニュアルがインストールされていないようです。<br>[[*URL*|オンライン]]でご覧になるか、[[https://manual.audacityteam.org/man/unzipping_the_manual.html|マニュアルをダウンロード]]してください。<br><br>マニュアルを常にオンラインで閲覧するには、<br>インターフェース設定の「マニュアルの場所」を<br>「インターネットから」に変更してください。"
+msgstr "マニュアルがインストールされていないようです。<br>[[*URL*|オンライン]]でご覧になるか、[[https://manual.audacityteam.org/man/unzipping_the_manual.html|マニュアルをダウンロード]]してください。<br><br>マニュアルを常にオンラインで閲覧するには、<br>インターフェイス設定の「マニュアルの場所」を<br>「インターネットから」に変更してください。"
 
 #: src/HelpText.cpp
 msgid "Check Online"
@@ -9570,13 +9570,13 @@ msgstr "グラフィカルモード"
 #: src/effects/VST/VSTEffect.cpp
 msgid "Most VST effects have a graphical interface for setting parameter values. A basic text-only method is also available.  Reopen the effect for this to take effect."
 msgstr ""
-"ほとんどの VST エフェクトには、パラメーター設定用のグラフィカルインターフェースがあります。\n"
+"ほとんどの VST エフェクトには、パラメーター設定用のグラフィカルインターフェイスがあります。\n"
 "一方で、テキストだけの基本的なものも利用可能です。\n"
 "変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
 #: src/effects/VST/VSTEffect.cpp src/effects/lv2/LV2Effect.cpp
 msgid "Enable &graphical interface"
-msgstr "グラフィカルインターフェースを有効化(&G)"
+msgstr "グラフィカルインターフェイスを有効化(&G)"
 
 #: src/effects/VST/VSTEffect.cpp
 #, c-format
@@ -9708,19 +9708,19 @@ msgstr ""
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "User Interface"
-msgstr "ユーザーインターフェース"
+msgstr "ユーザーインターフェイス"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select \"Full\" to use the graphical interface if supplied by the Audio Unit. Select \"Generic\" to use the system supplied generic interface. Select \"Basic\" for a basic text-only interface. Reopen the effect for this to take effect."
 msgstr ""
-"Audio Unit が提供するグラフィカルインターフェースを利用するには、「Full」を選んでください。\n"
-"システムのインターフェースを利用するには、「Generic」を選んでください。\n"
-"テキスト型インターフェ－スにするには「Basic」を選んでください。\n"
+"Audio Unit が提供するグラフィカルインターフェイスを利用するには、「Full」を選んでください。\n"
+"システムのインターフェイスを利用するには、「Generic」を選んでください。\n"
+"テキスト型インターフェイスにするには「Basic」を選んでください。\n"
 "変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp
 msgid "Select &interface"
-msgstr "インターフェースの選択(&I)"
+msgstr "インターフェイスの選択(&I)"
 
 #: src/effects/audiounits/AudioUnitEffect.cpp src/prefs/KeyConfigPrefs.cpp
 msgid "Full"
@@ -9916,7 +9916,7 @@ msgstr ""
 #: src/effects/lv2/LV2Effect.cpp
 msgid "LV2 effects can have a graphical interface for setting parameter values. A basic text-only method is also available.  Reopen the effect for this to take effect."
 msgstr ""
-"LV2 エフェクトには、パラメーター設定用のグラフィカルインターフェースがある場合があります。\n"
+"LV2 エフェクトには、パラメーター設定用のグラフィカルインターフェイスがある場合があります。\n"
 "一方で、テキストだけの基本的なものも利用可能です。\n"
 "変更を適用するには、エフェクトを一度閉じてから再び開き直してください。"
 
@@ -14877,7 +14877,7 @@ msgstr "デバイスの環境設定"
 #: src/prefs/DevicePrefs.cpp
 msgctxt "device"
 msgid "Interface"
-msgstr "インターフェース"
+msgstr "インターフェイス"
 
 #. i18n-hint: (noun)
 #: src/prefs/DevicePrefs.cpp src/prefs/MidiIOPrefs.cpp
@@ -14924,7 +14924,7 @@ msgstr "レイテンシー補償(&L):"
 
 #: src/prefs/DevicePrefs.cpp
 msgid "No audio interfaces"
-msgstr "オーディオインターフェースがありません"
+msgstr "オーディオインターフェイスがありません"
 
 #: src/prefs/DevicePrefs.cpp src/prefs/MidiIOPrefs.cpp
 msgid "No devices found"
@@ -15229,7 +15229,7 @@ msgstr "拡張取り込み"
 #: src/prefs/GUIPrefs.cpp
 msgctxt "GUI"
 msgid "Interface"
-msgstr "インターフェース"
+msgstr "インターフェイス"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "Preferences for GUI"
@@ -15671,13 +15671,13 @@ msgstr "MIDI 入出力の環境設定"
 
 #: src/prefs/MidiIOPrefs.cpp
 msgid "No MIDI interfaces"
-msgstr "MIDI インターフェースがありません"
+msgstr "MIDI インターフェイスがありません"
 
 #. i18n-hint Software interface to MIDI
 #: src/prefs/MidiIOPrefs.cpp
 msgctxt "MIDI"
 msgid "Interface"
-msgstr "インターフェース"
+msgstr "インターフェイス"
 
 #: src/prefs/MidiIOPrefs.cpp
 msgid "Using: PortMidi"
