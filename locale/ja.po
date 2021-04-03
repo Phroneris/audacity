@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 03:57+0900\n"
+"PO-Revision-Date: 2021-04-04 04:09+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -13312,7 +13312,7 @@ msgstr "アップデートのチェック(&C)..."
 #: src/menus/LabelMenus.cpp src/toolbars/TranscriptionToolBar.cpp
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "Added label"
-msgstr "ラベル追加"
+msgstr "ラベルを追加しました"
 
 #: src/menus/LabelMenus.cpp
 msgid "Paste Text to New Label"
@@ -17241,13 +17241,12 @@ msgstr "1 個以上のラベル境界をドラッグします。"
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 msgid "Drag label boundary."
-msgstr "ラベル境界をドラッグしてください。"
+msgstr "ラベル境界をドラッグします。"
 
-# jp: 動詞かどうかわからんので無難な訳に (下の連中も同じく)
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "Modified Label"
-msgstr "ラベル変更"
+msgstr "ラベルを変更しました"
 
 #: src/tracks/labeltrack/ui/LabelGlyphHandle.cpp
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
@@ -17295,11 +17294,11 @@ msgstr "ラベルの編集(&E)..."
 
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "Deleted Label"
-msgstr "ラベル消去"
+msgstr "ラベルを消去しました"
 
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "Edited labels"
-msgstr "ラベル編集"
+msgstr "ラベルを編集しました"
 
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "New label"
