@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-03 21:01+0900\n"
+"PO-Revision-Date: 2021-04-03 22:18+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -44,7 +44,7 @@ msgstr "コピー(&C)\tCtrl+C"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "&Paste\tCtrl+V"
-msgstr "ペースト(&P)\tCtrl+V"
+msgstr "貼り付け(&P)\tCtrl+V"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "Cle&ar\tCtrl+L"
@@ -266,11 +266,11 @@ msgstr "切り取った内容をクリップボードに退避"
 #: modules/mod-nyq-bench/NyqBench.cpp src/menus/EditMenus.cpp
 #: src/toolbars/EditToolBar.cpp
 msgid "Paste"
-msgstr "ペースト"
+msgstr "貼り付け"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "Paste from clipboard"
-msgstr "クリップボードからペーストする"
+msgstr "クリップボードから貼り付け"
 
 #. i18n-hint verb; to empty or erase
 #: modules/mod-nyq-bench/NyqBench.cpp src/Benchmark.cpp
@@ -5571,7 +5571,7 @@ msgstr "再サンプリングに失敗しました。"
 
 #: src/WaveTrack.cpp
 msgid "There is not enough room available to paste the selection"
-msgstr "選択範囲をペーストするのに十分な余裕がありません"
+msgstr "選択範囲を貼り付けるのに十分な余裕がありません"
 
 #: src/WaveTrack.cpp
 msgid "There is not enough room available to expand the cut line"
@@ -12752,11 +12752,11 @@ msgstr "右にずらす(&R)"
 
 #: src/menus/EditMenus.cpp
 msgid "Pasted text from the clipboard"
-msgstr "クリップボードからテキストをペーストしました"
+msgstr "クリップボードからテキストを貼り付けました"
 
 #: src/menus/EditMenus.cpp src/menus/LabelMenus.cpp
 msgid "Pasted from the clipboard"
-msgstr "クリップボードからペーストしました"
+msgstr "クリップボードから貼り付けました"
 
 #: src/menus/EditMenus.cpp
 msgid "Nothing to undo"
@@ -12885,7 +12885,7 @@ msgstr "コピー(&C)"
 #. i18n-hint: (verb)
 #: src/menus/EditMenus.cpp src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "&Paste"
-msgstr "ペースト(&P)"
+msgstr "貼り付け(&P)"
 
 #. i18n-hint: (verb)
 #: src/menus/EditMenus.cpp
@@ -13300,7 +13300,7 @@ msgstr "ラベル追加"
 
 #: src/menus/LabelMenus.cpp
 msgid "Paste Text to New Label"
-msgstr "新しいラベルにテキストをペースト"
+msgstr "新しいラベルにテキストを貼り付け"
 
 #. i18n-hint: (verb) past tense.  Audacity has just cut the labeled audio
 #. regions.
@@ -13417,7 +13417,7 @@ msgstr "再生位置にラベルを付ける(&P)"
 
 #: src/menus/LabelMenus.cpp
 msgid "Paste Te&xt to New Label"
-msgstr "新しいラベルにテキストをペースト(&X)"
+msgstr "新しいラベルにテキストを貼り付け(&X)"
 
 #: src/menus/LabelMenus.cpp
 msgid "&Type to Create a Label (on/off)"
