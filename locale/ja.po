@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-03 22:18+0900\n"
+"PO-Revision-Date: 2021-04-03 23:02+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3932,3756,470,2707,1151,684,1395,406,-1,-1\n"
+"X-Poedit-Bookmarks: 3932,3756,470,2707,1151,684,1395,-1,-1,-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -230,9 +230,10 @@ msgstr "開く"
 msgid "Open script"
 msgstr "スクリプトを開く"
 
+# jp: 独自アクセスキー
 #: modules/mod-nyq-bench/NyqBench.cpp src/Benchmark.cpp
 msgid "Save"
-msgstr "保存"
+msgstr "保存(&S)"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "Save script"
@@ -272,10 +273,11 @@ msgstr "貼り付け"
 msgid "Paste from clipboard"
 msgstr "クリップボードから貼り付け"
 
+# jp: 独自アクセスキー
 #. i18n-hint verb; to empty or erase
 #: modules/mod-nyq-bench/NyqBench.cpp src/Benchmark.cpp
 msgid "Clear"
-msgstr "クリア"
+msgstr "クリア(&C)"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "Clear selection"
@@ -1824,41 +1826,49 @@ msgstr "本当に %s を削除しますか？"
 msgid "Benchmark"
 msgstr "ベンチマーク"
 
+# jp: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Disk Block Size (KB):"
-msgstr "ディスクブロックサイズ (KB):"
+msgstr "ディスクブロックサイズ (KB) (&B):"
 
+# jp: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Number of Edits:"
-msgstr "編集回数:"
+msgstr "編集回数(&E):"
 
+# jp: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Test Data Size (MB):"
-msgstr "テストデータサイズ (MB):"
+msgstr "テストデータサイズ (MB) (&T):"
 
+# jp: 独自アクセスキー
 #. i18n-hint: A "seed" is a number that initializes a
 #. pseudorandom number generating algorithm
 #: src/Benchmark.cpp
 msgid "Random Seed:"
-msgstr "ランダムシード:"
+msgstr "ランダムシード(&A):"
 
+# jp: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Show detailed info about each block file"
-msgstr "各ブロックファイルの詳細情報を表示"
+msgstr "各ブロックファイルの詳細情報を表示(&H)"
 
+# jp: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Show detailed info about each editing operation"
-msgstr "各編集処理の詳細情報を表示"
+msgstr "各編集処理の詳細情報を表示(&W)"
 
+# jp: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Run"
-msgstr "実行"
+msgstr "実行(&R)"
 
+# jp: 独自アクセスキー
 #. i18n-hint verb
 #: src/Benchmark.cpp src/tracks/ui/TrackButtonHandles.cpp
 #: src/widgets/HelpSystem.cpp
 msgid "Close"
-msgstr "閉じる"
+msgstr "閉じる(&X)"
 
 #. i18n-hint: Benchmark means a software speed test;
 #. leave untranslated file extension .txt
@@ -1885,7 +1895,7 @@ msgstr "テストデータサイズは 1～2000 MB でなければなりませ�
 #: src/Benchmark.cpp
 #, c-format
 msgid "Using %lld chunks of %lld samples each, for a total of %.1f MB.\n"
-msgstr ""
+msgstr "%lld 個のチャンクにそれぞれ %lld 個のサンプル、合計 %.1f MB のデータを使用します。\n"
 
 #: src/Benchmark.cpp
 msgid "Preparing...\n"
@@ -1894,32 +1904,32 @@ msgstr "準備中...\n"
 #: src/Benchmark.cpp
 #, c-format
 msgid "Expected len %lld, track len %lld.\n"
-msgstr ""
+msgstr "期待された長さは %lld でしたが、トラックの長さは %lld でした。\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Performing %d edits...\n"
-msgstr ""
+msgstr "%d 回の編集を適用しています...\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Cut: %lld - %lld \n"
-msgstr ""
+msgstr "切り取り: %lld - %lld \n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Trial %d\n"
-msgstr ""
+msgstr "第 %d 試行\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Cut (%lld, %lld) failed.\n"
-msgstr ""
+msgstr "切り取り (%lld、%lld) に失敗しました。\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Paste: %lld\n"
-msgstr ""
+msgstr "貼り付け: %lld\n"
 
 #: src/Benchmark.cpp
 #, c-format
@@ -1927,67 +1937,69 @@ msgid ""
 "Trial %d\n"
 "Failed on Paste.\n"
 msgstr ""
+"第 %d 試行\n"
+"貼り付けに失敗しました。\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Time to perform %d edits: %ld ms\n"
-msgstr ""
+msgstr "%d 回の編集に要した時間: %ld ms\n"
 
 #: src/Benchmark.cpp
 msgid "Checking file pointer leaks:\n"
-msgstr ""
+msgstr "ファイルポインタのリークをチェック中:\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Track # blocks: %ld\n"
-msgstr ""
+msgstr "トラック # ブロック: %ld\n"
 
 #: src/Benchmark.cpp
 msgid "Disk # blocks: \n"
-msgstr ""
+msgstr "ディスク # ブロック: \n"
 
 #: src/Benchmark.cpp
 msgid "Doing correctness check...\n"
-msgstr ""
+msgstr "精度チェック中...\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Bad: chunk %lld sample %lld\n"
-msgstr ""
+msgstr "不適: 第 %lld チャンク、第 %lld サンプル\n"
 
 #: src/Benchmark.cpp
 msgid "Passed correctness check!\n"
-msgstr ""
+msgstr "精度チェック合格。\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Errors in %d/%lld chunks\n"
-msgstr ""
+msgstr "%2$lld 個中 %1$d 個のチャンクがエラー\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Time to check all data: %ld ms\n"
-msgstr ""
+msgstr "全データのチェックに要した時間: %ld ms\n"
 
 #: src/Benchmark.cpp
 msgid "Reading data again...\n"
-msgstr ""
+msgstr "データを再度読み込み中...\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid "Time to check all data (2): %ld ms\n"
-msgstr ""
+msgstr "全データのチェックに要した時間 (2): %ld ms\n"
 
 #: src/Benchmark.cpp
 #, c-format
 msgid ""
 "At 44100 Hz, %d bytes per sample, the estimated number of\n"
 " simultaneous tracks that could be played at once: %.1f\n"
-msgstr ""
+msgstr "44100 Hz、サンプルあたり %d バイトにて、同時再生可能なトラック総数 (推定): %.1f\n"
 
 #: src/Benchmark.cpp
 msgid "TEST FAILED!!!\n"
-msgstr ""
+msgstr "※※※ テスト失敗 ※※※\n"
 
 #: src/Benchmark.cpp
 msgid "Benchmark completed successfully.\n"
