@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 00:18+0900\n"
+"PO-Revision-Date: 2021-04-04 00:22+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2370,29 +2370,32 @@ msgstr "FFmpeg の場所を指定"
 msgid "Audacity needs the file '%s' to import and export audio via FFmpeg."
 msgstr "FFmpeg を通じた音声の取り込みと書き出しには、ファイル「%s」が必要です。"
 
+# jp: 独自アクセスキー
 #: src/FFmpeg.cpp
 #, c-format
 msgid "Location of '%s':"
-msgstr "「%s」の場所:"
+msgstr "「%s」の場所(&L):"
 
 #: src/FFmpeg.cpp
 #, c-format
 msgid "To find '%s', click here -->"
-msgstr "「%s」を見つけるには、ここをクリック -->"
+msgstr "「%s」を見つけるには、こちらをクリック -->"
 
+# jp: 独自アクセスキー
 #: src/FFmpeg.cpp src/export/ExportCL.cpp src/export/ExportMP3.cpp
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Browse..."
-msgstr "参照..."
+msgstr "参照(&B)..."
 
 #: src/FFmpeg.cpp
 msgid "To get a free copy of FFmpeg, click here -->"
-msgstr "FFmpeg の無料コピーを入手するには、ここをクリック -->"
+msgstr "FFmpeg の無料コピーを入手するには、こちらをクリック -->"
 
+# jp: 独自アクセスキー
 #. i18n-hint: (verb)
 #: src/FFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Download"
-msgstr "ダウンロード"
+msgstr "ダウンロード(&D)"
 
 #  i18n-hint: It's asking for the location of a file, for
 #  example, "Where is lame_enc.dll?" - you could translate
@@ -11385,12 +11388,12 @@ msgstr "%s の場所:"
 #: src/export/ExportMP3.cpp
 #, c-format
 msgid "To find %s, click here -->"
-msgstr "%s を見つけるには、ここをクリック -->"
+msgstr "%s を見つけるには、こちらをクリック -->"
 
 #. i18n-hint: There is a  button to the right of the arrow.
 #: src/export/ExportMP3.cpp
 msgid "To get a free copy of LAME, click here -->"
-msgstr "LAME の無料コピーを入手するには、ここをクリック -->"
+msgstr "LAME の無料コピーを入手するには、こちらをクリック -->"
 
 #. i18n-hint: It's asking for the location of a file, for
 #. * example, "Where is lame_enc.dll?" - you could translate
