@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 05:56+0900\n"
+"PO-Revision-Date: 2021-04-04 06:02+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -2558,8 +2558,7 @@ msgstr "標準自己相関"
 msgid "Cuberoot Autocorrelation"
 msgstr "立方根自己相関"
 
-# jp: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally
-# efficient multipitch analysis model」という論文が元祖らしいということやEACという頭文字があてられ得るということなどまではわかり、被引用文献に1つ日本語のものがあったのでそれが参考になるかもと思ったが、無料で見れる範囲ではEACについて特に触れられていなかったし、詳細な中身を確認するために大学図書館にまで出向くガッツも無いので諦める。っていうか立方根自己相関とやらすら見つけられなかったんだが…。
+# jp: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally efficient multipitch analysis model」という論文が元祖らしいということやEACという頭文字があてられ得るということなどまではわかり、被引用文献に1つ日本語のものがあったのでそれが参考になるかもと思ったが、無料で見れる範囲ではEACについて特に触れられていなかったし、詳細な中身を確認するために大学図書館にまで出向くガッツも無いので諦める。っていうか立方根自己相関とやらすら見つけられなかったんだが…。
 #: src/FreqWindow.cpp
 msgid "Enhanced Autocorrelation"
 msgstr "強調自己相関"
@@ -3541,7 +3540,7 @@ msgstr ""
 "登録失敗:\n"
 "%s"
 
-# ja: 本当は「この」「これらの」を使い分けたい
+# jp: 本当は「この」「これらの」を使い分けたい
 #. i18n-hint A plug-in is an optional added program for a sound
 #. effect, or generator, or analyzer
 #: src/PluginManager.cpp
@@ -4821,7 +4820,7 @@ msgstr "次回からは起動時に表示しない(&D)"
 
 #: src/SqliteSampleBlock.cpp
 msgid "Connection to project file is null"
-msgstr ""
+msgstr "プロジェクトファイルとの接続は null です"
 
 #: src/Tags.cpp
 msgid "Artist Name"
@@ -16375,7 +16374,7 @@ msgstr "音符の最大数は整数でなければなりません"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "The maximum number of notes must be in the range 1..128"
-msgstr "最大ノート番号は 1 から 128 までの整数でなければなりません"
+msgstr "最大ノート番号は 1～128 の範囲内でなければなりません"
 
 #. i18n-hint: A theme is a consistent visual style across an application's
 #. graphical user interface, including choices of colors, and similarity of images
@@ -17031,7 +17030,7 @@ msgstr "表示"
 
 #: src/toolbars/SelectionBar.cpp
 msgid "Snap To"
-msgstr "スナップモードを有効"
+msgstr "スナップモード"
 
 #: src/toolbars/SelectionBar.cpp
 msgid "Length"
@@ -17046,7 +17045,7 @@ msgstr "中央"
 #: src/toolbars/SelectionBar.cpp
 #, c-format
 msgid "Snap Clicks/Selections to %s"
-msgstr "クリック/選択範囲を %s に合わせる"
+msgstr "クリックと選択範囲を「%s」にスナップ"
 
 #. i18n-hint: %s is replaced e.g by one of 'Length', 'Center',
 #. 'Start', or 'End' (translated), to indicate that it will be

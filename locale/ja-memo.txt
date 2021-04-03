@@ -117,12 +117,19 @@ msgid "Report generated to:"
 は過去形なのか受動態なのか。
 別の言い方をすれば、"was generated" なのか "will be generated" なのか。
 
+音声書き出しフォーマットの一部オプションのドロップダウンリストが、翻訳しても反映されない。
+「WAV (Microsoft)」 … 「エンコーディング」
+「その他の非圧縮ファイル」 … 「ヘッダー」、「エンコーディング」
+
 
 
 ■ これ何？
 
 #: src/AboutDialog.cpp
 msgid "<h3>"
+
+#: src/Languages.cpp
+msgid "Simplified"
 
 #: src/effects/EffectUI.cpp
 msgid "Some Command"
@@ -149,8 +156,6 @@ msgstr ""
 「2 チャンネル (ステレオ).」のピリオドと、その行のノーブレークスペース等のスペーシングが変えられない。
 
 等間隔ラベルの完了時のメッセージが化けるのでひとまず翻訳解除。
-
-Nyquist Plug-in Installerで、改行に "~%" ではなく "\n" が使われているものがある。
 
 
 
@@ -298,6 +303,9 @@ Regular Interval Labelsが、音声を選択して適当にパラメータ入れ
 
 サンプルデータの読み込みはファイル内に純ASCII文字しか許さないので、ファイルに出力される文字列は翻訳注意。
 →エラー文への訳註で対応した。改行込みダイアログの件が修正されたおかげでそうできるようになった。
+
+Nyquist Plug-in Installerで、改行に "~%" ではなく "\n" が使われているものがある。
+→Transifexで聞いたら、PR #790 にて対応してくれた。
 
 
 
