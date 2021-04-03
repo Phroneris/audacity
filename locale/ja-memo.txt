@@ -94,9 +94,25 @@ msgid "Silence"
 msgid "010,01000>0100 Hz"
 は4桁Hzまでしか扱えないので不足だと思う。
 
+#. i18n-hint: day of month, month, year, hour, minute, second
+#: src/effects/Contrast.cpp
+#, c-format
+msgid "%d %s %02d %02dh %02dm %02ds"
+の2番目の "%s" は、Audacityの言語設定が日本語だと「4月」、英語だと「April」のようになるが、
+どこから取得しているのかがよくわからない。
+Audacityのja.poにもwxWidgetsのそれにも無かった。
+
+#: src/CrashReport.cpp
+msgid "Report generated to:"
+は過去形なのか受動態なのか。
+別の言い方をすれば、"was generated" なのか "will be generated" なのか。
+
 
 
 ■ これ何？
+
+#: src/AboutDialog.cpp
+msgid "<h3>"
 
 #: src/effects/EffectUI.cpp
 msgid "Some Command"
@@ -108,18 +124,13 @@ msgid "%s, %s"
 #: src/menus/PluginMenus.cpp
 msgid "Unknown"
 
+#: src/menus/PluginMenus.cpp
+#, c-format
+msgid "Plug-in %d to %d"
+
 #: src/prefs/ImportExportPrefs.h
 msgid "IMPORT EXPORT"
 msgstr ""
-
-#: src/prefs/KeyConfigPrefs.cpp
-msgid ""
-"\n"
-"\n"
-"\t and\n"
-"\n"
-"\t"
-
 
 
 ■ Nyquistの問題
@@ -128,6 +139,8 @@ msgid ""
 「2 チャンネル (ステレオ).」のピリオドと、その行のノーブレークスペース等のスペーシングが変えられない。
 
 等間隔ラベルの完了時のメッセージが化けるのでひとまず翻訳解除。
+
+Nyquist Plug-in Installerで、改行に "~%" ではなく "\n" が使われているものがある。
 
 
 
@@ -172,6 +185,35 @@ dummyString～系の読み上げ用のやつは、日本語の語順の関係で
 msgid "Record/Play head"
 て何。
 →ピン留めした場合のツールチップでした。
+
+#: src/prefs/KeyConfigPrefs.cpp
+msgid ""
+"\n"
+"\n"
+"\t and\n"
+"\n"
+"\t"
+て何。
+→コードから推測する限り、ショートカット変更時の重複警告において、重複元コマンドが複数ある場合の結合文字列。
+  元が複数あることなんてある？？って感じだが、念には念を入れてるのだろう。多分。
+
+#: src/Dependencies.cpp
+#, c-format
+msgid "\"%s\", \"%s\", \"%s\"\n"
+て何。
+→Transifexで聞いたら、もう使われなくなった要らない子なので無視で良いとJames氏が答えてくれた。
+  以下引用：
+  ==========
+  This string is used in a rare case where diagnostic information is provided to the user about possible problems with their file. It once was used, and is not currently used (at least it is not used on Windows). We probably should remove this file (dependencies.cpp).
+
+  This is how it used to be used:
+
+  The first %s is replaced by a path name of a file
+  The second %s is replaced by a size in bytes
+  The third %s is replaced by (your translation of) 'OK' or 'Missing'
+
+  It is very very unlikely you need to change this string. Perhaps if you were working in a right to left language you might. Leave it unchanged. You only need to make sure that "Missing" and "OK" are translated.
+  ==========
 
 
 

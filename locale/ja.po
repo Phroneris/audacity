@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-02 22:06+0900\n"
+"PO-Revision-Date: 2021-04-03 19:37+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3921,3753,468,2697,1139,-1,-1,-1,-1,-1\n"
+"X-Poedit-Bookmarks: 3932,3756,470,2707,1151,246,407,684,-1,-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -593,9 +593,9 @@ msgstr "%s ウェブサイト: "
 #. i18n-hint Audacity's name substitutes for first and third %s,
 #. and a "copyright" symbol for the second
 #: src/AboutDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s software is copyright %s 1999-2021 %s Team."
-msgstr "%s 著作権表示: %s 1999-2020 %s チーム"
+msgstr "%s 著作権表示: %s 1999-2021 %s チーム"
 
 #. i18n-hint Audacity's name substitutes for %s
 #: src/AboutDialog.cpp
@@ -605,7 +605,7 @@ msgstr "%s の名称は Dominic Mazzoni の登録商標です。"
 
 #: src/AboutDialog.cpp
 msgid "Build Information"
-msgstr "コンパイル情報"
+msgstr "ビルド情報"
 
 # jp: 「無効」と見分けやすくするためにあえて文字数を増やす
 #: src/AboutDialog.cpp src/PluginManager.cpp src/prefs/ModulePrefs.cpp
@@ -619,9 +619,8 @@ msgstr "無効"
 
 #. i18n-hint: Information about when audacity was compiled follows
 #: src/AboutDialog.cpp
-#, fuzzy
 msgid "The Build"
-msgstr "デバッグビルド"
+msgstr "ビルド"
 
 #: src/AboutDialog.cpp
 msgid "Program build date:"
@@ -2033,6 +2032,13 @@ msgid ""
 "2. When you have got your noise profile, select the audio you want to change\n"
 "and use %s to change that audio."
 msgstr ""
+"[%s] に用いる音声を選択してください。\n"
+"\n"
+"1. ノイズ部分に該当する音声を選択し、[%s] を実行して、\n"
+"ノイズプロファイルを取得します。\n"
+"\n"
+"2. ノイズプロファイルを取得できたら、処理したい音声を選択し、\n"
+"再び [%s] を実行してその音声を処理します。"
 
 #: src/CommonCommandFlags.cpp
 msgid ""
@@ -3824,12 +3830,15 @@ msgid "Failed to open the project's database"
 msgstr "プロジェクトのデータベースを開くことに失敗しました"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Failed to open database file:\n"
 "\n"
 "%s"
-msgstr "%s を開くことに失敗しました"
+msgstr ""
+"データベースファイルを開くことに失敗しました:\n"
+"\n"
+"%s"
 
 #: src/ProjectFileIO.cpp
 msgid "Failed to discard connection"
@@ -3880,6 +3889,8 @@ msgid ""
 "Project is in a read only directory\n"
 "(Unable to create the required temporary files)"
 msgstr ""
+"プロジェクトが読み取り専用ディレクトリに置かれています\n"
+"(処理上必要な一時ファイルを作成できません)"
 
 #: src/ProjectFileIO.cpp
 msgid "This is not an Audacity project file"
@@ -3902,7 +3913,7 @@ msgstr "プロジェクトファイルを初期化できません"
 #. i18n-hint: An error message.  Don't translate inset or blockids.
 #: src/ProjectFileIO.cpp
 msgid "Unable to add 'inset' function (can't verify blockids)"
-msgstr ""
+msgstr "「insert」関数を追加できません (blockids を確認できません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3910,6 +3921,8 @@ msgid ""
 "Project is read only\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"プロジェクトは読み取り専用です\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3917,6 +3930,8 @@ msgid ""
 "Project is locked\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"プロジェクトがロックされています\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3924,6 +3939,8 @@ msgid ""
 "Project is busy\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"プロジェクトはビジー状態です\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3931,6 +3948,8 @@ msgid ""
 "Project is corrupt\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"プロジェクトが破損しています\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3938,6 +3957,8 @@ msgid ""
 "Some permissions issue\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"権限に何らかの問題が生じています\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3945,6 +3966,8 @@ msgid ""
 "A disk I/O error\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"ディスク I/O エラー\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
@@ -3952,17 +3975,18 @@ msgid ""
 "Not authorized\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
+"オーサライズされていません\n"
+"(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Unable to work with the blockfiles"
-msgstr "プロジェクトファイルを初期化できません"
+msgstr "blockfiles を取り扱えません"
 
 #: src/ProjectFileIO.cpp
 #, c-format
 msgid "Total orphan blocks deleted %d"
-msgstr ""
+msgstr "無用なブロックファイルの総削除数: %d 個"
 
 #: src/ProjectFileIO.cpp
 msgid "Failed to rollback transaction during import"
@@ -4603,7 +4627,7 @@ msgstr "道具箱"
 #: src/Screenshot.cpp src/commands/ScreenshotCommand.cpp
 #: src/toolbars/ControlToolBar.cpp
 msgid "Transport"
-msgstr "トランスポート"
+msgstr "録音/再生"
 
 #: src/Screenshot.cpp src/commands/ScreenshotCommand.cpp
 #: src/toolbars/MixerToolBar.cpp
@@ -4781,9 +4805,8 @@ msgid "Don't show this again at start up"
 msgstr "次回からは起動時に表示しない(&D)"
 
 #: src/SqliteSampleBlock.cpp
-#, fuzzy
 msgid "Connection to project file is null"
-msgstr "プロジェクトファイルを精査しています"
+msgstr ""
 
 #: src/Tags.cpp
 msgid "Artist Name"
@@ -7144,11 +7167,12 @@ msgstr "WCAG 2.0 Success Criteria 1.4.7: 不合格"
 msgid "Data gathered"
 msgstr "データ収集日時"
 
+# jp: 2番目の "%s" は、Audacityの言語設定が日本語だと「4月」、英語だと「April」のようになる
 #. i18n-hint: day of month, month, year, hour, minute, second
 #: src/effects/Contrast.cpp
 #, c-format
 msgid "%d %s %02d %02dh %02dm %02ds"
-msgstr ""
+msgstr "%3$02d年%2$s%1$d日 %4$02d時%5$02d分%6$02d秒"
 
 #: src/effects/Contrast.cpp
 msgid "Contrast Analysis (WCAG 2 compliance)"
@@ -13535,7 +13559,7 @@ msgid "&Repeat %s"
 msgstr "%s を再適用(&R)"
 
 #: src/menus/PluginMenus.cpp
-#, c-format
+#, fuzzy, c-format
 msgid "Plug-in %d to %d"
 msgstr "プラグイン %d～%d"
 
@@ -15518,6 +15542,8 @@ msgid ""
 "\n"
 "\t"
 msgstr ""
+"\n"
+"\t"
 
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
@@ -16299,7 +16325,7 @@ msgstr "グリッドを Y 軸に沿って表示(&Y)"
 #. i18n-hint: FFT stands for Fast Fourier Transform and probably shouldn't be translated
 #: src/prefs/SpectrumPrefs.cpp
 msgid "FFT Find Notes"
-msgstr "FFT が音符を見つけました"
+msgstr "FFT による音符検出"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "Minimum Amplitude (dB):"
@@ -16311,7 +16337,7 @@ msgstr "最大ノート番号 (1～128):"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "&Find Notes"
-msgstr "音符を見つける(&F)"
+msgstr "音符を検出(&F)"
 
 #: src/prefs/SpectrumPrefs.cpp
 msgid "&Quantize Notes"
@@ -17851,12 +17877,11 @@ msgstr "(スナップ中)"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
 msgid "Click and drag to move a track in time"
-msgstr "クリック＆ドラッグでトラックの時間を移動"
+msgstr "クリック＆ドラッグでトラックを時間移動"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
-#, fuzzy
 msgid "Could not shift between tracks"
-msgstr "クリップを左右やトラック間で移動"
+msgstr "トラック間で移動できませんでした"
 
 #: src/tracks/ui/TimeShiftHandle.cpp
 msgid "Moved clips to another track"
