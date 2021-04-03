@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 04:09+0900\n"
+"PO-Revision-Date: 2021-04-04 05:56+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1160,7 +1160,6 @@ msgstr ""
 "あるいは、[Audacity を終了] をクリックした場合、現在のプロジェクトは未保存状態に保たれ、\n"
 "次に開いた時に回復の対象となります。"
 
-#  i18n-hint: The name of the Help menu
 #: src/AudacityFileConfig.cpp src/ShuttleGui.cpp src/commands/HelpCommand.cpp
 #: src/effects/Equalization.cpp src/export/Export.cpp src/menus/HelpMenus.cpp
 #: src/widgets/MultiDialog.cpp
@@ -2397,9 +2396,6 @@ msgstr "FFmpeg の無料コピーを入手するには、こちらをクリッ�
 msgid "Download"
 msgstr "ダウンロード(&D)"
 
-#  i18n-hint: It's asking for the location of a file, for
-#  example, "Where is lame_enc.dll?" - you could translate
-#  "Where would I find the file %s" instead if you want.
 #. i18n-hint: It's asking for the location of a file, for
 #. example, "Where is lame_enc.dll?" - you could translate
 #. "Where would I find the file '%s'?" instead if you want.
@@ -6302,8 +6298,6 @@ msgstr "フォーカス"
 msgid "Set Track Audio"
 msgstr "トラック音声設定"
 
-#  i18n-hint: Title of the Gain slider, used to adjust the volume
-#  i18n-hint: Title of the Gain slider, used to adjust the volume
 #: src/commands/SetTrackInfoCommand.cpp
 msgid "Gain:"
 msgstr "ゲイン:"
@@ -7027,7 +7021,6 @@ msgstr "リセット(&E)"
 msgid "&Difference:"
 msgstr "差異(&D):"
 
-#  i18n-hint: The name of the Help menu
 #: src/effects/Contrast.cpp src/menus/HelpMenus.cpp src/prefs/GUIPrefs.cpp
 msgid "&Help"
 msgstr "ヘルプ(&H)"
@@ -10545,7 +10538,6 @@ msgstr "以下のいずれかのサンプリング周波数へ再サンプリン
 msgid "Sample Rates"
 msgstr "サンプリング周波数"
 
-#  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #. i18n-hint kbps abbreviates "thousands of bits per second"
 #. i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #: src/export/ExportFFmpegDialogs.cpp src/export/ExportMP2.cpp
@@ -10562,7 +10554,6 @@ msgstr "ビットレート:"
 msgid "Quality (kbps):"
 msgstr "品質 (kbps):"
 
-#  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #. i18n-hint kbps abbreviates "thousands of bits per second"
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
@@ -10733,15 +10724,10 @@ msgstr "プリセット「%s」は存在しません。"
 msgid "Replace preset '%s'?"
 msgstr "プリセット %s を置き換えますか？"
 
-#  i18n-hint: One-letter abbreviation for Left, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Left, in the Pan slider
-#  i18n-hint: One-letter abbreviation for Left, in VU Meter
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "LC"
 msgstr "LC"
 
-#  i18n-hint: Title of the Gain slider, used to adjust the volume
-#  i18n-hint: Title of the Gain slider, used to adjust the volume
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Main"
 msgstr "メイン"
@@ -11276,7 +11262,6 @@ msgstr "110～150 kbps"
 msgid "95-135 kbps"
 msgstr "95～135 kbps"
 
-#  i18n-hint: kbps is the bitrate of the MP3 file, kilobits per second
 #: src/export/ExportMP3.cpp
 msgid "80-120 kbps"
 msgstr "80～120 kbps"
@@ -12241,22 +12226,16 @@ msgstr "GStreamer エラー: %s"
 msgid "List of Files in basic text format"
 msgstr "基本的なテキストフォーマットによるファイルリスト"
 
-#  i18n-hint: You do not need to translate "LOF"
-#  i18n-hint: You do not need to translate "LOF"
 #. i18n-hint: You do not need to translate "LOF"
 #: src/import/ImportLOF.cpp
 msgid "Invalid window offset in LOF file."
 msgstr "LOF ファイル中のウィンドウオフセットは無効です。"
 
-#  i18n-hint: You do not need to translate "LOF"
-#  i18n-hint: You do not need to translate "LOF"
 #. i18n-hint: You do not need to translate "LOF"
 #: src/import/ImportLOF.cpp
 msgid "LOF Error"
 msgstr "LOF エラー"
 
-#  i18n-hint: You do not need to translate "LOF"
-#  i18n-hint: You do not need to translate "LOF"
 #. i18n-hint: You do not need to translate "LOF"
 #: src/import/ImportLOF.cpp
 msgid "Invalid duration in LOF file."
@@ -12266,8 +12245,6 @@ msgstr "LOF ファイル中の持続時間は無効です。"
 msgid "MIDI tracks cannot be offset individually, only audio files can be."
 msgstr "MIDI トラックをオフセットすることはできません、音声ファイルのみが可能でしょう。"
 
-#  i18n-hint: You do not need to translate "LOF"
-#  i18n-hint: You do not need to translate "LOF"
 #. i18n-hint: You do not need to translate "LOF"
 #: src/import/ImportLOF.cpp
 msgid "Invalid track offset in LOF file."
@@ -13443,7 +13420,6 @@ msgstr "タイピングで即ラベル作成 (オン/オフ) (&T)"
 msgid "La&beled Audio"
 msgstr "ラベル付き音声(&B)"
 
-#  i18n-hint: Labeled Regions submenu
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "&Cut"
@@ -13457,7 +13433,6 @@ msgstr "ラベルで切り取り"
 msgid "Label Delete"
 msgstr "ラベルで削除"
 
-#  i18n-hint: Labeled Regions submenu
 #. i18n-hint: (verb) A special way to cut out a piece of audio
 #: src/menus/LabelMenus.cpp
 msgid "&Split Cut"
@@ -13467,7 +13442,6 @@ msgstr "分割して切り取り(&S)"
 msgid "Label Split Cut"
 msgstr "ラベルで分割切り取り"
 
-#  i18n-hint: Labeled Regions submenu
 #: src/menus/LabelMenus.cpp
 msgid "Sp&lit Delete"
 msgstr "分割して削除(&L)"
@@ -13484,7 +13458,6 @@ msgstr "無音化(&A)"
 msgid "Label Silence"
 msgstr "ラベルで無音化"
 
-#  i18n-hint: Labeled Regions submenu
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Co&py"
@@ -13494,7 +13467,6 @@ msgstr "コピー(&P)"
 msgid "Label Copy"
 msgstr "ラベルでコピー"
 
-#  i18n-hint: Labeled Regions submenu
 #. i18n-hint: (verb)
 #: src/menus/LabelMenus.cpp
 msgid "Spli&t"
@@ -13724,7 +13696,6 @@ msgstr "情報の取得..."
 msgid "Message..."
 msgstr "メッセージ..."
 
-#  i18n-hint: The name of the Help menu
 #: src/menus/PluginMenus.cpp
 msgid "Help..."
 msgstr "ヘルプ..."
@@ -16021,12 +15992,10 @@ msgstr "カテゴリ"
 msgid "Preferences:"
 msgstr "環境設定:"
 
-#  i18n-hint: Audio data bit depth (precison): 16-bit integers
 #: src/prefs/QualityPrefs.cpp
 msgid "16-bit"
 msgstr "16bit"
 
-#  i18n-hint: Audio data bit depth (precison): 24-bit integers
 #: src/prefs/QualityPrefs.cpp
 msgid "24-bit"
 msgstr "24bit"
@@ -17032,8 +17001,6 @@ msgstr "スクラブツールバー(&B)"
 msgid "Project Rate (Hz)"
 msgstr "プロジェクトのサンプリング周波数 (Hz)"
 
-#  i18n-hint: Set snap-to mode on or off
-#  i18n-hint: Set snap-to mode on or off
 #: src/toolbars/SelectionBar.cpp
 msgid "Snap-To"
 msgstr "スナップモード"
@@ -17062,8 +17029,6 @@ msgstr "選択範囲の長さと中点"
 msgid "Show"
 msgstr "表示"
 
-#  i18n-hint: Set snap-to mode on or off
-#  i18n-hint: Set snap-to mode on or off
 #: src/toolbars/SelectionBar.cpp
 msgid "Snap To"
 msgstr "スナップモードを有効"
@@ -18190,9 +18155,6 @@ msgstr "ログの詳細を見る"
 msgid "Please select an action"
 msgstr "操作を選んでください"
 
-#  i18n-hint: These strings control the formatting of time units in the
-#  * display. They are fairly complex, see the comments in
-#  * widgets/TimeTextCtrl.cpp for how they work
 #. i18n-hint: Format string for displaying time in seconds. Change the comma
 #. * in the middle to the 1000s separator for your locale, and the 'seconds'
 #. * on the end to the word for seconds. Don't change the numbers.
