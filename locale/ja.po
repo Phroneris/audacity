@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-17 16:34+0900\n"
+"PO-Revision-Date: 2021-04-17 17:53+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -4912,7 +4912,7 @@ msgstr "ジャンルをリセット"
 
 #: src/Tags.cpp
 msgid "Are you sure you want to reset the genre list to defaults?"
-msgstr "ジャンルリストを既定値にリセットしてよろしいですか？"
+msgstr "ジャンルリストをデフォルト状態にリセットしてよろしいですか？"
 
 #: src/Tags.cpp
 msgid "Unable to open genre file."
@@ -5476,11 +5476,11 @@ msgstr " 選択 (ON)"
 
 #: src/TrackPanelResizeHandle.cpp
 msgid "Click and drag to adjust relative size of stereo tracks, double-click to make heights equal"
-msgstr "クリック＆ドラッグでステレオトラックの相対サイズを変更、ダブルクリックで同じサイズに揃える"
+msgstr "クリック＆ドラッグでステレオトラックの相対的大きさを変更、ダブルクリックで同じ大きさに揃える"
 
 #: src/TrackPanelResizeHandle.cpp
 msgid "Click and drag to resize the track."
-msgstr "クリック＆ドラッグでトラックのサイズを変更"
+msgstr "クリック＆ドラッグでトラックの大きさを変更"
 
 #: src/TrackUtilities.cpp
 msgid "Removed audio track(s)"
@@ -6251,7 +6251,7 @@ msgstr "サンプリング周波数:"
 
 #: src/commands/SetProjectCommand.cpp
 msgid "Resize:"
-msgstr "サイズ変更:"
+msgstr "大きさ変更:"
 
 #: src/commands/SetProjectCommand.cpp
 msgid "X:"
@@ -8113,7 +8113,7 @@ msgstr "処理(&P): "
 
 #: src/effects/Equalization.cpp
 msgid "D&efault"
-msgstr "既定値(&E)"
+msgstr "デフォルト(&E)"
 
 #: src/effects/Equalization.cpp
 msgid "&SSE"
@@ -8196,7 +8196,7 @@ msgstr "更に取り込む(&G)..."
 
 #: src/effects/Equalization.cpp
 msgid "De&faults"
-msgstr "既定値(&F)"
+msgstr "デフォルト(&F)"
 
 #: src/effects/Equalization.cpp
 msgid ""
@@ -10803,7 +10803,7 @@ msgstr "プリセットの取り込み"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Export Presets"
-msgstr "既定値の書き出し"
+msgstr "プリセットの書き出し"
 
 #. i18n-hint: "codec" is short for a "coder-decoder" algorithm
 #: src/export/ExportFFmpegDialogs.cpp
@@ -10920,7 +10920,7 @@ msgid ""
 "Most players won't play anything other than LC"
 msgstr ""
 "AAC プロファイル\n"
-"Low Complexity (LC、低複雑度) - 既定値\n"
+"Low Complexity (LC、低複雑度) - デフォルト\n"
 "ほとんどのプレーヤーは、LC 以外のものを再生できません"
 
 #: src/export/ExportFFmpegDialogs.cpp
@@ -10959,7 +10959,7 @@ msgid ""
 msgstr ""
 "フレームサイズ\n"
 "オプション\n"
-"0 - 既定値\n"
+"0 - デフォルト\n"
 "最小 - 16\n"
 "最大 - 65535"
 
@@ -10977,7 +10977,7 @@ msgid ""
 msgstr ""
 "LPC 係数の精度\n"
 "オプション\n"
-"0 - 既定値\n"
+"0 - デフォルト\n"
 "最小 - 1\n"
 "最大 - 15"
 
@@ -10995,7 +10995,7 @@ msgstr ""
 "予測次数の方法\n"
 "評価 - 高速・低圧縮\n"
 "長い探索 - 低速・高圧縮\n"
-"全探索 - 既定値"
+"全探索 - デフォルト"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "PdO Method:"
@@ -11011,7 +11011,7 @@ msgid ""
 msgstr ""
 "最小予測次数\n"
 "オプション\n"
-"-1 - 既定値\n"
+"-1 - デフォルト\n"
 "最小 - 0\n"
 "最大 - 32 (LPC あり) あるいは 4 (LPC なし)"
 
@@ -11029,7 +11029,7 @@ msgid ""
 msgstr ""
 "最大予測次数\n"
 "オプション\n"
-"-1 - 既定値\n"
+"-1 - デフォルト\n"
 "最小 - 0\n"
 "最大 - 32 (LPC あり) あるいは 4 (LPC なし)"
 
@@ -11047,7 +11047,7 @@ msgid ""
 msgstr ""
 "最小分割次数\n"
 "オプション\n"
-"-1 - 既定値\n"
+"-1 - デフォルト\n"
 "最小 - 0\n"
 "最大 - 8"
 
@@ -11065,7 +11065,7 @@ msgid ""
 msgstr ""
 "最大分割次数\n"
 "オプション\n"
-"-1 - 既定値\n"
+"-1 - デフォルト\n"
 "最小 - 0\n"
 "最大 - 8"
 
@@ -11091,7 +11091,7 @@ msgid ""
 msgstr ""
 "複数ストリームの最大ビットレート\n"
 "オプション\n"
-"0 - 既定値"
+"0 - デフォルト"
 
 #. i18n-hint: 'mux' is short for multiplexor, a device that selects between several inputs
 #. 'Mux Rate' is a parameter that has some bearing on compression ratio for MPEG
@@ -11110,7 +11110,7 @@ msgid ""
 msgstr ""
 "パケットサイズ\n"
 "オプション\n"
-"0 - 既定値"
+"0 - デフォルト"
 
 #. i18n-hint: 'Packet Size' is a parameter that has some bearing on compression ratio for MPEG
 #. compression.  It measures how big a chunk of audio is compressed in one piece.
@@ -12565,7 +12565,7 @@ msgstr "ビックエンディアン"
 #. know the correct technical word.
 #: src/import/ImportRaw.cpp
 msgid "Default endianness"
-msgstr "既定のエンディアン"
+msgstr "デフォルトのエンディアン"
 
 #: src/import/ImportRaw.cpp
 msgid "1 Channel (Mono)"
@@ -15465,7 +15465,7 @@ msgstr "取り込み(&I)..."
 
 #: src/prefs/KeyConfigPrefs.cpp src/prefs/ThemePrefs.cpp
 msgid "&Defaults"
-msgstr "既定値(&D)"
+msgstr "デフォルト(&D)"
 
 # ja: "The following commands ～" で使われる。二重引用符は二重カギ括弧では見づらい場合があるので、スミ付き括弧に。丸括弧も三点リーダーに。
 #: src/prefs/KeyConfigPrefs.cpp
@@ -15832,7 +15832,7 @@ msgstr "中クリック"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Zoom default"
-msgstr "拡大既定値"
+msgstr "拡大デフォルト値"
 
 #: src/prefs/MousePrefs.cpp
 msgid "Move clip left/right or between tracks"
@@ -17110,7 +17110,7 @@ msgstr "Audacity %sツールバー"
 
 #: src/toolbars/ToolBar.cpp
 msgid "Click and drag to resize toolbar"
-msgstr "クリック＆ドラッグでツールバーのサイズを変更"
+msgstr "クリック＆ドラッグでツールバーの大きさを変更"
 
 #: src/toolbars/ToolDock.cpp
 msgid "ToolDock"
@@ -17235,12 +17235,12 @@ msgstr "ラベルトラックのフォント"
 #. i18n-hint: (noun) The name of the typeface
 #: src/tracks/labeltrack/ui/LabelTrackControls.cpp
 msgid "Face name"
-msgstr "フォント名"
+msgstr "フォントの名前"
 
 #. i18n-hint: (noun) The size of the typeface
 #: src/tracks/labeltrack/ui/LabelTrackControls.cpp
 msgid "Face size"
-msgstr "フォントサイズ"
+msgstr "フォントの大きさ"
 
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
 msgid "Cu&t Label text"
