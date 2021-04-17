@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-17 15:43+0900\n"
+"PO-Revision-Date: 2021-04-17 16:34+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -230,7 +230,7 @@ msgstr "開く"
 msgid "Open script"
 msgstr "スクリプトを開く"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: modules/mod-nyq-bench/NyqBench.cpp src/Benchmark.cpp
 msgid "Save"
 msgstr "保存(&S)"
@@ -273,7 +273,7 @@ msgstr "貼り付け"
 msgid "Paste from clipboard"
 msgstr "クリップボードから貼り付け"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint verb; to empty or erase
 #: modules/mod-nyq-bench/NyqBench.cpp src/Benchmark.cpp
 msgid "Clear"
@@ -464,7 +464,7 @@ msgstr "グラフィック: %s"
 msgid "%s (incorporating %s, %s, %s, %s and %s)"
 msgstr "%s (%s、%s、%s、%s、%s)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: information about the program
 #: src/AboutDialog.cpp
 #, c-format
@@ -592,7 +592,7 @@ msgstr "スペシャルサンクス:"
 msgid "%s website: "
 msgstr "%s ウェブサイト: "
 
-# jp: 国際的な表記なので西暦の範囲は "-" のままにすべきかとも思ったが、（そもそも表示自体がもう無意味という話は別にして、）万国著作権条約が求める発行年は「最初の」ものだけなので後ろがどうなっていようと問題無いと判断した。
+# ja: 国際的な表記なので西暦の範囲は "-" のままにすべきかとも思ったが、（そもそも表示自体がもう無意味という話は別にして、）万国著作権条約が求める発行年は「最初の」ものだけなので後ろがどうなっていようと問題無いと判断した。
 #. i18n-hint Audacity's name substitutes for first and third %s,
 #. and a "copyright" symbol for the second
 #: src/AboutDialog.cpp
@@ -610,7 +610,7 @@ msgstr "%s の名称は Dominic Mazzoni の登録商標です。"
 msgid "Build Information"
 msgstr "ビルド情報"
 
-# jp: 「無効」と見分けやすくするためにあえて文字数を増やす
+# ja: 「無効」と見分けやすくするためにあえて文字数を増やす
 #: src/AboutDialog.cpp src/PluginManager.cpp src/prefs/ModulePrefs.cpp
 msgid "Enabled"
 msgstr "有効です"
@@ -833,27 +833,27 @@ msgstr "簡易再生が有効です"
 msgid "Timeline Options"
 msgstr "タイムラインのオプション"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Enable Quick-Play"
 msgstr "簡易再生を有効化(&Q)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Enable dragging selection"
 msgstr "ドラッグ選択を有効化(&D)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Update display while playing"
 msgstr "再生中も表示を更新(&P)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Lock Play Region"
 msgstr "再生領域をロック(&L)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/AdornedRulerPanel.cpp
 msgid "Pinned Play Head"
 msgstr "再生/録音の位置をピン留め(&H)"
@@ -1549,13 +1549,13 @@ msgstr "詳細(&D)"
 msgid "Choose command"
 msgstr "コマンドを選択"
 
-# jp: デフォルトマクロ名だがファイル名でもある
+# ja: デフォルトマクロ名だがファイル名でもある
 #: src/BatchCommands.cpp
 #, fuzzy
 msgid "MP3 Conversion"
 msgstr "MP3 変換"
 
-# jp: デフォルトマクロ名だがファイル名でもある
+# ja: デフォルトマクロ名だがファイル名でもある
 #: src/BatchCommands.cpp
 #, fuzzy
 msgid "Fade Ends"
@@ -1826,44 +1826,44 @@ msgstr "本当に %s を削除しますか？"
 msgid "Benchmark"
 msgstr "ベンチマーク"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Disk Block Size (KB):"
 msgstr "ディスクブロックサイズ (KB) (&B):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Number of Edits:"
 msgstr "編集回数(&E):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Test Data Size (MB):"
 msgstr "テストデータサイズ (MB) (&T):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: A "seed" is a number that initializes a
 #. pseudorandom number generating algorithm
 #: src/Benchmark.cpp
 msgid "Random Seed:"
 msgstr "ランダムシード(&A):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Show detailed info about each block file"
 msgstr "各ブロックファイルの詳細情報を表示(&H)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Show detailed info about each editing operation"
 msgstr "各編集処理の詳細情報を表示(&W)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/Benchmark.cpp
 msgid "Run"
 msgstr "実行(&R)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint verb
 #: src/Benchmark.cpp src/tracks/ui/TrackButtonHandles.cpp
 #: src/widgets/HelpSystem.cpp
@@ -2369,7 +2369,7 @@ msgstr "FFmpeg の場所を指定"
 msgid "Audacity needs the file '%s' to import and export audio via FFmpeg."
 msgstr "FFmpeg を通じた音声の取り込みと書き出しには、ファイル「%s」が必要です。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/FFmpeg.cpp
 #, c-format
 msgid "Location of '%s':"
@@ -2380,7 +2380,7 @@ msgstr "「%s」の場所(&L):"
 msgid "To find '%s', click here -->"
 msgstr "「%s」を見つけるには、こちらをクリック -->"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/FFmpeg.cpp src/export/ExportCL.cpp src/export/ExportMP3.cpp
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Browse..."
@@ -2390,7 +2390,7 @@ msgstr "参照(&B)..."
 msgid "To get a free copy of FFmpeg, click here -->"
 msgstr "FFmpeg の無料コピーを入手するには、こちらをクリック -->"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: (verb)
 #: src/FFmpeg.cpp src/export/ExportMP3.cpp
 msgid "Download"
@@ -2558,7 +2558,7 @@ msgstr "標準自己相関"
 msgid "Cuberoot Autocorrelation"
 msgstr "立方根自己相関"
 
-# jp: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally efficient multipitch analysis model」という論文が元祖らしいということやEACという頭文字があてられ得るということなどまではわかり、被引用文献に1つ日本語のものがあったのでそれが参考になるかもと思ったが、無料で見れる範囲ではEACについて特に触れられていなかったし、詳細な中身を確認するために大学図書館にまで出向くガッツも無いので諦める。っていうか立方根自己相関とやらすら見つけられなかったんだが…。
+# ja: めちゃめちゃググりまくったが、それっぽい学術的な文脈で日本語の訳語をあてている例を見つけられなかったのでもう適当に名付けた。一応「A computationally efficient multipitch analysis model」という論文が元祖らしいということやEACという頭文字があてられ得るということなどまではわかり、被引用文献に1つ日本語のものがあったのでそれが参考になるかもと思ったが、無料で見れる範囲ではEACについて特に触れられていなかったし、詳細な中身を確認するために大学図書館にまで出向くガッツも無いので諦める。っていうか立方根自己相関とやらすら見つけられなかったんだが…。
 #: src/FreqWindow.cpp
 msgid "Enhanced Autocorrelation"
 msgstr "強調自己相関"
@@ -2570,7 +2570,7 @@ msgstr "強調自己相関"
 msgid "Cepstrum"
 msgstr "ケプストラム"
 
-# jp: これは [解析]→[スペクトル表示] で使われているが、"window" 無しのものも [環境設定]→[トラック]→[スペクトログラム] で使われているため、「窓」という語を元の各メニュー項目の方に付けてこちらには付けない
+# ja: これは [解析]→[スペクトル表示] で使われているが、"window" 無しのものも [環境設定]→[トラック]→[スペクトログラム] で使われているため、「窓」という語を元の各メニュー項目の方に付けてこちらには付けない
 #. i18n-hint: This refers to a "window function",
 #. * such as Hann or Rectangular, used in the
 #. * Frequency analyze dialog box.
@@ -2717,7 +2717,7 @@ msgstr "周波数 (Hz)\tレベル (dB)"
 msgid "Lag (seconds)\tFrequency (Hz)\tLevel"
 msgstr "遅延 (秒)\t周波数 (Hz)\tレベル"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/FreqWindow.cpp
 msgid "Plot Spectrum..."
 msgstr "スペクトル表示(&S)..."
@@ -2902,7 +2902,7 @@ msgstr ""
 msgid "&History..."
 msgstr "操作履歴(&H)..."
 
-# jp: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
+# ja: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
 #: src/InconsistencyException.cpp
 #, c-format
 msgid ""
@@ -2912,7 +2912,7 @@ msgstr ""
 "Internal error in %s at %s line %d.\n"
 "是非、Audacity チーム (https://forum.audacityteam.org/) にご報告ください。"
 
-# jp: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
+# ja: 運営に報告してねとあるので、報告しやすくするために内部エラー部分は原文ママとする。
 #: src/InconsistencyException.cpp
 #, c-format
 msgid ""
@@ -3540,7 +3540,7 @@ msgstr ""
 "登録失敗:\n"
 "%s"
 
-# jp: 本当は「この」「これらの」を使い分けたい
+# ja: 本当は「この」「これらの」を使い分けたい
 #. i18n-hint A plug-in is an optional added program for a sound
 #. effect, or generator, or analyzer
 #: src/PluginManager.cpp
@@ -4813,7 +4813,7 @@ msgstr "録音起動レベル (dB):"
 msgid "Welcome to Audacity!"
 msgstr "Audacity へようこそ！"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/SplashDialog.cpp
 msgid "Don't show this again at start up"
 msgstr "次回からは起動時に表示しない(&D)"
@@ -5682,7 +5682,7 @@ msgstr "閾値:"
 msgid "Compares a range on two tracks."
 msgstr "2 本のトラックのレンジを比較します。"
 
-# jp: デモはデモなのであえて翻訳しない
+# ja: デモはデモなのであえて翻訳しない
 #: src/commands/Demo.cpp
 msgid "Demo"
 msgstr "Demo"
@@ -5781,7 +5781,7 @@ msgstr "エンベロープ"
 msgid "Labels"
 msgstr "ラベル"
 
-# jp: 正直訳しようがないけど訳さないのも浮くし、まあこんなもんか
+# ja: 正直訳しようがないけど訳さないのも浮くし、まあこんなもんか
 #: src/commands/GetInfoCommand.cpp
 msgid "Boxes"
 msgstr "ボックス"
@@ -6368,12 +6368,12 @@ msgstr "トラックの設定"
 msgid "Sets various values for a track."
 msgstr "トラックの様々な値を設定します。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Amplify.cpp
 msgid "Amplify"
 msgstr "増幅(&A)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Amplify.cpp
 msgid "Increases or decreases the volume of the audio you have selected"
 msgstr "選択した音声の音量を増加または減少させます"
@@ -6394,12 +6394,12 @@ msgstr "新規最大振幅 (dB) (&N):"
 msgid "Allo&w clipping"
 msgstr "クリッピングを許容する(&W)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/AutoDuck.cpp
 msgid "Auto Duck"
 msgstr "自動ダッキング(&K)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/AutoDuck.cpp
 msgid "Reduces (ducks) the volume of one or more tracks whenever the volume of a specified \"control\" track reaches a particular level"
 msgstr "指定された「コントロール」トラックが特定のレベルに達したら、1 本以上のトラックのレベルを低減 (ダッキング) します"
@@ -6462,12 +6462,12 @@ msgstr "閾値(&T):"
 msgid "Preview not available"
 msgstr "プレビューは使用できません"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/BassTreble.cpp
 msgid "Bass and Treble"
 msgstr "低域・高域(&B)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/BassTreble.cpp
 msgid "Simple tone control effect"
 msgstr "シンプルな音色調整エフェクトです"
@@ -6508,12 +6508,12 @@ msgstr "レベル"
 msgid "&Link Volume control to Tone controls"
 msgstr "音量調整を音色調整とリンクさせる(&L)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ChangePitch.cpp
 msgid "Change Pitch"
 msgstr "変更: ピッチの変更(&P)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/ChangePitch.cpp
 msgid "Changes the pitch of a track without changing its tempo"
 msgstr "テンポを変えずにトラックのピッチを変更します"
@@ -6630,12 +6630,12 @@ msgstr "78"
 msgid "n/a"
 msgstr "n/a"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ChangeSpeed.cpp
 msgid "Change Speed"
 msgstr "変更: 速度の変更(&G)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/ChangeSpeed.cpp
 msgid "Changes the speed of a track, also changing its pitch"
 msgstr "トラックの再生速度を変更し、ピッチも同時に変わります"
@@ -6708,12 +6708,12 @@ msgctxt "change speed"
 msgid "to"
 msgstr "→ 変更後"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ChangeTempo.cpp
 msgid "Change Tempo"
 msgstr "変更: テンポの変更(&T)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/ChangeTempo.cpp
 msgid "Changes the tempo of a selection without changing its pitch"
 msgstr "ピッチを変えずに選択範囲のテンポを変更します"
@@ -6773,12 +6773,12 @@ msgstr "→ 変更後(&O)"
 msgid "Length in seconds from %s, to"
 msgstr "長さ (秒)、%s からの変更後"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ClickRemoval.cpp
 msgid "Click Removal"
 msgstr "クリックノイズの除去(&K)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/ClickRemoval.cpp
 msgid "Click Removal is designed to remove clicks on audio tracks"
 msgstr "音声トラックのクリック音を除去します"
@@ -6808,12 +6808,12 @@ msgstr "最大スパイク幅 (大きくするほど高感度) (&S)"
 msgid "Max Spike Width"
 msgstr "最大スパイク幅"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Compressor.cpp
 msgid "Compressor"
 msgstr "コンプレッサー(&C)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Compressor.cpp
 msgid "Compresses the dynamic range of audio"
 msgstr "音声のダイナミックレンジを圧縮します"
@@ -7178,7 +7178,7 @@ msgstr "WCAG 2.0 Success Criteria 1.4.7: 不合格"
 msgid "Data gathered"
 msgstr "データ収集日時"
 
-# jp: 2番目の "%s" は、Audacityの言語設定が日本語だと「4月」、英語だと「April」のようになる
+# ja: 2番目の "%s" は、Audacityの言語設定が日本語だと「4月」、英語だと「April」のようになる
 #. i18n-hint: day of month, month, year, hour, minute, second
 #: src/effects/Contrast.cpp
 #, c-format
@@ -7189,7 +7189,7 @@ msgstr "%3$02d年%2$s%1$d日 %4$02d時%5$02d分%6$02d秒"
 msgid "Contrast Analysis (WCAG 2 compliance)"
 msgstr "コントラスト解析 (WCAG2 準拠)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Contrast.cpp
 msgid "Contrast..."
 msgstr "コントラスト(&C)..."
@@ -7238,104 +7238,104 @@ msgstr "Rectifier Distortion"
 msgid "Hard Limiter 1413"
 msgstr "Hard Limiter 1413"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Hard clip -12dB, 80% make-up gain"
 msgstr "Hard clip -12dB, 80% make-up gain"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 #, no-c-format
 msgid "Soft clip -12dB, 80% make-up gain"
 msgstr "Soft clip -12dB, 80% make-up gain"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Fuzz Box"
 msgstr "Fuzz Box"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp src/effects/Equalization.cpp
 msgid "Walkie-talkie"
 msgstr "Walkie-talkie"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Blues drive sustain"
 msgstr "Blues drive sustain"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Light Crunch Overdrive"
 msgstr "Light Crunch Overdrive"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Heavy Overdrive"
 msgstr "Heavy Overdrive"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "3rd Harmonic (Perfect Fifth)"
 msgstr "3rd Harmonic (Perfect Fifth)"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Valve Overdrive"
 msgstr "Valve Overdrive"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "2nd Harmonic (Octave)"
 msgstr "2nd Harmonic (Octave)"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Gated Expansion Distortion"
 msgstr "Gated Expansion Distortion"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Light, -70dB noise floor"
 msgstr "Leveller, Light, -70dB noise floor"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Moderate, -70dB noise floor"
 msgstr "Leveller, Moderate, -70dB noise floor"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heavy, -70dB noise floor"
 msgstr "Leveller, Heavy, -70dB noise floor"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heavier, -70dB noise floor"
 msgstr "Leveller, Heavier, -70dB noise floor"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Leveller, Heaviest, -70dB noise floor"
 msgstr "Leveller, Heaviest, -70dB noise floor"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Half-wave Rectifier"
 msgstr "Half-wave Rectifier"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Full-wave Rectifier"
 msgstr "Full-wave Rectifier"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Full-wave Rectifier (DC blocked)"
 msgstr "Full-wave Rectifier (DC blocked)"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Distortion.cpp
 msgid "Percussion Limiter"
 msgstr "Percussion Limiter"
@@ -7356,12 +7356,12 @@ msgstr "パラメーター 2"
 msgid "Number of repeats"
 msgstr "リピート回数"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Distortion.cpp
 msgid "Distortion"
 msgstr "ディストーション(&D)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Distortion.cpp
 msgid "Waveshaping distortion effect"
 msgstr "ウェーブシェイパー式のディストーションエフェクトです"
@@ -7462,7 +7462,7 @@ msgstr "(0～100):"
 msgid "(0 to 5):"
 msgstr "(0～5):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/DtmfGen.cpp
 msgid "DTMF Tones"
 msgstr "DTMF トーン(&M)"
@@ -7526,12 +7526,12 @@ msgstr "無音持続時間:"
 msgid "%0.f ms"
 msgstr "%0.f ms"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Echo.cpp
 msgid "Echo"
 msgstr "エコー(&E)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Echo.cpp
 msgid "Repeats the selected audio again and again"
 msgstr "選択した音声を何度も繰り返します"
@@ -7549,7 +7549,7 @@ msgstr "ディレイ時間 (秒) (&D):"
 msgid "D&ecay factor:"
 msgstr "減衰倍数(&E):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Effect.cpp
 msgid "Built-in"
 msgstr "内蔵エフェクト(&B)"
@@ -7627,12 +7627,12 @@ msgstr "プリセットを選んでください"
 msgid "&Preset:"
 msgstr "プリセット(&P):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectManager.cpp src/effects/EffectUI.cpp
 msgid "User Presets"
 msgstr "ユーザープリセット(&U)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectManager.cpp src/effects/EffectUI.cpp
 msgid "Factory Presets"
 msgstr "ファクトリープリセット(&F)"
@@ -7803,32 +7803,32 @@ msgstr "前方にスキップ(&F)"
 msgid "Enable"
 msgstr "有効化"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp
 msgid "Save Preset..."
 msgstr "プリセットの保存(&S)..."
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp src/export/ExportFFmpegDialogs.cpp
 msgid "Delete Preset"
 msgstr "プリセットの消去(&D)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp
 msgid "Defaults"
 msgstr "デフォルト(&D)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp src/menus/PluginMenus.cpp
 msgid "Import..."
 msgstr "取り込み(&I)..."
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp src/menus/PluginMenus.cpp
 msgid "Export..."
 msgstr "書き出し(&E)..."
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp src/widgets/Meter.cpp
 msgid "Options..."
 msgstr "オプション(&O)..."
@@ -7858,7 +7858,7 @@ msgstr "ベンダー: %s"
 msgid "Description: %s"
 msgstr "説明: %s"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp
 msgid "About"
 msgstr "エフェクトについて(&A)"
@@ -7900,7 +7900,7 @@ msgstr "再生停止(&P)"
 msgid "Play"
 msgstr "再生"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/EffectUI.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Nyquist Prompt"
 msgstr "Nyquist プロンプト(&Q)"
@@ -7918,7 +7918,7 @@ msgstr "コサイン"
 msgid "Cubic"
 msgstr "キュービック"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Equalization.cpp
 msgid "Equalization"
 msgstr "イコライザー (EQ) (&Q)"
@@ -7927,57 +7927,57 @@ msgstr "イコライザー (EQ) (&Q)"
 msgid "Filter Curve EQ"
 msgstr "EQ フィルター曲線"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Equalization.cpp plug-ins/eq-xml-to-txt-converter.ny
 msgid "Graphic EQ"
 msgstr "グラフィック EQ(&G)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Equalization.cpp
 msgid "Adjusts the volume levels of particular frequencies"
 msgstr "特定の周波数の音量を調節します"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "100Hz Rumble"
 msgstr "100Hz Rumble"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "AM Radio"
 msgstr "AM Radio"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Bass Boost"
 msgstr "Bass Boost"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Bass Cut"
 msgstr "Bass Cut"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Low rolloff for speech"
 msgstr "Low rolloff for speech"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "RIAA"
 msgstr "RIAA"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Telephone"
 msgstr "Telephone"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Treble Boost"
 msgstr "Treble Boost"
 
-# jp: ファクトリープリセット
+# ja: ファクトリープリセット
 #: src/effects/Equalization.cpp
 msgid "Treble Cut"
 msgstr "Treble Cut"
@@ -8317,12 +8317,12 @@ msgstr ""
 "SSE: %s\n"
 "SSE スレッド: %s\n"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Fade.cpp
 msgid "Fade In"
 msgstr "フェードイン(&I)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Fade.cpp
 msgid "Fade Out"
 msgstr "フェードアウト(&O)"
@@ -8335,7 +8335,7 @@ msgstr "選択した音声にリニアフェードインを適用"
 msgid "Applies a linear fade-out to the selected audio"
 msgstr "選択した音声にリニア・フェードアウトを付加します"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/FindClipping.cpp
 msgid "Find Clipping"
 msgstr "クリッピングの検出(&F)"
@@ -8360,7 +8360,7 @@ msgstr "停止閾値 (サンプル数) (&O):"
 msgid "There is not enough room available to generate the audio"
 msgstr "音声を生成する十分なスペースがありません"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Invert.cpp
 msgid "Invert"
 msgstr "上下を反転(&I)"
@@ -8389,7 +8389,7 @@ msgstr "知覚的ラウドネス"
 msgid "RMS"
 msgstr "RMS"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Loudness.cpp
 msgid "Loudness Normalization"
 msgstr "ラウドネスノーマライズ(&Z)"
@@ -8460,7 +8460,7 @@ msgctxt "noise"
 msgid "Brownian"
 msgstr "ブラウニアンノイズ"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Noise.cpp
 msgid "Noise"
 msgstr "ノイズ(&N)"
@@ -8473,57 +8473,57 @@ msgstr "3 種類の異なるノイズを生成します"
 msgid "&Noise type:"
 msgstr "ノイズの種類(&N):"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Median"
 msgstr "Median"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Second greatest"
 msgstr "Second greatest"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Old"
 msgstr "Old"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "none, Hann (2.0.6 behavior)"
 msgstr "none, Hann (2.0.6 behavior)"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hann, none"
 msgstr "Hann, none"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hann, Hann (default)"
 msgstr "Hann, Hann (default)"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Blackman, Hann"
 msgstr "Blackman, Hann"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hamming, none"
 msgstr "Hamming, none"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hamming, Hann"
 msgstr "Hamming, Hann"
 
-# jp: "Experimental only, don't need translations"
+# ja: "Experimental only, don't need translations"
 #: src/effects/NoiseReduction.cpp
 msgid "Hamming, Reciprocal Hamming"
 msgstr "Hamming, Reciprocal Hamming"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/NoiseReduction.cpp src/menus/PluginMenus.cpp
 msgid "Noise Reduction"
 msgstr "ノイズの低減(&N)"
@@ -8777,7 +8777,7 @@ msgstr "アタック/ディケイ時間"
 msgid "Re&move"
 msgstr "除去(&M)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Normalize.cpp
 msgid "Normalize"
 msgstr "ノーマライズ(&Z)"
@@ -8843,13 +8843,13 @@ msgstr "最大振幅 dB"
 msgid "N&ormalize stereo channels independently"
 msgstr "ステレオチャンネルごとにノーマライズ(&O)"
 
-# jp: 独自アクセスキー
-# jp: 連続的伸縮は「伸縮」なのに対しこちらは「ストレッチ」なので、特別に同じグループになるようまとめる
+# ja: 独自アクセスキー
+# ja: 連続的伸縮は「伸縮」なのに対しこちらは「ストレッチ」なので、特別に同じグループになるようまとめる
 #: src/effects/Paulstretch.cpp
 msgid "Paulstretch"
 msgstr "伸縮: Paul ストレッチ(&S)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Paulstretch.cpp
 msgid "Paulstretch is only for an extreme time-stretch or \"stasis\" effect"
 msgstr "Paul ストレッチは、極端な時間伸縮か「停滞」的エフェクトの用途にのみお使いください"
@@ -8908,12 +8908,12 @@ msgstr ""
 "音声選択時間を長くとも %.1f 秒まで縮めるか、\n"
 "「時間分解能」を %.1f 秒より小さくしてください。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Phaser.cpp
 msgid "Phaser"
 msgstr "フェイザー(&A)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Phaser.cpp
 msgid "Combines phase-shifted signals with the original signal"
 msgstr "元の信号に位相シフトした信号を組み合わせます"
@@ -8974,7 +8974,7 @@ msgstr "出力ゲイン (dB) (&O):"
 msgid "Output gain (dB)"
 msgstr "出力ゲイン (dB)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Repair.cpp
 msgid "Repair"
 msgstr "修復(&E)"
@@ -9008,12 +9008,12 @@ msgstr ""
 "\n"
 "より多くの音声データを選ぶと、より良く修復できます。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Repeat.cpp
 msgid "Repeat"
 msgstr "繰り返し(&R)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Repeat.cpp
 msgid "Repeats the selection the specified number of times"
 msgstr "指定された回数だけその領域を繰り返します"
@@ -9080,12 +9080,12 @@ msgstr "チャーチホール"
 msgid "Cathedral"
 msgstr "大聖堂"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Reverb.cpp
 msgid "Reverb"
 msgstr "リバーブ(&R)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Reverb.cpp
 msgid "Adds ambience or a \"hall effect\""
 msgstr "アンビエンスや「ホール効果」を加えます"
@@ -9130,13 +9130,13 @@ msgstr "ステレオ幅 (%) (&T):"
 msgid "Wet O&nly"
 msgstr "ウェットのみ(&N)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Reverb.cpp
 #, c-format
 msgid "Reverb: %s"
 msgstr "リバーブ: %s"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Reverse.cpp
 msgid "Reverse"
 msgstr "前後を反転(&V)"
@@ -9145,7 +9145,7 @@ msgstr "前後を反転(&V)"
 msgid "Reverses the selected audio"
 msgstr "選択した音声の反転"
 
-# jp: "in fact this symbol does not get used"
+# ja: "in fact this symbol does not get used"
 #: src/effects/SBSMSEffect.h
 msgid "SBSMS Time / Pitch Stretch"
 msgstr "SBSMS Time / Pitch Stretch"
@@ -9173,7 +9173,7 @@ msgstr "ローパスフィルター"
 msgid "Highpass"
 msgstr "ハイパスフィルター"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ScienFilter.cpp
 msgid "Classic Filters"
 msgstr "クラシックフィルター(&F)"
@@ -9318,7 +9318,7 @@ msgstr "デフォルトに復旧"
 msgid "%.3f"
 msgstr "%.3f"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: noun
 #: src/effects/Silence.cpp
 msgctxt "generator"
@@ -9349,8 +9349,8 @@ msgstr "右チャンネルを再サンプリングしています"
 msgid "Mixing down to mono"
 msgstr "モノラルにミックスダウンしています"
 
-# jp: 独自アクセスキー
-# jp: Paul ストレッチは「ストレッチ」なのに対しこちらは「伸縮」なので、特別に同じグループになるようまとめる
+# ja: 独自アクセスキー
+# ja: Paul ストレッチは「ストレッチ」なのに対しこちらは「伸縮」なので、特別に同じグループになるようまとめる
 #: src/effects/TimeScale.cpp
 msgid "Sliding Stretch"
 msgstr "伸縮: 連続的伸縮(&H)"
@@ -9407,12 +9407,12 @@ msgstr "のこぎり波"
 msgid "Square, no alias"
 msgstr "矩形波、エイリアス成分なし"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ToneGen.cpp
 msgid "Chirp"
 msgstr "チャープ(&C)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/ToneGen.cpp
 msgid "Tone"
 msgstr "トーン(&T)"
@@ -9461,12 +9461,12 @@ msgstr "検出された無音の切り詰め"
 msgid "Compress Excess Silence"
 msgstr "過剰な無音の圧縮"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/TruncSilence.cpp
 msgid "Truncate Silence"
 msgstr "無音の切り詰め(&U)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/TruncSilence.cpp
 msgid "Automatically reduces the length of passages where the volume is below a specified level"
 msgstr "音量が設定値より低い場合に自動的に切り詰めます"
@@ -9475,7 +9475,7 @@ msgstr "音量が設定値より低い場合に自動的に切り詰めます"
 msgid "When truncating independently, there may only be one selected audio track in each Sync-Locked Track Group."
 msgstr "別々に切り詰める場合、トラックの同期ロックグループごとに 1 本のトラックしか選択することはできません。"
 
-# jp: [解析] > [無音の検出] との区別のために、「の」を削除
+# ja: [解析] > [無音の検出] との区別のために、「の」を削除
 #: src/effects/TruncSilence.cpp
 msgid "Detect Silence"
 msgstr "無音検出"
@@ -9641,12 +9641,12 @@ msgstr "このパラメーターファイルは %s から保存されました�
 msgid "VST"
 msgstr "VST"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/effects/Wahwah.cpp
 msgid "Wahwah"
 msgstr "ワウ (Wahwah) (&W)"
 
-# jp: 説明
+# ja: 説明
 #: src/effects/Wahwah.cpp
 msgid "Rapid tone quality variations, like that guitar sound so popular in the 1970's"
 msgstr "1970 年代ギターサウンドのような急激な音質変化"
@@ -12687,7 +12687,7 @@ msgstr "クリップを左に移動しました"
 msgid "Time-Shift"
 msgstr "時間移動"
 
-# jp: 読み上げ用
+# ja: 読み上げ用
 #: src/menus/ClipMenus.cpp
 msgid "clip not moved"
 msgstr "クリップは移動していません"
@@ -12807,7 +12807,7 @@ msgstr "分割削除"
 msgid "Silenced selected tracks for %.2f seconds at %.2f"
 msgstr "選択トラックを %2$.2f 秒地点で %1$.2f 秒間無音化しました"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: verb
 #: src/menus/EditMenus.cpp
 msgctxt "command"
@@ -13079,7 +13079,7 @@ msgstr "MIDI ファイル"
 msgid "Allegro files"
 msgstr "Allegro ファイル"
 
-# jp: 開発者向け。翻訳不要
+# ja: 開発者向け。翻訳不要
 #: src/menus/FileMenus.cpp
 msgid "&Dangerous Reset..."
 msgstr "&Dangerous Reset..."
@@ -13278,7 +13278,7 @@ msgstr "ログの表示(&L)..."
 msgid "&Generate Support Data..."
 msgstr "サポートデータの生成(&G)..."
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/menus/HelpMenus.cpp
 msgid "Menu Tree..."
 msgstr "メニューツリー(&E)..."
@@ -13559,7 +13559,7 @@ msgstr "プラグイン %d～%d"
 msgid "&Generate"
 msgstr "ジェネレーター(&G)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/menus/PluginMenus.cpp
 msgid "Add / Remove Plug-ins..."
 msgstr "プラグインの追加/削除(&P)..."
@@ -13600,7 +13600,7 @@ msgstr "マクロ(&M)..."
 msgid "&Apply Macro"
 msgstr "マクロの適用(&A)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/menus/PluginMenus.cpp
 msgid "Palette..."
 msgstr "パレット(&P)..."
@@ -13617,12 +13617,12 @@ msgstr "スクリーンショット(&S)..."
 msgid "&Run Benchmark..."
 msgstr "ベンチマーク(&R)..."
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/menus/PluginMenus.cpp
 msgid "Simulate Recording Errors"
 msgstr "録音エラーをシミュレーション(&C)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/menus/PluginMenus.cpp
 msgid "Detect Upstream Dropouts"
 msgstr "ドロップアウトを検出(&D)"
@@ -14466,12 +14466,12 @@ msgstr "再生中"
 msgid "Recording"
 msgstr "録音"
 
-# jp: 読み上げ用
+# ja: 読み上げ用
 #: src/menus/TransportMenus.cpp
 msgid "no label track"
 msgstr "ラベルトラックがありません"
 
-# jp: 読み上げ用
+# ja: 読み上げ用
 #: src/menus/TransportMenus.cpp
 msgid "no label track at or below focused track"
 msgstr "フォーカスしたトラックやその下のトラックに、ラベルトラックがありません"
@@ -14481,7 +14481,7 @@ msgstr "フォーカスしたトラックやその下のトラックに、ラベ
 msgid "%s %d of %d"
 msgstr "%1$s、%3$d個中%2$d個目"
 
-# jp: 読み上げ用
+# ja: 読み上げ用
 #: src/menus/TransportMenus.cpp
 msgid "no labels in label track"
 msgstr "ラベルトラックにラベルがありません"
@@ -15293,23 +15293,23 @@ msgstr "選択範囲の端でスナップしたラベルを消去時に残す(&T
 msgid "B&lend system and Audacity theme"
 msgstr "システムと Audacity のテーマをブレンドする(&L)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: RTL stands for 'Right to Left'
 #: src/prefs/GUIPrefs.cpp
 msgid "Use mostly Left-to-Right layouts in RTL languages"
 msgstr "右横書き言語 (右から読む言語) でも左横書きレイアウトを使用(&Y)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp
 msgid "Never use comma as decimal point"
 msgstr "カンマを小数点に使用しない(&N)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp
 msgid "Show Timeline Tooltips"
 msgstr "タイムラインツールヒントを表示(&W)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/GUIPrefs.cpp src/toolbars/ScrubbingToolBar.cpp
 msgid "Show Scrub Ruler"
 msgstr "スクラブルーラーを表示(&U)"
@@ -15347,7 +15347,7 @@ msgstr "高度なミキシングオプションを使用(&U)"
 msgid "S&tandard"
 msgstr "標準(&T)"
 
-# jp: わかんね
+# ja: わかんね
 #: src/prefs/ImportExportPrefs.cpp
 msgid "E&xtended (with frequency ranges)"
 msgstr "拡張 (with frequency ranges) (&X)"
@@ -15467,7 +15467,7 @@ msgstr "取り込み(&I)..."
 msgid "&Defaults"
 msgstr "既定値(&D)"
 
-# jp: "The following commands ～" で使われる。二重引用符は二重カギ括弧では見づらい場合があるので、スミ付き括弧に。丸括弧も三点リーダーに。
+# ja: "The following commands ～" で使われる。二重引用符は二重カギ括弧では見づらい場合があるので、スミ付き括弧に。丸括弧も三点リーダーに。
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
 msgid ""
@@ -16068,12 +16068,12 @@ msgstr "他のトラックの再生にハードウェアを使用(&H)"
 msgid "&Software playthrough of input"
 msgstr "ソフトウェアによる再生(&S)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/RecordingPrefs.cpp
 msgid "Record on a new track"
 msgstr "新規トラックに録音(&R)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: Dropout is a loss of a short sequence audio sample data from the recording
 #: src/prefs/RecordingPrefs.cpp
 msgid "Detect dropouts"
@@ -16621,7 +16621,7 @@ msgstr "ピン留め位置(&H)"
 msgid "Default &view mode:"
 msgstr "デフォルト表示モード(&V):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/TracksPrefs.cpp
 msgid "Default Waveform scale:"
 msgstr "デフォルト波形スケール(&D):"
@@ -16643,12 +16643,12 @@ msgstr "音声トラック"
 msgid "Zoom Toggle"
 msgstr "拡大切り替え"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/TracksPrefs.cpp
 msgid "Preset 1:"
 msgstr "プリセット 1(&P):"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: src/prefs/TracksPrefs.cpp
 msgid "Preset 2:"
 msgstr "プリセット 2(&R):"
@@ -18401,7 +18401,7 @@ msgstr "CDDA フレーム (75fps)"
 msgid "01000,01000 frames|75"
 msgstr "0100万010000フレーム|75"
 
-# jp: 元の「010,01000>0100 Hz」では万の位が扱えないので不足すぎると思うが、勝手に桁数を増やすわけにもいかないのでとりあえずこれで
+# ja: 元の「010,01000>0100 Hz」では万の位が扱えないので不足すぎると思うが、勝手に桁数を増やすわけにもいかないのでとりあえずこれで
 #. i18n-hint: Format string for displaying frequency in hertz. Change
 #. * the decimal point for your locale. Don't change the numbers.
 #. * The decimal separator is specified using '<' if your language uses a ',' or
@@ -18622,7 +18622,7 @@ msgstr "ファイルが開けません:「%s」"
 msgid "Could not parse XML"
 msgstr "XML を解釈できませんでした"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/SpectralEditMulti.ny
 msgid "Spectral edit multi tool"
 msgstr "スペクトル編集: マルチツール(&M)"
@@ -18684,7 +18684,7 @@ msgstr ""
 msgid "Error.~%"
 msgstr "エラー。~%"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/SpectralEditParametricEQ.ny
 msgid "Spectral edit parametric EQ"
 msgstr "スペクトル編集: パラメトリック EQ(&Q)"
@@ -18728,12 +18728,12 @@ msgstr ""
 "~a帯域幅がゼロです（選択周波数が上下ともに ~a Hz）。~%~\n"
 "幅のある周波数選択をしてください。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/SpectralEditShelves.ny
 msgid "Spectral edit shelves"
 msgstr "スペクトル編集: シェルビング(&S)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/StudioFadeOut.ny
 msgid "Studio Fade Out"
 msgstr "スタジオフェードアウト(&F)"
@@ -18756,7 +18756,7 @@ msgstr "Steve Daulton"
 msgid "Selection too short.~%It must be more than 2 samples."
 msgstr "選択範囲が短すぎます。2 サンプルより多く選択する必要があります。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/adjustable-fade.ny
 msgid "Adjustable Fade"
 msgstr "高度なフェード(&J)"
@@ -18887,7 +18887,7 @@ msgstr ""
 "                                 ヒント: 6dB で振幅が 2 倍に、~%~\n"
 "                                 -6dB で振幅が半分になります。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/beat.ny
 msgid "Beat Finder"
 msgstr "拍の検出(&B)"
@@ -18900,7 +18900,7 @@ msgstr "拍の検出中..."
 msgid "Threshold Percentage"
 msgstr "閾値 (%)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/clipfix.ny
 msgid "Clip Fix"
 msgstr "クリッピングの修復(&C)"
@@ -18925,7 +18925,7 @@ msgstr "クリッピング閾値 (%)"
 msgid "Reduce amplitude to allow for restored peaks (dB)"
 msgstr "修復ピークがとり得る振幅を低減 (dB)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/crossfadeclips.ny
 msgid "Crossfade Clips"
 msgstr "クロスフェード: クリップ(&X)"
@@ -18949,7 +18949,7 @@ msgstr "エラー。~%不正な選択です。~%選択範囲の開始点また�
 msgid "Error.~%Crossfade Clips may only be applied to one track."
 msgstr "エラー。~%クリップのクロスフェードは 1 本のトラックにだけ適用できます。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/crossfadetracks.ny
 msgid "Crossfade Tracks"
 msgstr "クロスフェード: トラック(&T)"
@@ -18995,7 +18995,7 @@ msgstr "イン/アウトで交互"
 msgid "Error.~%Select 2 (or more) tracks to crossfade."
 msgstr "エラー。~%クロスフェードするトラックを 2 本以上選んでください。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/delay.ny
 msgid "Delay"
 msgstr "ディレイ(&Y)"
@@ -19052,7 +19052,7 @@ msgstr "繰り返し回数"
 msgid "Allow duration to change"
 msgstr "余韻の分だけ音声時間を伸ばす"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/eq-xml-to-txt-converter.ny
 msgid "EQ XML to TXT Converter"
 msgstr "EQ データ変換 (XML→TXT) (&X)"
@@ -19097,7 +19097,7 @@ msgstr "エラー。~%ファイル「~a.txt」の上書きが拒否されまし�
 msgid "Error.~%File cannot be written:~%\"~a.txt\""
 msgstr "エラー。~%ファイル「~a.txt」に書き込めませんでした。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/equalabel.ny
 msgid "Regular Interval Labels"
 msgstr "等間隔ラベル(&L)"
@@ -19192,39 +19192,39 @@ msgstr "詳細"
 msgid "Warnings only"
 msgstr "警告のみ"
 
-# jp: 文字化けする
+# ja: 文字化けする
 #: plug-ins/equalabel.ny
 #, fuzzy, lisp-format
 msgid "Warning: Overlapping region labels.~%"
 msgstr "警告: ラベル領域が重なっています。~%"
 
-# jp: 文字化けする
+# ja: 文字化けする
 #. i18n-hint:  Type of label
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "region labels"
 msgstr "本のラベル領域"
 
-# jp: 文字化けする
+# ja: 文字化けする
 #: plug-ins/equalabel.ny
 #, fuzzy
 msgid "point labels"
 msgstr "個のラベル"
 
-# jp: 文字化けする
+# ja: 文字化けする
 #. i18n-hint:  Number of labels produced at specified intervals.
 #: plug-ins/equalabel.ny
 #, fuzzy, lisp-format
 msgid "~a~a ~a at intervals of ~a seconds.~%"
 msgstr "~a~a ~aを ~a 秒間隔で生成。~%"
 
-# jp: 文字化けする
+# ja: 文字化けする
 #: plug-ins/equalabel.ny
 #, fuzzy, lisp-format
 msgid "~aRegion length = ~a seconds."
 msgstr "~aラベル領域長さ = ~a 秒。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/highpass.ny
 msgid "High-Pass Filter"
 msgstr "ハイパスフィルター(&H)"
@@ -19281,7 +19281,7 @@ msgstr ""
 "トラックのサンプリング周波数は ~a Hz です。~%~\n"
 "周波数指定を ~a Hz より低くする必要があります。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #. i18n-hint: Name of effect that labels sounds
 #: plug-ins/label-sounds.ny
 msgid "Label Sounds"
@@ -19377,7 +19377,7 @@ msgstr "有音部が検出されませんでした。~%「閾値」や「最短�
 msgid "Labelling regions between sounds requires~%at least two sounds.~%Only one sound detected."
 msgstr "有音部同士の間にラベル領域を作成するには、~%有音部が 2 箇所以上必要です。~%1 箇所の有音部しか検出されませんでした。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/limiter.ny
 msgid "Limiter"
 msgstr "リミッター(&L)"
@@ -19435,7 +19435,7 @@ msgstr "ホールド (ms)"
 msgid "Apply Make-up Gain"
 msgstr "メイクアップゲインを適用"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/lowpass.ny
 msgid "Low-Pass Filter"
 msgstr "ローパスフィルター(&L)"
@@ -19444,7 +19444,7 @@ msgstr "ローパスフィルター(&L)"
 msgid "Performing Low-Pass Filter..."
 msgstr "ローパスフィルターを実行中..."
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/noisegate.ny
 msgid "Noise Gate"
 msgstr "ノイズゲート(&N)"
@@ -19543,7 +19543,7 @@ msgstr ""
 msgid "~ah ~am"
 msgstr "~a 時間 ~a 分"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/notch.ny
 msgid "Notch Filter"
 msgstr "ノッチフィルター(&N)"
@@ -19571,7 +19571,7 @@ msgstr ""
 "トラックのサンプリング周波数は ~a Hz です。~%~\n"
 "周波数指定を ~a Hz より低くする必要があります。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Nyquist Plug-in Installer"
 msgstr "Nyquist プラグインのインストール(&N)"
@@ -19660,7 +19660,7 @@ msgstr "プラグインフォルダーに書き込めなかったファイル:"
 msgid "Error.~%No file selected."
 msgstr "エラー。~%ファイルが選択されていません。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/pluck.ny
 msgid "Pluck"
 msgstr "プラック(&K)"
@@ -19697,7 +19697,7 @@ msgstr "緩やか"
 msgid "Duration (60s max)"
 msgstr "音価 (最大 60 秒)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/rhythmtrack.ny
 msgid "Rhythm Track"
 msgstr "リズムトラック(&R)"
@@ -19814,7 +19814,7 @@ msgstr ""
 "「小節数」か「リズムトラックの長さ」のどちらかを\n"
 "0 より大きい値に設定してください。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/rissetdrum.ny
 msgid "Risset Drum"
 msgstr "Risset ドラム(&D)"
@@ -19847,7 +19847,7 @@ msgstr "ノイズのミックス量 (%)"
 msgid "Amplitude (0 - 1)"
 msgstr "振幅 (0～1)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/sample-data-export.ny
 msgid "Sample Data Export"
 msgstr "サンプルデータの書き出し(&E)"
@@ -19935,13 +19935,13 @@ msgstr "エラー時のみ"
 msgid "[-inf]"
 msgstr "[-∞]"
 
-# jp: ヘッダーなし＆「左チャンネルを最初に」
+# ja: ヘッダーなし＆「左チャンネルを最初に」
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left Channel.~%~%"
 msgstr "左チャンネル:~%~%"
 
-# jp: ヘッダーなし＆「左チャンネルを最初に」
+# ja: ヘッダーなし＆「左チャンネルを最初に」
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~%~%Right Channel.~%~%"
@@ -19952,19 +19952,19 @@ msgstr "~%~%右チャンネル~%~%"
 msgid "~aData written to:~%~a"
 msgstr "~aデータを書き出しました:~%~a"
 
-# jp: 最低限ヘッダー
+# ja: 最低限ヘッダー
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Sample Rate: ~a Hz.  Sample values on ~a scale.~%~a~%~a"
 msgstr "サンプリング周波数: ~a Hz。サンプル値スケール: ~a。~%~a~%~a"
 
-# jp: HTMLの完了ダイアログ
+# ja: HTMLの完了ダイアログ
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a   ~a~%~aSample Rate: ~a Hz.~%Length processed: ~a samples ~a seconds.~a"
 msgstr "~a   ~a~%~aサンプリング周波数: ~a Hz。~%処理長さ: ~a サンプル、~a 秒。~a"
 
-# jp: 標準ヘッダー
+# ja: 標準ヘッダー
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid ""
@@ -19974,7 +19974,7 @@ msgstr ""
 "~a   ~a~%~aサンプリング周波数: ~a Hz。サンプル値スケール: ~a。~%~\n"
 "処理長さ: ~a サンプル、~a 秒。~a"
 
-# jp: 完全ヘッダー
+# ja: 完全ヘッダー
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid ""
@@ -19986,19 +19986,19 @@ msgstr ""
 "~a処理長さ: ~a サンプル、~a 秒。~%ピーク振幅: ~a (リニア)、~a dB。重みなしRMS: ~a dB。~%~\n"
 "DCオフセット: ~a~a"
 
-# jp: 完全ヘッダーの最後（モノラル）
+# ja: 完全ヘッダーの最後（モノラル）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a linear, ~a dB."
 msgstr "~a (リニア)、~a dB。"
 
-# jp: 完全ヘッダーの最後（ステレオ）
+# ja: 完全ヘッダーの最後（ステレオ）
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "Left: ~a lin, ~a dB | Right: ~a lin, ~a dB."
 msgstr "左: ~a (リニア)、~a dB | 右: ~a (リニア)、~a dB。"
 
-# jp: 以下HTML
+# ja: 以下HTML
 #: plug-ins/sample-data-export.ny
 #, lisp-format
 msgid "~a samples."
@@ -20136,7 +20136,7 @@ msgstr "チャンネル記述順未指定"
 msgid "Error.~%\"~a\" cannot be written."
 msgstr "エラー。~%「~a」に書き込めませんでした。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/sample-data-import.ny
 msgid "Sample Data Import"
 msgstr "サンプルデータの取り込み(&I)"
@@ -20207,7 +20207,7 @@ msgstr ""
 msgid "Error.~%Unable to open file"
 msgstr "エラー。~%ファイルを開けません"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/spectral-delete.ny
 msgid "Spectral Delete"
 msgstr "スペクトル編集: 削除(&D)"
@@ -20217,7 +20217,7 @@ msgstr "スペクトル編集: 削除(&D)"
 msgid "Error.~%Track sample rate below 100 Hz is not supported."
 msgstr "エラー。~%トラックにおける 100 Hz 未満のサンプリング周波数はサポート対象外です。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/tremolo.ny
 msgid "Tremolo"
 msgstr "トレモロ(&M)"
@@ -20242,7 +20242,7 @@ msgstr "LFO 初期位相 (度)"
 msgid "Wet level (percent)"
 msgstr "ウェットレベル (%)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/vocalrediso.ny
 msgid "Vocal Reduction and Isolation"
 msgstr "ボーカルの低減と分離(&V)"
@@ -20395,7 +20395,7 @@ msgstr ""
 msgid "This plug-in works only with stereo tracks."
 msgstr "このプラグインはステレオトラックでのみ機能します。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #: plug-ins/vocoder.ny
 msgid "Vocoder"
 msgstr "ボコーダー(&D)"
@@ -20490,11 +20490,11 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "After recovery, save the project to save the changes to disk."
 #~ msgstr "回復後は、変更点を保存するためにプロジェクトの保存を行ってください。"
 
-# jp: 独自アクセスキー。面積がきついので意訳
+# ja: 独自アクセスキー。面積がきついので意訳
 #~ msgid "Discard Projects"
 #~ msgstr "すべて破棄(&D)"
 
-# jp: 独自アクセスキー。面積がきついので意訳
+# ja: 独自アクセスキー。面積がきついので意訳
 #~ msgid "Recover Projects"
 #~ msgstr "すべて回復(&R)"
 
@@ -20524,7 +20524,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "Export as WAV"
 #~ msgstr "WAV として書き出し"
 
-# jp: デフォルトマクロ名だがファイル名でもある…という立ち位置のものだった。現在は無効。
+# ja: デフォルトマクロ名だがファイル名でもある…という立ち位置のものだった。現在は無効。
 #~ msgid "Select to Ends"
 #~ msgstr "Select to Ends"
 
@@ -20793,7 +20793,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "Clip Rig&ht"
 #~ msgstr "クリップを右へ(&H)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Save Lossless Copy of Project..."
 #~ msgstr "プロジェクトの無劣化コピーを保存(&L)..."
 
@@ -20831,7 +20831,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "Projects"
 #~ msgstr "プロジェクト"
 
-# jp: 独自アクセスキー。面積がきついので意訳
+# ja: 独自アクセスキー。面積がきついので意訳
 #, fuzzy
 #~ msgid "Preferences for Projects"
 #~ msgstr "すべて回復(&R)"
@@ -20845,7 +20845,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "&Importing uncompressed audio files"
 #~ msgstr "非圧縮音声ファイルの取り込み時(&I)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Silence Finder"
 #~ msgstr "無音の検出(&L)"
 
@@ -20868,7 +20868,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ "the minimum silence duration."
 #~ msgstr "無音は検出されませんでした。~%無音レベルや無音間隔を小さくしてみてください。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Sound Finder"
 #~ msgstr "音声の検出(&O)"
 
@@ -21076,31 +21076,31 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "Click to pin"
 #~ msgstr "クリックでピン留め"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Disable Quick-Play"
 #~ msgstr "簡易再生を無効化(&Q)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Disable dragging selection"
 #~ msgstr "ドラッグ選択を無効化(&D)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Disable Timeline Tooltips"
 #~ msgstr "タイムラインツールヒントを無効化(&T)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Do not scroll while playing"
 #~ msgstr "再生時にスクロールしない(&P)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Unlock Play Region"
 #~ msgstr "再生領域をロック解除(&L)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Disable Scrub Ruler"
 #~ msgstr "スクラブルーラーを無効化(&S)"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Enable Scrub Ruler"
 #~ msgstr "スクラブルーラーを有効化(&S)"
 
@@ -21128,7 +21128,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "xml files (*.xml;*.XML)|*.xml;*.XML"
 #~ msgstr "XML ファイル (*.xml;*.XML)|*.xml;*.XML"
 
-# jp: 説明
+# ja: 説明
 #~ msgid "Sets the peak amplitude or loudness of one or more tracks"
 #~ msgstr "1 つ以上のトラックに対してラウドネスや最大振幅値を設定します"
 
@@ -21307,7 +21307,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "To use Draw, choose 'Waveform' or 'Waveform (dB)' in the Track Dropdown Menu."
 #~ msgstr "描画を行うには、トラックのドロップダウンメニューで「波形」または「波形 (dB)」を選んでください。"
 
-# jp: 独自アクセスキー
+# ja: 独自アクセスキー
 #~ msgid "Vocal Remover"
 #~ msgstr "ボーカルの除去(&O)"
 
@@ -21417,7 +21417,7 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 #~ msgid "Current settings returned the original audio."
 #~ msgstr "現在の設定では原音のままの音声となりました。"
 
-# jp: パス名
+# ja: パス名
 #~ msgid "cleaned"
 #~ msgstr "cleaned"
 
