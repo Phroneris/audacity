@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.1\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-04 06:02+0900\n"
+"PO-Revision-Date: 2021-04-17 15:43+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1947,7 +1947,7 @@ msgstr "%d 回の編集に要した時間: %ld ms\n"
 
 #: src/Benchmark.cpp
 msgid "Checking file pointer leaks:\n"
-msgstr "ファイルポインタのリークをチェック中:\n"
+msgstr "ファイルポインターのリークをチェック中:\n"
 
 #: src/Benchmark.cpp
 #, c-format
@@ -8101,11 +8101,11 @@ msgstr "反転(&I)"
 
 #: src/effects/Equalization.cpp
 msgid "Show grid lines"
-msgstr "グリッドライン表示"
+msgstr "グリッド線表示"
 
 #: src/effects/Equalization.cpp
 msgid "Show g&rid lines"
-msgstr "グリッドライン表示(&R)"
+msgstr "グリッド線表示(&R)"
 
 #: src/effects/Equalization.cpp
 msgid "&Processing: "
@@ -8558,11 +8558,13 @@ msgstr "すべてのノイズプロファイルは同じサンプリング周波
 
 #: src/effects/NoiseReduction.cpp
 msgid "The sample rate of the noise profile must match that of the sound to be processed."
-msgstr "ノイズプロファイルのサンプリング周波数は処理するサウンドを同じでなくてはなりません。"
+msgstr ""
+"ノイズプロファイルのサンプリング周波数は、\n"
+"処理するサウンドのものと同じでなければなりません。"
 
 #: src/effects/NoiseReduction.cpp
 msgid "Selected noise profile is too short."
-msgstr "選択されたノイズプロファイルは小さすぎます。"
+msgstr "選択されたノイズプロファイルは短すぎます。"
 
 #: src/effects/NoiseReduction.cpp
 msgid "&Noise reduction (dB):"
@@ -11106,7 +11108,7 @@ msgid ""
 "Optional\n"
 "0 - default"
 msgstr ""
-"パケット サイズ\n"
+"パケットサイズ\n"
 "オプション\n"
 "0 - 既定値"
 
