@@ -9,10 +9,10 @@
 
 **********************************************************************/
 
-#include "Audacity.h" // for USE_* macros
+
 #include "MixerBoard.h"
 
-#include "Experimental.h"
+
 
 #include <cfloat>
 #include <math.h>
@@ -34,7 +34,7 @@
 
 #include "CommonCommandFlags.h"
 #include "KeyboardCapture.h"
-#include "Prefs.h" // for RTL_WORKAROUND
+#include "prefs/GUISettings.h" // for RTL_WORKAROUND
 #include "Project.h"
 #include "ProjectAudioIO.h"
 #include "ProjectAudioManager.h"
@@ -610,8 +610,8 @@ void MixerTrackCluster::UpdateMeter(const double t0, const double t1)
    Floats tempFloatsArray{ nFrames };
    decltype(tempFloatsArray) meterFloatsArray;
    // Don't throw on read error in this drawing update routine
-   bool bSuccess = pTrack->Get((samplePtr)tempFloatsArray.get(),
-      floatSample, startSample, nFrames, fillZero, false);
+   bool bSuccess = pTrack->GetFloats(tempFloatsArray.get(),
+      startSample, nFrames, fillZero, false);
    if (bSuccess)
    {
       // We always pass a stereo sample array to the meter, as it shows 2 channels.
@@ -625,8 +625,8 @@ void MixerTrackCluster::UpdateMeter(const double t0, const double t1)
 
       if (GetRight())
          // Again, don't throw
-         bSuccess = GetRight()->Get((samplePtr)tempFloatsArray.get(),
-            floatSample, startSample, nFrames, fillZero, false);
+         bSuccess = GetRight()->GetFloats(tempFloatsArray.get(),
+            startSample, nFrames, fillZero, false);
 
       if (bSuccess)
          // Interleave right channel, or duplicate same signal for "right" channel in mono case.
@@ -1353,7 +1353,7 @@ void MixerBoard::OnTimer(wxCommandEvent &event)
    //    audacityAudioCallback where it calls gAudioIO->mOutputMeter->UpdateDisplay().
    if (ProjectAudioIO::Get( *mProject ).IsAudioActive())
    {
-      auto gAudioIO = AudioIOBase::Get();
+      auto gAudioIO = AudioIO::Get();
       UpdateMeters(
          gAudioIO->GetStreamTime(),
          (ProjectAudioManager::Get( *mProject ).GetLastPlayMode()

@@ -50,7 +50,7 @@
 *//*******************************************************************/
 
 
-#include "Audacity.h"
+
 #include "Prefs.h"
 
 #include <wx/defs.h>
@@ -61,6 +61,7 @@
 
 #include "Internat.h"
 #include "MemoryX.h"
+#include <memory>
 
 std::unique_ptr<FileConfig> ugPrefs {};
 
@@ -280,7 +281,7 @@ bool ChoiceSetting::Write( const wxString &value )
 }
 
 EnumSettingBase::EnumSettingBase(
-   const wxString &key,
+   const SettingBase &key,
    EnumValueSymbols symbols,
    long defaultSymbol,
 
@@ -397,4 +398,24 @@ void PreferenceInitializer::ReinitializeAll()
 {
    for ( auto pInitializer : allInitializers() )
       (*pInitializer)();
+}
+
+wxConfigBase *SettingBase::GetConfig() const
+{
+   return gPrefs;
+}
+
+bool SettingBase::Delete()
+{
+   auto config = GetConfig();
+   return config && config->DeleteEntry( GetPath() );
+}
+
+bool BoolSetting::Toggle()
+{
+   bool value = Read();
+   if ( Write( !value ) )
+      return !value;
+   else
+      return value;
 }

@@ -5,22 +5,218 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: audacity 3.0.1\n"
+"Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
-"POT-Creation-Date: 2021-03-31 12:57+0100\n"
-"PO-Revision-Date: 2021-04-17 17:53+0900\n"
+"POT-Creation-Date: 2021-06-07 08:17-0400\n"
+"PO-Revision-Date: 2021-06-11 00:02+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Bookmarks: 3932,3756,470,2707,1151,684,1395,-1,-1,-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: libraries/lib-strings/Internat.cpp
+msgid "Unable to determine"
+msgstr "測定できません"
+
+#: libraries/lib-strings/Internat.cpp
+#, c-format
+msgid "%s bytes"
+msgstr "%s バイト"
+
+#. i18n-hint: Abbreviation for Kilo bytes
+#: libraries/lib-strings/Internat.cpp
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#. i18n-hint: Abbreviation for Mega bytes
+#: libraries/lib-strings/Internat.cpp
+#, c-format
+msgid "%s MB"
+msgstr "%s MB"
+
+#. i18n-hint: Abbreviation for Giga bytes
+#: libraries/lib-strings/Internat.cpp
+#, c-format
+msgid "%s GB"
+msgstr "%s GB"
+
+#: libraries/lib-strings/Languages.cpp
+msgid "Simplified"
+msgstr ""
+
+#: libraries/lib-strings/Languages.cpp
+msgid "System"
+msgstr "システムの言語"
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgid "Problem Report for Audacity"
+msgstr "Audacity を Vamp エフェクト対応にします"
+
+#: libraries/lib-strings/UnusedStrings.h
+msgid "Click \"Send\" to submit the report to Audacity. This information is collected anonymously."
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h
+msgid "Problem details"
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h src/Tags.cpp src/prefs/MousePrefs.cpp
+msgid "Comments"
+msgstr "コメント"
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "crash reporter button"
+msgid "&Send"
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "crash reporter button"
+msgid "&Don't send"
+msgstr ""
+
+#. i18n-hint C++ programming exception
+#: libraries/lib-strings/UnusedStrings.h
+#, c-format
+msgid "Exception code 0x%x"
+msgstr ""
+
+#. i18n-hint C++ programming exception
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgid "Unknown exception"
+msgstr "不明なコマンドラインオプションです: %s\n"
+
+#. i18n-hint C++ programming assertion
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgid "Unknown assertion"
+msgstr "不明なフォーマット"
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgid "Unknown error"
+msgstr "不明なフォーマット"
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgid "Failed to send crash report"
+msgstr "プリセット名の設定に失敗しました"
+
+#. i18n-hint Scheme refers to a color scheme for spectrogram colors
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "spectrum prefs"
+msgid "Sche&me"
+msgstr ""
+
+#. i18n-hint Choice of spectrogram colors
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "spectrum prefs"
+msgid "Color (default)"
+msgstr "4 (デフォルト)"
+
+#. i18n-hint Choice of spectrogram colors
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "spectrum prefs"
+msgid "Color (classic)"
+msgstr "クラシックテーマ"
+
+#. i18n-hint Choice of spectrogram colors
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "spectrum prefs"
+msgid "Grayscale"
+msgstr "グレースケール(&Y)"
+
+#. i18n-hint Choice of spectrogram colors
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "spectrum prefs"
+msgid "Inverse grayscale"
+msgstr "リニア(&L)"
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "update dialog"
+msgid "Update Audacity"
+msgstr "Audacity を終了"
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "update dialog"
+msgid "&Skip"
+msgstr "スキップ(&S)"
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "update dialog"
+msgid "&Install update"
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "update dialog"
+msgid "Changelog"
+msgstr "チャンネル"
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "update dialog"
+msgid "Read more on GitHub"
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "update dialog"
+msgid "Error checking for update"
+msgstr "ファイル復号エラー"
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "update dialog"
+msgid "Unable to connect to Audacity update server."
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "update dialog"
+msgid "Update data was corrupted."
+msgstr ""
+
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy
+msgctxt "update dialog"
+msgid "Error downloading update."
+msgstr "メタデータの読み込みエラー"
+
+#: libraries/lib-strings/UnusedStrings.h
+msgctxt "update dialog"
+msgid "Can't open the Audacity download link."
+msgstr ""
+
+#. i18n-hint Substitution of version number for %s.
+#: libraries/lib-strings/UnusedStrings.h
+#, fuzzy, c-format
+msgctxt "update dialog"
+msgid "Audacity %s is available!"
+msgstr "Audacity %sツールバー"
+
+#: modules/mod-null/ModNullCallback.cpp
+#, fuzzy
+msgid "1st Experimental Command..."
+msgstr "特殊コマンド"
+
+#: modules/mod-null/ModNullCallback.cpp
+#, fuzzy
+msgid "2nd Experimental Command"
+msgstr "特殊コマンド"
 
 #: modules/mod-nyq-bench/NyqBench.cpp
 msgid "&Nyquist Workbench..."
@@ -401,8 +597,20 @@ msgstr "開発者: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
+#, fuzzy, c-format
+msgid "%s, developer and support"
+msgstr "ドキュメンテーションとサポート: %s"
+
+#. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
+#: src/AboutDialog.cpp
 #, c-format
 msgid "%s, documentation and support"
+msgstr "ドキュメンテーションとサポート: %s"
+
+#. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
+#: src/AboutDialog.cpp
+#, fuzzy, c-format
+msgid "%s, QA tester, documentation and support"
 msgstr "ドキュメンテーションとサポート: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
@@ -602,8 +810,8 @@ msgstr "%s 著作権表示: %s 1999～2021 %s チーム"
 
 #. i18n-hint Audacity's name substitutes for %s
 #: src/AboutDialog.cpp
-#, c-format
-msgid "The name %s is a registered trademark of Dominic Mazzoni."
+#, fuzzy, c-format
+msgid "The name %s is a registered trademark."
 msgstr "%s の名称は Dominic Mazzoni の登録商標です。"
 
 #: src/AboutDialog.cpp
@@ -2089,6 +2297,21 @@ msgid "Report generated to:"
 msgstr "次の場所にレポートが作成されます:"
 
 #: src/DBConnection.cpp
+#, fuzzy, c-format
+msgid "(%d): %s"
+msgstr "%s: %s"
+
+#: src/DBConnection.cpp
+#, fuzzy, c-format
+msgid "Failed to set safe mode on primary connection to %s"
+msgstr "接続の破棄に失敗しました"
+
+#: src/DBConnection.cpp
+#, fuzzy, c-format
+msgid "Failed to set safe mode on checkpoint connection to %s"
+msgstr "接続の修復に失敗しました"
+
+#: src/DBConnection.cpp
 msgid "Checkpointing project"
 msgstr "プロジェクトのチェックポイントを作成中"
 
@@ -2926,33 +3149,6 @@ msgstr ""
 msgid "Internal Error"
 msgstr "内部エラー"
 
-#: src/Internat.cpp
-msgid "Unable to determine"
-msgstr "測定できません"
-
-#: src/Internat.cpp
-#, c-format
-msgid "%s bytes"
-msgstr "%s バイト"
-
-#. i18n-hint: Abbreviation for Kilo bytes
-#: src/Internat.cpp
-#, c-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#. i18n-hint: Abbreviation for Mega bytes
-#: src/Internat.cpp
-#, c-format
-msgid "%s MB"
-msgstr "%s MB"
-
-#. i18n-hint: Abbreviation for Giga bytes
-#: src/Internat.cpp
-#, c-format
-msgid "%s GB"
-msgstr "%s GB"
-
 #: src/LabelDialog.cpp
 msgid "Edit Labels"
 msgstr "ラベルの編集"
@@ -2963,8 +3159,8 @@ msgid "Track"
 msgstr "トラック"
 
 #. i18n-hint: (noun)
-#: src/LabelDialog.cpp src/menus/LabelMenus.cpp
-#: src/toolbars/TranscriptionToolBar.cpp
+#: src/LabelDialog.cpp src/commands/SetLabelCommand.cpp
+#: src/menus/LabelMenus.cpp src/toolbars/TranscriptionToolBar.cpp
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp plug-ins/equalabel.ny
 msgid "Label"
 msgstr "ラベル"
@@ -3055,14 +3251,6 @@ msgstr "選択された言語 %s (%s) は、システム言語 %s (%s) と異な
 #: src/widgets/FileDialog/gtk/FileDialogPrivate.cpp
 msgid "Confirm"
 msgstr "確認"
-
-#: src/Languages.cpp
-msgid "Simplified"
-msgstr ""
-
-#: src/Languages.cpp
-msgid "System"
-msgstr "システムの言語"
 
 #: src/Legacy.cpp
 msgid "Error Converting Legacy Project File"
@@ -3540,7 +3728,7 @@ msgstr ""
 "登録失敗:\n"
 "%s"
 
-# ja: 本当は「この」「これらの」を使い分けたい
+# jp: 本当は「この」「これらの」を使い分けたい
 #. i18n-hint A plug-in is an optional added program for a sound
 #. effect, or generator, or analyzer
 #: src/PluginManager.cpp
@@ -3552,6 +3740,11 @@ msgstr[0] "プラグインを有効化しますか？\n"
 #: src/PluginManager.cpp
 msgid "Enable new plug-ins"
 msgstr "新規プラグインを有効化"
+
+# jp: 独自アクセスキー
+#: src/PluginManager.h
+msgid "Nyquist Prompt"
+msgstr "Nyquist プロンプト(&Q)"
 
 #: src/Printing.cpp
 msgid "There was a problem printing."
@@ -3911,10 +4104,11 @@ msgid "This is not an Audacity project file"
 msgstr "これは Audacity プロジェクトファイルではありません"
 
 #: src/ProjectFileIO.cpp
+#, fuzzy
 msgid ""
-"This project was created with a newer version of Audacity:\n"
+"This project was created with a newer version of Audacity.\n"
 "\n"
-"You will need to upgrade to process it"
+"You will need to upgrade to open it."
 msgstr ""
 "このファイルは、より新しい Audacity で作成されています:\n"
 "\n"
@@ -4086,6 +4280,11 @@ msgstr "プロジェクトファイルを開けません"
 #: src/ProjectFileIO.cpp
 msgid "Failed to remove the autosave information from the project file."
 msgstr "プロジェクトファイルからの自動保存情報の削除に失敗しました。"
+
+#: src/ProjectFileIO.cpp
+#, fuzzy
+msgid "Unable to bind to blob"
+msgstr "コーデックが見つかりませんでした"
 
 #: src/ProjectFileIO.cpp
 msgid "Unable to decode project document"
@@ -4289,6 +4488,16 @@ msgstr ""
 #: src/ProjectFileManager.cpp
 msgid "Error Saving Copy of Project"
 msgstr "プロジェクトのコピーの保存エラー"
+
+#: src/ProjectFileManager.cpp
+#, fuzzy
+msgid "Can't open new empty project"
+msgstr "プロジェクトファイルを開けません"
+
+#: src/ProjectFileManager.cpp
+#, fuzzy
+msgid "Error opening a new empty project"
+msgstr "プロジェクトあるいはファイルを開く際にエラーが発生しました"
 
 #: src/ProjectFileManager.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -4532,7 +4741,7 @@ msgid "24-bit PCM"
 msgstr "24bit PCM"
 
 #. i18n-hint: Audio data bit depth (precision): 32-bit floating point
-#: src/SampleFormat.cpp src/prefs/QualityPrefs.cpp
+#: src/SampleFormat.cpp src/prefs/QualitySettings.cpp
 msgid "32-bit float"
 msgstr "32bit 浮動小数点数"
 
@@ -4845,10 +5054,6 @@ msgstr "年"
 #: src/Tags.cpp
 msgid "Genre"
 msgstr "ジャンル"
-
-#: src/Tags.cpp src/prefs/MousePrefs.cpp
-msgid "Comments"
-msgstr "コメント"
 
 #: src/Tags.cpp
 msgid "Use arrow keys (or ENTER key after editing) to navigate fields."
@@ -6217,6 +6422,17 @@ msgstr "時間:"
 msgid "Delete"
 msgstr "削除"
 
+#: src/commands/SetEnvelopeCommand.cpp
+#, fuzzy
+msgid "Edited Envelope"
+msgstr "エンベロープ設定"
+
+#. i18n-hint: The envelope is a curve that controls the audio loudness.
+#: src/commands/SetEnvelopeCommand.cpp src/prefs/MousePrefs.cpp
+#: src/tracks/ui/EnvelopeHandle.cpp
+msgid "Envelope"
+msgstr "エンベロープ"
+
 #: src/commands/SetEnvelopeCommand.h
 msgid "Sets an envelope point position."
 msgstr "エンベロープポイントの位置を設定します。"
@@ -6236,6 +6452,11 @@ msgstr "終了:"
 #: src/commands/SetLabelCommand.cpp src/commands/SetTrackInfoCommand.cpp
 msgid "Selected"
 msgstr "選択"
+
+#: src/commands/SetLabelCommand.cpp
+#, fuzzy
+msgid "Edited Label"
+msgstr "ラベルを編集しました"
 
 #: src/commands/SetLabelCommand.h
 msgid "Sets various values for a label."
@@ -7899,11 +8120,6 @@ msgstr "再生停止(&P)"
 #: src/effects/EffectUI.cpp src/toolbars/ControlToolBar.cpp
 msgid "Play"
 msgstr "再生"
-
-# ja: 独自アクセスキー
-#: src/effects/EffectUI.cpp src/effects/nyquist/Nyquist.cpp
-msgid "Nyquist Prompt"
-msgstr "Nyquist プロンプト(&Q)"
 
 #. i18n-hint: Technical term for a kind of curve.
 #: src/effects/Equalization.cpp
@@ -9969,6 +10185,12 @@ msgstr "不正な Nyquist プラグインヘッダー"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid ""
+"Enable track spectrogram view before\n"
+"applying 'Spectral' effects."
+msgstr ""
+
+#: src/effects/nyquist/Nyquist.cpp
+msgid ""
 "To use 'Spectral effects', enable 'Spectral Selection'\n"
 "in the track Spectrogram settings and select the\n"
 "frequency range for the effect to act on."
@@ -11275,15 +11497,6 @@ msgstr "65～105 kbps"
 msgid "45-85 kbps (Smaller files)"
 msgstr "45～85 kbps (軽量)"
 
-#: src/export/ExportMP3.cpp
-msgid "Fast"
-msgstr "高速"
-
-#: src/export/ExportMP3.cpp src/prefs/KeyConfigPrefs.cpp
-#: plug-ins/sample-data-export.ny
-msgid "Standard"
-msgstr "標準"
-
 #. i18n-hint: Slightly humorous - as in use an insane precision with MP3.
 #: src/export/ExportMP3.cpp
 msgid "Insane, 320 kbps"
@@ -11309,6 +11522,11 @@ msgstr "変態"
 #: src/export/ExportMP3.cpp
 msgid "Extreme"
 msgstr "極端"
+
+#: src/export/ExportMP3.cpp src/prefs/KeyConfigPrefs.cpp
+#: plug-ins/sample-data-export.ny
+msgid "Standard"
+msgstr "標準"
 
 #: src/export/ExportMP3.cpp
 msgid "Medium"
@@ -11342,10 +11560,6 @@ msgstr "ビットレートモード:"
 #: src/export/ExportMP3.cpp src/prefs/QualityPrefs.cpp src/prefs/QualityPrefs.h
 msgid "Quality"
 msgstr "品質"
-
-#: src/export/ExportMP3.cpp
-msgid "Variable Speed:"
-msgstr "可変時の処理速度:"
 
 #: src/export/ExportMP3.cpp
 msgid "Channel Mode:"
@@ -13270,7 +13484,7 @@ msgstr "音声デバイス情報(&D)..."
 msgid "&MIDI Device Info..."
 msgstr "MIDI デバイス情報(&M)..."
 
-#: src/menus/HelpMenus.cpp
+#: src/menus/HelpMenus.cpp src/widgets/ErrorDialog.cpp
 msgid "Show &Log..."
 msgstr "ログの表示(&L)..."
 
@@ -14781,6 +14995,11 @@ msgid "&Extra Menus (on/off)"
 msgstr "拡張メニュー (オン/オフ) (&E)"
 
 #: src/menus/ViewMenus.cpp
+#, fuzzy
+msgid "Track &Name (on/off)"
+msgstr "拡張メニュー (オン/オフ) (&E)"
+
+#: src/menus/ViewMenus.cpp
 msgid "&Show Clipping (on/off)"
 msgstr "クリッピングを表示 (オン/オフ) (&S)"
 
@@ -14966,6 +15185,11 @@ msgid "Bro&wse..."
 msgstr "参照(&W)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
+#, fuzzy
+msgid "&Macro output:"
+msgstr "出力を表示"
+
+#: src/prefs/DirectoriesPrefs.cpp
 msgid "Temporary files directory"
 msgstr "一時ファイルのディレクトリ"
 
@@ -14984,10 +15208,6 @@ msgstr "参照(&S)..."
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "&Free Space:"
 msgstr "空き領域(&F):"
-
-#: src/prefs/DirectoriesPrefs.cpp
-msgid "Free Space"
-msgstr "空き領域"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Choose a location to place the temporary directory"
@@ -15319,10 +15539,6 @@ msgstr "スクラブルーラーを表示(&U)"
 msgid "Language \"%s\" is unknown"
 msgstr "「%s」は不明な言語です"
 
-#: src/prefs/GUIPrefs.cpp
-msgid "Master Gain Control"
-msgstr "マスターゲインコントロール"
-
 #: src/prefs/GUIPrefs.h
 msgid "GUI"
 msgstr "GUI"
@@ -15579,24 +15795,8 @@ msgid "MP3 Library Version:"
 msgstr "MP3 ライブラリバージョン:"
 
 #: src/prefs/LibraryPrefs.cpp
-msgid "LAME MP3 Library:"
-msgstr "LAME MP3 ライブラリ:"
-
-#: src/prefs/LibraryPrefs.cpp
-msgid "&Locate..."
-msgstr "場所を指定(&L)..."
-
-#: src/prefs/LibraryPrefs.cpp
-msgid "&Download"
-msgstr "ダウンロード(&D)"
-
-#: src/prefs/LibraryPrefs.cpp
 msgid "FFmpeg Import/Export Library"
 msgstr "FFmpeg 取り込み/書き出しライブラリ"
-
-#: src/prefs/LibraryPrefs.cpp
-msgid "FFmpeg Library Version:"
-msgstr "FFmpeg ライブラリバージョン:"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "No compatible FFmpeg library was found"
@@ -15605,6 +15805,10 @@ msgstr "互換性のある FFmpeg ライブラリが見つかりません"
 #: src/prefs/LibraryPrefs.cpp
 msgid "FFmpeg support is not compiled in"
 msgstr "FFmpeg サポートはコンパイルされていません"
+
+#: src/prefs/LibraryPrefs.cpp
+msgid "FFmpeg Library Version:"
+msgstr "FFmpeg ライブラリバージョン:"
 
 #: src/prefs/LibraryPrefs.cpp
 msgid "FFmpeg Library:"
@@ -15855,11 +16059,6 @@ msgid "Move clip up/down between tracks"
 msgstr "トラック間でクリップを上下に移動"
 
 #. i18n-hint: The envelope is a curve that controls the audio loudness.
-#: src/prefs/MousePrefs.cpp src/tracks/ui/EnvelopeHandle.cpp
-msgid "Envelope"
-msgstr "エンベロープ"
-
-#. i18n-hint: The envelope is a curve that controls the audio loudness.
 #: src/prefs/MousePrefs.cpp
 msgid "Change Amplification Envelope"
 msgstr "増幅域を変更"
@@ -15994,14 +16193,6 @@ msgid "Preferences:"
 msgstr "環境設定:"
 
 #: src/prefs/QualityPrefs.cpp
-msgid "16-bit"
-msgstr "16bit"
-
-#: src/prefs/QualityPrefs.cpp
-msgid "24-bit"
-msgstr "24bit"
-
-#: src/prefs/QualityPrefs.cpp
 msgid "Preferences for Quality"
 msgstr "品質の環境設定"
 
@@ -16051,6 +16242,14 @@ msgstr "サンプリング周波数変換(&T):"
 #: src/prefs/QualityPrefs.cpp
 msgid "Dit&her:"
 msgstr "ディザリング(&H):"
+
+#: src/prefs/QualitySettings.cpp
+msgid "16-bit"
+msgstr "16bit"
+
+#: src/prefs/QualitySettings.cpp
+msgid "24-bit"
+msgstr "24bit"
 
 #: src/prefs/RecordingPrefs.cpp
 msgid "Preferences for Recording"
@@ -18679,7 +18878,7 @@ msgstr ""
 "狭くしてみてください。"
 
 #: plug-ins/SpectralEditMulti.ny plug-ins/SpectralEditParametricEQ.ny
-#: plug-ins/SpectralEditShelves.ny
+#: plug-ins/SpectralEditShelves.ny plug-ins/nyquist-plug-in-installer.ny
 #, lisp-format
 msgid "Error.~%"
 msgstr "エラー。~%"
@@ -19358,7 +19557,8 @@ msgid "~ah ~am ~as"
 msgstr "~a 時間 ~a 分 ~a 秒"
 
 #: plug-ins/label-sounds.ny
-msgid "Too many silences detected.nOnly the first 10000 labels added."
+#, fuzzy, lisp-format
+msgid "Too many silences detected.~%Only the first 10000 labels added."
 msgstr "検出される無音部が多すぎます。最初の 10000 件にのみラベルが付加されます。"
 
 #. i18n-hint: '~a' will be replaced by a time duration
@@ -19615,20 +19815,18 @@ msgid "Allow"
 msgstr "許可する"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-msgid "Error.n"
-msgstr "エラー。"
-
-#: plug-ins/nyquist-plug-in-installer.ny
 #, lisp-format
 msgid "Success.~%Files written to:~%~s~%"
 msgstr "完了。~%ファイルが書き込まれました:~%~s~%"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-msgid "Warning.nFailed to copy some files:n"
+#, fuzzy, lisp-format
+msgid "Warning.~%Failed to copy some files:~%"
 msgstr "警告。コピーに失敗したファイルがあります:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-msgid "Plug-ins installed.n(Use the Plug-in Manager to enable effects):"
+#, fuzzy, lisp-format
+msgid "Plug-ins installed.~%(Use the Plug-in Manager to enable effects):"
 msgstr "インストールされたプラグイン (別途「プラグインの追加/削除」から有効化してください):"
 
 #: plug-ins/nyquist-plug-in-installer.ny
@@ -20449,6 +20647,30 @@ msgstr "くし歯の周波数 (Hz)"
 msgid "Error.~%Stereo track required."
 msgstr "エラー。~%ステレオトラックが必要です。"
 
+#~ msgid "Fast"
+#~ msgstr "高速"
+
+#~ msgid "Variable Speed:"
+#~ msgstr "可変時の処理速度:"
+
+#~ msgid "Free Space"
+#~ msgstr "空き領域"
+
+#~ msgid "Master Gain Control"
+#~ msgstr "マスターゲインコントロール"
+
+#~ msgid "LAME MP3 Library:"
+#~ msgstr "LAME MP3 ライブラリ:"
+
+#~ msgid "&Locate..."
+#~ msgstr "場所を指定(&L)..."
+
+#~ msgid "&Download"
+#~ msgstr "ダウンロード(&D)"
+
+#~ msgid "Error.n"
+#~ msgstr "エラー。"
+
 #~ msgid "Cleanup of orphan blocks failed"
 #~ msgstr "無用なブロックファイルのクリーンアップに失敗しました"
 
@@ -20527,9 +20749,6 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 # ja: デフォルトマクロ名だがファイル名でもある…という立ち位置のものだった。現在は無効。
 #~ msgid "Select to Ends"
 #~ msgstr "Select to Ends"
-
-#~ msgid "Special Command"
-#~ msgstr "特殊コマンド"
 
 #, fuzzy
 #~ msgid ""
@@ -20632,9 +20851,6 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 
 #~ msgid "Could not remove old autosave file: %s"
 #~ msgstr "古い自動保存ファイルを削除できません: %s"
-
-#~ msgid "Error decoding file"
-#~ msgstr "ファイル復号エラー"
 
 #~ msgid ""
 #~ "Could not save project. Perhaps %s \n"
@@ -22992,9 +23208,6 @@ msgstr "エラー。~%ステレオトラックが必要です。"
 
 #~ msgid "Using block size of %ld\n"
 #~ msgstr "ブロックサイズを %ld にします\n"
-
-#~ msgid "Unknown command line option: %s\n"
-#~ msgstr "不明なコマンドラインオプションです: %s\n"
 
 #~ msgid "Command-line options supported:"
 #~ msgstr "コマンドラインを使っての書き出しのサポート:"

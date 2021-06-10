@@ -12,14 +12,12 @@
 #ifndef __AUDACITY_EFFECTMANAGER__
 #define __AUDACITY_EFFECTMANAGER__
 
-#include "../Experimental.h"
-
 #include <memory>
 #include <vector>
 
 #include <unordered_map>
 #include "audacity/EffectInterface.h"
-#include "audacity/Types.h"
+#include "Identifier.h"
 
 class AudacityCommand;
 class AudacityProject;

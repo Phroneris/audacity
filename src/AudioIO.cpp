@@ -413,10 +413,10 @@ time warp info and AudioIOListener and whether the playback is looped.
 
 *//*******************************************************************/
 
-#include "Audacity.h" // for USE_* macros
+
 #include "AudioIO.h"
 
-#include "Experimental.h"
+
 
 #include "AudioIOListener.h"
 
@@ -466,7 +466,7 @@ time warp info and AudioIOListener and whether the playback is looped.
 #include "WaveTrack.h"
 
 #include "effects/RealtimeEffectManager.h"
-#include "prefs/QualityPrefs.h"
+#include "prefs/QualitySettings.h"
 #include "prefs/RecordingPrefs.h"
 #include "widgets/MeterPanelBase.h"
 #include "widgets/AudacityMessageBox.h"
@@ -923,8 +923,8 @@ void AudioIO::Init()
       int i = getRecordDevIndex();
       const PaDeviceInfo *info = Pa_GetDeviceInfo(i);
       if (info) {
-         gPrefs->Write(wxT("/AudioIO/RecordingDevice"), DeviceName(info));
-         gPrefs->Write(wxT("/AudioIO/Host"), HostName(info));
+         AudioIORecordingDevice.Write(DeviceName(info));
+         AudioIOHost.Write(HostName(info));
       }
    }
 
@@ -932,8 +932,8 @@ void AudioIO::Init()
       int i = getPlayDevIndex();
       const PaDeviceInfo *info = Pa_GetDeviceInfo(i);
       if (info) {
-         gPrefs->Write(wxT("/AudioIO/PlaybackDevice"), DeviceName(info));
-         gPrefs->Write(wxT("/AudioIO/Host"), HostName(info));
+         AudioIOPlaybackDevice.Write(DeviceName(info));
+         AudioIOHost.Write(HostName(info));
       }
    }
 
@@ -1277,8 +1277,7 @@ bool AudioIO::StartPortAudioStream(const AudioIOStartStreamOptions &options,
    PaStreamParameters playbackParameters{};
    PaStreamParameters captureParameters{};
 
-   double latencyDuration = DEFAULT_LATENCY_DURATION;
-   gPrefs->Read(wxT("/AudioIO/LatencyDuration"), &latencyDuration);
+   auto latencyDuration = AudioIOLatencyDuration.Read();
 
    if( numPlaybackChannels > 0)
    {
@@ -1446,9 +1445,8 @@ void AudioIO::StartMonitoring( const AudioIOStartStreamOptions &options )
       return;
 
    bool success;
-   long captureChannels;
-   auto captureFormat = QualityPrefs::SampleFormatChoice();
-   gPrefs->Read(wxT("/AudioIO/RecordChannels"), &captureChannels, 2L);
+   auto captureFormat = QualitySettings::SampleFormatChoice();
+   auto captureChannels = AudioIORecordChannels.Read();
    gPrefs->Read(wxT("/AudioIO/SWPlaythrough"), &mSoftwarePlaythrough, false);
    int playbackChannels = 0;
 
@@ -1526,7 +1524,7 @@ int AudioIO::StartStream(const TransportTracks &tracks,
 #ifdef __WXGTK__
    // Detect whether ALSA is the chosen host, and do the various involved MIDI
    // timing compensations only then.
-   mUsingAlsa = (gPrefs->Read(wxT("/AudioIO/Host"), wxT("")) == "ALSA");
+   mUsingAlsa = (AudioIOHost.Read() == L"ALSA");
 #endif
 
    gPrefs->Read(wxT("/AudioIO/SWPlaythrough"), &mSoftwarePlaythrough, false);
@@ -1556,9 +1554,7 @@ int AudioIO::StartStream(const TransportTracks &tracks,
    mRecordingSchedule = {};
    mRecordingSchedule.mPreRoll = preRoll;
    mRecordingSchedule.mLatencyCorrection =
-      (gPrefs->ReadDouble(wxT("/AudioIO/LatencyCorrection"),
-                   DEFAULT_LATENCY_CORRECTION))
-         / 1000.0;
+      AudioIOLatencyCorrection.Read() / 1000.0;
    mRecordingSchedule.mDuration = t1 - t0;
    if (options.pCrossfadeData)
       mRecordingSchedule.mCrossfadeData.swap( *options.pCrossfadeData );
@@ -2191,9 +2187,8 @@ void AudioIO::StopStream()
       // PortAudio callback can use the information that we are stopping to fade
       // out the audio.  Give PortAudio callback a chance to do so.
       mAudioThreadFillBuffersLoopRunning = false;
-      long latency;
-      gPrefs->Read(  wxT("/AudioIO/LatencyDuration"), &latency, DEFAULT_LATENCY_DURATION );
-      // If we can gracefully fade out in 200ms, with the faded-out play buffers making it through 
+      auto latency = static_cast<long>(AudioIOLatencyDuration.Read());
+      // If we can gracefully fade out in 200ms, with the faded-out play buffers making it through
       // the sound card, then do so.  If we can't, don't wait around.  Just stop quickly and accept 
       // there will be a click.
       if( mbMicroFades  && (latency < 150 ))
@@ -2448,7 +2443,7 @@ void AudioIO::StopStream()
 
    mPlaybackTracks.clear();
    mCaptureTracks.clear();
-#ifdef USE_MIDI
+#if defined(EXPERIMENTAL_MIDI_OUT) && defined(USE_MIDI)
    mMidiPlaybackTracks.clear();
 #endif
 
@@ -2585,6 +2580,16 @@ finished:
    mCachedBestRatePlaying = playing;
    mCachedBestRateCapturing = capturing;
    return retval;
+}
+
+double AudioIO::GetStreamTime()
+{
+   // Track time readout for the main thread
+
+   if( !IsStreamActive() )
+      return BAD_STREAM_TIME;
+
+   return mPlaybackSchedule.NormalizeTrackTime();
 }
 
 
@@ -3617,11 +3622,9 @@ static void DoSoftwarePlaythrough(const void *inputBuffer,
 {
    for (unsigned int i=0; i < inputChannels; i++) {
       samplePtr inputPtr = ((samplePtr)inputBuffer) + (i * SAMPLE_SIZE(inputFormat));
-      samplePtr outputPtr = ((samplePtr)outputBuffer) + (i * SAMPLE_SIZE(floatSample));
 
-      CopySamples(inputPtr, inputFormat,
-                  (samplePtr)outputPtr, floatSample,
-                  len, true, inputChannels, 2);
+      SamplesToFloats(inputPtr, inputFormat,
+         outputBuffer + i, len, inputChannels, 2);
    }
 
    // One mono input channel goes to both output channels...
@@ -4406,9 +4409,8 @@ int AudioIoCallback::AudioCallback(const void *inputBuffer, void *outputBuffer,
          inputSamples = (float *) inputBuffer;
       }
       else {
-         CopySamples((samplePtr)inputBuffer, mCaptureFormat,
-                     (samplePtr)tempFloats, floatSample,
-                     framesPerBuffer * numCaptureChannels);
+         SamplesToFloats(reinterpret_cast<constSamplePtr>(inputBuffer),
+            mCaptureFormat, tempFloats, framesPerBuffer * numCaptureChannels);
          inputSamples = tempFloats;
       }
 

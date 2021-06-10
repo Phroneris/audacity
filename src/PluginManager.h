@@ -13,8 +13,9 @@
 
 #include <wx/defs.h>
 
-#include "MemoryX.h"
+#include "wxArrayStringEx.h"
 #include <map>
+#include <memory>
 
 #include "audacity/EffectInterface.h"
 #include "audacity/ImporterInterface.h"
@@ -41,7 +42,7 @@ typedef enum
 } PluginType;
 
 // TODO:  Convert this to multiple derived classes
-class PluginDescriptor
+class AUDACITY_DLL_API PluginDescriptor
 {
 public:
    PluginDescriptor();
@@ -168,7 +169,7 @@ typedef wxArrayString PluginIDs;
 
 class PluginRegistrationDialog;
 
-class PluginManager final : public PluginManagerInterface
+class AUDACITY_DLL_API PluginManager final : public PluginManagerInterface
 {
 public:
 
@@ -177,7 +178,8 @@ public:
 
    // PluginManagerInterface implementation
 
-   bool IsPluginRegistered(const PluginPath &path) override;
+   bool IsPluginRegistered(
+      const PluginPath &path, const TranslatableString *pSymbol) override;
 
    const PluginID & RegisterPlugin(ModuleInterface *module) override;
    const PluginID & RegisterPlugin(ModuleInterface *provider, ComponentInterface *command);
@@ -323,5 +325,12 @@ private:
 
    friend class PluginRegistrationDialog;
 };
+
+// Defining these special names in the low-level PluginManager.h
+// is unfortunate
+// Internal name should be stable across versions
+#define NYQUIST_PROMPT_ID wxT("Nyquist Prompt")
+// User-visible name might change in later versions
+#define NYQUIST_PROMPT_NAME XO("Nyquist Prompt")
 
 #endif /* __AUDACITY_PLUGINMANAGER_H__ */
