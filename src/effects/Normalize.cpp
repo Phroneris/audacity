@@ -15,11 +15,9 @@
 *//*******************************************************************/
 
 
-#include "../Audacity.h" // for rint from configwin.h
+
 #include "Normalize.h"
 #include "LoadEffects.h"
-
-#include "../Experimental.h"
 
 #include <math.h>
 
@@ -437,7 +435,7 @@ bool EffectNormalize::AnalyseTrackData(const WaveTrack * track, const Translatab
       );
 
       //Get the samples from the track and put them in the buffer
-      track->Get((samplePtr) buffer.get(), floatSample, s, block, fillZero, true, &blockSamples);
+      track->GetFloats(buffer.get(), s, block, fillZero, true, &blockSamples);
       totalSamples += blockSamples;
 
       //Process the buffer.
@@ -497,7 +495,7 @@ bool EffectNormalize::ProcessOne(
       );
 
       //Get the samples from the track and put them in the buffer
-      track->Get((samplePtr) buffer.get(), floatSample, s, block);
+      track->GetFloats(buffer.get(), s, block);
 
       //Process the buffer.
       ProcessData(buffer.get(), block, offset);

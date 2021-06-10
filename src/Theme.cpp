@@ -59,10 +59,10 @@ can't be.
 
 *//*****************************************************************/
 
-#include "Audacity.h"
+
 #include "Theme.h"
 
-#include "Experimental.h"
+
 
 #include <wx/wxprec.h>
 #include <wx/dcclient.h>
@@ -77,6 +77,7 @@ can't be.
 #include "Prefs.h"
 #include "ImageManipulation.h"
 #include "Internat.h"
+#include "MemoryX.h"
 #include "widgets/AudacityMessageBox.h"
 
 // JKC: First get the MAC specific images.
