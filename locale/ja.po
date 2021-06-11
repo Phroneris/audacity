@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-11 02:17+0900\n"
+"PO-Revision-Date: 2021-06-11 22:54+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 3.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Bookmarks: 3932,3756,470,2707,1151,684,1395,-1,-1,-1\n"
+"X-Poedit-Bookmarks: 3966,3790,511,2745,1188,718,1435,-1,-1,-1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -58,17 +58,16 @@ msgid "System"
 msgstr "システムの言語"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgid "Problem Report for Audacity"
-msgstr "Audacity を Vamp エフェクト対応にします"
+msgstr "Audacity の障害を報告"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgid "Click \"Send\" to submit the report to Audacity. This information is collected anonymously."
-msgstr ""
+msgstr "Audacity へ障害報告を提出するには、[送信] をクリックしてください。情報は匿名で収集されます。"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgid "Problem details"
-msgstr ""
+msgstr "障害の詳細"
 
 #: libraries/lib-strings/UnusedStrings.h src/Tags.cpp src/prefs/MousePrefs.cpp
 msgid "Comments"
@@ -77,83 +76,73 @@ msgstr "コメント"
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "crash reporter button"
 msgid "&Send"
-msgstr ""
+msgstr "送信(&S)"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "crash reporter button"
 msgid "&Don't send"
-msgstr ""
+msgstr "送信しない(&D)"
 
 #. i18n-hint C++ programming exception
 #: libraries/lib-strings/UnusedStrings.h
 #, c-format
 msgid "Exception code 0x%x"
-msgstr ""
+msgstr "例外コード 0x%x"
 
 #. i18n-hint C++ programming exception
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgid "Unknown exception"
-msgstr "不明なコマンドラインオプションです: %s\n"
+msgstr "不明な例外 (Unknown exception)"
 
 #. i18n-hint C++ programming assertion
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgid "Unknown assertion"
-msgstr "不明なフォーマット"
+msgstr "不明なアサーション (Unknown assertion)"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgid "Unknown error"
-msgstr "不明なフォーマット"
+msgstr "不明なエラー (Unknown error)"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgid "Failed to send crash report"
-msgstr "プリセット名の設定に失敗しました"
+msgstr "クラッシュ報告の送信に失敗しました"
 
 #. i18n-hint Scheme refers to a color scheme for spectrogram colors
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "spectrum prefs"
 msgid "Sche&me"
-msgstr ""
+msgstr "配色(&M)"
 
 #. i18n-hint Choice of spectrogram colors
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "spectrum prefs"
 msgid "Color (default)"
-msgstr "4 (デフォルト)"
+msgstr "色あり (デフォルト)"
 
 #. i18n-hint Choice of spectrogram colors
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "spectrum prefs"
 msgid "Color (classic)"
-msgstr "クラシックテーマ"
+msgstr "色あり (クラシック)"
 
 #. i18n-hint Choice of spectrogram colors
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "spectrum prefs"
 msgid "Grayscale"
-msgstr "グレースケール(&Y)"
+msgstr "グレースケール"
 
 #. i18n-hint Choice of spectrogram colors
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "spectrum prefs"
 msgid "Inverse grayscale"
-msgstr "リニア(&L)"
+msgstr "反転グレースケール"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "update dialog"
 msgid "Update Audacity"
-msgstr "Audacity を終了"
+msgstr "Audacity を更新"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "update dialog"
 msgid "&Skip"
 msgstr "スキップ(&S)"
@@ -161,52 +150,49 @@ msgstr "スキップ(&S)"
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "&Install update"
-msgstr ""
+msgstr "更新をインストール(&I)"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "update dialog"
 msgid "Changelog"
-msgstr "チャンネル"
+msgstr "更新履歴"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "Read more on GitHub"
-msgstr ""
+msgstr "GitHub でもっと読む"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "update dialog"
 msgid "Error checking for update"
-msgstr "ファイル復号エラー"
+msgstr "アップデート確認エラー"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "Unable to connect to Audacity update server."
-msgstr ""
+msgstr "Audacity の更新サーバーに接続できません。"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "Update data was corrupted."
-msgstr ""
+msgstr "更新データが破損しました。"
 
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy
 msgctxt "update dialog"
 msgid "Error downloading update."
-msgstr "メタデータの読み込みエラー"
+msgstr "更新のダウンロードにエラーが発生しました。"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "Can't open the Audacity download link."
-msgstr ""
+msgstr "Audacity のダウンロードリンクを開けません。"
 
 #. i18n-hint Substitution of version number for %s.
 #: libraries/lib-strings/UnusedStrings.h
-#, fuzzy, c-format
+#, c-format
 msgctxt "update dialog"
 msgid "Audacity %s is available!"
-msgstr "Audacity %sツールバー"
+msgstr "Audacity %s 始めました！"
 
 #: modules/mod-null/ModNullCallback.cpp
 #, fuzzy
@@ -581,43 +567,43 @@ msgstr "リビジョン識別子が提供されていません"
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, system administration"
-msgstr "システム管理者: %s"
+msgstr "システム管理: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, co-founder and developer"
-msgstr "共同創業者 兼 開発者: %s"
+msgstr "共同創業、開発: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, developer"
-msgstr "開発者: %s"
+msgstr "開発: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s, developer and support"
-msgstr "ドキュメンテーションとサポート: %s"
+msgstr "開発、サポート: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, documentation and support"
-msgstr "ドキュメンテーションとサポート: %s"
+msgstr "ドキュメンテーション、サポート: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "%s, QA tester, documentation and support"
-msgstr "ドキュメンテーションとサポート: %s"
+msgstr "品質保証テスト、ドキュメンテーション、サポート: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, documentation and support, French"
-msgstr "ドキュメンテーションとサポート (フランス語): %s"
+msgstr "仏語ドキュメンテーション、仏語サポート: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
@@ -659,7 +645,7 @@ msgstr "Nyquist プラグイン: %s"
 #: src/AboutDialog.cpp
 #, c-format
 msgid "%s, web developer"
-msgstr "Web 開発者: %s"
+msgstr "Web 開発: %s"
 
 #. i18n-hint: For "About Audacity..." credits, substituting a person's proper name
 #: src/AboutDialog.cpp
@@ -810,9 +796,9 @@ msgstr "%s 著作権表示: %s 1999～2021 %s チーム"
 
 #. i18n-hint Audacity's name substitutes for %s
 #: src/AboutDialog.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "The name %s is a registered trademark."
-msgstr "%s の名称は Dominic Mazzoni の登録商標です。"
+msgstr "%s の名称は登録商標です。"
 
 #: src/AboutDialog.cpp
 msgid "Build Information"
@@ -2297,19 +2283,19 @@ msgid "Report generated to:"
 msgstr "次の場所にレポートが作成されます:"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "(%d): %s"
-msgstr "%s: %s"
+msgstr "(%d): %s"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set safe mode on primary connection to %s"
-msgstr "接続の破棄に失敗しました"
+msgstr "「%s」への主接続におけるセーフモードの設定に失敗しました"
 
 #: src/DBConnection.cpp
-#, fuzzy, c-format
+#, c-format
 msgid "Failed to set safe mode on checkpoint connection to %s"
-msgstr "接続の修復に失敗しました"
+msgstr "「%s」へのチェックポイント接続におけるセーフモードの設定に失敗しました"
 
 #: src/DBConnection.cpp
 msgid "Checkpointing project"
@@ -4106,15 +4092,14 @@ msgid "This is not an Audacity project file"
 msgstr "これは Audacity プロジェクトファイルではありません"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid ""
 "This project was created with a newer version of Audacity.\n"
 "\n"
 "You will need to upgrade to open it."
 msgstr ""
-"このファイルは、より新しい Audacity で作成されています:\n"
+"このファイルは、より新しい Audacity で作成されています。\n"
 "\n"
-"このファイルを処理するには、Audacity をアップグレードしてください"
+"このファイルを開くには、Audacity をアップグレードしてください。"
 
 #: src/ProjectFileIO.cpp
 msgid "Unable to initialize the project file"
@@ -4284,9 +4269,8 @@ msgid "Failed to remove the autosave information from the project file."
 msgstr "プロジェクトファイルからの自動保存情報の削除に失敗しました。"
 
 #: src/ProjectFileIO.cpp
-#, fuzzy
 msgid "Unable to bind to blob"
-msgstr "コーデックが見つかりませんでした"
+msgstr "blob にバインドできません"
 
 #: src/ProjectFileIO.cpp
 msgid "Unable to decode project document"
@@ -4492,14 +4476,12 @@ msgid "Error Saving Copy of Project"
 msgstr "プロジェクトのコピーの保存エラー"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Can't open new empty project"
-msgstr "プロジェクトファイルを開けません"
+msgstr "空の新規プロジェクトを開けません"
 
 #: src/ProjectFileManager.cpp
-#, fuzzy
 msgid "Error opening a new empty project"
-msgstr "プロジェクトあるいはファイルを開く際にエラーが発生しました"
+msgstr "空の新規プロジェクトを開く際にエラーが発生しました"
 
 #: src/ProjectFileManager.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -6425,9 +6407,8 @@ msgid "Delete"
 msgstr "削除"
 
 #: src/commands/SetEnvelopeCommand.cpp
-#, fuzzy
 msgid "Edited Envelope"
-msgstr "エンベロープ設定"
+msgstr "エンベロープを編集しました"
 
 #. i18n-hint: The envelope is a curve that controls the audio loudness.
 #: src/commands/SetEnvelopeCommand.cpp src/prefs/MousePrefs.cpp
@@ -6456,7 +6437,6 @@ msgid "Selected"
 msgstr "選択"
 
 #: src/commands/SetLabelCommand.cpp
-#, fuzzy
 msgid "Edited Label"
 msgstr "ラベルを編集しました"
 
@@ -8141,9 +8121,10 @@ msgstr "キュービック"
 msgid "Equalization"
 msgstr "イコライザー (EQ) (&Q)"
 
+# ja: 独自アクセスキー
 #: src/effects/Equalization.cpp plug-ins/eq-xml-to-txt-converter.ny
 msgid "Filter Curve EQ"
-msgstr "EQ フィルター曲線"
+msgstr "EQ フィルター曲線(&Q)"
 
 # ja: 独自アクセスキー
 #: src/effects/Equalization.cpp plug-ins/eq-xml-to-txt-converter.ny
@@ -10190,6 +10171,8 @@ msgid ""
 "Enable track spectrogram view before\n"
 "applying 'Spectral' effects."
 msgstr ""
+"「スペクトル編集」系のエフェクトを適用するには、\n"
+"まずトラックのスペクトログラム表示を有効化してください。"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid ""
@@ -10197,7 +10180,7 @@ msgid ""
 "in the track Spectrogram settings and select the\n"
 "frequency range for the effect to act on."
 msgstr ""
-"「スペクトルエフェクト」の利用の際は、\n"
+"「スペクトル編集」系エフェクトの利用の際は、\n"
 "トラックのスペクトログラム設定から [スペクトル選択] を有効化し、\n"
 "エフェクトを適用する周波数帯を選択してください。"
 
@@ -10609,7 +10592,7 @@ msgstr "「%s」が見つかりませんでした。"
 #: src/export/ExportCL.cpp
 #, c-format
 msgid "Unable to locate \"%s\" in your path."
-msgstr "「%s」をパスに配置できません"
+msgstr "「%s」をパスに配置できません。"
 
 #: src/export/ExportFFmpeg.cpp
 msgid ""
@@ -14997,9 +14980,8 @@ msgid "&Extra Menus (on/off)"
 msgstr "拡張メニュー (オン/オフ) (&E)"
 
 #: src/menus/ViewMenus.cpp
-#, fuzzy
 msgid "Track &Name (on/off)"
-msgstr "拡張メニュー (オン/オフ) (&E)"
+msgstr "トラック名 (オン/オフ) (&N)"
 
 #: src/menus/ViewMenus.cpp
 msgid "&Show Clipping (on/off)"
@@ -15187,9 +15169,8 @@ msgid "Bro&wse..."
 msgstr "参照(&W)..."
 
 #: src/prefs/DirectoriesPrefs.cpp
-#, fuzzy
 msgid "&Macro output:"
-msgstr "出力を表示"
+msgstr "マクロ出力(&M):"
 
 #: src/prefs/DirectoriesPrefs.cpp
 msgid "Temporary files directory"
@@ -19559,9 +19540,9 @@ msgid "~ah ~am ~as"
 msgstr "~a 時間 ~a 分 ~a 秒"
 
 #: plug-ins/label-sounds.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Too many silences detected.~%Only the first 10000 labels added."
-msgstr "検出される無音部が多すぎます。最初の 10000 件にのみラベルが付加されます。"
+msgstr "検出される無音部が多すぎます。~%最初の 10000 件にのみラベルが付加されます。"
 
 #. i18n-hint: '~a' will be replaced by a time duration
 #: plug-ins/label-sounds.ny
@@ -19822,14 +19803,14 @@ msgid "Success.~%Files written to:~%~s~%"
 msgstr "完了。~%ファイルが書き込まれました:~%~s~%"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Warning.~%Failed to copy some files:~%"
-msgstr "警告。コピーに失敗したファイルがあります:"
+msgstr "警告。~%コピーに失敗したファイルがあります:~%"
 
 #: plug-ins/nyquist-plug-in-installer.ny
-#, fuzzy, lisp-format
+#, lisp-format
 msgid "Plug-ins installed.~%(Use the Plug-in Manager to enable effects):"
-msgstr "インストールされたプラグイン (別途「プラグインの追加/削除」から有効化してください):"
+msgstr "プラグインがインストールされました。~% (別途「プラグインの追加/削除」から有効化してください):"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Plug-ins updated:"
@@ -19849,7 +19830,7 @@ msgstr "サポートされていないファイル形式:"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Files already installed ('Allow Overwriting' disabled):"
-msgstr "既にインストールされていたファイル (「上書きの許可」が無効化されています):"
+msgstr "既にインストールされていたファイル~%(「上書きの許可」が無効化されています):"
 
 #: plug-ins/nyquist-plug-in-installer.ny
 msgid "Cannot be written to plug-ins folder:"
