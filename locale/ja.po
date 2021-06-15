@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-16 01:24+0900\n"
+"PO-Revision-Date: 2021-06-16 02:05+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1478,7 +1478,7 @@ msgstr "録音レベル自動調整機能は停止しました。解析を繰り
 
 #: src/AudioIO.cpp
 msgid "Automated Recording Level Adjustment stopped. The total number of analyses has been exceeded without finding an acceptable volume. Still too low."
-msgstr "録音レベル自動調整機能は停止しました。解析を繰り返しましたが、適切な音量を見つけることができませんでした。音量がまだ低すぎます。"
+msgstr "録音レベル自動調整機能は停止しました。解析を繰り返しましたが、適切な音量を見つけることができませんでした。音量がまだ小さすぎます。"
 
 #: src/AudioIO.cpp
 #, c-format
@@ -7002,7 +7002,7 @@ msgstr "選択範囲は %d サンプル以上でなくてはなりません。"
 
 #: src/effects/ClickRemoval.cpp
 msgid "&Threshold (lower is more sensitive):"
-msgstr "閾値の選択 (低くするほど高感度) (&T):"
+msgstr "閾値の選択 (小さくするほど高感度) (&T):"
 
 #: src/effects/ClickRemoval.cpp src/effects/Compressor.cpp
 msgid "Threshold"
@@ -7283,11 +7283,11 @@ msgstr "差分 = ∞ RMS dB"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground level too high"
-msgstr "前景レベルが高すぎます"
+msgstr "前景レベルが大きすぎます"
 
 #: src/effects/Contrast.cpp
 msgid "Background level too high"
-msgstr "背景レベルが高すぎます"
+msgstr "背景レベルが小さすぎます"
 
 #: src/effects/Contrast.cpp
 msgid "Background higher than foreground"
@@ -15421,7 +15421,7 @@ msgstr "GUI の環境設定"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "-36 dB (shallow range for high-amplitude editing)"
-msgstr "-36 dB (高レベル編集のための範囲)"
+msgstr "-36 dB (増幅度の大きな編集向きの、狭い範囲)"
 
 #: src/prefs/GUIPrefs.cpp
 msgid "-48 dB (PCM range of 8 bit samples)"
