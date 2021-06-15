@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-11 22:54+0900\n"
+"PO-Revision-Date: 2021-06-14 02:46+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1057,8 +1057,8 @@ msgid ""
 "Cannot lock region beyond\n"
 "end of project."
 msgstr ""
-"プロジェクトの最後より先の領域\n"
-"をロックすることはできません。"
+"プロジェクトの最後より先の領域を\n"
+"ロックすることはできません。"
 
 #: src/AdornedRulerPanel.cpp src/AudioIO.cpp src/ProjectAudioManager.cpp
 #: src/TimerRecordDialog.cpp src/effects/Contrast.cpp src/effects/Effect.cpp
@@ -1089,7 +1089,8 @@ msgid ""
 msgstr ""
 "環境設定をリセットしますか？\n"
 "\n"
-"これはインストール後に設定をリセットするかどうかを尋ねる一度限りの質問です。"
+"この質問は、インストール時に環境設定のリセットが選択されたために、\n"
+"一度だけ表示される質問です。"
 
 #: src/AudacityApp.cpp
 msgid "Reset Audacity Preferences"
@@ -1194,15 +1195,15 @@ msgstr "一時フォルダーのロックに失敗"
 
 #: src/AudacityApp.cpp
 msgid "The system has detected that another copy of Audacity is running.\n"
-msgstr "システムは別の Audacity が動作していることを検知しました。\n"
+msgstr "動作中の他の Audacity があることが、システムによって検知されました。\n"
 
 #: src/AudacityApp.cpp
 msgid ""
 "Use the New or Open commands in the currently running Audacity\n"
 "process to open multiple projects simultaneously.\n"
 msgstr ""
-"複数のプロジェクトを同時に開いて作業するためには、[新規] あるいは [開く] コマンドを、\n"
-"今動作している Audacity において使ってください。\n"
+"複数のプロジェクトを同時に開いて作業するには、今動作している Audacity で\n"
+"[新規] または [開く] コマンドを実行してください。\n"
 
 #: src/AudacityApp.cpp
 msgid "Audacity is already running"
@@ -1455,29 +1456,29 @@ msgstr "メモリ不足です！"
 
 #: src/AudioIO.cpp
 msgid "Automated Recording Level Adjustment stopped. It was not possible to optimize it more. Still too high."
-msgstr "録音レベル自動調整機能は停止しました。音量が大きすぎるため調整できませんでした。"
+msgstr "録音レベル自動調整機能は停止しました。音量が大きすぎるため、調整できませんでした。"
 
 #: src/AudioIO.cpp
 #, c-format
 msgid "Automated Recording Level Adjustment decreased the volume to %f."
-msgstr "録音レベル自動調整機能により音量が %f まで下がりました。"
+msgstr "録音レベル自動調整機能により、音量が %f まで下がりました。"
 
 #: src/AudioIO.cpp
 msgid "Automated Recording Level Adjustment stopped. It was not possible to optimize it more. Still too low."
-msgstr "録音レベル自動調整機能は停止しました。音量が小さすぎ調整できませんでした。"
+msgstr "録音レベル自動調整機能は停止しました。音量が小さすぎるため、調整できませんでした。"
 
 #: src/AudioIO.cpp
 #, c-format
 msgid "Automated Recording Level Adjustment increased the volume to %.2f."
-msgstr "録音レベル自動調整機能により音量が %.2f まで上がりました。"
+msgstr "録音レベル自動調整機能により、音量が %.2f まで上がりました。"
 
 #: src/AudioIO.cpp
 msgid "Automated Recording Level Adjustment stopped. The total number of analyses has been exceeded without finding an acceptable volume. Still too high."
-msgstr "録音レベル自動調整機能は停止しました。解析を繰り返しましたが適切な音量を見つけることができませんでした。音量がまだ大きすぎます。"
+msgstr "録音レベル自動調整機能は停止しました。解析を繰り返しましたが、適切な音量を見つけることができませんでした。音量がまだ大きすぎます。"
 
 #: src/AudioIO.cpp
 msgid "Automated Recording Level Adjustment stopped. The total number of analyses has been exceeded without finding an acceptable volume. Still too low."
-msgstr "録音レベル自動調整機能は停止しました。解析を繰り返しましたが適切な音量を見つけることができませんでした。音量がまだ低すぎます。"
+msgstr "録音レベル自動調整機能は停止しました。解析を繰り返しましたが、適切な音量を見つけることができませんでした。音量がまだ低すぎます。"
 
 #: src/AudioIO.cpp
 #, c-format
@@ -2320,7 +2321,7 @@ msgid ""
 msgstr ""
 "ディスク容量がありません。\n"
 "%s\n"
-"量解放のコツについて知るには、ヘルプボタンをクリックしてください。"
+"容量解放のコツについて知るには、ヘルプボタンをクリックしてください。"
 
 #: src/DBConnection.cpp
 #, c-format
@@ -2379,8 +2380,8 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"行方不明と表示されたファイルは移動または消去されたもので、コピーすることはできません。\n"
-"これらを元の場所に戻すことでプロジェクトにコピーできるようになります。"
+"「行方不明」と表示されたファイルは移動または削除されており、コピー不能です。\n"
+"プロジェクトにコピーできるようにするには、これらを元の場所に戻してください。"
 
 #: src/Dependencies.cpp
 msgid "Project Dependencies"
@@ -3466,7 +3467,7 @@ msgid ""
 "\n"
 "It will not be loaded."
 msgstr ""
-"モジュール「%s」は、必要な関数を一切提供していません。\n"
+"モジュール「%s」は、必要な機能を一切提供していません。\n"
 "\n"
 "このモジュールのロードは行われません。"
 
@@ -3847,6 +3848,11 @@ msgstr "警告 - シーケンスタグ読み込みに問題が発生していま
 msgid "Inspecting project file data"
 msgstr "プロジェクトファイルを精査しています"
 
+# ja: この辺りの文字列、そもそも `#if 0` の中にあるし使われてないのでは？
+# ja: 「方法」は次の3個
+# ・"Close project immediately with no changes"
+# ・"Treat missing audio as silence (this session only)"
+# ・"Replace missing audio with silence (permanent immediately)."
 #: src/ProjectFSCK.cpp
 #, c-format
 msgid ""
@@ -3871,11 +3877,10 @@ msgstr ""
 "欠損が見つかりました。Audacity はこれらのファイルを\n"
 "自動的に復旧することはできません。\n"
 "\n"
-"下記の 1 番目か 2 番目の方法で、欠損ファイル\n"
-"を見つけ出し元の場所に保存できる可能性が\n"
-"あります。\n"
+"下記の 1 番目か 2 番目の方法では、欠損ファイルを見つけ出して\n"
+"元の場所に保存してみることができます。\n"
 "\n"
-"2 番目の方法では波形が無音を表示しない\n"
+"ただし、2 番目の方法では波形が無音を表示しない\n"
 "可能性があります。\n"
 "\n"
 "3 番目の方法を選べば、その後のエラー発生で\n"
@@ -4134,7 +4139,7 @@ msgid ""
 "Project is busy\n"
 "(Unable to work with the blockfiles)"
 msgstr ""
-"プロジェクトはビジー状態です\n"
+"プロジェクトがビジー状態です\n"
 "(blockfiles を取り扱えません)"
 
 #. i18n-hint: An error message.  Don't translate blockfiles.
@@ -4258,7 +4263,7 @@ msgid ""
 "You are using Audacity %s. You may need to upgrade to a newer version to open this file."
 msgstr ""
 "このファイルは Audacity %s を用いて保存されました。\n"
-"あなたは Audacity %s を使用しています。このファイルを開くには、新しいバージョンにアップグレードする必要があります。"
+"現在お使いの Audacity は %s です。このファイルを開くには、新しいバージョンにアップグレードしてください。"
 
 #: src/ProjectFileIO.cpp
 msgid "Can't open project file"
@@ -9191,7 +9196,7 @@ msgstr ""
 "修復エフェクトは、損傷した音声データのとても短い領域 (128 サンプルまで)\n"
 "に対して使用することが意図されています。\n"
 "\n"
-"ズームして、修復対象領域を 1 秒よりもずっと短く選択してください。"
+"拡大して、修復対象領域を 1 秒よりもずっと短く選択してください。"
 
 #: src/effects/Repair.cpp
 msgid ""
@@ -10187,7 +10192,7 @@ msgstr ""
 #: src/effects/nyquist/Nyquist.cpp
 #, c-format
 msgid "error: File \"%s\" specified in header but not found in plug-in path.\n"
-msgstr "エラー: ファイル「%s」がヘッダーにて指定されましたが、プラグインパスに見つかりませんでした。\n"
+msgstr "エラー: ファイル「%s」がヘッダーで指定されましたが、プラグインパスに見つかりませんでした。\n"
 
 #: src/effects/nyquist/Nyquist.cpp
 msgid "Audio selection required."
@@ -10456,7 +10461,8 @@ msgid ""
 msgstr ""
 "%s ファイルを「%s」という名前で保存しようとしています。\n"
 "\n"
-"通常これらのファイルは「.%s」で終わるものであり、プログラムによっては非標準の拡張子のファイルは開くことができません。\n"
+"通常これらのファイルは「.%s」で終わるものであり、\n"
+"プログラムによっては非標準の拡張子のファイルは開くことができません。\n"
 "\n"
 "本当にこの名前でファイルを書き出しますか？"
 
@@ -12037,7 +12043,7 @@ msgid ""
 msgstr ""
 "「%s」は Windows Media Audio ファイルです。\n"
 "特許上の制限により、Audacity はこの形式のファイルを開くことはできません。\n"
-"サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12049,7 +12055,7 @@ msgid ""
 msgstr ""
 "「%s」は Advanced Audio Coding ファイルです。\n"
 "Audacity だけではこの形式のファイルを開けないので、別途 FFmpeg ライブラリを導入するか、\n"
-"サポートしている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12077,7 +12083,7 @@ msgid ""
 msgstr ""
 "「%s」は RealPlayer メディアファイルです。\n"
 "Audacity はこの独自フォーマットを開くことはできません。\n"
-"サポートされている WAV や AIFF などの音声ファイル形式に変換する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12107,7 +12113,8 @@ msgstr ""
 "Audacity はこの形式のファイルを開くことはできません。\n"
 "これが MP3 かもしれないと思われる場合、最後が「.mp3」で終わるよう\n"
 "ファイル名を書き換えてから再度取り込んでみてください。\n"
-"うまくいかなければ、サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
+"うまくいかなければ、サポートされている音声ファイル形式 (WAV、AIFF など) に\n"
+"変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12119,7 +12126,7 @@ msgid ""
 msgstr ""
 "「%s」は Wavpack 音声ファイルです。\n"
 "Audacity はこの形式のファイルを開くことはできません。\n"
-"サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12131,7 +12138,7 @@ msgid ""
 msgstr ""
 "「%s」は Dolby Digital 音声ファイルです。\n"
 "Audacity はこの形式のファイルを開くことはできません。\n"
-"サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12143,7 +12150,7 @@ msgid ""
 msgstr ""
 "「%s」は Ogg Speex 音声ファイルです。\n"
 "Audacity はこの形式のファイルを開くことはできません。\n"
-"サポートしている音声ファイル形式、WAV や AIFF などに変換する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) に変換する必要があります。"
 
 #. i18n-hint: %s will be the filename
 #: src/import/Import.cpp
@@ -12155,7 +12162,7 @@ msgid ""
 msgstr ""
 "「%s」は映像ファイルです。\n"
 "Audacity はこの形式のファイルを開くことはできません。\n"
-"サポートしている音声ファイル形式、たとえば WAV や AIFF などを抽出する必要があります。"
+"サポートされている音声ファイル形式 (WAV、AIFF など) を抽出する必要があります。"
 
 #: src/import/Import.cpp
 #, c-format
@@ -14691,7 +14698,7 @@ msgid ""
 "\n"
 "Please close any additional projects and try again."
 msgstr ""
-"タイマー録音は複数のプロジェクトが開かれた状態では使えません。\n"
+"タイマー録音は、複数のプロジェクトが開かれた状態では使えません。\n"
 "\n"
 "他のプロジェクトを閉じてやり直してください。"
 
@@ -14701,7 +14708,7 @@ msgid ""
 "\n"
 "Please save or close this project and try again."
 msgstr ""
-"タイマー録音は未保存の変更がある状態では使えません。\n"
+"タイマー録音は、未保存の変更がある状態では使えません。\n"
 "\n"
 "このプロジェクトを保存するか閉じるかして、やり直してください。"
 
@@ -15757,7 +15764,7 @@ msgstr ""
 "\n"
 "\t%s\n"
 "\n"
-"割り当てを以下に替えますか？\n"
+"割り当てを以下に変更しますか？\n"
 "\n"
 "\t%s"
 
@@ -16590,21 +16597,23 @@ msgid ""
 msgstr ""
 "テーマは実験的な機能です。\n"
 "\n"
-"お試しになるには、[テーマキャッシュを保存] をクリックして ImageCacheVxx.png ファイル\n"
-"を探し、Gimp などの画像エディタで画像や色などを修正してください。\n"
+"お試しになるには、[テーマキャッシュを保存] をクリックして\n"
+"ImageCacheVxx.png ファイルを探し、\n"
+"Gimp などの画像エディタで画像や色などを修正してください。\n"
 "\n"
-"[テーマキャッシュを読み込む] をクリックすると、変更が Audacity に読み込まれます。\n"
+"[テーマキャッシュを読み込む] をクリックすると、\n"
+"変更が Audacity に読み込まれます。\n"
 "\n"
-"(現時点では、録音/再生ツールバーと波形の色のみ反映されます。画像には他のアイコンも\n"
-"存在しますが、それらは反映されません。)"
+"(現時点では、録音/再生ツールバーと波形の色のみ反映されます。\n"
+"画像には他のアイコンも存在しますが、それらは反映されません。)"
 
 #: src/prefs/ThemePrefs.cpp
 msgid ""
 "Saving and loading individual theme files uses a separate file for each image, but is\n"
 "otherwise the same idea."
 msgstr ""
-"テーマファイルの保存と読み込みではそれぞれの画像に別々のファイルを使いますが、それ以外は同じ\n"
-"考え方です。"
+"テーマファイルの保存と読み込みではそれぞれの画像に別々のファイルを使いますが、\n"
+"それ以外は同じ考え方です。"
 
 #. i18n-hint: && in here is an escape character to get a single & on screen,
 #. * so keep it as is
@@ -18268,9 +18277,9 @@ msgid ""
 "changes. A rate of 30 per second or less should prevent\n"
 "the meter affecting audio quality on slower machines."
 msgstr ""
-"リフレッシュレートを高くするとメーターはより頻繁な変化を表示します。\n"
-"低性能なコンピューターの場合、メーター表示が音声品質に影響する\n"
-"のを防ぐため、レートを毎秒 30 回以下にしてください。"
+"リフレッシュレートを高くすると、メーターはより頻繁な変化を表示します。\n"
+"低性能なコンピューターの場合、レートを毎秒 30 回以下に設定すると、\n"
+"メーター表示負荷による音声品質への悪影響を防止しやすくなります。"
 
 #: src/widgets/Meter.cpp
 msgid "Meter refresh rate per second [1-100]"
