@@ -122,8 +122,6 @@ msgid_plural "Enable these plug-ins?\n"
 別ソフトを同じモニターでアクティブにして（＝前面に表示して）やったら結果が変わるかと期待したが、
 撮られる画像はどちらも前面に別ソフトが映り込んでいて何も変わらなかった。
 
-解析の "Measure RMS" が無い。
-
 名詞的用法と動詞的用法の両方に割り当てられている現在分詞がある。
 "Playing"   … 名詞例：ステータスバーの "%s Paused."
                動詞例：ステータスバーの "%s."、マクロで再生した時の進捗ダイアログ
@@ -153,6 +151,21 @@ msgid "Report generated to:"
 「WAV (Microsoft)」 … 「エンコーディング」
 「その他の非圧縮ファイル」 … 「ヘッダー」、「エンコーディング」
 
+#: src/widgets/Meter.cpp
+msgid "Meter refresh rate per second [1-100]"
+#: 〃
+msgid "Meter refresh rate per second [1-100]: "
+は用途がどう違う？
+
+#: src/VoiceKey.cpp
+#, c-format
+msgid "Energy                  -- mean: %1.4f  sd: (%1.4f)\n"
+#: 〃
+msgid "Sign Changes        -- mean: %1.4f  sd: (%1.4f)\n"
+#: 〃
+msgid "Direction Changes  -- mean: %1.4f  sd: (%1.4f)\n"
+の空白のとり方は何？
+
 
 
 ■ これ何？
@@ -179,6 +192,12 @@ msgid "Plug-in %d to %d"
 
 #: src/prefs/ImportExportPrefs.h
 msgid "IMPORT EXPORT"
+
+#: modules/mod-null/ModNullCallback.cpp
+msgid "1st Experimental Command..."
+#: 〃
+msgid "2nd Experimental Command"
+
 
 
 ■ Nyquistの問題
@@ -354,6 +373,10 @@ Regular Interval Labelsが、音声を選択して適当にパラメータ入れ
 Nyquist Plug-in Installerで、改行に "~%" ではなく "\n" が使われているものがある。
 →Transifexで聞いたら、PR #790 にて対応してくれた。
 
+解析の "Measure RMS" が無い。
+→このプラグインはただの多言語化テンプレであり、3rdパーティー製プラグインの名前は現状翻訳不能である、
+  という旨が plug-ins/rms.ny の冒頭にとっくに書いてあった。
+
 
 
 ====================
@@ -467,6 +490,18 @@ Nyquist Plug-in Installerで、改行に "~%" ではなく "\n" が使われて�
 っていうかこの前後で git grep --cached -I $'\r' の結果に変化がないので（どちらも問題ない結果）、そもそもやる必要なかったまである。
 っていうか試しにLFを1つだけCRにしてみたら差分として検出されたんですが…………？
 まあいいや。
+
+
+
+■ コンソールおよびgitの便利コマンド
+
+・git log -L'/なんか正規表現/,/^$/:locale/ja.po'
+    : 正規表現にマッチする行から直後の空行までの変更履歴を表示する。
+      該当する行が複数ある場合は、最初のマッチが取得される。
+・q
+    : 表示系コマンドを実行すると出力が延々続くことがあるが、それを現状で打ち切る。
+・Ctrl + C
+    : なんか知らんけどアカンことをしてコンソールが固まった時、これで中断して復帰できたりする。
 
 
 

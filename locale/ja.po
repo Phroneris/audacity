@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-16 02:31+0900\n"
+"PO-Revision-Date: 2021-06-16 02:35+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1096,6 +1096,7 @@ msgstr ""
 msgid "Reset Audacity Preferences"
 msgstr "Audacity の環境設定をリセット"
 
+# ja: 文字列だけ見ると「（既に）削除されています」かと思っちゃうが、これは見つからなかったファイルについて「（今）削除しました」という意味。
 #: src/AudacityApp.cpp
 #, c-format
 msgid ""
