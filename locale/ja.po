@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-16 00:58+0900\n"
+"PO-Revision-Date: 2021-06-16 01:17+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -180,7 +180,7 @@ msgstr "更新データが破損しました。"
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "Error downloading update."
-msgstr "更新のダウンロードにエラーが発生しました。"
+msgstr "更新ダウンロードエラー。"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
@@ -1419,7 +1419,7 @@ msgstr "エラー: %s"
 
 #: src/AudioIO.cpp
 msgid "Error Initializing Audio"
-msgstr "音声の初期化時にエラーが発生しました"
+msgstr "音声初期化エラー"
 
 #: src/AudioIO.cpp
 msgid "There was an error initializing the midi i/o layer.\n"
@@ -1435,7 +1435,7 @@ msgstr ""
 
 #: src/AudioIO.cpp
 msgid "Error Initializing Midi"
-msgstr "MIDI の初期化時にエラーが発生しました"
+msgstr "MIDI 初期化エラー"
 
 #: src/AudioIO.cpp
 msgid "Audacity Audio"
@@ -3243,7 +3243,7 @@ msgstr "確認"
 
 #: src/Legacy.cpp
 msgid "Error Converting Legacy Project File"
-msgstr "旧式プロジェクトファイルの変換時にエラーが発生しました"
+msgstr "旧式プロジェクトファイルの変換エラー"
 
 #: src/Legacy.cpp
 #, c-format
@@ -3764,7 +3764,7 @@ msgid ""
 "Error opening sound device.\n"
 "Try changing the audio host, playback device and the project sample rate."
 msgstr ""
-"サウンドデバイスのオープン時にエラーが発生しました。\n"
+"音声デバイスを開く際にエラーが発生しました。\n"
 "音声ホスト、再生デバイス、プロジェクトのサンプリング周波数などを変えてみてください。"
 
 #: src/ProjectAudioManager.cpp src/menus/TransportMenus.cpp
@@ -4227,7 +4227,7 @@ msgstr "プロジェクトをコピー中"
 
 #: src/ProjectFileIO.cpp
 msgid "Error Writing to File"
-msgstr "ファイルへの書き込みでエラー発生"
+msgstr "ファイルへの書き込みエラー"
 
 #: src/ProjectFileIO.cpp
 #, c-format
@@ -4297,7 +4297,7 @@ msgstr "プロジェクトを保存中"
 
 #: src/ProjectFileIO.cpp src/ProjectFileManager.cpp
 msgid "Error Saving Project"
-msgstr "プロジェクトファイルの保存時にエラーが発生しました"
+msgstr "プロジェクト保存エラー"
 
 #: src/ProjectFileIO.cpp
 msgid "Syncing"
@@ -4486,7 +4486,7 @@ msgstr "空の新規プロジェクトを開けません"
 
 #: src/ProjectFileManager.cpp
 msgid "Error opening a new empty project"
-msgstr "空の新規プロジェクトを開く際にエラーが発生しました"
+msgstr "空の新規プロジェクトのオープンエラー"
 
 #: src/ProjectFileManager.cpp src/effects/nyquist/Nyquist.cpp
 msgid "Select one or more files"
@@ -4499,7 +4499,7 @@ msgstr "%s は他のウィンドウで既に開かれています。"
 
 #: src/ProjectFileManager.cpp src/import/ImportAUP.cpp
 msgid "Error Opening Project"
-msgstr "Audacity プロジェクトを開く際にエラーが発生しました"
+msgstr "プロジェクトオープンエラー"
 
 #: src/ProjectFileManager.cpp
 msgid ""
@@ -4527,11 +4527,11 @@ msgstr "警告 - バックアップファイルが検出されました"
 
 #: src/ProjectFileManager.cpp
 msgid "Error Opening File"
-msgstr "ファイルを開く際にエラーが発生しました"
+msgstr "ファイルオープンエラー"
 
 #: src/ProjectFileManager.cpp
 msgid "Error opening file"
-msgstr "ファイルを開く際にエラーが発生しました"
+msgstr "ファイルオープンエラー"
 
 #: src/ProjectFileManager.cpp
 #, c-format
@@ -4544,7 +4544,7 @@ msgstr ""
 
 #: src/ProjectFileManager.cpp
 msgid "Error Opening File or Project"
-msgstr "プロジェクトあるいはファイルを開く際にエラーが発生しました"
+msgstr "ファイルまたはプロジェクトのオープンエラー"
 
 #: src/ProjectFileManager.cpp
 msgid "Project was recovered"
@@ -5118,7 +5118,7 @@ msgstr "メタデータをロード:"
 
 #: src/Tags.cpp
 msgid "Error Loading Metadata"
-msgstr "メタデータの読み込みエラー"
+msgstr "メタデータ読み込みエラー"
 
 #: src/Tags.cpp
 msgid "Save Metadata As:"
@@ -7778,12 +7778,12 @@ msgstr "ファイルが開けませんでした:「%s」"
 
 #: src/effects/Effect.cpp src/effects/VST/VSTEffect.cpp
 msgid "Error Saving Effect Presets"
-msgstr "エフェクトプリセットの保存時にエラーが発生しました"
+msgstr "エフェクトプリセットの保存エラー"
 
 #: src/effects/Effect.cpp src/effects/VST/VSTEffect.cpp
 #, c-format
 msgid "Error writing to file: \"%s\""
-msgstr "ファイルの書き込みエラー:「%s」"
+msgstr "ファイル書き込みエラー:「%s」"
 
 #: src/effects/Effect.cpp
 msgid "Import Effect Parameters"
@@ -8364,7 +8364,7 @@ msgstr "EQ 曲線の読み込みエラー"
 
 #: src/effects/Equalization.cpp
 msgid "Error Saving Equalization Curves"
-msgstr "EQ 曲線の保存にエラーが発生しました"
+msgstr "EQ 曲線の保存エラー"
 
 #: src/effects/Equalization.cpp
 msgid "Requested curve not found, using 'unnamed'"
@@ -9803,7 +9803,7 @@ msgstr "識別できないファイル拡張子です。"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Error Saving VST Presets"
-msgstr "VST プリセットの保存時にエラーが発生しました"
+msgstr "VST プリセット保存エラー"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "Load VST Preset:"
@@ -10908,7 +10908,7 @@ msgstr "現在のコーデック:"
 
 #: src/export/ExportFFmpegDialogs.cpp
 msgid "Error Saving FFmpeg Presets"
-msgstr "FFmpeg プリセットの保存時にエラーが発生しました"
+msgstr "FFmpeg プリセット保存エラー"
 
 #: src/export/ExportFFmpegDialogs.cpp
 #, c-format
@@ -15689,7 +15689,7 @@ msgstr "Audacty のキーボードショートカットが定義されている 
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Error Importing Keyboard Shortcuts"
-msgstr "キーボードショートカットの取り込み時にエラーが発生しました"
+msgstr "キーボードショートカット取り込みエラー"
 
 #: src/prefs/KeyConfigPrefs.cpp
 #, c-format
@@ -15725,7 +15725,7 @@ msgstr "キーボードショートカットの書き出し:"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "Error Exporting Keyboard Shortcuts"
-msgstr "キーボードショートカットの書き出し時にエラーが発生しました"
+msgstr "キーボードショートカット書き出しエラー"
 
 #: src/prefs/KeyConfigPrefs.cpp
 msgid "You may not assign a key to this entry"
