@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-14 02:46+0900\n"
+"PO-Revision-Date: 2021-06-16 00:58+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -1402,7 +1402,7 @@ msgstr "ログをファイルに保存できませんでした: %s"
 
 #: src/AudioIO.cpp
 msgid "Could not find any audio devices.\n"
-msgstr "音声デバイスが見つかりません。\n"
+msgstr "音声デバイスが見つかりませんでした。\n"
 
 #: src/AudioIO.cpp
 msgid ""
@@ -2310,7 +2310,7 @@ msgstr "「%s」のチェックポイントを作成中"
 #: src/DBConnection.cpp
 #, c-format
 msgid "Could not write to %s.\n"
-msgstr "パスに書き込めません: %s\n"
+msgstr "パスに書き込めませんでした: %s\n"
 
 #: src/DBConnection.cpp
 #, c-format
@@ -2919,7 +2919,7 @@ msgstr "スペクトルデータの書き出し:"
 #: src/menus/FileMenus.cpp
 #, c-format
 msgid "Couldn't write to file: %s"
-msgstr "ファイルに書き込めません: %s"
+msgstr "ファイルに書き込めませんでした: %s"
 
 #: src/FreqWindow.cpp
 msgid "Frequency (Hz)\tLevel (dB)"
@@ -9720,7 +9720,7 @@ msgstr "%2$d 個中 %1$d 個目を登録中: %3$-64.64s"
 #: src/effects/VST/VSTEffect.cpp src/effects/ladspa/LadspaEffect.cpp
 #: src/effects/lv2/LoadLV2.cpp src/effects/vamp/LoadVamp.cpp
 msgid "Could not load the library"
-msgstr "ライブラリが読み込めません"
+msgstr "ライブラリが読み込めませんでした"
 
 #: src/effects/VST/VSTEffect.cpp
 msgid "VST Effect Options"
@@ -11633,11 +11633,11 @@ msgstr "MP3 ファイル"
 
 #: src/export/ExportMP3.cpp
 msgid "Could not open MP3 encoding library!"
-msgstr "MP3 エンコーディングライブラリが開けません。"
+msgstr "MP3 エンコーディングライブラリが開けませんでした。"
 
 #: src/export/ExportMP3.cpp
 msgid "Could not initialize MP3 encoding library!"
-msgstr "MP3 エンコーディングライブラリを初期化できません。"
+msgstr "MP3 エンコーディングライブラリを初期化できませんでした。"
 
 #: src/export/ExportMP3.cpp
 msgid "Not a valid or supported MP3 encoding library!"
@@ -12281,7 +12281,7 @@ msgstr "プロジェクトの「selHigh」属性が不正です。"
 #: src/import/ImportAUP.cpp
 #, c-format
 msgid "Couldn't find the project data folder: \"%s\""
-msgstr "プロジェクトデータフォルダーが見つかりません:「%s」"
+msgstr "プロジェクトデータフォルダーが見つかりませんでした:「%s」"
 
 #: src/import/ImportAUP.cpp
 msgid "MIDI tracks found in project file, but this build of Audacity does not include MIDI support, bypassing track."
@@ -12469,17 +12469,17 @@ msgstr "MIDI の取り込み"
 #: src/import/ImportMIDI.cpp
 #, c-format
 msgid "Could not open file %s: Filename too short."
-msgstr "ファイル %s が開けません: ファイル名が短すぎます。"
+msgstr "ファイル %s が開けませんでした: ファイル名が短すぎます。"
 
 #: src/import/ImportMIDI.cpp
 #, c-format
 msgid "Could not open file %s: Incorrect filetype."
-msgstr "ファイル %s が開けません: ファイルの種類が不正確です。"
+msgstr "ファイル %s が開けませんでした: ファイルの種類が不正確です。"
 
 #: src/import/ImportMIDI.cpp
 #, c-format
 msgid "Could not open file %s."
-msgstr "ファイル %s が開けません。"
+msgstr "ファイル %s が開けませんでした。"
 
 #: src/import/ImportMP3.cpp
 msgid "MP3 files"
@@ -18807,7 +18807,7 @@ msgstr "エラー: %s (%lu 行目)"
 #: src/xml/XMLFileReader.cpp
 #, c-format
 msgid "Could not load file: \"%s\""
-msgstr "ファイルが開けません:「%s」"
+msgstr "ファイルが開けませんでした:「%s」"
 
 #: src/xml/XMLFileReader.cpp
 msgid "Could not parse XML"
