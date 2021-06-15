@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-16 02:05+0900\n"
+"PO-Revision-Date: 2021-06-16 02:31+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -7182,31 +7182,31 @@ msgstr "音量    "
 
 #: src/effects/Contrast.cpp
 msgid "&Foreground:"
-msgstr "前面(&F):"
+msgstr "前景音(&F):"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground start time"
-msgstr "前景開始時間"
+msgstr "前景音の開始時間"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground end time"
-msgstr "前景終了時間"
+msgstr "前景音の終了時間"
 
 #: src/effects/Contrast.cpp
 msgid "&Measure selection"
-msgstr "計測を選択(&M)"
+msgstr "選択範囲を計測(&M)"
 
 #: src/effects/Contrast.cpp
 msgid "&Background:"
-msgstr "背面(&B):"
+msgstr "背景音(&B):"
 
 #: src/effects/Contrast.cpp
 msgid "Background start time"
-msgstr "背景開始時間"
+msgstr "背景音の開始時間"
 
 #: src/effects/Contrast.cpp
 msgid "Background end time"
-msgstr "背景終了時間"
+msgstr "背景音の終了時間"
 
 #: src/effects/Contrast.cpp
 msgid "Mea&sure selection"
@@ -7283,15 +7283,15 @@ msgstr "差分 = ∞ RMS dB"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground level too high"
-msgstr "前景レベルが大きすぎます"
+msgstr "前景音のレベルが大きすぎます"
 
 #: src/effects/Contrast.cpp
 msgid "Background level too high"
-msgstr "背景レベルが小さすぎます"
+msgstr "背景音のレベルが小さすぎます"
 
 #: src/effects/Contrast.cpp
 msgid "Background higher than foreground"
-msgstr "背景 ＞ 前景"
+msgstr "背景音が前景音より大きくなっています"
 
 #. i18n-hint: WCAG2 is the 'Web Content Accessibility Guidelines (WCAG) 2.0', see http://www.w3.org/TR/WCAG20/
 #: src/effects/Contrast.cpp
@@ -7310,7 +7310,7 @@ msgstr "現在の差異"
 
 #: src/effects/Contrast.cpp
 msgid "Measured foreground level"
-msgstr "計測された前景レベル"
+msgstr "計測された前景音レベル"
 
 #. i18n-hint: short form of 'decibels'
 #: src/effects/Contrast.cpp
@@ -7320,23 +7320,23 @@ msgstr "%.2f dB"
 
 #: src/effects/Contrast.cpp
 msgid "No foreground measured"
-msgstr "前景レベルは計測されませんでした"
+msgstr "前景音は計測されませんでした"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground not yet measured"
-msgstr "前景レベル未計測"
+msgstr "前景音未計測"
 
 #: src/effects/Contrast.cpp
 msgid "Measured background level"
-msgstr "計測された背景レベル"
+msgstr "計測された背景音レベル"
 
 #: src/effects/Contrast.cpp
 msgid "No background measured"
-msgstr "背景レベルは計測されませんでした"
+msgstr "背景音は計測されませんでした"
 
 #: src/effects/Contrast.cpp
 msgid "Background not yet measured"
-msgstr "背景レベル未計測"
+msgstr "背景音未計測"
 
 #: src/effects/Contrast.cpp
 msgid "Export Contrast Result As:"
@@ -7354,7 +7354,7 @@ msgstr "ファイル名 = %s"
 
 #: src/effects/Contrast.cpp
 msgid "Foreground"
-msgstr "前景"
+msgstr "前景音"
 
 #: src/effects/Contrast.cpp
 #, c-format
@@ -7368,7 +7368,7 @@ msgstr "終了時間 = %2d 時間 %2d 分 %.2f 秒"
 
 #: src/effects/Contrast.cpp
 msgid "Background"
-msgstr "背景"
+msgstr "背景音"
 
 #: src/effects/Contrast.cpp
 msgid "Results"
