@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: audacity 3.0.3\n"
 "Report-Msgid-Bugs-To: audacity-translation@lists.sourceforge.net\n"
 "POT-Creation-Date: 2021-06-07 08:17-0400\n"
-"PO-Revision-Date: 2021-06-16 01:17+0900\n"
+"PO-Revision-Date: 2021-06-16 01:24+0900\n"
 "Last-Translator: Phroneris <phroneris@gmail.com>\n"
 "Language-Team: Atsushi YOSHIDA, Phroneris\n"
 "Language: ja\n"
@@ -165,7 +165,7 @@ msgstr "GitHub でもっと読む"
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
 msgid "Error checking for update"
-msgstr "アップデート確認エラー"
+msgstr "更新確認エラー"
 
 #: libraries/lib-strings/UnusedStrings.h
 msgctxt "update dialog"
@@ -13491,7 +13491,7 @@ msgstr "メニューツリー(&E)..."
 
 #: src/menus/HelpMenus.cpp
 msgid "&Check for Updates..."
-msgstr "アップデートのチェック(&C)..."
+msgstr "更新の確認(&C)..."
 
 #: src/menus/LabelMenus.cpp src/toolbars/TranscriptionToolBar.cpp
 #: src/tracks/labeltrack/ui/LabelTrackView.cpp
@@ -15317,7 +15317,7 @@ msgstr "プラグインオプション"
 
 #: src/prefs/EffectsPrefs.cpp
 msgid "Check for updated plugins when Audacity starts"
-msgstr "Audacity 起動時にプラグインのアップデートを確認"
+msgstr "Audacity 起動時にプラグインの更新を確認"
 
 #: src/prefs/EffectsPrefs.cpp
 msgid "Rescan plugins next time Audacity is started"
